@@ -2,7 +2,9 @@ import os
 import pickle
 import time
 import ast
+import joblib  # Importa joblib
 import logging
+import numpy as np
 import ast # Aggiunto per la gestione delle eccezioni
 from datetime import datetime
 import pandas as pd
@@ -10,35 +12,32 @@ import requests  # Aggiunto per chiamare il server del modello locale ( ollama s
 
 # Helper function
 def get_chat_completion(prompt, model="llama3.1", json_mode=False, max_tokens=1200):
-    """
-    Args:
-        prompt: Il prompt da completare.
-        model: Specifica il modello da usare (default: "llama3.1").
-        json_mode: Se True, restituisce la risposta in formato JSON (non supportato da tutti i server locali).
-        max_tokens: Numero massimo di token da generare.
-    """
-    url = "http://localhost:5000/completion"  # Cambia la porta se necessario
+    
+    url = "http://localhost:11434/api/generate"  # Endpoint corretto per Ollama
+    
+    # Struttura della richiesta conforme a Ollama
     payload = {
-        "model": model,
-        "prompt": prompt,
-        "temperature": 0,
-        "max_tokens": max_tokens
+        "model": model,        # Nome del modello da usare (deve essere installato su Ollama)
+        "prompt": prompt,      # Il testo di input per il modello
+        "stream": False,       # Se True, Ollama invia lo stream dei token generati (noi lo disabilitiamo)
+        "max_tokens": max_tokens  # Numero massimo di token generabili
     }
 
     try:
         response = requests.post(url, json=payload)
-        response.raise_for_status()  # Genera un errore se la richiesta fallisce
-        completion = response.json()
+        response.raise_for_status()  # Solleva un'eccezione in caso di errore HTTP
         
+        completion = response.json()  # Converte la risposta in formato JSON
+        
+        # Ollama restituisce il testo generato in completion["response"]
         if json_mode:
-            return completion  # Restituisce la risposta JSON intera
+            return completion  # Restituisce il JSON intero se richiesto
         else:
-            return completion.get("choices", [{}])[0].get("text", "")  # Estrae solo il testo generato
+            return completion.get("response", "")  # Estrae solo il testo generato
 
-    except Exception as e:
+    except requests.exceptions.RequestException as e:
         print(f"Errore chiamata al modello locale: {e}")
         return None
-
 
 def get_dataset(dataname):
     
@@ -46,19 +45,19 @@ def get_dataset(dataname):
     train_data = pd.read_csv(f"data/{dataname}/{dataname}_train.csv")
     valid_data = pd.read_csv(f"data/{dataname}/{dataname}_valid.csv")
 
-    # Get test data
-    with open(f"data/{dataname}/{dataname}_testset.pk", "rb") as f:
-        test_file = pickle.load(f)  # test_file is a list of dict
+    # Get test data using joblib
+    test_file = joblib.load(f"data/{dataname}/{dataname}_testset.pk")  # Usa joblib per caricare il file
 
     # merge train and valid data
     tv_data = pd.concat([train_data, valid_data], ignore_index=True)
     tv_data.sort_values(['user_id', 'start_day', 'start_min'], inplace=True)
+    
     if dataname == 'geolife':
-        tv_data['duration'] = tv_data['duration'].astype(int)
+        # Forza la colonna 'duration' a essere di tipo int in modo sicuro
+        tv_data['duration'] = pd.to_numeric(tv_data['duration'], errors='coerce', downcast='integer')
 
     print("Number of total test sample: ", len(test_file))
     return tv_data, test_file
-
 
 def convert_to_12_hour_clock(minutes):
     if minutes < 0 or minutes >= 1440:
@@ -77,7 +76,6 @@ def convert_to_12_hour_clock(minutes):
         hours -= 12
 
     return f"{hours:02d}:{minutes:02d} {period}"
-
 
 def int2dow(int_day):
     tmp = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday',
@@ -115,7 +113,6 @@ def get_logger(logger_name, log_dir='logs/'):
     logger.addHandler(file_handler)
 
     return logger
-
 
 def get_user_data(train_data, uid, num_historical_stay, logger):
     user_train = train_data[train_data['user_id']==uid]
@@ -183,7 +180,7 @@ def organise_data(dataname, user_train, test_file, uid, logger, num_context_stay
     logger.info(f"Number of predict_y: {len(predict_y)}")
     return historical_data, predict_X, predict_y
 
-
+# Make a single query 
 def single_query_top1(historical_data, X):
     """
     Make a single query.
@@ -219,7 +216,7 @@ def single_query_top1(historical_data, X):
     completion = get_chat_completion(prompt)
     return completion
 
-
+# Make a single query of 10 most likely places
 def single_query_top10(historical_data, X):
     """
     Make a single query.
@@ -256,7 +253,7 @@ def single_query_top10(historical_data, X):
     completion = get_chat_completion(prompt)
     return completion
 
-
+# Make a single query of 10 most likely places without time information
 def single_query_top1_wot(historical_data, X):
     """
     Make a single query.
@@ -286,7 +283,7 @@ def single_query_top1_wot(historical_data, X):
     completion = get_chat_completion(prompt)
     return completion
 
-
+# 
 def single_query_top10_wot(historical_data, X):
     """
     Make a single query of 10 most likely places, without time information
@@ -353,7 +350,7 @@ def single_query_top1_fsq(historical_data, X):
     completion = get_chat_completion(prompt)
     return completion
 
-
+# Make a single query of 10 most likely places 
 def single_query_top1_wot_fsq(historical_data, X):
     """
     Make a single query.
@@ -382,7 +379,7 @@ def single_query_top1_wot_fsq(historical_data, X):
     completion = get_chat_completion(prompt)
     return completion
 
-
+# 
 def single_query_top10_fsq(historical_data, X):
     """
     Make a single query.
@@ -572,16 +569,14 @@ def get_unqueried_user(dataname, output_dir='output/'):
 
 
 def main():
-    client = None
-
     # Parameters
     dataname = "geolife"  # specify the dataset, geolife or fsq.
-    num_historical_stay = 40  # M
+    num_historical_stay = 30  # M
     num_context_stay = 5  # N
     top_k = 10  # the number of output places k
     with_time = False  # whether incorporate temporal information for target stay
-    sleep_single_query = 0.1  # the sleep time between queries (after the recent updates, the reliability of the API is greatly improved, so we can reduce the sleep time)
-    sleep_if_crash = 1  # the sleep time if the server crashes
+    sleep_single_query = 1  # the sleep time between queries (after the recent updates, the reliability of the API is greatly improved, so we can reduce the sleep time)
+    sleep_if_crash = 5  # the sleep time if the server crashes
     output_dir = f"output/{dataname}/top10_wot"  # the output path
     log_dir = f"logs/{dataname}/top10_wot"  # the log dir
 
@@ -599,5 +594,8 @@ def main():
     print("Query done")
 
 
-if __name__=="__main__":
-    main()
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\n\n\nInterruzione manuale rilevata. Uscita in modo sicuro...")

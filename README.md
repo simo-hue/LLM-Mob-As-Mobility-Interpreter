@@ -37,9 +37,9 @@ To calculate the evaluation metrics, check the IPython notebook `metrics.ipynb` 
 ## Citation
 
 ```bibtex
-@article{mattioli2025large,
+@article{mattioli2025Thesis,
   title={Large Language Models for Human Mobility Prediction (LLM-Mob)},
-  author={Mattioli, Simone},
+  author={Mattioli Simone},
   year={2025}
 }
 ```
