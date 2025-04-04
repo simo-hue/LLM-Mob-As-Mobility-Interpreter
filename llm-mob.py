@@ -2,6 +2,7 @@ import os
 import pickle
 import time
 import ast
+import json
 import joblib  # Importa joblib
 import logging
 import numpy as np
@@ -12,31 +13,38 @@ import requests  # Aggiunto per chiamare il server del modello locale ( ollama s
 
 # Helper function
 def get_chat_completion(prompt, model="llama3.1", json_mode=False, max_tokens=1200):
-    
-    url = "http://localhost:11434/api/generate"  # Endpoint corretto per Ollama
-    
-    # Struttura della richiesta conforme a Ollama
+    base_url = "http://localhost:11434"
+    url = f"{base_url}/api/chat"  # Endpoint corretto per chat con Ollama
+
     payload = {
-        "model": model,        # Nome del modello da usare (deve essere installato su Ollama)
-        "prompt": prompt,      # Il testo di input per il modello
-        "stream": False,       # Se True, Ollama invia lo stream dei token generati (noi lo disabilitiamo)
-        "max_tokens": max_tokens  # Numero massimo di token generabili
+        "model": model,
+        "messages": [{"role": "user", "content": prompt}],  # Struttura corretta per API chat
+        "stream": False,
+        "max_tokens": max_tokens
     }
 
     try:
+        # Verifica se il server Ollama è attivo controllando i modelli installati
+        test_response = requests.get(f"{base_url}/api/tags")
+        if test_response.status_code != 200:
+            print("⚠️ Errore: Il server Ollama non è attivo o non risponde correttamente. Avvialo con 'ollama serve'")
+            return None
+
+        # Invio della richiesta
         response = requests.post(url, json=payload)
-        response.raise_for_status()  # Solleva un'eccezione in caso di errore HTTP
-        
-        completion = response.json()  # Converte la risposta in formato JSON
-        
-        # Ollama restituisce il testo generato in completion["response"]
-        if json_mode:
-            return completion  # Restituisce il JSON intero se richiesto
+        response.raise_for_status()
+
+        completion = response.json()
+
+        # Controlliamo se la risposta ha la struttura prevista
+        if "message" in completion and "content" in completion["message"]:
+            return completion if json_mode else completion["message"]["content"]
         else:
-            return completion.get("response", "")  # Estrae solo il testo generato
+            print("⚠️ Errore: Risposta malformata da Ollama", completion)
+            return None
 
     except requests.exceptions.RequestException as e:
-        print(f"Errore chiamata al modello locale: {e}")
+        print(f"❌ Errore chiamata al modello Ollama: {e}")
         return None
 
 def get_dataset(dataname):
@@ -520,13 +528,13 @@ def single_user_query(dataname, uid, historical_data, predict_X, predict_y, logg
         logger.info(f"Ground truth: {predict_y[i]}")
 
         try:
-            res_dict = ast.literal_eval(response)  # Converti la risposta in dizionario
+            res_dict = json.loads(response)  # Usa JSON parsing più sicuro
             if top_k != 1:
                 res_dict['prediction'] = str(res_dict['prediction'])
-            res_dict['user_id'] = uid
-            res_dict['ground_truth'] = predict_y[i]
+                res_dict['user_id'] = uid
+                res_dict['ground_truth'] = predict_y[i]
         except Exception as e:
-            res_dict = {'user_id': uid, 'ground_truth': predict_y[i], 'prediction': -100, 'reason': None}
+            res_dict = {'user_id': uid, 'ground_truth': predict_y[i], 'prediction': -100, 'reason': response}
             logger.info(e)
             logger.info(f"API request failed for the {i+1}th query")
 
@@ -538,11 +546,14 @@ def single_user_query(dataname, uid, historical_data, predict_X, predict_y, logg
     current_results.to_csv(out_filepath, index=False)
     logger.info(f"Saved {len(current_results)} results to {out_filepath}")
 
-    # Continua se ci sono ancora query da processare
-    if len(current_results) < total_queries:
-        logger.info("Restarting queries from the last successful point.")
+    # Continua se ci sono ancora query da processare ( ma con dei limiti )
+    max_retries = 3
+    retry_count = 0
+    while len(current_results) < total_queries and retry_count < max_retries:
+        logger.info(f"Restarting queries (attempt {retry_count + 1}/{max_retries})...")
+        retry_count += 1
         single_user_query(dataname, uid, historical_data, predict_X, predict_y,
-                          logger, top_k, is_wt, output_dir, sleep_query, sleep_crash)
+                      logger, top_k, is_wt, output_dir, sleep_query, sleep_crash)
 
 def query_all_user(dataname, uid_list, logger, train_data, num_historical_stay,
                    num_context_stay, test_file, top_k, is_wt, output_dir, sleep_query, sleep_crash):
@@ -575,23 +586,60 @@ def main():
     num_context_stay = 5  # N
     top_k = 10  # the number of output places k
     with_time = False  # whether incorporate temporal information for target stay
-    sleep_single_query = 1  # the sleep time between queries (after the recent updates, the reliability of the API is greatly improved, so we can reduce the sleep time)
+    sleep_single_query = 1  # the sleep time between queries
     sleep_if_crash = 5  # the sleep time if the server crashes
     output_dir = f"output/{dataname}/top10_wot"  # the output path
     log_dir = f"logs/{dataname}/top10_wot"  # the log dir
 
-    tv_data, test_file = get_dataset(dataname)
+    # Step 1: Get dataset
+    try:
+        tv_data, test_file = get_dataset(dataname)
+        print("✅ Dataset loaded successfully.")
+        print(f"Number of total training and validation samples: {len(tv_data)}")
+    except Exception as e:
+        print(f"❌ Errore nel caricamento del dataset: {e}")
+        return  # Stop the function if dataset loading fails
 
-    logger = get_logger('my_logger', log_dir=log_dir)
+    # Step 2: Set up logging
+    try:
+        logger = get_logger('my_logger', log_dir=log_dir)
+        print("✅ Logger initialized successfully.")
+    except Exception as e:
+        print(f"❌ Errore nell'inizializzazione del logger: {e}")
+        return  # Stop the function if logger initialization fails
 
-    uid_list = get_unqueried_user(dataname, output_dir)
-    print(f"uid_list: {uid_list}")
+    # Step 3: Get unqueried users
+    try:
+        uid_list = get_unqueried_user(dataname, output_dir)
+        print(f"✅ Unqueried user list: {uid_list}")
+        print(f"Number of unqueried users: {len(uid_list)}")
+    except FileNotFoundError:
+        print(f"❌ Errore: File non trovato. Assicurati che il percorso sia corretto.")
+        return
+    except pd.errors.EmptyDataError:
+        print(f"❌ Errore: Il file CSV è vuoto. Assicurati che il file contenga dati.")
+        return
+    except pd.errors.ParserError:
+        print(f"❌ Errore: Errore di parsing del file CSV. Controlla il formato del file.")
+        return
+    except Exception as e:
+        print(f"❌ Errore nel recupero degli utenti non interrogati: {e}")
+        return  # Stop the function if fetching users fails
 
-    query_all_user(dataname, uid_list, logger, tv_data, num_historical_stay, num_context_stay,
-                   test_file, output_dir=output_dir, top_k=top_k, is_wt=with_time,
-                   sleep_query=sleep_single_query, sleep_crash=sleep_if_crash)
+    # Step 4: Run query for all users
+    try:
+        query_all_user(
+            dataname, uid_list, logger, tv_data, num_historical_stay, num_context_stay,
+            test_file, output_dir=output_dir, top_k=top_k, is_wt=with_time,
+            sleep_query=sleep_single_query, sleep_crash=sleep_if_crash
+        )
+        print("✅ Query to all users completed successfully.")
+    except Exception as e:
+        print(f"❌ Errore durante l'esecuzione della query per gli utenti: {e}")
+        return  # Stop the function if the query fails
 
     print("Query done")
+
 
 
 if __name__ == "__main__":

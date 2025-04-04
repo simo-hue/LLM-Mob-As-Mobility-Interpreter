@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ```
 ### 2. From Terminal To Start the service of your local Model
 ```bash
-OLLAMA_HOST=127.0.0.1:11500 ollama serve
+OLLAMA_HOST=127.0.0.1:11434 ollama serve
 ```
 ### 3. Run the scripts to start the prediction process.
 Run `llm-mob.py`, change the parameters in the main function if necessary and start the prediction process by simply running the sripts
