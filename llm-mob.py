@@ -3,46 +3,41 @@ import pickle
 import time
 import ast
 import logging
+import ast # Aggiunto per la gestione delle eccezioni
 from datetime import datetime
 import pandas as pd
-from openai import OpenAI
-
-# from dotenv import load_dotenv, find_dotenv
-# _ = load_dotenv(find_dotenv())
-
-# Deprecated since 1.x version of OpanAI API
-# openai.api_key  = os.getenv('OPENAI_API_KEY')
-# openai.api_key  = "YOUR OPENAI API KEY HERE"
-
+import requests  # Aggiunto per chiamare il server del modello locale ( ollama serve llama3.1)
 
 # Helper function
-def get_chat_completion(client, prompt, model="gpt-3.5-turbo-0613", json_mode=False, max_tokens=1200):
+def get_chat_completion(prompt, model="llama3.1", json_mode=False, max_tokens=1200):
     """
-    args:
-        client: the openai client object (new in 1.x version)
-        prompt: the prompt to be completed
-        model: specify the model to use
-        json_mode: whether return the response in json format (new in 1.x version)
+    Args:
+        prompt: Il prompt da completare.
+        model: Specifica il modello da usare (default: "llama3.1").
+        json_mode: Se True, restituisce la risposta in formato JSON (non supportato da tutti i server locali).
+        max_tokens: Numero massimo di token da generare.
     """
-    messages = [{"role": "user", "content": prompt}]
-    if json_mode:
-        completion = client.chat.completions.create(
-            model=model,
-            response_format={"type": "json_object"},
-            messages=messages,
-            temperature=0,  # the degree of randomness of the model's output
-            max_tokens=max_tokens  # the maximum number of tokens to generate
-        )
-    else:
-        completion = client.chat.completions.create(
-            model=model,
-            messages=messages,
-            temperature=0,
-            max_tokens=max_tokens
-        )
-    # res_content = response.choices[0].message["content"]
-    # token_usage = response.usage
-    return completion
+    url = "http://localhost:5000/completion"  # Cambia la porta se necessario
+    payload = {
+        "model": model,
+        "prompt": prompt,
+        "temperature": 0,
+        "max_tokens": max_tokens
+    }
+
+    try:
+        response = requests.post(url, json=payload)
+        response.raise_for_status()  # Genera un errore se la richiesta fallisce
+        completion = response.json()
+        
+        if json_mode:
+            return completion  # Restituisce la risposta JSON intera
+        else:
+            return completion.get("choices", [{}])[0].get("text", "")  # Estrae solo il testo generato
+
+    except Exception as e:
+        print(f"Errore chiamata al modello locale: {e}")
+        return None
 
 
 def get_dataset(dataname):
@@ -89,7 +84,6 @@ def int2dow(int_day):
            3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday'}
     return tmp[int_day]
 
-
 def get_logger(logger_name, log_dir='logs/'):
     # Create log dir
     if not os.path.exists(log_dir):
@@ -129,7 +123,6 @@ def get_user_data(train_data, uid, num_historical_stay, logger):
     user_train = user_train.tail(num_historical_stay)
     logger.info(f"Number of user historical stays: {len(user_train)}")
     return user_train
-
 
 # Organising data
 def organise_data(dataname, user_train, test_file, uid, logger, num_context_stay=5):
@@ -191,7 +184,7 @@ def organise_data(dataname, user_train, test_file, uid, logger, num_context_stay
     return historical_data, predict_X, predict_y
 
 
-def single_query_top1(client, historical_data, X):
+def single_query_top1(historical_data, X):
     """
     Make a single query.
     param: 
@@ -223,11 +216,11 @@ def single_query_top1(client, historical_data, X):
     <context>: {X['context_stay']}
     <target_stay>: {X['target_stay']}
     """
-    completion = get_chat_completion(client, prompt)
+    completion = get_chat_completion(prompt)
     return completion
 
 
-def single_query_top10(client, historical_data, X):
+def single_query_top10(historical_data, X):
     """
     Make a single query.
     param: 
@@ -260,11 +253,11 @@ def single_query_top10(client, historical_data, X):
     <context>: {X['context_stay']}
     <target_stay>: {X['target_stay']}
     """
-    completion = get_chat_completion(client, prompt)
+    completion = get_chat_completion(prompt)
     return completion
 
 
-def single_query_top1_wot(client, historical_data, X):
+def single_query_top1_wot(historical_data, X):
     """
     Make a single query.
     param: 
@@ -290,11 +283,11 @@ def single_query_top1_wot(client, historical_data, X):
     <history>: {historical_data}
     <context>: {X['context_stay']}
     """
-    completion = get_chat_completion(client, prompt)
+    completion = get_chat_completion(prompt)
     return completion
 
 
-def single_query_top10_wot(client, historical_data, X):
+def single_query_top10_wot(historical_data, X):
     """
     Make a single query of 10 most likely places, without time information
     param: 
@@ -321,11 +314,11 @@ def single_query_top10_wot(client, historical_data, X):
     <history>: {historical_data}
     <context>: {X['context_stay']}
     """
-    completion = get_chat_completion(client, prompt)
+    completion = get_chat_completion(prompt)
     return completion
 
 
-def single_query_top1_fsq(client, historical_data, X):
+def single_query_top1_fsq(historical_data, X):
     """
     Make a single query.
     param: 
@@ -357,11 +350,11 @@ def single_query_top1_fsq(client, historical_data, X):
     <context>: {X['context_stay']}
     <target_stay>: {X['target_stay']}
     """
-    completion = get_chat_completion(client, prompt)
+    completion = get_chat_completion(prompt)
     return completion
 
 
-def single_query_top1_wot_fsq(client, historical_data, X):
+def single_query_top1_wot_fsq(historical_data, X):
     """
     Make a single query.
     param: 
@@ -386,11 +379,11 @@ def single_query_top1_wot_fsq(client, historical_data, X):
     <history>: {historical_data}
     <context>: {X['context_stay']}
     """
-    completion = get_chat_completion(client, prompt)
+    completion = get_chat_completion(prompt)
     return completion
 
 
-def single_query_top10_fsq(client, historical_data, X):
+def single_query_top10_fsq(historical_data, X):
     """
     Make a single query.
     param: 
@@ -423,11 +416,11 @@ def single_query_top10_fsq(client, historical_data, X):
     <context>: {X['context_stay']}
     <target_stay>: {X['target_stay']}
     """
-    completion = get_chat_completion(client, prompt)
+    completion = get_chat_completion(prompt)
     return completion
 
 
-def single_query_top10_wot_fsq(client, historical_data, X):
+def single_query_top10_wot_fsq(historical_data, X):
     """
     Make a single query of 10 most likely places, without time information
     param: 
@@ -454,17 +447,16 @@ def single_query_top10_wot_fsq(client, historical_data, X):
     <context>: {X['context_stay']}
     <next_place_id>: 
     """
-    completion = get_chat_completion(client, prompt)
+    completion = get_chat_completion(prompt)
     return completion
-
 
 def load_results(filename):
     # Load previously saved results from a CSV file    
     results = pd.read_csv(filename)
     return results
 
-
-def single_user_query(client, dataname, uid, historical_data, predict_X, predict_y,logger, top_k, is_wt, output_dir, sleep_query, sleep_crash):
+def single_user_query(dataname, uid, historical_data, predict_X, predict_y, logger, 
+                      top_k, is_wt, output_dir, sleep_query, sleep_crash):
     # Initialize variables
     total_queries = len(predict_X)
     logger.info(f"Total_queries: {total_queries}")
@@ -490,51 +482,48 @@ def single_user_query(client, dataname, uid, historical_data, predict_X, predict
 
     # Process remaining queries
     for i in range(processed_queries, total_queries):
-    #for query in queries[processed_queries:]:
-        
         logger.info(f'The {i+1}th sample: ')
-        #logger.info(f"context: {predict_X[i]['context_stay']}")
-        #logger.info(f"target stay: {predict_X[i]['target_stay']}")
+
         if dataname == 'geolife':
             if is_wt is True:
                 if top_k == 1:
-                    completions = single_query_top1(client, historical_data, predict_X[i])
+                    prompt = single_query_top1(historical_data, predict_X[i])
                 elif top_k == 10:
-                    completions = single_query_top10(client, historical_data, predict_X[i])
+                    prompt = single_query_top10(historical_data, predict_X[i])
                 else:
                     raise ValueError(f"The top_k must be one of 1, 10. However, {top_k} was provided")
             else:
                 if top_k == 1:
-                    completions = single_query_top1_wot(client, historical_data, predict_X[i])
+                    prompt = single_query_top1_wot(historical_data, predict_X[i])
                 elif top_k == 10:
-                    completions = single_query_top10_wot(client, historical_data, predict_X[i])
+                    prompt = single_query_top10_wot(historical_data, predict_X[i])
                 else:
                     raise ValueError(f"The top_k must be one of 1, 10. However, {top_k} was provided")
         elif dataname == 'fsq':
             if is_wt is True:
                 if top_k == 1:
-                    completions = single_query_top1_fsq(client, historical_data, predict_X[i])
+                    prompt = single_query_top1_fsq(historical_data, predict_X[i])
                 elif top_k == 10:
-                    completions = single_query_top10_fsq(client, historical_data, predict_X[i])
+                    prompt = single_query_top10_fsq(historical_data, predict_X[i])
                 else:
                     raise ValueError(f"The top_k must be one of 1, 10. However, {top_k} was provided")
             else:
                 if top_k == 1:
-                    completions = single_query_top1_wot_fsq(client, historical_data, predict_X[i])
+                    prompt = single_query_top1_wot_fsq(historical_data, predict_X[i])
                 elif top_k == 10:
-                    completions = single_query_top10_wot_fsq(client, historical_data, predict_X[i])
+                    prompt = single_query_top10_wot_fsq(historical_data, predict_X[i])
                 else:
                     raise ValueError(f"The top_k must be one of 1, 10. However, {top_k} was provided")
 
-        response = completions.choices[0].message.content
+        # Usa il modello locale
+        response = get_chat_completion(prompt)  
 
-        # Log the prediction results and usage.
+        # Log della risposta
         logger.info(f"Pred results: {response}")
         logger.info(f"Ground truth: {predict_y[i]}")
-        logger.info(dict(completions).get('usage'))
 
         try:
-            res_dict = ast.literal_eval(response)  # Convert the string to a dictionary object
+            res_dict = ast.literal_eval(response)  # Converti la risposta in dizionario
             if top_k != 1:
                 res_dict['prediction'] = str(res_dict['prediction'])
             res_dict['user_id'] = uid
@@ -543,33 +532,28 @@ def single_user_query(client, dataname, uid, historical_data, predict_X, predict
             res_dict = {'user_id': uid, 'ground_truth': predict_y[i], 'prediction': -100, 'reason': None}
             logger.info(e)
             logger.info(f"API request failed for the {i+1}th query")
-            # time.sleep(sleep_crash)
-        finally:
-            new_row = pd.DataFrame(res_dict, index=[0])  # A dataframe with only one record
-            current_results = pd.concat([current_results, new_row], ignore_index=True)  # Add new row to the current df
 
-    # Save the current results
+        # Aggiungi il risultato ai dati attuali
+        new_row = pd.DataFrame(res_dict, index=[0])
+        current_results = pd.concat([current_results, new_row], ignore_index=True)
+
+    # Salva i risultati
     current_results.to_csv(out_filepath, index=False)
-    #save_results(current_results, out_filename)
     logger.info(f"Saved {len(current_results)} results to {out_filepath}")
 
-    # Continue processing remaining queries
+    # Continua se ci sono ancora query da processare
     if len(current_results) < total_queries:
-        #remaining_predict_X = predict_X[len(current_results):]
-        #remaining_predict_y = predict_y[len(current_results):]
-        #remaining_queries = queries[len(current_results):]
         logger.info("Restarting queries from the last successful point.")
-        single_user_query(client, dataname, uid, historical_data, predict_X, predict_y,
+        single_user_query(dataname, uid, historical_data, predict_X, predict_y,
                           logger, top_k, is_wt, output_dir, sleep_query, sleep_crash)
 
-
-def query_all_user(client, dataname, uid_list, logger, train_data, num_historical_stay,
+def query_all_user(dataname, uid_list, logger, train_data, num_historical_stay,
                    num_context_stay, test_file, top_k, is_wt, output_dir, sleep_query, sleep_crash):
     for uid in uid_list:
         logger.info(f"=================Processing user {uid}==================")
         user_train = get_user_data(train_data, uid, num_historical_stay, logger)
         historical_data, predict_X, predict_y = organise_data(dataname, user_train, test_file, uid, logger, num_context_stay)
-        single_user_query(client, dataname, uid, historical_data, predict_X, predict_y, logger, top_k=top_k, 
+        single_user_query(dataname, uid, historical_data, predict_X, predict_y, logger, top_k=top_k, 
                           is_wt=is_wt, output_dir=output_dir, sleep_query=sleep_query, sleep_crash=sleep_crash)
 
 # Get the remaning user
@@ -588,9 +572,7 @@ def get_unqueried_user(dataname, output_dir='output/'):
 
 
 def main():
-    client = OpenAI(
-        api_key=os.environ['OPENAI_API_KEY']
-    )
+    client = None
 
     # Parameters
     dataname = "geolife"  # specify the dataset, geolife or fsq.
@@ -610,7 +592,7 @@ def main():
     uid_list = get_unqueried_user(dataname, output_dir)
     print(f"uid_list: {uid_list}")
 
-    query_all_user(client, dataname, uid_list, logger, tv_data, num_historical_stay, num_context_stay,
+    query_all_user(dataname, uid_list, logger, tv_data, num_historical_stay, num_context_stay,
                    test_file, output_dir=output_dir, top_k=top_k, is_wt=with_time,
                    sleep_query=sleep_single_query, sleep_crash=sleep_if_crash)
 
