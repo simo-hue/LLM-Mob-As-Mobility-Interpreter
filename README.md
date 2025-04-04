@@ -10,7 +10,15 @@ brew install ollama
 ollama pull llama3
 ollama serve
 ```
-### 2. From Terminal
+
+## How To Run It
+### 1. Install The Requirements in a Python Enviroment ( myenv )
+```bash
+python3 -m venv myenv
+source myenv/bin/activate
+pip install -r requirements.txt
+```
+### 2. From Terminal To Start the service of your local Model
 ```bash
 OLLAMA_HOST=127.0.0.1:11500 ollama serve
 ```
