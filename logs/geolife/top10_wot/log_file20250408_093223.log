@@ -1,0 +1,1653 @@
+=================Processing user 1==================
+Length of user 1 train data: 241
+Number of user historical stays: 30
+historical_data: [('05:22 AM', 'Thursday', 73, np.int64(10)), ('06:41 AM', 'Thursday', 198, np.int64(17)), ('10:51 AM', 'Thursday', 518, np.int64(17)), ('07:38 PM', 'Thursday', 376, np.int64(18)), ('02:08 AM', 'Friday', 477, np.int64(17)), ('10:53 AM', 'Friday', 1088, np.int64(1)), ('05:06 AM', 'Saturday', 353, np.int64(17)), ('11:08 AM', 'Saturday', 34, np.int64(38)), ('11:49 AM', 'Saturday', 388, np.int64(17)), ('06:27 PM', 'Saturday', 454, np.int64(18)), ('02:12 AM', 'Sunday', 193, np.int64(17)), ('06:20 AM', 'Sunday', 961, np.int64(17)), ('10:25 PM', 'Sunday', 497, np.int64(10)), ('06:47 AM', 'Monday', 169, np.int64(17)), ('10:07 AM', 'Monday', 36, np.int64(34)), ('10:49 AM', 'Monday', 418, np.int64(17)), ('05:57 PM', 'Monday', 454, np.int64(18)), ('01:53 AM', 'Tuesday', 134, np.int64(17)), ('05:31 AM', 'Tuesday', 91, np.int64(4)), ('07:09 AM', 'Tuesday', 60, np.int64(10)), ('08:18 AM', 'Tuesday', 96, np.int64(17)), ('10:01 AM', 'Tuesday', 594, np.int64(4)), ('08:02 PM', 'Tuesday', 581, np.int64(10)), ('05:49 AM', 'Wednesday', 195, np.int64(17)), ('09:04 AM', 'Wednesday', 85, np.int64(39)), ('11:37 AM', 'Wednesday', 305, np.int64(17)), ('04:45 PM', 'Wednesday', 551, np.int64(18)), ('02:16 AM', 'Thursday', 95, np.int64(17)), ('04:25 AM', 'Thursday', 354, np.int64(10)), ('10:28 AM', 'Thursday', 913, np.int64(17))]
+Number of historical_data: 30
+Number of predict_data: 207
+predict_y: [42, 1, 1, 1, 1, 1, 1, 1, 17, 17, 10, 22, 17, 4, 4, 17, 1, 10, 43, 10, 1, 10, 17, 10, 9, 1, 1, 1, 1, 1, 1, 44, 1, 20, 19, 18, 30, 45, 46, 17, 10, 22, 17, 17, 10, 10, 4, 47, 10, 17, 17, 40, 10, 17, 1, 10, 17, 48, 10, 17, 17, 1, 17, 18, 17, 49, 17, 4, 11, 40, 17, 10, 17, 22, 17, 10, 17, 22, 17, 18, 1, 17, 1, 43, 17, 4, 17, 17, 1, 17, 4, 17, 17, 10, 17, 1, 50, 1, 17, 1, 10, 17, 22, 17, 10, 1, 1, 1, 1, 1, 1, 17, 40, 17, 10, 17, 17, 4, 17, 10, 17, 17, 10, 17, 10, 51, 10, 17, 4, 22, 17, 10, 17, 17, 49, 10, 17, 52, 17, 10, 40, 17, 4, 17, 17, 53, 1, 1, 17, 17, 4, 17, 17, 17, 10, 17, 54, 17, 17, 1, 10, 17, 10, 17, 17, 10, 17, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10, 17, 10, 10, 10, 17, 1, 17, 10, 17, 10, 17, 10, 1, 1, 1, 1, 17, 1, 17, 10, 1, 17, 17, 1, 1]
+Number of predict_y: 207
+Total_queries: 207
+No previous results found. Starting from scratch.
+The 1th sample: 
+Pred results: None
+Ground truth: 42
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 1th query
+The 2th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 2th query
+The 3th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 3th query
+The 4th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 4th query
+The 5th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 5th query
+The 6th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 6th query
+The 7th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 7th query
+The 8th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 8th query
+The 9th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 9th query
+The 10th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 10th query
+The 11th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 11th query
+The 12th sample: 
+Pred results: None
+Ground truth: 22
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 12th query
+The 13th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 13th query
+The 14th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 14th query
+The 15th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 15th query
+The 16th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 16th query
+The 17th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 17th query
+The 18th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 18th query
+The 19th sample: 
+Pred results: None
+Ground truth: 43
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 19th query
+The 20th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 20th query
+The 21th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 21th query
+The 22th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 22th query
+The 23th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 23th query
+The 24th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 24th query
+The 25th sample: 
+Pred results: None
+Ground truth: 9
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 25th query
+The 26th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 26th query
+The 27th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 27th query
+The 28th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 28th query
+The 29th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 29th query
+The 30th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 30th query
+The 31th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 31th query
+The 32th sample: 
+Pred results: None
+Ground truth: 44
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 32th query
+The 33th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 33th query
+The 34th sample: 
+Pred results: None
+Ground truth: 20
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 34th query
+The 35th sample: 
+Pred results: None
+Ground truth: 19
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 35th query
+The 36th sample: 
+Pred results: None
+Ground truth: 18
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 36th query
+The 37th sample: 
+Pred results: None
+Ground truth: 30
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 37th query
+The 38th sample: 
+Pred results: None
+Ground truth: 45
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 38th query
+The 39th sample: 
+Pred results: None
+Ground truth: 46
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 39th query
+The 40th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 40th query
+The 41th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 41th query
+The 42th sample: 
+Pred results: None
+Ground truth: 22
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 42th query
+The 43th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 43th query
+The 44th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 44th query
+The 45th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 45th query
+The 46th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 46th query
+The 47th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 47th query
+The 48th sample: 
+Pred results: None
+Ground truth: 47
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 48th query
+The 49th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 49th query
+The 50th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 50th query
+The 51th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 51th query
+The 52th sample: 
+Pred results: None
+Ground truth: 40
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 52th query
+The 53th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 53th query
+The 54th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 54th query
+The 55th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 55th query
+The 56th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 56th query
+The 57th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 57th query
+The 58th sample: 
+Pred results: None
+Ground truth: 48
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 58th query
+The 59th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 59th query
+The 60th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 60th query
+The 61th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 61th query
+The 62th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 62th query
+The 63th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 63th query
+The 64th sample: 
+Pred results: None
+Ground truth: 18
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 64th query
+The 65th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 65th query
+The 66th sample: 
+Pred results: None
+Ground truth: 49
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 66th query
+The 67th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 67th query
+The 68th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 68th query
+The 69th sample: 
+Pred results: None
+Ground truth: 11
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 69th query
+The 70th sample: 
+Pred results: None
+Ground truth: 40
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 70th query
+The 71th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 71th query
+The 72th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 72th query
+The 73th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 73th query
+The 74th sample: 
+Pred results: None
+Ground truth: 22
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 74th query
+The 75th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 75th query
+The 76th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 76th query
+The 77th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 77th query
+The 78th sample: 
+Pred results: None
+Ground truth: 22
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 78th query
+The 79th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 79th query
+The 80th sample: 
+Pred results: None
+Ground truth: 18
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 80th query
+The 81th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 81th query
+The 82th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 82th query
+The 83th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 83th query
+The 84th sample: 
+Pred results: None
+Ground truth: 43
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 84th query
+The 85th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 85th query
+The 86th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 86th query
+The 87th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 87th query
+The 88th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 88th query
+The 89th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 89th query
+The 90th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 90th query
+The 91th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 91th query
+The 92th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 92th query
+The 93th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 93th query
+The 94th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 94th query
+The 95th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 95th query
+The 96th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 96th query
+The 97th sample: 
+Pred results: None
+Ground truth: 50
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 97th query
+The 98th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 98th query
+The 99th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 99th query
+The 100th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 100th query
+The 101th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 101th query
+The 102th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 102th query
+The 103th sample: 
+Pred results: None
+Ground truth: 22
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 103th query
+The 104th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 104th query
+The 105th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 105th query
+The 106th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 106th query
+The 107th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 107th query
+The 108th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 108th query
+The 109th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 109th query
+The 110th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 110th query
+The 111th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 111th query
+The 112th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 112th query
+The 113th sample: 
+Pred results: None
+Ground truth: 40
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 113th query
+The 114th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 114th query
+The 115th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 115th query
+The 116th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 116th query
+The 117th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 117th query
+The 118th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 118th query
+The 119th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 119th query
+The 120th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 120th query
+The 121th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 121th query
+The 122th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 122th query
+The 123th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 123th query
+The 124th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 124th query
+The 125th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 125th query
+The 126th sample: 
+Pred results: None
+Ground truth: 51
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 126th query
+The 127th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 127th query
+The 128th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 128th query
+The 129th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 129th query
+The 130th sample: 
+Pred results: None
+Ground truth: 22
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 130th query
+The 131th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 131th query
+The 132th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 132th query
+The 133th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 133th query
+The 134th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 134th query
+The 135th sample: 
+Pred results: None
+Ground truth: 49
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 135th query
+The 136th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 136th query
+The 137th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 137th query
+The 138th sample: 
+Pred results: None
+Ground truth: 52
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 138th query
+The 139th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 139th query
+The 140th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 140th query
+The 141th sample: 
+Pred results: None
+Ground truth: 40
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 141th query
+The 142th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 142th query
+The 143th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 143th query
+The 144th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 144th query
+The 145th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 145th query
+The 146th sample: 
+Pred results: None
+Ground truth: 53
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 146th query
+The 147th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 147th query
+The 148th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 148th query
+The 149th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 149th query
+The 150th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 150th query
+The 151th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 151th query
+The 152th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 152th query
+The 153th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 153th query
+The 154th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 154th query
+The 155th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 155th query
+The 156th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 156th query
+The 157th sample: 
+Pred results: None
+Ground truth: 54
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 157th query
+The 158th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 158th query
+The 159th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 159th query
+The 160th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 160th query
+The 161th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 161th query
+The 162th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 162th query
+The 163th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 163th query
+The 164th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 164th query
+The 165th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 165th query
+The 166th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 166th query
+The 167th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 167th query
+The 168th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 168th query
+The 169th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 169th query
+The 170th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 170th query
+The 171th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 171th query
+The 172th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 172th query
+The 173th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 173th query
+The 174th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 174th query
+The 175th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 175th query
+The 176th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 176th query
+The 177th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 177th query
+The 178th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 178th query
+The 179th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 179th query
+The 180th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 180th query
+The 181th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 181th query
+The 182th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 182th query
+The 183th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 183th query
+The 184th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 184th query
+The 185th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 185th query
+The 186th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 186th query
+The 187th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 187th query
+The 188th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 188th query
+The 189th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 189th query
+The 190th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 190th query
+The 191th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 191th query
+The 192th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 192th query
+The 193th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 193th query
+The 194th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 194th query
+The 195th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 195th query
+The 196th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 196th query
+The 197th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 197th query
+The 198th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 198th query
+The 199th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 199th query
+The 200th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 200th query
+The 201th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 201th query
+The 202th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 202th query
+The 203th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 203th query
+The 204th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 204th query
+The 205th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 205th query
+The 206th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 206th query
+The 207th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 207th query
+Saved 207 results to output/geolife/top10_wot/01.csv
+=================Processing user 2==================
+Length of user 2 train data: 211
+Number of user historical stays: 30
+historical_data: [('12:10 PM', 'Thursday', 756, np.int64(62)), ('12:55 AM', 'Friday', 634, np.int64(61)), ('12:21 PM', 'Friday', 1016, np.int64(55)), ('05:28 AM', 'Saturday', 76, np.int64(57)), ('03:35 PM', 'Saturday', 792, np.int64(55)), ('04:52 AM', 'Sunday', 49, np.int64(72)), ('05:45 AM', 'Sunday', 107, np.int64(55)), ('11:43 AM', 'Sunday', 717, np.int64(70)), ('11:40 PM', 'Sunday', 615, np.int64(68)), ('10:53 AM', 'Monday', 93, np.int64(70)), ('11:43 PM', 'Monday', 32, np.int64(65)), ('12:22 AM', 'Tuesday', 673, np.int64(56)), ('12:15 PM', 'Tuesday', 718, np.int64(55)), ('12:14 AM', 'Wednesday', 596, np.int64(1)), ('11:07 AM', 'Wednesday', 783, np.int64(57)), ('12:19 AM', 'Thursday', 600, np.int64(1)), ('01:05 PM', 'Friday', 803, np.int64(55)), ('03:05 AM', 'Saturday', 41, np.int64(75)), ('05:41 AM', 'Saturday', 102, np.int64(62)), ('10:21 AM', 'Saturday', 62, np.int64(21)), ('12:10 PM', 'Saturday', 1260, np.int64(55)), ('12:50 PM', 'Sunday', 52, np.int64(35)), ('11:45 AM', 'Monday', 501, np.int64(57)), ('08:23 PM', 'Monday', 217, np.int64(55)), ('12:26 AM', 'Tuesday', 605, np.int64(56)), ('11:38 AM', 'Tuesday', 1338, np.int64(55)), ('10:58 AM', 'Wednesday', 125, np.int64(1)), ('01:35 PM', 'Wednesday', 637, np.int64(55)), ('12:19 AM', 'Thursday', 209, np.int64(1)), ('04:39 AM', 'Thursday', 347, np.int64(56))]
+Number of historical_data: 30
+Number of predict_data: 23
+predict_y: [56, 55, 79, 56, 55, 69, 56, 55, 56, 57, 55, 56, 55, 55, 56, 1, 57, 55, 35, 55, 55, 57, 55]
+Number of predict_y: 23
+Total_queries: 23
+No previous results found. Starting from scratch.
+The 1th sample: 
+Pred results: None
+Ground truth: 56
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 1th query
+The 2th sample: 
+Pred results: None
+Ground truth: 55
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 2th query
+The 3th sample: 
+Pred results: None
+Ground truth: 79
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 3th query
+The 4th sample: 
+Pred results: None
+Ground truth: 56
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 4th query
+The 5th sample: 
+Pred results: None
+Ground truth: 55
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 5th query
+The 6th sample: 
+Pred results: None
+Ground truth: 69
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 6th query
+The 7th sample: 
+Pred results: None
+Ground truth: 56
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 7th query
+The 8th sample: 
+Pred results: None
+Ground truth: 55
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 8th query
+The 9th sample: 
+Pred results: None
+Ground truth: 56
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 9th query
+The 10th sample: 
+Pred results: None
+Ground truth: 57
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 10th query
+The 11th sample: 
+Pred results: None
+Ground truth: 55
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 11th query
+The 12th sample: 
+Pred results: None
+Ground truth: 56
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 12th query
+The 13th sample: 
+Pred results: None
+Ground truth: 55
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 13th query
+The 14th sample: 
+Pred results: None
+Ground truth: 55
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 14th query
+The 15th sample: 
+Pred results: None
+Ground truth: 56
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 15th query
+The 16th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 16th query
+The 17th sample: 
+Pred results: None
+Ground truth: 57
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 17th query
+The 18th sample: 
+Pred results: None
+Ground truth: 55
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 18th query
+The 19th sample: 
+Pred results: None
+Ground truth: 35
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 19th query
+The 20th sample: 
+Pred results: None
+Ground truth: 55
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 20th query
+The 21th sample: 
+Pred results: None
+Ground truth: 55
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 21th query
+The 22th sample: 
+Pred results: None
+Ground truth: 57
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 22th query
+The 23th sample: 
+Pred results: None
+Ground truth: 55
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 23th query
+Saved 23 results to output/geolife/top10_wot/02.csv
+=================Processing user 3==================
+Length of user 3 train data: 707
+Number of user historical stays: 30
+historical_data: [('05:22 AM', 'Thursday', 73, np.int64(10)), ('06:41 AM', 'Thursday', 198, np.int64(17)), ('10:51 AM', 'Thursday', 518, np.int64(17)), ('07:38 PM', 'Thursday', 376, np.int64(18)), ('02:08 AM', 'Friday', 477, np.int64(17)), ('10:53 AM', 'Friday', 1088, np.int64(1)), ('05:06 AM', 'Saturday', 353, np.int64(17)), ('11:08 AM', 'Saturday', 34, np.int64(38)), ('11:49 AM', 'Saturday', 388, np.int64(17)), ('06:27 PM', 'Saturday', 454, np.int64(18)), ('02:12 AM', 'Sunday', 193, np.int64(17)), ('06:20 AM', 'Sunday', 961, np.int64(17)), ('10:25 PM', 'Sunday', 497, np.int64(10)), ('06:47 AM', 'Monday', 169, np.int64(17)), ('10:07 AM', 'Monday', 36, np.int64(34)), ('10:49 AM', 'Monday', 418, np.int64(17)), ('05:57 PM', 'Monday', 454, np.int64(18)), ('01:53 AM', 'Tuesday', 134, np.int64(17)), ('05:31 AM', 'Tuesday', 91, np.int64(4)), ('07:09 AM', 'Tuesday', 60, np.int64(10)), ('08:18 AM', 'Tuesday', 96, np.int64(17)), ('10:01 AM', 'Tuesday', 594, np.int64(4)), ('08:02 PM', 'Tuesday', 581, np.int64(10)), ('05:49 AM', 'Wednesday', 195, np.int64(17)), ('09:04 AM', 'Wednesday', 85, np.int64(39)), ('11:37 AM', 'Wednesday', 305, np.int64(17)), ('04:45 PM', 'Wednesday', 551, np.int64(18)), ('02:16 AM', 'Thursday', 95, np.int64(17)), ('04:25 AM', 'Thursday', 354, np.int64(10)), ('10:28 AM', 'Thursday', 913, np.int64(17))]
+Number of historical_data: 30
+Number of predict_data: 207
+predict_y: [42, 1, 1, 1, 1, 1, 1, 1, 17, 17, 10, 22, 17, 4, 4, 17, 1, 10, 43, 10, 1, 10, 17, 10, 9, 1, 1, 1, 1, 1, 1, 44, 1, 20, 19, 18, 30, 45, 46, 17, 10, 22, 17, 17, 10, 10, 4, 47, 10, 17, 17, 40, 10, 17, 1, 10, 17, 48, 10, 17, 17, 1, 17, 18, 17, 49, 17, 4, 11, 40, 17, 10, 17, 22, 17, 10, 17, 22, 17, 18, 1, 17, 1, 43, 17, 4, 17, 17, 1, 17, 4, 17, 17, 10, 17, 1, 50, 1, 17, 1, 10, 17, 22, 17, 10, 1, 1, 1, 1, 1, 1, 17, 40, 17, 10, 17, 17, 4, 17, 10, 17, 17, 10, 17, 10, 51, 10, 17, 4, 22, 17, 10, 17, 17, 49, 10, 17, 52, 17, 10, 40, 17, 4, 17, 17, 53, 1, 1, 17, 17, 4, 17, 17, 17, 10, 17, 54, 17, 17, 1, 10, 17, 10, 17, 17, 10, 17, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10, 17, 10, 10, 10, 17, 1, 17, 10, 17, 10, 17, 10, 1, 1, 1, 1, 17, 1, 17, 10, 1, 17, 17, 1, 1]
+Number of predict_y: 207
+Total_queries: 207
+No previous results found. Starting from scratch.
+The 1th sample: 
+Pred results: None
+Ground truth: 42
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 1th query
+The 2th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 2th query
+The 3th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 3th query
+The 4th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 4th query
+The 5th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 5th query
+The 6th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 6th query
+The 7th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 7th query
+The 8th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 8th query
+The 9th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 9th query
+The 10th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 10th query
+The 11th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 11th query
+The 12th sample: 
+Pred results: None
+Ground truth: 22
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 12th query
+The 13th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 13th query
+The 14th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 14th query
+The 15th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 15th query
+The 16th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 16th query
+The 17th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 17th query
+The 18th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 18th query
+The 19th sample: 
+Pred results: None
+Ground truth: 43
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 19th query
+The 20th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 20th query
+The 21th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 21th query
+The 22th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 22th query
+The 23th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 23th query
+The 24th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 24th query
+The 25th sample: 
+Pred results: None
+Ground truth: 9
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 25th query
+The 26th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 26th query
+The 27th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 27th query
+The 28th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 28th query
+The 29th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 29th query
+The 30th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 30th query
+The 31th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 31th query
+The 32th sample: 
+Pred results: None
+Ground truth: 44
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 32th query
+The 33th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 33th query
+The 34th sample: 
+Pred results: None
+Ground truth: 20
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 34th query
+The 35th sample: 
+Pred results: None
+Ground truth: 19
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 35th query
+The 36th sample: 
+Pred results: None
+Ground truth: 18
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 36th query
+The 37th sample: 
+Pred results: None
+Ground truth: 30
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 37th query
+The 38th sample: 
+Pred results: None
+Ground truth: 45
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 38th query
+The 39th sample: 
+Pred results: None
+Ground truth: 46
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 39th query
+The 40th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 40th query
+The 41th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 41th query
+The 42th sample: 
+Pred results: None
+Ground truth: 22
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 42th query
+The 43th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 43th query
+The 44th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 44th query
+The 45th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 45th query
+The 46th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 46th query
+The 47th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 47th query
+The 48th sample: 
+Pred results: None
+Ground truth: 47
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 48th query
+The 49th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 49th query
+The 50th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 50th query
+The 51th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 51th query
+The 52th sample: 
+Pred results: None
+Ground truth: 40
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 52th query
+The 53th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 53th query
+The 54th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 54th query
+The 55th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 55th query
+The 56th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 56th query
+The 57th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 57th query
+The 58th sample: 
+Pred results: None
+Ground truth: 48
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 58th query
+The 59th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 59th query
+The 60th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 60th query
+The 61th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 61th query
+The 62th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 62th query
+The 63th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 63th query
+The 64th sample: 
+Pred results: None
+Ground truth: 18
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 64th query
+The 65th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 65th query
+The 66th sample: 
+Pred results: None
+Ground truth: 49
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 66th query
+The 67th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 67th query
+The 68th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 68th query
+The 69th sample: 
+Pred results: None
+Ground truth: 11
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 69th query
+The 70th sample: 
+Pred results: None
+Ground truth: 40
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 70th query
+The 71th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 71th query
+The 72th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 72th query
+The 73th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 73th query
+The 74th sample: 
+Pred results: None
+Ground truth: 22
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 74th query
+The 75th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 75th query
+The 76th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 76th query
+The 77th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 77th query
+The 78th sample: 
+Pred results: None
+Ground truth: 22
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 78th query
+The 79th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 79th query
+The 80th sample: 
+Pred results: None
+Ground truth: 18
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 80th query
+The 81th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 81th query
+The 82th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 82th query
+The 83th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 83th query
+The 84th sample: 
+Pred results: None
+Ground truth: 43
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 84th query
+The 85th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 85th query
+The 86th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 86th query
+The 87th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 87th query
+The 88th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 88th query
+The 89th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 89th query
+The 90th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 90th query
+The 91th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 91th query
+The 92th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 92th query
+The 93th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 93th query
+The 94th sample: 
+Pred results: None
+Ground truth: 10
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 94th query
+The 95th sample: 

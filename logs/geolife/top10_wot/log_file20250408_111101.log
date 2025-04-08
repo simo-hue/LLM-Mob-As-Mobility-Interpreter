@@ -1,0 +1,86 @@
+=================Processing user 4==================
+Length of user 4 train data: 863
+Number of user historical stays: 30
+historical_data: [('03:01 PM', 'Wednesday', 385, np.int64(4)), ('10:04 PM', 'Wednesday', 33, np.int64(30)), ('10:42 PM', 'Wednesday', 155, np.int64(46)), ('02:57 AM', 'Thursday', 99, np.int64(40)), ('04:43 AM', 'Thursday', 287, np.int64(17)), ('10:00 AM', 'Thursday', 32, np.int64(184)), ('11:40 AM', 'Thursday', 957, np.int64(40)), ('04:07 AM', 'Friday', 32, np.int64(184)), ('04:45 AM', 'Friday', 410, np.int64(195)), ('11:43 AM', 'Friday', 46, np.int64(184)), ('01:01 PM', 'Friday', 878, np.int64(40)), ('03:59 AM', 'Saturday', 106, np.int64(184)), ('05:56 AM', 'Saturday', 351, np.int64(195)), ('11:55 AM', 'Saturday', 32, np.int64(184)), ('01:05 PM', 'Saturday', 231, np.int64(17)), ('05:09 PM', 'Saturday', 841, np.int64(4)), ('07:39 AM', 'Sunday', 555, np.int64(17)), ('04:58 PM', 'Sunday', 816, np.int64(4)), ('06:41 AM', 'Monday', 48, np.int64(17)), ('08:10 AM', 'Monday', 98, np.int64(17)), ('09:57 AM', 'Monday', 34, np.int64(4)), ('10:52 AM', 'Monday', 87, np.int64(89)), ('12:20 PM', 'Monday', 130, np.int64(17)), ('02:38 PM', 'Monday', 894, np.int64(4)), ('05:32 AM', 'Tuesday', 88, np.int64(1)), ('07:01 AM', 'Tuesday', 32, np.int64(4)), ('07:42 AM', 'Tuesday', 128, np.int64(17)), ('10:22 AM', 'Tuesday', 509, np.int64(17)), ('07:00 PM', 'Tuesday', 40, np.int64(193)), ('07:48 PM', 'Tuesday', 549, np.int64(4))]
+Number of historical_data: 30
+Number of predict_data: 220
+predict_y: [17, 17, 4, 17, 4, 17, 160, 4, 17, 4, 17, 17, 18, 1, 1, 10, 17, 4, 17, 4, 17, 17, 17, 4, 17, 184, 17, 4, 22, 17, 4, 4, 17, 4, 17, 150, 17, 4, 17, 4, 17, 22, 17, 17, 4, 17, 59, 17, 4, 17, 17, 17, 4, 17, 4, 150, 17, 165, 17, 4, 17, 17, 17, 1, 17, 4, 49, 4, 17, 4, 17, 22, 17, 4, 17, 4, 4, 22, 138, 1, 17, 30, 184, 17, 4, 17, 17, 17, 4, 153, 17, 17, 4, 17, 17, 17, 17, 10, 1, 1, 1, 101, 1, 17, 17, 10, 17, 17, 4, 184, 17, 4, 1, 196, 17, 4, 17, 4, 17, 4, 17, 4, 17, 181, 17, 17, 4, 17, 197, 17, 40, 17, 17, 4, 17, 17, 40, 4, 17, 184, 17, 4, 1, 198, 4, 40, 122, 17, 40, 4, 184, 168, 17, 4, 17, 4, 17, 17, 4, 17, 17, 4, 17, 4, 17, 4, 17, 17, 17, 17, 22, 4, 150, 17, 17, 151, 17, 4, 30, 17, 40, 4, 17, 17, 4, 17, 184, 184, 17, 4, 17, 4, 17, 4, 17, 17, 4, 17, 4, 17, 17, 17, 5, 115, 17, 1, 17, 184, 17, 4, 184, 184, 17, 4, 17, 17, 17, 4, 17, 4]
+Number of predict_y: 220
+Total_queries: 220
+No previous results found. Starting from scratch.
+The 1th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 1th query
+The 2th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 2th query
+The 3th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 3th query
+The 4th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 4th query
+The 5th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 5th query
+The 6th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 6th query
+The 7th sample: 
+Pred results: None
+Ground truth: 160
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 7th query
+The 8th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 8th query
+The 9th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 9th query
+The 10th sample: 
+Pred results: None
+Ground truth: 4
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 10th query
+The 11th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 11th query
+The 12th sample: 
+Pred results: None
+Ground truth: 17
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 12th query
+The 13th sample: 
+Pred results: None
+Ground truth: 18
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 13th query
+The 14th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 14th query
+The 15th sample: 
+Pred results: None
+Ground truth: 1
+the JSON object must be str, bytes or bytearray, not NoneType
+API request failed for the 15th query
+The 16th sample: 
