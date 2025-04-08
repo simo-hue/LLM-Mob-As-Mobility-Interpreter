@@ -9,17 +9,16 @@ import numpy as np
 import ast # Aggiunto per la gestione delle eccezioni
 from datetime import datetime
 import pandas as pd
-import requests  # Aggiunto per chiamare il server del modello locale ( ollama serve llama3.1)
+import requests  # Aggiunto per chiamare il server del modello locale ( ollama serve )
 
 # Helper function
 def get_chat_completion(prompt, model="llama3:latest", json_mode=True, max_tokens=1200):
     # Assicuriamoci che il prompt sia una stringa
     if not isinstance(prompt, str):
         prompt = str(prompt)
-
-    print("\n\n=== Prompt ===")
-    print(prompt)
-    print("==============")
+    
+    print("\n\n------------------Prompt Passato:", prompt)
+    print("------------------\n\n")
 
     base_url = "http://localhost:11434"
     url = f"{base_url}/api/chat"
@@ -751,8 +750,6 @@ def main():
         return  # Stop the function if the query fails
 
     print("Query done")
-
-
 
 if __name__ == "__main__":
     try:
