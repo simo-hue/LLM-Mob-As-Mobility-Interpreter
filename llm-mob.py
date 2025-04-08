@@ -12,41 +12,67 @@ import pandas as pd
 import requests  # Aggiunto per chiamare il server del modello locale ( ollama serve llama3.1)
 
 # Helper function
-def get_chat_completion(prompt, model="llama3.1", json_mode=False, max_tokens=1200):
+def get_chat_completion(prompt, model="llama3:latest", json_mode=True, max_tokens=1200):
+    # Assicuriamoci che il prompt sia una stringa
+    if not isinstance(prompt, str):
+        prompt = str(prompt)
+
+    print("\n\n=== Prompt ===")
+    print(prompt)
+    print("==============")
+
     base_url = "http://localhost:11434"
-    url = f"{base_url}/api/chat"  # Endpoint corretto per chat con Ollama
+    url = f"{base_url}/api/chat"
 
     payload = {
         "model": model,
-        "messages": [{"role": "user", "content": prompt}],  # Struttura corretta per API chat
+        "messages": [
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ],
         "stream": False,
         "max_tokens": max_tokens
     }
 
     try:
-        # Verifica se il server Ollama è attivo controllando i modelli installati
+        # Verifica che Ollama sia attivo
         test_response = requests.get(f"{base_url}/api/tags")
         if test_response.status_code != 200:
-            print("⚠️ Errore: Il server Ollama non è attivo o non risponde correttamente. Avvialo con 'ollama serve'")
+            print("⚠️ Il server Ollama non è attivo. Avvialo con 'ollama serve'")
             return None
 
-        # Invio della richiesta
+        # Invia la richiesta
         response = requests.post(url, json=payload)
         response.raise_for_status()
+        data = response.json()
 
-        completion = response.json()
-
-        # Controlliamo se la risposta ha la struttura prevista
-        if "message" in completion and "content" in completion["message"]:
-            return completion if json_mode else completion["message"]["content"]
+        # Estrai contenuto
+        if "message" in data and "content" in data["message"]:
+            content = data["message"]["content"]
+            if json_mode:
+                try:
+                    return json.loads(content)
+                except json.JSONDecodeError:
+                    print("⚠️ Errore nel decodificare la risposta JSON:", content)
+                    return None
+            return content
         else:
-            print("⚠️ Errore: Risposta malformata da Ollama", completion)
+            print("⚠️ Struttura della risposta inattesa:", data)
             return None
 
+    except requests.exceptions.HTTPError as http_err:
+        print(f"❌ HTTP error: {http_err}")
+        try:
+            print("💬 Dettaglio errore:", response.json())
+        except Exception:
+            pass
+        return None
     except requests.exceptions.RequestException as e:
         print(f"❌ Errore chiamata al modello Ollama: {e}")
         return None
-
+    
 def get_dataset(dataname):
     
     # Get training and validation set and merge them
@@ -189,40 +215,51 @@ def organise_data(dataname, user_train, test_file, uid, logger, num_context_stay
     return historical_data, predict_X, predict_y
 
 # Make a single query 
+def convert_stays(stays):
+    def convert_value(x):
+        if isinstance(x, (np.integer,)):
+            return int(x)
+        return x
+    return [(t, d, dur, convert_value(pid)) for (t, d, dur, pid) in stays]
+
 def single_query_top1(historical_data, X):
     """
     Make a single query.
     param: 
     X: one single sample containing context_stay and target_stay
     """
+    history = convert_stays(historical_data)
+    context = convert_stays(X['context_stay'])
+    target = X['target_stay']
+    target_stay = (target[0], target[1], None, None)
+
     prompt = f"""
-    Your task is to predict a user's next location based on his/her activity pattern.
-    You will be provided with <history> which is a list containing this user's historical stays, then <context> which provide contextual information 
-    about where and when this user has been to recently. Stays in both <history> and <context> are in chronological order.
-    Each stay takes on such form as (start_time, day_of_week, duration, place_id). The detailed explanation of each element is as follows:
-    start_time: the start time of the stay in 12h clock format.
-    day_of_week: indicating the day of the week.
-    duration: an integer indicating the duration (in minute) of each stay. Note that this will be None in the <target_stay> introduced later.
-    place_id: an integer representing the unique place ID, which indicates where the stay is.
-
-    Then you need to do next location prediction on <target_stay> which is the prediction target with unknown place ID denoted as <next_place_id> and 
-    unknown duration denoted as None, while temporal information is provided.      
+    Your task is to predict a user's next location based on their activity pattern.
     
-    Please infer what the <next_place_id> is (i.e., the most likely place ID), considering the following aspects:
-    1. the activity pattern of this user that you leared from <history>, e.g., repeated visit to a certain place during certain time;
-    2. the context stays in <context>, which provide more recent activities of this user; 
-    3. the temporal information (i.e., start_time and day_of_week) of target stay, which is important because people's activity varies during different times (e.g., nighttime versus daytime)
-    and on different days (e.g., weekday versus weekend).
+    You will be provided with <history> (user's past stays), <context> (recent stays), and <target_stay> (the prediction target). Each stay is in the form:
+    (start_time, day_of_week, duration, place_id). Note: duration and place_id in target_stay are None.
+    
+    Consider:
+    1. Recurring patterns in <history>
+    2. Recent activities in <context>
+    3. Temporal info (start_time, day_of_week) in <target_stay>
 
-    Please organize your answer in a JSON object containing following keys: "prediction" (place ID) and "reason" (a concise explanation that supports your prediction). Do not include line breaks in your output.
-
-    The data are as follows:
-    <history>: {historical_data}
-    <context>: {X['context_stay']}
-    <target_stay>: {X['target_stay']}
+    Output ONLY a one-line JSON object with keys: "prediction" (integer place ID) and "reason" (short explanation).
+    
+    <history>: {history}
+    <context>: {context}
+    <target_stay>: {target_stay}
     """
-    completion = get_chat_completion(prompt)
-    return completion
+
+    response = get_chat_completion(prompt)
+
+    try:
+        prediction = json.loads(response)
+        return prediction
+    except Exception as e:
+        print("⚠️ Errore nel parsing della risposta:", e)
+        print("📦 Risposta grezza:", response)
+        return {"prediction": None, "reason": "Invalid JSON format from model"}
 
 # Make a single query of 10 most likely places
 def single_query_top10(historical_data, X):
@@ -258,7 +295,16 @@ def single_query_top10(historical_data, X):
     <context>: {X['context_stay']}
     <target_stay>: {X['target_stay']}
     """
-    completion = get_chat_completion(prompt)
+    if completion is None:
+        return None
+    
+    if isinstance(completion, str):
+        try:
+            completion = json.loads(completion)
+        except json.JSONDecodeError:
+            print("⚠️ JSON malformato:", completion)
+            return None
+
     return completion
 
 # Make a single query of 10 most likely places without time information
@@ -288,7 +334,18 @@ def single_query_top1_wot(historical_data, X):
     <history>: {historical_data}
     <context>: {X['context_stay']}
     """
-    completion = get_chat_completion(prompt)
+    completion = get_chat_completion(prompt, json_mode=True)
+
+    if completion is None:
+        return None
+
+    if isinstance(completion, str):
+        try:
+            completion = json.loads(completion)
+        except json.JSONDecodeError:
+            print("⚠️ JSON malformato:", completion)
+            return None
+
     return completion
 
 # 
@@ -319,7 +376,18 @@ def single_query_top10_wot(historical_data, X):
     <history>: {historical_data}
     <context>: {X['context_stay']}
     """
-    completion = get_chat_completion(prompt)
+    completion = get_chat_completion(prompt, json_mode=True)
+
+    if completion is None:
+        return None
+
+    if isinstance(completion, str):
+        try:
+            completion = json.loads(completion)
+        except json.JSONDecodeError:
+            print("⚠️ JSON malformato:", completion)
+            return None
+
     return completion
 
 
@@ -355,7 +423,18 @@ def single_query_top1_fsq(historical_data, X):
     <context>: {X['context_stay']}
     <target_stay>: {X['target_stay']}
     """
-    completion = get_chat_completion(prompt)
+    completion = get_chat_completion(prompt, json_mode=True)
+
+    if completion is None:
+        return None
+
+    if isinstance(completion, str):
+        try:
+            completion = json.loads(completion)
+        except json.JSONDecodeError:
+            print("⚠️ JSON malformato:", completion)
+            return None
+
     return completion
 
 # Make a single query of 10 most likely places 
@@ -384,7 +463,18 @@ def single_query_top1_wot_fsq(historical_data, X):
     <history>: {historical_data}
     <context>: {X['context_stay']}
     """
-    completion = get_chat_completion(prompt)
+    completion = get_chat_completion(prompt, json_mode=True)
+
+    if completion is None:
+        return None
+
+    if isinstance(completion, str):
+        try:
+            completion = json.loads(completion)
+        except json.JSONDecodeError:
+            print("⚠️ JSON malformato:", completion)
+            return None
+
     return completion
 
 # 
@@ -421,7 +511,18 @@ def single_query_top10_fsq(historical_data, X):
     <context>: {X['context_stay']}
     <target_stay>: {X['target_stay']}
     """
-    completion = get_chat_completion(prompt)
+    completion = get_chat_completion(prompt, json_mode=True)
+
+    if completion is None:
+        return None
+
+    if isinstance(completion, str):
+        try:
+            completion = json.loads(completion)
+        except json.JSONDecodeError:
+            print("⚠️ JSON malformato:", completion)
+            return None
+
     return completion
 
 
@@ -452,7 +553,18 @@ def single_query_top10_wot_fsq(historical_data, X):
     <context>: {X['context_stay']}
     <next_place_id>: 
     """
-    completion = get_chat_completion(prompt)
+    completion = get_chat_completion(prompt, json_mode=True)
+
+    if completion is None:
+        return None
+
+    if isinstance(completion, str):
+        try:
+            completion = json.loads(completion)
+        except json.JSONDecodeError:
+            print("⚠️ JSON malformato:", completion)
+            return None
+
     return completion
 
 def load_results(filename):
