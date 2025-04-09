@@ -1,0 +1,11 @@
+user_id,ground_truth,prediction,reason
+29,1,"[739, 9, 741, 742, 569, 1, 740, 87, 784, 675]",based on the user's activity pattern and recent context stays
+29,739,"[739, 1, 9, 742, 741, 569, 740, 74, 88, 75]","Based on the user's activity pattern and recent context, I predict the next place ID is likely to be one of the frequently visited places during certain times"
+29,739,"[1, 9, 739, 741, 742, 569, 568, 784, 675, 784]","The user has a strong preference for places 1 and 9, with recent visits to place 739. The context stays suggest that the user may visit places 741 and 742 soon."
+29,739,"[1, 9, 739, 569, 742, 741, 740, 784, 675, 568]","Based on the user's historical stays and recent context, I predict that the next place will likely be one of their frequent visited places, possibly with a time preference for weekdays."
+29,1,"[739, 1, 9, 742, 741, 569, 740, 784, 675, 568]","The user's activity pattern suggests frequent visits to places with IDs 739, 1 and 9 during late hours and on weekdays. The recent context stays also support this pattern."
+29,739,"[9, 739, 1, 569, 742, 741, 740, 8, 7]","based on the activity pattern and recent context, repeated visits to certain places during certain times are considered"
+29,41,"[739, 9, 1, 742, 741, 569, 740, 748, 745, 744]",based on the user's activity pattern and recent context stays
+29,739,"[739, 9, 1, 741, 742, 569]",based on the user's activity pattern and recent context
+29,739,"[739, 9, 1, 742, 741, 569, 568, 784, 675, 767]",The prediction is based on the user's recent activity pattern and context.
+29,1,"[739, 9, 1, 741, 742, 569, 41, 740, 784, 75]","Based on the user's historical stays and recent context, I predict they will likely visit places they have visited before during similar times of day."

@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+25,660,"[660, 332, 339, 9, 561, 602, 332, 9, 9, 9]",based on the user's activity pattern and recent context
+25,9,"[9, 332, 660, 339, 561, 602, 9, 332, 9, 660]","Recent activity pattern and context indicate frequent visits to place ID 9, as well as repeated stays at place ID 332 and occasional visits to other places in the history."
+25,660,"[561, 332, 9, 660, 339, 602, 9, 9, 9, 9]",based on the user's activity pattern and recent context stays
+25,9,"[561, 332, 9, 660, 339, 602, 334, 744, 695, 566]","Based on the user's activity pattern and recent context stays, it is likely that this user will visit places they have visited before during similar times of day."
+25,332,"[561, 332, 660, 339, 9, 602, 9, 9, 9, 660]",The prediction is based on the user's activity pattern learned from their historical stays and the recent context stays.

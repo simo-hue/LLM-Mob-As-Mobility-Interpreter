@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+27,1,"[698, 332, 225, 87, 9, 1, 685, 699, 9, 698]",The user has a pattern of returning to places they have visited before during similar times of the day
+27,1,"[1, 698, 9, 225, 87, 332, 699, 9, 698, 1]","Based on the user's activity pattern and recent context, they tend to visit place 1 frequently, with a possible exception when visiting place 698 or 9"
+27,1,"[698, 332, 699, 225, 87, 1, 9, 685, 378, 1]","Based on the user's activity pattern, frequent visits to places with IDs 1 and 9 are more likely. The recent context also suggests a possible visit to place with ID 698, as well as revisits to other familiar places."
+27,9,"[1, 698, 9, 87, 225, 332, 699, 685, 1, 9]",based on the user's repeated visits to certain places during certain times
+27,9,"[1, 9, 698, 87, 225, 685, 332, 699, 698, 9]","Based on the user's activity pattern and recent context stays, we predict that they will visit a place they have been to before during similar times."
