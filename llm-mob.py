@@ -9,16 +9,52 @@ import numpy as np
 import ast # Aggiunto per la gestione delle eccezioni
 from datetime import datetime
 import pandas as pd
+import re
 import requests  # Aggiunto per chiamare il server del modello locale ( ollama serve )
 
-# Helper function
+def convert_to_serializable(obj):
+    if isinstance(obj, (np.int64, np.int32, np.int16, np.integer)):
+        return int(obj)
+    elif isinstance(obj, (np.float64, np.float32, np.floating)):
+        return float(obj)
+    elif isinstance(obj, (list, tuple)):
+        return [convert_to_serializable(i) for i in obj]
+    elif isinstance(obj, dict):
+        return {k: convert_to_serializable(v) for k, v in obj.items()}
+    return obj
+
+def extract_json_from_text(text):
+    import re
+    import json
+
+    try:
+        # Rimuove blocchi markdown se presenti
+        clean_text = re.sub(r"```(json)?", "", text).replace("```", "").strip()
+
+        # Prova a trovare un blocco JSON
+        match = re.search(r'\{.*?\}', clean_text, re.DOTALL)
+        if match:
+            return json.loads(match.group())
+
+        # Prova a trovare un JSON compatibile semplice (solo prediction e reason)
+        match_simple = re.search(r'"prediction"\s*:\s*\[.*?\].*?"reason"\s*:\s*".*?"', clean_text, re.DOTALL)
+        if match_simple:
+            json_like = '{' + match_simple.group(0).rstrip(',') + '}'
+            return json.loads(json_like)
+
+        print("❌ Nessun blocco JSON trovato nel testo.")
+        return None
+
+    except Exception as e:
+        print("⚠️ Errore di parsing JSON:", e)
+        return None
+
 def get_chat_completion(prompt, model="llama3:latest", json_mode=True, max_tokens=1200):
-    # Assicuriamoci che il prompt sia una stringa
     if not isinstance(prompt, str):
         prompt = str(prompt)
-    
-    print("\n\n------------------Prompt Passato:", prompt)
-    print("------------------\n\n")
+
+    print("\n\n------------------Prompt Passato:\n", prompt)
+    print("------------------")
 
     base_url = "http://localhost:11434"
     url = f"{base_url}/api/chat"
@@ -36,30 +72,33 @@ def get_chat_completion(prompt, model="llama3:latest", json_mode=True, max_token
     }
 
     try:
-        # Verifica che Ollama sia attivo
         test_response = requests.get(f"{base_url}/api/tags")
         if test_response.status_code != 200:
             print("⚠️ Il server Ollama non è attivo. Avvialo con 'ollama serve'")
             return None
 
-        # Invia la richiesta
         response = requests.post(url, json=payload)
         response.raise_for_status()
         data = response.json()
 
-        # Estrai contenuto
-        if "message" in data and "content" in data["message"]:
-            content = data["message"]["content"]
-            if json_mode:
-                try:
-                    return json.loads(content)
-                except json.JSONDecodeError:
-                    print("⚠️ Errore nel decodificare la risposta JSON:", content)
-                    return None
-            return content
-        else:
-            print("⚠️ Struttura della risposta inattesa:", data)
-            return None
+        content = data.get("message", {}).get("content", "")
+        print("📦 Risposta JSON (grezza o meno):\n", content)
+
+        if json_mode:
+            try:
+                parsed = json.loads(content)
+                print("✅ JSON interpretato correttamente:\n", json.dumps(parsed, indent=2))
+                return parsed
+            except json.JSONDecodeError:
+                print("⚠️ Risposta non in formato JSON puro. Provo a estrarre...")
+                extracted = extract_json_from_text(content)
+                if extracted:
+                    print("✅ JSON estratto con successo:\n", json.dumps(extracted, indent=2))
+                    return json.loads(json.dumps(extracted))
+                else:
+                    print("❌ Estrazione JSON fallita.")
+                return None
+        return content
 
     except requests.exceptions.HTTPError as http_err:
         print(f"❌ HTTP error: {http_err}")
@@ -71,7 +110,7 @@ def get_chat_completion(prompt, model="llama3:latest", json_mode=True, max_token
     except requests.exceptions.RequestException as e:
         print(f"❌ Errore chiamata al modello Ollama: {e}")
         return None
-    
+
 def get_dataset(dataname):
     
     # Get training and validation set and merge them
@@ -222,51 +261,63 @@ def convert_stays(stays):
     return [(t, d, dur, convert_value(pid)) for (t, d, dur, pid) in stays]
 
 def single_query_top1(historical_data, X):
-    """
-    Make a single query.
-    param: 
-    X: one single sample containing context_stay and target_stay
-    """
-    history = convert_stays(historical_data)
-    context = convert_stays(X['context_stay'])
-    target = X['target_stay']
-    target_stay = (target[0], target[1], None, None)
+    # 🔁 Pulisce tutti i valori numpy o non serializzabili
+    sanitized_history = convert_to_serializable(historical_data)
+    sanitized_context = convert_to_serializable(X['context_stay'])
+    sanitized_target = convert_to_serializable(X['target_stay'])
 
+    # ✍️ Prompt strutturato per la predizione del prossimo luogo
     prompt = f"""
     Your task is to predict a user's next location based on their activity pattern.
-    
+
     You will be provided with <history> (user's past stays), <context> (recent stays), and <target_stay> (the prediction target). Each stay is in the form:
     (start_time, day_of_week, duration, place_id). Note: duration and place_id in target_stay are None.
-    
+
     Consider:
     1. Recurring patterns in <history>
     2. Recent activities in <context>
     3. Temporal info (start_time, day_of_week) in <target_stay>
 
-    Output ONLY a one-line JSON object with keys: "prediction" (integer place ID) and "reason" (short explanation).
-    
-    <history>: {history}
-    <context>: {context}
-    <target_stay>: {target_stay}
+    Respond ONLY with a single-line JSON object with the following keys:
+    - "prediction": a list of integers (place IDs)
+    - "reason": a short string explaining your prediction
+
+    Do NOT include any code, explanation, or markdown formatting. Only output valid JSON.
+
+    <history>: {json.dumps(sanitized_history)}
+    <context>: {json.dumps(sanitized_context)}
+    <target_stay>: {json.dumps(sanitized_target)}
     """
 
+    # 🧠 Chiamata al modello LLM
     response = get_chat_completion(prompt)
 
-    try:
-        prediction = json.loads(response)
-        return prediction
-    except Exception as e:
-        print("⚠️ Errore nel parsing della risposta:", e)
+    # 🛑 Caso in cui il modello non risponde
+    if not response:
+        return {"prediction": None, "reason": "No response from model"}
+
+    # 🧩 Estrazione robusta solo del blocco JSON dalla risposta
+    parsed = extract_json_from_response(response)
+
+    if parsed:
+        return parsed
+    else:
+        print("⚠️ Errore nel parsing della risposta:")
         print("📦 Risposta grezza:", response)
         return {"prediction": None, "reason": "Invalid JSON format from model"}
 
 # Make a single query of 10 most likely places
 def single_query_top10(historical_data, X):
     """
-    Make a single query.
+    Make a single query to get top-10 predicted next places.
     param: 
-    X: one single sample containing context_stay and target_stay
+    historical_data: list of past stays
+    X: dict with keys 'context_stay' and 'target_stay'
     """
+    sanitized_history = convert_to_serializable(historical_data)
+    sanitized_context = convert_to_serializable(X['context_stay'])
+    sanitized_target = convert_to_serializable(X['target_stay'])
+
     prompt = f"""
     Your task is to predict a user's next location based on his/her activity pattern.
     You will be provided with <history> which is a list containing this user's historical stays, then <context> which provide contextual information 
@@ -281,71 +332,77 @@ def single_query_top10(historical_data, X):
     unknown duration denoted as None, while temporal information is provided.      
     
     Please infer what the <next_place_id> might be (please output the 10 most likely places which are ranked in descending order in terms of probability), considering the following aspects:
-    1. the activity pattern of this user that you leared from <history>, e.g., repeated visits to certain places during certain times;
+    1. the activity pattern of this user that you learned from <history>, e.g., repeated visits to certain places during certain times;
     2. the context stays in <context>, which provide more recent activities of this user; 
     3. the temporal information (i.e., start_time and day_of_week) of target stay, which is important because people's activity varies during different time (e.g., nighttime versus daytime)
     and on different days (e.g., weekday versus weekend).
 
-    Please organize your answer in a JSON object containing following keys:
-    "prediction" (the ID of the ten most probable places in descending order of probability) and "reason" (a concise explanation that supports your prediction). Do not include line breaks in your output.
+    Respond ONLY with a single-line JSON object with the following keys:
+    - "prediction": a list of integers (place IDs)
+    - "reason": a short string explaining your prediction
 
-    The data are as follows:
-    <history>: {historical_data}
-    <context>: {X['context_stay']}
-    <target_stay>: {X['target_stay']}
+    Do NOT include any code, explanation, or markdown formatting. Only output valid JSON.
+
+
+    <history>: {json.dumps(sanitized_history)}
+    <context>: {json.dumps(sanitized_context)}
+    <target_stay>: {json.dumps(sanitized_target)}
     """
-    if completion is None:
-        return None
-    
-    if isinstance(completion, str):
-        try:
-            completion = json.loads(completion)
-        except json.JSONDecodeError:
-            print("⚠️ JSON malformato:", completion)
-            return None
 
-    return completion
+    response = get_chat_completion(prompt)
+
+    try:
+        completion = json.loads(response)
+        return completion
+    except Exception as e:
+        print("⚠️ Errore nel parsing della risposta:", e)
+        print("📦 Risposta grezza:", response)
+        return {"prediction": None, "reason": "Invalid JSON format from model"}
 
 # Make a single query of 10 most likely places without time information
 def single_query_top1_wot(historical_data, X):
     """
-    Make a single query.
+    Make a single query without using target temporal info (WOT = Without Target time).
     param: 
-    X: one single sample containing context_stay and target_stay
+    historical_data: list of past stays
+    X: dict with key 'context_stay' only
     """
+    sanitized_history = convert_to_serializable(historical_data)
+    sanitized_context = convert_to_serializable(X['context_stay'])
+
     prompt = f"""
     Your task is to predict a user's next location based on his/her activity pattern.
-    You will be provided with <history> which is a list containing this user's historical stays, then <context> which provide contextual information 
+    You will be provided with <history> which is a list containing this user's historical stays, then <context> which provides contextual information 
     about where and when this user has been to recently. Stays in both <history> and <context> are in chronological order.
-    Each stay takes on such form as (start_time, day_of_week, duration, place_id). The detailed explanation of each element is as follows:
-    start_time: the start time of the stay in 12h clock format.
-    day_of_week: indicating the day of the week.
-    duration: an integer indicating the duration (in minute) of each stay. 
-    place_id: an integer representing the unique place ID, which indicates where the stay is.    
-    
-    Please infer what the <next_place_id> is (i.e., the most likely place ID), considering the following aspects:
-    1. the activity pattern of this user that you leared from <history>, e.g., repeated visit to a certain place during certain time;
-    2. the context stays in <context>, which provide more recent activities of this user.
+    Each stay takes the following form: (start_time, day_of_week, duration, place_id). The meaning of each element is:
+    - start_time: the start time of the stay in 12h clock format.
+    - day_of_week: the day of the week.
+    - duration: duration (in minutes) of the stay.
+    - place_id: an integer representing a unique place ID.
 
-    Please organize your answer in a JSON object containing following keys: "prediction" (place ID) and "reason" (a concise explanation that supports your prediction). Do not include line breaks in your output.
+    Please infer what the <next_place_id> is (i.e., the most likely place ID), considering:
+    1. the user's activity patterns from <history> (e.g., repeated visits to certain places at certain times),
+    2. and the recent activities from <context>.
 
-    The data are as follows:
-    <history>: {historical_data}
-    <context>: {X['context_stay']}
+    Respond ONLY with a single-line JSON object with the following keys:
+    - "prediction": a list of integers (place IDs)
+    - "reason": a short string explaining your prediction
+
+    Do NOT include any code, explanation, or markdown formatting. Only output valid JSON.
+
+    <history>: {json.dumps(sanitized_history)}
+    <context>: {json.dumps(sanitized_context)}
     """
-    completion = get_chat_completion(prompt, json_mode=True)
 
-    if completion is None:
-        return None
+    response = get_chat_completion(prompt)
 
-    if isinstance(completion, str):
-        try:
-            completion = json.loads(completion)
-        except json.JSONDecodeError:
-            print("⚠️ JSON malformato:", completion)
-            return None
-
-    return completion
+    try:
+        completion = json.loads(response)
+        return completion
+    except Exception as e:
+        print("⚠️ Errore nel parsing della risposta:", e)
+        print("📦 Risposta grezza:", response)
+        return {"prediction": None, "reason": "Invalid JSON format from model"}
 
 # 
 def single_query_top10_wot(historical_data, X):
@@ -354,6 +411,10 @@ def single_query_top10_wot(historical_data, X):
     param: 
     X: one single sample containing context_stay and target_stay
     """
+    
+    sanitized_history = convert_to_serializable(historical_data)
+    sanitized_context = convert_to_serializable(X['context_stay'])
+    
     prompt = f"""
     Your task is to predict a user's next location based on his/her activity pattern.
     You will be provided with <history> which is a list containing this user's historical stays, then <context> which provide contextual information 
@@ -368,26 +429,25 @@ def single_query_top10_wot(historical_data, X):
     1. the activity pattern of this user that you leared from <history>, e.g., repeated visits to certain places during certain times;
     2. the context stays in <context>, which provide more recent activities of this user.
   
-    Please organize your answer in a JSON object containing following keys:
-    "prediction" (the ID of the ten most probable places in descending order of probability) and "reason" (a concise explanation that supports your prediction). Do not use line breaks in the reason.
+    Respond ONLY with a single-line JSON object with the following keys:
+    - "prediction": a list of integers (place IDs)
+    - "reason": a short string explaining your prediction
 
-    The data are as follows:
-    <history>: {historical_data}
-    <context>: {X['context_stay']}
+    Do NOT include any code, explanation, or markdown formatting. Only output valid JSON.    
+
+    <history>: {json.dumps(sanitized_history)}
+    <context>: {json.dumps(sanitized_context)}
     """
-    completion = get_chat_completion(prompt, json_mode=True)
 
-    if completion is None:
-        return None
+    response = get_chat_completion(prompt)
 
-    if isinstance(completion, str):
-        try:
-            completion = json.loads(completion)
-        except json.JSONDecodeError:
-            print("⚠️ JSON malformato:", completion)
-            return None
-
-    return completion
+    try:
+        completion = json.loads(response)
+        return completion
+    except Exception as e:
+        print("⚠️ Errore nel parsing della risposta:", e)
+        print("📦 Risposta grezza:", response)
+        return {"prediction": None, "reason": "Invalid JSON format from model"}
 
 
 def single_query_top1_fsq(historical_data, X):
@@ -396,6 +456,11 @@ def single_query_top1_fsq(historical_data, X):
     param: 
     X: one single sample containing context_stay and target_stay
     """
+    
+    sanitized_history = convert_to_serializable(historical_data)
+    sanitized_context = convert_to_serializable(X['context_stay'])
+    sanitized_target = convert_to_serializable(X['target_stay'])
+    
     prompt = f"""
     Your task is to predict a user's next location based on his/her activity pattern.
     You will be provided with <history> which is a list containing this user's historical stays, then <context> which provide contextual information 
@@ -414,13 +479,16 @@ def single_query_top1_fsq(historical_data, X):
     3. the temporal information (i.e., start_time and weekday) of target stay, which is important because people's activity varies during different time (e.g., nighttime versus daytime)
     and on different days (e.g., weekday versus weekend).
 
-    Please organize your answer in a JSON object containing following keys:
-    "prediction" (place ID) and "reason" (a concise explanation that supports your prediction)
+    Respond ONLY with a single-line JSON object with the following keys:
+    - "prediction": a list of integers (place IDs)
+    - "reason": a short string explaining your prediction
+
+    Do NOT include any code, explanation, or markdown formatting. Only output valid JSON.
 
     The data are as follows:
-    <history>: {historical_data}
-    <context>: {X['context_stay']}
-    <target_stay>: {X['target_stay']}
+    <history>: {json.dumps(sanitized_history)}
+    <context>: {json.dumps(sanitized_context)}
+    <target_stay>: {json.dumps(sanitized_target)}
     """
     completion = get_chat_completion(prompt, json_mode=True)
 
@@ -443,6 +511,10 @@ def single_query_top1_wot_fsq(historical_data, X):
     param: 
     X: one single sample containing context_stay and target_stay
     """
+    
+    sanitized_history = convert_to_serializable(historical_data)
+    sanitized_context = convert_to_serializable(X['context_stay'])
+    
     prompt = f"""
     Your task is to predict a user's next location based on his/her activity pattern.
     You will be provided with <history> which is a list containing this user's historical stays, then <context> which provide contextual information 
@@ -456,11 +528,15 @@ def single_query_top1_wot_fsq(historical_data, X):
     1. the activity pattern of this user that you leared from <history>, e.g., repeated visit to a certain place during certain time;
     2. the context stays in <context>, which provide more recent activities of this user.
 
-    Please organize your answer in a JSON object containing following keys: "prediction" (place ID) and "reason" (a concise explanation that supports your prediction). Do not include line breaks in your output.
+    Respond ONLY with a single-line JSON object with the following keys:
+    - "prediction": a list of integers (place IDs)
+    - "reason": a short string explaining your prediction
+
+    Do NOT include any code, explanation, or markdown formatting. Only output valid JSON.
 
     The data are as follows:
-    <history>: {historical_data}
-    <context>: {X['context_stay']}
+    <history>: {json.dumps(sanitized_history)}
+    <context>: {json.dumps(sanitized_context)}
     """
     completion = get_chat_completion(prompt, json_mode=True)
 
@@ -483,6 +559,11 @@ def single_query_top10_fsq(historical_data, X):
     param: 
     X: one single sample containing context_stay and target_stay
     """
+    
+    sanitized_history = convert_to_serializable(historical_data)
+    sanitized_context = convert_to_serializable(X['context_stay'])
+    sanitized_target = convert_to_serializable(X['target_stay'])
+    
     prompt = f"""
     Your task is to predict a user's next location based on his/her activity pattern.
     You will be provided with <history> which is a list containing this user's historical stays, then <context> which provide contextual information 
@@ -502,13 +583,16 @@ def single_query_top10_fsq(historical_data, X):
     3. the temporal information (i.e., start_time and weekday) of target stay, which is important because people's activity varies during different time (e.g., nighttime versus daytime)
     and on different days (e.g., weekday versus weekend).
 
-    Please organize your answer in a JSON object containing following keys:
-    "prediction" (the ID of the ten most probable places in descending order of probability) and "reason" (a concise explanation that supports your prediction)
+    Respond ONLY with a single-line JSON object with the following keys:
+    - "prediction": a list of integers (place IDs)
+    - "reason": a short string explaining your prediction
+
+    Do NOT include any code, explanation, or markdown formatting. Only output valid JSON.
 
     The data are as follows:
-    <history>: {historical_data}
-    <context>: {X['context_stay']}
-    <target_stay>: {X['target_stay']}
+    <history>: {json.dumps(sanitized_history)}
+    <context>: {json.dumps(sanitized_context)}
+    <target_stay>: {json.dumps(sanitized_target)}
     """
     completion = get_chat_completion(prompt, json_mode=True)
 
@@ -523,157 +607,152 @@ def single_query_top10_fsq(historical_data, X):
             return None
 
     return completion
-
 
 def single_query_top10_wot_fsq(historical_data, X):
     """
-    Make a single query of 10 most likely places, without time information
+    Make a single query for top-10 most likely places, without using duration or time info.
     param: 
-    X: one single sample containing context_stay and target_stay
+    historical_data: list of past stays (start_time, day_of_week, place_id)
+    X: dict with key 'context_stay' (same structure as historical_data)
     """
+    sanitized_history = convert_to_serializable(historical_data)
+    sanitized_context = convert_to_serializable(X['context_stay'])
+
     prompt = f"""
     Your task is to predict a user's next location based on his/her activity pattern.
-    You will be provided with <history> which is a list containing this user's historical stays, then <context> which provide contextual information 
-    about where and when this user has been to recently. Stays in both <history> and <context> are in chronological order.
-    Each stay takes on such form as (start_time, day_of_week, place_id). The detailed explanation of each element is as follows:
-    start_time: the start time of the stay in 12h clock format.
-    day_of_week: indicating the day of the week.
-    place_id: an integer representing the unique place ID, which indicates where the stay is.
+    You will be provided with <history> which is a list containing this user's historical stays, and <context> which provides recent contextual information.
+    Stays in both <history> and <context> are in chronological order and have the format: (start_time, day_of_week, place_id), where:
+    - start_time: start time of the stay in 12h clock format
+    - day_of_week: the day of the week
+    - place_id: an integer representing the location ID
 
-    Please infer what the <next_place_id> might be (please output the 10 most likely places which are ranked in descending order in terms of probability), considering the following aspects:
-    1. the activity pattern of this user that you leared from <history>, e.g., repeated visits to certain places during certain times.
-    2. the context stays in <context>, which provide more recent activities of this user.
-  
-    Please organize your answer in a JSON object containing following keys:
-    "prediction" (the ID of the ten most probable places in descending order of probability) and "reason" (a concise explanation that supports your prediction). Do not use line breaks in the reason.
+    Your goal is to predict the next likely place ID. Output the 10 most probable places (ranked from most to least likely), considering:
+    1. patterns in <history> (e.g., repeated visits to places at certain times/days),
+    2. recent behavior in <context>.
 
-    The data are as follows:
-    <history>: {historical_data}
-    <context>: {X['context_stay']}
+    Respond ONLY with a single-line JSON object with the following keys:
+    - "prediction": a list of integers (place IDs)
+    - "reason": a short string explaining your prediction
+
+    Do NOT include any code, explanation, or markdown formatting. Only output valid JSON.
+
+    <history>: {json.dumps(sanitized_history)}
+    <context>: {json.dumps(sanitized_context)}
     <next_place_id>: 
     """
-    completion = get_chat_completion(prompt, json_mode=True)
 
-    if completion is None:
-        return None
+    response = get_chat_completion(prompt)
 
-    if isinstance(completion, str):
-        try:
-            completion = json.loads(completion)
-        except json.JSONDecodeError:
-            print("⚠️ JSON malformato:", completion)
-            return None
-
-    return completion
+    try:
+        completion = json.loads(response)
+        return completion
+    except Exception as e:
+        print("⚠️ Errore nel parsing della risposta:", e)
+        print("📦 Risposta grezza:", response)
+        return {"prediction": None, "reason": "Invalid JSON format from model"}
 
 def load_results(filename):
     # Load previously saved results from a CSV file    
     results = pd.read_csv(filename)
     return results
 
-def single_user_query(dataname, uid, historical_data, predict_X, predict_y, logger, 
-                      top_k, is_wt, output_dir, sleep_query, sleep_crash):
-    # Initialize variables
+def single_user_query(dataname, uid, historical_data, predict_X, predict_y, logger, top_k, is_wt, output_dir, sleep_query, sleep_crash):
+    # Numero totale di query da eseguire
     total_queries = len(predict_X)
     logger.info(f"Total_queries: {total_queries}")
 
-    processed_queries = 0
-    current_results = pd.DataFrame({
-        'user_id': None,
-        'ground_truth': None,
-        'prediction': None,
-        'reason': None
-    }, index=[])
+    # Inizializzazione del dataframe per i risultati
+    current_results = pd.DataFrame(columns=['user_id', 'ground_truth', 'prediction', 'reason'])
 
-    out_filename = f"{uid:02d}" + ".csv"
+    out_filename = f"{uid:02d}.csv"
     out_filepath = os.path.join(output_dir, out_filename)
 
+    # Carica i risultati esistenti (se presenti)
     try:
-        # Attempt to load previous results if available
         current_results = load_results(out_filepath)
         processed_queries = len(current_results)
         logger.info(f"Loaded {processed_queries} previous results.")
     except FileNotFoundError:
         logger.info("No previous results found. Starting from scratch.")
+        processed_queries = 0
 
-    # Process remaining queries
+    # Loop sulle query non ancora processate
     for i in range(processed_queries, total_queries):
-        logger.info(f'The {i+1}th sample: ')
-
-        if dataname == 'geolife':
-            if is_wt is True:
-                if top_k == 1:
-                    prompt = single_query_top1(historical_data, predict_X[i])
-                elif top_k == 10:
-                    prompt = single_query_top10(historical_data, predict_X[i])
-                else:
-                    raise ValueError(f"The top_k must be one of 1, 10. However, {top_k} was provided")
-            else:
-                if top_k == 1:
-                    prompt = single_query_top1_wot(historical_data, predict_X[i])
-                elif top_k == 10:
-                    prompt = single_query_top10_wot(historical_data, predict_X[i])
-                else:
-                    raise ValueError(f"The top_k must be one of 1, 10. However, {top_k} was provided")
-        elif dataname == 'fsq':
-            if is_wt is True:
-                if top_k == 1:
-                    prompt = single_query_top1_fsq(historical_data, predict_X[i])
-                elif top_k == 10:
-                    prompt = single_query_top10_fsq(historical_data, predict_X[i])
-                else:
-                    raise ValueError(f"The top_k must be one of 1, 10. However, {top_k} was provided")
-            else:
-                if top_k == 1:
-                    prompt = single_query_top1_wot_fsq(historical_data, predict_X[i])
-                elif top_k == 10:
-                    prompt = single_query_top10_wot_fsq(historical_data, predict_X[i])
-                else:
-                    raise ValueError(f"The top_k must be one of 1, 10. However, {top_k} was provided")
-
-        # Usa il modello locale
-        response = get_chat_completion(prompt)  
-
-        # Log della risposta
-        logger.info(f"Pred results: {response}")
-        logger.info(f"Ground truth: {predict_y[i]}")
+        logger.info(f'The {i+1}th sample:')
 
         try:
-            res_dict = json.loads(response)  # Usa JSON parsing più sicuro
+            # Seleziona la funzione di query corretta che include già la chiamata al modello
+            if dataname == 'geolife':
+                if is_wt:
+                    res_dict = single_query_top1(historical_data, predict_X[i]) if top_k == 1 else single_query_top10(historical_data, predict_X[i])
+                    
+                else:
+                    res_dict = single_query_top1_wot(historical_data, predict_X[i]) if top_k == 1 else single_query_top10_wot(historical_data, predict_X[i])
+            elif dataname == 'fsq':
+                if is_wt:
+                    res_dict = single_query_top1_fsq(historical_data, predict_X[i]) if top_k == 1 else single_query_top10_fsq(historical_data, predict_X[i])
+                else:
+                    res_dict = single_query_top1_wot_fsq(historical_data, predict_X[i]) if top_k == 1 else single_query_top10_wot_fsq(historical_data, predict_X[i])
+            else:
+                raise ValueError(f"Unsupported dataset name: {dataname}")
+
+            logger.info(f"Ground truth: {predict_y[i]}")
+            logger.info(f"Pred results: {res_dict}")
+            
+            if isinstance(res_dict, dict):
+                print("🧾 Risultato JSON pulito:\n", json.dumps(res_dict, indent=2))
+
+            if not isinstance(res_dict, dict) or 'prediction' not in res_dict:
+                raise ValueError("La risposta non contiene un dizionario valido con chiave 'prediction'.")
+
+            # Post-processing
             if top_k != 1:
                 res_dict['prediction'] = str(res_dict['prediction'])
-                res_dict['user_id'] = uid
-                res_dict['ground_truth'] = predict_y[i]
-        except Exception as e:
-            res_dict = {'user_id': uid, 'ground_truth': predict_y[i], 'prediction': -100, 'reason': response}
-            logger.info(e)
-            logger.info(f"API request failed for the {i+1}th query")
 
-        # Aggiungi il risultato ai dati attuali
-        new_row = pd.DataFrame(res_dict, index=[0])
+            res_dict['user_id'] = uid
+            res_dict['ground_truth'] = int(predict_y[i])  # assicurati che sia int, non np.int64
+
+        except Exception as e:
+            logger.warning(f"⚠️ Parsing fallito o risposta non valida: {e}")
+            res_dict = {
+                'user_id': uid,
+                'ground_truth': int(predict_y[i]),
+                'prediction': -100,
+                'reason': str(e)
+            }
+
+        # Aggiungi il risultato al DataFrame
+        new_row = pd.DataFrame([res_dict])
         current_results = pd.concat([current_results, new_row], ignore_index=True)
 
-    # Salva i risultati
+    # Salvataggio dei risultati
     current_results.to_csv(out_filepath, index=False)
     logger.info(f"Saved {len(current_results)} results to {out_filepath}")
 
-    # Continua se ci sono ancora query da processare ( ma con dei limiti )
+    # Retry mechanism per query fallite (se serve)
     max_retries = 3
     retry_count = 0
     while len(current_results) < total_queries and retry_count < max_retries:
         logger.info(f"Restarting queries (attempt {retry_count + 1}/{max_retries})...")
         retry_count += 1
         single_user_query(dataname, uid, historical_data, predict_X, predict_y,
-                      logger, top_k, is_wt, output_dir, sleep_query, sleep_crash)
-
+                          logger, top_k, is_wt, output_dir, sleep_query, sleep_crash)
+    
 def query_all_user(dataname, uid_list, logger, train_data, num_historical_stay,
                    num_context_stay, test_file, top_k, is_wt, output_dir, sleep_query, sleep_crash):
     for uid in uid_list:
         logger.info(f"=================Processing user {uid}==================")
+
         user_train = get_user_data(train_data, uid, num_historical_stay, logger)
-        historical_data, predict_X, predict_y = organise_data(dataname, user_train, test_file, uid, logger, num_context_stay)
-        single_user_query(dataname, uid, historical_data, predict_X, predict_y, logger, top_k=top_k, 
-                          is_wt=is_wt, output_dir=output_dir, sleep_query=sleep_query, sleep_crash=sleep_crash)
+        historical_data, predict_X, predict_y = organise_data(
+            dataname, user_train, test_file, uid, logger, num_context_stay)
+
+        single_user_query(
+            dataname, uid, historical_data, predict_X, predict_y,
+            logger, top_k=top_k, is_wt=is_wt, output_dir=output_dir,
+            sleep_query=sleep_query, sleep_crash=sleep_crash
+        )
+
 
 # Get the remaning user
 def get_unqueried_user(dataname, output_dir='output/'):
