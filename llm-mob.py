@@ -292,19 +292,15 @@ def single_query_top1(historical_data, X):
     # 🧠 Chiamata al modello LLM
     response = get_chat_completion(prompt)
 
-    # 🛑 Caso in cui il modello non risponde
-    if not response:
-        return {"prediction": None, "reason": "No response from model"}
+    print("📦 Risposta JSON (grezza o meno):", response)
 
-    # 🧩 Estrazione robusta solo del blocco JSON dalla risposta
-    parsed = extract_json_from_response(response)
-
-    if parsed:
-        return parsed
-    else:
-        print("⚠️ Errore nel parsing della risposta:")
-        print("📦 Risposta grezza:", response)
+    # 🧩 Parsing robusto
+    if response is None or not isinstance(response, dict):
+        print("⚠️ Risposta non valida o assente.")
         return {"prediction": None, "reason": "Invalid JSON format from model"}
+
+    print("✅ JSON interpretato correttamente:\n", json.dumps(response, indent=2))
+    return response
 
 # Make a single query of 10 most likely places
 def single_query_top10(historical_data, X):
@@ -351,13 +347,15 @@ def single_query_top10(historical_data, X):
 
     response = get_chat_completion(prompt)
 
-    try:
-        completion = json.loads(response)
-        return completion
-    except Exception as e:
-        print("⚠️ Errore nel parsing della risposta:", e)
-        print("📦 Risposta grezza:", response)
+    print("📦 Risposta JSON (grezza o meno):", response)
+
+    # La funzione get_chat_completion restituisce già un dizionario o None
+    if response is None or not isinstance(response, dict):
+        print("⚠️ Risposta non valida o assente.")
         return {"prediction": None, "reason": "Invalid JSON format from model"}
+
+    print("✅ JSON interpretato correttamente:\n", json.dumps(response, indent=2))
+    return response
 
 # Make a single query of 10 most likely places without time information
 def single_query_top1_wot(historical_data, X):
@@ -396,13 +394,15 @@ def single_query_top1_wot(historical_data, X):
 
     response = get_chat_completion(prompt)
 
-    try:
-        completion = json.loads(response)
-        return completion
-    except Exception as e:
-        print("⚠️ Errore nel parsing della risposta:", e)
-        print("📦 Risposta grezza:", response)
+    print("📦 Risposta JSON (grezza o meno):", response)
+
+    # La funzione get_chat_completion restituisce già un dizionario o None
+    if response is None or not isinstance(response, dict):
+        print("⚠️ Risposta non valida o assente.")
         return {"prediction": None, "reason": "Invalid JSON format from model"}
+
+    print("✅ JSON interpretato correttamente:\n", json.dumps(response, indent=2))
+    return response
 
 # 
 def single_query_top10_wot(historical_data, X):
@@ -441,13 +441,15 @@ def single_query_top10_wot(historical_data, X):
 
     response = get_chat_completion(prompt)
 
-    try:
-        completion = json.loads(response)
-        return completion
-    except Exception as e:
-        print("⚠️ Errore nel parsing della risposta:", e)
-        print("📦 Risposta grezza:", response)
+    print("📦 Risposta JSON (grezza o meno):", response)
+
+    # La funzione get_chat_completion restituisce già un dizionario o None
+    if response is None or not isinstance(response, dict):
+        print("⚠️ Risposta non valida o assente.")
         return {"prediction": None, "reason": "Invalid JSON format from model"}
+
+    print("✅ JSON interpretato correttamente:\n", json.dumps(response, indent=2))
+    return response
 
 
 def single_query_top1_fsq(historical_data, X):
@@ -643,13 +645,15 @@ def single_query_top10_wot_fsq(historical_data, X):
 
     response = get_chat_completion(prompt)
 
-    try:
-        completion = json.loads(response)
-        return completion
-    except Exception as e:
-        print("⚠️ Errore nel parsing della risposta:", e)
-        print("📦 Risposta grezza:", response)
+    print("📦 Risposta JSON (grezza o meno):", response)
+
+    # La funzione get_chat_completion restituisce già un dizionario o None
+    if response is None or not isinstance(response, dict):
+        print("⚠️ Risposta non valida o assente.")
         return {"prediction": None, "reason": "Invalid JSON format from model"}
+
+    print("✅ JSON interpretato correttamente:\n", json.dumps(response, indent=2))
+    return response
 
 def load_results(filename):
     # Load previously saved results from a CSV file    
