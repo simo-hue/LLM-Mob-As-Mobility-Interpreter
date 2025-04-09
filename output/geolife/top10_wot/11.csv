@@ -1,0 +1,64 @@
+user_id,ground_truth,prediction,reason
+11,1,"[373, 400, 305, 420, 416, 402, 1, 373, 373, 373]","The prediction is based on the user's historical stays and recent context, which show a strong preference for visiting places like 373, 400 and 305 during specific times of the day"
+11,1,"[373, 416, 305, 420, 400, 402, 1, 373, 373, 373]","The user's activity pattern shows a strong tendency to visit place_id 373 during weekdays and weekend mornings, with occasional visits to other places like 1, 416, and 305."
+11,1,"[373, 305, 420, 400, 402, 1]",based on the user's activity pattern and recent context
+11,1,"[373, 1, 400, 402, 305, 420, 373, 373, 373, 373]","Based on the user's historical stays and recent context, the most likely places to visit are those the user has visited frequently in the past, with a slight bias towards recently visited places."
+11,373,"[373, 400, 420, 402, 305, 1, 373, 373, 373, 373]",repeated visits to certain places during certain times
+11,373,"[373, 400, 420, 305, 402, 1, 373, 373, 373, 373]","Based on the user's activity pattern and recent context, it is likely that they will visit one of their frequent places or a place they have visited recently."
+11,373,"[373, 1, 400, 420, 402, 305, 373, 373, 373, 373]",based on the user's repeated visits to place 373 during weekdays and weekends
+11,414,"[373, 400, 420, 1, 305, 402, 373, 373, 373, 373]","Based on the user's activity pattern and recent context, the prediction suggests that the next location might be a place previously visited during weekdays or Sundays"
+11,373,"[373, 1, 400, 402, 305, 420, 414, 373, 373, 373]","The user's activity pattern shows a strong preference for staying at home and work, with a slight bias towards visiting the same places on different days of the week."
+11,373,"[373, 400, 420, 402, 305, 1, 414, 421, 422, 419]","Based on the user's activity pattern and recent context stays, it is likely that they will visit places they have been to before at similar times."
+11,373,"[373, 1, 400, 402, 420, 305, 414, 373, 373, 373]",Recent stays at 373 and context suggest the user is likely to visit similar places during similar times
+11,373,"[373, 1, 420, 402, 400, 414, 305, 373, 373, 373]","Based on the user's activity pattern and recent context, the top predicted place is where they usually stay during weekdays."
+11,1,"[373, 414, 420, 402, 400, 1, 305, 373]","The user has a strong affinity for place_id 373 based on their historical stays. The context also suggests that the user tends to visit places nearby or those they have been to before, so the top predictions are places in their immediate vicinity or which they have visited recently."
+11,373,"[373, 400, 402, 305, 420, 1, 373, 373, 373, 373]",Predicted based on the user's repeated visits to certain places during certain times and the recent activities in the context
+11,1,"[373, 305, 420, 400, 402, 1]","The user's historical activity pattern shows a strong preference for staying at place_id 373 during weekdays, and the recent context stays suggest that this tendency continues."
+11,373,"[373, 1, 305, 420, 402, 400, 373, 373, 373, 373]",The user's activity pattern suggests frequent visits to places with place_id 373 and 1 during various times of the day. The recent context stays also indicate a strong likelihood of returning to these places.
+11,1,"[373, 400, 420, 305, 402, 1, 373, 373, 373, 373]","The user tends to stay at the same places and times of day, with recent context suggesting a high likelihood of visiting place 373 next"
+11,1,"[373, 400, 420, 305, 402, 1, 373, 373, 373, 373]","The user has a frequent pattern of visiting place ID 373 on weekdays and weekends, and recently visited places around this area"
+11,1,"[373, 400, 420, 305, 402, 1, 373, 373, 373, 373]",based on the user's activity pattern and recent context stays
+11,373,"[373, 400, 420, 305, 402, 1, 373, 400, 420, 305]",The user's activity pattern suggests frequent visits to place 373 during certain times of the day. The recent context stays indicate that the user has been going to places with IDs 1 and 372 recently.
+11,373,"[373, 1, 400, 420, 402, 305, 373, 373, 373, 373]",based on the user's activity pattern and recent stays in <context>
+11,1,"[373, 1, 400, 402, 305, 420, 373, 373, 373, 373]",based on the user's activity pattern and recent context
+11,261,"[373, 1, 305, 400, 402, 420, 373, 373, 373, 373]","The user has a strong affinity to places with ID 373 and 1, and also visits place 305 on Fridays. Recent context suggests they will stay at one of these places again."
+11,373,"[373, 400, 402, 305, 420, 1, 373, 373, 373, 373]",user's repeated visits to certain places during certain times and recent activities in the context
+11,373,"[373, 1, 400, 402, 305, 420, 373, 373, 373, 373]","The prediction is based on the user's historical activity pattern of repeated visits to certain places during certain times, and the recent context stays which provide more information about where this user has been recently."
+11,270,"[373, 420, 400, 402, 1, 305, 373, 373, 261, 373]","The user's activity pattern suggests frequent visits to place_id 373 during weekdays and weekends. The recent context indicates the user has been visiting this place recently, especially during early hours of the day."
+11,373,"[373, 1, 305, 261, 400, 402, 420, 373, 373, 373]","The prediction is based on the user's historical activity pattern and recent context stays. The top 3 predicted places are the user's most frequently visited place (373), followed by their next most frequent place (1) and a third-place that was recently visited in the given context."
+11,305,"[373, 1, 305, 400, 402, 420, 261, 270, 373, 373]",Pattern of regular visits to certain places during specific times and days
+11,373,"[373, 400, 420, 402, 1, 305, 270, 373, 373, 373]",The user has a strong tendency to visit place 373 during weekdays and place 1 on weekends
+11,372,"[373, 1, 420, 400, 402, 305, 270, 373, 373, 373]","Based on the user's activity pattern and recent context, I predict they will visit places they have been to before during similar times of day, with a higher probability for locations they frequently visit (place_id 373)"
+11,373,"[373, 1, 305, 400, 402, 420, 270, 306, 305, 272]","Based on the user's historical activity pattern and recent context, it is predicted that they will likely visit a place they have been to before during similar times."
+11,373,"[373, 1, 305, 402, 400, 420, 420, 373, 373, 372]","Based on the user's activity pattern and recent context, I predicted the top 10 most likely places to be visited next"
+11,373,"[372, 305, 1, 373, 400, 420, 402, 373, 373, 373]","Predicting based on the user's activity pattern and recent context stays, considering repeated visits to certain places during certain times."
+11,373,"[373, 1, 402, 400, 420, 305, 372, 420, 373, 373]","Based on the user's activity pattern and recent context, it is likely that the next place will be a popular location where the user has spent significant time in the past."
+11,425,"[373, 1, 372, 305, 420, 400, 402, 373]",based on the user's repeated visits to certain places during certain times and recent activities
+11,373,"[373, 1, 400, 402, 305, 420, 425, 373, 373, 373]","The user's activity pattern suggests they tend to visit place 373 frequently, especially on weekends. The context stays indicate a recent visit to this place as well."
+11,372,"[373, 420, 305, 400, 1, 402, 425, 373, 373, 373]",Recent activities and historical stays suggest frequent visits to place 373 during weekdays.
+11,1,"['373', '1', '420', '400', '402', '425']","Based on the user's activity pattern and recent context, the next most likely places are those frequently visited during weekdays and weekends."
+11,373,"[373, 420, 400, 402, 425, 305, 372, 1, 373, 373]","Based on the user's activity pattern and recent context, I predict they will visit places with frequent stays during certain times, such as Sundays at 373."
+11,373,"[373, 425, 1, 402, 400]",Recent context and historical pattern of frequent visits to place 373 and other nearby places
+11,397,"[373, 1, 402, 400, 420, 305, 372, 373, 373, 373]","the user has a strong pattern of staying at place_id 373 during weekdays and weekends, with recent stays in the context indicating that this trend is likely to continue"
+11,373,"[373, 1, 305, 372, 400, 402, 420, 397, 373, 373]","The user's historical activity pattern and recent context shows a strong likelihood of returning to previous places, especially during similar time periods."
+11,147,"[373, 1, 400, 402, 305, 420, 397, 373, 373, 373]",The prediction is based on the user's repeated visits to certain places during certain times in their historical stays and recent activities.
+11,373,"[373, 1, 400, 402, 305, 397, 420, 423, 420, 373]",Recent context of staying at 373 and previous activity pattern suggest the user is likely to return to 373
+11,2,"[1, 373, 305, 400, 402, 420, 397, 147, 373, 373]",The prediction is based on the user's recent activities and his past stays. The most likely places to visit are the ones he has visited recently or frequently in the past.
+11,373,"[373, 1, 397, 305, 420, 400, 402, 373]",Prediction based on frequent visits to place_id 373 during specific times
+11,431,"[373, 1, 400, 402, 305, 420, 147, 420, 373, 373]","Based on the user's historical activity pattern and recent context, the most likely next place ID is their most frequently visited location during similar times of the day."
+11,436,"[373, 1, 2, 400, 402, 305, 420, 373, 373, 373]",based on the activity pattern of this user that we learned from the history and considering the context stays in the context
+11,389,"[373, 1, 420, 402, 400, 2, 305, 431, 436, 372]",the user's repeated visits to certain places during certain times and recent activities in the context
+11,289,"[373, 1, 400, 402, 420, 305, 431, 436, 389, 2]","Based on the user's historical stays and recent context, I predict that they are likely to return to their frequently visited places during similar times of day, with a strong likelihood of returning to place ID 373 first."
+11,373,"[373, 1, 400, 402, 420, 431, 436, 389, 305, 289]",based on the user's historical stays and recent activities
+11,373,"[373, 1, 400, 402, 305, 431, 436, 389, 289, 420]","Based on the user's activity pattern and recent context stays, it is likely that they will visit a place they have been to previously during similar times of day."
+11,373,"[373, 400, 402, 305, 436, 389, 289, 1, 420, 420]","Based on the user's activity pattern and recent context stays, I predicted that they will likely visit places they frequently go to during certain times"
+11,372,"[373, 1, 305, 389, 289, 420, 400, 402, 373]","Based on the user's activity pattern and recent context stays, the most likely next place is a familiar location, possibly work or home."
+11,372,"[373, 289, 420, 400, 402, 305, 1, 373, 372, 373]",the prediction is based on the user's historical activity pattern and recent context
+11,414,"[373, 1, 305, 400, 420, 402, 372, 373]",The user has a strong tendency to visit places 373 and 1 on weekdays and weekends.
+11,373,"[373, 1, 400, 402, 305, 420, 372, 373, 373, 373]","Based on the user's activity pattern and recent context stays, it is likely that they will visit places they have visited before during similar times, such as place ID 373."
+11,373,"[373, 1, 400, 402, 305, 414, 420, 373, 372, 373]",predicts the user's next location based on their repeated visits to certain places during certain times
+11,373,"[373, 1, 400, 402, 305, 414, 372, 420, 373, 373]",based on the user's activity pattern and recent context stays
+11,305,"[373, 372, 400, 420, 414, 305, 402, 1, 373, 373]",The user has a daily routine and the last activities indicate that they are in the place_id = 373 area
+11,202,"[373, 1, 400, 402, 420, 305, 414, 373, 373, 373]","The user has a strong preference for certain places and times of day, especially on weekdays."
+11,400,"[373, 1, 400, 402, 305, 420, 373, 373, 373, 373]","Based on the user's historical activity pattern and recent context, it is likely that they will visit places they have visited before during similar times of day."
+11,407,"[373, 1, 305, 400, 202, 420, 402, 373, 373, 373]","Based on the user's activity pattern and recent context, I predict they will likely visit places they have visited before, especially during similar times of day."
