@@ -53,9 +53,6 @@ def get_chat_completion(prompt, model="llama3:latest", json_mode=True, max_token
     if not isinstance(prompt, str):
         prompt = str(prompt)
 
-    print("\n\n------------------Prompt Passato:\n", prompt)
-    print("------------------")
-
     base_url = "http://localhost:11434"
     url = f"{base_url}/api/chat"
 
@@ -82,18 +79,22 @@ def get_chat_completion(prompt, model="llama3:latest", json_mode=True, max_token
         data = response.json()
 
         content = data.get("message", {}).get("content", "")
-        print("📦 Risposta JSON (grezza o meno):\n", content)
+        
+        # DEBUG:
+        #print("📦 Risposta JSON (grezza o meno):\n", content)
 
         if json_mode:
             try:
                 parsed = json.loads(content)
-                print("✅ JSON interpretato correttamente:\n", json.dumps(parsed, indent=2))
+                # DEBUG:
+                #print("✅ JSON interpretato correttamente:\n", json.dumps(parsed, indent=2))
                 return parsed
             except json.JSONDecodeError:
                 print("⚠️ Risposta non in formato JSON puro. Provo a estrarre...")
                 extracted = extract_json_from_text(content)
                 if extracted:
-                    print("✅ JSON estratto con successo:\n", json.dumps(extracted, indent=2))
+                    # DEBUG:
+                    #print("✅ JSON estratto con successo:\n", json.dumps(extracted, indent=2))
                     return json.loads(json.dumps(extracted))
                 else:
                     print("❌ Estrazione JSON fallita.")
@@ -128,7 +129,8 @@ def get_dataset(dataname):
         # Forza la colonna 'duration' a essere di tipo int in modo sicuro
         tv_data['duration'] = pd.to_numeric(tv_data['duration'], errors='coerce', downcast='integer')
 
-    print("Number of total test sample: ", len(test_file))
+    #DEBUG:
+    #print("Number of total test sample: ", len(test_file))
     return tv_data, test_file
 
 def convert_to_12_hour_clock(minutes):
@@ -292,7 +294,8 @@ def single_query_top1(historical_data, X):
     # 🧠 Chiamata al modello LLM
     response = get_chat_completion(prompt)
 
-    print("📦 Risposta JSON (grezza o meno):", response)
+    # DEBUG:
+    #print("📦 Risposta JSON (grezza o meno):", response)
 
     # 🧩 Parsing robusto
     if response is None or not isinstance(response, dict):
@@ -347,7 +350,8 @@ def single_query_top10(historical_data, X):
 
     response = get_chat_completion(prompt)
 
-    print("📦 Risposta JSON (grezza o meno):", response)
+    # DEBUG:
+    #print("📦 Risposta JSON (grezza o meno):", response)
 
     # La funzione get_chat_completion restituisce già un dizionario o None
     if response is None or not isinstance(response, dict):
@@ -394,7 +398,8 @@ def single_query_top1_wot(historical_data, X):
 
     response = get_chat_completion(prompt)
 
-    print("📦 Risposta JSON (grezza o meno):", response)
+    # DEBUG:
+    #print("📦 Risposta JSON (grezza o meno):", response)
 
     # La funzione get_chat_completion restituisce già un dizionario o None
     if response is None or not isinstance(response, dict):
@@ -403,7 +408,6 @@ def single_query_top1_wot(historical_data, X):
 
     print("✅ JSON interpretato correttamente:\n", json.dumps(response, indent=2))
     return response
-
 # 
 def single_query_top10_wot(historical_data, X):
     """
@@ -441,7 +445,8 @@ def single_query_top10_wot(historical_data, X):
 
     response = get_chat_completion(prompt)
 
-    print("📦 Risposta JSON (grezza o meno):", response)
+    # DEBUG:
+    #print("📦 Risposta JSON (grezza o meno):", response)
 
     # La funzione get_chat_completion restituisce già un dizionario o None
     if response is None or not isinstance(response, dict):
@@ -450,7 +455,6 @@ def single_query_top10_wot(historical_data, X):
 
     print("✅ JSON interpretato correttamente:\n", json.dumps(response, indent=2))
     return response
-
 
 def single_query_top1_fsq(historical_data, X):
     """
@@ -553,7 +557,6 @@ def single_query_top1_wot_fsq(historical_data, X):
             return None
 
     return completion
-
 # 
 def single_query_top10_fsq(historical_data, X):
     """
@@ -645,7 +648,8 @@ def single_query_top10_wot_fsq(historical_data, X):
 
     response = get_chat_completion(prompt)
 
-    print("📦 Risposta JSON (grezza o meno):", response)
+    # DEBUG:
+    #print("📦 Risposta JSON (grezza o meno):", response)
 
     # La funzione get_chat_completion restituisce già un dizionario o None
     if response is None or not isinstance(response, dict):
@@ -685,39 +689,44 @@ def single_user_query(dataname, uid, historical_data, predict_X, predict_y, logg
         logger.info(f'The {i+1}th sample:')
 
         try:
-            # Seleziona la funzione di query corretta che include già la chiamata al modello
+            # Seleziona la funzione di query corretta
             if dataname == 'geolife':
-                if is_wt:
-                    res_dict = single_query_top1(historical_data, predict_X[i]) if top_k == 1 else single_query_top10(historical_data, predict_X[i])
-                    
-                else:
-                    res_dict = single_query_top1_wot(historical_data, predict_X[i]) if top_k == 1 else single_query_top10_wot(historical_data, predict_X[i])
+                res_dict = (
+                    single_query_top1(historical_data, predict_X[i])
+                    if is_wt and top_k == 1 else
+                    single_query_top10(historical_data, predict_X[i])
+                    if is_wt else
+                    single_query_top1_wot(historical_data, predict_X[i])
+                    if top_k == 1 else
+                    single_query_top10_wot(historical_data, predict_X[i])
+                )
             elif dataname == 'fsq':
-                if is_wt:
-                    res_dict = single_query_top1_fsq(historical_data, predict_X[i]) if top_k == 1 else single_query_top10_fsq(historical_data, predict_X[i])
-                else:
-                    res_dict = single_query_top1_wot_fsq(historical_data, predict_X[i]) if top_k == 1 else single_query_top10_wot_fsq(historical_data, predict_X[i])
+                res_dict = (
+                    single_query_top1_fsq(historical_data, predict_X[i])
+                    if is_wt and top_k == 1 else
+                    single_query_top10_fsq(historical_data, predict_X[i])
+                    if is_wt else
+                    single_query_top1_wot_fsq(historical_data, predict_X[i])
+                    if top_k == 1 else
+                    single_query_top10_wot_fsq(historical_data, predict_X[i])
+                )
             else:
                 raise ValueError(f"Unsupported dataset name: {dataname}")
 
             logger.info(f"Ground truth: {predict_y[i]}")
             logger.info(f"Pred results: {res_dict}")
-            
-            if isinstance(res_dict, dict):
-                print("🧾 Risultato JSON pulito:\n", json.dumps(res_dict, indent=2))
 
             if not isinstance(res_dict, dict) or 'prediction' not in res_dict:
-                raise ValueError("La risposta non contiene un dizionario valido con chiave 'prediction'.")
+                raise ValueError("Risposta malformata: manca la chiave 'prediction'.")
 
-            # Post-processing
             if top_k != 1:
-                res_dict['prediction'] = str(res_dict['prediction'])
+                res_dict['prediction'] = str(res_dict['prediction'])  # salva la lista come stringa
 
             res_dict['user_id'] = uid
-            res_dict['ground_truth'] = int(predict_y[i])  # assicurati che sia int, non np.int64
+            res_dict['ground_truth'] = int(predict_y[i])
 
         except Exception as e:
-            logger.warning(f"⚠️ Parsing fallito o risposta non valida: {e}")
+            logger.warning(f"⚠️ Errore nella predizione/parsing: {e}")
             res_dict = {
                 'user_id': uid,
                 'ground_truth': int(predict_y[i]),
@@ -725,22 +734,15 @@ def single_user_query(dataname, uid, historical_data, predict_X, predict_y, logg
                 'reason': str(e)
             }
 
-        # Aggiungi il risultato al DataFrame
+        # Aggiunta del nuovo risultato
         new_row = pd.DataFrame([res_dict])
         current_results = pd.concat([current_results, new_row], ignore_index=True)
 
-    # Salvataggio dei risultati
-    current_results.to_csv(out_filepath, index=False)
-    logger.info(f"Saved {len(current_results)} results to {out_filepath}")
+        # 💾 Salvataggio immediato ad ogni iterazione
+        current_results.to_csv(out_filepath, index=False)
+        logger.info(f"✅ Salvato parziale dopo sample {i+1}/{total_queries} → {out_filepath}")
 
-    # Retry mechanism per query fallite (se serve)
-    max_retries = 3
-    retry_count = 0
-    while len(current_results) < total_queries and retry_count < max_retries:
-        logger.info(f"Restarting queries (attempt {retry_count + 1}/{max_retries})...")
-        retry_count += 1
-        single_user_query(dataname, uid, historical_data, predict_X, predict_y,
-                          logger, top_k, is_wt, output_dir, sleep_query, sleep_crash)
+    logger.info(f"🎉 Completate tutte le predizioni per user {uid}. Risultati salvati in: {out_filepath}")
     
 def query_all_user(dataname, uid_list, logger, train_data, num_historical_stay,
                    num_context_stay, test_file, top_k, is_wt, output_dir, sleep_query, sleep_crash):
@@ -757,7 +759,6 @@ def query_all_user(dataname, uid_list, logger, train_data, num_historical_stay,
             sleep_query=sleep_query, sleep_crash=sleep_crash
         )
 
-
 # Get the remaning user
 def get_unqueried_user(dataname, output_dir='output/'):
     if not os.path.exists(output_dir):
@@ -768,10 +769,11 @@ def get_unqueried_user(dataname, output_dir='output/'):
         all_user_id = [i+1 for i in range(535)]
     processed_id = [int(file.split('.')[0]) for file in os.listdir(output_dir) if file.endswith('.csv')]
     remain_id = [i for i in all_user_id if i not in processed_id]
-    print(remain_id)
-    print(f"Number of the remaining id: {len(remain_id)}")
+    
+    #DEBUG:
+    #print(remain_id)
+    #print(f"Number of the remaining id: {len(remain_id)}")
     return remain_id
-
 
 def main():
     # Parameters
@@ -788,8 +790,10 @@ def main():
     # Step 1: Get dataset
     try:
         tv_data, test_file = get_dataset(dataname)
-        print("✅ Dataset loaded successfully.")
-        print(f"Number of total training and validation samples: {len(tv_data)}")
+        # DEBUG:
+        #print("✅ Dataset loaded successfully.")
+        # DEBUG:
+        #print(f"Number of total training and validation samples: {len(tv_data)}")
     except Exception as e:
         print(f"❌ Errore nel caricamento del dataset: {e}")
         return  # Stop the function if dataset loading fails
@@ -797,7 +801,8 @@ def main():
     # Step 2: Set up logging
     try:
         logger = get_logger('my_logger', log_dir=log_dir)
-        print("✅ Logger initialized successfully.")
+        #DEBUG:
+        #print("✅ Logger initialized successfully.")
     except Exception as e:
         print(f"❌ Errore nell'inizializzazione del logger: {e}")
         return  # Stop the function if logger initialization fails
@@ -805,8 +810,9 @@ def main():
     # Step 3: Get unqueried users
     try:
         uid_list = get_unqueried_user(dataname, output_dir)
-        print(f"✅ Unqueried user list: {uid_list}")
-        print(f"Number of unqueried users: {len(uid_list)}")
+        # DEBUG:
+        #print(f"✅ Unqueried user list: {uid_list}")
+        #print(f"Number of unqueried users: {len(uid_list)}")
     except FileNotFoundError:
         print(f"❌ Errore: File non trovato. Assicurati che il percorso sia corretto.")
         return
