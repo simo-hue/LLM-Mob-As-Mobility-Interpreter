@@ -371,26 +371,33 @@ def single_query_top1_wot(historical_data, X):
     """
     sanitized_history = convert_to_serializable(historical_data)
     sanitized_context = convert_to_serializable(X['context_stay'])
-
+    
     prompt = f"""
-    Your task is to predict a user's next location based on his/her activity pattern.
-    You will be provided with <history> which is a list containing this user's historical stays, then <context> which provides contextual information 
-    about where and when this user has been to recently. Stays in both <history> and <context> are in chronological order.
-    Each stay takes the following form: (start_time, day_of_week, duration, place_id). The meaning of each element is:
-    - start_time: the start time of the stay in 12h clock format.
-    - day_of_week: the day of the week.
-    - duration: duration (in minutes) of the stay.
-    - place_id: an integer representing a unique place ID.
+        Your task is to predict a user's next location based on their activity pattern.
 
-    Please infer what the <next_place_id> is (i.e., the most likely place ID), considering:
-    1. the user's activity patterns from <history> (e.g., repeated visits to certain places at certain times),
-    2. and the recent activities from <context>.
+        You will be provided with:
+        - <history>: a list of historical stays,
+        - <context>: a list of recent stays.
+        Each stay is a tuple: (start_time, day_of_week, duration, place_id)
 
-    Respond ONLY with a single-line JSON object with the following keys:
-    - "prediction": a list of integers (place IDs)
-    - "reason": a short string explaining your prediction
+        Instructions:
+        1. Infer the most likely next location based on recurring patterns in <history> and recent activity in <context>.
+        2. The <target_stay> has known time and day info, but unknown duration and place_id.
 
-    Do NOT include any code, explanation, or markdown formatting. Only output valid JSON.
+        ⚠️ Very Important:
+        - You must output **only one** and **only one** JSON object.
+        - Do not include multiple responses or additional commentary.
+        - Your output must be a valid JSON object in **one single line**, with the following exact structure:
+
+        {{ 
+        "prediction": [place_id_1, place_id_2, ..., place_id_k],
+        "reason": "Your brief reasoning goes here."
+        }}
+
+        Constraints:
+        - Do not output multiple JSON blocks.
+        - Do not include text before or after the JSON.
+        - If unsure, still return one valid JSON with your best guess.
 
     <history>: {json.dumps(sanitized_history)}
     <context>: {json.dumps(sanitized_context)}
@@ -776,69 +783,62 @@ def get_unqueried_user(dataname, output_dir='output/'):
     return remain_id
 
 def main():
-    # Parameters
-    dataname = "geolife"  # specify the dataset, geolife or fsq.
-    num_historical_stay = 30  # M
-    num_context_stay = 5  # N
-    top_k = 10  # the number of output places k
-    with_time = False  # whether incorporate temporal information for target stay
-    sleep_single_query = 1  # the sleep time between queries
-    sleep_if_crash = 5  # the sleep time if the server crashes
-    output_dir = f"output/{dataname}/top10_wot"  # the output path
-    log_dir = f"logs/{dataname}/top10_wot"  # the log dir
+    # Parametri base
+    dataname = "geolife"
+    num_historical_stay = 30
+    num_context_stay = 5
+    sleep_single_query = 1
+    sleep_if_crash = 5
 
-    # Step 1: Get dataset
+    # Lista delle configurazioni da testare
+    configs = [
+        {"name": "top1", "top_k": 1, "is_wt": True},
+        {"name": "top10", "top_k": 10, "is_wt": True},
+        {"name": "top10_wot", "top_k": 10, "is_wt": False},
+    ]
+
+    # Caricamento dataset
     try:
         tv_data, test_file = get_dataset(dataname)
-        # DEBUG:
-        #print("✅ Dataset loaded successfully.")
-        # DEBUG:
-        #print(f"Number of total training and validation samples: {len(tv_data)}")
     except Exception as e:
         print(f"❌ Errore nel caricamento del dataset: {e}")
-        return  # Stop the function if dataset loading fails
-
-    # Step 2: Set up logging
-    try:
-        logger = get_logger('my_logger', log_dir=log_dir)
-        #DEBUG:
-        #print("✅ Logger initialized successfully.")
-    except Exception as e:
-        print(f"❌ Errore nell'inizializzazione del logger: {e}")
-        return  # Stop the function if logger initialization fails
-
-    # Step 3: Get unqueried users
-    try:
-        uid_list = get_unqueried_user(dataname, output_dir)
-        # DEBUG:
-        #print(f"✅ Unqueried user list: {uid_list}")
-        #print(f"Number of unqueried users: {len(uid_list)}")
-    except FileNotFoundError:
-        print(f"❌ Errore: File non trovato. Assicurati che il percorso sia corretto.")
         return
-    except pd.errors.EmptyDataError:
-        print(f"❌ Errore: Il file CSV è vuoto. Assicurati che il file contenga dati.")
-        return
-    except pd.errors.ParserError:
-        print(f"❌ Errore: Errore di parsing del file CSV. Controlla il formato del file.")
-        return
-    except Exception as e:
-        print(f"❌ Errore nel recupero degli utenti non interrogati: {e}")
-        return  # Stop the function if fetching users fails
 
-    # Step 4: Run query for all users
-    try:
-        query_all_user(
-            dataname, uid_list, logger, tv_data, num_historical_stay, num_context_stay,
-            test_file, output_dir=output_dir, top_k=top_k, is_wt=with_time,
-            sleep_query=sleep_single_query, sleep_crash=sleep_if_crash
-        )
-        print("✅ Query to all users completed successfully.")
-    except Exception as e:
-        print(f"❌ Errore durante l'esecuzione della query per gli utenti: {e}")
-        return  # Stop the function if the query fails
+    # Ciclo su ogni configurazione
+    for cfg in configs:
+        print(f"\n🚀 Avvio configurazione: {cfg['name']}")
 
-    print("Query done")
+        output_dir = f"output/{dataname}/{cfg['name']}"
+        log_dir = f"logs/{dataname}/{cfg['name']}"
+
+        # Logger
+        try:
+            logger = get_logger(f"logger_{cfg['name']}", log_dir=log_dir)
+        except Exception as e:
+            print(f"❌ Errore nell'inizializzazione del logger: {e}")
+            continue
+
+        # Utenti da processare
+        try:
+            uid_list = get_unqueried_user(dataname, output_dir)
+        except Exception as e:
+            print(f"❌ Errore nel recupero utenti non interrogati per {cfg['name']}: {e}")
+            continue
+
+        # Esecuzione delle query
+        try:
+            query_all_user(
+                dataname, uid_list, logger, tv_data,
+                num_historical_stay, num_context_stay, test_file,
+                output_dir=output_dir, top_k=cfg['top_k'], is_wt=cfg['is_wt'],
+                sleep_query=sleep_single_query, sleep_crash=sleep_if_crash
+            )
+            print(f"✅ Completata configurazione: {cfg['name']}")
+        except Exception as e:
+            print(f"❌ Errore durante esecuzione configurazione {cfg['name']}: {e}")
+            continue
+
+    print("\n🎉 Tutte le configurazioni completate con successo.")
 
 if __name__ == "__main__":
     try:
