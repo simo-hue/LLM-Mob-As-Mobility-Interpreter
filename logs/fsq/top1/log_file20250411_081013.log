@@ -11699,3 +11699,7 @@ Ground truth: 842
 Pred results: {'prediction': [297.0], 'reason': "The target stay's day of the week is Wednesday and time is morning, which matches with most recent activity patterns in both history and context"}
 ✅ Salvato parziale dopo sample 10/12 → output/fsq/top1/127.csv
 The 11th sample:
+Ground truth: 297
+Pred results: {'prediction': [297.0], 'reason': 'The user has a consistent daily routine of visiting the same place (297) every morning'}
+✅ Salvato parziale dopo sample 11/12 → output/fsq/top1/127.csv
+The 12th sample:
