@@ -1,0 +1,18 @@
+user_id,ground_truth,prediction,reason
+298,773,[773.0],The target stay is during the weekday and has similar temporal information to previous stays with place ID 773.0 in the history.
+298,773,[773.0],The user's recent activity pattern suggests a strong likelihood of visiting the same place (773) during similar daytime hours and on a Saturday.
+298,773,[773.0],Recent pattern of repeated visits to place 773.0 at morning hours on Tuesday
+298,773,[773],"Based on the user's activity pattern and context stays, it is likely that they will visit a familiar place (773) during their usual time of day (afternoon) and weekday (Monday)."
+298,239,[773.0],user's recent activity pattern is visiting place with ID 773 during evening hours
+298,773,[773],The user has a frequent visit to place ID 773 on Wednesdays at around 10:00 AM
+298,218,[773.0],"based on the user's activity pattern and recent stays in the context, it is most likely that the next place ID will be 773"
+298,188,[773],The target stay's time of day and weekday are similar to the user's recent stays in the context.
+298,287,[773],"Based on the user's activity pattern and recent context stays, the most likely place ID is 773 because it has been frequently visited during Thursday evening."
+298,773,[773.0],The user has a strong tendency to visit place 773 on Sundays.
+298,773,[773.0],"The target stay time and weekday are similar to the user's historical stays and recent context stays, suggesting a repeated visit to the same place"
+298,1261,[773.0],The user's activity pattern suggests repeated visits to place with ID 773.0 during the evening (around 7:00 PM) and on Mondays.
+298,2859,[773],"Based on the user's activity pattern and recent context, it is most likely that they will visit place 773 again."
+298,773,[773.0],The user has repeated visit to place ID 773.0 on Wednesday
+298,773,[773.0],The user's historical activity pattern and recent context suggests that the next location is likely to be a repeated visit to a familiar place during the daytime on Thursday.
+298,342,[773],"the most recent stays in both history and context are at place 773 on weekdays, so the prediction is that the next stay will also be at this place"
+298,342,[773.0],"The target stay's day of the week and time are similar to recent stays in the context and history, so it is likely that this user will visit the same place again."

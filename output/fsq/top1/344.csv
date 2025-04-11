@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+344,851,[1.0],The target stay is on Sunday and in the evening when the user has been to place ID 1 before.
+344,851,[851],based on the context and historical pattern of repeated visits to place 851 during Monday evening
+344,2537,[2984],The target stay is on Wednesday evening and the user has a habit of visiting place ID 2984 during this time.
+344,230,[851],"Based on the user's activity pattern and recent stays in context, it is likely that they will visit a place they have been to before, specifically the place with ID 851."
+344,57,[1040.0],Recently visited places during similar time and weekday

@@ -1,0 +1,13 @@
+user_id,ground_truth,prediction,reason
+290,2239,[2239.0],Recent context and historical pattern suggest frequent visit to place 2239 during weekday mornings
+290,2394,[2239.0],"Based on the user's activity pattern and recent context stays, it is likely that they will visit a place with an ID of 2239 again."
+290,2239,[2073.0],The user has a repeated visit pattern to place with ID 2073 during Saturday.
+290,2239,[2239.0],The target stay has the same day of week and start time as recent stays in the context.
+290,2394,[2239.0],"Based on the user's activity pattern and recent context stays, it is most likely that the next stay will be at place ID 2239."
+290,2239,[2239.0],"The target stay is on a Monday morning, which is similar to the user's recent stays in the context, and given their previous activity pattern of frequent visits to place 2239.0"
+290,2239,[2239.0],based on the user's recent activities and temporal information
+290,2394,[2394.0],The user has a pattern of frequent visits to place ID 2394 on Monday afternoons.
+290,2239,[2239.0],Recent and regular visits to place ID 2239
+290,2239,[2073.0],"Based on the historical activity pattern and recent context stays, the user is most likely to visit the same place they have visited before during this time slot."
+290,2239,[2073.0],"Based on the user's activity pattern and recent context, it is likely that they will visit a place similar to their previous Friday afternoon stays."
+290,2239,[2239.0],The user has a consistent pattern of visiting place ID 2239 during weekdays and at night.

@@ -1,0 +1,2 @@
+user_id,ground_truth,prediction,reason
+64,2638,"[6, 9, 8, 10, 5, 7, 3, 2, 1, 4]","The target stay is on a Monday afternoon, which is similar to the user's recent activities (07:20 PM on Mondays and Wednesdays) and historical stays (e.g., 09:46 AM on Mondays). The place IDs with higher probabilities are those that have been visited frequently during this time of day."

@@ -1,0 +1,16 @@
+user_id,ground_truth,prediction,reason
+451,1801,[1530],"Recent stays on Sunday and Monday, and the target stay is also on a Monday, suggesting this user will visit place 1530 again"
+451,1306,[1530],Based on the user's activity pattern of repeated visits to place ID 1530 during weekdays and recent context stays at this place.
+451,500,[237.0],The user tends to visit the same place on Wednesdays during nighttime.
+451,1863,[1530],"based on the user's activity pattern and recent context, it is likely that they will visit the same place as yesterday"
+451,1422,[2314],"Based on the user's historical stays and recent context, it is most likely that they will visit place 2314 again, as this place has been frequently visited during similar times of the day and week."
+451,1863,[2314],The user has a history of visiting place with ID 2314 at night on Fridays.
+451,1306,[2314.0],recently visited on Monday and Wednesday
+451,1863,[2314],Recent activities suggest that the user often goes to place 2314 on Thursday mornings.
+451,200,[1863],"The user's recent activities are mostly at this place, and the target stay is during a similar time of day"
+451,1306,[1422],The user's recent stays in the context suggest a strong probability of visiting place ID 1422 again.
+451,2637,[437.0],Recent visit to the place on Friday and similar temporal information
+451,283,[237.0],The user's activity pattern suggests that they tend to visit places with similar IDs on Sundays and late at night.
+451,1306,[2314],recent repeated visit to the same place on Monday
+451,682,[1530.0],Recent context and historical pattern suggest frequent visit to place with ID 1530 on Tuesday evening
+451,1306,[2314],"The user has shown a strong preference for visiting place ID 2314 during the night, and this pattern is reinforced by the recent context stays."

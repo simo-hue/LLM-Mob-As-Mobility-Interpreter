@@ -1,0 +1,21 @@
+user_id,ground_truth,prediction,reason
+519,506,[1910.0],"based on the user's activity pattern and recent context stays, it is most likely that the user will visit place 1910"
+519,1910,[1910.0],The user has a frequent visit to place ID 1910 on Wednesday morning
+519,1910,[1910.0],"The target stay's time and weekday are the same as recent stays in the context, and based on the user's activity pattern from their history"
+519,1146,[1910.0],The target stay is on Friday and during the morning/afternoon when the user usually goes to place 1910.0.
+519,201,[1910.0],"The target stay's time and day of the week match with recent stays in the context, and the place ID 1910.0 has been visited frequently throughout the user's history"
+519,1910,[1910.0],The user has a repeated visit pattern to place 1910.0 on Thursdays.
+519,1910,[1910.0],"The user tends to visit place 1910.0 during weekdays and in the morning/afternoon, which matches the temporal information of the target stay"
+519,1910,[1910.0],"Based on the user's activity pattern and recent context, it is likely that they will visit place ID 1910 again."
+519,1910,[1910.0],"The user has a consistent pattern of staying at place ID 1910 in the morning and on Fridays, as seen in their historical stays and recent context."
+519,293,[1910.0],"Based on the user's activity pattern and recent context, it is likely that they will visit place 1910 again due to repeated visits during weekdays."
+519,2491,[1910.0],"The target time is during the typical Monday to Friday period and matches the user's daily routine, with a high probability of returning to place ID 1910."
+519,2778,[1910.0],Recent activity pattern indicates a high probability of visiting the same place as before
+519,1910,[1910.0],repeated visit to place during morning
+519,241,[1910.0],"Based on the activity pattern of this user that we learned from history and the context stays in context, repeated visit to place 1910 during certain time is most likely."
+519,1910,[1910.0],The user has a strong tendency to visit place with ID 1910.0 during Tuesday morning.
+519,680,[1910.0],The target stay's day of the week and time match with a frequent pattern in the user's history
+519,1910,[1910.0],"The user tends to visit place ID 1910 on Wednesdays, and the context suggests a recent visit to this place."
+519,1910,[1910.0],The user's activity pattern shows a repeated visit to place ID 1910 during Thursday mornings.
+519,218,[1910.0],The user has a consistent pattern of visiting place ID 1910 during weekdays and in the morning
+519,366,[1910.0],The user has a consistent habit of visiting the same place (1910) at around the same time on Tuesdays.

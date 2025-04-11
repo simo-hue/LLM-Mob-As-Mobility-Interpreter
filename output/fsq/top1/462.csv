@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+462,3171,[504.0],"The target stay time and weekday are similar to the most recent stays in context, and the user has visited place 504 frequently in the past."
+462,2885,[504.0],Recent visit to this place during daytime
+462,943,[943.0],"The user has a regular Sunday evening visit to place with ID 943, as seen in the history"
+462,3171,[420],The user has a regular pattern of visiting place ID 420 on Thursdays in the evening.
+462,943,[943],"The user has visited place 943 multiple times on Sundays, and the current time is also Sunday evening."
+462,420,[420],Recent stays and historical pattern suggest the user is likely to visit the same place as their previous stay on this day of the week
+462,3171,[3042.0],The user has been to this place at a similar time on Thursday in the past

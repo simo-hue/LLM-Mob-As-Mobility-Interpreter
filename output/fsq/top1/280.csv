@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+280,3064,[861.0],recent activity pattern shows user tends to visit place 861.0 during evening hours
+280,3170,[2304.0],"Given the user's historical activity pattern and recent context of visiting places with ID 3170 and 3064 on weekdays, especially during evening hours, it is likely that the user will visit place 2304 again."
+280,3170,[2304],"Based on the user's activity pattern and recent context, it is likely that they will visit a place they have been to recently during the same day of the week (Sunday)"

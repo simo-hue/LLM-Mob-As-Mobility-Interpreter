@@ -1,0 +1,10 @@
+user_id,ground_truth,prediction,reason
+307,300,[658.0],"Recent activity pattern indicates frequent visits to place ID 658.0 during weekdays, especially on Tuesdays."
+307,1902,[660],repeated visit to a certain place during certain time
+307,1902,[660],"The target stay is on a Wednesday morning, which matches the user's activity pattern. The user has visited place 660 multiple times during weekdays and week mornings."
+307,300,[2732.0],"Based on the user's historical activity pattern and recent context stays, it is likely that they will visit place with ID 2732 again."
+307,660,[660.0],The user tends to visit place ID 660.0 during the same time slot on Wednesdays
+307,300,[2732.0],recent repeated visit to the same place on Thursday nights
+307,660,[660.0],The user has a regular Monday morning stay at place ID 660 and this target stay is on Friday morning as well
+307,1902,[658.0],"The target stay's start time and weekday match those of the most recent stays in the context, which are all visits to place 658."
+307,660,[660.0],"Based on the user's activity pattern and recent context, it is likely that they will visit a place with ID 660 again, as this has been a frequent occurrence during Fridays."

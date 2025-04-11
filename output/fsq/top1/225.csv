@@ -1,0 +1,11 @@
+user_id,ground_truth,prediction,reason
+225,702,[721],"Based on the user's activity pattern and recent context stays, it is likely that they will visit place ID 721 again, as this place has been visited during similar times (evening) and days of the week (Thursday)."
+225,1253,"[721, 1554]",The user has a strong pattern of visiting place ID 721 and 1554 on Fridays in the afternoon
+225,798,[817.0],"The user has a strong tendency to visit the same place on Saturday afternoons, based on their historical pattern and recent context."
+225,411,[1466],The user has a tendency to visit the same place on Saturday evenings
+225,1665,[1466.0],The user's recent stays in the context suggests they are likely to visit place ID 1466 again
+225,1466,[817.0],The user has a strong affinity for visiting place ID 817 on Mondays
+225,328,[817.0],repeated visit to place with same time and weekday as previous stays
+225,2502,[817.0],"Based on the user's recent activity pattern and context, it is likely that they will visit place ID 817 again due to its frequent visits during the same time of day (Thursday evening)"
+225,1466,[817.0],The user has a consistent pattern of visiting place ID 817 on Sundays
+225,2218,[817.0],"The target stay is on Monday and the start time is early in the day, which suggests a return to place 817, given that this user has visited this place many times during weekdays, including Mondays."

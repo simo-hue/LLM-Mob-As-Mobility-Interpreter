@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+14,233,"[3021, 919, 646, 1291, 973, 551, 155, 233, 3021, 973]",Recent stays and activity patterns suggest a preference for certain places at night and on weekends
+14,380,"[3021, 1291, 973, 646, 919, 155, 233]","The prediction is based on the user's activity pattern and recent stays in the <context>, considering that they have visited places with IDs 3021, 1291, and 973 frequently during weekdays and weekends."
+14,23,"[646, 3021, 919, 1291, 973, 551, 155, 233, 645, 919]","based on the activity pattern and context stays, I predicted the top 10 most likely places this user might visit given the temporal information of the target stay"

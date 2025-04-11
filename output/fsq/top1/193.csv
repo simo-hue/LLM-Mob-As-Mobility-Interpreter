@@ -1,0 +1,61 @@
+user_id,ground_truth,prediction,reason
+193,2103,[3747.0],recent context and history suggest the user will likely visit a place they have been to recently
+193,3270,[3747.0],Recent activities suggest frequent visits to this place on Fridays
+193,1,[3747.0],"Based on the user's recent activities and historical stays, it is likely that they will visit place ID 3747 next."
+193,1950,[3238.0],recent visit to this place during weekday morning
+193,1,[3747.0],The user has a tendency to stay in place 3747 during the evening and on Thursdays
+193,1690,[3747],"Based on the user's historical stays and recent context, it is likely that they will visit a place they have been to recently during this time of day."
+193,1,[3270.0],The user has a regular pattern of visiting place with ID 3270.0 on Mondays and Tuesdays.
+193,3270,[3747.0],Recent visits to place 3747 during the same time of day
+193,3270,[1950],The user has visited place 1950 before on Thursday and at a similar time
+193,1950,[1690],Recent visit to a place on Thursday
+193,3270,[3747.0],"Based on the user's recent activity pattern and context, it is likely that they will visit the same place (3747.0) as in their last stay."
+193,3238,[3270.0],Recently frequent visit to place 3270
+193,3541,[3747.0],Recent stays and temporal information suggest the user is likely to visit place ID 3747.
+193,1,[3747],"The target stay is during the night on Friday, and the user has a tendency to visit place with ID 3747 at night."
+193,1690,[3747.0],The user tends to visit the same place at similar times on Sundays
+193,1,[3747.0],The user has a repeated visit to place 3747 on Sunday night
+193,3235,[3270.0],Monday morning frequent visit to place with ID 3270
+193,1,[3270.0],The user has a repeated visit pattern to place ID 3270.0 during Monday afternoons
+193,1,[3270.0],"The target stay's day of the week and time are similar to those in recent stays in the context, and the user has a strong tendency to visit place 3270 during weekday afternoons."
+193,3270,[3747.0],The user tends to visit the same place at similar times on Friday
+193,1899,[3747.0],"Considering the user's activity pattern and recent stays in the context, it is most likely that they will visit place 3747 again."
+193,1,[3270.0],Recent activity pattern and context suggest a repeated visit to place ID 3270 on Friday morning
+193,1950,[3747.0],The user tends to visit place 3747 on Fridays and weekends.
+193,1690,[3747.0],The user has a recent history of visiting place 3747 on Saturday nights and also visited this place recently in the context.
+193,3541,[3270.0],The user tends to visit place with ID 3270 on Mondays.
+193,3235,[3235.0],The user has a consistent morning routine on Thursdays and the context shows that this pattern continues
+193,3270,[1950.0],The user tends to visit place with ID 1950.0 on Thursdays during the afternoon.
+193,3270,[3747.0],"The user's recent activities suggest a strong likelihood of visiting the same place as yesterday, which is 3747."
+193,3747,[3747.0],The user has been going to this place during the morning on Tuesday and also recently visited it in the context
+193,3270,[3270.0],The user has a strong activity pattern of visiting place 3270.0 on Tuesdays and Thursdays.
+193,1,[3270],"The target stay is on Friday evening, and the user has a strong activity pattern of visiting place 3270 during this time"
+193,1,[3747],Based on the recent context of visiting place 3747 at 10:25 PM Friday and considering the user's activity pattern of frequent visits to this place during different times
+193,3270,[3747.0],recent stays at place 3747 and similar start time
+193,3270,[3747.0],"The target stay is on a Monday afternoon, which is similar to the recent context stays, and also matches with some historical visits."
+193,1568,[3747.0],Recent activity pattern suggests the user tends to visit place with ID 3747 in the evening on Mondays.
+193,3747,[3270.0],Recurring visit on Tuesday morning
+193,3238,[3747.0],"Based on the user's activity pattern and recent context, it is likely that they will return to a place they have visited recently"
+193,1,[3270.0],Recent activities suggest a high probability of visiting place ID 3270
+193,1781,[3270.0],"The user's historical activity pattern suggests repeated visits to place 3270 during Tuesdays, which is also consistent with the target stay's day of week and time of day."
+193,1950,[3747],Recent activity pattern suggests frequent visit to place ID 3747 on Tuesday afternoons
+193,1,[1781],The user has a recent stay at this place on Tuesday
+193,1,[3238.0],Recent stays and activity pattern suggest the user will return to their frequent place
+193,3270,[3238.0],The user has a regular Monday stay at place ID 3238.0 and the target time is similar to their morning stays.
+193,3238,[1950.0],The user tends to visit place 1950.0 during mornings on Thursdays based on the historical stays and context information.
+193,1690,[1899.0],Most recent activity pattern and context suggest the user is likely to visit a place with ID 1899.
+193,721,[3747.0],The user tends to visit places with ID 3747 on Thursday afternoon based on the historical data and context.
+193,3238,[3747.0],Recent context stays show a tendency to visit place ID 3747 on Sundays and afternoons.
+193,1,[1],Recent visit to place ID 1 on Sunday
+193,3747,[3270.0],Recent visits to place 3270.0 on Tuesday mornings
+193,1,[3747],Recent stays show a pattern of visiting place 3747 during the afternoon on Tuesday
+193,3270,[3747.0],The target stay time and weekday match with the recent activities in the context
+193,3270,[3270.0],The user's activity pattern and context suggests that they tend to visit the place with ID 3270 on Thursday mornings.
+193,1950,[3747.0],"Based on recent activities and patterns in the user's history, it is likely that they will visit the same place as their previous stay."
+193,1899,[1899.0],The target stay's time and day of the week match the user's historical pattern of visiting place 1899.0 on Thursdays.
+193,1690,[3747.0],"Given the recent context of visiting place 3270 on Tuesday and Thursday, and considering the user's activity pattern of frequent visits to places 1 and 3747, it is likely that they will visit place 3747 again."
+193,1,[3747.0],based on the user's activity pattern and recent context stays
+193,3270,[3270],"Based on the user's activity pattern and recent context, the most likely place ID is the one where the user stayed during the same time period in the past."
+193,1690,[1950],The user has a pattern of visiting place 1950 during the evening on Wednesday.
+193,3238,[3270.0],"Based on the user's activity pattern and recent context, it is most likely that they will visit place 3270 again."
+193,1,"[3235, 3270]",based on recent activities and the temporal information of target stay

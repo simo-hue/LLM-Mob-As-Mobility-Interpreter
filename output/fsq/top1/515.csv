@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+515,203,[538],The user has a repeated visit pattern to place with ID 538 during the target stay time
+515,420,[538.0],"Based on the historical stays and context, the most likely place ID is 538.0, as it has been visited multiple times during similar time of the day (e.g., afternoon)"
+515,3297,[641],Recent context suggests the user has been to this place ID before during a similar time of day
+515,1733,[538],The target stay is on Friday morning and the user tends to visit place 538 during this time
+515,30,[1280.0],"The target stay is on Saturday and in the evening, which matches the recent activity pattern of frequent visits to place 1280 on Saturdays."
+515,179,[1280.0],The user has a consistent pattern of visiting this place on Saturday evening.
+515,1302,[538],The target stay is on Sunday and the user has a tendency to visit place ID 538 during this day of the week
+515,1733,[582.0],The user has a consistent habit of visiting place ID 582 on Mondays at around 11 am.
+515,413,[3724.0],Recent activity pattern and context suggest the user is likely to visit the same place (3724) as they did recently
+515,1733,[582.0],The target stay is on Tuesday afternoon when the user tends to visit place with ID 582.
+515,641,[426.0],The user's activity pattern suggests frequent visits to place with ID 426 during weekdays and especially on Tuesdays
+515,413,[582],"The target stay is on a Wednesday and the user has visited place 582 at 11:29 AM on a previous Wednesday, so it's likely they will visit this place again."
+515,420,[582.0],"The target stay's time is similar to the context stays' time, and the user has been to place 582 at this time before."

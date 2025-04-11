@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+352,2548,[1011.0],The user has a habit of visiting place with ID 1011 on Monday morning.
+352,1011,[1011.0],The user has a strong tendency to visit place ID 1011 on Mondays
+352,998,[1011.0],"The user has a repeated visit pattern to place ID 1011 on Mondays, and the context shows recent visits to this location."
+352,508,[1011.0],"The user's recent activity pattern suggests a high likelihood of visiting place 1011 again, especially given the temporal information and context stays."
+352,1011,[1011.0],repeated visit to a certain place during certain time
+352,2548,[2548.0],The user's activity pattern suggests a high probability of visiting the same place as their recent stays in the given context.

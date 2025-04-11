@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+143,2258,[293.0],The user has a consistent pattern of staying at the same place (place ID 293) during Tuesdays and late morning/afternoon hours.
+143,2176,[2258],The most recent activity pattern suggests a strong likelihood of returning to place ID 2258.
+143,293,[293.0],"The target stay is on Tuesday and the start time is close to the typical visit times of this user, so it's likely that they will visit place 293 again."
+143,2176,[293.0],The target stay's day of the week (Friday) and time (morning) match with the user's previous frequent visits to place 293.0 during these times.
+143,293,[293.0],"The user's activity pattern shows that they visit the same place (293) during certain times of the day and weekdays, and recently stayed there in the morning"
+143,293,[2176],Predicted based on the user's activity pattern and recent stays
+143,2176,[2258.0],"The target stay's weekday and start time are similar to those of the recent stays in the context, and the user has a tendency to visit this place during the same day of the week."
+143,293,[293.0],The user has a repeated visit to place ID 293 during certain time (afternoon) and day (Monday)
+143,998,[293.0],The target stay's day of the week (Tuesday) and time (12:24 PM) are consistent with previous visits to place ID 293.0 during this day and time in the user's history.
+143,2176,[293.0],the user has a repeated visit pattern to this place on Thursday
+143,2258,[2176.0],"The target stay is on a Friday morning and the user has visited place 2176 several times before on Fridays, also the recent context shows that the user visited place 2176 on Monday and Thursday, which suggests the user tends to visit this place during the weekdays"
+143,2176,[293.0],"The target stay's day of the week and time are similar to the context's, and the user has a history of repeated visits to place 293 on Mondays."
+143,293,[293.0],The user's recent activities show a high probability of returning to the same place (293.0) on Monday afternoons.

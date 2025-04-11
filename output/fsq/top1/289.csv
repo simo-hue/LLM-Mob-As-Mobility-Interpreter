@@ -1,0 +1,18 @@
+user_id,ground_truth,prediction,reason
+289,596,[1094.0],"Based on the user's activity pattern of visiting place ID 1094.0 during Tuesday and weekend, as well as the recent context stays in <context>, which indicate the possibility of another visit to this place."
+289,596,[363],Recent frequent visits to place with ID 363 on Sunday morning
+289,1253,[363.0],"Based on the user's activity pattern and recent context, they are likely to visit a place they have been to recently during similar time."
+289,279,[363.0],Recent visit and historical pattern of repeated visits to this place during nighttime
+289,3336,[1094],"The user has visited this place on Saturday before and recently, so it's likely to be their next destination given the same day of the week."
+289,3751,[363.0],"The user has a strong tendency to visit place 363 on Sundays, especially during the afternoon"
+289,1094,[363.0],The user has a history of visiting the same place on Monday evening.
+289,90,[363],Recent frequent visit to place 363 on Wednesday evening
+289,217,[363.0],The user has a strong activity pattern of repeated visits to place with ID 363.0 during Friday afternoon
+289,445,[363.0],The user tends to stay at the same place on Saturday mornings
+289,1147,[1094.0],Recent context shows a trend of visits to place ID 1094 on Sundays
+289,1094,[363.0],"Recent visits on Sunday and Monday at the same time and weekday, similar to previous pattern"
+289,386,[363.0],"Given the context stays of recent visits to place ID 363, and considering the user's historical pattern of repeated visits during certain times and days, it is likely that they will visit this place again."
+289,21,[363],"Based on the user's historical stays and recent context, I predict that the next location will be a place they have visited before during the same time of day (e.g., Wednesday evening)."
+289,1094,[1126.0],"The target stay's day of the week and time are similar to recent stays in the context, and the user has a history of visiting place 1126.0 during weekdays."
+289,1126,[363.0],"The target stay is on Monday evening and the user has visited place 363 before at similar times (e.g., 12:38 PM, 01:08 PM) in their history"
+289,1094,[1094],"The target stay is on Wednesday evening and the user has been to place 1094 several times, including recently"

@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+170,446,[506.0],"The target stay's time of day (7:49 AM) is similar to recent stays in the context (11:14 AM), and place ID 506 has been visited on Mondays in the past."
+170,446,[300.0],"The target stay's day of the week and time are similar to those in the context stays, and the user has visited place 300.0 at a similar time before."
+170,2910,[446],"The user has been frequenting place with ID 446 during recent days and times, and this target stay is also on a Thursday evening."

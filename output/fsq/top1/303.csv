@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+303,2451,[3578.0],The target stay's day of the week and time are similar to recent stays in both history and context
+303,978,[3578.0],"Based on the user's historical activity pattern and recent context, I predict the user will visit place 3578."
+303,1710,[3578.0],The target stay is on Sunday evening and the user has a habit of visiting place with ID 3578 in the evening
+303,3578,[3578.0],The target stay is on Thursday and the user has been to place 3578 on several occasions during weekdays.
+303,3578,[3578.0],Recent activity pattern suggests a high likelihood of returning to the same place as in recent stays
+303,1372,[3578.0],"The user has a history of frequent visits to place ID 3578 on Friday afternoons, which is also reflected in the recent context."
+303,1627,[3578.0],based on the user's activity pattern and recent stays
+303,371,[3578.0],The target stay is on Saturday evening and the user has a frequent visit to place with ID 3578 in similar time

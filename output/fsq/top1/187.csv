@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+187,3124,[3684.0],"The target stay has the same start time and day of the week as some recent stays in the context, which is also similar to the user's historical activity pattern."
+187,3437,[3684.0],"Based on the user's activity pattern and recent context, it is likely that they will visit place ID 3684 again"
+187,3684,[3684.0],"The user's most recent stay was at place ID 3684, and the target time is very close to this stay."

@@ -1,0 +1,15 @@
+user_id,ground_truth,prediction,reason
+37,2377,"[8, 7, 10, 3, 4, 1, 5, 6, 9, 2]","The prediction is based on the activity pattern of this user that was learned from their historical stays, which shows a strong tendency to visit certain places at specific times and days. The recent context stays also play an important role in this prediction."
+37,651,"[8, 4, 6, 3, 10, 5, 9, 2, 1, 7]",Predicted based on user's activity pattern and recent context stays.
+37,489,"[8, 9, 6, 7, 5, 4, 10]","The user has a tendency to visit the same places at similar times, especially on weekends."
+37,374,"[8, 9, 4, 1, 6, 7, 10, 5, 3, 2]","Based on the user's activity pattern and recent context stays, I predict that the next place they will visit is likely to be a familiar location with similar temporal patterns."
+37,374,"[651, 537, 781, 503, 72, 1, 25, 7, 11, 9]",based on the user's activity pattern of repeated visits to certain places during certain times and the context stays providing more recent activities
+37,374,"[651, 537, 781, 503, 72, 1, 652, 651, 489, 653]",Prediction based on user's historical activity pattern and recent context
+37,3539,"[8, 9, 11, 12, 1, 5, 7, 2, 6, 4]",The prediction is based on the user's activity pattern learned from their historical stays and the recent context stays.
+37,1,"[8, 5, 3, 1, 7, 2, 6, 4]","The prediction is based on the user's activity pattern and context stays, considering repeated visits to certain places during certain times and temporal information of target stay."
+37,1016,"[503, 537, 781, 72, 374, 1, 25, 3, 4, 12]",based on recent activities and temporal patterns
+37,3539,"[8, 6, 10, 4, 5, 9, 7, 3, 1, 2]","Based on the user's activity pattern and recent context, I predict that they will visit a place they have visited before during similar times of the day."
+37,1928,"[8, 10, 5, 7, 3, 2, 1]","The prediction is based on the user's activity pattern of frequent visits to place IDs 1, 2, 3, 5, 7, and 8 during weekdays, as well as recent stays in context."
+37,3539,"[14, 10, 7, 5, 4, 1]","The user tends to visit places with similar durations and times of day, so the top predictions are based on this pattern"
+37,1928,"[16, 15, 14, 13, 12, 11, 10, 9, 8, 7]","Based on the activity pattern and context, I predict that the user is most likely to visit places they have been to recently during similar time of day and day of week"
+37,3539,"[8, 10, 11, 7, 4, 5]","Based on the user's historical stays and recent context, the most likely places to visit next are those that have been frequently visited during similar times of day (e.g., evenings) and weekdays."

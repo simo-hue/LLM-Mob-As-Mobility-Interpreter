@@ -1,0 +1,10 @@
+user_id,ground_truth,prediction,reason
+335,1565,[1565.0],Recent frequent visit to place with ID 1565
+335,3186,[1565.0],"The user's recent activity pattern shows a tendency to revisit place 1565 during the weekend, and considering the context of this Sunday morning stay, it is likely that they will go back to this familiar location."
+335,3186,[1565.0],The target stay is in the early morning on Saturday and the user has a history of frequent visits to place 1565 during this time of day
+335,1,[1565.0],The user has been visiting place with ID 1565 repeatedly during the weekdays and weekends
+335,1,[1565.0],"The user's activity pattern shows a repeated visit to place ID 1565 during Sunday evening, and the recent context stay also indicates that the user has been to this place on Saturday and will likely continue the same behavior."
+335,3186,[1565.0],The user has a strong affinity for place ID 1565.0 as evident from their historical stays and recent context
+335,1,[1565.0],"Based on the user's activity pattern and recent context, it is likely that the next place ID will be 1565.0."
+335,1,[1565.0],"The target stay is on Friday evening, which is a typical time for the user to visit place ID 1565."
+335,1245,[1565.0],"Based on the user's activity pattern and recent context, it is most likely that they will return to a previously visited place during nighttime."

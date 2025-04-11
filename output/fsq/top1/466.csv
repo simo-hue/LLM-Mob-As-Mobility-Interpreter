@@ -1,0 +1,10 @@
+user_id,ground_truth,prediction,reason
+466,3521,[193.0],"Given the user's historical activity pattern and recent context, they are most likely to visit the same place (Place ID 193) as they did on previous Sundays."
+466,88,[3653.0],The user has a pattern of frequent visits to place ID 3653 on Fridays around this time.
+466,3210,[3653],the user has repeated visits to place ID 3653 during Saturday evening
+466,1647,[3653.0],The user has a strong tendency to visit place ID 3653 on Saturday evenings based on the activity pattern learned from the <history>
+466,739,[3653.0],Recent visits on Saturday afternoons and evenings suggest a high likelihood of returning to the same place
+466,445,[2944],Recent stays on Tuesday and previous history show a strong tendency to visit place ID 2944 during this time
+466,342,[3653.0],The user has a repeated visit to place 3653 during the morning on Wednesday.
+466,1463,[3653.0],based on the historical activity pattern and recent context
+466,3653,[3653],The user has a strong tendency to visit place ID 3653 during the afternoon on Saturday

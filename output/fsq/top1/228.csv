@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+228,2646,[2350],Most recent activity pattern suggests the user is likely to return to place with ID 2350
+228,2692,[1],"The target stay has similar temporal information to the most recent stays in context, which are all on weekdays. The user's activity pattern suggests a high likelihood of visiting place 1 during this time."
+228,2407,[2827.0],Recent stays indicate a strong likelihood of returning to the same place (2827) based on activity pattern and context
+228,937,[2672],The user has a frequent visit pattern on Wednesday and the recent context stays also show that they have been to this place in the evening.
+228,1973,[2350],"Given the recent stays in <context>, and considering this user's historical activity pattern of frequent visits to place 2350 on Thursdays"

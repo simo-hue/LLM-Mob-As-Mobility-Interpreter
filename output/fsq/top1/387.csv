@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+387,2213,[1824.0],The target stay has similar temporal information to the context stays and the user has a history of repeated visits to place ID 1824.
+387,2378,[1824.0],"Based on the user's activity pattern and recent context stays, it is likely that they will visit a place they have been to previously during this time slot."
+387,2378,[420.0],Recent context and activity pattern suggest returning to the same location
+387,451,[1824.0],The user has a consistent activity pattern of visiting place ID 1824 at this time on Tuesdays.
+387,568,[1824.0],The user's activity pattern shows a repeated visit to place ID 1824.0 on Wednesdays and Thursdays.
+387,344,[1824.0],"The target stay is on Monday night, which is similar to the recent activities of this user in the context."

@@ -16,3 +16,24 @@ user_id,ground_truth,prediction,reason
 140,293,[1674],Most recent and frequent visits are to place ID 1674 during Thursday afternoon
 140,1674,[1674.0],Recent activity pattern shows frequent visits to place ID 1674.0 on Mondays
 140,803,[1674],The user has visited the same place at a similar time on multiple occasions in their history and context
+140,631,[954],"Recent context suggests a possible visit to the same place as last Monday, considering the similar temporal information and day of the week."
+140,803,[954],"The user has a consistent activity pattern on Mondays, and the recent context indicates they are likely to repeat this behavior."
+140,1,[954],"The target stay is on a Friday afternoon, and the user has stayed in place 954 multiple times, including recently on Monday."
+140,954,[1674],The user's activity pattern suggests frequent visits to location 1674 on Mondays and the target stay's temporal information matches this pattern.
+140,1674,[1674.0],Recent activity pattern and temporal information indicate the user is likely to visit the same place as their most recent stay.
+140,631,[1674],The user has a regular Monday morning stay at this place ID
+140,882,[1],"The target stay is on Monday afternoon, and the user has been to place 1 recently in the context. This place is also visited by the user during similar time periods based on their activity pattern."
+140,882,[954],recent visit on Monday and the target time is early morning Tuesday
+140,440,[1674.0],The user's recent activity pattern indicates a high probability of visiting place with ID 1674.
+140,954,[1674],"The target stay is on a Monday morning, and the user has a recent history of frequent visits to place 1674"
+140,803,[1674],The user has been going to this place at similar times on Mondays
+140,809,[882],The user tends to visit the same place (882) during the afternoon on Mondays.
+140,1028,[882],The user has a tendency to visit the same place (882) on Tuesdays and Mondays during the morning.
+140,1378,[1674.0],"The user's recent activity pattern indicates a strong preference for visiting place 1674 on Mondays and Tuesdays, which is reinforced by the context stays, suggesting that this location will be the most likely next stop."
+140,1146,[1674.0],"Based on the user's activity pattern and recent context, the most likely next place ID is 1674.0, as the user has a tendency to visit this place during evening hours on weekdays."
+140,1306,[2408],The user tends to visit place with ID 2408 on Thursday morning
+140,1253,[1378],"The user has been active at this location on Wednesdays in the late morning/early evening, and recent context suggests they may be headed there again."
+140,882,[1674.0],"The user's activity pattern shows repeated visits to this place on Monday and Friday, especially during the daytime, which matches the given temporal information"
+140,2233,[1674],"The target stay is on Monday afternoon, which is a common time for this user to visit place with ID 1674."
+140,2592,[1674.0],"Based on the user's historical activity pattern and recent context, it is likely that they will visit a place they have been to recently during the same time of day."
+140,1253,[1674],The user tends to visit place ID 1674 during morning hours on Tuesdays and Wednesdays

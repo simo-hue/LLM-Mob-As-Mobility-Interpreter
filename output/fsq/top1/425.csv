@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+425,1191,[696.0],The user has a repeated visit pattern during the same day of the week and time of day
+425,729,[696.0],"The user has a strong activity pattern of repeated visits to place 696 during weekdays, especially on Thursdays."
+425,696,[729.0],"The target stay's day of the week and time match with the recent context stays' information, and based on the user's historical activity pattern, it is likely that they will visit a place they have been to recently during this time."

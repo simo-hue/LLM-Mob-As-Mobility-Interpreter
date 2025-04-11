@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+398,3476,[3476],The target stay is during the same day of the week as most recent stays in the context and has similar temporal information to other visits at place 3476.
+398,3476,[3476],"The target stay is during the week and in the morning, similar to most of this user's recent stays. Given that they have visited place 3476 multiple times before, it is likely that they will visit it again."
+398,3476,[3476],The user has been visiting the same place (3476) in context stays and has a similar time pattern on Saturday in history
+398,3476,[3476],The user has been visiting place 3476 frequently during weekdays and morning hours.

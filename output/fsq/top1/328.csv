@@ -1,0 +1,10 @@
+user_id,ground_truth,prediction,reason
+328,3355,[3184.0],"The user tends to visit place ID 3184 frequently during the morning and Friday, considering their historical stays and recent context"
+328,3133,[3184.0],"Given the user's historical activity pattern and recent context, it is likely that they will visit place ID 3184 again"
+328,3184,[3184.0],The target stay is on Friday evening and the user has visited place 3184 multiple times in the past on Fridays.
+328,359,[3184],"The target stay is on Friday evening and the user has been to place 3184 many times before, including recently in the context."
+328,3184,[3184.0],the user's recent and historical stays suggest they tend to visit place ID 3184 at night on Saturday
+328,359,[3184],Recent context suggests frequent visits to place ID 3184 on Sundays
+328,3184,[3184.0],"The target stay is on Sunday and early in the morning, based on the historical activity pattern of this user, it is likely to visit place ID 3184 again as they have done several times before."
+328,3224,[3184.0],"The target stay is on a Monday evening, which matches the day of week pattern in the history and context. The historical stays also show that this user frequently visits place 3184 during evenings."
+328,3355,[3184.0],Recent activity pattern suggests the user tends to stay at place with ID 3184 during morning hours on Tuesday

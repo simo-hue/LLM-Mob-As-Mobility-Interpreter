@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+286,3494,[3494],"The user has visited place 3494 multiple times in the past, and given that the target stay is late at night on a Thursday, which matches the historical pattern of visiting this place on weekday evenings."
+286,43,[3494],The target stay is on Friday evening and the user has been to the same place at similar times before
+286,192,[3494],The user's recent activities show a strong pattern of visiting place ID 3494 during the night on Saturday.
+286,3494,[3494],Recurring weekend visit

@@ -1,0 +1,16 @@
+user_id,ground_truth,prediction,reason
+179,3598,[3598.0],The user has a strong activity pattern of visiting the same place (place ID 3598.0) during daytime on Fridays
+179,1266,[3598],The user tends to repeat visits to a specific place (3598) during certain times of the day and on Fridays.
+179,1163,[3598.0],"The user has a strong activity pattern of repeated visits to place 3598.0 at similar times, and recently visited this place in the context."
+179,3598,[1163],Recent context suggests frequent visits to place with ID 1163 around nighttime on Fridays
+179,3598,[3598],"The user's activity pattern shows repeated visits to place ID 3598 on Saturdays, and the context stays suggest a recent visit to this place."
+179,3766,[596],"The target stay is on Saturday evening, and the user has a history of visiting place with ID 596 during this time."
+179,3598,[3598.0],"Based on the user's historical activity pattern and recent context stays, it is likely that the next location will be a repeated visit to place 3598.0 due to its frequent occurrence during similar times of the week."
+179,3598,[3766],The user has a repeated visit to place ID 3766 during Friday evening
+179,3598,[3766],Recent visits to 3766 on Friday and Wednesday suggest the user may visit this place again
+179,3598,[3766.0],Recent activities of this user have shown a preference for place ID 3766 at around the same time on Tuesdays.
+179,3598,[3766],recent stay on Saturday and weekday
+179,3598,[3766],Recent activity pattern suggests frequent visits to this place on Sundays
+179,3598,[3598],The user has a strong tendency to stay at place ID 3598 during weekdays and in the evening
+179,3598,[3766.0],"Based on the user's activity pattern and recent context, it is likely that they will visit the same place as their last stay on Wednesday (3766.0)"
+179,3766,[822],Recent activities suggest the user is likely to return to place ID 822 on Sunday evening

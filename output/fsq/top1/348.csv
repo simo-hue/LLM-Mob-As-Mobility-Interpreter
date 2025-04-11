@@ -1,0 +1,22 @@
+user_id,ground_truth,prediction,reason
+348,1368,[2098.0],recently visited on Monday evening
+348,300,[3805.0],Recent context suggests repeated visits to place 3805 on Sundays
+348,1368,[1.0],The target stay is on Sunday evening when the user has a history of visiting place with ID 1.0 during this time
+348,300,[1368.0],"The user has visited place 1368 multiple times on Saturday and Sunday, and recently in the context, so it's likely they will visit this place again."
+348,1368,[1368.0],"The target stay is during the evening on Monday, which matches the user's recent activities in the context."
+348,2098,[1368.0],"Based on the user's activity pattern and recent context stays, it is most likely that they will visit place 1368 again, considering the temporal information of the target stay matches with the previous visits to this place during weekdays."
+348,300,[1368.0],"Based on the user's activity pattern and recent context stays, it is likely that they will visit a place they have been to recently during this time of day"
+348,1368,[2529.0],The target stay is on Tuesday afternoon and the user has visited this place before during similar times.
+348,2098,[2403.0],The user has a pattern of visiting the same place on Wednesday mornings.
+348,2098,[1.0],The user has a tendency to visit place with ID 1.0 during the afternoon and evening on Thursdays
+348,300,[300.0],"The target stay is on Thursday evening, which matches the context of recent activities on Tuesday and Wednesday evenings. The user tends to repeat visits during this time, making it likely that they will visit place 300 again."
+348,2098,[1368.0],"The user has visited this place recently (in the context), and also had a similar stay on Saturday."
+348,1368,[2098.0],"Based on the user's activity pattern and recent context, it is likely that they will visit a place they have been to recently."
+348,684,[1.0],The user has visited place with ID 1.0 recently in the same time and day of the week.
+348,853,[684],Recent activity pattern and temporal information suggest that the user is likely to visit a place they visited recently during daytime
+348,2105,[3253.0],Recent activity pattern suggests the user will likely return to a previously visited place during Sunday afternoon.
+348,300,[2105.0],"The target stay's time and day of the week are similar to recent context stays (e.g., both occur on Sunday evening), and the user has a history of repeated visits to this place during these times."
+348,2529,[1.0],The user's activity pattern suggests a tendency to visit place ID 1 on Mondays during late hours.
+348,2529,[3805.0],The user's recent activities in the context and their historical pattern of visiting place ID 3805.0 during Mondays at around this time suggest it is the most likely next location.
+348,3471,[2529.0],Recent visits and stays on Monday afternoon suggest the next location is likely to be same as previous ones.
+348,684,[2529.0],"The target stay is on Tuesday evening, which is a weekday and similar to the user's activity pattern in the past."

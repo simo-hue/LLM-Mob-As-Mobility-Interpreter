@@ -1,0 +1,12 @@
+user_id,ground_truth,prediction,reason
+254,1589,[1424.0],Recent context shows frequent visits to place 1424 on Saturday evenings
+254,265,[2639],Recent activity pattern suggests a visit to this place on Saturday nights
+254,1261,[1261],Recent visit to the same place (1261) on Thursday evening
+254,2639,[1424.0],The user has a recent stay at this place on Saturday and tend to visit the same place during the same time
+254,538,[2816.0],"The user has a consistent pattern of visiting place 2816 on Mondays, and given the temporal information of the target stay (evening on Monday), this is the most likely next location."
+254,3817,[1261],The target stay is on Tuesday morning and the user has a history of visiting place 1261 during this time
+254,1365,[2050.0],Based on the user's activity pattern and recent stays in context
+254,409,[1261],The user tends to visit the same place on Wednesday evenings
+254,1424,[1261],The user has a habit of visiting place ID 1261 during Thursdays in the evening.
+254,1365,[2050.0],Recent context shows the user is likely to visit place with ID 2050 on Friday evening
+254,3092,[2816],Recent activity pattern shows that the user tends to stay at place 2816 during Sunday morning

@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+221,1035,[1139.0],"The user's recent stays have been at place ID 1139, and the target stay is also on a Saturday afternoon, which increases the likelihood of visiting this location again."
+221,416,[1139.0],"Given the context and historical pattern of this user, it is likely that they will visit a place where they have spent time recently during the daytime on Saturday"
+221,134,[1035],"The user has a strong tendency to visit place 1035 during the evening and weekends, which is consistent with the target stay's time and day of week."
+221,16,[1139.0],The target stay is on Saturday evening and the user has been to place 1139.0 at a similar time before.
+221,1035,[1035],The user has a strong tendency to visit place ID 1035 on Tuesdays during the late afternoon.
+221,1035,[1035],The user frequently visits place ID 1035 on Wednesdays.
+221,3807,[2278],Most recent location and time pattern suggests the user will return to their usual place
