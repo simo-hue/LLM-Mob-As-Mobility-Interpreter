@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+111,1483,"[2218, 2165, 2203, 205, 221, 1290]",The target stay is similar to recent stays in the context and has a high probability of being at home or nearby places
+111,1415,"[2218, 1290, 2390, 205, 2812, 2203, 2165, 1937, 282, 1483]",The prediction is based on the user's historical stays and recent activities in the context. The target stay is likely to be a repeat of a previous visit to one of these places.
+111,1627,"[8, 10, 9, 6, 7, 11, 12, 5, 4, 3]","Based on the activity pattern of this user, repeated visits to certain places during certain times."

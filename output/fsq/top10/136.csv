@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+136,869,"[5, 4, 2, 3, 1, 6, 7]","Based on the user's activity pattern and recent stays in the context, we predict that they will likely visit a place they have visited recently and frequently"
+136,1122,"[1, 5, 9, 4, 2, 6, 8, 3]",Predicted places are based on the user's activity pattern and recent context stays.
+136,2865,"[5, 3, 4, 6, 1, 7, 8, 9, 10, 2]","Based on the user's activity pattern and recent stays, it is likely that they will visit a familiar place during their usual morning routine."
+136,342,"[3280, 2448, 869, 1066, 2865, 728]","The prediction is based on the user's frequent visits to certain places during specific times and days, as well as recent activities in the context."
+136,869,"[6, 7, 0, 3, 1, 4, 2]","The user tends to visit places during morning hours on Fridays, especially at the same place where they stayed earlier this week."
+136,2448,"[6, 7, 8, 9, 12, 15, 16, 17, 18, 19]","Based on the user's activity pattern and recent context, the predicted next place is likely to be one of their frequent visits during Tuesday morning."
+136,873,"[7, 6, 5, 3, 2]","The user tends to visit the same places at similar times and days. The most recent stays are on Friday morning (2865) and Tuesday morning (2448). Given the target stay's start time is around 10:43 AM, which falls between the two recent visits, it is likely that the user will visit one of these places again."

@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+152,2335,"[8, 12, 4, 3, 14, 16, 15, 11, 1, 5]","Based on the user's activity pattern and recent context, I predict that the next stay will be at a place where they have previously stayed during similar times."
+152,506,"[8, 4, 3, 12, 14, 15, 1, 7, 6, 9]",Recurrent visits and temporal pattern
+152,1700,"[506, 1329, 1846, 941, 3805, 1021, 245, 719, 2935, 1575]",Prediction based on recent activity pattern and time-dependent behavior
+152,975,"[1846, 941, 3805, 1021, 245, 719]","The target stay's time and day of the week are consistent with previous weekday stays, so we predict a visit to a place that is frequently visited during weekdays."
+152,1021,"[1846, 3426, 1021, 941, 3805]","based on the user's activity pattern and recent context stays, this prediction is driven by frequent visits to places with IDs 1846, 3426, and 1021 during weekdays, especially Thursdays"

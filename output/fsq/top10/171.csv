@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+171,973,"[13, 5, 15, 14, 16, 11, 17, 18, 10, 3]","The predicted next location is likely to be one of the places this user has visited frequently during weekday afternoons, based on their historical activity pattern and recent context."
+171,35,"[15, 16, 10, 14, 17, 18, 11]","The prediction is based on the user's activity pattern and recent context stays. The target stay has a similar time and day of week as some of the context stays, which suggests that the user may visit one of the places they visited recently. The most frequent place IDs in the history are also taken into account."
+171,241,"[17, 15, 14, 11, 10, 9, 8]","The user tends to visit the same places at similar times on Fridays, and has visited place 17 recently in the context"
+171,1,"[12, 15, 3, 16, 10, 11, 9, 5, 7, 8]",The user tends to visit similar places on Sundays and has a preference for place 12.
+171,682,"[11, 12, 5, 10, 15, 16, 17]",The prediction is based on the user's activity pattern and temporal context.
+171,973,"[16, 12, 14, 15, 13, 10, 7, 9, 8, 5]","The target stay is on a Friday afternoon, which is similar to the time of day and day of week when the user visited place 16 in the past. The context also shows that the user was at place 12 recently, so it's likely they will visit a nearby location. Additionally, places 14, 15, 13, 10, 7, 9, 8, and 5 are all places the user has visited before during similar times of day or on similar days of the week."

@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+104,2236,"[503, 8, 9, 4, 10, 11, 5]",The user has a daily routine and tends to revisit certain places during specific times
+104,2087,"[503, 2236, 2087, 2312, 2805, 2047]",The prediction is based on the user's activity pattern and recent stays in the context
+104,2087,"[503, 2087, 2236, 2312, 2805, 2047, 2080]",The user has a habit of visiting places at similar times and on the same days. The most recent activities show frequent visits to certain locations.
+104,2236,"[503, 1, 2, 3, 4, 5, 6, 7, 8, 9]","Based on the user's activity pattern and recent context, it is likely that they will visit a place where they have stayed before during similar times of the day."
+104,2087,"[504, 503, 501, 502, 505, 506, 507, 508, 509, 510]","based on the user's activity pattern and recent context, the top 10 most likely places are a subset of places visited during similar times"
+104,2087,"[503, 8, 14, 15, 16, 19, 20]",Recurring pattern of visiting the same place on Thursdays
+104,2236,"[503, 2068, 2312, 2087, 2236, 2047, 2805, 2079, 2081, 2064]","based on user's historical stays and recent context, this target stay is likely to be at a familiar place, possibly with similar duration as previous stays"
+104,2087,"[2087, 503, 2236, 2805, 2312, 2047]","Based on the user's activity pattern and recent context, I predicted that the next place is likely to be a frequent destination or a place visited recently."
+104,2087,"[504, 5, 503, 501, 502, 3, 8, 9, 6, 7]","Based on the user's activity pattern and recent context, I predicted the top 10 most likely places they might visit next, considering their repeated visits during certain times and days."
+104,2087,"[503, 8, 9, 1, 10, 6, 5, 11, 7, 3]",Predicted based on recent activity pattern and temporal information
+104,2087,"[2064, 2055, 2048, 2039, 2026, 2013, 2000, 1987, 1974, 1961]","Based on the user's activity pattern and recent context, it is likely that they will visit a place with a similar duration and weekday as their previous stays."
+104,2236,"[505, 503, 501, 502, 504, 506, 507, 508, 509, 510]","Based on the user's historical stays and recent context, I predicted their next location to be likely visited places during similar times of day."
+104,2087,"[9, 5, 1, 4, 8, 3, 2, 7]",based on the user's activity pattern and recent stays

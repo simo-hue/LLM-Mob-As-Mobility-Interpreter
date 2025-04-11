@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+130,3548,"[2569, 2327, 2476, 3548, 1409, 1447, 3548, 3548, 3548, 2476]","The prediction is based on the user's activity pattern of frequent visits to certain places during specific times and days, as well as recent context stays."
+130,2503,"[2569, 3548, 2476, 2327, 1409, 1447, 2476, 3548, 2476, 3548]",The user's recent activities in the context suggest a strong likelihood of returning to recently visited places on Sundays.
+130,2476,"[2571, 2327, 2569, 1447, 3548]","based on the user's activity pattern and context, we predict they will visit a place similar to those visited recently"
+130,3548,"[2503, 2569, 2476, 3548, 2327, 1409, 1447]",The user tends to visit certain places on Sundays and has recently visited these places in the past few days. This suggests that they might be heading back to one of these locations.
+130,3548,"[3548, 2476, 2569, 2503, 2327, 1447, 1409]",The prediction is based on the user's activity pattern and context stays. The top three predictions are places that have been visited frequently by this user during similar times of day and weekdays.
+130,3548,"[2503, 2476, 3548, 2327, 1409, 1447, 2476, 3548, 3548, 3548]",The prediction is based on the user's recent activity pattern and context stays. The top three most frequent places visited during weekday afternoons are included in the prediction.

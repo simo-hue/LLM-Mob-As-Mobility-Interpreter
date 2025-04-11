@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+159,2996,"[2006, 2011, 2869, 2996, 3634, 1468, 1821, 2562]","The prediction is based on the user's activity pattern in <history>, including repeated visits to certain places during certain times, and the context stays in <context> which provide more recent activities of this user."
+159,2996,"[3634, 2006, 2996, 2011, 1468, 2869, 2562, 1821, 1995]",The user has a strong tendency to visit place 3634 during the night and on weekdays
+159,1468,"[1468, 3634, 2006, 2996, 2562, 2011, 2869]","The user's activity pattern suggests repeated visits to certain places during certain times, and the context stays indicate more recent activities. The target stay's temporal information also plays a crucial role in the prediction."
+159,2869,"[2869, 3634, 2006, 2011, 1468, 2562, 2996, 1821, 1990, 2003]","The prediction is based on the activity pattern of this user that learned from <history>, considering repeated visits to certain places during certain times, such as weekdays and nighttime. The context stays in <context> also provide more recent activities of this user, which are mostly visited at night and weekday evenings."

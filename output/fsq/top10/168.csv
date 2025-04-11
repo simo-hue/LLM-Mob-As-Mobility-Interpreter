@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+168,2374,"[8, 1, 3, 2, 6, 5, 7, 4]","The target stay is in the same day of the week and time range as recent stays, so it is likely to be at a similar location."
+168,2374,"[11, 10, 8, 7, 6, 5]","The target stay has similar temporal information to the context stays, and the user tends to visit place 10 in the afternoon and places 11 and 8 in the morning."
+168,2069,"[1231, 1230, 1229, 1228, 1215, 1153, 1130]",based on the user's activity pattern and recent context

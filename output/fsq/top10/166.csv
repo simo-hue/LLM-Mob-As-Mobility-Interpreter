@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+166,96,"[469, 652, 2975, 138, 96, 1049, 2169, 831, 77, 229]","The prediction is based on the user's activity pattern and context stays. The target stay time and weekday are both Thursday morning, which matches with previous stays like '08:04 PM', 'Thursday', 652.0]."
+166,96,"[469, 1049, 2169, 2975, 652, 138, 77, 96, 229, 5]","The prediction is based on the user's activity pattern of repeated visits to certain places during specific times and days, as well as their recent activities in the context"
+166,229,"[2975, 652, 469, 1049, 2169, 77, 138, 229, 172, 96]","Based on the user's historical stays and recent context, we predict that the next place will likely be one of their frequent visited places during this time period (late evening or night) on a Saturday."
+166,96,"[469, 652, 2975, 1049, 2169, 138, 77, 96, 831, 5]",The prediction is based on the user's activity pattern and recent stays in the context. The most likely places are those that have been visited recently and during similar times.
+166,1370,"[469, 652, 2169, 2975, 1049, 6, 8, 7, 10, 4]",Recent visits to specific places during similar times and days suggest the user might go to familiar locations
+166,229,"[6, 5, 3, 8, 2, 4, 1]","The prediction is based on the recent activities in the context and historical stays, which shows a preference for place 6 during late night hours on Thursdays."
+166,96,"[652, 469, 2975, 1049, 2169, 1370, 831, 77, 138, 5]","The prediction is based on the user's historical activity pattern and recent context, considering the time of day (morning) and weekday (Thursday)."
+166,1583,"[469, 138, 96, 1049, 2169, 652, 2975, 831, 77, 29]","The prediction is based on the user's recent and frequent stays at places with IDs 469, 138, 96, and their varying duration throughout different days and times."
