@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+128,831,[1408.0],The user's activity pattern and recent context show a strong tendency to visit place with ID 1408 during daytime on weekdays.
+128,128,[1408],recent visit to this place on Monday and Tuesday
+128,1408,[134.0],The user's activity pattern suggests frequent visits to place 1408 during the evening and late night hours on weekdays.
+128,1408,[1408],"The user has a strong pattern of visiting place 1408 during the evening and on weekdays, which is consistent with the target stay's temporal information"
+128,1408,[1408],repeated visit to a certain place during certain time
+128,1408,[2335.0],Recurring visit to the same place during similar time
+128,1708,[1408.0],recent frequent visits to place 1408 on Tuesday and Saturday

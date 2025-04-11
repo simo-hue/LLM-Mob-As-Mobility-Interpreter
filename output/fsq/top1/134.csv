@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+134,1,[821.0],The user tends to visit the same place on Tuesday evening
+134,2252,[821.0],The user has a habit of visiting place with ID 821 on Tuesdays and Wednesday mornings
+134,1,[329.0],"The target stay's time and day of the week match the most recent stay in the context, which was at place 329 on Sunday."
+134,1,[1.0],"Based on the user's activity pattern and recent context, it is likely that they will visit the same location as their most recent stay."
+134,1,[2252.0],"The target stay is during morning and Monday, which matches the user's frequent visit to this place on Mondays."
+134,1,[821.0],"The user's activity pattern shows a repeated visit to the same place on Tuesdays, and given the temporal information of the target stay (morning on Tuesday), it is most likely that this user will visit the same place again."

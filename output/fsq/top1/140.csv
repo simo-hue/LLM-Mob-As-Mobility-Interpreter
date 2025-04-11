@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+140,1024,[1024],The user has been visiting the same place (1024) during their morning routine on Fridays.
+140,1109,[1190],The user has a recent history of visiting the same place (1190) during similar times and days.
+140,942,[1109],Recent stays indicate a tendency to visit place 1109 during Friday mornings
+140,954,[1674],Recurrent Monday morning visit to the same place.
+140,1674,[1674.0],The user has a regular activity pattern on Mondays with visits to places 803 and 1674 in the morning
+140,2277,[1109],"Based on the user's historical stays and context, it is most likely that they will visit place ID 1109."
+140,1674,[411],The target stay is on Wednesday and the user has a habit of visiting place ID 411 on this day
+140,2065,[954.0],"Recent stays on Monday and Wednesday suggest frequent visits to places with IDs in the range of 900-1700, so a likely next place ID is 954."
+140,1378,[954],Recent visit to 954 on Monday
+140,1674,[2408],Recent activity pattern suggests the user will likely visit the same place (2408) as they did on previous Thursday stays.
+140,1024,[1674],recent stays at place 1674 on weekdays
+140,2258,[1109.0],The user's activity pattern suggests a high likelihood of returning to the same location as their previous visit on this day.
+140,411,[1674],The user has a tendency to visit this place during the afternoon and on Fridays
