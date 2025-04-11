@@ -12590,3 +12590,19 @@ Ground truth: 411
 Pred results: {'prediction': [1674], 'reason': 'The user has a tendency to visit this place during the afternoon and on Fridays'}
 ✅ Salvato parziale dopo sample 13/38 → output/fsq/top1/140.csv
 The 14th sample:
+Ground truth: 3805
+Pred results: {'prediction': [1674.0], 'reason': 'Recent context suggests frequent visits to this place on Tuesday afternoons'}
+✅ Salvato parziale dopo sample 14/38 → output/fsq/top1/140.csv
+The 15th sample:
+Ground truth: 293
+Pred results: {'prediction': [1674], 'reason': 'Most recent and frequent visits are to place ID 1674 during Thursday afternoon'}
+✅ Salvato parziale dopo sample 15/38 → output/fsq/top1/140.csv
+The 16th sample:
+Ground truth: 1674
+Pred results: {'prediction': [1674.0], 'reason': 'Recent activity pattern shows frequent visits to place ID 1674.0 on Mondays'}
+✅ Salvato parziale dopo sample 16/38 → output/fsq/top1/140.csv
+The 17th sample:
+Ground truth: 803
+Pred results: {'prediction': [1674], 'reason': 'The user has visited the same place at a similar time on multiple occasions in their history and context'}
+✅ Salvato parziale dopo sample 17/38 → output/fsq/top1/140.csv
+The 18th sample:
