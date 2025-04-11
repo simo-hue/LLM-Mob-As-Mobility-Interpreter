@@ -1,0 +1,10 @@
+user_id,ground_truth,prediction,reason
+34,1751,[3141],The user has a strong pattern of visiting place 3141 during the morning on weekdays
+34,3141,[3141],"The user has a regular morning routine of visiting place 3141 on Mondays and Fridays, and recent context suggests that this pattern continues"
+34,3141,[1704],Recent activity pattern indicates frequent visit to place 1704 on Monday morning.
+34,1704,[1751],The user's recent activity pattern suggests a tendency to visit places like 1751 during the morning hours on weekdays.
+34,1956,[3141],The user's recent activities suggest they tend to visit place with ID 3141 during this time of day and on a Monday
+34,1751,[1751],"The target stay is on Thursday morning and the user has visited this place many times in the past, including recently (in the context), which suggests a high likelihood of returning to this place."
+34,3141,[3141],Recent context shows repeated visits to place ID 3141 in the morning on Thursdays.
+34,1956,[1704.0],Recent activity pattern shows a strong tendency to visit place 1704 on Mondays
+34,3141,[1956.0],"The user has a habit of visiting place 1956 on Mondays, and the recent context suggests they may repeat this activity."

@@ -1,0 +1,34 @@
+user_id,ground_truth,prediction,reason
+48,1493,[1493.0],"The user has a history of repeated visits to place ID 1493 on weekdays and weekends, with the most recent stays being during the same time range (e.g., 08:44 AM) and days (e.g., Saturday), making it likely that they will visit this place again."
+48,197,[1493.0],The target stay is on Monday morning and the user has a strong tendency to visit place ID 1493 during this time
+48,472,[1223],Recently visited places on Monday and Tuesday are more likely to be repeated.
+48,197,[1493.0],"Given the user's historical activity pattern and recent context stays, the most likely next place ID is their frequent visited location at 12:00 PM on Wednesday."
+48,849,[1493.0],"Based on the user's historical stays and recent context, they are most likely to visit place ID 1493 again."
+48,696,[1493.0],"Given the user's historical activity pattern and recent stays in context, it is most likely that they will visit place ID 1493 on Thursday afternoon."
+48,848,[1493.0],The user has a consistent pattern of staying at the same place (1493) during weekdays and especially on Thursday.
+48,1493,[1493.0],The user's recent activity pattern suggests a strong affinity to place ID 1493 on weekdays.
+48,2161,[1493.0],Recent activity pattern suggests frequent visit to place ID 1493 during Monday morning
+48,696,[1493],The user has a consistent activity pattern of visiting place ID 1493 on Tuesdays around this time.
+48,2161,[1493.0],The user has repeated visits to place ID 1493.0 during the morning hours on weekdays.
+48,1,[1493],"The target stay's time and day of the week are similar to recent stays in the context, and the user has a history of repeated visits to place 1493 on weekdays."
+48,1182,[1493],The user has a regular daily routine and tends to visit the same place at night on Wednesdays
+48,1493,[1493.0],The target stay has a similar start time and weekday to the recent stays in the context
+48,1493,[1493.0],The user has visited place ID 1493 at similar times on Tuesdays and Thursdays in the past.
+48,1,[1493.0],The user's historical activity pattern and recent context suggest a high likelihood of returning to the same place on Friday morning.
+48,696,[1493.0],"Based on the user's historical activity pattern and recent context, it is likely that they will visit the same place (1493) as their previous stay, especially considering the same day of week and morning hour."
+48,2161,[1493.0],"The target stay is on a Monday morning, and the user has a repeated visit to place ID 1493.0 during this time of day."
+48,3440,[1493.0],"The target stay is on Monday afternoon, and the user has a strong pattern of staying at place 1493 during this time."
+48,1493,[1493.0],The user's activity pattern suggests a repeated visit to this place on Friday mornings.
+48,1493,[1493.0],The user has a strong tendency to visit place with ID 1493 on Tuesdays in the morning.
+48,1,[1493.0],Recent activity pattern indicates daily visit to place with ID 1493
+48,1493,[1],"Given the user's historical pattern of visiting place ID 1 on Wednesday mornings and recent context stays at this time slot and day, it is likely that the next location will be place ID 1."
+48,2161,[1493.0],"The target stay is on a Thursday morning and the user has a strong activity pattern of visiting place 1493 on Mondays, Tuesdays, Wednesdays, and Thursdays."
+48,2161,[1493.0],repeated visit to a certain place during certain time
+48,1493,[1493],based on recent activity and historical pattern of repeated visits to place 1493 during weekdays
+48,1115,[1493],The target stay is on Friday afternoon and the user has visited place 1493 multiple times during the same time period in their historical stays and context.
+48,2161,[1493.0],"Based on the activity pattern of this user and recent context, it's likely that they will visit place 1493 again due to repeated visits during weekdays."
+48,2161,[1493.0],"The target stay's start time is early morning on a Monday, which matches the user's activity pattern of frequent visits to place 1493 during weekdays and mornings."
+48,2161,[1493.0],The user has a strong activity pattern of visiting the same place (1493.0) at similar times on Tuesdays and Fridays.
+48,1493,[1493],Recurring daily visit to the same place
+48,1,[1493.0],"The target stay's day of the week (Wednesday) and time (08:13 AM) are similar to recent stays in the context (Tuesday), and the user tends to visit place 1493.0 on weekdays."
+48,1493,[1493.0],"The user has a regular morning routine of visiting the place with ID 1493 on Monday, Tuesday and Wednesday."

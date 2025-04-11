@@ -1,0 +1,30 @@
+user_id,ground_truth,prediction,reason
+110,1468,[1],Recent pattern of visiting place 1 during Monday morning
+110,3176,[1.0],The user has a repeated visit to place ID 1 at this time of the day (morning) and weekday (Monday)
+110,1,[1.0],The user has a repeated visit pattern to place ID 1.0 on Monday.
+110,3114,[1],The user tends to visit place 1 during evening hours on Mondays
+110,1468,[1],"The target stay is on a Tuesday morning, which is similar to the user's previous stays on Monday mornings (1468 and 3176), and they have previously stayed at place with ID 1 during this time."
+110,3176,[1],The user has a frequent visit to place 1 on Tuesday morning
+110,2526,[1.0],"The user's activity pattern shows repeated visits to place ID 1 during weekdays and early evenings, which matches the given context and target stay."
+110,2889,[1.0],The user has a repeated visit pattern to place with ID 1 on Tuesdays.
+110,3114,[1.0],The user tends to visit place ID 1.0 during nighttime on Tuesday
+110,1468,[1.0],"Given the user's activity pattern of visiting place 1 on Monday and Tuesday mornings, and recent context shows the user visited this place on Tuesday morning, it is likely they will visit this place again."
+110,3176,[1468],Recent stay at work during weekday morning
+110,1,[1.0],"The user has a habit of visiting place 1 on Wednesday mornings, and the context suggests that they were at places close to this one recently"
+110,2526,[1.0],The user frequently visits place with ID 1 on Wednesday evenings.
+110,3114,[1.0],"Based on the user's activity pattern and recent context stays, it is likely that they will return to their most frequent visited place ID 1."
+110,1468,[1],Recurrent visit to the same place (home) in the morning during weekdays
+110,3176,[1],The user has a consistent pattern of staying at place ID 1 on Fridays
+110,1,[1],the user's activity pattern and recent context suggests a repeated visit to the same place on Fridays
+110,2889,[1.0],The user has a history of staying at place 1.0 on Friday evenings and Saturdays.
+110,3114,[1468],Recent visit to place ID 1468 on Saturday
+110,1468,[1.0],The user has a regular visit to place ID 1 on Tuesday mornings
+110,3176,[1.0],The user's recent activity pattern suggests they tend to visit place ID 1 on Tuesdays during the morning.
+110,1,[1],The user has a repetitive visit pattern to place ID 1 during the morning on Tuesday
+110,2526,[1.0],Repeating visit to a place during the same day and time
+110,2889,[1.0],"The user's activity pattern shows repeated visits to place ID 1 during the morning and weekend days, including Saturday mornings."
+110,3114,[3114],"Given the historical pattern of repeated visits to place 1 during mornings and weekends, combined with recent stays at places 1468, 3176 and 2526 on Tuesdays and Fridays, it is likely that the next stay will be at place 3114 due to its similar temporal context."
+110,2889,[1.0],The target stay is on Saturday night and the user has previously stayed at place 1.0 on Friday nights.
+110,1468,[1.0],repeated visit to a certain place during certain time
+110,3176,[1.0],The user has a frequent stay at place ID 1.0 on Monday mornings.
+110,1,[1.0],The user's activity pattern indicates a repeated visit to place 1 during Monday morning.

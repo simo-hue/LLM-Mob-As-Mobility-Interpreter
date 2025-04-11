@@ -1,0 +1,15 @@
+user_id,ground_truth,prediction,reason
+105,711,[956],Recent context shows a high probability of the user staying at place with ID 956 during this time on Wednesday
+105,3816,[956.0],"The user has a strong pattern of visiting place 956.0 on Fridays and during the morning, which matches the target stay's time and day."
+105,3816,[956.0],"The target stay is during the daytime on a Friday, which matches the user's historical pattern of frequent visits to this place (956) on Fridays."
+105,2845,[956.0],The user has a history of visiting place ID 956 at night on Saturday
+105,343,[956.0],the user has visited place 956 multiple times on weekdays and recently in the context
+105,956,[956],"The target stay is on a Friday and the context indicates recent visits to place 956. Additionally, the user has stayed at this place multiple times in their history."
+105,956,[956.0],The user's activity pattern suggests frequent visits to place 956 during the morning hours on Mondays.
+105,956,[956],"The target stay is on Thursday morning, which is a common day and time for the user to visit place 956."
+105,587,[956.0],most recent activities and historical stays indicate a strong preference for this place during Sunday afternoons
+105,219,[956],"The target stay is on a Wednesday evening which matches the user's activity pattern in the history and context, where they tend to visit place 956 during evenings"
+105,956,[956],"The user has a strong preference for place ID 956, which was visited multiple times in the past."
+105,997,[956.0],The user has a repeating pattern of visiting place ID 956.0 during the morning and weekdays
+105,694,[956],"The target stay is on Monday and in the morning, which are similar to previous stays. The user has a strong preference for place 956, especially on Mondays."
+105,1703,[956.0],"The user has a repeated visit pattern on Wednesday mornings and afternoons, with the last context stay being at 956.0, so it's likely they will go to the same place."

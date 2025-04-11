@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+87,587,[897.0],The user has a consistent pattern of visiting place ID 897 during weekdays in the early morning.
+87,587,[897.0],"The target stay is on Saturday morning, and the user has a consistent pattern of visiting place with ID 897.0 in this time frame based on both the historical data and recent context."
+87,2839,[897.0],"The user's activity pattern shows repeated visits to place ID 897 during the weekend, and the target stay is on Saturday afternoon, which matches this pattern."
+87,587,[897.0],The user has a frequent visit to place ID 897.0 during the weekend and morning.
+87,587,[897.0],The user's historical activity pattern suggests that they often visit place 897 during the morning hours on Mondays
+87,786,[897.0],repeated visit to a certain place during certain time
+87,786,[2537.0],Recent activity and historical pattern suggest the user is likely to visit the same place as last time (2537.0)
+87,786,[2537.0],recently frequent visit to a place on weekdays at late evening

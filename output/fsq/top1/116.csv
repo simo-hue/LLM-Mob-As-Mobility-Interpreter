@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+116,3589,[246.0],"The target stay's day of the week (Friday) and time (6:19 PM) are consistent with the user's activity pattern in <history>, where the user tends to visit place 246.0 at around 7-8 PM on Fridays."
+116,89,[246.0],"The target stay is on Friday evening, which is similar to the user's recent activity pattern in the context."
+116,1253,[246.0],"Based on the user's historical stays and recent context, it is most likely that they will return to their previous frequent location"
+116,371,[246.0],"The user has a strong affinity for place ID 246.0, which was visited frequently in the past, and the context indicates a recent visit to this place."

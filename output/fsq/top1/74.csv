@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+74,721,[1320.0],"Based on the user's historical activity pattern and recent context stays, it is likely that they will visit a location that was previously visited during nighttime on Thursday."
+74,202,[1402.0],the user's activity pattern shows repeated visits to place ID 1402.0 during the evening on Fridays
+74,1320,[1320.0],"The target stay is on Monday and the user has a strong activity pattern of visiting place ID 1320.0 during weekdays, especially Mondays."
+74,1320,[1320.0],Based on the user's activity pattern of repeated visits to place ID 1320 during weekdays and recent stays in context.

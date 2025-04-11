@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+44,2637,[1709.0],The user has a repeated visit to place ID 1709.0 during certain time (evening) on Sunday.
+44,921,[1709.0],"the target stay time and weekday are similar to the most recent stays in the context, and the user has a history of visiting place 1709 at this time"
+44,648,[2994.0],The user has a history of repeated visits to place ID 2994 during Saturday nights
+44,173,[1709.0],"Based on the user's recent activities in context and their historical stay pattern, the most likely place ID is 1709.0."

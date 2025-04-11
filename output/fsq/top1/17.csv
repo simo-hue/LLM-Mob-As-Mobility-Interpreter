@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+17,2625,"[1312, 374, 2625, 3239]","The target stay is on Saturday evening, which is a common time for the user to visit places like 1312, 374, 2625 and 3239"
+17,3239,[1312],"The user tends to visit the same place during certain time and day of week, and given that this target stay is on Saturday evening, which is similar to the context, we predict the user will return to the same place as before."
+17,501,[1312.0],Predicting based on recent activity pattern and temporal context
+17,2625,[3239.0],The user's historical activity pattern shows repeated visits to place 3239 on Sundays and during early mornings.
+17,3239,[3239],Recurrent visit to a place based on user's activity pattern and recent context

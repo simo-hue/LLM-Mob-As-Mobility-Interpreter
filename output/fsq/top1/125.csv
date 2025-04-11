@@ -1,0 +1,23 @@
+user_id,ground_truth,prediction,reason
+125,211,[915.0],"The target stay's time and day match the user's regular morning routine, and the most recent stays are also in the same location."
+125,546,[915.0],based on the user's activity pattern and recent context
+125,546,[915.0],"Based on the user's historical activity pattern and recent context stays, it is likely that they will return to a familiar location (e.g., their home or workplace) at a similar time of day."
+125,794,[915.0],"The target stay's time and day are similar to the user's recent activity pattern in <context>, which suggests that the user is likely to go back to a place they have visited recently."
+125,342,[915.0],The user's historical activity pattern suggests frequent visits to place with ID 915 during the early morning hours on Tuesdays.
+125,2367,[3158.0],The user has a tendency to revisit the same place on Saturday afternoons
+125,3397,[3158.0],The user has visited place 3158 on Saturday afternoon and evening in the past.
+125,546,[915.0],"based on the user's activity pattern and recent context stays, this user is most likely to visit a location they have been to before during the same day of the week"
+125,1147,[3158.0],The user has a repeated visit to the same place during Sunday afternoon.
+125,1,[915.0],based on the user's activity pattern of visiting place 915.0 during morning hours
+125,211,[915.0],The user has a consistent habit of visiting place with ID 915.0 on weekdays.
+125,546,[3158.0],Recent visits to the same place during Saturday morning
+125,1,[1147.0],Recent activity suggests frequent visit to this place during Saturday morning
+125,546,[1147],Recent visit to place ID 1147 on Sunday
+125,546,[915.0],"Based on the user's historical activity pattern and recent context stays, it is likely that they will visit place 915 at a similar time of day."
+125,3218,[3158.0],"Based on the user's activity pattern and recent context stays, it is most likely that they will visit place 3158 again."
+125,211,[915.0],"Considering the user's regular morning routine and recent stays at place 546, it is likely that they will visit their usual morning location."
+125,546,[915.0],"The target stay is on a Wednesday morning, which is similar to the user's previous visits during this time of day and weekday"
+125,546,[546],"The user has a regular activity pattern on Mondays, with a recent stay at place ID 546 in the morning"
+125,546,[915.0],The user's activity pattern suggests a repeated visit to place ID 915 during Tuesday morning
+125,314,[915.0],Recurring visit during the day (weekday)
+125,546,[3158.0],The user has a repetitive pattern of visiting the same place (3158) during early morning hours on Thursdays

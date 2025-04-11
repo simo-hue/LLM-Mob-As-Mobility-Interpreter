@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+104,2236,[2087],based on recent activity pattern and time of day
+104,2087,[2312.0],"The user has a strong preference for place 2312, as it is their most frequently visited location during Friday nights and weekends."
+104,2087,[2047.0],"Based on the user's history and context, it is likely that they will visit a place they have been to previously during this time of day and day of the week."
+104,2236,[2047.0],Recent and frequent visits to place ID 2047.0
+104,2087,[2047],Most recent activity pattern and context suggests that the user tends to visit place ID 2047 during nighttime on Wednesday
+104,2087,[2236.0],"Given the recent stays in the context and considering the user's historical activity pattern, the most likely place ID is 2236, which was visited during this time of day and weekday."
+104,2236,[2312.0],Recent context and activity pattern suggest a visit to the same place as recent Sunday stays
+104,2087,[2047.0],The user has a repeated visit pattern to place ID 2047.0 during Thursday night.
+104,2087,[2087.0],The user's activity pattern suggests a strong likelihood of returning to the same place on Sunday evening
+104,2087,[2312.0],"The user's most recent stays are at location 2312.0 and the target stay is on a Wednesday evening, which matches the pattern of frequent visits to this place on this day."
+104,2087,[2087.0],Recent stays have been mostly at place ID 2087.
+104,2236,[2087.0],The user's recent activity pattern shows repeated visits to place 2087 during weekday evenings
+104,2087,[2087.0],Recent visit to the same place on Friday night

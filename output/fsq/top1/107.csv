@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+107,955,[955.0],The user has a consistent activity pattern of visiting the same place (place ID 955) during morning hours on weekdays.
+107,955,[955.0],The target stay is on a Wednesday and the user has been to this place multiple times during the same time of day
+107,300,[955.0],Most recent activity pattern shows repeated visits to place ID 955 on Fridays
+107,955,[955.0],The user's historical activity pattern and recent context stays suggest a high likelihood of returning to the same place (place ID 955) given the temporal information of the target stay.
+107,947,[955.0],"The target stay is very similar to recent stays in the context, and also matches with the user's activity pattern in the history."
+107,947,[955.0],"Based on the user's activity pattern and recent context stays, it is most likely that the next location will be a repeated visit to place 955."
+107,947,[955.0],"The user has a consistent daily routine with most stays at place ID 955, and the target stay's time is close to their regular evening routine"
