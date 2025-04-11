@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+23,648,"[648, 649]","Recent activities suggest staying at places that are common to recent days of the week (Wednesday and Monday), with a high likelihood of returning to previous locations."
+23,648,"[649, 648]",The user has a recurring pattern of staying at place 648 and 649 on Mondays
+23,648,[648],Recent stays have shown a high probability of returning to place with ID 648
+23,648,"[648, 649]","Recent stays suggest a high probability of returning to previously visited places, especially place 648 and 649 which have been frequently visited during weekdays."
+23,648,"[648, 649]","Recent stays in context are mostly in place 648 and 649, while history shows a recurring pattern of staying at these places on weekdays."
+23,648,"[225, 648]",Recent stays and recurring patterns suggest the user is likely to visit places they have visited before
+23,81,"[649, 225]",Recent stays suggest a possible return to the same place as last time (649) or another frequent location (225)

@@ -821,6 +821,7 @@ def main():
         # Utenti da processare
         try:
             uid_list = get_unqueried_user(dataname, output_dir)
+            
         except Exception as e:
             print(f"❌ Errore nel recupero utenti non interrogati per {cfg['name']}: {e}")
             continue

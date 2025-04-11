@@ -1,0 +1,11 @@
+user_id,ground_truth,prediction,reason
+29,1,"[739, 9]","Based on the user's activity pattern of staying at places with IDs 739 and 9 on Wednesdays and Mondays, respectively."
+29,739,"[739, 9]",Recent stays and recurring patterns suggest the user will likely return to a familiar location (place ID 739) or visit a place similar to recent ones (place IDs 9 and 1).
+29,739,[739],"Recent stays show a strong tendency to stay at place 739 on Sundays, which matches the target day and time."
+29,739,"[9, 739]",Recent stays show a pattern of frequent visits to place_id 9 and stay duration around 6-12 hours.
+29,1,[9],Recent stays suggest the user tends to end their stays at place ID 9 on Tuesdays.
+29,739,[569],Recently frequent place (569)
+29,41,[9],"The recent stays show a pattern of staying at the same place on Thursday mornings, and this is reinforced by the historical data."
+29,739,[9],Recent stays and recurring patterns suggest the user will likely stay at place 9 on Thursday.
+29,739,"[9, 739]",Recent activities suggest the user tends to stay at places with ID 9 or 739 during this time of day and on Mondays.
+29,1,[569],Recent stays in context suggest a pattern of staying at place_id 569 on Tuesday mornings

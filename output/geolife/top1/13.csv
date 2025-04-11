@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+13,445,"[445, 444]",Recurring pattern in the user's history suggests they will visit places 445 and 444 again
+13,9,"[445, 444]",Recent stays suggest a return to previously visited places
+13,9,[445],"Recent recurring patterns in the user's activity suggest a return to previous places, with place ID 445 being the most frequent and recent."
+13,444,[445],Recurring pattern in history and recent activity suggests the user will likely go to place ID 445.
+13,9,"[445, 444]","Based on recurring patterns in user's past stays and recent activities, the prediction is that they will likely visit either place 445 (which has been frequently visited) or place 444 (which has also been a frequent destination recently)."
+13,9,[445],The user has a recurring pattern of visiting place ID 445 on Wednesday mornings
+13,444,[444],Recent and historical stays suggest a recurring pattern of staying at place ID 444
+13,445,"[444, 445]",Recent activities suggest the user is likely to stay at places they visited before (444 and 445) on Wednesday.
+13,445,[445],Recent recurring pattern of staying at place ID 445 on Thursdays
+13,9,[444],Recent stays and history indicate a high probability of returning to place 444 on Thursday
+13,444,"[444, 445]",Recent patterns in context and history suggest the user is likely to stay at a familiar location (444 or 445)
+13,9,[445],Recent stays and recurring patterns indicate a high probability of the user returning to place 445
+13,444,[445],Recent stays suggest frequent visits to place ID 445 on Tuesdays

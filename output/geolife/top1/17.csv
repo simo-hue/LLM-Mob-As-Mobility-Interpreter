@@ -1,0 +1,54 @@
+user_id,ground_truth,prediction,reason
+17,536,[557],Recent activity pattern suggests a stay at place with high likelihood of being visited on Thursday morning
+17,537,"[538, 537]",Recent stays in context and recurring patterns in history suggest staying at similar places on Thursday morning.
+17,536,"[536, 537]",Recent patterns of activity and context suggest the user is likely to visit one of their previous frequently visited places
+17,536,"[537, 536]",Recent pattern of frequent stays at place 537 and occasional visits to place 536 suggests the user will likely visit one or both places.
+17,537,[559],Recent stays indicate a pattern of visiting place 559 on Fridays.
+17,537,[559],Recent activity pattern shows the user tends to visit place 536 on Sundays
+17,536,[536],Recent stays at place 536 and historical pattern of returning to this location on Sundays
+17,536,"[559, 537]",Recent pattern of staying at different places on Sundays and Mondays suggests the user will stay somewhere else on Monday
+17,537,[557],Recent stays and patterns in history suggest a likely next place ID is 557
+17,536,"[136, 537]",Recent stays suggest a recurring pattern of visiting place ID 536 and then moving to place ID 537 on Mondays.
+17,537,"[538, 537]",Recent pattern of staying at same place on Tuesdays
+17,536,[559],Recent activities suggest a stay at place 559
+17,536,"[91, 557]","Recent stays on Monday and Tuesday are similar to previous Sunday's stay, so the prediction is likely to be a place visited during that day."
+17,536,"[91, 557]",Recent and recurring patterns of staying at places 91 and 557 on Wednesday
+17,537,"[91, 557]","Recent activities suggest a pattern of frequent visits to places with IDs 536 and 537, while the time of day (around noon) and day of week (Wednesday) match recent stays in <context>, making it likely that the user will visit place ID 557."
+17,536,"[557, 537]","The user has a recurring pattern of visiting place ID 536 on Sundays and Mondays. In the recent stays, they have been frequenting places with IDs in the range of 536-538. Since the target stay is on Wednesday, it's likely that they will visit a nearby place, considering their recent activities and temporal info."
+17,536,[559],Recurring pattern of Sunday evening stay at place 559
+17,537,"[537, 536]",Recent activities show a strong tendency to stay at place 537 on Thursday afternoons.
+17,536,"[557, 536]","Recent activity pattern suggests visiting places with similar IDs (538, 559) on Thursdays"
+17,537,"[559, 536]",Recent patterns of visiting both Place 537 and Place 536 on Friday suggest the user will visit one or both places again.
+17,536,[537],Recent stays in the same location and similar day of week in history
+17,539,[537],"The user has a recurring pattern of staying at place with ID 537 on Saturdays, and recent stays have been at places with IDs 536 and 537."
+17,539,"[537, 536]",Recent patterns of stays at place IDs 537 and 536 on Saturday suggest the user may return to these locations.
+17,555,[536],Recurring pattern on Saturdays
+17,536,"[537, 536]",Recent stays at place 537 and 536 on Friday and Saturday suggest a pattern of staying there on Sundays
+17,536,"[538, 536]",The target stay's day of week (Monday) and time (1:52 AM) are consistent with the user's historical and recent stays' patterns.
+17,536,[557],Recent stays at places with IDs 555 and 539 suggest a possible visit to place with ID 557
+17,537,"[537, 536]",recently frequent places in recent days
+17,536,"[536, 536]",Recent activities and recurring patterns in history suggest the user is likely to return to previously visited places on the same day of the week.
+17,536,[536],Recent stays and history indicate a strong likelihood of returning to the same place as previous occurrences.
+17,546,[536],Recent stays and pattern in history suggest the user is likely to stay at place 536
+17,536,"[557, 536]",Recent stays and patterns in history suggest the user will stay at a place with a similar duration and day of week as recent target stays.
+17,536,"[91, 557]",Recent pattern of visiting place 537 on Mondays and Tuesdays suggests a likely visit to the same places on Wednesday
+17,537,[538],Recent recurring patterns in history and context suggest a likely return to the most visited location
+17,536,"[91, 557]","Recent stays show a pattern of returning to place ID 536 on Wednesdays, and this target stay is also on Wednesday, so the prediction is based on that recurring pattern."
+17,536,"[91, 557]",Recent pattern of spending nights at place with ID 536 suggests the user will likely spend the night at a similar location
+17,536,[557],"Recent stays suggest a pattern of frequent visits to the same place during the week, and since this target stay is on Thursday morning, it's likely that the next place ID will be the one visited most frequently on Thursdays."
+17,536,[537],Recent stays in the context indicate a higher likelihood of moving to place ID 537
+17,537,[557],Recent stays at place 537 have been followed by visits to place 557
+17,536,"[538, 537]","Based on the user's recent and past stays, a recurring pattern of alternating between place IDs 536 and 537 is observed. Given that the target stay falls on Saturday and during morning hours, it is likely that the user will continue this pattern and visit one of these places."
+17,545,[557],Recent stays suggest a tendency to visit places with high durations on Sundays.
+17,536,"[537, 536]",Recent stays show a pattern of alternating between place IDs 537 and 536
+17,536,"[536, 537]",Predicting the user will stay at place IDs that are frequently visited on Monday mornings based on their historical and recent stays.
+17,537,"[536, 537]",The user has a regular pattern of staying at places with IDs 536 and 537 on Mondays.
+17,536,"[91, 536]",Recent frequent stays on Tuesday mornings and evenings
+17,537,"[536, 537]","Recent stays in context have been at places with IDs 536 and 537, which are also common places of stay in the user's history"
+17,536,[538],Recent stays indicate a strong possibility of the user staying at place ID 538.
+17,537,"[538, 537]","Recent activities in context indicate a mix of stays at place 536 and 537, with a similar pattern observed in the past"
+17,536,[557],Recent patterns show a preference for place ID 557 on Thursdays.
+17,537,[557],Pattern of daily activities and recent stays at place 557
+17,536,[557],recent stays on Thursday and Wednesday at similar times
+17,536,"[556, 541]",Recent patterns of recurring Sundays and Wednesdays at places 536 and 537 suggest a likely Friday stay at place 556 or 541.
+17,537,[537],Recent stays and history suggest the user will likely visit place with ID 537.
