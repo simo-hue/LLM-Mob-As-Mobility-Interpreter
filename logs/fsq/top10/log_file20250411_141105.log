@@ -7521,3 +7521,7 @@ Ground truth: 1423
 Pred results: {'prediction': [3062, 2522, 1529, 2710, 1423, 2644, 2431, 1730], 'reason': "The prediction is based on the user's frequent visits to certain places during specific times of the day and weekdays."}
 ✅ Salvato parziale dopo sample 4/15 → output/fsq/top10/73.csv
 The 5th sample:
+Ground truth: 1813
+Pred results: {'prediction': [3062, 2522, 2710, 1423, 1529, 1730, 2644, 2431], 'reason': "The target stay's time and day of the week suggest a morning visit on a weekday, which is consistent with the user's past activity patterns. The recent context also shows that the user tends to visit places with IDs 1423, 2522, and 2710 in the morning."}
+✅ Salvato parziale dopo sample 5/15 → output/fsq/top10/73.csv
+The 6th sample:
