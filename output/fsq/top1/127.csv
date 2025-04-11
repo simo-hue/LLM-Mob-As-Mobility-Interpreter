@@ -8,3 +8,5 @@ user_id,ground_truth,prediction,reason
 127,297,[297.0],Based on the user's activity pattern and recent stays in context
 127,297,[297],Most recent stays suggest a repeated visit to the same place
 127,1118,[297.0],The user's activity pattern suggests repeated visits to place ID 297 during weekdays and weekends.
+127,842,[297.0],"The target stay's day of the week is Wednesday and time is morning, which matches with most recent activity patterns in both history and context"
+127,297,[297.0],The user has a consistent daily routine of visiting the same place (297) every morning
