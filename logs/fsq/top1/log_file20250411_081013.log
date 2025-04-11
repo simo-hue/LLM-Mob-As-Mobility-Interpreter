@@ -11703,3 +11703,890 @@ Ground truth: 297
 Pred results: {'prediction': [297.0], 'reason': 'The user has a consistent daily routine of visiting the same place (297) every morning'}
 ✅ Salvato parziale dopo sample 11/12 → output/fsq/top1/127.csv
 The 12th sample:
+Ground truth: 297
+Pred results: {'prediction': [297.0], 'reason': "The target stay's time and day of the week match with the recent stays in the context, and the place ID 297 is a repeated visit based on the user's activity pattern from the history."}
+✅ Salvato parziale dopo sample 12/12 → output/fsq/top1/127.csv
+🎉 Completate tutte le predizioni per user 127. Risultati salvati in: output/fsq/top1/127.csv
+=================Processing user 128==================
+Length of user 128 train data: 57
+Number of user historical stays: 30
+historical_data: [('09:56 PM', 'Saturday', np.float64(2335.0)), ('01:28 AM', 'Sunday', np.float64(286.0)), ('02:16 AM', 'Sunday', np.float64(144.0)), ('08:04 PM', 'Tuesday', np.float64(1408.0)), ('01:37 AM', 'Friday', np.float64(524.0)), ('06:37 PM', 'Tuesday', np.float64(1101.0)), ('02:02 AM', 'Saturday', np.float64(144.0)), ('09:55 PM', 'Sunday', np.float64(44.0)), ('02:11 AM', 'Sunday', np.float64(1233.0)), ('08:09 PM', 'Friday', np.float64(17.0)), ('09:53 PM', 'Friday', np.float64(257.0)), ('07:37 PM', 'Saturday', np.float64(1408.0)), ('10:05 PM', 'Thursday', np.float64(2201.0)), ('02:14 AM', 'Saturday', np.float64(2544.0)), ('06:24 PM', 'Friday', np.float64(442.0)), ('12:07 PM', 'Sunday', np.float64(1408.0)), ('11:18 PM', 'Monday', np.float64(1408.0)), ('09:08 PM', 'Thursday', np.float64(497.0)), ('05:40 PM', 'Saturday', np.float64(1408.0)), ('01:36 AM', 'Sunday', np.float64(755.0)), ('10:20 PM', 'Monday', np.float64(134.0)), ('11:39 PM', 'Monday', np.float64(500.0)), ('12:09 AM', 'Tuesday', np.float64(189.0)), ('10:04 PM', 'Tuesday', np.float64(1408.0)), ('06:10 PM', 'Wednesday', np.float64(1408.0)), ('12:52 PM', 'Saturday', np.float64(2605.0)), ('07:44 PM', 'Monday', np.float64(1408.0)), ('09:28 PM', 'Monday', np.float64(2335.0)), ('06:22 PM', 'Wednesday', np.float64(1045.0)), ('01:09 PM', 'Monday', np.float64(1408.0))]
+Number of historical_data: 30
+Number of predict_data: 7
+predict_y: [831, 128, 1408, 1408, 1408, 1408, 1708]
+Number of predict_y: 7
+Total_queries: 7
+No previous results found. Starting from scratch.
+The 1th sample:
+Ground truth: 831
+Pred results: {'prediction': [1408.0], 'reason': "The user's activity pattern and recent context show a strong tendency to visit place with ID 1408 during daytime on weekdays."}
+✅ Salvato parziale dopo sample 1/7 → output/fsq/top1/128.csv
+The 2th sample:
+Ground truth: 128
+Pred results: {'prediction': [1408], 'reason': 'recent visit to this place on Monday and Tuesday'}
+✅ Salvato parziale dopo sample 2/7 → output/fsq/top1/128.csv
+The 3th sample:
+Ground truth: 1408
+Pred results: {'prediction': [134.0], 'reason': "The user's activity pattern suggests frequent visits to place 1408 during the evening and late night hours on weekdays."}
+✅ Salvato parziale dopo sample 3/7 → output/fsq/top1/128.csv
+The 4th sample:
+Ground truth: 1408
+Pred results: {'prediction': [1408], 'reason': "The user has a strong pattern of visiting place 1408 during the evening and on weekdays, which is consistent with the target stay's temporal information"}
+✅ Salvato parziale dopo sample 4/7 → output/fsq/top1/128.csv
+The 5th sample:
+Ground truth: 1408
+Pred results: {'prediction': [1408], 'reason': 'repeated visit to a certain place during certain time'}
+✅ Salvato parziale dopo sample 5/7 → output/fsq/top1/128.csv
+The 6th sample:
+Ground truth: 1408
+Pred results: {'prediction': [2335.0], 'reason': 'Recurring visit to the same place during similar time'}
+✅ Salvato parziale dopo sample 6/7 → output/fsq/top1/128.csv
+The 7th sample:
+Ground truth: 1708
+Pred results: {'prediction': [1408.0], 'reason': 'recent frequent visits to place 1408 on Tuesday and Saturday'}
+✅ Salvato parziale dopo sample 7/7 → output/fsq/top1/128.csv
+🎉 Completate tutte le predizioni per user 128. Risultati salvati in: output/fsq/top1/128.csv
+=================Processing user 129==================
+Length of user 129 train data: 208
+Number of user historical stays: 30
+historical_data: [('08:57 AM', 'Friday', np.float64(1626.0)), ('12:59 PM', 'Friday', np.float64(2497.0)), ('04:05 PM', 'Friday', np.float64(1626.0)), ('09:14 AM', 'Monday', np.float64(1395.0)), ('10:09 AM', 'Monday', np.float64(1626.0)), ('10:14 AM', 'Monday', np.float64(920.0)), ('01:17 PM', 'Monday', np.float64(2497.0)), ('11:33 AM', 'Wednesday', np.float64(3060.0)), ('12:35 PM', 'Wednesday', np.float64(2497.0)), ('02:15 PM', 'Wednesday', np.float64(1626.0)), ('09:14 AM', 'Friday', np.float64(1395.0)), ('10:07 AM', 'Friday', np.float64(1626.0)), ('10:12 AM', 'Friday', np.float64(920.0)), ('12:08 PM', 'Friday', np.float64(3060.0)), ('02:37 PM', 'Friday', np.float64(641.0)), ('09:05 AM', 'Monday', np.float64(1395.0)), ('10:12 AM', 'Monday', np.float64(920.0)), ('04:01 PM', 'Monday', np.float64(1363.0)), ('04:44 PM', 'Monday', np.float64(3524.0)), ('09:07 AM', 'Wednesday', np.float64(1395.0)), ('10:14 AM', 'Wednesday', np.float64(920.0)), ('01:02 PM', 'Wednesday', np.float64(2497.0)), ('09:09 AM', 'Friday', np.float64(1395.0)), ('10:06 AM', 'Friday', np.float64(1626.0)), ('09:12 AM', 'Monday', np.float64(1395.0)), ('10:12 AM', 'Monday', np.float64(1626.0)), ('10:20 AM', 'Monday', np.float64(920.0)), ('02:37 PM', 'Monday', np.float64(1626.0)), ('02:57 PM', 'Monday', np.float64(1288.0)), ('03:56 PM', 'Monday', np.float64(1540.0))]
+Number of historical_data: 30
+Number of predict_data: 27
+predict_y: [1626, 1395, 1626, 1626, 920, 3060, 920, 3060, 1786, 1626, 3060, 1395, 1395, 1626, 2497, 1626, 1395, 1739, 1739, 1395, 3060, 1626, 3060, 1626, 920, 3060, 1626]
+Number of predict_y: 27
+Total_queries: 27
+No previous results found. Starting from scratch.
+The 1th sample:
+Ground truth: 1626
+Pred results: {'prediction': [1626.0], 'reason': "based on the user's activity pattern and recent activities in the context"}
+✅ Salvato parziale dopo sample 1/27 → output/fsq/top1/129.csv
+The 2th sample:
+Ground truth: 1395
+Pred results: {'prediction': [1626.0], 'reason': "Based on the user's activity pattern and recent stays in context, it is most likely that the next place ID will be 1626.0"}
+✅ Salvato parziale dopo sample 2/27 → output/fsq/top1/129.csv
+The 3th sample:
+Ground truth: 1626
+Pred results: {'prediction': [1626.0], 'reason': "Based on the user's activity pattern and context, it is likely that they will return to place 1626 in the afternoon of Friday."}
+✅ Salvato parziale dopo sample 3/27 → output/fsq/top1/129.csv
+The 4th sample:
+Ground truth: 1626
+Pred results: {'prediction': [1626.0], 'reason': 'The user tends to visit place with ID 1626 during Monday morning'}
+✅ Salvato parziale dopo sample 4/27 → output/fsq/top1/129.csv
+The 5th sample:
+Ground truth: 920
+Pred results: {'prediction': [1395], 'reason': 'The user has a repeated visit pattern on Mondays and Fridays at 9-10 am.'}
+✅ Salvato parziale dopo sample 5/27 → output/fsq/top1/129.csv
+The 6th sample:
+Ground truth: 3060
+Pred results: {'prediction': [1395], 'reason': "Based on the user's activity pattern and recent context stays, it is likely that they will visit the same place where they went at 9:14 AM, Monday in the past."}
+✅ Salvato parziale dopo sample 6/27 → output/fsq/top1/129.csv
+The 7th sample:
+Ground truth: 920
+Pred results: {'prediction': [1626.0], 'reason': "based on the user's repeated visits to place 1626 on Mondays and Wednesdays"}
+✅ Salvato parziale dopo sample 7/27 → output/fsq/top1/129.csv
+The 8th sample:
+Ground truth: 3060
+Pred results: {'prediction': [2497.0], 'reason': 'The user has a history of frequent visits to place ID 2497 on Wednesdays.'}
+✅ Salvato parziale dopo sample 8/27 → output/fsq/top1/129.csv
+The 9th sample:
+Ground truth: 1786
+Pred results: {'prediction': [1626.0], 'reason': "Based on the user's historical stays and recent context, they tend to visit place with ID 1626 during weekdays, especially around noon."}
+✅ Salvato parziale dopo sample 9/27 → output/fsq/top1/129.csv
+The 10th sample:
+Ground truth: 1626
+Pred results: {'prediction': [1626.0], 'reason': 'The user has a regular visit to place 1626 on Fridays'}
+✅ Salvato parziale dopo sample 10/27 → output/fsq/top1/129.csv
+The 11th sample:
+Ground truth: 3060
+Pred results: {'prediction': [1626.0], 'reason': "based on the user's activity pattern and recent context"}
+✅ Salvato parziale dopo sample 11/27 → output/fsq/top1/129.csv
+The 12th sample:
+Ground truth: 1395
+Pred results: {'prediction': [1626.0], 'reason': 'The user has a consistent pattern of visiting place 1626 on Fridays during this time of the day.'}
+✅ Salvato parziale dopo sample 12/27 → output/fsq/top1/129.csv
+The 13th sample:
+Ground truth: 1395
+Pred results: {'prediction': [1626.0], 'reason': "The user's historical activity pattern and recent context suggest a high likelihood of visiting the most frequently visited place (1626.0) on a Monday morning."}
+✅ Salvato parziale dopo sample 13/27 → output/fsq/top1/129.csv
+The 14th sample:
+Ground truth: 1626
+Pred results: {'prediction': [1626.0], 'reason': 'The user has a strong pattern of visiting place ID 1626 on Monday afternoons.'}
+✅ Salvato parziale dopo sample 14/27 → output/fsq/top1/129.csv
+The 15th sample:
+Ground truth: 2497
+Pred results: {'prediction': [2497], 'reason': "Based on the user's activity pattern and recent context, I predict they will visit place ID 2497 again."}
+✅ Salvato parziale dopo sample 15/27 → output/fsq/top1/129.csv
+The 16th sample:
+Ground truth: 1626
+Pred results: {'prediction': [2497.0], 'reason': "The user's recent activities in the context suggest a visit to place ID 2497."}
+✅ Salvato parziale dopo sample 16/27 → output/fsq/top1/129.csv
+The 17th sample:
+Ground truth: 1395
+Pred results: {'prediction': [1626.0], 'reason': 'The user has a strong activity pattern of visiting place ID 1626 on Mondays and Fridays during daytime, which matches the current Monday target stay; recent activities in context also show frequent visits to this place.'}
+✅ Salvato parziale dopo sample 17/27 → output/fsq/top1/129.csv
+The 18th sample:
+Ground truth: 1739
+Pred results: {'prediction': [1626.0], 'reason': "Based on the historical pattern of visiting place 1626.0 during weekdays and weekends, and considering recent activities in context, it's likely to visit this place again."}
+✅ Salvato parziale dopo sample 18/27 → output/fsq/top1/129.csv
+The 19th sample:
+Ground truth: 1739
+Pred results: {'prediction': [1626], 'reason': 'recent repeated visit to place ID 1626'}
+✅ Salvato parziale dopo sample 19/27 → output/fsq/top1/129.csv
+The 20th sample:
+Ground truth: 1395
+Pred results: {'prediction': [1395.0], 'reason': 'Based on the activity pattern and recent context, the user is likely to visit the same place as their recent morning stays'}
+✅ Salvato parziale dopo sample 20/27 → output/fsq/top1/129.csv
+The 21th sample:
+Ground truth: 3060
+Pred results: {'prediction': [1626.0], 'reason': "The user's recent activity pattern suggests a high likelihood of returning to the previous place ID"}
+✅ Salvato parziale dopo sample 21/27 → output/fsq/top1/129.csv
+The 22th sample:
+Ground truth: 1626
+Pred results: {'prediction': [1395], 'reason': 'Recent visits and activity pattern suggest this user will likely return to the same place'}
+✅ Salvato parziale dopo sample 22/27 → output/fsq/top1/129.csv
+The 23th sample:
+Ground truth: 3060
+Pred results: {'prediction': [1395], 'reason': "based on the user's activity pattern and recent context"}
+✅ Salvato parziale dopo sample 23/27 → output/fsq/top1/129.csv
+The 24th sample:
+Ground truth: 1626
+Pred results: {'prediction': [920, 1626], 'reason': "Based on the user's historical pattern of visiting places 920 and 1626 during weekdays"}
+✅ Salvato parziale dopo sample 24/27 → output/fsq/top1/129.csv
+The 25th sample:
+Ground truth: 920
+Pred results: {'prediction': [1626.0], 'reason': "Based on the user's historical stays and recent context, I predict that the next location will be a place where the user has stayed before during similar times of the day (e.g., morning)"}
+✅ Salvato parziale dopo sample 25/27 → output/fsq/top1/129.csv
+The 26th sample:
+Ground truth: 3060
+Pred results: {'prediction': [1626.0], 'reason': 'The user has a history of frequent visits to place ID 1626 on weekdays, and the recent context shows that they have been visiting this place recently during Monday and Wednesday mornings.'}
+✅ Salvato parziale dopo sample 26/27 → output/fsq/top1/129.csv
+The 27th sample:
+Ground truth: 1626
+Pred results: {'prediction': [1626], 'reason': 'Based on the activity pattern and context, it is likely that the user will visit place ID 1626 due to repeated visits during weekdays.'}
+✅ Salvato parziale dopo sample 27/27 → output/fsq/top1/129.csv
+🎉 Completate tutte le predizioni per user 129. Risultati salvati in: output/fsq/top1/129.csv
+=================Processing user 130==================
+Length of user 130 train data: 37
+Number of user historical stays: 30
+historical_data: [('07:30 PM', 'Monday', np.float64(2476.0)), ('03:46 PM', 'Wednesday', np.float64(3548.0)), ('03:46 PM', 'Wednesday', np.float64(3548.0)), ('07:26 PM', 'Wednesday', np.float64(1409.0)), ('04:05 PM', 'Tuesday', np.float64(2476.0)), ('04:59 PM', 'Thursday', np.float64(2476.0)), ('11:01 PM', 'Friday', np.float64(3548.0)), ('05:54 PM', 'Saturday', np.float64(3548.0)), ('02:34 PM', 'Saturday', np.float64(3548.0)), ('01:00 AM', 'Sunday', np.float64(3548.0)), ('07:32 PM', 'Tuesday', np.float64(3548.0)), ('04:50 PM', 'Wednesday', np.float64(2476.0)), ('05:21 PM', 'Wednesday', np.float64(3548.0)), ('06:28 PM', 'Thursday', np.float64(2476.0)), ('08:42 PM', 'Friday', np.float64(3548.0)), ('03:08 PM', 'Saturday', np.float64(3548.0)), ('08:38 PM', 'Monday', np.float64(3548.0)), ('05:14 PM', 'Wednesday', np.float64(3548.0)), ('05:38 PM', 'Friday', np.float64(1447.0)), ('12:00 AM', 'Saturday', np.float64(3548.0)), ('06:09 PM', 'Tuesday', np.float64(3548.0)), ('08:12 PM', 'Saturday', np.float64(3548.0)), ('12:30 PM', 'Sunday', np.float64(2476.0)), ('06:35 PM', 'Sunday', np.float64(3548.0)), ('08:18 AM', 'Wednesday', np.float64(3548.0)), ('07:05 PM', 'Wednesday', np.float64(3548.0)), ('04:53 PM', 'Thursday', np.float64(3548.0)), ('03:29 PM', 'Friday', np.float64(3548.0)), ('06:49 AM', 'Saturday', np.float64(3548.0)), ('01:54 PM', 'Saturday', np.float64(2327.0))]
+Number of historical_data: 30
+Number of predict_data: 6
+predict_y: [3548, 2503, 2476, 3548, 3548, 3548]
+Number of predict_y: 6
+Total_queries: 6
+No previous results found. Starting from scratch.
+The 1th sample:
+Ground truth: 3548
+Pred results: {'prediction': [3548.0], 'reason': 'based on the recent activity pattern and the temporal information'}
+✅ Salvato parziale dopo sample 1/6 → output/fsq/top1/130.csv
+The 2th sample:
+Ground truth: 2503
+Pred results: {'prediction': [3548.0], 'reason': 'The user has a strong preference for visiting place ID 3548 during Sunday afternoon'}
+✅ Salvato parziale dopo sample 2/6 → output/fsq/top1/130.csv
+The 3th sample:
+Ground truth: 2476
+Pred results: {'prediction': [3548], 'reason': 'The user has a strong affinity for place ID 3548, which is the most frequent and recent location'}
+✅ Salvato parziale dopo sample 3/6 → output/fsq/top1/130.csv
+The 4th sample:
+Ground truth: 3548
+Pred results: {'prediction': [3548], 'reason': "Based on the user's historical activity pattern and recent context stays, it is likely that they will visit a place they have been to before during the same time of day and day of week."}
+✅ Salvato parziale dopo sample 4/6 → output/fsq/top1/130.csv
+The 5th sample:
+Ground truth: 3548
+Pred results: {'prediction': [3548.0], 'reason': 'Recent context and historical pattern suggest a repeated visit to place ID 3548 during Sunday evening'}
+✅ Salvato parziale dopo sample 5/6 → output/fsq/top1/130.csv
+The 6th sample:
+Ground truth: 3548
+Pred results: {'prediction': [3548], 'reason': "Based on the user's activity pattern and recent context, I predict they will visit place ID 3548 again due to repeated visits during this time of day and day of week."}
+✅ Salvato parziale dopo sample 6/6 → output/fsq/top1/130.csv
+🎉 Completate tutte le predizioni per user 130. Risultati salvati in: output/fsq/top1/130.csv
+=================Processing user 131==================
+Length of user 131 train data: 108
+Number of user historical stays: 30
+historical_data: [('03:24 PM', 'Monday', np.float64(1756.0)), ('09:43 PM', 'Tuesday', np.float64(3037.0)), ('12:37 PM', 'Thursday', np.float64(1756.0)), ('12:37 AM', 'Friday', np.float64(3037.0)), ('11:02 PM', 'Friday', np.float64(2066.0)), ('02:34 AM', 'Saturday', np.float64(3037.0)), ('11:42 PM', 'Saturday', np.float64(3037.0)), ('10:44 AM', 'Monday', np.float64(3037.0)), ('09:28 AM', 'Wednesday', np.float64(3037.0)), ('04:24 PM', 'Wednesday', np.float64(1562.0)), ('01:27 AM', 'Thursday', np.float64(3037.0)), ('01:23 PM', 'Thursday', np.float64(1756.0)), ('10:01 PM', 'Thursday', np.float64(3037.0)), ('04:26 PM', 'Friday', np.float64(1756.0)), ('11:50 PM', 'Friday', np.float64(3037.0)), ('10:51 PM', 'Monday', np.float64(1198.0)), ('12:49 AM', 'Tuesday', np.float64(3037.0)), ('04:38 PM', 'Monday', np.float64(1756.0)), ('02:03 AM', 'Monday', np.float64(3037.0)), ('01:42 PM', 'Friday', np.float64(1562.0)), ('04:48 PM', 'Friday', np.float64(721.0)), ('07:40 PM', 'Friday', np.float64(3037.0)), ('02:27 PM', 'Saturday', np.float64(1756.0)), ('11:18 PM', 'Sunday', np.float64(3037.0)), ('04:44 PM', 'Monday', np.float64(1756.0)), ('02:39 AM', 'Saturday', np.float64(3037.0)), ('03:57 PM', 'Saturday', np.float64(1756.0)), ('12:24 PM', 'Sunday', np.float64(3037.0)), ('03:58 PM', 'Sunday', np.float64(1507.0)), ('07:10 PM', 'Sunday', np.float64(1934.0))]
+Number of historical_data: 30
+Number of predict_data: 1
+predict_y: [1210]
+Number of predict_y: 1
+Total_queries: 1
+No previous results found. Starting from scratch.
+The 1th sample:
+Ground truth: 1210
+Pred results: {'prediction': [3037.0], 'reason': "Based on the user's recent activities and historical stays, the most likely place ID is their frequent stay at 3037."}
+✅ Salvato parziale dopo sample 1/1 → output/fsq/top1/131.csv
+🎉 Completate tutte le predizioni per user 131. Risultati salvati in: output/fsq/top1/131.csv
+=================Processing user 132==================
+Length of user 132 train data: 219
+Number of user historical stays: 30
+historical_data: [('05:19 PM', 'Friday', np.float64(3444.0)), ('07:00 PM', 'Friday', np.float64(1328.0)), ('08:03 AM', 'Monday', np.float64(2803.0)), ('08:37 PM', 'Monday', np.float64(3444.0)), ('08:42 AM', 'Tuesday', np.float64(2803.0)), ('04:59 PM', 'Tuesday', np.float64(3031.0)), ('07:57 AM', 'Wednesday', np.float64(2803.0)), ('05:10 PM', 'Wednesday', np.float64(3118.0)), ('05:10 PM', 'Wednesday', np.float64(1328.0)), ('07:15 PM', 'Thursday', np.float64(3444.0)), ('11:11 PM', 'Thursday', np.float64(1406.0)), ('11:11 PM', 'Thursday', np.float64(2903.0)), ('11:31 PM', 'Thursday', np.float64(3470.0)), ('07:58 AM', 'Friday', np.float64(2151.0)), ('03:27 PM', 'Friday', np.float64(1827.0)), ('06:47 PM', 'Friday', np.float64(3031.0)), ('06:48 PM', 'Friday', np.float64(2903.0)), ('08:08 PM', 'Friday', np.float64(999.0)), ('10:31 AM', 'Saturday', np.float64(3470.0)), ('02:07 PM', 'Saturday', np.float64(2272.0)), ('02:08 PM', 'Saturday', np.float64(3470.0)), ('07:55 PM', 'Saturday', np.float64(244.0)), ('09:06 AM', 'Tuesday', np.float64(2803.0)), ('05:28 PM', 'Tuesday', np.float64(1827.0)), ('08:19 AM', 'Thursday', np.float64(2803.0)), ('08:16 AM', 'Friday', np.float64(2151.0)), ('08:17 AM', 'Friday', np.float64(2803.0)), ('05:19 PM', 'Friday', np.float64(3118.0)), ('05:27 PM', 'Friday', np.float64(1328.0)), ('07:49 PM', 'Friday', np.float64(3444.0))]
+Number of historical_data: 30
+Number of predict_data: 82
+predict_y: [2151, 1328, 3470, 1827, 1328, 2903, 2272, 2181, 3031, 3444, 2151, 2803, 3118, 2181, 2903, 2151, 2803, 3031, 2903, 2151, 1328, 2181, 3470, 3444, 3118, 1827, 3470, 2803, 1328, 2181, 2803, 1328, 1827, 2803, 1328, 2151, 2803, 3118, 1328, 2272, 2903, 3031, 2151, 3031, 1328, 3031, 3470, 1827, 2903, 3444, 2151, 2803, 1328, 1406, 2803, 3031, 2803, 3031, 1827, 3118, 1, 1328, 2272, 2151, 2803, 1, 1827, 2272, 2151, 1827, 2903, 1406, 3118, 1, 1328, 2803, 2803, 2803, 1, 2803, 3031, 2272]
+Number of predict_y: 82
+Total_queries: 82
+No previous results found. Starting from scratch.
+The 1th sample:
+Ground truth: 2151
+Pred results: {'prediction': [3444.0], 'reason': "Based on the user's activity pattern and recent context, the most likely place ID is the one where the user has stayed multiple times before, during the same time of day (morning)."}
+✅ Salvato parziale dopo sample 1/82 → output/fsq/top1/132.csv
+The 2th sample:
+Ground truth: 1328
+Pred results: {'prediction': [3444.0], 'reason': 'Recently frequent visits to place ID 3444'}
+✅ Salvato parziale dopo sample 2/82 → output/fsq/top1/132.csv
+The 3th sample:
+Ground truth: 3470
+Pred results: {'prediction': [1328], 'reason': "Given the user's frequent visits to place 1328 on Thursdays, it is likely that they will return to this location."}
+✅ Salvato parziale dopo sample 3/82 → output/fsq/top1/132.csv
+The 4th sample:
+Ground truth: 1827
+Pred results: {'prediction': [3444.0], 'reason': 'The user has a repeated visit to place ID 3444 on Thursdays'}
+✅ Salvato parziale dopo sample 4/82 → output/fsq/top1/132.csv
+The 5th sample:
+Ground truth: 1328
+Pred results: {'prediction': [3444.0], 'reason': "The user's recent activity pattern and context suggests a high probability of returning to the same place where they spent most of their time last Friday."}
+✅ Salvato parziale dopo sample 5/82 → output/fsq/top1/132.csv
+The 6th sample:
+Ground truth: 2903
+Pred results: {'prediction': [3444.0], 'reason': 'Recent visits to place with ID 3444.0 on Thursday'}
+✅ Salvato parziale dopo sample 6/82 → output/fsq/top1/132.csv
+The 7th sample:
+Ground truth: 2272
+Pred results: {'prediction': [3444.0], 'reason': 'The user has repeated visits to place 3444.0 during Friday evenings'}
+✅ Salvato parziale dopo sample 7/82 → output/fsq/top1/132.csv
+The 8th sample:
+Ground truth: 2181
+Pred results: {'prediction': [3444.0], 'reason': "Based on the user's activity pattern and recent context, it is likely that the next place visited will be a repeated visit to 3444."}
+✅ Salvato parziale dopo sample 8/82 → output/fsq/top1/132.csv
+The 9th sample:
+Ground truth: 3031
+Pred results: {'prediction': [3444.0], 'reason': 'The user has a strong tendency to visit place ID 3444.0 at night on Fridays, which is evident from their historical stays and recent context.'}
+✅ Salvato parziale dopo sample 9/82 → output/fsq/top1/132.csv
+The 10th sample:
+Ground truth: 3444
+Pred results: {'prediction': [3444.0], 'reason': 'The user has a strong tendency to visit place ID 3444 during the night and on Sunday.'}
+✅ Salvato parziale dopo sample 10/82 → output/fsq/top1/132.csv
+The 11th sample:
+Ground truth: 2151
+Pred results: {'prediction': [2803.0], 'reason': 'The target stay is on Monday morning and the user has a strong tendency to visit place ID 2803.0 during this time of day (morning)'}
+✅ Salvato parziale dopo sample 11/82 → output/fsq/top1/132.csv
+The 12th sample:
+Ground truth: 2803
+Pred results: {'prediction': [3444.0], 'reason': 'The user has visited this place recently in the past two days and is likely to repeat the visit during morning on Monday'}
+✅ Salvato parziale dopo sample 12/82 → output/fsq/top1/132.csv
+The 13th sample:
+Ground truth: 3118
+Pred results: {'prediction': [3444.0], 'reason': "Based on the user's activity pattern and recent context, it is most likely that they will visit place 3444 again."}
+✅ Salvato parziale dopo sample 13/82 → output/fsq/top1/132.csv
+The 14th sample:
+Ground truth: 2181
+Pred results: {'prediction': [3444.0], 'reason': 'The user has a repeated visit pattern to place ID 3444 at the end of the week, as seen in their activity history and recent context.'}
+✅ Salvato parziale dopo sample 14/82 → output/fsq/top1/132.csv
+The 15th sample:
+Ground truth: 2903
+Pred results: {'prediction': [3444.0], 'reason': 'The user has a strong preference for visiting place 3444 at this time of the day and on Mondays'}
+✅ Salvato parziale dopo sample 15/82 → output/fsq/top1/132.csv
+The 16th sample:
+Ground truth: 2151
+Pred results: {'prediction': [2803.0], 'reason': 'The user has a repeated visit pattern to place with ID 2803 on Wednesdays'}
+✅ Salvato parziale dopo sample 16/82 → output/fsq/top1/132.csv
+The 17th sample:
+Ground truth: 2803
+Pred results: {'prediction': [3444.0], 'reason': 'repeated visit to a certain place during certain time and recent activity'}
+✅ Salvato parziale dopo sample 17/82 → output/fsq/top1/132.csv
+The 18th sample:
+Ground truth: 3031
+Pred results: {'prediction': [999.0], 'reason': "The target stay's start time is close to the end of work hours and weekday, matching the user's pattern of visiting place 999 at similar times on weekdays."}
+✅ Salvato parziale dopo sample 18/82 → output/fsq/top1/132.csv
+The 19th sample:
+Ground truth: 2903
+Pred results: {'prediction': [3444.0], 'reason': "Based on the user's activity pattern and recent context, it is most likely that the next place ID will be 3444.0, as this place has been visited frequently during the same time of day (evening) and on the same day of the week (Thursday)."}
+✅ Salvato parziale dopo sample 19/82 → output/fsq/top1/132.csv
+The 20th sample:
+Ground truth: 2151
+Pred results: {'prediction': [3118.0], 'reason': "Predicting the next place ID based on the user's activity pattern and context, considering their repeated visits to certain places during specific times."}
+✅ Salvato parziale dopo sample 20/82 → output/fsq/top1/132.csv
+The 21th sample:
+Ground truth: 1328
+Pred results: {'prediction': [3444.0], 'reason': 'The user has a repeating pattern of visiting the same place (3444) during the evening hours on Fridays'}
+✅ Salvato parziale dopo sample 21/82 → output/fsq/top1/132.csv
+The 22th sample:
+Ground truth: 2181
+Pred results: {'prediction': [3444], 'reason': 'Recent visits to place ID 3444 on Fridays and the temporal information of target stay suggests that this user is likely to visit place ID 3444 again.'}
+✅ Salvato parziale dopo sample 22/82 → output/fsq/top1/132.csv
+The 23th sample:
+Ground truth: 3470
+Pred results: {'prediction': [3444.0], 'reason': 'The target stay is on Friday evening, and the user has a consistent visit pattern to place ID 3444 during this time.'}
+✅ Salvato parziale dopo sample 23/82 → output/fsq/top1/132.csv
+The 24th sample:
+Ground truth: 3444
+Pred results: {'prediction': [3118.0], 'reason': 'repeated visit to a certain place during a certain time'}
+✅ Salvato parziale dopo sample 24/82 → output/fsq/top1/132.csv
+The 25th sample:
+Ground truth: 3118
+Pred results: {'prediction': [2151], 'reason': 'Recent activity shows frequent visits to place ID 2151 on Friday evening'}
+✅ Salvato parziale dopo sample 25/82 → output/fsq/top1/132.csv
+The 26th sample:
+Ground truth: 1827
+Pred results: {'prediction': [1328], 'reason': 'recent repeated visit to a certain place during certain time'}
+✅ Salvato parziale dopo sample 26/82 → output/fsq/top1/132.csv
+The 27th sample:
+Ground truth: 3470
+Pred results: {'prediction': [3118], 'reason': "The user's recent stays in context suggest frequent visits to place 3118 on Saturday evenings."}
+✅ Salvato parziale dopo sample 27/82 → output/fsq/top1/132.csv
+The 28th sample:
+Ground truth: 2803
+Pred results: {'prediction': [2803.0], 'reason': 'the user typically stays at the same place on Monday mornings'}
+✅ Salvato parziale dopo sample 28/82 → output/fsq/top1/132.csv
+The 29th sample:
+Ground truth: 1328
+Pred results: {'prediction': [3444.0], 'reason': 'The target stay is on a Monday, and the context suggests recent visits to place 3444.'}
+✅ Salvato parziale dopo sample 29/82 → output/fsq/top1/132.csv
+The 30th sample:
+Ground truth: 2181
+Pred results: {'prediction': [3444.0], 'reason': "Based on the user's historical stays and recent context, there is a strong likelihood that they will visit place ID 3444 as it has been frequently visited during weekdays"}
+✅ Salvato parziale dopo sample 30/82 → output/fsq/top1/132.csv
+The 31th sample:
+Ground truth: 2803
+Pred results: {'prediction': [3118.0], 'reason': 'based on the activity pattern of this user, repeated visit to a certain place during certain time'}
+✅ Salvato parziale dopo sample 31/82 → output/fsq/top1/132.csv
+The 32th sample:
+Ground truth: 1328
+Pred results: {'prediction': [3118.0], 'reason': 'The user tends to visit place 3118 in the evening on Tuesday.'}
+✅ Salvato parziale dopo sample 32/82 → output/fsq/top1/132.csv
+The 33th sample:
+Ground truth: 1827
+Pred results: {'prediction': [3444.0], 'reason': 'The user has a repeated visit to place ID 3444 on Tuesdays and the target stay is also on Tuesday.'}
+✅ Salvato parziale dopo sample 33/82 → output/fsq/top1/132.csv
+The 34th sample:
+Ground truth: 2803
+Pred results: {'prediction': [3444.0], 'reason': 'Recent repeated visit to place ID 3444 on Thursday afternoons'}
+✅ Salvato parziale dopo sample 34/82 → output/fsq/top1/132.csv
+The 35th sample:
+Ground truth: 1328
+Pred results: {'prediction': [3444.0], 'reason': "The user's activity pattern suggests repeated visits to place ID 3444 during Thursday evenings"}
+✅ Salvato parziale dopo sample 35/82 → output/fsq/top1/132.csv
+The 36th sample:
+Ground truth: 2151
+Pred results: {'prediction': [3444.0], 'reason': 'The user has a strong affinity for place ID 3444 on Fridays'}
+✅ Salvato parziale dopo sample 36/82 → output/fsq/top1/132.csv
+The 37th sample:
+Ground truth: 2803
+Pred results: {'prediction': [3444.0], 'reason': 'The user has a strong tendency to visit place 3444 on Fridays in the morning.'}
+✅ Salvato parziale dopo sample 37/82 → output/fsq/top1/132.csv
+The 38th sample:
+Ground truth: 3118
+Pred results: {'prediction': [3444.0], 'reason': "The target stay is on Friday evening, which matches the user's frequent visit to this place during this time."}
+✅ Salvato parziale dopo sample 38/82 → output/fsq/top1/132.csv
+The 39th sample:
+Ground truth: 1328
+Pred results: {'prediction': [3444.0], 'reason': "The user's recent activity pattern shows a strong tendency to visit place ID 3444 in the afternoon on Fridays"}
+✅ Salvato parziale dopo sample 39/82 → output/fsq/top1/132.csv
+The 40th sample:
+Ground truth: 2272
+Pred results: {'prediction': [3118], 'reason': 'The target stay is at the same time and day as recent stays, which all occurred at this place ID.'}
+✅ Salvato parziale dopo sample 40/82 → output/fsq/top1/132.csv
+The 41th sample:
+Ground truth: 2903
+Pred results: {'prediction': [3444.0], 'reason': "The target stay is on Friday evening, which is similar to the user's recent activity pattern in the given context."}
+✅ Salvato parziale dopo sample 41/82 → output/fsq/top1/132.csv
+The 42th sample:
+Ground truth: 3031
+Pred results: {'prediction': [2272.0], 'reason': 'Recent repeated visit to a place on Monday afternoon'}
+✅ Salvato parziale dopo sample 42/82 → output/fsq/top1/132.csv
+The 43th sample:
+Ground truth: 2151
+Pred results: {'prediction': [3118.0], 'reason': 'The user has a repeated visit to place 3118 during the morning of Tuesday'}
+✅ Salvato parziale dopo sample 43/82 → output/fsq/top1/132.csv
+The 44th sample:
+Ground truth: 3031
+Pred results: {'prediction': [3444], 'reason': 'The user has a tendency to visit place ID 3444 during the afternoon on Thursdays based on their historical stays and recent context.'}
+✅ Salvato parziale dopo sample 44/82 → output/fsq/top1/132.csv
+The 45th sample:
+Ground truth: 1328
+Pred results: {'prediction': [2272], 'reason': 'The user has a repeated visit to place ID 2272 during certain time on Friday'}
+✅ Salvato parziale dopo sample 45/82 → output/fsq/top1/132.csv
+The 46th sample:
+Ground truth: 3031
+Pred results: {'prediction': [3444.0], 'reason': "The target stay's temporal information (time of day and weekday) is similar to the user's recent activity pattern in the context"}
+✅ Salvato parziale dopo sample 46/82 → output/fsq/top1/132.csv
+The 47th sample:
+Ground truth: 3470
+Pred results: {'prediction': [3444.0], 'reason': 'The user has repeated visits to the same place during certain time (e.g., Friday evening)'}
+✅ Salvato parziale dopo sample 47/82 → output/fsq/top1/132.csv
+The 48th sample:
+Ground truth: 1827
+Pred results: {'prediction': [3444.0], 'reason': 'The target stay is on Monday evening and the user has stayed at this place before'}
+✅ Salvato parziale dopo sample 48/82 → output/fsq/top1/132.csv
+The 49th sample:
+Ground truth: 2903
+Pred results: {'prediction': [3444.0], 'reason': 'Recent context suggests frequent visits to place ID 3444.0 on Monday evenings.'}
+✅ Salvato parziale dopo sample 49/82 → output/fsq/top1/132.csv
+The 50th sample:
+Ground truth: 3444
+Pred results: {'prediction': [3444.0], 'reason': "Recurrent visit to a place based on the user's activity pattern and recent context"}
+✅ Salvato parziale dopo sample 50/82 → output/fsq/top1/132.csv
+The 51th sample:
+Ground truth: 2151
+Pred results: {'prediction': [2803.0], 'reason': "Based on the user's historical activity pattern and recent context, it is likely that they will visit a place they have been to recently during this time slot."}
+✅ Salvato parziale dopo sample 51/82 → output/fsq/top1/132.csv
+The 52th sample:
+Ground truth: 2803
+Pred results: {'prediction': [3118.0], 'reason': "based on the user's activity pattern and recent context stays, it is most likely that they will visit place 3118 again"}
+✅ Salvato parziale dopo sample 52/82 → output/fsq/top1/132.csv
+The 53th sample:
+Ground truth: 1328
+Pred results: {'prediction': [3444.0], 'reason': 'The user has a repeated visit pattern to place 3444 on Thursday evenings'}
+✅ Salvato parziale dopo sample 53/82 → output/fsq/top1/132.csv
+The 54th sample:
+Ground truth: 1406
+Pred results: {'prediction': [3444.0], 'reason': "Based on the user's activity pattern and recent stays in context, the most likely next place ID is the one visited frequently during nighttime (7-8 PM) on Thursday, which is 3444.0."}
+✅ Salvato parziale dopo sample 54/82 → output/fsq/top1/132.csv
+The 55th sample:
+Ground truth: 2803
+Pred results: {'prediction': [3118.0], 'reason': "Given the user's activity pattern and recent context of visiting places on Friday evenings and mornings, we predict that they will visit place 3118 again."}
+✅ Salvato parziale dopo sample 55/82 → output/fsq/top1/132.csv
+The 56th sample:
+Ground truth: 3031
+Pred results: {'prediction': [3444], 'reason': 'The user has a strong affinity for place ID 3444 on Friday evenings and Saturdays.'}
+✅ Salvato parziale dopo sample 56/82 → output/fsq/top1/132.csv
+The 57th sample:
+Ground truth: 2803
+Pred results: {'prediction': [3444.0], 'reason': "The target stay is on a Monday morning, which matches the pattern of recent stays, and it's likely that this user will visit the same place they went to on previous Mondays (3444.0)"}
+✅ Salvato parziale dopo sample 57/82 → output/fsq/top1/132.csv
+The 58th sample:
+Ground truth: 3031
+Pred results: {'prediction': [3444.0], 'reason': 'Given the historical activity pattern of repeated visits to place ID 3444 during weekdays (especially Monday evenings), and considering the recent context stays which also involve this place ID, it is most likely that the user will return to place ID 3444 for their next stay.'}
+✅ Salvato parziale dopo sample 58/82 → output/fsq/top1/132.csv
+The 59th sample:
+Ground truth: 1827
+Pred results: {'prediction': [2803.0], 'reason': 'The user has a consistent pattern of visiting place ID 2803 on Mondays and Tuesdays, and given the context of the target stay being on Monday at 6:53 PM, it is likely that they will visit this place again.'}
+✅ Salvato parziale dopo sample 59/82 → output/fsq/top1/132.csv
+The 60th sample:
+Ground truth: 3118
+Pred results: {'prediction': [3444], 'reason': "Given the user's activity pattern and recent stays in context, the most likely place ID is their frequently visited destination during Friday evening."}
+✅ Salvato parziale dopo sample 60/82 → output/fsq/top1/132.csv
+The 61th sample:
+Ground truth: 1
+Pred results: {'prediction': [1328.0], 'reason': 'Recent visits to place 1328 on Fridays'}
+✅ Salvato parziale dopo sample 61/82 → output/fsq/top1/132.csv
+The 62th sample:
+Ground truth: 1328
+Pred results: {'prediction': [1328.0], 'reason': 'Recurring visit to the same place on Tuesdays'}
+✅ Salvato parziale dopo sample 62/82 → output/fsq/top1/132.csv
+The 63th sample:
+Ground truth: 2272
+Pred results: {'prediction': [3118], 'reason': 'Recent activities and historical pattern suggest the user is likely to visit place ID 3118 again'}
+✅ Salvato parziale dopo sample 63/82 → output/fsq/top1/132.csv
+The 64th sample:
+Ground truth: 2151
+Pred results: {'prediction': [2803], 'reason': 'The target stay is on a Wednesday, and the user has visited place 2803 multiple times in the past, including recently on Monday.'}
+✅ Salvato parziale dopo sample 64/82 → output/fsq/top1/132.csv
+The 65th sample:
+Ground truth: 2803
+Pred results: {'prediction': [3444.0], 'reason': "The target stay's time and day of the week are close to the context stays' last occurrence on Tuesday evening, which also includes a visit to place 1328. The user has visited this place multiple times in the past."}
+✅ Salvato parziale dopo sample 65/82 → output/fsq/top1/132.csv
+The 66th sample:
+Ground truth: 1
+Pred results: {'prediction': [3444.0], 'reason': 'based on the activity pattern and context stays, the most likely place ID is 3444.0'}
+✅ Salvato parziale dopo sample 66/82 → output/fsq/top1/132.csv
+The 67th sample:
+Ground truth: 1827
+Pred results: {'prediction': [1328.0], 'reason': "The user's recent activities in the context have shown a strong affinity for place ID 1328"}
+✅ Salvato parziale dopo sample 67/82 → output/fsq/top1/132.csv
+The 68th sample:
+Ground truth: 2272
+Pred results: {'prediction': [3444.0], 'reason': "Based on the user's activity pattern and recent stays in context, the most likely next place ID is 3444.0 due to repeated visits during similar times of day."}
+✅ Salvato parziale dopo sample 68/82 → output/fsq/top1/132.csv
+The 69th sample:
+Ground truth: 2151
+Pred results: {'prediction': [3444.0], 'reason': 'Recent frequent visits to this place on Thursday afternoons'}
+✅ Salvato parziale dopo sample 69/82 → output/fsq/top1/132.csv
+The 70th sample:
+Ground truth: 1827
+Pred results: {'prediction': [3444.0], 'reason': 'The user has a strong tendency to visit place 3444 on Thursday evenings.'}
+✅ Salvato parziale dopo sample 70/82 → output/fsq/top1/132.csv
+The 71th sample:
+Ground truth: 2903
+Pred results: {'prediction': [3444.0], 'reason': 'The user has a tendency to visit place 3444 during the evening on Thursday'}
+✅ Salvato parziale dopo sample 71/82 → output/fsq/top1/132.csv
+The 72th sample:
+Ground truth: 1406
+Pred results: {'prediction': [2272.0], 'reason': 'recent activity on Wednesday'}
+✅ Salvato parziale dopo sample 72/82 → output/fsq/top1/132.csv
+The 73th sample:
+Ground truth: 3118
+Pred results: {'prediction': [3444.0], 'reason': 'The target stay is on a Thursday evening, and the user has previously visited place ID 3444.0 on Thursday evenings.'}
+✅ Salvato parziale dopo sample 73/82 → output/fsq/top1/132.csv
+The 74th sample:
+Ground truth: 1
+Pred results: {'prediction': [3444.0], 'reason': "Based on the user's activity pattern and recent context, it is likely that they will visit place ID 3444 again."}
+✅ Salvato parziale dopo sample 74/82 → output/fsq/top1/132.csv
+The 75th sample:
+Ground truth: 1328
+Pred results: {'prediction': [3444.0], 'reason': 'based on recent activities and historical pattern of repeated visit to place ID 3444 during Friday evening'}
+✅ Salvato parziale dopo sample 75/82 → output/fsq/top1/132.csv
+The 76th sample:
+Ground truth: 2803
+Pred results: {'prediction': [3444.0], 'reason': 'The user has a repeating pattern of visiting place 3444 on Mondays at around 7-8 am'}
+✅ Salvato parziale dopo sample 76/82 → output/fsq/top1/132.csv
+The 77th sample:
+Ground truth: 2803
+Pred results: {'prediction': [2803.0], 'reason': "The target stay is on a Tuesday morning, and based on the user's history, they have stayed at this place before on Tuesdays (09:06 AM, 'Tuesday', 2803.0), which is also their most frequent destination."}
+✅ Salvato parziale dopo sample 77/82 → output/fsq/top1/132.csv
+The 78th sample:
+Ground truth: 2803
+Pred results: {'prediction': [3118.0], 'reason': 'The user tends to visit place 3118 around this time of day and on Tuesdays based on their historical stays.'}
+✅ Salvato parziale dopo sample 78/82 → output/fsq/top1/132.csv
+The 79th sample:
+Ground truth: 1
+Pred results: {'prediction': [1328], 'reason': "The target stay is on Tuesday afternoon, which matches the user's recent activity pattern (e.g., visiting place 1328 at 5:23 PM and 5:27 PM)."}
+✅ Salvato parziale dopo sample 79/82 → output/fsq/top1/132.csv
+The 80th sample:
+Ground truth: 2803
+Pred results: {'prediction': [3444.0], 'reason': 'Recent visits to place ID 3444.0 during morning hours on Thursday'}
+✅ Salvato parziale dopo sample 80/82 → output/fsq/top1/132.csv
+The 81th sample:
+Ground truth: 3031
+Pred results: {'prediction': [3444.0], 'reason': 'The user has a strong affinity to place ID 3444 on Thursdays, based on the activity pattern and context.'}
+✅ Salvato parziale dopo sample 81/82 → output/fsq/top1/132.csv
+The 82th sample:
+Ground truth: 2272
+Pred results: {'prediction': [1328.0], 'reason': 'The target stay is close in time to recent stays and the user tends to visit place 1328 during evening hours on Thursday'}
+✅ Salvato parziale dopo sample 82/82 → output/fsq/top1/132.csv
+🎉 Completate tutte le predizioni per user 132. Risultati salvati in: output/fsq/top1/132.csv
+=================Processing user 133==================
+Length of user 133 train data: 51
+Number of user historical stays: 30
+historical_data: [('11:20 AM', 'Thursday', np.float64(211.0)), ('08:34 AM', 'Friday', np.float64(1081.0)), ('12:37 PM', 'Friday', np.float64(2392.0)), ('01:37 PM', 'Friday', np.float64(1081.0)), ('09:38 AM', 'Tuesday', np.float64(1081.0)), ('08:34 AM', 'Monday', np.float64(1081.0)), ('08:37 AM', 'Friday', np.float64(1081.0)), ('11:41 AM', 'Wednesday', np.float64(211.0)), ('08:50 AM', 'Monday', np.float64(1081.0)), ('09:07 AM', 'Tuesday', np.float64(1081.0)), ('06:21 PM', 'Thursday', np.float64(2757.0)), ('08:46 AM', 'Friday', np.float64(1081.0)), ('12:06 AM', 'Saturday', np.float64(198.0)), ('07:48 AM', 'Tuesday', np.float64(3809.0)), ('08:49 AM', 'Monday', np.float64(1081.0)), ('12:27 PM', 'Monday', np.float64(211.0)), ('05:09 PM', 'Monday', np.float64(33.0)), ('08:58 AM', 'Tuesday', np.float64(1081.0)), ('06:06 PM', 'Wednesday', np.float64(2757.0)), ('04:12 PM', 'Friday', np.float64(656.0)), ('07:40 PM', 'Saturday', np.float64(554.0)), ('10:35 AM', 'Monday', np.float64(1081.0)), ('07:38 AM', 'Wednesday', np.float64(1081.0)), ('11:00 AM', 'Thursday', np.float64(3464.0)), ('05:34 PM', 'Friday', np.float64(33.0)), ('11:07 AM', 'Thursday', np.float64(211.0)), ('03:19 PM', 'Saturday', np.float64(489.0)), ('08:51 AM', 'Wednesday', np.float64(1081.0)), ('05:17 PM', 'Thursday', np.float64(33.0)), ('06:36 PM', 'Thursday', np.float64(3416.0))]
+Number of historical_data: 30
+Number of predict_data: 3
+predict_y: [211, 1081, 1081]
+Number of predict_y: 3
+Total_queries: 3
+No previous results found. Starting from scratch.
+The 1th sample:
+Ground truth: 211
+Pred results: {'prediction': [1081.0], 'reason': "Based on the user's activity pattern and recent stays in the context, it is likely that they will visit the same place again."}
+✅ Salvato parziale dopo sample 1/3 → output/fsq/top1/133.csv
+The 2th sample:
+Ground truth: 1081
+Pred results: {'prediction': [1081.0], 'reason': 'Recently frequent stay at place ID 1081'}
+✅ Salvato parziale dopo sample 2/3 → output/fsq/top1/133.csv
+The 3th sample:
+Ground truth: 1081
+Pred results: {'prediction': [1081.0], 'reason': "Given the user's historical stays and recent context, it is likely that they will visit a familiar location again, in this case 1081.0"}
+✅ Salvato parziale dopo sample 3/3 → output/fsq/top1/133.csv
+🎉 Completate tutte le predizioni per user 133. Risultati salvati in: output/fsq/top1/133.csv
+=================Processing user 134==================
+Length of user 134 train data: 48
+Number of user historical stays: 30
+historical_data: [('08:48 PM', 'Monday', np.float64(413.0)), ('05:50 PM', 'Friday', np.float64(1246.0)), ('09:01 PM', 'Friday', np.float64(102.0)), ('08:01 PM', 'Saturday', np.float64(2938.0)), ('05:33 PM', 'Saturday', np.float64(361.0)), ('02:57 PM', 'Wednesday', np.float64(465.0)), ('05:28 PM', 'Wednesday', np.float64(203.0)), ('08:47 PM', 'Saturday', np.float64(329.0)), ('12:27 AM', 'Sunday', np.float64(62.0)), ('09:25 PM', 'Sunday', np.float64(329.0)), ('07:09 PM', 'Tuesday', np.float64(1246.0)), ('06:51 PM', 'Sunday', np.float64(2874.0)), ('09:22 PM', 'Friday', np.float64(159.0)), ('04:02 PM', 'Saturday', np.float64(201.0)), ('03:08 PM', 'Saturday', np.float64(3014.0)), ('09:03 PM', 'Saturday', np.float64(361.0)), ('07:26 PM', 'Sunday', np.float64(361.0)), ('08:45 PM', 'Tuesday', np.float64(821.0)), ('08:16 AM', 'Tuesday', np.float64(1.0)), ('08:06 AM', 'Thursday', np.float64(1.0)), ('02:05 PM', 'Saturday', np.float64(1246.0)), ('09:11 AM', 'Monday', np.float64(1.0)), ('09:31 AM', 'Monday', np.float64(1.0)), ('08:31 AM', 'Tuesday', np.float64(1.0)), ('07:24 PM', 'Monday', np.float64(1.0)), ('07:51 AM', 'Thursday', np.float64(1.0)), ('10:23 AM', 'Thursday', np.float64(2252.0)), ('07:55 AM', 'Friday', np.float64(1.0)), ('05:29 PM', 'Saturday', np.float64(1686.0)), ('09:17 AM', 'Monday', np.float64(2252.0))]
+Number of historical_data: 30
+Number of predict_data: 6
+predict_y: [1, 2252, 1, 1, 1, 1]
+Number of predict_y: 6
+Total_queries: 6
+No previous results found. Starting from scratch.
+The 1th sample:
+Ground truth: 1
+Pred results: {'prediction': [821.0], 'reason': 'The user tends to visit the same place on Tuesday evening'}
+✅ Salvato parziale dopo sample 1/6 → output/fsq/top1/134.csv
+The 2th sample:
+Ground truth: 2252
+Pred results: {'prediction': [821.0], 'reason': 'The user has a habit of visiting place with ID 821 on Tuesdays and Wednesday mornings'}
+✅ Salvato parziale dopo sample 2/6 → output/fsq/top1/134.csv
+The 3th sample:
+Ground truth: 1
+Pred results: {'prediction': [329.0], 'reason': "The target stay's time and day of the week match the most recent stay in the context, which was at place 329 on Sunday."}
+✅ Salvato parziale dopo sample 3/6 → output/fsq/top1/134.csv
+The 4th sample:
+Ground truth: 1
+Pred results: {'prediction': [1.0], 'reason': "Based on the user's activity pattern and recent context, it is likely that they will visit the same location as their most recent stay."}
+✅ Salvato parziale dopo sample 4/6 → output/fsq/top1/134.csv
+The 5th sample:
+Ground truth: 1
+Pred results: {'prediction': [2252.0], 'reason': "The target stay is during morning and Monday, which matches the user's frequent visit to this place on Mondays."}
+✅ Salvato parziale dopo sample 5/6 → output/fsq/top1/134.csv
+The 6th sample:
+Ground truth: 1
+Pred results: {'prediction': [821.0], 'reason': "The user's activity pattern shows a repeated visit to the same place on Tuesdays, and given the temporal information of the target stay (morning on Tuesday), it is most likely that this user will visit the same place again."}
+✅ Salvato parziale dopo sample 6/6 → output/fsq/top1/134.csv
+🎉 Completate tutte le predizioni per user 134. Risultati salvati in: output/fsq/top1/134.csv
+=================Processing user 135==================
+Length of user 135 train data: 69
+Number of user historical stays: 30
+historical_data: [('10:51 AM', 'Friday', np.float64(1302.0)), ('10:54 AM', 'Friday', np.float64(234.0)), ('01:52 AM', 'Sunday', np.float64(335.0)), ('12:33 AM', 'Tuesday', np.float64(534.0)), ('10:45 AM', 'Sunday', np.float64(234.0)), ('09:38 PM', 'Monday', np.float64(288.0)), ('10:30 PM', 'Friday', np.float64(288.0)), ('08:45 PM', 'Monday', np.float64(81.0)), ('03:40 PM', 'Tuesday', np.float64(288.0)), ('06:26 PM', 'Tuesday', np.float64(380.0)), ('08:12 PM', 'Wednesday', np.float64(380.0)), ('01:40 PM', 'Thursday', np.float64(898.0)), ('07:51 AM', 'Friday', np.float64(1253.0)), ('10:29 AM', 'Friday', np.float64(2674.0)), ('05:57 PM', 'Thursday', np.float64(3203.0)), ('07:40 AM', 'Friday', np.float64(898.0)), ('07:40 AM', 'Friday', np.float64(1104.0)), ('08:09 PM', 'Monday', np.float64(1253.0)), ('08:37 PM', 'Tuesday', np.float64(1253.0)), ('09:34 PM', 'Tuesday', np.float64(3203.0)), ('06:18 AM', 'Sunday', np.float64(3272.0)), ('05:03 PM', 'Wednesday', np.float64(245.0)), ('08:01 PM', 'Friday', np.float64(245.0)), ('07:42 AM', 'Monday', np.float64(844.0)), ('08:04 AM', 'Monday', np.float64(245.0)), ('06:27 PM', 'Friday', np.float64(2376.0)), ('06:44 PM', 'Friday', np.float64(245.0)), ('01:02 PM', 'Sunday', np.float64(245.0)), ('07:30 PM', 'Monday', np.float64(2159.0)), ('12:19 AM', 'Tuesday', np.float64(844.0))]
+Number of historical_data: 30
+Number of predict_data: 1
+predict_y: [166]
+Number of predict_y: 1
+Total_queries: 1
+No previous results found. Starting from scratch.
+The 1th sample:
+Ground truth: 166
+Pred results: {'prediction': [2376.0], 'reason': "Given the user's recent visits to place 2376 on Fridays and Saturdays, it is likely that they will return there tonight given the late hour."}
+✅ Salvato parziale dopo sample 1/1 → output/fsq/top1/135.csv
+🎉 Completate tutte le predizioni per user 135. Risultati salvati in: output/fsq/top1/135.csv
+=================Processing user 136==================
+Length of user 136 train data: 78
+Number of user historical stays: 30
+historical_data: [('07:37 AM', 'Tuesday', np.float64(2448.0)), ('03:14 PM', 'Sunday', np.float64(869.0)), ('06:20 AM', 'Sunday', np.float64(3016.0)), ('07:18 AM', 'Monday', np.float64(1066.0)), ('07:19 AM', 'Monday', np.float64(2448.0)), ('05:26 AM', 'Thursday', np.float64(1066.0)), ('05:29 AM', 'Thursday', np.float64(2448.0)), ('05:57 AM', 'Friday', np.float64(1066.0)), ('05:57 AM', 'Friday', np.float64(2448.0)), ('12:12 PM', 'Sunday', np.float64(869.0)), ('07:46 AM', 'Thursday', np.float64(2448.0)), ('12:30 PM', 'Saturday', np.float64(869.0)), ('07:19 AM', 'Tuesday', np.float64(2448.0)), ('07:03 AM', 'Monday', np.float64(2448.0)), ('06:46 AM', 'Tuesday', np.float64(2448.0)), ('06:55 AM', 'Tuesday', np.float64(1066.0)), ('07:50 AM', 'Thursday', np.float64(2448.0)), ('05:59 PM', 'Thursday', np.float64(3280.0)), ('06:20 AM', 'Friday', np.float64(2865.0)), ('08:01 AM', 'Monday', np.float64(2448.0)), ('05:52 PM', 'Tuesday', np.float64(3280.0)), ('07:42 AM', 'Wednesday', np.float64(3280.0)), ('01:34 PM', 'Saturday', np.float64(869.0)), ('08:15 AM', 'Sunday', np.float64(869.0)), ('06:04 AM', 'Tuesday', np.float64(2865.0)), ('06:11 PM', 'Wednesday', np.float64(238.0)), ('01:28 PM', 'Monday', np.float64(728.0)), ('08:10 PM', 'Friday', np.float64(1368.0)), ('12:34 PM', 'Saturday', np.float64(869.0)), ('08:38 PM', 'Tuesday', np.float64(2448.0))]
+Number of historical_data: 30
+Number of predict_data: 7
+predict_y: [869, 1122, 2865, 342, 869, 2448, 873]
+Number of predict_y: 7
+Total_queries: 7
+No previous results found. Starting from scratch.
+The 1th sample:
+Ground truth: 869
+Pred results: {'prediction': [2448.0], 'reason': "The target stay's time and day of the week are similar to the most recent stays in both history and context, which all involve place ID 2448.0."}
+✅ Salvato parziale dopo sample 1/7 → output/fsq/top1/136.csv
+The 2th sample:
+Ground truth: 1122
+Pred results: {'prediction': [2448.0], 'reason': 'The user has a strong habit of visiting place ID 2448 during the weekend and late morning/afternoon hours.'}
+✅ Salvato parziale dopo sample 2/7 → output/fsq/top1/136.csv
+The 3th sample:
+Ground truth: 2865
+Pred results: {'prediction': [2448], 'reason': "The target stay's time (07:29 AM) and day (Sunday) are similar to the user's recent stays in context, and they have a strong affinity for visiting place 2448 during early morning hours on Sundays."}
+✅ Salvato parziale dopo sample 3/7 → output/fsq/top1/136.csv
+The 4th sample:
+Ground truth: 342
+Pred results: {'prediction': [2448.0], 'reason': "Given the user's consistent visit to place 2448.0 on weekdays and early in the morning, especially during their recent stays in context, it is most likely they will visit this place again."}
+✅ Salvato parziale dopo sample 4/7 → output/fsq/top1/136.csv
+The 5th sample:
+Ground truth: 869
+Pred results: {'prediction': [2448.0], 'reason': 'The user has a consistent daily routine of visiting the same place (place_id=2448) at the same time (around 6-7 am) and on Fridays.'}
+✅ Salvato parziale dopo sample 5/7 → output/fsq/top1/136.csv
+The 6th sample:
+Ground truth: 2448
+Pred results: {'prediction': [2448.0], 'reason': 'The user tends to visit place ID 2448 on Tuesdays in the morning.'}
+✅ Salvato parziale dopo sample 6/7 → output/fsq/top1/136.csv
+The 7th sample:
+Ground truth: 873
+Pred results: {'prediction': [2448.0], 'reason': 'The user has a strong tendency to visit place 2448 at similar times (morning) and days of the week (Tuesday, Wednesday), which is consistent with the context stays in <context>, so it is most likely that the next stay will be at place 2448.'}
+✅ Salvato parziale dopo sample 7/7 → output/fsq/top1/136.csv
+🎉 Completate tutte le predizioni per user 136. Risultati salvati in: output/fsq/top1/136.csv
+=================Processing user 137==================
+Length of user 137 train data: 81
+Number of user historical stays: 30
+historical_data: [('10:59 PM', 'Wednesday', np.float64(3303.0)), ('04:19 PM', 'Saturday', np.float64(202.0)), ('12:15 AM', 'Sunday', np.float64(2810.0)), ('01:05 AM', 'Sunday', np.float64(519.0)), ('10:09 PM', 'Thursday', np.float64(3303.0)), ('07:27 PM', 'Saturday', np.float64(1005.0)), ('10:00 PM', 'Thursday', np.float64(497.0)), ('10:45 PM', 'Friday', np.float64(3303.0)), ('06:33 PM', 'Monday', np.float64(519.0)), ('09:33 PM', 'Monday', np.float64(2810.0)), ('06:32 PM', 'Wednesday', np.float64(519.0)), ('11:14 AM', 'Saturday', np.float64(732.0)), ('03:13 PM', 'Sunday', np.float64(1216.0)), ('09:13 PM', 'Saturday', np.float64(184.0)), ('01:42 AM', 'Sunday', np.float64(3303.0)), ('08:06 PM', 'Friday', np.float64(519.0)), ('01:28 AM', 'Saturday', np.float64(3303.0)), ('10:14 PM', 'Saturday', np.float64(2810.0)), ('11:53 PM', 'Saturday', np.float64(519.0)), ('12:56 AM', 'Sunday', np.float64(3303.0)), ('06:23 PM', 'Monday', np.float64(627.0)), ('03:23 PM', 'Thursday', np.float64(1235.0)), ('10:22 PM', 'Thursday', np.float64(3303.0)), ('07:44 PM', 'Saturday', np.float64(519.0)), ('10:56 PM', 'Monday', np.float64(3303.0)), ('10:19 PM', 'Wednesday', np.float64(3303.0)), ('11:16 PM', 'Saturday', np.float64(3303.0)), ('07:29 PM', 'Wednesday', np.float64(519.0)), ('09:03 PM', 'Friday', np.float64(519.0)), ('09:16 PM', 'Monday', np.float64(3303.0))]
+Number of historical_data: 30
+Number of predict_data: 1
+predict_y: [519]
+Number of predict_y: 1
+Total_queries: 1
+No previous results found. Starting from scratch.
+The 1th sample:
+Ground truth: 519
+Pred results: {'prediction': [3303.0], 'reason': 'The target stay is on a Wednesday evening, which matches the activity pattern of this user'}
+✅ Salvato parziale dopo sample 1/1 → output/fsq/top1/137.csv
+🎉 Completate tutte le predizioni per user 137. Risultati salvati in: output/fsq/top1/137.csv
+=================Processing user 138==================
+Length of user 138 train data: 114
+Number of user historical stays: 30
+historical_data: [('07:17 PM', 'Monday', np.float64(1250.0)), ('09:14 AM', 'Tuesday', np.float64(1250.0)), ('09:53 AM', 'Tuesday', np.float64(2928.0)), ('10:09 AM', 'Tuesday', np.float64(2244.0)), ('12:50 PM', 'Wednesday', np.float64(1172.0)), ('09:51 AM', 'Tuesday', np.float64(2928.0)), ('10:54 AM', 'Tuesday', np.float64(2244.0)), ('01:59 PM', 'Tuesday', np.float64(1172.0)), ('10:07 AM', 'Thursday', np.float64(2928.0)), ('10:22 AM', 'Thursday', np.float64(2244.0)), ('03:10 PM', 'Thursday', np.float64(1172.0)), ('07:38 PM', 'Saturday', np.float64(1250.0)), ('02:04 PM', 'Sunday', np.float64(2390.0)), ('06:42 PM', 'Sunday', np.float64(226.0)), ('07:22 PM', 'Sunday', np.float64(1250.0)), ('09:51 AM', 'Monday', np.float64(2928.0)), ('10:04 AM', 'Monday', np.float64(2244.0)), ('09:41 AM', 'Tuesday', np.float64(2928.0)), ('09:32 AM', 'Wednesday', np.float64(2928.0)), ('10:13 AM', 'Wednesday', np.float64(2244.0)), ('09:44 AM', 'Thursday', np.float64(2928.0)), ('09:58 AM', 'Thursday', np.float64(2244.0)), ('12:48 PM', 'Thursday', np.float64(1172.0)), ('06:19 PM', 'Thursday', np.float64(226.0)), ('09:41 AM', 'Friday', np.float64(2928.0)), ('10:06 AM', 'Friday', np.float64(2244.0)), ('07:57 PM', 'Friday', np.float64(1250.0)), ('01:30 PM', 'Saturday', np.float64(2947.0)), ('04:48 PM', 'Saturday', np.float64(226.0)), ('07:20 PM', 'Saturday', np.float64(218.0))]
+Number of historical_data: 30
+Number of predict_data: 6
+predict_y: [226, 972, 2928, 2244, 2242, 2238]
+Number of predict_y: 6
+Total_queries: 6
+No previous results found. Starting from scratch.
+The 1th sample:
+Ground truth: 226
+Pred results: {'prediction': [1250.0], 'reason': "based on the user's historical stay pattern and recent context, it is likely that they will return to a familiar location on Sunday afternoon"}
+✅ Salvato parziale dopo sample 1/6 → output/fsq/top1/138.csv
+The 2th sample:
+Ground truth: 972
+Pred results: {'prediction': [2928.0], 'reason': 'The user has repeated visits to place 2928 during the morning on Mondays and Tuesdays'}
+✅ Salvato parziale dopo sample 2/6 → output/fsq/top1/138.csv
+The 3th sample:
+Ground truth: 2928
+Pred results: {'prediction': [2928], 'reason': "Given the user's recent stays in context and their historical pattern of frequent visits to place 2928 on Monday mornings, it is likely that they will visit this place again."}
+✅ Salvato parziale dopo sample 3/6 → output/fsq/top1/138.csv
+The 4th sample:
+Ground truth: 2244
+Pred results: {'prediction': [2928], 'reason': 'Based on the activity pattern and recent context, the most likely place ID is the work/school location (2928) due to its frequent visits during weekdays'}
+✅ Salvato parziale dopo sample 4/6 → output/fsq/top1/138.csv
+The 5th sample:
+Ground truth: 2242
+Pred results: {'prediction': [2928.0], 'reason': "The user has been to place 2928 multiple times during the weekdays and recently on Monday, so it's likely they will visit this place again."}
+✅ Salvato parziale dopo sample 5/6 → output/fsq/top1/138.csv
+The 6th sample:
+Ground truth: 2238
+Pred results: {'prediction': [2928.0], 'reason': 'recent repeated visit to place 2928 on Thursday morning'}
+✅ Salvato parziale dopo sample 6/6 → output/fsq/top1/138.csv
+🎉 Completate tutte le predizioni per user 138. Risultati salvati in: output/fsq/top1/138.csv
+=================Processing user 139==================
+Length of user 139 train data: 124
+Number of user historical stays: 30
+historical_data: [('06:50 AM', 'Tuesday', np.float64(1.0)), ('05:46 PM', 'Friday', np.float64(3121.0)), ('09:47 AM', 'Saturday', np.float64(1.0)), ('12:43 PM', 'Monday', np.float64(520.0)), ('07:00 AM', 'Tuesday', np.float64(1.0)), ('07:21 AM', 'Wednesday', np.float64(1.0)), ('08:47 AM', 'Thursday', np.float64(1.0)), ('09:43 AM', 'Thursday', np.float64(3812.0)), ('10:59 AM', 'Thursday', np.float64(2216.0)), ('11:15 AM', 'Thursday', np.float64(3121.0)), ('08:43 AM', 'Friday', np.float64(1.0)), ('10:52 AM', 'Sunday', np.float64(826.0)), ('01:34 PM', 'Sunday', np.float64(1.0)), ('06:47 AM', 'Monday', np.float64(1.0)), ('09:04 AM', 'Tuesday', np.float64(1967.0)), ('12:14 PM', 'Tuesday', np.float64(1425.0)), ('09:10 AM', 'Wednesday', np.float64(1967.0)), ('10:19 AM', 'Friday', np.float64(1967.0)), ('06:29 PM', 'Friday', np.float64(520.0)), ('09:54 AM', 'Saturday', np.float64(1.0)), ('02:04 PM', 'Sunday', np.float64(1.0)), ('06:39 AM', 'Monday', np.float64(1.0)), ('12:38 PM', 'Tuesday', np.float64(520.0)), ('08:45 AM', 'Wednesday', np.float64(1967.0)), ('12:47 PM', 'Wednesday', np.float64(520.0)), ('07:39 AM', 'Thursday', np.float64(1.0)), ('12:40 PM', 'Thursday', np.float64(1967.0)), ('08:57 AM', 'Friday', np.float64(1967.0)), ('09:05 AM', 'Tuesday', np.float64(1967.0)), ('01:57 PM', 'Tuesday', np.float64(1.0))]
+Number of historical_data: 30
+Number of predict_data: 25
+predict_y: [1967, 1200, 1967, 1, 1967, 1967, 1, 1, 1967, 1, 1, 1967, 1967, 1, 1, 1967, 1, 1, 1967, 1967, 930, 3121, 1967, 1967, 1967]
+Number of predict_y: 25
+Total_queries: 25
+No previous results found. Starting from scratch.
+The 1th sample:
+Ground truth: 1967
+Pred results: {'prediction': [1967], 'reason': 'Based on the activity pattern and recent context, it is most likely that the user will visit place ID 1967.'}
+✅ Salvato parziale dopo sample 1/25 → output/fsq/top1/139.csv
+The 2th sample:
+Ground truth: 1200
+Pred results: {'prediction': [1967], 'reason': 'The user has a strong activity pattern of visiting the same place (1967) during weekdays and on Thursdays.'}
+✅ Salvato parziale dopo sample 2/25 → output/fsq/top1/139.csv
+The 3th sample:
+Ground truth: 1967
+Pred results: {'prediction': [1967], 'reason': "The target stay is on Friday and has similar temporal information to previous stays in the context, which are all at 9:00 AM. The user's historical stays show a repeated visit to place ID 1967 during this time of day."}
+✅ Salvato parziale dopo sample 3/25 → output/fsq/top1/139.csv
+The 4th sample:
+Ground truth: 1
+Pred results: {'prediction': [1], 'reason': 'The user has been to place 1 multiple times during weekdays and early morning hours.'}
+✅ Salvato parziale dopo sample 4/25 → output/fsq/top1/139.csv
+The 5th sample:
+Ground truth: 1967
+Pred results: {'prediction': [1967], 'reason': "Based on the user's activity pattern and recent context, it is likely that they will visit place 1967 again due to its frequent appearance in both their historical stays and recent activities."}
+✅ Salvato parziale dopo sample 5/25 → output/fsq/top1/139.csv
+The 6th sample:
+Ground truth: 1967
+Pred results: {'prediction': [1967.0], 'reason': 'the user has a daily routine of visiting the same place on Fridays'}
+✅ Salvato parziale dopo sample 6/25 → output/fsq/top1/139.csv
+The 7th sample:
+Ground truth: 1
+Pred results: {'prediction': [1], 'reason': 'The user has repeated visits to place 1 during the morning on Sunday'}
+✅ Salvato parziale dopo sample 7/25 → output/fsq/top1/139.csv
+The 8th sample:
+Ground truth: 1
+Pred results: {'prediction': [1967], 'reason': 'The user has a consistent activity pattern on Mondays at this time, and the recent context suggests that they will likely visit place 1967 again.'}
+✅ Salvato parziale dopo sample 8/25 → output/fsq/top1/139.csv
+The 9th sample:
+Ground truth: 1967
+Pred results: {'prediction': [1967], 'reason': 'Recurring visit to place 1967 during Friday morning'}
+✅ Salvato parziale dopo sample 9/25 → output/fsq/top1/139.csv
+The 10th sample:
+Ground truth: 1
+Pred results: {'prediction': [1967], 'reason': 'Recent activity pattern suggests that the user tends to visit place ID 1967 during Saturday afternoons.'}
+✅ Salvato parziale dopo sample 10/25 → output/fsq/top1/139.csv
+The 11th sample:
+Ground truth: 1
+Pred results: {'prediction': [1967], 'reason': "The user's recent activity pattern shows a strong preference for visiting place 1967 on Tuesdays and Fridays, which is consistent with the current time and day of the week."}
+✅ Salvato parziale dopo sample 11/25 → output/fsq/top1/139.csv
+The 12th sample:
+Ground truth: 1967
+Pred results: {'prediction': [1967], 'reason': 'The user has a strong activity pattern of visiting place ID 1967 on Tuesdays, and the context suggests that this pattern continues.'}
+✅ Salvato parziale dopo sample 12/25 → output/fsq/top1/139.csv
+The 13th sample:
+Ground truth: 1967
+Pred results: {'prediction': [1967], 'reason': "The user's recent activity pattern suggests frequent visits to place with ID 1967 on Fridays."}
+✅ Salvato parziale dopo sample 13/25 → output/fsq/top1/139.csv
+The 14th sample:
+Ground truth: 1
+Pred results: {'prediction': [1967], 'reason': 'The user has visited place 1967 multiple times on Tuesdays and Fridays during daytime hours, which matches the current context.'}
+✅ Salvato parziale dopo sample 14/25 → output/fsq/top1/139.csv
+The 15th sample:
+Ground truth: 1
+Pred results: {'prediction': [1], 'reason': 'The user has a consistent pattern of visiting place ID 1 during Monday mornings.'}
+✅ Salvato parziale dopo sample 15/25 → output/fsq/top1/139.csv
+The 16th sample:
+Ground truth: 1967
+Pred results: {'prediction': [1967], 'reason': "based on the user's historical activity pattern and recent stays in context"}
+✅ Salvato parziale dopo sample 16/25 → output/fsq/top1/139.csv
+The 17th sample:
+Ground truth: 1
+Pred results: {'prediction': [1967], 'reason': "The user's recent activity shows a pattern of visiting place with ID 1967 on Mondays and Tuesdays during the daytime, so it is likely they will visit this place again."}
+✅ Salvato parziale dopo sample 17/25 → output/fsq/top1/139.csv
+The 18th sample:
+Ground truth: 1
+Pred results: {'prediction': [1.0], 'reason': 'The user has a repeated visit to place ID 1 on Tuesday mornings'}
+✅ Salvato parziale dopo sample 18/25 → output/fsq/top1/139.csv
+The 19th sample:
+Ground truth: 1967
+Pred results: {'prediction': [1967], 'reason': 'The user has a regular activity pattern on Wednesday mornings'}
+✅ Salvato parziale dopo sample 19/25 → output/fsq/top1/139.csv
+The 20th sample:
+Ground truth: 1967
+Pred results: {'prediction': [2216.0], 'reason': 'The user has a regular pattern of staying at place with ID 2216 on Thursdays.'}
+✅ Salvato parziale dopo sample 20/25 → output/fsq/top1/139.csv
+The 21th sample:
+Ground truth: 930
+Pred results: {'prediction': [1967], 'reason': "Based on the user's activity pattern and recent context stays, I predict they will likely visit place ID 1967 again, as this is a frequently visited location during weekdays."}
+✅ Salvato parziale dopo sample 21/25 → output/fsq/top1/139.csv
+The 22th sample:
+Ground truth: 3121
+Pred results: {'prediction': [1], 'reason': 'The user has a repeated visit to place ID 1 during Thursday evening'}
+✅ Salvato parziale dopo sample 22/25 → output/fsq/top1/139.csv
+The 23th sample:
+Ground truth: 1967
+Pred results: {'prediction': [1], 'reason': 'The user tends to visit place ID 1 during the morning hours on Mondays.'}
+✅ Salvato parziale dopo sample 23/25 → output/fsq/top1/139.csv
+The 24th sample:
+Ground truth: 1967
+Pred results: {'prediction': [1967.0], 'reason': "Based on the user's activity pattern and recent stays in the context, it is likely that they will visit place 1967 again"}
+✅ Salvato parziale dopo sample 24/25 → output/fsq/top1/139.csv
+The 25th sample:
+Ground truth: 1967
+Pred results: {'prediction': [1967], 'reason': "The target stay is similar to the recent context and history, so it's likely that the user will visit place 1967 again."}
+✅ Salvato parziale dopo sample 25/25 → output/fsq/top1/139.csv
+🎉 Completate tutte le predizioni per user 139. Risultati salvati in: output/fsq/top1/139.csv
+=================Processing user 140==================
+Length of user 140 train data: 266
+Number of user historical stays: 30
+historical_data: [('04:04 PM', 'Thursday', np.float64(154.0)), ('07:04 PM', 'Friday', np.float64(242.0)), ('05:40 PM', 'Saturday', np.float64(417.0)), ('10:38 PM', 'Saturday', np.float64(242.0)), ('10:26 AM', 'Sunday', np.float64(8.0)), ('09:53 AM', 'Monday', np.float64(803.0)), ('10:15 AM', 'Monday', np.float64(1674.0)), ('11:15 AM', 'Monday', np.float64(411.0)), ('01:40 PM', 'Monday', np.float64(631.0)), ('03:01 PM', 'Monday', np.float64(942.0)), ('09:25 AM', 'Tuesday', np.float64(1028.0)), ('12:20 PM', 'Tuesday', np.float64(2408.0)), ('07:03 PM', 'Tuesday', np.float64(2242.0)), ('12:46 PM', 'Thursday', np.float64(154.0)), ('10:31 AM', 'Friday', np.float64(1109.0)), ('09:48 AM', 'Saturday', np.float64(300.0)), ('07:21 PM', 'Sunday', np.float64(109.0)), ('09:57 AM', 'Monday', np.float64(803.0)), ('10:43 AM', 'Monday', np.float64(1674.0)), ('11:44 AM', 'Wednesday', np.float64(411.0)), ('12:24 PM', 'Wednesday', np.float64(631.0)), ('05:25 PM', 'Wednesday', np.float64(60.0)), ('01:19 PM', 'Sunday', np.float64(101.0)), ('12:44 PM', 'Thursday', np.float64(2408.0)), ('09:08 AM', 'Friday', np.float64(1024.0)), ('09:39 AM', 'Friday', np.float64(1674.0)), ('10:31 AM', 'Friday', np.float64(1109.0)), ('10:47 AM', 'Friday', np.float64(2258.0)), ('05:09 PM', 'Saturday', np.float64(341.0)), ('11:40 AM', 'Wednesday', np.float64(1674.0))]
+Number of historical_data: 30
+Number of predict_data: 38
+predict_y: [1024, 1109, 942, 954, 1674, 2277, 1674, 2065, 1378, 1674, 1024, 2258, 411, 3805, 293, 1674, 803, 631, 803, 1, 954, 1674, 631, 882, 882, 440, 954, 803, 809, 1028, 1378, 1146, 1306, 1253, 882, 2233, 2592, 1253]
+Number of predict_y: 38
+Total_queries: 38
+No previous results found. Starting from scratch.
+The 1th sample:
+Ground truth: 1024
+Pred results: {'prediction': [1024], 'reason': 'The user has been visiting the same place (1024) during their morning routine on Fridays.'}
+✅ Salvato parziale dopo sample 1/38 → output/fsq/top1/140.csv
+The 2th sample:
+Ground truth: 1109
+Pred results: {'prediction': [1190], 'reason': 'The user has a recent history of visiting the same place (1190) during similar times and days.'}
+✅ Salvato parziale dopo sample 2/38 → output/fsq/top1/140.csv
+The 3th sample:
+Ground truth: 942
+Pred results: {'prediction': [1109], 'reason': 'Recent stays indicate a tendency to visit place 1109 during Friday mornings'}
+✅ Salvato parziale dopo sample 3/38 → output/fsq/top1/140.csv
+The 4th sample:
+Ground truth: 954
+Pred results: {'prediction': [1674], 'reason': 'Recurrent Monday morning visit to the same place.'}
+✅ Salvato parziale dopo sample 4/38 → output/fsq/top1/140.csv
+The 5th sample:
+Ground truth: 1674
+Pred results: {'prediction': [1674.0], 'reason': 'The user has a regular activity pattern on Mondays with visits to places 803 and 1674 in the morning'}
+✅ Salvato parziale dopo sample 5/38 → output/fsq/top1/140.csv
+The 6th sample:
+Ground truth: 2277
+Pred results: {'prediction': [1109], 'reason': "Based on the user's historical stays and context, it is most likely that they will visit place ID 1109."}
+✅ Salvato parziale dopo sample 6/38 → output/fsq/top1/140.csv
+The 7th sample:
+Ground truth: 1674
+Pred results: {'prediction': [411], 'reason': 'The target stay is on Wednesday and the user has a habit of visiting place ID 411 on this day'}
+✅ Salvato parziale dopo sample 7/38 → output/fsq/top1/140.csv
+The 8th sample:
+Ground truth: 2065
+Pred results: {'prediction': [954.0], 'reason': 'Recent stays on Monday and Wednesday suggest frequent visits to places with IDs in the range of 900-1700, so a likely next place ID is 954.'}
+✅ Salvato parziale dopo sample 8/38 → output/fsq/top1/140.csv
+The 9th sample:
+Ground truth: 1378
+Pred results: {'prediction': [954], 'reason': 'Recent visit to 954 on Monday'}
+✅ Salvato parziale dopo sample 9/38 → output/fsq/top1/140.csv
+The 10th sample:
+Ground truth: 1674
+Pred results: {'prediction': [2408], 'reason': 'Recent activity pattern suggests the user will likely visit the same place (2408) as they did on previous Thursday stays.'}
+✅ Salvato parziale dopo sample 10/38 → output/fsq/top1/140.csv
+The 11th sample:
+Ground truth: 1024
+Pred results: {'prediction': [1674], 'reason': 'recent stays at place 1674 on weekdays'}
+✅ Salvato parziale dopo sample 11/38 → output/fsq/top1/140.csv
+The 12th sample:
+Ground truth: 2258
+Pred results: {'prediction': [1109.0], 'reason': "The user's activity pattern suggests a high likelihood of returning to the same location as their previous visit on this day."}
+✅ Salvato parziale dopo sample 12/38 → output/fsq/top1/140.csv
+The 13th sample:
+Ground truth: 411
+Pred results: {'prediction': [1674], 'reason': 'The user has a tendency to visit this place during the afternoon and on Fridays'}
+✅ Salvato parziale dopo sample 13/38 → output/fsq/top1/140.csv
+The 14th sample:
