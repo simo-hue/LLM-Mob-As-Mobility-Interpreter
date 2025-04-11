@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+24,1136,[300],The user tends to visit place with ID 300 around morning time on Fridays
+24,433,[1136],Recent activities suggest this user tends to visit places similar to those visited on Wednesdays (e.g. 1136) during the late morning
+24,3211,[2197.0],Recent stays and historical pattern suggest that the user will likely visit place ID 2197
+24,527,[2197.0],"The user has a consistent pattern of visiting place ID 2197 on Mondays and Wednesdays, and the context stay at 1136 is likely to be followed by another visit to 2197"
+24,1136,[2197.0],The user has a strong tendency to visit the same place (2197) on Sundays and recent stays also indicate this location.
+24,1337,[2197.0],"The user has a consistent daily routine and has visited place 2197 multiple times during the morning, including on Sundays."
+24,2197,[2197.0],"Based on the user's activity pattern and recent context stays, it is likely that they will visit the same place as previously (e.g., Monday or Tuesday morning)"

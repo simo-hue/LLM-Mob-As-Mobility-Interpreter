@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+91,3104,[3104.0],"Based on the user's activity pattern and recent context, I predict that they will visit a place with ID 3104."
+91,2104,[3104.0],Recent activity pattern suggests a repeated visit to place ID 3104 on Friday afternoons.
+91,2104,[3104.0],"Based on the user's activity pattern and recent context, it is most likely that they will visit place ID 3104 again."
+91,2104,[3104],"Based on the user's activity pattern and recent context, it is likely that they will visit place 3104 again."
+91,1,[3104.0],User has a strong activity pattern of visiting place 3104 on Wednesdays
+91,3104,[3104.0],The target stay's time of day (1:02 PM) and weekday (Friday) match the user's previous stays at place 3104.0
+91,1,[3104.0],Recent stays at place 3104.0 on Wednesday and Friday suggest this is the most likely location for the target stay

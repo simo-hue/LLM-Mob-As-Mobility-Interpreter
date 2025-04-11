@@ -783,64 +783,71 @@ def get_unqueried_user(dataname, output_dir='output/'):
     return remain_id
 
 def main():
-    # Parametri base
-    dataname = "geolife"
+    # Parametri comuni
     num_historical_stay = 30
     num_context_stay = 5
     sleep_single_query = 1
     sleep_if_crash = 5
 
-    # Lista delle configurazioni da testare
+    # Lista dei dataset da elaborare
+    datasets = ["geolife", "fsq"]
+
+    # Configurazioni di esecuzione per ogni dataset
     configs = [
         {"name": "top1", "top_k": 1, "is_wt": True},
         {"name": "top10", "top_k": 10, "is_wt": True},
         {"name": "top10_wot", "top_k": 10, "is_wt": False},
     ]
 
-    # Caricamento dataset
-    try:
-        tv_data, test_file = get_dataset(dataname)
-    except Exception as e:
-        print(f"❌ Errore nel caricamento del dataset: {e}")
-        return
+    # Ciclo su ogni dataset
+    for dataname in datasets:
+        print(f"\n📦 Dataset corrente: {dataname}")
 
-    # Ciclo su ogni configurazione
-    for cfg in configs:
-        print(f"\n🚀 Avvio configurazione: {cfg['name']}")
-
-        output_dir = f"output/{dataname}/{cfg['name']}"
-        log_dir = f"logs/{dataname}/{cfg['name']}"
-
-        # Logger
+        # Caricamento dataset
         try:
-            logger = get_logger(f"logger_{cfg['name']}", log_dir=log_dir)
+            tv_data, test_file = get_dataset(dataname)
+            print("✅ Dataset caricato con successo.")
         except Exception as e:
-            print(f"❌ Errore nell'inizializzazione del logger: {e}")
+            print(f"❌ Errore nel caricamento del dataset '{dataname}': {e}")
             continue
 
-        # Utenti da processare
-        try:
-            uid_list = get_unqueried_user(dataname, output_dir)
-            
-        except Exception as e:
-            print(f"❌ Errore nel recupero utenti non interrogati per {cfg['name']}: {e}")
-            continue
+        # Ciclo su ogni configurazione
+        for cfg in configs:
+            print(f"\n🚀 Avvio configurazione: {cfg['name']}")
 
-        # Esecuzione delle query
-        try:
-            query_all_user(
-                dataname, uid_list, logger, tv_data,
-                num_historical_stay, num_context_stay, test_file,
-                output_dir=output_dir, top_k=cfg['top_k'], is_wt=cfg['is_wt'],
-                sleep_query=sleep_single_query, sleep_crash=sleep_if_crash
-            )
-            print(f"✅ Completata configurazione: {cfg['name']}")
-        except Exception as e:
-            print(f"❌ Errore durante esecuzione configurazione {cfg['name']}: {e}")
-            continue
+            output_dir = f"output/{dataname}/{cfg['name']}"
+            log_dir = f"logs/{dataname}/{cfg['name']}"
 
-    print("\n🎉 Tutte le configurazioni completate con successo.")
+            # Logger
+            try:
+                logger = get_logger(f"logger_{dataname}_{cfg['name']}", log_dir=log_dir)
+            except Exception as e:
+                print(f"❌ Errore logger ({cfg['name']} - {dataname}): {e}")
+                continue
 
+            # Lista utenti da processare
+            try:
+                uid_list = get_unqueried_user(dataname, output_dir)
+                print(f"🔍 Utenti da processare: {len(uid_list)}")
+            except Exception as e:
+                print(f"❌ Errore nel recupero utenti ({cfg['name']} - {dataname}): {e}")
+                continue
+
+            # Esecuzione query
+            try:
+                query_all_user(
+                    dataname, uid_list, logger, tv_data,
+                    num_historical_stay, num_context_stay, test_file,
+                    output_dir=output_dir, top_k=cfg['top_k'], is_wt=cfg['is_wt'],
+                    sleep_query=sleep_single_query, sleep_crash=sleep_if_crash
+                )
+                print(f"✅ Completata configurazione: {cfg['name']} per {dataname}")
+            except Exception as e:
+                print(f"❌ Errore durante esecuzione ({cfg['name']} - {dataname}): {e}")
+                continue
+
+    print("\n🎉 Tutti i job sono stati completati con successo.")
+    
 if __name__ == "__main__":
     try:
         main()

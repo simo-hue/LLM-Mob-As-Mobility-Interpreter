@@ -1,0 +1,12 @@
+user_id,ground_truth,prediction,reason
+8,626,[1904],The user has a strong tendency to visit place 1904 on Fridays.
+8,2205,[1904],"The target stay is on Friday at night, which is a common time for the user to visit place ID 1904."
+8,445,[2205.0],"based on the user's recent activities and temporal information, it is likely that they will visit the same place as yesterday"
+8,1904,[1904],The user has visited this place on Mondays and Fridays at similar times
+8,138,[140.0],Recent context suggests frequent visit to place with ID 140.0 during similar time and day of the week.
+8,96,[2205.0],Recent visits to place 2205 on Tuesday
+8,140,[2205.0],"The target stay is on Wednesday evening, and the user's recent activities have shown a strong tendency to visit place 2205 at this time"
+8,167,[1904],The user has a strong tendency to visit place ID 1904 during Sunday afternoons.
+8,127,[1904],"Based on the recent context and user's history, it is most likely that the target stay will be at place 1904."
+8,2205,[2205],Recent context indicates frequent visits to place 2205 on Sundays
+8,1187,[1904],Recent stays at target location on Tuesdays during daytime

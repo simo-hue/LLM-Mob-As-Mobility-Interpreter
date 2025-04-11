@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+65,2859,[1909],"Given the activity pattern and recent activities of this user, it is most likely that he/she will visit place 1909 again."
+65,1909,[1909],The target stay's start time and weekday are similar to the user's recent activity pattern in the context.
+65,24,[2645.0],"based on the user's historical stays and recent context, the most likely place ID is a repeated visit to 2645.0 during the evening of Wednesday"
+65,277,[1041],"Based on the activity pattern of this user and recent stays in context, it is most likely that they will visit place 1041 again."
+65,2178,[2859],"Based on the user's activity pattern and recent context, the most likely place ID is 2859."
+65,342,[1909],The user has a strong tendency to visit place ID 1909 on Wednesdays during the afternoon.
+65,846,[1909],"Given the user's frequent visits to place 1909 during weekdays and the recent stays in the context, it is most likely that the target stay will be at this location."
+65,371,[1909],based on recent activity pattern and context

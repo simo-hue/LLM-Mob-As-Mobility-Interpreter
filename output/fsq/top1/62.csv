@@ -1,0 +1,13 @@
+user_id,ground_truth,prediction,reason
+62,1215,[2823.0],The user tends to visit the same place during Friday morning
+62,3817,[2823.0],"The user has a history of frequent visits to place 2823 on Tuesdays, and the recent context also indicates this behavior"
+62,380,"[733.0, 1215.0, 1228.0, 1301.0]",The user tends to visit similar places during the same time of day and has a recent history of visiting these specific locations.
+62,976,[409.0],The user's recent activity pattern suggests a visit to place ID 409 during Thursday afternoon.
+62,2823,[1693.0],"Given the user's activity pattern of repeated visit to place 1693 on Sundays, and recent activities in the context suggest a similar behavior on Saturdays as well."
+62,1215,[2823.0],"Based on the user's activity pattern and recent context, it is likely that they will visit place 2823 again."
+62,277,[3403],recent activity pattern shows repeated visit to place ID 3403 during Thursday evening
+62,1215,[3403],Recent context suggests that the user is likely to visit a place they have been to before during this time on Saturday
+62,1215,[1693.0],"Based on the activity pattern and recent context, the user tends to visit place 1693 during Sunday afternoons."
+62,1258,[1693.0],The user's activity pattern suggests repeated visits to place 1693 on Sundays.
+62,1228,[1693.0],The user has a repeated visit to place with ID 1693 on Sundays
+62,1073,[409.0],recent visit to this place on Thursday

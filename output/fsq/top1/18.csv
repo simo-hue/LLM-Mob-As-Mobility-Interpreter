@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+18,506,[1600],The user has a strong tendency to visit this place on Sundays and during daytime hours.
+18,1515,[1600],Recent stays and context suggest the user will likely visit a place they have been to recently
+18,1600,[1600],"Recent activity suggests user tends to visit a certain place during late afternoon/early evening on weekdays, which matches the target stay's time and day of week."
+18,1515,[1600],The target stay is on a Wednesday and the user has been to place 1600 during the same day in the context and history. This indicates a strong pattern of visiting this place on Wednesdays.
+18,1294,[1600.0],based on the user's activity pattern and recent context
+18,1600,[506],Recurring Sunday evening visit to a popular place
+18,1600,[1600],The target stay's time and day of the week match with recent stays in context

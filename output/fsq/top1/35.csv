@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+35,282,[873],the user has been to this place multiple times on Saturday mornings
+35,914,[1238],based on the recent context and historical pattern of repeated visits to place with ID 873 during Saturday morning
+35,914,[1213.0],The user has a consistent habit of visiting place 1213 on Sundays
+35,873,[1213.0],The user has repeated visits to place with ID 1213 during certain time and on certain days.

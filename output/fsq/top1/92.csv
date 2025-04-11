@@ -1,0 +1,10 @@
+user_id,ground_truth,prediction,reason
+92,398,[886],user tends to visit place ID 886 during nighttime and Sundays
+92,415,[886.0],"The user has a consistent activity pattern of visiting place 886 during weekdays, and the recent context shows that they visited this place again on Friday."
+92,886,[886],"Based on the activity pattern and recent context stays, it is likely that the user will visit place ID 886 again, which has been a frequent destination during Friday afternoons."
+92,886,[886.0],"The user has visited place with ID 886 multiple times during the day and on different days, so it is likely that they will visit this place again."
+92,314,[442.0],Recent visits to place 442 on Friday and Monday
+92,886,[886],"Based on the user's activity pattern and recent context stays, it is likely that the next place ID will be 886."
+92,886,[886],"The target stay is on Tuesday evening, and the user has visited place 886 multiple times before. The context also suggests that this user tends to visit place 886 in the evening."
+92,886,[886],"The target stay's day of the week is Wednesday and time is close to daytime hours (4:52 PM), which are consistent with historical patterns where this user often visited place 886 during the weekdays."
+92,1253,[442],The target stay is on Friday and the user tends to visit place 442 during this time based on the historical stays.

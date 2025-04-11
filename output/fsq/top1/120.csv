@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+120,1,[3711.0],based on the pattern of repeated visits to place 3711 during the same time and day
+120,3711,[3711.0],User has a history of staying at place ID 3711 on Fridays and recent context suggests they have been there recently.
+120,3711,[3711.0],Recurring visit to the most frequently visited place on Sundays
+120,1980,[3711.0],"Based on the user's activity pattern and recent stays in context, the most likely place ID is 3711.0, as this user has a strong preference for visiting place 3711.0 during Monday afternoons."
+120,3711,[3711],Recent and frequent visits to place 3711
