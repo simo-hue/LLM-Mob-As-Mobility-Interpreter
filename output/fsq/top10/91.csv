@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+91,3104,"[3, 2, 0, 10, 9, 5, 1, 6, 8, 7]","The prediction is based on the user's activity pattern and context, considering repeated visits to certain places during certain times, recent activities in the context, and temporal information of the target stay."
+91,2104,"[3156, 3145, 3159, 3113, 3121, 3132, 3170, 3138, 3164, 3127]","Based on the user's activity pattern and recent stays in context, the predicted place is likely to be one of the places frequently visited by this user during similar times on Fridays."
+91,2104,"[3156, 3185, 3127, 3068, 3102, 3141, 3099, 3133, 3084, 3117]",based on the user's activity pattern and recent context
+91,2104,"[3, 2, 1]","The user has a habit of visiting the same places on weekdays and weekends. The target stay is during the afternoon, which matches the historical pattern."
+91,1,"[3, 2, 1]",The user tends to visit places on Wednesday afternoons.
+91,3104,"[3, 10, 12, 9, 6, 15, 11, 8, 2]",based on the user's activity pattern and recent context stays
+91,1,"[3, 2, 5, 7, 6, 4, 1]",Recurring visits to certain places on weekdays

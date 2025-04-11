@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+90,3706,"[3706, 1220, 3249, 789, 785, 976, 2262, 1512, 609, 1289]","The prediction is based on the recent activity pattern of this user in the context, which suggests a possibility of returning to previously visited places, especially during the same day and time."
+90,1220,"[3249, 3706, 789, 976, 2145, 609, 1220, 1512, 1289, 3666]","The predicted next place is based on the user's activity pattern and recent activities in the context. The target stay is on a Friday afternoon, which suggests a routine visit to the last visited place (3249). However, considering the temporal information, the prediction also takes into account the timing of the day and the frequency of visits during different times."
+90,3706,"[789, 1289, 976, 2145, 609, 1512, 3666, 3706, 1220, 785]","The prediction is based on the user's activity pattern and context, which shows repeated visits to certain places during specific times of day and weekdays."
+90,1289,"[789, 785, 976, 2145, 1289, 609, 1220, 1512, 2262, 3706]",Prediction based on recent activities and temporal information
+90,293,"[1289, 3706, 1220, 1512, 976, 785, 789, 2145, 609, 2262]",Predicted places based on the user's activity pattern and recent context
+90,609,"[789, 785, 3706, 1220, 1289, 976, 2262]",Recent visits and temporal patterns
+90,789,"[3706, 1220, 1289, 789, 976, 2145, 1512, 609]","Predicted places are based on the user's historical stays and recent context, which indicate a possible return to visited places during similar time periods"

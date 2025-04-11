@@ -1,0 +1,3 @@
+user_id,ground_truth,prediction,reason
+75,501,"[2912, 1263, 428, 781, 3086, 342, 501, 484, 308, 2088]","Based on the user's historical stays and recent context, I predict that they will visit a place where they have spent significant time in the past (e.g., Saturday afternoon), likely with a duration similar to their previous visits."
+75,1312,"[7, 8, 9, 12, 14, 15, 16, 18, 20, 22]","The prediction is based on the user's activity pattern of repeated visits to certain places during certain times, with recent activities in <context> influencing the next location."

@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+154,3131,"[3131, 506, 638, 1922, 1018, 1208, 2030, 1720, 684, 16]",based on the user's activity pattern and recent context
+154,939,"[3131, 638, 1922, 1018, 2030, 1208, 537, 751, 506, 684]",based on the activity pattern and recent stays
+154,3131,"[1922, 1208, 3131, 638, 1018, 2030, 537, 751, 506, 16]",based on the user's activity pattern and recent context
+154,3131,"[1922, 3131, 1018, 1208, 2030, 679, 939, 638, 537, 506]",based on the user's activity pattern and recent context
+154,3131,"[1922, 3131, 1208, 1018, 2030, 939, 679, 638, 547, 506]","The predicted places are based on the user's activity pattern and recent stays in <context>, considering temporal information of target stay."

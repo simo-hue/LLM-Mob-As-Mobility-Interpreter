@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+156,1,"[1252, 2514, 1477, 1097, 1765, 647, 3486]","The user's recent stays in <context>, which are all on weekdays and relatively close to the target stay, suggest that they might visit similar places during this time. The activity pattern in <history> also indicates a preference for certain places during different times of day."
+156,1,"[1477, 2514, 1097, 1765, 3486, 647, 1, 2]",The prediction is based on the user's activity pattern of visiting certain places during certain times and days.
+156,1,"[1097, 2514, 1765, 1477, 3486, 647, 3, 2, 1, 4]",based on recent activity pattern and temporal information

@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+74,721,"[7, 1, 4, 3, 9, 5, 2]","Based on the user's activity pattern and recent context stays, the predicted next location is likely to be a repeated visit to one of the most frequently visited places during similar times."
+74,202,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]","The prediction is based on the user's activity pattern of frequent visits to places during specific times and days, with a bias towards recently visited places"
+74,1320,"[6, 3, 1, 7, 4, 2, 5]",Prediction based on the user's activity pattern and recent context
+74,1320,"[5, 4, 3, 2, 1]","The target stay is on Wednesday afternoon, which is similar to the recent stays in context. The user has a consistent pattern of visiting places with duration around 1320 minutes on weekdays, especially on Wednesdays."

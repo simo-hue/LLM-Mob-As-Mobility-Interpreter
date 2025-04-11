@@ -1,0 +1,10 @@
+user_id,ground_truth,prediction,reason
+118,2226,"[2275, 2226, 3785, 2986, 3197, 2742, 1589, 3313, 1084, 1098]","The prediction is based on the user's activity pattern and recent context stays, considering temporal information."
+118,3785,"[2742, 2986, 3785, 1589, 2226]","The target stay's start time is in the early morning on a Tuesday, which based on the history and context suggests a visit to a place that has been visited before during similar times."
+118,3785,"[2742, 2986, 3785, 3313, 2226]",The predicted places are the most visited ones during similar time slots and weekdays as seen in both history and context
+118,621,"[3785, 2226, 2986, 2742, 1589, 3313, 3785, 3778, 3775, 3774]","The target stay is on Tuesday evening, when the user has been to place 3785 before. The context also shows recent visits to this place and other places with similar temporal patterns."
+118,3519,"[2226, 3785, 621, 2742, 2986, 1589, 3313, 3785, 1589, 3785]",based on user's activity pattern and context
+118,1,"[3519, 3785, 2986, 2226, 2742, 621, 1589, 3313, 3785, 2742]",based on the activity pattern and recent context
+118,1578,"[3519, 3785, 2226, 621, 2986, 2742, 1589, 3313, 1, 3785]",based on recent activity and historical pattern
+118,608,"[2986, 2742, 3519, 3785, 621, 1, 2226, 1589, 1578, 3785]","The user's activity pattern shows a strong preference for certain places during specific times and days, with recent stays in the context suggesting a high probability of returning to a familiar location"
+118,1872,"[2986, 2742, 1578, 1, 3785, 2226, 1589, 3313, 3770, 2754]",Predicted based on temporal information and user's activity pattern learned from historical stays

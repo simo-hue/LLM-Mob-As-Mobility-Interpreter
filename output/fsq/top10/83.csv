@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+83,2217,"[12, 9, 1, 14, 6, 5, 3]",predicting based on the user's activity pattern and temporal context
+83,2217,"[15, 12, 9, 10, 8, 6, 5, 3]","Based on the activity pattern and recent activities, the prediction is influenced by repeated visits to certain places during certain times, with a focus on weekdays and daytime hours."
+83,2217,"[1, 2, 3, 4, 5, 6, 7, 8]",The user's activity pattern suggests a strong affinity for certain places on specific days and times.
+83,588,"[8, 2, 15, 14, 10, 5, 3]","Based on the user's activity pattern and recent context stays, the top 10 most likely places are predicted to be visited next, considering repeated visits during certain times and days."
+83,2217,"[14, 12, 15, 11, 10, 16, 13]",based on the user's activity pattern and recent context
+83,2217,"[14, 15, 16, 17, 18, 19, 20]","The user's activity pattern suggests a preference for certain places at specific times of the week, and recent activities in context indicate a possible visit to one of these places during the target stay's time."
+83,2217,"[15, 13, 14, 16, 17, 18]","The user's activity pattern shows repeated visits to certain places during certain times, and the recent context stays indicate a strong likelihood of returning to previously visited locations."
+83,2217,"[15, 14, 13, 12, 11]","The user's activity pattern suggests frequent visits to certain places during the daytime, with a higher probability of visiting place 15 on Wednesdays and place 14 on Tuesdays."

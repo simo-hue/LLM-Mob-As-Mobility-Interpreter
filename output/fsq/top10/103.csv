@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+103,3789,"[3789, 1, 51, 1649, 721, 1276, 1781, 2103, 419, 610]",Recent stays at 3789 and previous patterns of staying at this place on Fridays and afternoons
+103,3789,"[3789, 1, 51, 610, 419, 2103, 1649, 1579, 721, 1781]","The user tends to visit the same places on Saturday and Monday, and also has a preference for these places during certain times of the day."
+103,1358,"[1, 51, 419, 610, 2, 3789, 2103, 4, 721, 1649]","The prediction is based on the user's activity pattern and recent context. Monday and Friday are the most frequent days in both history and context, so places visited during these days are favored. Places with higher frequencies and shorter durations (e.g., <1 hour) in the history are also more likely to be visited again. The target stay is afternoon on a Monday, which makes place 1649 and places visited recently in the context more likely."
+103,721,"[3789, 1, 419, 610, 51, 1649, 2103, 421, 1393, 1781]","Based on the user's activity pattern and recent stays in <context>, the target stay is likely to be at a place frequently visited during Saturday afternoons."
