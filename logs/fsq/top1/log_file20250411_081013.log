@@ -11687,3 +11687,15 @@ Ground truth: 297
 Pred results: {'prediction': [297.0], 'reason': "Based on the user's activity pattern and recent stays in context"}
 ✅ Salvato parziale dopo sample 7/12 → output/fsq/top1/127.csv
 The 8th sample:
+Ground truth: 297
+Pred results: {'prediction': [297], 'reason': 'Most recent stays suggest a repeated visit to the same place'}
+✅ Salvato parziale dopo sample 8/12 → output/fsq/top1/127.csv
+The 9th sample:
+Ground truth: 1118
+Pred results: {'prediction': [297.0], 'reason': "The user's activity pattern suggests repeated visits to place ID 297 during weekdays and weekends."}
+✅ Salvato parziale dopo sample 9/12 → output/fsq/top1/127.csv
+The 10th sample:
+Ground truth: 842
+Pred results: {'prediction': [297.0], 'reason': "The target stay's day of the week is Wednesday and time is morning, which matches with most recent activity patterns in both history and context"}
+✅ Salvato parziale dopo sample 10/12 → output/fsq/top1/127.csv
+The 11th sample:
