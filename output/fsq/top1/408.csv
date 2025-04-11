@@ -1,0 +1,42 @@
+user_id,ground_truth,prediction,reason
+408,3026,[2684.0],The user has a recent stay at place ID 2684 on Friday in the late evening
+408,300,[3447.0],"Based on the activity pattern of this user that learned from history, repeated visit to a certain place during certain time"
+408,300,[3447.0],"The user's most recent stays are all at the same place (3447) on Friday evenings, and the target stay is also on a Friday evening."
+408,2637,[3478],The target stay is on Sunday morning and the user has a history of visiting place 3478 on Sundays.
+408,1206,[3478],recent weekend visits to place ID 3478
+408,780,[3447.0],"based on the recent activities of this user and their historical pattern, it is likely that they will return to a place they have visited recently"
+408,562,[2684.0],"The user's recent activity suggests a tendency to visit place 2684 during the night or early morning, making it the most likely location for their next stay."
+408,374,[3478.0],"The user has a strong tendency to visit place 3478 during the evening and on weekdays, which matches the temporal information of the target stay."
+408,3447,[3478.0],Based on the user's history of visiting place 3478.0 during Friday afternoon and evening.
+408,522,[3447.0],The user has a tendency to visit this place on Friday evenings
+408,1149,[3447.0],The user has a strong tendency to visit place 3447 in the evening on Fridays
+408,1,[2684.0],"The user has a recent stay in the same day and hour, which suggests they may go back to the same place."
+408,2684,[3447.0],"Recent context shows repeated visits to place ID 3447 during Friday evenings, which matches the temporal information of the target stay"
+408,2585,[2684],The user's recent activity suggests a repeated visit to place ID 2684 around this time of the day and week.
+408,3478,[2684],Recent context stays and historical pattern suggest the user is likely to visit a place they have been to recently
+408,1206,[1],"Given the user's recent visits to place ID 1 on Thursday and Friday, it is likely they will visit this place again."
+408,1206,[1],The user has a strong tendency to visit the place with ID 1 during Sundays and late nights
+408,304,[2684],Recent activities and historical pattern suggest frequent visits to this place during Monday evenings.
+408,932,[2684.0],"Based on the activity pattern and recent context of this user, it is likely that they will visit place ID 2684 again, as this place has been visited frequently at similar times of day."
+408,2987,[2684.0],Recent visits to place ID 2684.0 during evening hours on Wednesday
+408,553,[2684],Recent activity pattern and context suggest the user will likely visit a place they have been to recently on weekdays.
+408,3276,[2684.0],Recent visit to the place on Sunday
+408,2684,[3478.0],The user's activity pattern suggests a frequent visit to place with ID 3478 during the evening on Thursday
+408,1,[3447.0],"Based on the user's activity pattern and recent context stays, it is likely that they will visit place 3447 again due to repeated visits during weekdays."
+408,1,[1206.0],Recent visit to place 1206 at morning time
+408,1206,[3478.0],"The user has a strong tendency to visit the same place on Saturday mornings and late evenings, and considering the recent context of visiting this place, it's likely that they will return here."
+408,1,[3478.0],Recent repeated visit to place 3478.0 on Saturday.
+408,3478,[2684.0],"Based on the user's activity pattern and recent context, the prediction suggests that the next place ID is likely to be 2684.0, as it has been frequently visited during late nights and early mornings."
+408,932,[1],The user's recent activity pattern suggests a repeated visit to place ID 1 during Monday evening.
+408,553,[2684],Recent frequent visit to place ID 2684
+408,932,[2684.0],"The target stay is on Thursday, which matches the day of week in recent context stays; the activity pattern shows repeated visits to place 2684.0 during daytime"
+408,589,[2684.0],The user's recent activities suggest a high likelihood of returning to the same location
+408,817,[2684],The user tends to visit this place on Saturdays and recently visited it in the morning.
+408,2684,[3478.0],Recent stays on Sunday evening and the pattern of visiting place ID 3478 during this time
+408,932,[2684.0],The user's recent activity pattern indicates a repeated visit to place ID 2684 during nighttime on Wednesdays.
+408,2684,[2684.0],"Given the user's recent activity pattern in the context stay (going to place ID 2684) and the temporal information of the target stay (late night on a Friday), it is likely that they will visit this same place again."
+408,2585,[2684],The user has visited the same place (2684) multiple times on Friday and recent context shows a visit to this place.
+408,2932,[2684],The user has visited place 2684 multiple times recently in the early morning hours.
+408,2932,[2684],"Based on the user's activity pattern and recent context, they are likely to visit place ID 2684 again."
+408,2002,[3478.0],The user tends to visit place 3478 during Sundays in the evening.
+408,932,[2684],The user has a strong tendency to visit the same place during weekdays and nighttime.

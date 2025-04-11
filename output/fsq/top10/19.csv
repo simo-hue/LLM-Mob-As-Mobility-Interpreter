@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+19,908,"[2, 1, 0, 4, 3]",The prediction is based on the user's activity pattern and recent stays in context.
+19,687,"[3, 10, 9, 12, 7, 1, 2, 11, 4, 5]",The prediction is based on the user's activity pattern and recent activities in the context stays. The user tends to visit places with similar durations and day of week.
+19,412,"[8, 5, 7, 6, 4, 2]","The prediction is based on the user's activity pattern and recent context. Tuesday evening (05:14 PM) is a common visit time, with places visited being home (8), work (5), grocery store (7), coffee shop (6), and restaurant (4)."
+19,821,"[412, 2749, 1305, 1444, 3237, 919, 927, 538, 371, 627]",The prediction is based on the user's activity pattern and recent context stays. The top-ranked places are those that have been visited frequently during this time of day (Tuesday evening) and weekday.
+19,2749,"[412, 1305, 2749, 1444, 538, 371, 627, 927, 919, 687]",based on the user's activity pattern and recent context
+19,1334,"[14, 15, 16, 17, 11, 12, 13]","Based on the activity pattern and recent context, I predict that the user is most likely to visit one of their previous visited places with similar time of day and weekday."
+19,3237,"[1444, 1305, 3237, 2749, 111, 919]",The prediction is based on the user's activity pattern and recent context. The most likely places are those that have been visited during similar times of the day.

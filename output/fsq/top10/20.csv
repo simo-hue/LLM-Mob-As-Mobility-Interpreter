@@ -1,0 +1,3 @@
+user_id,ground_truth,prediction,reason
+20,1163,"[15, 14, 12, 9, 7, 6, 5]","The prediction is based on the user's activity pattern and recent stays in the context. The target stay is during the morning, which is a common time for this user to visit places like Place ID 15, 14, and 12."
+20,1683,"[9, 10, 5, 3, 1]","The user has a strong preference for visiting places at the same time on different days, and recently visited place ID 9. The user also tends to visit place ID 10 during weekdays."

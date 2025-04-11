@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+386,3816,[3443.0],"The target stay is on Friday and in the evening, which is similar to the user's activity pattern in the history"
+386,3443,[3443],The user has a strong activity pattern of repeated visits to place ID 3443 during weekdays and evenings.
+386,3443,[1305.0],"The target stay's time (03:06 PM) is close to the recent stays in context, and the weekday is Thursday which has a similar activity pattern as the historical data shows."

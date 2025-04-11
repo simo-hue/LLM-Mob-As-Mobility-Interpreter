@@ -1,0 +1,15 @@
+user_id,ground_truth,prediction,reason
+161,298,[938.0],Recent stays in the context and historical data show that this user tends to visit place ID 938 around midnight on Tuesdays.
+161,938,[165],"Recent context and history show a strong correlation between this user's activity pattern and the location they visited at 07:42 PM on Tuesday, which is their most recent visit."
+161,298,[165],Recently visited place on Tuesday at a similar time
+161,938,[298.0],"The user has a frequent visit pattern on Wednesday at night and this target stay is also on a Wednesday at night, so the most likely place ID is 298.0."
+161,938,[298.0],"Given the user's activity pattern of visiting place with ID 298.0 repeatedly during different times and weekdays, and considering the context stays in which they have visited place with ID 298.0 recently, it is most likely that the user will visit place with ID 298.0 again."
+161,817,[298.0],The user has a repeated visit pattern during the night on Fridays.
+161,76,[298.0],The user tends to visit the same place at the same time on Fridays.
+161,298,[298.0],The user has a regular pattern of staying at place ID 298.0 on Saturdays.
+161,938,[298.0],"Based on the user's activity pattern and recent stays in context, the most likely place ID is the one where the user has visited repeatedly during Saturday morning."
+161,608,[298.0],"The user's activity pattern suggests that they tend to visit place 298 on Sundays, especially in the evening."
+161,147,[298.0],The user has a history of visiting place with ID 298 on Sundays and at similar times.
+161,586,[298.0],"Based on the user's historical stays and recent context, it is likely that they will visit place ID 298 again, as this place has been frequently visited during late night/early morning hours on Wednesdays."
+161,298,[298.0],The user has a strong preference for visiting place with ID 298 on Saturday mornings.
+161,938,[938.0],recent activity pattern suggests a return to previously visited places during early morning hours on Tuesday

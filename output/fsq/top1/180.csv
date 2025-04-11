@@ -1,0 +1,10 @@
+user_id,ground_truth,prediction,reason
+180,300,[546],The user has a consistent activity pattern of visiting the same place (546) during daytime on Tuesday
+180,3817,[1209.0],"Based on the historical activity pattern and recent context, the most likely place ID is the one visited most frequently during the morning hours on Tuesdays."
+180,2857,[2178.0],The user has a pattern of visiting the same place at night on Tuesdays
+180,2651,[546.0],The user tends to visit place 546 on Wednesday mornings based on their activity pattern and recent context
+180,300,[632.0],recent stays at place 632.0 on Sundays
+180,572,[1146.0],The user has visited this place multiple times in the past on Sundays
+180,123,[1146.0],"The user has a tendency to visit the same place on Sundays and given the target stay's time of day and weekday, this is the most likely place ID."
+180,2651,[546],The user's activity pattern suggests frequent visits to the place with ID 546 on Wednesdays
+180,293,[546.0],"The user has a daily routine of visiting place with ID 546 on weekdays, and the target stay's time matches this routine."

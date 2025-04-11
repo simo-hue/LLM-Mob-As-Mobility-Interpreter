@@ -1,0 +1,13 @@
+user_id,ground_truth,prediction,reason
+364,2424,[2424.0],"The target stay's time and day of the week are similar to recent stays in context, which were all at place 2424."
+364,2899,[2424.0],recent activity pattern shows a repeated visit to this place during daytime
+364,2899,[2424],recent activity pattern of visiting place ID 2424 during weekdays and nighttime
+364,2471,[2424],The target stay is on a Friday and the user has visited place 2424 multiple times on Fridays in their history.
+364,2424,[2424.0],"Recent stays in the context and history show a strong pattern of visiting place ID 2424 on Saturdays, so this is the most likely next location."
+364,2424,[2424],The user has a strong preference for visiting places with ID 2424 on Sundays and during early morning hours.
+364,2471,[2899.0],The user's recent activities indicate a strong likelihood of returning to the same place on Tuesdays at 1:42 PM.
+364,2471,[2424],Recent stays and activity pattern suggest that this user tends to visit place with ID 2424 on Wednesday afternoons.
+364,2424,[2424],Predicted based on user's activity pattern of frequently visiting place 2424 during weekdays and morning hours.
+364,2424,[2424.0],Most recent and frequent place ID in the context and history
+364,2471,[2471.0],"The user has visited the same place (2471) on Tuesdays in the past, and this target stay is also on a Tuesday."
+364,2424,[2424],"The user has a regular visit pattern on Thursdays and the target stay is also on a Thursday, so it's most likely that the user will go to place 2424."

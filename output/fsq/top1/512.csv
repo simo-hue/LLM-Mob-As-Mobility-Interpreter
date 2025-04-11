@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+512,240,[646],"The user tends to visit place ID 646 on Saturdays, and the recent context also shows a visit to this place."
+512,895,[895],Recent context suggests frequent visit to place with ID 895 on Monday morning
+512,1353,[1310],The user tends to visit the same place on Monday afternoons
+512,895,[895.0],The user's recent stays in the context suggest a high probability of visiting place 895.
+512,895,[895],The user has a pattern of visiting the same place (place ID 895) at similar times on different days.
+512,895,[895],"The user has a consistent morning routine on Mondays and Thursdays, visiting place ID 895."
+512,300,[895],Recent activity pattern and temporal information suggest the user is likely to visit a place they have been to before during this time of day

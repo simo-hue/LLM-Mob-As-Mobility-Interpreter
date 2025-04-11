@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+341,1440,[1440.0],The user tends to visit place with ID 1440.0 during the morning on weekdays.
+341,1440,[633.0],"The user's recent activities in the context show repeated visits to place ID 633.0 during the day, and their historical stays also indicate frequent visits to this location on Tuesdays."
+341,633,[633.0],The user tends to visit the same place (633.0) during similar time frames and on the same day of the week.
+341,1440,[1440.0],Recent visits to place 1440 and the target time is during workday morning
+341,1440,[1440],The user's activity pattern suggests frequent visits to place with ID 1440 during the morning on Mondays
+341,293,[633.0],The user has a frequent stay at place ID 633.0 on Thursday
+341,1440,[1440],"The target stay is on Monday morning, and the user has a regular pattern of visiting place ID 1440 at this time"

@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+336,1048,[1048.0],"The user's historical stays show a high frequency of visits to place ID 1048, especially on Sundays and Mondays, which is also reflected in the target stay's day of the week."
+336,1126,[1048.0],The user has a consistent activity pattern of visiting place ID 1048.0 during weekdays and early morning hours.
+336,550,[550.0],The user has a pattern of visiting place 550 at night on Fridays
+336,401,[1253.0],Recent activity pattern indicates that this user tends to visit place with ID 1253 on Thursday afternoon
+336,2585,[1281.0],"The user has a strong activity pattern of visiting place 1048 in the morning on Thursdays, and recently visited place 401 during the day. Given that the target stay is also on Thursday evening, it's most likely that the user will visit place 1281, which was previously visited in the afternoon."
+336,1980,[1048],The target stay time and day are similar to those in the history when the user visits place 1048.

@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+43,245,"[15, 10, 8, 7, 6]","Based on the user's activity pattern, the prediction is influenced by their recent stays and temporal information."
+43,343,"[7, 6, 1, 4, 5, 2, 3, 0]","The prediction is based on the user's activity pattern and recent stays in context. The target stay has a similar day of the week (Saturday) and time (afternoon) to the recent stays, so places visited during this time frame are more likely to be visited again."
+43,722,"[8, 10, 3, 9, 5, 1, 6, 4]","The prediction is based on the user's historical activity pattern and recent context. The target stay time (06:22 PM) falls within the user's evening routine, with a higher probability of visiting places that have been visited during this time frame in the past."

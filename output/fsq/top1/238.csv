@@ -1,0 +1,11 @@
+user_id,ground_truth,prediction,reason
+238,107,[2703],The target stay is on Saturday evening and the user has visited place 2703 in similar times in the past.
+238,2703,[2703],Recent activity pattern shows a strong tendency to visit place ID 2703 during Sunday morning
+238,2703,[2703],"Recent stays suggest frequent visits to the place with ID 2703 during weekdays, especially on Thursdays."
+238,3605,[2703],"The target stay is on Saturday night and the user's recent stays have been at place ID 2703, also considering their historical pattern of visiting this place during similar times."
+238,2703,[2703],Based on the user's recent stays in the context and their historical pattern of frequent visits to place 2703 during the morning and evening hours on Thursdays.
+238,2703,[2703],The user has visited place ID 2703 frequently during the evening hours of Friday and Saturday.
+238,2703,[2703],Recent frequent visits to place 2703 on Saturday evenings
+238,2703,[2703],"The user's recent stays in the context are all at place ID 2703, and this target stay is also on Thursday morning, which matches the user's activity pattern"
+238,1870,[2703],"The target stay's time and day of the week are consistent with recent stays in the context, and the user has a strong tendency to visit place 2703 on Thursdays."
+238,2703,[2703.0],The user has been to place 2703 multiple times recently and on Saturday.

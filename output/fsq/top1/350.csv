@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+350,529,[2617.0],based on recent activity pattern and temporal information
+350,3784,[3798.0],"The target stay is on a Wednesday and the context suggests that the user recently visited places with ID 3784 or 3798, which are also common in the user's history."
+350,3784,[3798.0],The user tends to visit place with ID 3798.0 during weekdays and late afternoon/early evening.
+350,3798,[3798.0],"The target stay's time and day of the week are similar to recent stays in the context, which all visited 3798.0."

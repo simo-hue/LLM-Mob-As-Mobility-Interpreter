@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+403,627,[197.0],"Based on the user's activity pattern and recent context, it is likely that they will visit place 197 again"
+403,627,[197.0],"The user has recently visited this place on Monday and Friday, and it's also a popular place for the user to visit during the week"
+403,262,[133.0],"The target stay's time and weekday are similar to the recent stays in the context, and the user has visited place 133.0 on Saturday before."
+403,379,[197],"The user has recently visited place 197 on Friday and Saturday, and considering the temporal information of target stay which is also on a Friday evening, it's likely that the user will visit this place again."
+403,1980,[133],Recent activity pattern shows the user often stays at this place on Monday evenings
+403,133,[2874.0],"The user has been to this place (2874) multiple times on weekends and weekdays, especially during evening hours."
+403,133,[2874.0],Recent repeated visits to place ID 2874.0 during evening hours (Thurs-Sun)
+403,1710,[2874.0],The target stay's start time and day of the week match with recent stays in the context

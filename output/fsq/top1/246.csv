@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+246,962,[2901.0],"The target stay's day of the week (Sunday) matches with the user's recent activities on Sundays, and given that this place ID was visited during daytime hours in the past, it is likely to be the next location."
+246,2901,[2901.0],"The user has visited this place on Sundays before, and the time of stay is similar to the recent stays."
+246,506,[2901.0],Recurring visit to the same place on Monday evening based on historical and recent activity pattern
+246,846,[846.0],The user has a tendency to visit the same place at this time on Monday
+246,2901,[2901.0],The user has a consistent pattern of visiting place ID 2901 on Monday nights.
+246,2901,[2901.0],"Based on the user's activity pattern and recent context, it is most likely that they will visit place 2901."
+246,2553,[2901.0],"The user has a tendency to visit this place during weekdays and late evening hours, and recently visited it on Sunday, Monday, and Wednesday."
+246,846,[2901.0],The user has a strong tendency to visit the same place (2901) on Thursday afternoons.
+246,506,[2553.0],"Based on the user's historical stays and recent context, I predict the next location as a repeated visit to place 2553 on Thursday afternoon."
+246,388,[2901.0],The target time is close to the most recent stays and the user has repeated visits to this place during weekdays.
+246,3052,[2901.0],"Given the user's activity pattern of frequently visiting place ID 2901 during Thursday evening, and the recent context of staying at this place on Wednesday and Thursday, it is likely that they will visit place ID 2901 again in the near future."
+246,2981,[846.0],"The target stay is close to recent stays in the history and context data, and the place ID 846.0 was visited frequently during weekdays."
+246,2954,[2981.0],Recent visit to this place during same time and day of week

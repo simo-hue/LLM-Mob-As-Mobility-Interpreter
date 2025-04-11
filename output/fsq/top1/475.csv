@@ -1,0 +1,18 @@
+user_id,ground_truth,prediction,reason
+475,1221,[1126.0],Most recent and frequent activities during the same day of the week (Sunday) at similar times
+475,1221,[1311.0],The target stay is on Monday afternoon when the user has visited place with ID 1126 and 1566 recently.
+475,1221,[1340.0],"The user's recent activities in the context show a pattern of visiting place ID 1340 on Monday evenings, which matches with the target stay's time and day of the week."
+475,201,[1340.0],Recent activity pattern indicates the user tends to visit place with ID 1340.0 during late night/early morning hours on Thursdays.
+475,231,[1126],The user has a strong activity pattern of visiting place ID 1126 on Fridays
+475,1221,[1340.0],"The user has a repeated visit pattern on Friday mornings and based on the recent activity in context, it is likely that they will go to place 1340 again."
+475,2759,[2469.0],Recent context stays and historical activity pattern suggest a high probability of returning to the same location as the previous night's stay.
+475,1476,[1126],"Based on the historical stays and recent context, this user tends to visit place ID 1126 during Friday evenings."
+475,2733,[2469.0],The user has visited the same place (2469) at similar times on Fridays
+475,1221,[2469],Based on the user's activity pattern of repeated visits to place 2469 during weekdays and late evenings
+475,1221,[2469],Recent activities of this user are concentrated around place ID 2469.
+475,253,[2469.0],The user's recent activity pattern suggests they often visit place 2469 during the evening on Saturdays
+475,404,[2469],The user has a pattern of visiting place 2469 in the late afternoon or evening on Sundays and Tuesdays
+475,865,[1340.0],the target time and day of the week match with the most recent context stays
+475,3203,[1340.0],The user's recent activities in the context stay suggest a visit to place ID 1340 at late night on Tuesday.
+475,3203,[1126.0],The user's activity pattern suggests a repeated visit to place with ID 1126 on Wednesday evening.
+475,1131,[2469.0],"Based on the user's activity pattern and recent context stays, it is likely that the user will visit a location they have visited previously during evening hours on Fridays."

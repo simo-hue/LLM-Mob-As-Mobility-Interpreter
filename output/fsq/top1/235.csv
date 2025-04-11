@@ -1,0 +1,12 @@
+user_id,ground_truth,prediction,reason
+235,3450,[3450],"Recent and regular visits to place ID 3450, especially on Fridays."
+235,3494,[3450],Recent frequent visits to place 3450 during evening
+235,2813,[3450],"The target stay is on a Sunday, which is a typical day for the user to visit place with ID 3450 based on their activity pattern in the history"
+235,2813,[3450.0],"The target stay is on Monday and late evening, which matches the user's typical evening routine and repeated visits to place 3450."
+235,1867,[3450.0],The user has a consistent pattern of visiting place 3450 during the morning on Tuesdays and Fridays.
+235,3450,[3450.0],"Based on the user's activity pattern and recent context, they are most likely to visit place ID 3450 again."
+235,231,[3450.0],"Based on the user's historical activity pattern and recent context stays, it is most likely that they will visit the same place as before (3450.0)"
+235,2975,[3450.0],The user has a consistent morning routine at this place and the recent activity is also related to this location
+235,2209,[3450.0],"Based on the user's activity pattern and recent stays in context, it is likely that they will visit a place they have been to before during this time, specifically Place ID 3450."
+235,467,[3450.0],User's most recent and frequent stay at this location is on Sunday afternoons
+235,3450,[3450.0],"Based on the user's historical stays and recent context, it is most likely that they will visit place ID 3450 again since this place has been frequently visited during morning time on Monday."

@@ -1,0 +1,12 @@
+user_id,ground_truth,prediction,reason
+229,231,[2563],Recent frequent visit to place 2563 during weekend morning
+229,2936,[2563.0],Based on the user's activity pattern and recent stays in the context
+229,2936,[2563.0],"The target stay is on Saturday afternoon, which is a common time for the user to visit place 2563 in the past"
+229,466,[2563.0],Recurring visit to the same place (2563) on Monday during evening hours
+229,2936,[2563.0],The user has a tendency to visit the same place on Wednesday evenings
+229,2936,[2563.0],Recent stay at 2563 on Friday
+229,1127,[2563],"Based on the user's activity pattern and recent context, it is likely that they will visit place ID 2563 again."
+229,3054,[2563],"The target stay is on Friday and in the evening, based on historical stays and context, it is likely to be a repeated visit to place 2563"
+229,407,[2563.0],Recent context suggests frequent visits to place 2563 on Fridays and Tuesdays.
+229,3054,[2936.0],"The target stay time and day of the week match with a recent context, which suggests that the user is likely to revisit the same place as before."
+229,1127,[2563],"Based on the user's activity pattern and recent context, they tend to visit place with ID 2563 during weekdays"

@@ -1,0 +1,27 @@
+user_id,ground_truth,prediction,reason
+271,3804,[2220],"The user has a recent stay at this place during the same time of day (morning), and also on weekdays."
+271,1262,[2220.0],"The user's recent activities suggest a high probability of visiting place ID 2220, which is the most frequently visited place during evenings and weekdays."
+271,1705,[2220.0],recent activities of this user suggest a high probability of staying at place ID 2220 on Friday evening
+271,2220,[2220.0],"Based on the user's activity pattern and recent context, it is most likely that the next location will be a repeated visit to place 2220."
+271,3804,[2220.0],The user has been to place 2220 several times on Saturdays and recently visited it in the context.
+271,1705,[2220.0],Recent visits to place 2220 on Saturday afternoons and Sunday afternoons suggest a strong pattern for this user.
+271,2220,[3804.0],"The user has a regular stay at 3804.0 on Mondays, and the recent context stays also show this habit."
+271,3804,[2220.0],Predicted based on recent activity pattern and temporal information.
+271,1705,[3804.0],The user's historical activity pattern and recent context suggest a strong likelihood of returning to the same place on Tuesday afternoon as they have done in the past.
+271,1450,[3804.0],"Based on the user's activity pattern and recent context stays, it is most likely that they will visit place 3804 again."
+271,3804,[2220],"Based on the user's activity pattern and recent context, it is likely that they will visit a place they have been to recently during similar times of day."
+271,3804,[3804],The user has a regular pattern of visiting place ID 3804 during the morning on weekdays.
+271,2220,[2220.0],Recent visits to place 2220.0 on Wednesday and repeated visit during morning
+271,1705,[1705],"The user has a history of visiting place ID 1705 on Thursdays and the target stay is also on Thursday, so it's likely that the next place will be the same."
+271,3804,[3804],"Based on the user's historical activity pattern and recent context, it is likely that they will visit a place they have been to before during this time slot."
+271,2220,[3804],The user has visited place 3804 frequently and recently
+271,2220,[2220.0],Recent stays at 2220.0 and the target stay's time (10:58 PM) is similar to recent evening stays
+271,3804,[2220],"The user's recent activity pattern suggests a higher probability of staying at the same place as previous night (2220), considering the context stays in the target stay are also related to this place."
+271,2220,[2220.0],The user has repeated visit to this place during Monday and recently visited it in the context.
+271,3804,[2220.0],The user has been visiting place 2220 frequently on Mondays and Sundays.
+271,2220,[2220.0],Recent activity pattern suggests frequent visits to place 2220 on Mondays and Sundays around 11pm
+271,300,[2220.0],Recent activity suggests frequent visits to place ID 2220 during nighttime and on weekdays.
+271,2220,[3804.0],The user has shown a strong preference for staying at place with ID 3804 on Wednesdays.
+271,2220,[3804.0],The user has a strong activity pattern of visiting place ID 3804 on weekdays and late afternoon/early evening hours.
+271,2220,[3804],Recent visits to place 3804 on Monday and Wednesday
+271,2220,[3804.0],"The user has a habit of staying at this place during the late evening on Fridays, based on their activity pattern and recent stays."

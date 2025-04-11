@@ -1,0 +1,26 @@
+user_id,ground_truth,prediction,reason
+213,3575,[2153.0],"The target stay's time and day of the week match with recent context stays (e.g., both are on Thursday), so it is likely that this user will visit a place they have visited before during this time, which is 2153.0 in their historical activity pattern."
+213,1651,[371],"Based on the user's activity pattern and recent context stays, it is most likely that they will visit place 371 again."
+213,1,[2153.0],Recent stays at place 2153 and the temporal context suggest the user is likely to visit this place again.
+213,3575,[2153.0],"The target stay's day of the week is Sunday which is a weekday and the time is morning, similar to the recent context stays. According to the user's activity pattern in the history data, there have been several previous visits to place 2153 on weekdays during the same time of the day."
+213,3575,[2153.0],The user has a strong pattern of staying at place ID 2153 during Tuesday morning
+213,3575,[2153.0],"The target stay is on Thursday afternoon, which is a common time for this user to visit the place with ID 2153."
+213,3575,[2153.0],The user has a history of frequent visits to place 2153 on Friday afternoons
+213,3575,[2153.0],The user has a habit of visiting place ID 2153 on Thursdays and has recently stayed there in the context
+213,2153,[2153.0],"The target stay is on Friday morning, which is when the user tends to visit place ID 2153."
+213,1,[2153],the user's recent activities indicate a high probability of returning to the same place
+213,3575,[2153.0],"Based on the user's activity pattern and recent context, they are likely to visit a place they have been to before during this time period"
+213,3575,[2153.0],"Based on the historical stays and recent context, it is likely that the user will visit place 2153 again."
+213,3575,[2153],"Based on the activity pattern of this user, recent activities in the context stay, and temporal information of target stay, we predict that the next place ID will be 2153, which is a common destination during nighttime."
+213,2153,[2153],Recent context and historical stays suggest this user typically goes to this place on a Wednesday morning.
+213,3575,[2153.0],"Based on the user's historical activity pattern and recent context, it is likely that they will visit place 2153 again."
+213,2153,[2153.0],Recent stays at place with ID 2153
+213,3575,[2153.0],repeated visit to a certain place during certain time
+213,3575,[2153.0],"Based on the user's activity pattern and recent context stays, it is most likely that the next place ID will be 2153.0"
+213,2153,[2153.0],Recent context shows frequent visits to place with ID 2153 during Tuesday morning
+213,3575,[2153.0],The target stay's day of the week and time are similar to previous stays where the user has visited place 2153.0
+213,344,[2153.0],Recent stays at place 2153 on Thursday
+213,3575,[2153.0],The user has a strong tendency to visit place with ID 2153 on Thursdays during the evening
+213,966,[2153.0],"The user tends to visit place 2153 at night on weekends, and the context stays indicate recent visits to this place."
+213,619,[2153.0],"The target stay is on a Monday night, which is similar to previous stays on Mondays (e.g., 09:45 AM, 'Monday', 2153.0), and the user has been staying at this place ID (2153) multiple times on Mondays."
+213,2153,[2153.0],The user has a strong pattern of visiting place 2153 on Wednesday mornings and afternoons.

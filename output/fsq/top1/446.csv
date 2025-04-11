@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+446,1048,[1048],Recent repeated visit to place ID 1048
+446,3086,[1048],The target stay is on Thursday and the user has a repeated visit pattern to place ID 1048 during weekdays.
+446,3738,[1048],recent repeated visit to place ID 1048 on Thursday
+446,1048,[1048],"Most recent stays are all at the same place on Monday/Tuesday and Thursday, and this target stay is also on Tuesday, so it's likely to be at the same place."
+446,3086,[1048],"Based on the user's activity pattern and recent context stays, it is likely that they will visit place ID 1048 again"
+446,2922,[1048],The user has shown a consistent pattern of visiting place 1048 during the evening hours on Thursdays.
+446,1337,[2922],Recent visits to places with ID 2922 on Thursdays at similar times.
+446,1048,[1048],The user tends to visit place 1048 on Tuesdays.

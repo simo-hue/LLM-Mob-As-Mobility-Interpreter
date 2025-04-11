@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+370,3797,[1474],"Based on the user's activity pattern and recent context stays, I predict that the next stay will be at place ID 1474, as it has been visited during similar hours (02:35 AM) and days of the week (Monday) in the past."
+370,1578,[3797],The user tends to visit place with ID 3797 during Monday and daytime.
+370,3797,[3797],"The target stay is at night on Monday, and the user has visited place 3797 multiple times during late hours"
+370,3797,[1980],the user has a habit of visiting the same place on saturday morning
+370,1474,[3797],The user's activity pattern shows a strong tendency to visit place 3797 during nighttime on Saturdays.
+370,1474,[3797],The user tends to visit place 3797 during Sunday evening and has been there recently.
+370,1474,[3797.0],Recent and historical stays at place 3797 suggest this is the most likely next location
+370,3797,[3797],"The target stay's time of day (early morning) and weekday (Wednesday) are similar to the recent stays in the context, so it is likely that the user will return to a place they have previously visited during this time and on this day."

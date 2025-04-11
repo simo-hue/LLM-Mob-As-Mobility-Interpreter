@@ -1,0 +1,15 @@
+user_id,ground_truth,prediction,reason
+478,3761,[581.0],"The target stay is on a Wednesday afternoon, which is similar to the historical stays at place ID 581.0."
+478,581,[581.0],Recent stays at the same place and similar time of day
+478,3691,[581.0],"Based on the user's activity pattern and recent context, it is likely that the target stay will be at the same place as the previous stays (e.g., 11:17 PM Saturday)"
+478,276,[581.0],Recent stays at place ID 581 in the late evening on Friday
+478,16,[581.0],The user has a consistent pattern of visiting place with ID 581 during nighttime on Friday.
+478,77,[581.0],Recent stays and historical pattern suggest the user is likely to visit the same place as their recent stay.
+478,3501,[581.0],Recent stays and historical pattern suggest a high probability of the user returning to place ID 581.
+478,581,[581.0],based on the user's activity pattern of frequent visit to place ID 581.0 during nighttime and on Friday
+478,3691,[581.0],"Based on the historical stays and recent context, it is likely that the user will visit place ID 581 again."
+478,643,[3501.0],The user has a strong tendency to visit place 3501 on Saturdays during the early morning hours.
+478,581,[581.0],The user has a pattern of visiting place 581 at nighttime on Saturday
+478,276,[3501.0],"Most recent activity pattern shows a strong tendency to visit place 3501 during Sundays, especially early in the morning"
+478,581,[3501.0],the user tends to visit place with ID 3501 in the early morning on Sunday
+478,3501,[581.0],Recent stays at the same place and similar time on Sundays

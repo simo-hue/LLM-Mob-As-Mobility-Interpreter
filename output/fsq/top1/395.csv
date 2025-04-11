@@ -1,0 +1,12 @@
+user_id,ground_truth,prediction,reason
+395,600,[1048.0],Based on recent activities in the context and historical pattern of repeated visits to place ID 1048 during weekdays
+395,1,[2671.0],The user has a repeated visit to place ID 2671 during the evening on Wednesday
+395,113,[2671.0],The user has a tendency to visit the same place during Sunday evening
+395,1048,[1048.0],Recent visits on Monday and Friday suggest a possible return to the same place
+395,2191,[1048.0],based on recent activities and historical patterns
+395,2267,[2671.0],"The target stay is on Saturday evening, and the user has a history of visiting place 2671.0 in similar times."
+395,238,[2671],The user tends to visit the same place at this time on Sundays
+395,1290,[1048.0],recent repeated visit to a place on Monday
+395,6,[2671.0],Recent activity pattern suggests the user is likely to visit a familiar place on Monday evening
+395,1048,[2671.0],"Based on the user's activity pattern and recent context stays, the most likely place ID is 2671.0 because the user has visited this location multiple times during Tuesday morning."
+395,2191,[2671.0],the user has a regular visit to this place during Friday evening

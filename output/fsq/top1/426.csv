@@ -1,0 +1,10 @@
+user_id,ground_truth,prediction,reason
+426,127,[1048],The user tends to visit place ID 1048 during the evening on Saturday
+426,3364,[1048.0],Recurring daily visit to place ID 1048
+426,555,[1048],"Predicted based on the user's historical activity pattern and recent context, considering that Monday is a common day of visit for this user."
+426,553,[1048.0],"The user has previously visited the same place on Mondays and Tuesdays around this time, especially in the evening."
+426,3364,[1048.0],"The user tends to visit places on Tuesdays and Mondays during morning hours, especially place 1048.0."
+426,782,[1048.0],The user has a daily routine of visiting place ID 1048 on Tuesdays around the same time.
+426,8,[1048.0],"Based on the user's activity pattern and recent context, they tend to visit a certain place during specific times (e.g., evening)"
+426,553,[1048.0],"Based on the user's activity pattern and recent context stays, it is likely that they will visit a place they have visited before during similar times (i.e., weekday evenings)."
+426,3364,[1048.0],The target stay is on a Wednesday during the day and the user tends to visit place ID 1048.0 frequently during this time of the week.

@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+430,685,[2667.0],"The target stay is on a Monday and the recent context shows a visit to place ID 1, but the user's historical stays show that they have visited place ID 2667 multiple times on Mondays."
+430,50,[2667],The user has a strong pattern of visiting place ID 2667 on Monday mornings and afternoons
+430,2667,[2667.0],"The user has a strong pattern of visiting place ID 2667 on Mondays and Tuesdays, and considering the target stay's temporal information (early morning on Wednesday), it is likely that the user will visit this place again."
+430,215,[2667],The target stay is on Saturday evening and the user has a strong tendency to visit place ID 2667 in similar contexts
+430,1298,[2667.0],"Based on the user's activity pattern and recent context stays, it is likely that they will visit a place similar to their recent weekday evening stays."
+430,1,[2667],Recent frequent visits to place ID 2667 and considering the temporal information of target stay

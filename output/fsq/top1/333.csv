@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+333,1223,[1825],Recent stay in the same place and similar time of day
+333,413,[1825.0],The user has a strong tendency to visit the same place (1825) during similar times on Friday
+333,1163,[2884],"Based on the user's activity pattern and recent context, the prediction suggests that the next place ID will be 2884 as it has been visited frequently during similar time frames."
+333,990,[1825.0],"The user has a repeated visit pattern to place ID 1825.0 during the weekend, and the target stay is on Saturday at 2:05 PM"
+333,1163,[1825.0],"The target stay's time and day of the week are similar to those in the context stays, and also consistent with the user's historical pattern of repeated visits to place 1825 during weekdays."
+333,2884,[1825.0],based on the recent context and user's activity pattern
+333,2884,[1825],recent repeated visit to the same place
+333,452,[1825.0],The user has a strong tendency to stay at place 1825 during the afternoon on Mondays and other weekdays.
+333,2884,[1825.0],"The user has visited place 1825 multiple times on Wednesdays, and the recent context stays also show this pattern."
+333,1,[1825],The user has a strong tendency to visit place 1825 during the morning hours on Mondays
+333,535,[1825.0],"Based on the user's activity pattern and recent context, it is most likely that they will visit place 1825 again."
+333,1223,[1825.0],Recent stays and activity pattern suggest the user is likely to return to the same location.
+333,1223,[1825.0],"The target stay is on a Friday afternoon, and the user has previously visited this place (1825.0) during similar times of day."

@@ -1,0 +1,13 @@
+user_id,ground_truth,prediction,reason
+292,2513,[1401.0],Recent visits to the same place on Sundays and temporal pattern of Sunday morning
+292,451,[2390.0],"Based on the user's historical activity pattern and recent context, it is likely that they will visit place 2390, which was previously visited during weekdays."
+292,420,[2390.0],The user has a tendency to visit place with ID 2390 during Saturdays
+292,2513,[1059.0],"Based on the user's historical stays and recent context, it is likely that they will visit a place they have previously stayed at during similar times and days."
+292,451,[2513],The user has visited the same place (or a nearby one) during similar times on Saturdays
+292,1007,[2390.0],"The user has visited this place on Thursdays and Fridays before, considering the temporal information of target stay (5:51 PM Thursday)"
+292,2672,[167.0],The target stay's time of day and weekday match the user's recent activities at place 167
+292,420,[1401.0],"Based on the historical activity pattern and recent context, it is likely that the user will visit a place they have been to recently, which in this case is 1401."
+292,1401,[3344.0],The user's recent activity pattern suggests a tendency to visit place with ID 3344.0 on Tuesdays.
+292,2322,[420.0],The user has a consistent activity pattern of staying at place with ID 420 on Tuesdays.
+292,2322,[420.0],"The target stay's time of day and weekday are similar to the context's recent stays, which all visited place 420. The historical activity pattern also shows a strong affinity for place 420 on weekdays."
+292,2672,[420.0],"Recent activity pattern suggests a likely visit to place 420, which is the most visited location during Saturday evening hours."

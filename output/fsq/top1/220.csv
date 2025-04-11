@@ -1,0 +1,11 @@
+user_id,ground_truth,prediction,reason
+220,605,[2433.0],"The user has a tendency to visit place 2433 on weekdays, and the recent context shows that this is still their preferred location."
+220,2191,[2433],Recent context and history suggest the user tends to visit the same place on Friday evenings
+220,1925,[2433],"The user's recent stays are all at place ID 1520, but since it is a Wednesday evening, the user might go to their weekend spot at 2433."
+220,1927,[1520],"Based on the recent context stays and historical activity pattern, it is most likely that the user will visit place with ID 1520 again."
+220,1520,[2433.0],"Based on the activity pattern and recent context of visiting place ID 1520 multiple times on Monday, it's likely to visit place ID 2433 again on Monday."
+220,1520,[2433.0],recent visit to this place on Monday and Sunday
+220,1509,[2433.0],"The user has shown a repetitive behavior of visiting place 1520 on Mondays and Tuesdays during morning hours. Given the target stay's start time and weekday (Wednesday), we can predict that they will visit place 2433 again."
+220,1524,[1520],recent weekday visit to a known location
+220,1339,[856.0],The user's recent activity pattern suggests a visit to place with ID 856 at this time of day and day of the week.
+220,856,[856],"Predicted location is the most recent place visited by the user on Tuesday evening, which is also a common visit time and day for this user."

@@ -1,0 +1,11 @@
+user_id,ground_truth,prediction,reason
+199,2218,[923],Recent stays and activity pattern indicate that the user is likely to stay at place ID 923 during this time of day
+199,342,[923],"Based on the activity pattern and recent context stays, the most likely place ID is the user's usual work or home location."
+199,923,[923],The target stay's time and day of the week are consistent with the user's historical pattern of visiting place ID 923 during weekdays.
+199,449,[923],Recent stays at place ID 923
+199,736,[923],Recent activities suggest a strong likelihood of returning to the same place
+199,202,[923],"Recent activity pattern suggests the user is likely to return to a familiar place, which in this case is likely to be place 923 based on the context and history"
+199,923,[923],"The user has a strong preference for place 923, based on their historical stays and recent context."
+199,1101,[923.0],The user's recent activity pattern suggests a high probability of visiting the same place as before.
+199,923,[923.0],recently frequent place
+199,449,[923.0],"The user's historical stays suggest that this person has a strong preference for place with ID 923, and the recent context stays also indicate that they may be heading towards this location again."
