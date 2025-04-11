@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+27,1,"[1, 9]",recently frequent places and days of the week in both history and context
+27,1,[1],The user tends to stay at the same place on Sundays and has been doing so recently.
+27,1,"[1, 9]","The user's recent stays on Saturday and Sunday suggest a pattern of frequent visits to places with ID 1 and 9, which is also consistent with their historical activities."
+27,9,[1],Recent stays and historical data indicate the user tends to stay at place ID 1
+27,9,"[9, 1]",Recent stays show a high probability of returning to places visited previously on Tuesday (e.g. place ID 9)

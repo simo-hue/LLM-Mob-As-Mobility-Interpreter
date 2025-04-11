@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+23,648,"[648, 649, 652, 225, 1, 332, 649]",Predicted based on recent stays in the same day of week and similar time of day
+23,648,"[648, 649, 225, 1, 332, 652]","The user has a strong tendency to visit familiar places during weekdays, especially around the same time of day. The recent context stays also suggest a high probability for visiting places like 648 and 649, which are common destinations in this user's activity pattern."
+23,648,"[648, 649, 652, 225, 332, 81]",The prediction is based on the user's recent visits to certain places and times in both history and context.
+23,648,"[648, 649, 651, 653, 652, 225, 332]","The user has a strong tendency to visit certain places during specific times and days, and the context suggests that they are more likely to be in familiar areas."
+23,648,"[649, 648, 651, 653, 129, 655]","based on the activity pattern and recent context, this user is likely to visit a place they have been to before"
+23,648,"[225, 649, 648, 651, 653, 340, 331, 9, 81, 129]","based on the user's activity pattern of repeated visits to certain places during certain times, and considering the recent context stays"
+23,81,"[649, 648, 225, 332, 651, 653, 129]","The prediction is based on the user's activity pattern of repeated visits to certain places during certain times, with a focus on weekdays and daytime hours. The recent context stays show a trend towards visiting places that were previously visited during the same time of day, which suggests that the user will likely visit another place they have been to in the past."

@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+35,129,[130],Recent activities and temporal info suggest the user will stay at place with ID 130 on Saturday
+35,130,[130],Recent activities suggest a high likelihood of returning to the same location
+35,130,"[130, 130, 130]","Recent stays on Saturday and the target stay is also on Saturday, so it's likely to be at one of the places visited recently."
+35,9,"[130, 674]",Recent Saturday stays and morning hours suggest a similar pattern
+35,17,"[130, 673, 130]",Recent stays suggest user tends to stay in the same place (130) or nearby places (673 and 130)
+35,9,[676],Recent Sunday morning stays

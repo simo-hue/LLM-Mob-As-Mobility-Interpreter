@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+6,224,"[180, 225]",Recent stays suggest a recurring pattern on Saturday and Sunday
+6,224,[225],Recent stays show a strong preference for place 225 on Tuesdays.
+6,225,"[101, 225]",Recent activities suggest a pattern of frequent visits to places with IDs 101 and 225.
+6,224,[225],Recent activities in context show a tendency to visit place 225
+6,34,[101],Recent activities show a recurring pattern of visiting place ID 101 on Tuesdays and Wednesdays.
+6,224,"[234, 225]",Recent activities suggest frequent visits to places 234 and 225.
+6,225,"[101, 225]",Recent pattern of staying in places with IDs 101 and 225 on weekdays continues.
+6,224,"[225, 224]",Recent activity pattern shows user usually stays at places 225 and 224 on Fridays
+6,198,"[229, 180, 101]","The recent stays on Friday and Thursday suggest a pattern of returning to the same places, with a slight variation in place IDs. The target stay's day of week (Sunday) is consistent with this pattern."
+6,84,"[1023, 225]","Based on the user's recurring patterns in history and recent activities in context, I predict that they will visit place 1023 again, as it is their most frequent destination."
+6,225,"[1023, 225]",The user tends to stay at the same place on Sundays
+6,224,"[224, 225, 229]","Recent stays show a pattern of visiting places 224 and 225 on weekdays, and considering the time of day in the target stay is early morning, it's likely that the user will visit one of these places again."
+6,224,"[229, 101]",Recent stays and historical patterns suggest user is likely to visit the same places on Monday mornings

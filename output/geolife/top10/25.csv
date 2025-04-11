@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+25,660,"[561, 332, 9, 660, 339, 602]","The prediction is based on the user's activity pattern of repeated visits to certain places during certain times, with a strong bias towards weekends and weekdays respectively"
+25,9,"[332, 9, 561, 660, 339, 644]","Given the user's activity pattern and recent context stays, it is likely that they will visit places they have visited before during similar times of day."
+25,660,"[9, 332, 660, 339, 561, 602]","Based on the user's activity pattern and recent stays, they are likely to visit places that were frequently visited in similar times and days"
+25,9,"[9, 332, 660, 339, 561, 594]","The user has a strong tendency to visit certain places during specific times and days, with recent activities suggesting a strong preference for place ID 9."
+25,332,"[332, 9, 660, 339, 561, 660]","The user's activity pattern suggests repeated visits to certain places during certain times, with a bias towards weekdays and late night/early morning hours. The context stays also indicate a preference for place ID 9 on weekends."
