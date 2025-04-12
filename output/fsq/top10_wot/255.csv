@@ -1,0 +1,13 @@
+user_id,ground_truth,prediction,reason
+255,1541,"[1541, 2929, 227, 3551, 1018, 835, 460, 422, 1372, 506]",Recent visits to places on Sundays and Tuesdays suggest the user is likely to visit similar locations
+255,2929,"[1541, 2929, 227, 3551, 1018, 835, 1496, 422, 1372, 506]","Recent visits to places like 1541 and 2929, and frequent visits to places with similar IDs in the past"
+255,2929,"[1541, 2929, 227, 3551, 1018, 422, 704, 1496, 506, 1372]","The prediction is based on the user's recent behavior and historical patterns. The top predictions are locations where the user has spent a significant amount of time in the past, especially during similar times and days of the week."
+255,1541,"[1541.0, 2929.0, 227.0, 3551.0, 1018.0, 1496.0, 422.0, 836.0, 704.0, 460.0]",Recent stays at location 1541 and 2929 suggest a strong likelihood of returning to these locations.
+255,1541,"[1541, 2929, 1018, 3551, 227, 460, 422, 835, 704, 1496]",Pattern analysis of historical stays and recent context
+255,1496,"[1541, 2929, 227, 3551, 1018, 460, 422, 1496, 1372, 506]",Recent behavior in context and historical patterns suggest this user tends to visit these places around the same times of day
+255,1541,"[1541.0, 2929.0, 1018.0, 227.0, 3551.0, 460.0, 704.0, 835.0, 1372.0, 1496.0]",Predicted based on recent frequent visits to these places
+255,1541,"[2929, 1541, 1018, 3551, 227, 460, 422, 704, 506, 282]",predicted based on recent behavior in context and patterns in history
+255,2929,"[1541, 1018, 3551, 227, 835, 704, 422, 2929, 1496, 506]","Recent behavior suggests frequent visits to 1541 on Sundays, and history shows similar patterns with repeated visits to this place ID"
+255,1443,"[1541, 1018, 227, 3551, 2929, 460, 422, 704, 835, 506]","The user's recent behavior in the context suggests a strong likelihood of returning to previously visited places, particularly those with similar day-of-week patterns and time-of-day habits."
+255,282,"[1496, 1541, 3551, 227, 1018, 422, 2929, 835, 460, 704]",recent and historical patterns of daily routines and frequent visits to specific places
+255,1541,"[835, 460, 1018, 422, 1496, 1927, 506, 1372, 704, 2929]",pattern analysis of historical stays and recent behavior in context

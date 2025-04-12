@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+123,2793,"[3178, 1993, 861, 300, 170, 165, 652, 3605, 2793, 1253]","Based on the user's historical stays and recent contextual information, I predicted that the next likely place ID is a revisit to one of the most frequently visited places, which are 3178, 1993, and 861. The recent behavior in <context> also suggests that the user may visit these places."
+123,3178,"[3178, 1993, 861, 2793, 652, 3605, 170, 165, 300, 2100]",Pattern of recent stays and historical frequency
+123,1993,"[3178, 1993, 861, 300, 170, 165, 2793, 3605, 652, 1253]","The user's recent behavior suggests a preference for weekend stays at places 3178 and 2993, with occasional visits to other locations."
+123,3178,"[3178, 1993, 2793, 652, 3605, 170, 165, 861, 300, 1253]","Based on the user's historical stays and recent behavior, I predict their next likely place is one they have visited frequently in the past, with a strong pattern of staying at location 3178 on Saturdays."
+123,3178,"[3178, 1993, 2793, 300, 861, 170, 652, 3605, 1253, 2100]","Recent behavior in the context suggests that the user might return to places they have visited before, especially those with strong historical patterns like 3178 and 1993."

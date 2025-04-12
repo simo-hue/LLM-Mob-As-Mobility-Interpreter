@@ -1,0 +1,19 @@
+user_id,ground_truth,prediction,reason
+98,812,"[3240, 2155, 859, 413, 582, 1318, 1277, 812, 3814, 537]",Recent stays at place ID 3240 and current context indicate high likelihood of returning to the same location
+98,3240,"[3240, 2155, 859, 1318, 582, 413, 537, 1277, 3814, 812]","Based on the user's historical stays and recent behavior in context, the predicted next place is likely to be their home or a common work location."
+98,3240,"[3240, 2155, 1318, 1277, 859, 582, 537, 413, 3041, 2175]","Recurring pattern of visits to place 3240 on Sundays, recent context suggests likelihood of a Sunday stay, and also considers patterns in the history"
+98,3240,"[3240, 2155, 1318, 859, 537, 413, 382, 1277, 812, 2832]","Recent stays at place 3240 on Sunday and Tuesday, and repeated visits to places at certain times/days in the history"
+98,2832,"[3240, 1318, 2155, 859, 537, 3041, 413, 582, 1277, 812]",Based on historical stays and recent context
+98,2832,"[3240, 2155, 1318, 537, 859, 3041, 413, 582, 1277, 812]","Based on the user's historical stays and recent contextual information, it is likely that they will visit a place with similar characteristics to their previous visits."
+98,812,"[3240, 2832, 2155, 859, 1318, 537, 413, 582, 812, 1277]","Recent contextual information and historical patterns suggest frequent visits to places with ID 3240, as well as occasional stops at other familiar locations"
+98,812,"[3240, 2832, 1318, 2155, 537, 859, 3041, 412, 582, 812]",Recent stays at place 3240 and pattern of frequent visits
+98,812,"[3240, 1318, 2155, 859, 537, 413, 1277, 812, 3814, 2832]","Recent visits to place 3240 on weekends and weekdays, and patterns of repeated visits to places at certain times/days in the user's history."
+98,733,"[3240, 2155, 1318, 859, 537, 413, 2832, 812, 1277, 582]","based on the user's historical stays and recent behavior, it is likely that they will visit places they have visited before during similar times and days of the week"
+98,3041,"[3240, 2155, 859, 1318, 3041, 537, 413, 582, 1277, 812]",Recent contextual information shows the user is likely to visit places they have visited before in recent days of the week.
+98,812,"[3240.0, 859.0, 3041.0, 1318.0, 2155.0, 812.0, 537.0, 413.0, 582.0, 1277.0]",Recent frequent visits to places at certain times/days and historical patterns of repeated visits
+98,3240,"[3240, 859, 3041, 1318, 582, 537, 2155, 1277, 412, 812]",Recent stays at place 3240 and context of visits to places 812 and 3041 suggest the user is likely to stay in one of these places
+98,812,"[3240, 3041, 859, 413, 582, 1318, 1277, 3814, 2155, 812]","Recent context suggests a strong affinity for place ID 3240, which is also frequently visited in the given history"
+98,1277,"[3240, 3041, 859, 1318, 537, 413, 582, 1277, 2155, 812]","Recent stays at places like 3240 and 3041, as well as a pattern of visits on Fridays and Saturdays, suggest the next likely place will be one of these familiar locations."
+98,3240,"[3240, 1318, 2155, 582, 859, 3041, 413, 537, 812, 1277]","The user's historical stays show frequent visits to place ID 3240, especially on days of the week (Monday, Tuesday, Wednesday), while recent behavior in context shows repeated visits to this place. We also see a pattern of visiting other places near 3240 (1318, 2155) and similar times."
+98,812,"[3240, 859, 3041, 1318, 582, 413, 2155, 812, 1277, 537]",Recent visits to places and patterns in historical stays suggest this user is likely to visit familiar locations
+98,3240,"[3240, 1318, 2155, 859, 3041, 582, 413, 537, 1277, 812]",Recently visited places on weekdays and weekends with a strong pattern of returning to the same place

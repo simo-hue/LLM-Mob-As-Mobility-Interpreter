@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+484,810,"[4, 2, 3, 1, 6, 7, 5]","The user's activity pattern shows frequent visits to places on weekdays during daytime and early evening. The target stay is in the morning, which is a common time for users' daily routines. Places with high visit frequencies are also favored, such as place ID 4, which has been visited multiple times throughout the day."
+484,1581,"[3, 4, 15, 8, 2, 14, 16, 9, 13, 5]","The target stay is on Monday afternoon, and the user has a tendency to visit places with similar IDs on Mondays (IDs 2, 4, 9) or Fridays (ID 15), considering their recent stays in context."
+484,1667,"[5, 7, 3, 4, 2, 8, 6, 9, 1, 0]","The prediction is based on the user's activity pattern and recent stays in the context. The target stay is likely to be similar to previous Tuesday stays, which were at place IDs [5, 7, 3, 4]"

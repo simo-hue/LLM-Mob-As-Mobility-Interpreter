@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+246,962,"[2901, 846, 1473, 2553, 1059, 203, 506, 680, 787, 2981]","Based on the user's historical stays and recent context, I predict they will likely visit a place with similar characteristics to their previous visits, such as weekdays (Tuesday, Wednesday), late morning/afternoon (10:29 AM, 11:50 AM), or evening (7:45 PM, 9:23 PM)"
+246,2901,"[2901.0, 846.0, 1473.0, 2553.0, 763.0, 506.0, 680.0, 2981.0, 962.0, 1282.0]",Recent frequent visits to location 2901 and patterns in history
+246,506,"[2901, 2553, 1473, 846, 962, 680, 787, 506, 2981, 1282]",Recent stays at home and repeated visits to places on Fridays and Mondays suggest a likely return to these locations.
+246,846,"[2901, 2553, 1473, 846, 2981, 1806, 962, 680, 787, 506]","Based on the user's historical stays and recent behavior, I predict they will visit a location with similar patterns of repeat visits at certain times/days."
+246,2901,"[2901, 2553, 1473, 962, 846, 3052, 1282, 167, 414, 1059]","The user has a strong pattern of visiting place 2901 on weekends and late nights, with recent stays there in the context. They also have a habit of revisiting places like 2553, 1473, and 962 at similar times."
+246,2901,"[2901, 2553, 1473, 846, 962, 680, 787, 506, 2981, 1806]",Recent visits to places at certain times/days and patterns in historical stays suggest frequent travel to these locations
+246,2553,"[2901, 2553, 1473, 2981, 506, 846, 1282, 414, 167, 203]","Based on the user's historical stays and recent context, I predict they will visit one of their frequent locations (2901, 2553, or 1473), possibly a work-related place (506, 846) or a home location (2981)."
+246,846,"[1473, 2553, 846, 167, 1059, 1806, 506, 2981, 680, 787]","The prediction is based on the user's historical patterns of visiting certain places at specific times and days, with a recent bias towards places visited on Monday and Wednesday."
+246,506,"[2901, 2553, 1473, 846, 506, 680, 787, 2981, 962, 1282]",The user has a frequent pattern of visiting the same places at certain times/days and recently visited these locations.
+246,388,"[2901.0, 2553.0, 1473.0, 846.0, 680.0, 787.0, 2981.0, 1806.0, 1059.0, 49.0]",Recent visits to places at certain times/days and patterns in historical stays
+246,3052,"[2901, 2553, 1473, 2981, 1282, 414, 1806, 1509, 680, 787]","Recent stays on Wednesday and Thursday suggest a higher likelihood of visiting places like [2901, 2553], with the most recent stay being at place [2901]."
+246,2981,"[2901.0, 2553.0, 846.0, 1473.0, 1059.0, 203.0, 1806.0, 680.0, 787.0, 2981.0]",Recent visit to 2553 and historical pattern of visiting 2901 at the same day_of_week
+246,2954,"[2553, 846, 1473, 3052, 1282, 167, 414, 1059, 49, 203]",Recent visits to places at similar times of the day and patterns in historical stays suggest a likely return to familiar locations

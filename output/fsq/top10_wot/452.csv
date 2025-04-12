@@ -1,0 +1,22 @@
+user_id,ground_truth,prediction,reason
+452,2262,"[947, 943, 2262, 724, 420, 1401, 420, 943, 947, 420]",predicted based on historical stays and recent contextual information
+452,724,"[947.0, 943.0, 420.0, 2262.0, 1401.0, 724.0, 720.0, 721.0, 722.0, 723.0]","recent stays at 947 and 943, followed by repeated visits to places on Thursday"
+452,2262,"[947, 420, 943, 2262, 724, 1401, 720, 721, 722, 725]","Recently visited places on Thursday and Sunday, also repeated visits to places at certain times/days."
+452,943,"[947, 943, 2262, 420, 1401, 724, 720, 1024, 1219, 1308]","The user has repeated visits to places at certain times/days in their history, and the recent context suggests a strong likelihood of visiting place 947 or 943 given it was visited recently."
+452,781,"[947.0, 943.0, 2262.0, 420.0, 724.0, 1401.0, 720.0, 721.0, 722.0, 725.0]",Recent behavior and historical patterns suggest the user is likely to visit a place with a similar day of week and time of stay.
+452,1401,"[947, 943, 2262, 724, 420, 1401, 2205, 2104, 2213, 2408]",Recent behavior and historical patterns suggest the user is likely to visit a place they have visited before at a similar time or day of the week
+452,943,"[943.0, 947.0, 2262.0, 724.0, 420.0, 1401.0, 420.0, 2262.0, 781.0, 722]",based on historical patterns and recent behavior
+452,947,"[943, 947, 2262, 420, 724, 1401, 781, 720.0, 1418.0, 2063.0]",prediction based on historical pattern and recent behavior
+452,947,"[947, 943, 2262, 420, 724, 781, 1401, 720.0, 1203.0, 1029.0]",Prediction based on recent contextual information and historical patterns
+452,724,"[943, 2262, 947, 420, 1401, 724, 781, 720, 1026, 1107]",predicted based on historical pattern of frequent visits to place ID 943 and recent context indicating a likelihood of visiting place ID 1401
+452,724,"[1401, 947, 420, 2262, 943, 724, 720.0, 721.0, 944.0, 2283.0]","The user has a regular pattern of visiting places on certain days and times, and the recent context suggests a visit to the location with ID 1401"
+452,420,"[943, 947, 2262, 420, 1401, 724, 720, 1425, 1113, 1159]","Recent visits to 943 and 947, with most common day of the week being Sunday"
+452,1401,"[943.0, 947.0, 2262.0, 724.0, 420.0, 1401.0, 720.0, 2289.0, 949.0, 721.0]","Recent visits to 947 and 943 indicate a strong likelihood of returning to these places, with the next most likely locations being places visited frequently in the past."
+452,781,"[947, 943, 2262, 420, 724, 1401]","Based on the user's historical stays and recent context, I predicted their next likely place ID to be one of their most frequently visited locations during similar days and times."
+452,943,"[943.0, 947.0, 2262.0, 724.0, 420.0, 1401.0, 781.0, 420.0, 943.0, 2262.0]",Recent and historical patterns of visiting places at similar times on the same day of the week
+452,211,"[1401, 420, 947, 943, 2262, 724, 781, 720, 741, 745]",Recent visits to location 1401 and knowledge of the user's daily routine
+452,947,"[947.0, 943.0, 2262.0, 420.0, 1401.0, 781.0, 724.0, 211.0, 420.0, 946.0]",Recent visits to places at certain times/days and repeated patterns in historical stays
+452,947,"[943.0, 947.0, 2262.0, 420.0, 1401.0, 724.0, 781.0, 211.0, 421.0, 721.0]",repeated visits to places at certain times/days
+452,724,"[943, 947, 2262, 420, 781, 211, 1401, 724, 943.0, 781]",The user's recent behavior has shown a strong affinity for places with IDs 943 and 947 on Tuesdays and Sundays. The historical data also indicates that the user tends to visit place 2262 on Tuesdays and Thursdays.
+452,781,"[943, 2262, 420, 947, 724, 211, 1401, 2209, 2216, 2224]",Recent patterns show the user tends to visit places with similar IDs and weekdays as previous stays.
+452,943,"[947.0, 943.0, 2262.0, 420.0, 1401.0, 211.0, 781.0, 724.0, 720.0]","The user's historical stays show a strong preference for certain locations on specific days and times, which is reinforced by the recent context; the prediction prioritizes these favored places."

@@ -1,0 +1,46 @@
+user_id,ground_truth,prediction,reason
+233,3293,"[2385, 3781, 3293, 2673, 3678, 1061, 2503, 3455, 444, 1066]","Based on the user's historical stays and recent context, the prediction is that they will likely visit a place where they have stayed before, possibly during their regular Monday or Tuesday routine."
+233,2673,"[3781, 2385, 3293, 2673, 3678, 2503, 3455, 1061, 3302, 3310]","Based on the user's historical stays and recent contextual information, I predict they are likely to visit places they have been to before, especially at times when their daily routines suggest they will be going."
+233,3679,"[3781, 2385, 3293, 2673, 3678, 1061, 2503, 3455, 3306, 3599]","The user has a regular pattern of visiting places at certain times/days, and the recent behavior in context shows they are likely to continue this pattern."
+233,3293,"[3781, 3293, 2385, 2673, 3678, 1061, 2503, 3455, 3679, 2385]",predicting based on recent context and historical patterns
+233,1631,"[3781, 2385, 3293, 2673, 3678, 1061, 3455, 2503, 3679]",Recent behavior in context and patterns in history suggest the user will visit a place similar to their recent destinations
+233,3293,"[2385.0, 3293.0, 2673.0, 3781.0, 3678.0, 1061.0, 3455.0, 2503.0, 1631.0, 3679.0]",Recent behavior in <context> and historical patterns show a mix of visited places on weekdays and weekends
+233,3293,"[3781, 3293, 2673, 2385, 3678, 1061, 2503, 3455, 1631]",The prediction is based on the user's historical stays and recent behavior in the context.
+233,2673,"[2673.0, 3293.0, 3781.0, 2385.0, 3678.0, 1631.0, 3455.0, 2503.0, 1061.0, 1034.0]","Recent context suggests frequent visits to places with IDs 2673, 3293, and 3781, while historical data indicates repeated patterns on weekdays."
+233,3293,"[3781, 2385, 3293, 2673, 3678, 1631, 1061, 2503, 3455, 1064]",The predicted places are based on the user's historical stay patterns and recent behavior in context. The top prediction is place ID 3781 due to its frequent visits during weekdays.
+233,538,"[3781, 2385, 3293, 2673, 3678, 1631, 2503, 3455, 1061, 2687]",Recent stays at morning places and days
+233,209,"[3781, 2385, 3678, 3293, 2673, 2503, 3455, 1061, 538, 3304]",The prediction is based on the user's recent activity pattern and their previous visits to specific places at certain times/days.
+233,2673,"[3781, 2385, 2673, 3293, 3678, 2503, 3455, 1061, 538, 209]",Recent and historical patterns of regular stays
+233,3293,"[3293, 2673, 3781, 2385, 3678, 538, 2503, 3455, 1061, 209]",Recent behavior and historical pattern of visits to places at certain times/days
+233,1173,"[3781, 2385, 2673, 3293, 3678, 2503, 538, 209, 3455, 1061]","Recent contextual information suggests a possible visit to the last visited place on a Tuesday morning, and historical stays show a tendency to visit the same places at similar times"
+233,3293,"[3781, 2385, 3293, 2673, 3678, 1061, 2503, 209, 538, 1173]","Recent contextual information suggests a possible visit to the office on Tuesday, which is also a frequent destination in this user's history."
+233,3293,"[3781, 2385, 2673, 3293, 3678, 2503, 3455, 209, 1061, 1173]","The user tends to frequent certain places on the same day and time of week, with a recent bias towards visiting 3781"
+233,3293,"[3781.0, 2385.0, 2673.0, 3293.0, 3678.0, 1061.0, 2503.0, 3455.0, 1173.0, 2385.0]",Recent visits to places at certain times/days and repeated patterns in history
+233,3781,"[3781, 2385, 3293, 2673, 3678, 1061, 2503, 3455, 1173, 3304]",Recent behavior and historical patterns suggest the user is likely to visit a previously visited location on weekdays.
+233,3293,"[2673, 3293, 2385, 3781, 3678, 2503, 3455, 1173, 1061]",Recent stays at 3293 and 2673 on Friday/Monday/Tuesday indicate a possible next visit to these locations.
+233,1173,"[2673, 3293, 2385, 3781, 3678, 2503, 3455, 1061, 3286.0, 2492]","Recent frequent stays at places with similar timing and day of week patterns, with a slight bias towards weekdays"
+233,209,"[2385, 2673, 3293, 3781, 3678, 2503, 3455, 1061, 1173]","Recent patterns show the user tends to visit places at similar times and days, with a slight bias towards visiting place 2385 on Tuesdays and Wednesdays"
+233,3293,"[3781, 2385, 2673, 3293, 3678, 2503, 3455, 1061, 209, 1173]",Recent stays at similar times and places in the context and history lead to a strong probability of returning to previously visited locations
+233,3781,"[3781, 2385, 3293, 2673, 3678, 1061, 2503, 3455, 1173, 209]","Based on the user's historical stays and recent contextual information, I predict that they will visit places they have been to before, with a preference for places visited during weekdays and early morning hours."
+233,3781,"[3781, 2385, 3293, 2673, 3678, 2503, 3455, 1061, 1173]","Recent behavior in context shows visits to different places on Monday and Tuesday, while history suggests frequent visits to place 3293 during weekdays"
+233,3293,"[2385.0, 3293.0, 2673.0, 3678.0, 3781.0, 1061.0, 2503.0, 3455.0, 1173.0, 2385.0]",The prediction is based on the patterns of repeated visits to places at certain times/days in the user's history and recent behavior in the context.
+233,2673,"[3678, 2385, 3781, 3293, 2673, 2503, 3455, 1173, 1061, 2080]","Recent contextual information and historical patterns suggest a high likelihood of visiting places visited on Mondays, Tuesdays, and Wednesdays, with a focus on morning hours."
+233,49,"[2385.0, 3781.0, 3293.0, 2673.0, 3678.0, 1061.0, 2503.0, 3455.0, 1173.0, 3309.0]","Based on the user's historical stays and recent behavior in context, the top 10 most likely places to visit next are those that have been frequently visited at similar times of day or days of the week."
+233,3293,"[2673, 2385, 3781, 3293, 3678, 1061, 3455, 2503, 49, 1016]",Predicting the next likely place ID based on the user's historical stays and recent contextual information
+233,3678,"[3781, 2385, 3293, 2673, 3678, 2503, 3455, 1061, 49, 2385]",Based on the user's historical stays and recent behavior in the context
+233,3293,"[3781, 2385, 2673, 3293, 3678, 1061, 2503, 3455, 49, 3304]",Predicted based on recent contextual information and historical stays patterns.
+233,2673,"[3781, 2385, 2673, 3293, 3678, 2503, 3455, 1061, 49, 2385]",Recent stays at similar places and days
+233,3678,"[3781, 2385, 2673, 3293, 3678, 2503, 3455, 1061, 49, 2682]",The prediction is based on the recent patterns in the user's activity and stay history.
+233,3293,"[3781, 2385, 2673, 3293, 3678, 1061, 2503, 3455, 2684, 2699]",Based on historical patterns and recent behavior in context
+233,3678,"[3781, 2385, 3293, 2673, 3678, 2503, 3455, 1061, 3300.0, 2666.0]",Pattern of daily routines and recent behavior indicate a high likelihood of visiting places that were previously visited at similar times
+233,2385,"[3781, 2385, 2673, 3293, 3678, 2503, 3455, 1061, 2684, 2692]","Based on the user's historical stays and recent context, the predicted next place is likely to be one of their frequently visited locations, with a bias towards places visited during the same time of day or on the same day of the week."
+233,3293,"[3781, 2673, 3293, 2385, 3678, 1061, 2503, 3455, 3300, 3144]",based on recent and historical patterns of the user's stay locations
+233,3678,"[2673, 3781, 3293, 2385, 3678, 1061, 2503, 3455, 3300, 3314]","Recent stays at home and work, with a slight preference for places visited on Mondays"
+233,3781,"[2385, 2673, 3781, 3293, 3678, 2503, 3455, 1061]",The recent behavior suggests frequent visits to place ID 2385 and the user's historical stays indicate a mix of daily routines and occasional visits to other places.
+233,1173,"[3781, 2673, 2385, 3678, 3293, 1061, 2503, 3455, 2686, 2214]",Recent stays at home and work indicate a high likelihood of visiting familiar places
+233,3293,"[2673, 2385, 3293, 3781, 3678, 1173, 1061, 2503, 3455]",Recent behavior in context shows repeated visits to places at certain times/days
+233,2673,"[3678, 2385, 3293, 3781, 2673, 2503, 3455, 1061, 1173, 2386]",Recent visits to similar places on same days of the week
+233,3781,"[2385.0, 2673.0, 3781.0, 3678.0, 3293.0]","The user's recent behavior suggests a tendency to visit these places on weekdays during morning hours, with 2385.0 being the most frequent and recently visited place."
+233,2385,"[3781, 2385, 3293, 2673, 3678, 1173, 2503, 3455, 1061, 2384]",Recent behavior indicates a preference for home and work locations
+233,2503,"[3781, 3293, 2385, 2673, 3678, 1173, 2503, 3455, 1061, 2139]","Based on the user's historical stays and recent behavior in context, I predicted their next likely places considering patterns of repeated visits at certain times/days"
+233,3293,"[3293, 3678, 2673, 3781, 2385, 1061, 2503, 3455, 2385, 3293]",Recent context suggests frequent visits to places at similar times/days of the week

@@ -1,0 +1,42 @@
+user_id,ground_truth,prediction,reason
+263,3591,"[3314, 3216, 3391, 2782, 1685, 1296, 3591, 1872, 1995, 1]",Recent stays and patterns in historical data suggest a strong likelihood of visiting places visited recently
+263,3314,"[3314.0, 3216.0, 3391.0, 2782.0, 1872.0, 1685.0, 1296.0, 1995.0, 3591.0, 1.0]","Recent context suggests frequent visits to places with IDs 3314.0 and 3216.0, while historical data shows a strong preference for place ID 3391.0"
+263,2331,"[3391, 3314, 3216, 2782, 1872, 1685, 1296, 1995, 3591, 1]",Recent behavior suggests frequent visits to places with IDs 3391 and 3314
+263,3216,"[3391, 3216, 3314, 1995, 2782, 1872, 1685, 1296, 3591, 2331]",The user tends to visit place 3391 frequently and recently visited it. The context also suggests a higher likelihood of visiting places with similar IDs.
+263,3314,"[3391, 3314, 3216, 2782, 1872, 1296, 3591, 1995, 1685, 2331]","Recent pattern of frequent visits to places with ID 3391, 3314 and 3216."
+263,1685,"[3314, 3216, 3391, 2782, 1296, 1685, 1872, 2331, 3591]","Recent stays and historical patterns suggest frequent visits to places with IDs 3314, 3216, and 3391"
+263,1326,"[3314, 3391, 3216, 2782, 1296, 3591, 1872, 2331, 1685, 1995]",Recent behavior indicates a high likelihood of visiting the same places on Monday
+263,1,"[3391, 3216, 3314, 2782, 1296, 3591, 1872, 2331, 1685, 1326]",Recent stays and historical patterns suggest the user is likely to visit familiar places on similar days of the week
+263,1,"[3391.0, 3216.0, 3314.0, 2782.0, 1296.0, 3591.0, 1872.0, 1685.0, 1326.0, 1.0]","Recent behavior suggests frequent visits to places with similar IDs in the evening, especially on weekends."
+263,3391,"[3314, 3391, 3216, 2782, 1296, 3591, 1872, 1326, 1685, 1]",Recent visits to places with IDs 3314 and 3391 in the context data suggest a strong likelihood of returning to these locations.
+263,2331,"[3314.0, 3216.0, 3391.0, 1995.0, 2782.0, 1296.0, 3591.0, 1872.0, 1685.0, 1326.0]","Recent behavior in <context> suggests the user is likely to visit a place similar to previous locations, while historical patterns show preferences for places like 3314.0 and 3216.0"
+263,3216,"[3314, 3216, 3391, 2782, 1296, 3591, 1872, 1326, 1685, 1995]","Recent frequent visits to place IDs 3314 and 3216, with some historical patterns of visiting places on specific days (e.g., Fridays)"
+263,1208,"[3314.0, 3216.0, 3391.0, 2782.0, 1296.0, 1685.0, 1872.0, 3591.0, 1995.0, 1923.0]","The user tends to frequent places at similar times/days and has a recent history of visiting place IDs 3314, 3216, and 3391"
+263,1685,"[3314.0, 3391.0, 3216.0, 2782.0, 1296.0, 3591.0, 1872.0, 2331.0, 1208.0, 1685.0]","Recent behavior in context and historical patterns suggest frequent visits to places with IDs 3314, 3391, and 3216"
+263,3216,"[3314, 3391, 3216, 2782, 1296, 1872, 1685, 3591, 1208, 2331]",Recent behavior and historical patterns indicate a high likelihood of returning to familiar places
+263,293,"[3314.0, 3391.0, 3216.0, 2782.0, 1995.0, 1296.0, 1872.0, 1685.0, 1208.0, 3591.0]",Recent visits to places at similar times and days of the week suggest frequent returns to these locations.
+263,1361,"[3314, 3391, 3216, 2782, 1296, 1685, 3591, 1872, 1208, 293]","Based on the user's historical stays and recent context, the predicted next place ID is likely to be a repeated visit or a commonly visited location at a similar time of day."
+263,1086,"[3314, 3391, 3216, 2782, 1685, 1296, 3591, 1872, 1208, 293]",Recent frequent visits to places with IDs 3314 and 3391 combined with previous patterns suggest these places are likely the next destination.
+263,1,"[3314.0, 3391.0, 3216.0, 2782.0, 1296.0, 1685.0, 1872.0, 293.0, 1086.0, 1361.0]",Recent behavior in the context and patterns in the history indicate a high likelihood of visiting places that were visited previously at similar times and days
+263,3391,"[3391, 3314, 3216, 1296, 3591]","Based on the user's activity pattern and recent behavior, I predict they will visit one of their frequently visited places, likely a home or work location."
+263,3391,"[3314.0, 3216.0, 3391.0, 2782.0, 1685.0, 1296.0, 3591.0, 1872.0, 293.0, 1086.0]",Recent visits to places and regular patterns in the user's history
+263,3216,"[3314.0, 3216.0, 3391.0, 2782.0, 1296.0, 1685.0, 1872.0, 1361.0, 1086.0, 1.0]","The user tends to visit the same places at similar times of day and days of week, with recent behavior indicating a strong likelihood of visiting place 3314."
+263,3314,"[3314.0, 3216.0, 3391.0, 2782.0, 1296.0, 3591.0, 1872.0, 1086.0, 1685.0, 1995.0]","The user has a strong affinity for places 3314.0 and 3216.0, which were visited frequently in both history and context."
+263,3391,"[3314.0, 3216.0, 3391.0, 2782.0, 1296.0, 3591.0, 1685.0, 1872.0, 1995.0, 1278.0]","Based on the user's historical stays and recent contextual information, the next likely place ID is predicted to be one of their frequently visited places"
+263,3216,"[3314, 3216, 3391, 2782, 1995, 3591, 1296, 1872, 1685, 1]",predicting the next likely place based on historical stays and recent contextual information
+263,3216,"[3591, 2782, 1296, 1685, 1872, 3216, 3314, 1995, 1, 0]","The user's recent behavior suggests a likelihood of returning to familiar places, with a strong possibility of visiting place 3391."
+263,1,"[3314.0, 3216.0, 3391.0, 1995.0, 2782.0, 1296.0, 3591.0, 1872.0, 1685.0, 1.0]",Recent behavior in context suggests frequent visits to places with IDs 3314 and 3216
+263,3314,"[3314, 3216, 3391, 2782, 1296, 1685, 1872, 3591, 1995, 1]",Pattern of repeated visits to places at certain times/days in history and recent behavior in context
+263,3314,"[3391, 3314, 3216, 2782, 1872, 1296, 3591, 1685, 1995, 1]",Recent and historical patterns suggest the user tends to stay at similar places during certain days of the week
+263,1,"[3391.0, 3314.0, 3216.0, 1995.0, 2782.0, 1872.0, 3591.0, 1296.0, 1685.0, 1.0]",Next location predicted based on patterns in user's stay history and recent behavior.
+263,3314,"[3314.0, 3216.0, 3391.0, 2782.0, 1872.0, 1296.0, 1685.0, 3591.0, 1995.0, 1.0]","Recent behavior suggests a strong preference for places 3314 and 3216, with some possibility of revisiting other previously visited locations"
+263,3391,"[3314, 3216, 3391, 2782, 1296, 1872, 1685, 3591, 1995, 1]",Recent behavior in context suggests frequent visits to places 3314 and 3216; historical stays show a strong preference for place 3391 at certain times/days
+263,1,"[3314, 3216, 3391, 2782, 1296, 3591, 1685, 1872, 1995, 1]",Recent pattern of visits to 3314 and considering repeated visits at certain times/days
+263,3314,"[3391, 3216, 3314, 2782, 1296, 1872, 1685, 3591, 1995, 1797]",Recent frequent visits to places with IDs 3391 and 3216 and occasional visits to places with IDs 3314 and 2782.
+263,3314,"[3216.0, 3314.0, 3391.0, 1995.0, 2782.0, 1872.0, 1685.0, 1296.0, 3591.0, 1.0]",Recent behavior and historical patterns suggest frequent visits to a subset of locations
+263,2782,"[3391, 3216, 3314, 2782, 1872, 1685, 1296, 3591, 1995, 1]","Recent visits and time/day patterns suggest frequent stops at locations with IDs 3391, 3216, and 3314"
+263,1872,"[3314, 3216, 3391, 1995, 2782, 1296, 1685, 3591, 1872, 1]","Next likely places are frequently visited locations, considering recent contextual information"
+263,3391,"[3314, 3216, 3391, 2782, 1296, 3591, 1685, 1872, 1995, 1]","The user has a strong preference for visiting places on Fridays and Wednesdays, especially around the same times as their previous visits. The recent context suggests that they may be heading to place 3314 or 3216, but there is also a possibility of them visiting place 3391 or 2782."
+263,1205,"[3314, 3216, 3391, 1995, 1296, 2782, 1685, 1872, 3591, 1899]","Recent behavior suggests a likely visit to places at similar times and days, with a strong preference for visits to place ID 3314 and 3216."
+263,1473,"[3314, 3216, 3391, 2782, 1296, 3591, 1872, 1685, 1995, 1308]","Recent behavior suggests frequent visits to places with IDs 3314 and 3216, while historical data indicates regular stays at locations with IDs 3391 and 2782."
+263,3314,"[3314.0, 3216.0, 3391.0, 2782.0, 1296.0, 1872.0, 3591.0, 1685.0, 1205.0, 1473.0]","The prediction is based on the recent activity pattern and historical stays, with a higher likelihood of returning to places visited frequently or recently."

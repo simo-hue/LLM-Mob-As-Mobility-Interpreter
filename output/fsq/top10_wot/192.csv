@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+192,917,"[3606, 2427, 2062, 1053, 1140, 1579, 1562, 1640, 2051, 1125]",Recent patterns in context and history suggest frequent visits to home/work places during weekdays and occasional weekend trips to nearby locations
+192,2427,"[3606, 2427, 2062, 1053, 1140, 1579, 1562, 1640, 917, 114]","Recent visits to places 3606 and 2427, with some regular patterns in the past"
+192,3606,"[2062.0, 1053.0, 1140.0, 1562.0, 1579.0, 1640.0, 3606.0]","Considering recent behavior in context and historical patterns, the most likely places to visit next are those that have been visited frequently during similar times of day and days of the week."
+192,2427,"[2427, 3606, 2062, 1053, 1140, 1562, 1579, 1640, 917, 1140]",Recent behavior indicates a preference for places visited during early morning hours and on weekdays.
+192,2427,"[2427, 3606, 2062, 1053, 1140, 917, 1579, 1562, 1640, 1048]",Recent visits to places at certain times/days and patterns in the history
+192,1053,"[2427, 3606, 2062, 1053, 1140, 1640, 1579, 1562, 917, 1140]","Recent behavior in context suggests frequent visits to places with IDs 2427 and 3606, while historical pattern shows regular stays at place ID 2062"
+192,2427,"[2427, 3606, 2062, 1053, 1140, 1579, 1562, 1640, 2061.0, 2435.0]",Recent behavior and historical patterns suggest frequent visits to specific locations on certain days/times

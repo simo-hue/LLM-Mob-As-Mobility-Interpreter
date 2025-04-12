@@ -1,0 +1,30 @@
+user_id,ground_truth,prediction,reason
+362,1033,"[1705, 1244, 2220, 1014, 1211, 3341, 1475, 1450, 652, 377]","The user tends to visit places at similar times and days of the week in their history, with a recent pattern of visiting place ID 1705. This prediction takes into account this historical trend and the most recent context."
+362,1705,"[1705, 1244, 2220, 3341, 1014, 1211, 1475, 652, 377, 1450]","Recent pattern of returning to places on Monday morning and evening, with additional context pointing towards place 1705"
+362,300,"[1705, 1211, 1244, 2220, 3341, 1014, 1450, 652, 377, 1033]",the user's historical pattern of visiting places at specific times and days is repeated in the recent context
+362,3445,"[1705, 1244, 2220, 1017, 3341, 1211, 377, 652, 1450, 300]",Recent visits and patterns in history
+362,1475,"[1705, 1211, 2220, 1244, 1017, 1014, 1475, 3341, 1450, 652]",Pattern of frequent visits to specific locations
+362,612,"[1211, 1705, 2220, 1014, 3341, 1244, 760, 560, 300, 2407]","Based on historical patterns and recent behavior, the predicted next place ID is likely to be one of the most frequently visited places on Mondays or Fridays"
+362,412,"[1705, 1244, 2220, 1017, 3341, 1211, 1450, 652, 377, 1475]",Recent stay at the same place and historical patterns of repeated visits on Monday
+362,1705,"[1705, 1244, 2220, 1017, 3341, 1014, 1211, 1475, 1450, 652]",Recent and historical stays at place ID 1705 suggest it's a likely next location.
+362,1705,"[1705.0, 1244.0, 2220.0, 1017.0, 1211.0, 3341.0, 1475.0, 1450.0, 652.0, 377.0]","The user has a strong tendency to visit the same place (1705.0) at similar times of day and days of the week, with recent visits in the context indicating this pattern is likely to continue."
+362,1705,"[1705.0, 1211.0, 1244.0, 2220.0, 1017.0, 3341.0, 1014.0, 1475.0, 1450.0, 652.0]",Recent and historical visits to place_id 1705 are most likely to continue.
+362,1705,"[1705, 1211, 1244, 2220, 1017, 3341, 1014, 1475, 1450, 652]",The user's recent stays in the <context> and historical pattern of visiting place ID 1705 frequently suggests a high likelihood of returning to that location.
+362,1705,"[3341, 1014, 2220, 1475, 1211, 652, 377, 1450, 1244, 760]",Pattern of repeated visits to places at certain times/days and recent behavior in context
+362,1705,"[1705, 1244, 2220, 1017, 3341, 1211, 1475, 652, 377, 1450]",Recent frequent visits to place 1705 and historical patterns of repeated visits at similar times/days suggest a high likelihood of returning to this location.
+362,1705,"[1705, 1244, 2220, 1017, 3341, 1014, 1211, 1475, 1450, 652]","The user has a strong affinity to place ID 1705 in the morning and evening, with recent stays at this location."
+362,1475,"[1244, 2220, 1705, 1017, 3341, 1211, 377, 652, 1450, 2407]",Recent stays and historical patterns indicate the user tends to visit familiar places on similar days of the week.
+362,1705,"[1705, 1244, 2220, 1017, 3341, 1211, 652, 377, 1450, 300]",Recent and historical patterns suggest frequent visits to a single location at consistent times
+362,1705,"[1705, 1244, 1211, 2220, 3341, 1017, 760, 560, 300, 2407]",Pattern of repeated visits to place 1705 during weekdays and 1244 on Mondays
+362,1705,"[1705, 1244, 2220, 1211, 1017, 1475, 3341, 1450, 652, 377]",Recent visits to place 1705 and strong morning pattern for Monday and Friday
+362,202,"[1705, 1244, 2220, 1017, 3341, 1211, 1475, 652, 377, 560]","The user's history suggests a high likelihood of returning to previously visited places, especially those visited during weekdays and with similar start times. The recent context also points towards a visit to place ID 1705."
+362,382,"[1705, 1211, 1244, 1475, 3341, 1017, 2220, 377, 652, 2407]",Recent visits to place 1705 and the user's activity patterns suggest this is a likely next location.
+362,360,"[1705, 1244, 2220, 1017, 3341, 1014, 1211, 1475, 652, 377]",Recent frequent visits to place ID 1705 and correlation with day of the week.
+362,3268,"[1705, 1244, 2220, 1017, 300, 3341, 1014, 1211, 652, 377]","Based on the user's historical stays and recent context, the most likely places are their frequent visits to Place ID 1705 on Mondays and Thursdays, as well as other regular stops."
+362,1705,"[1705, 1244, 2220, 1017, 3341, 1211, 1450, 1475, 652, 377]",recent visits to places at morning times and weekdays
+362,38,"[1705, 1244, 2220, 1017, 1211, 3341, 360, 382, 3268, 202]",Recent patterns of daily visits to place 1705 and occasional visits to places 1244 and 2220 indicate high probability of these locations being the next likely destinations.
+362,1705,"[1705, 1211, 1244, 2220, 1017, 3341, 360, 382, 3268, 1475]","Based on historical patterns and recent context, the most likely next place ID is the user's common daily visit spot at 1705."
+362,1705,"[3341, 1211, 1450, 1475, 1014, 2220, 1244, 760, 300, 377]","The user tends to visit places on Mondays and Fridays at similar times, with some variation towards Thursdays. Recent activity suggests a possible visit to place 1705."
+362,1705,"[1244, 2220, 1705, 1014, 1211, 3341, 1475, 1450, 652, 377]",predicted based on repeated visits to places at certain times/days and recent behavior in context
+362,3755,"[1705, 1244, 2220, 1017, 300, 3341, 1211, 652, 377, 1450]","Based on the user's historical stays and recent context, I predicted their next likely place ID is one they have visited frequently at similar times and days of the week."
+362,1235,"[1705, 1244, 2220, 1211, 1017, 3341, 377, 652, 1450, 300]","The user has a strong pattern of visiting place 1705 on Mondays and Thursdays, with recent visits on Monday and Tuesday; place 1244 is also visited regularly on Mondays"

@@ -1,0 +1,41 @@
+user_id,ground_truth,prediction,reason
+374,3134,"[2959, 3134, 3256, 2370, 2629, 438, 831, 1237, 2331, 2711]",Recent stays at night and weekdays suggest likelihood of returning to known places
+374,3256,"[3256.0, 2959.0, 3134.0, 2370.0, 2629.0, 1921.0, 831.0, 1237.0, 2331.0, 652.0]",The user's recent behavior in the context suggests a strong likelihood of revisiting previously visited places.
+374,2370,"[2959, 3134, 3256, 2370, 2629, 438, 831, 1237, 2331, 2711]",Recent stays and patterns in the history suggest a high likelihood of returning to previously visited places.
+374,2370,"[2959, 3256, 3134, 2370, 2629, 438, 831, 1237, 2331, 652]","The user's recent behavior shows a strong preference for places visited during the morning and evening hours, with a high likelihood of revisiting places like 2959, 3256, and 3134"
+374,1296,"[2959, 3134, 3256, 2370, 2629, 438, 231, 538, 652, 1237]",Recent stays and patterns in the history indicate a high likelihood of returning to previously visited places
+374,293,"[2959.0, 3134.0, 3256.0, 2370.0, 2629.0, 831.0, 1237.0, 2331.0, 2711.0, 652.0]",The user's recent behavior suggests a tendency to visit familiar places during the same time of day and day of the week as previous stays. The most likely next place is likely to be one that has been visited before at similar times.
+374,2082,"[2959.0, 3134.0, 3256.0, 2370.0, 2629.0, 438.0, 831.0, 1237.0, 2331.0, 652.0]",The prediction is based on the user's historical visit patterns and recent behavior in the <context>
+374,2082,"[2959.0, 3134.0, 3256.0, 2370.0, 2629.0, 438.0, 831.0, 1237.0, 2331.0, 652.0]",Recently frequent places and time-of-day patterns suggest the user is likely to visit one of these locations again
+374,3256,"[3134, 3256, 2959, 2370, 2629, 831, 1237, 2331, 2711, 652]",Prediction based on recent and historical stays
+374,3135,"[2959, 3134, 3256, 2370, 2629, 438, 831, 1237, 2331, 2711]",The user has a consistent pattern of visiting place ID 2959 on Sunday mornings and Thursday nights. They have also visited place ID 3134 on multiple occasions. The recent context suggests they may be returning to these familiar locations.
+374,2082,"[2959.0, 3134.0, 3256.0, 2370.0, 2629.0, 831.0, 1237.0, 2331.0, 2711.0, 652.0]","The user tends to visit places at similar times and days of the week as in their history, and recent behavior indicates a likely revisit to one of their frequently visited locations"
+374,3134,"[2959.0, 3256.0, 3134.0, 2370.0, 2629.0, 831.0, 1237.0, 2331.0, 2711.0, 652.0]","The user has a strong pattern of frequent visits to places with IDs 2959.0, 3256.0 and 3134.0 on various days of the week."
+374,1,"[2959, 3256, 3134, 2370, 2629, 438, 831, 1237, 2331, 652]","Based on the historical stays and recent context, I predict that the user will likely visit one of their most frequently visited places during this time of day"
+374,3817,"[2959.0, 3256.0, 3134.0, 2370.0, 2629.0, 831.0, 1237.0, 2331.0, 652.0, 538.0]",Recent visits to places like 2959.0 and 3256.0 and consistent daily habits at times of the day
+374,3135,"[2959, 3256, 3134, 2370, 2629, 438, 831, 1237, 2331, 652]",Recent patterns and habits suggest the user is likely to visit a location with similar time/day attributes as their historical stays.
+374,2370,"[2959.0, 3256.0, 3134.0, 2370.0, 2789.0, 438.0, 2629.0, 831.0, 1237.0, 2331.0]","Based on the user's historical stays and recent behavior, the top 10 likely places for the next location are places where the user has stayed frequently or recently."
+374,2811,"[2959.0, 3256.0, 3134.0, 2370.0, 2629.0, 831.0, 1237.0, 2331.0, 2711.0, 652.0]",Predicted places are based on the user's frequent visits and recent behavior
+374,2645,"[2959.0, 3256.0, 3134.0, 2370.0, 2629.0, 538.0, 231.0, 1237.0, 2331.0, 652.0]","Based on historical stays and recent context, the top 10 most likely places are a mix of frequent destinations and locations visited recently"
+374,2082,"[2959.0, 3134.0, 3256.0, 2370.0, 2629.0, 438.0, 831.0, 1237.0, 2331.0, 652.0]",recent and past frequent visits
+374,2123,"[2959.0, 3134.0, 3256.0, 2370.0, 2629.0, 438.0, 831.0, 1237.0, 2331.0, 652.0]",Recent behavior and historical patterns suggest frequent visits to places with similar IDs
+374,3135,"[2959.0, 3256.0, 3134.0, 2370.0, 2629.0, 438.0, 831.0, 1237.0, 2331.0, 2711.0]",Recent behavior in <context> suggests the user might revisit a place they visited recently
+374,3135,"[2959, 3256, 3134, 2370, 2629, 2811, 2645, 2082, 2123, 3135]","Based on the historical stays and recent context, the user is likely to visit a place they have previously stayed at during similar times and days of the week."
+374,410,"[2959.0, 3256.0, 3134.0, 2370.0, 2629.0, 831.0, 1237.0, 2331.0, 652.0, 231.0]","Recent frequent visits to places with IDs 2959, 3256, and 3134, as well as a history of consistent daily patterns."
+374,1504,"[2959, 3256, 3134, 2370, 2629, 438, 831, 1237, 2331, 2711]",Predicted places based on historical patterns and recent context
+374,1473,"[2959.0, 3134.0, 3256.0, 2370.0, 2629.0, 438.0, 1237.0, 2331.0, 652.0, 538.0]",Most likely places are based on historical stays and recent context
+374,1504,"[3256, 3134, 2370, 2959, 2629, 831, 1237, 2331, 2711, 652]",Prediction based on the user's historical stays and recent contextual information
+374,3256,"[2959.0, 3134.0, 3256.0, 2370.0, 2629.0, 438.0, 831.0, 1237.0, 2331.0, 2711.0]",recently frequent places in historical pattern
+374,2336,"[2959, 3134, 3256, 2370, 2629, 438, 831, 1237, 2331, 2711]",Recent and historical patterns suggest the user tends to revisit visited places during similar times/days
+374,2307,"[2959.0, 3134.0, 3256.0, 2370.0, 2629.0, 438.0, 831.0, 1237.0, 2331.0, 652.0]",The prediction is based on the user's historical stays and recent contextual information.
+374,3135,"[2959, 3256, 3134, 2370, 2629, 438, 831, 1237, 2331, 2711]",The user tends to stay at the same place on specific days of the week and times.
+374,3135,"[2959, 3256, 3134, 2370, 2629, 438, 831, 1237, 2331, 652]",Pattern of repeated visits to places at certain times/days in history and recent behavior in context
+374,1168,"[2959.0, 3256.0, 3134.0, 2370.0, 2629.0]","The user has a consistent pattern of visiting places at similar times and days in their history, and recent behavior in the context suggests they may visit a place from Monday's stay or repeat a place visited on Tuesday."
+374,3135,"[2959, 3134, 3256, 2370, 2629, 438, 831, 1237, 2331, 2711]","Recent behavior suggests the user will likely visit a place they have visited before, with places like 2959 and 3134 being frequent destinations in their history."
+374,3256,"[2959, 3256, 3134, 2370, 2629, 438, 831, 1237, 2331, 2711]",Recent stays at similar times and days suggest the user may return to familiar places
+374,2370,"[2959.0, 3134.0, 3256.0, 2370.0, 2629.0, 538.0, 831.0, 1237.0, 2331.0, 2711.0]",recent behavior in <context> and patterns in <history>
+374,707,"[2959, 3256, 3134, 2370, 2629, 438, 831, 1237, 2331, 2711]",Based on historical patterns of repeated visits to places at certain times and days
+374,3330,"[2959, 3134, 3256, 2370, 2629, 438, 831, 1237, 2331, 652]",Recent visits to places at certain times/days in the history and current context suggest frequent re-visits
+374,1013,"[2959, 3134, 3256, 2370, 2629, 438, 831, 1237, 2331, 652]",Recent visits to places at certain times/days indicate a strong likelihood of returning to previously visited locations.
+374,3135,"[2959.0, 3134.0, 3256.0, 2370.0, 2629.0, 438.0, 831.0, 1237.0, 2331.0, 652.0]",Recent contextual information and historical patterns suggest frequent visits to places like the last seen on Tuesday
+374,3135,"[2959, 3256, 3134, 2370, 2629, 438, 831, 1237, 2331, 2711]",recently visited on Sunday and Monday

@@ -1,0 +1,36 @@
+user_id,ground_truth,prediction,reason
+80,3765,"[3765, 3511, 3138, 2680, 3357, 2210, 1438, 1980, 167, 506]",Recent stay at 3765 and repeated visits to this place in the past make it a strong candidate for the next location.
+80,3765,"[3765, 3138, 3511, 3357, 2680, 2210, 1438, 1980, 167, 506]","Based on the user's historical stays and recent behavior, I predict they will likely visit a place they have visited before, possibly one of their most frequent destinations (3765, 3138, or 3511), given that they have recently been to these places"
+80,3138,"[3765, 3511, 3138, 2680, 3357, 2210, 1980, 1438, 506, 167]","Based on the user's historical stays and recent context, I predict they will likely visit places they have been to before, with a strong preference for place ID 3765."
+80,3765,"[3765, 3511, 2680, 3357, 3138, 2210, 1438, 1980, 167, 506]",Recent contextual information suggests the user may visit places they have visited before at similar times/days
+80,781,"[3765, 3511, 3357, 3138, 2680, 2210]",Based on the user's historical stay patterns and recent contextual information.
+80,1438,"[3138, 3511, 2680, 2210, 3357, 1980, 1438, 167, 506, 3771]",Recent visits to places at certain times/days in context suggest a likely repeat of these patterns in the future.
+80,3765,"[3357, 3511, 2680, 3138, 3765, 2210, 2814, 1563, 167, 506, 3771]","Recent visits to places like 3357 and 3511, as well as frequent visits to 3765 on Tuesdays and Fridays, suggest a high likelihood of returning to these locations. Additionally, the context indicates a preference for visits in the evening."
+80,3511,"[3511, 3138, 2680, 3357, 2210, 781, 1438, 1980, 167, 506]","Based on the user's historical stays and recent context, I predict they are likely to visit places they have visited before, especially during similar times of day and day of week."
+80,3357,"[3765, 3511, 2680, 3357, 3138, 2210, 781, 1438, 1980, 167]","Recent context suggests user is likely to visit familiar places on Saturday afternoon, while historical pattern indicates a tendency to revisit previously visited locations."
+80,203,"[3765, 3511, 2680, 3138, 3357, 781, 1438, 2210, 1980, 167]",Recent behavior indicates frequent visits to places on weekends/Saturdays and regular visits to a few specific locations
+80,3765,"[3765, 3511, 3138, 3357, 2680, 1438, 1980, 2210, 3771, 167]",Recent behavior indicates a strong likelihood of returning to previously visited places
+80,3138,"[3765, 3511, 3357, 3138, 2680, 2210, 1980, 1438, 167, 506]","The user has a strong tendency to visit places at certain times and days of the week, and recent behavior suggests a higher likelihood of visiting familiar locations"
+80,3138,"[3765, 3511, 3357, 2680, 3138, 2210, 1980, 1438, 167, 506]","Based on the user's historical stays and recent behavior in context, it is likely that they will visit a place where they have spent time before, especially during similar days of the week and times."
+80,3138,"[3765, 3511, 3357, 2680, 2210, 3138, 1438, 1980, 167, 506, 3771]",recent stays and day of week suggest next location
+80,3511,"[3765, 3511, 3357, 2680, 3138, 2210, 1980, 167, 506, 3771]","Recent contextual information and historical patterns suggest frequent visits to places with IDs 3765, 3511, and 3138"
+80,3511,"[3765.0, 3511.0, 2680.0, 3357.0, 3138.0, 2210.0, 1980.0, 167.0, 506.0, 3771.0]",Recent frequent visits to place ID 3765 and pattern of daily routine
+80,3357,"[3765.0, 3511.0, 2680.0, 3357.0, 3138.0, 2210.0, 3357.0, 3511.0, 1438.0, 1980.0]","The user's recent behavior in the <context> suggests a strong likelihood of visiting familiar places on Fridays and Saturdays, consistent with their historical stays."
+80,3138,"[3765, 3138, 3511, 2680, 3357, 2210, 3144, 1438, 1980, 167]","The user tends to visit the same places at similar times of day and days of the week, with a recent bias towards visits on Fridays and Saturdays"
+80,3357,"[3765.0, 3511.0, 3357.0, 3138.0, 2680.0, 2210.0, 1980.0, 1776.0, 167.0, 1438.0]",Recently repeated visits to places at certain times/days
+80,3511,"[3765, 3511, 2680, 3357, 3138, 2210, 1980, 1438, 167, 506]","Recent behavior suggests the user tends to return to frequently visited places like '3765' and '3511', while historical patterns indicate visits on certain days of the week."
+80,3511,"[3765, 3511, 3138, 2680, 3357, 2210, 1438, 1980, 167, 506]",Recent stays and days of the week suggest the user is likely to visit places they have visited before at similar times
+80,3765,"[3765, 3511, 3138, 2680, 3357, 2210, 3357, 1438, 1980, 167]","Recent stays at 3765 and 3511 suggest high probability of revisiting these locations, while 3138 is also a popular spot."
+80,3765,"[3138, 3511, 3765, 2680, 3357, 2210, 1438, 1980, 167, 506]",Recent visits to places at certain times/days suggest a strong likelihood of revisiting recently visited locations
+80,3357,"[3765.0, 3511.0, 3357.0, 3138.0, 2680.0, 2210.0, 1980.0, 1438.0, 3771.0, 506.0]","Based on the user's historical stays and recent contextual information, the most likely places are those where they have stayed recently or frequently, with a slight preference for evening visits."
+80,333,"[3765, 3511, 2680, 3357, 3138, 2210, 1438, 1980, 167, 506]","The user tends to visit certain locations on specific days and at similar times, considering the recent context."
+80,1564,"[3765, 3511, 3138, 2680, 3357, 2210, 1980, 167, 506, 3771]",based on recent behavior and historical stays
+80,3765,"[3765, 3511, 3138, 3357, 2680, 2210, 167, 506, 3771, 1438]",Recent behavior in the context and patterns in the history indicate a high likelihood of returning to familiar locations.
+80,1,"[3765, 3511, 3138, 3357, 2680, 2210, 333, 1564, 1980, 167]",Recent behavior and historical patterns indicate the user is likely to stay at a familiar location on Friday or Saturday.
+80,3765,"[3765, 3511, 3138, 3357, 2680, 2210, 1438, 1980, 167, 506]","Based on the user's historical stays and recent contextual information, I predict that they will likely visit a place that is similar to their most frequent locations (3765, 3511)"
+80,3138,"[3765, 3511, 3138, 2680, 3357, 2210, 333, 1564, 1428, 167]",recent behavior and historical patterns suggest frequent visits to familiar places
+80,2680,"[3765, 3511, 3357, 2680, 3138, 2210, 1438, 1980, 167, 3771]",Based on the user's historical stays and recent behavior in the given context
+80,3765,"[3765, 3511, 3138, 2680, 3357, 2210, 2067, 1980, 1438, 506]",Recent visits to and from places at similar times
+80,3765,"[3765, 3511, 3138, 2680, 3357, 2210, 1428, 1438, 1980, 167]","Recent stays at night and weekdays suggest frequent visits to places like 3765, 3511, and 3138. Tuesday patterns are also evident."
+80,3765,"[3765, 3511, 3138, 2680, 3357, 2210, 1980, 1438, 167, 506]",Recent behavior and historical pattern suggest frequent visits to place 3765 on certain days
+80,3765,"[3765, 3511, 3138, 2680, 3357, 2210, 3144, 1980, 1438, 167]",recently frequent locations and times of day

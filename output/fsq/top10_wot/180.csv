@@ -1,0 +1,10 @@
+user_id,ground_truth,prediction,reason
+180,300,"[2750, 2178, 2278, 300, 632, 546, 12, 1146, 1209, 567]","The user tends to visit places at certain times of the day and days of the week. Based on their recent behavior in <context>, they are likely to repeat a pattern observed in <history>."
+180,3817,"[2178, 2737, 300, 546, 632, 735, 1209, 12, 1146, 567]","The user's recent behavior in the context suggests a tendency to visit places at late evening hours on Sundays and Mondays, which is consistent with their historical pattern of frequent visits to these locations. The prediction takes into account this pattern as well as the possibility of repeated visits to other frequently visited places."
+180,2857,"[1146, 632, 546, 370, 735, 3691, 1209, 2178, 2737, 300]",Recent behavior in context suggests frequent visits to these places during similar times and days.
+180,2651,"[546, 735, 3691, 632, 293, 2737, 2178, 12, 105, 300]","Recent behavior suggests the user is likely to visit places with similar patterns in history and context, such as Mondays at 09:55 PM (569) and Tuesdays at 07:25 PM (2857), leading to predictions of places visited on these days."
+180,300,"[1146, 632, 546, 300, 2178, 2278, 2737, 569, 370, 12]",recent patterns and daily routines suggest frequent visits to familiar places
+180,572,"[2178, 2737, 12, 1209, 2651, 546, 632, 300, 370, 735]",Recent visits to places and similar patterns in historical stays
+180,123,"[2178.0, 2737.0, 1209.0, 1146.0, 12.0, 552.0, 300.0, 632.0, 546.0, 3691.0]","Recent behavior suggests a strong affinity for places visited in the past few days, with some historical patterns persisting"
+180,2651,"[2178, 2737, 300, 632, 546, 735, 2651, 1209, 1146, 12]",Prediction based on recent stay patterns and weekday correlations in the user's history.
+180,293,"[1146, 632, 546, 2750, 2737, 2178, 1209, 300, 3691, 735]","Recent patterns in the user's history and context suggest a high likelihood of revisiting frequently visited places on weekends, with some probability of returning to weekday locations"

@@ -1,0 +1,10 @@
+user_id,ground_truth,prediction,reason
+335,1565,"[1565, 3186, 1912, 3805, 738, 38, 366, 2, 3, 4]",based on the pattern of frequent visits to place 1565 at night and recent behavior of visiting place 1
+335,3186,"[1565, 3186, 3805, 738, 1912, 38, 366]","The prediction is based on the recent behavior in the context and historical stays, where the user tends to visit places 1565 and 3186 frequently."
+335,3186,"[1565, 3186, 1912, 3805, 738, 366, 38, 1565.0, 3186.0, 1.0, 10.12]",Recent visits to places at certain times/days in history and current context suggest a likely return to a familiar location
+335,1,"[1565.0, 3186.0, 3805.0, 1912.0, 738.0, 366.0, 38.0, 1563.0, 1527.0, 1559.0]",recent pattern of staying at home
+335,1,"[1565.0, 3186.0, 3805.0, 1912.0, 738.0, 366.0, 38.0, 1.0]",Predicted based on the user's historical stays and recent behavior.
+335,3186,"[1565.0, 3186.0, 3805.0, 1912.0, 738.0, 38.0, 366.0, 2, 3, 4]",based on the user's historical stays and recent behavior in context
+335,1,"[1565.0, 3186.0, 3805.0, 738.0, 1912.0, 38.0, 366.0, 1, 1553.0, 1997.0]",The prediction is based on the user's historical stays and recent behavior. The most likely places are those that the user has visited frequently in the past or recently.
+335,1,"[1565.0, 3186.0, 1912.0, 3805.0, 738.0, 366.0, 38.0, 1.0]",Recent stays at place ID 3186 and historical patterns of visiting place ID 1565 at this time/day suggest a high likelihood for these places
+335,1245,"[1565.0, 3186.0, 3805.0, 1912.0, 38.0, 366.0, 738.0, 2.0, 3.0, 4.0]","The user tends to visit places at certain times and days, and recent behavior suggests a high likelihood of visiting place ID 1565."

@@ -1,0 +1,13 @@
+user_id,ground_truth,prediction,reason
+261,2523,"[2523, 2172, 3805, 290, 413, 2847, 2642, 2523, 2523, 2523]","The user has shown a consistent pattern of visiting the same place at similar times and days in their historical stays. In their recent context, they have visited the same place again, so it's likely that this trend will continue."
+261,2523,"[2523, 2523, 2172, 3805, 290, 2847, 413, 2642, 2523, 2523]",Pattern of frequent visits to the same place on specific days
+261,1063,"[2523, 2847, 290, 413, 2172, 3805, 2642]",Recent and historical stays at the same place ID suggest a high likelihood of returning to this location.
+261,2523,"[2523, 2172, 2847, 413, 290, 1063, 3805, 2642, None, None]","Recent behavior in context suggests continued frequent visits to place ID 2523, with some possible variations based on patterns in history"
+261,2523,"[2523, 2172, 290, 413, 2847, 2642, 3805, 1063, 2523, 2523]",Pattern-based prediction considering historical stays and recent contextual information
+261,2523,"[2523, 2172, 3805, 2847, 413, 1063, 290, 2642, 1098, 1054]",Recent stays at 2523 and historical patterns suggest the user will likely visit a place in this area again.
+261,2523,"[2523, 2847, 2172, 413, 290, None, None, None, None, None]","The prediction is based on the user's recent and historical stays, considering patterns such as daily routines and frequent visits to certain places."
+261,2523,"[2523, 2847, 413, 2172, 3805, 290, 2642, None, None, None]",based on historical stays and recent contextual information
+261,2523,"[2523, 2847, 413, 3805, 290, 2642]",Recent contextual information indicates a strong likelihood of returning to previously visited places.
+261,2523,"[2523, 2847, 413, 3805, 290, 2642, 2172, None, None, None]",recent stays at 2523 and historical pattern of frequent visits
+261,2523,"[2523, 2847, 413, 2172, 290, 3805, 2642, None, None, None]",Recent behavior suggests the user will likely return to their most frequently visited location
+261,2260,"[2523.0, 2847.0, 2172.0, 413.0, 290.0, 3805.0, 2642.0]",Recent patterns of daily visits to location 2523 and occasional visits to other locations

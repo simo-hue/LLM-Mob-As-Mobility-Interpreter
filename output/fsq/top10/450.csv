@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+450,3715,"[3796, 3715, 2991, 3659]",The user tends to visit similar places during the same time of day and week
+450,3796,"[3796, 3715, 2991, 3659, 3409]","The prediction is based on the activity pattern of this user that we learned from <history>, considering repeated visits to certain places during certain times, and taking into account the context stays in <context>, which provide more recent activities of this user. The temporal information (i.e., start_time and weekday) of target stay also plays an important role."
+450,3796,"[3796, 3715, 2991, 3409, 3659]","Based on the user's historical activity pattern and recent context, I predicted the top 5 places where this user might be next."

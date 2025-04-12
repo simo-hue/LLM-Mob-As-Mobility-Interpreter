@@ -1,0 +1,30 @@
+user_id,ground_truth,prediction,reason
+110,1468,"[1, 1468, 3176, 2526, 2889, 3114, 1468, 3114, 1, 2526]",Based on historical patterns and recent behavior
+110,3176,"[3176, 1468, 1, 2526, 3114, 2889, 1468, 2526, 1, 3176]",The user's recent activity pattern shows a strong tendency to visit places 3176 and 1468 on Mondays and Fridays.
+110,1,"[1, 3114, 2526, 1468, 2889, 3176, 2, 3, 4, 5]",Next likely places are the ones frequently visited at similar times and days in the user's history.
+110,3114,"[1, 1468, 2526, 2889, 3114, 3176, 2889, 2526, 1468, 1]",Recent visits to place 1 and repeated patterns in history
+110,1468,"[1, 3176, 1468, 2889, 2526, 3114, 2, 3140, 3153, 3125]",Recent behavior in the context suggests that the user may revisit previously visited places on Monday and Tuesday
+110,3176,"[1, 1468, 3176, 2526, 2889, 3114, 3125, 3143, 3150, 3167]","Recent visits to place 1 on Monday and Tuesday, also frequent visits to places 1468 and 3176 on various days"
+110,2526,"[1, 1468, 3176, 2526, 3114, 2889, 2889, 3114, 2526, 1468]",Pattern recognition from historical stays and recent context
+110,2889,"[1, 1468, 3114, 2526, 2889, 3176, 2889, 3114, 1468, 1]",Recent pattern of frequent visits to various places on Monday and Tuesday
+110,3114,"[1, 3114, 1468, 3176, 2526, 2889, 2902, 2913, 2935, 2957]","The user has a history of frequent visits to places at certain times and days, with recent behavior in the context indicating a likelihood of returning to familiar locations."
+110,1468,"[1.0, 1468.0, 3176.0, 2526.0, 2889.0, 3114.0, 2526.0, 1468.0, 2889.0, 3114.0]","The user's recent behavior in <context> suggests frequent visits to places with IDs 1468, 3176, 2526, and 2889/3114 on Tuesdays, which is also reflected in the historical pattern of stays."
+110,3176,"[1, 1468, 2526, 2889, 3114, 3176, 2526, 2889, 3114, 1468]",Recent visits and patterns in history
+110,1,"[1, 1468, 2526, 2889, 3114, 3176, 2885, 2527, 1490, 3181]",based on the user's recent stays and historical patterns
+110,2526,"[1, 1468, 2526, 2889, 3114, 3176, 0, 0, 0, 0]",The user tends to visit similar places on the same day of the week and at the same time.
+110,3114,"[1, 3114, 1468, 2526, 2889, 3176, 3187, 3205, 3300, 3452]","Based on the user's historical stays and recent context, I predict that they will visit one of their most frequently visited places, likely somewhere they have stayed before during similar times and days."
+110,1468,"[2889, 3114, 1468, 3176, 2526, 1, 1468, 3176, 2526, 1]","Recent stays at similar times and days suggest frequent visits to places with IDs 2889, 3114, 1468, and 3176."
+110,3176,"[3176, 2526, 1, 1468, 2889, 3114, 1468, 3176, 2526, 2889]","Based on recent behavior and historical patterns, the user is likely to return to familiar places"
+110,1,"[1, 1468, 2526, 2889, 3114, 3176, 3180, 3240, 3253, 3262]",Recent visit to places at certain times/days and patterns in historical stays
+110,2889,"[1, 1468, 2526, 2889, 3114, 3176, 3114, 2526, 1468, 1]","The prediction is based on the historical stays and recent contextual information. The user tends to visit places 1, 1468, 2526, 2889, and 3114 frequently, especially during weekdays. Recent behavior in context shows a stay at place 2526 and 3114, which suggests that these places are likely candidates for the next location."
+110,3114,"[3114, 1, 1468, 2526, 2889, 3176, 2, 3, 4, 5]",Recent pattern of visits to 3114 and 1 at the end of the week
+110,1468,"[1468, 2526, 3176, 1, 2889, 3114, 2889, 1, 2526, 3176]",Recent frequent visits to places with IDs 1468 and 3176 at start times around 09:00 AM
+110,3176,"[1, 1468, 2526, 3176, 2889, 3114, 2537, 2545, 2563, 2571]","Based on the user's historical stays and recent context, it is likely that they will visit a place with similar characteristics to their previous frequent places."
+110,1,"[1, 1468, 2526, 2889, 3114, 3176, 2, 3, 4, 5]",Next likely places based on historical pattern of visits and recent context
+110,2526,"[1, 1468, 2526, 2889, 3114, 3176, 0, 0, 0, 0]",Predicted based on user's historical stays and recent contextual information
+110,2889,"[1, 1468, 2889, 3114, 3176, 2526, 2526.0, 2889.0, 1.0, 2]",Recent visits to various locations and patterns in the history suggest this user is likely to visit a mix of familiar and different places
+110,3114,"[1, 1468, 3176, 2526, 3114, 2889, 2, 2535, 2511, 3]","Based on the historical stays, this user tends to revisit places frequently, especially during weekdays. The recent context suggests a visit to place 2526 at around morning hours, which matches their previous behavior."
+110,2889,"[3176, 1468, 1, 2526, 2889, 3114, 2889, 2526, 1468, 3176]","The user's recent behavior in the context suggests a preference for places they have visited before, especially on Tuesdays and Thursdays. This pattern is also observed in their historical stays."
+110,1468,"[1, 1468, 2526, 3176, 3114, 2889, 2526, 1, 1468, 3114]",Pattern recognition from historical stays and recent behavior
+110,3176,"[1, 2526, 3114, 3176, 1468, 2889, 1.0, 2.0, 3.0, 4.0]","Based on the user's historical stays and recent behavior in context, I predict they will visit one of their most frequently visited places, likely a work or home location."
+110,1,"[1, 2526, 3114, 1468, 3176, 2889, 2.0, 3.0, 4.0, 5.0]","Recent behavior in context suggests frequent visits to place 2889 and 3114 on Saturday mornings, while history shows repeated visits to place 1, 2526, and 1468 on various days"

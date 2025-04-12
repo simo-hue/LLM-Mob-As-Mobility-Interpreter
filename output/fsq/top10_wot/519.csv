@@ -1,0 +1,21 @@
+user_id,ground_truth,prediction,reason
+519,506,"[1910.0, 167.0, 780.0, 506.0, 231.0, 394.0, 1290.0, 203.0, 2778.0, 3034.0]",Predicted based on daily patterns and recent context of staying at home/work/study places
+519,1910,"[1910, 1434, 506, 780, 231, 394, 203, 1290, 2778, 34]","Recent and historical patterns suggest frequent visits to places 1910.0, especially on weekdays."
+519,1910,"[1910, 3034, 1434, 506, 231, 394, 167, 1290, 203, 2778]",Predicted places are the user's most frequently visited locations during weekdays and morning hours
+519,1146,"[1910, 3034, 2317, 1434, 167, 506, 1290, 394, 780, 34]","The user has a strong pattern of visiting place 1910 at the start of their day on weekdays, and this pattern continues in the recent context. The top prediction is place 1910 as it is the most visited place in their history and the recent behavior matches this pattern."
+519,201,"[1910, 1434, 506, 231, 394, 506, 203, 1290, 2778, 167]","The user has a strong morning routine at place 1910 and recent visits to this location. Additionally, the context suggests the user is likely to visit places they have visited before, so we prioritize these locations."
+519,1910,"[1910, 1434, 506, 231, 780, 394, 167, 34, 203, 1290]",Recent stays at home on weekdays and visits to specific places on weekends
+519,1910,"[1910, 1434, 3034, 780, 506, 231, 167, 394, 203, 1290]",repeated morning visits to place 1910 and recent visits to places 1434 and 3034
+519,1910,"[1910, 3034, 1434, 506, 780, 231, 1290, 394, 167, 34]",The user has a consistent morning routine on weekdays and often visits place ID 1910. Recent context suggests the user is likely to visit a similar location around this time.
+519,1910,"[1910, 3034, 1434, 780, 506, 231, 394, 1290, 2778, 167]",Recent visits to familiar places and times of day
+519,293,"[1910.0, 1434.0, 506.0, 34.0, 231.0, 203.0, 1290.0, 394.0, 167.0, 780.0]",Recent visits to place 1910 and context suggests likely return to familiar places
+519,2491,"[1910.0, 1434.0, 3034.0, 167.0, 780.0, 506.0, 231.0, 203.0, 1290.0, 2778.0]",recent behavior suggests daily routine at place_id=1910.0
+519,2778,"[1910.0, 3034.0, 167.0, 780.0, 506.0, 1290.0, 231.0, 2778.0, 293.0, 2491.0]",combination of historical patterns and recent behavior
+519,1910,"[1910.0, 3034.0, 1434.0, 167.0, 780.0, 506.0, 34.0, 203.0, 231.0, 2778.0]","The prediction is based on the user's historical pattern of frequent visits to place 1910.0, which was also visited recently in the context."
+519,241,"[1910, 3034, 2317, 167, 506, 34, 1290, 394, 203, 231]",Recent visits to place 1910 and patterns in history suggest a high likelihood of returning to this place.
+519,1910,"[1910.0, 3034.0, 1434.0, 167.0, 780.0, 506.0, 394.0, 231.0, 2778.0, 2491.0]",Recent visit to 2778.0 and historical pattern of repeated visits at 08:00 AM
+519,680,"[1910.0, 3034.0, 2317.0, 2778.0, 780.0, 506.0, 1290.0, 394.0, 167.0, 34.0]",based on patterns in the user's historical stays and recent behavior
+519,1910,"[1910.0, 3034.0, 167.0, 780.0, 506.0, 231.0, 2778.0, 1290.0, 394.0, 203.0]",The user tends to visit place ID 1910 regularly at the start of the day and also recently visited this location.
+519,1910,"[1910, 3034, 1434, 780, 506, 394, 231, 203, 1290, 2778]",Recent activity suggests the user is likely to return to a familiar location
+519,218,"[1910.0, 3034.0, 231.0, 506.0, 167.0, 780.0, 1290.0, 2778.0, 394.0, 34.0]",Recent behavior suggests a strong likelihood of returning to familiar locations during similar times and days
+519,366,"[1910.0, 1434.0, 506.0, 394.0, 231.0, 680.0, 2778.0, 780.0, 34.0, 1290.0]",Predicted based on recent daily patterns and frequent stays at place 1910.0

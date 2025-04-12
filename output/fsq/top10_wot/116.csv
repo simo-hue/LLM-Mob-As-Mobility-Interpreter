@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+116,3589,"[259, 246, 596, 485, 3805, 130, 516, 527, 12, 59]","Based on the user's historical stays and recent context, the predicted next place ID is likely to be a location visited frequently at similar times of the day (e.g., Thursday evenings) or recently visited locations (e.g., places visited on Sunday)."
+116,89,"[246.0, 259.0, 485.0, 572.0, 416.0, 3589.0, 596.0, 130.0, 12.0, 59.0]","Recent pattern of visiting place 246.0 on Thursdays and 259.0 on Thursdays continues, with additional influence from recent visits to places 572.0 and 416.0"
+116,1253,"[246, 259, 596, 485, 130, 12, 59, 938, 3805, 527]","Based on historical patterns of visiting places at certain times and days, considering the recent behavior in the context"
+116,371,"[246, 259, 485, 596, 130, 12, 59, 185, 231, 3805]",Recent behavior in context suggests frequent visits to place ID 246 and 259

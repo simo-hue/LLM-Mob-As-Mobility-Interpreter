@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+136,869,"[2448, 1066, 869, 3280, 2865, 728, 1368, 238, 3016, 869]",predicting frequent visited places based on history and recent behavior in context
+136,1122,"[3280, 869, 2448, 1368, 728, 2865, 238, 3016, 1066, 869]",Recent visits to places and repeated patterns in the user's stay history
+136,2865,"[2448, 1066, 2865, 3280, 869, 728, 1368, 238, 3016, 869]","Recent stays at places like home (2448) and work/school (1066/2865/3280), combined with past visits to these locations on the same day of the week"
+136,342,"[2448, 869, 1066, 2865, 3280, 238, 728, 1368, 3016, 869]","The user has a consistent pattern of staying at home on Mondays and Tuesdays (place ID 2448), with occasional visits to places like place ID 869. The recent context suggests the user might be heading back home tonight."
+136,869,"[2448, 1066, 869, 3280, 2865, 238, 728, 1368]",The user tends to visit places at certain times/days and has a recent pattern of visiting place ID 2448.
+136,2448,"[2448, 3280, 869, 2865, 1066, 238, 728, 1368]",Pattern recognition in historical stays and recent behavior in context
+136,873,"[2448, 1066, 869, 3280, 2865, 238, 728, 1368, 3016, 869]","Pattern of frequent visits to 2448, 1066 and 869, with recent behavior indicating a high probability of returning to these places"

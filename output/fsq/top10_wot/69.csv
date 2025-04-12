@@ -1,0 +1,17 @@
+user_id,ground_truth,prediction,reason
+69,2388,"[3229, 2886, 2388, 797, 2388, 3229, 3229, 2886, 3229, 2388]",Recent stays at places with high visit frequencies
+69,506,"[3229, 2886, 2388, 797, 3229, 2388, 2886, 2388, 3229, 2886]","Based on the user's historical stays and recent behavior, the next likely places are those where they have previously stayed during similar times of day."
+69,3229,"[797, 2886, 3229, 2388, 506, 2388, 3229, 2886, 797, 2388]","Based on the recent pattern of alternating between different places and considering the user's historical stays, I predict that they will visit one of their most frequent locations."
+69,2388,"[2886.0, 3229.0, 797.0, 2388.0, 3229.0, 2886.0, 2388.0, 3229.0, 2886.0, 797.0]",Recent contextual information and patterns in history indicate a high likelihood of visiting familiar locations during the same day of week and time of day as previous stays.
+69,2388,"[3229, 2886, 2388, 797, 506]","Predicted based on patterns in historical stays and recent contextual information, considering frequent visits to places like 3229 and 2886."
+69,3229,"[3229, 2886, 2388, 797, 3229, 2886, 2388, 3229, 2388, 3229]",Recent frequent visits to place 3229 and repeated patterns in the history
+69,2388,"[3229, 2886, 797, 2388]",Recent behavior and historical pattern of frequent visits to places on certain days and times suggest the user is likely to visit one of their commonly visited locations.
+69,371,"[3229, 2886, 797, 2388]",Recent patterns and frequent visits to places at similar times/days in the context and history suggest a likely return to frequently visited locations
+69,3229,"[3229, 2886, 2388, 797, 371]","Recent behavior suggests frequent visits to places with IDs 3229 and 2886 on weekdays, while also considering historical patterns of visits at certain times and days."
+69,2388,"[3229, 2886, 2388, 797, 371, 810, 3229, 3229, 2388, 2388]","Pattern of daily routine with frequent visits to places 3229 and 2886, recent stays at place 3229 in context"
+69,3229,"[3229, 2886, 2388, 797, 371, 810]","Recent and historical stays suggest frequent visits to places on weekdays, especially in the morning."
+69,506,"[3229, 2886, 2388, 797, 810]","Recent behavior suggests frequent visits to locations 3229 and 2886 during weekdays, with occasional stops at places 2388 and 797."
+69,2886,"[3229, 2886, 2388, 797, 810, 506]","The user tends to visit the same places at similar times and days based on their historical stays, with recent behavior in context showing a preference for place 3229."
+69,2886,"[3229, 2388, 2886, 797, 506]","Recent context shows the user is likely at home or work during weekdays, with a strong tendency to visit place 3229"
+69,2388,"[3229, 2388, 2886, 797, 506]","Based on the user's historical stays and recent behavior, it is likely that they will visit one of their most frequently visited places (3229, 2388, 2886) or a place that was recently visited (797, 506)"
+69,3229,"[3229, 2886, 2388, 797, 506]",Recent behavior in context and historical patterns suggest likely repeated visits to places at certain times/days.

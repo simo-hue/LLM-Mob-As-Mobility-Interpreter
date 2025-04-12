@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+394,3404,"[3404, 1528, 263, 320, 1869, 503, 9, 1, 320, 503]",The user has a strong pattern of visiting place 3404 on Sundays and recent visits to this place in the context.
+394,1528,"[3404, 1528, 263, 320, 1869, 503, 9, 1, 3200.0, 320.0]","The user has a consistent pattern of visiting place 3404 on Sundays and weekdays, with some occasional visits to other places"
+394,263,"[3404, 1528, 263, 320, 1869, 503, 9, 1, 2643.0, 128]","Based on user's historical stays and recent behavior, the top prediction is their most visited location (3404), followed by other frequent locations (1528, 263, 320)"
+394,3404,"[3404, 1528, 263, 9, 320, 503, 1869, 1, 320, 1869]",predicting based on recent behavior and historical patterns

@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+280,3064,"[2304.0, 1506.0, 861.0, 1575.0, 14.0, 2074.0, 834.0, 444.0, 1382.0, 3170.0]",based on the user's historical stays and recent behavior
+280,3170,"[2304.0, 1506.0, 861.0, 2074.0, 1575.0, 14.0, 834.0, 444.0]",The prediction is based on the user's recent stay patterns and current day of the week.
+280,3170,"[861, 1506, 2304, 14, 444, 2074, 1575, 1139, 506, 834]","The prediction is based on the user's historical stay patterns and recent behavior, considering repeated visits to places at certain times/days."

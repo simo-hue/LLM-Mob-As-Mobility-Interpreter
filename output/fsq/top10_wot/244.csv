@@ -1,0 +1,42 @@
+user_id,ground_truth,prediction,reason
+244,1677,"[1677, 1851, 3372, 3468, 985, 506, 226, 300, 1437, 3451]","Based on the user's activity pattern and recent behavior, I predict that they will visit one of their frequently visited places."
+244,1330,"[3468, 3372, 1851, 1677, 506, 300, 1437, 985, 226, 1664]",Recent pattern of visiting places at morning hours and repeated visits to certain places like place_id=3468
+244,1851,"[3372, 1851, 1677, 3468, 300, 506, 985, 1437, 371, 3451]","Based on the user's recent and historical stays, it is likely that they will visit a place with similar characteristics to their previous visits during similar times of the day."
+244,1677,"[3468.0, 3372.0, 1677.0, 1851.0, 506.0, 300.0, 1437.0, 3451.0, 371.0, 226.0]","Recent and historical patterns of regular morning visits to place 3468, with occasional evening visits to places like 1677 and 1851."
+244,1404,"[3372, 1677, 506, 3468, 1851, 300, 1437, 371, 985, 1664]","Recent frequent visits to places with IDs 3372, 1677 and 1851 suggest a strong likelihood of returning to these locations. Additionally, the user has visited place with ID 506 recently."
+244,300,"[3468.0, 3372.0, 506.0, 1677.0, 1851.0, 300.0, 1437.0, 3451.0, 985.0, 1664.0]",based on repeated visits and recent behavior
+244,3372,"[3372, 1851, 1677, 3468, 506, 985, 226, 1664, 1437, 1404]",Recent morning visits to 3372 and 1851
+244,1851,"[1851, 3372, 1677, 3468, 1437, 985, 506, 226, 1664, 300]",predicted based on recent behavior and historical patterns
+244,3451,"[3372, 1851, 3468, 1677, 506, 300, 226, 985, 1664, 1437]",Recent visits to places at morning time and prediction based on historical pattern of repeated visits
+244,371,"[1851, 3372, 1677, 1437, 300, 985, 506, 3468, 226, 1664]",Recent behavior in context and patterns in history suggest the user is likely to visit a place they frequently go to during weekdays
+244,3372,"[3372, 1851, 3468, 1677, 300, 506, 226, 985, 1664, 3451]",The predicted places are based on the user's regular morning routine and recent stays at specific locations
+244,3468,"[3468, 3372, 1851, 506, 300, 1664, 1677, 1437, 371, 985]","Based on the user's historical stays and recent behavior in context, the most likely places to visit next are those that have been visited frequently at similar times of day."
+244,300,"[1677, 3468, 3372, 1851, 506, 300, 3451, 371, 1437, 226]",recent visits to places at certain times/days
+244,3468,"[3372, 1851, 371, 3468, 1677, 506, 985, 1664, 1437, 3451]","Recent visits to 3372 and 3468 are followed by historical patterns of visiting places on Mondays, Tuesdays, and Wednesdays."
+244,3468,"[3372, 1851, 1677, 3468, 506, 226, 985, 1664, 3451, 1437]","Recent visits to locations 3372 and 3468, with a bias towards morning hours on weekdays"
+244,1437,"[3372, 3468, 1851, 1677, 506, 300, 1437, 3451, 985, 226]","The user's recent behavior suggests a strong tendency to visit the office on weekdays, and there is also a pattern of visiting places at specific times (e.g., morning hours)."
+244,1487,"[3372, 1851, 1677, 506, 300]","Based on historical patterns and recent behavior in the context, the top 5 predictions are locations that have been visited frequently during weekdays, especially morning hours"
+244,1677,"[3372, 1851, 1677, 506, 300]",pattern recognition from user's recent stays and current context
+244,3372,"[3372, 1851, 1677, 3468, 506, 985, 300, 1437, 3451, 226]","Recent stays at 3372 and 1851, with repeated visits to these places on weekdays; similar patterns in the past"
+244,1851,"[3468, 1677, 3372, 506, 985, 300, 1664, 1851, 3451, 1437]","Based on the historical stays and recent context, I predict that the user will likely visit one of their most frequently visited places, with a slight bias towards places visited during weekdays, especially in the morning."
+244,3468,"[3468.0, 3372.0, 1677.0, 506.0, 985.0, 300.0, 1664.0, 1437.0, 1851.0, 1487.0]",The user has a strong tendency to visit place 3468 at the start of the day and also in the afternoon on weekdays.
+244,111,"[3372, 1664, 1677, 985, 506, 300, 3451, 1437, 1487, 1851]","Recent behavior and historical patterns suggest the user will likely visit a familiar place, possibly one visited during weekdays or at similar times."
+244,3468,"[3372, 1851, 1677, 3468, 300, 506, 985, 1664, 1437, 3451]",Pattern recognition from historical stays and recent behavior
+244,3468,"[3372, 1851, 3468, 1677, 985, 506, 300, 1437, 3451, 111]",Pattern of frequent visits to places on certain days/times
+244,1677,"[3372, 1851, 3468, 506, 300, 1677, 1437, 3451, 985, 226]","Pattern of regular stays at certain times and days in the history, with a recent increase in visiting 3372 and 1851"
+244,1851,"[3372, 1851, 1677, 3468, 506, 300, 1437, 1664, 985, 111]",Recent stays and daily patterns suggest a high likelihood of visiting a place with similar characteristics to recent locations.
+244,3468,"[3372, 1677, 1851, 3468, 506, 300, 985, 1664, 1437, 3451]","Recent patterns in context suggest a higher likelihood of visiting places with IDs 3372, 1677 and 1851"
+244,506,"[3372, 1851, 1677, 300, 1664, 985, 506, 226, 1437, 3451]",Pattern recognition in historical stays and recent contextual information suggests frequent visits to places at specific times of the day and days of the week.
+244,1677,"[3372.0, 1851.0, 1677.0, 3468.0, 985.0, 1664.0, 300.0, 506.0, 1437.0, 3451.0]","Based on the user's historical stays and recent contextual information, we predict that they are likely to visit places with IDs similar to their most frequent destinations on weekdays and weekend mornings."
+244,1851,"[3372, 1677, 1851, 300, 3468, 506, 985, 1664, 3451, 1437]","Pattern of repeated visits to certain places at similar times/days in the past, with recent behavior suggesting a tendency towards morning stays"
+244,3468,"[3372.0, 1851.0, 1677.0, 3468.0, 506.0, 300.0, 1437.0, 3451.0, 985.0, 226.0]","Recent behavior and patterns in historical stays suggest frequent visits to certain locations at specific times/days, with a slight bias towards the morning."
+244,3468,"[3372, 1664, 1677, 1851, 985, 506, 300, 1437, 3451, 226]","Based on the user's historical stays and recent behavior, I predict they will visit a place similar to their typical Monday morning spots (3372, 1851), with some possibility of visiting places visited at similar times/days in the past."
+244,1677,"[3372, 1851, 1677, 506, 300, 985, 3451, 1437, 226, 1664]","Recent daily and hourly patterns in context suggest frequent visits to places with IDs 3372, 1851, and 1677"
+244,1851,"[3372, 1851, 1677, 506, 985, 300, 1437, 3451, 226, 1664]",Recent patterns suggest the user is likely to visit familiar places during similar times and days.
+244,3468,"[3372, 1851, 1664, 1677, 985, 300, 506, 3468, 1437, 3451]","Recent context shows frequent visits to places with IDs 3372 and 1851, while historical pattern suggests occasional visits to other places."
+244,300,"[3468, 3372, 1677, 1851, 506, 300, 985, 1664, 1437, 3451]",Recurring patterns in history and recent context
+244,3468,"[3372, 1851, 1677, 3468, 506, 985, 226, 1437, 3451, 1664]","Based on the user's historical stays and recent context, I predict they will likely visit a place they have visited before during the same day of the week or at similar times."
+244,300,"[3372.0, 1851.0, 1677.0, 3468.0, 506.0, 226.0, 300.0, 1437.0, 1664.0, 985.0]",Recent behavior in <context> and patterns in <history>
+244,1851,"[3372, 1851, 3468, 1677, 506, 300, 985, 1664, 1437, 3451]",Recent stays at 3372 and 1851 suggest a likelihood of future visits to these places
+244,3372,"[3372, 1677, 1851, 3468, 506, 1437, 985, 226, 1664, 3451]",based on user's daily and weekly patterns
+244,1851,"[985.0, 506.0, 1664.0, 1677.0, 3372.0, 1851.0, 3451.0, 1437.0, 300.0]","Recent behavior and patterns in history suggest frequent visits to places with IDs 985.0, 506.0, 1664.0, and 1677.0"

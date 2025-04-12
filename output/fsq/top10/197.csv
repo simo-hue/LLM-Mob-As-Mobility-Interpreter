@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+197,1,"[273, 3805, 2109, 976, 1, 138, 1784, 973, 3531, 268]",The prediction is based on the user's activity pattern of visiting certain places during specific times and days.
+197,1,"[3805, 2109, 976, 1, 537, 973, 2, 8, 3]",Predicted based on recent patterns and temporal information
+197,1,"[3805, 2109, 976, 2, 7, 9, 10, 11, 12, 13]","The prediction is based on the user's historical stays and recent context. The target stay is in the evening on a Tuesday, which matches with the frequent visits to places 3805, 2109, and 976 during this time. Additionally, there are repeated visits to place 2 and some other places on Tuesdays, so these places have higher probabilities."

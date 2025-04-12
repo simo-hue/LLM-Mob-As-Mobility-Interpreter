@@ -1,0 +1,33 @@
+user_id,ground_truth,prediction,reason
+481,1278,"[3618, 1278, 3805, 627, 293, 3303, 217, 3812, 285, 540]","Recent and historical behavior suggests frequent visits to places at similar times/days, with a bias towards Thursday morning"
+481,627,"[1278, 3618, 3805, 3812, 627, 217, 293, 285, 540, 3303]",predicting based on recent patterns of daily routine and frequent visits to places with high probability
+481,3618,"[3812, 3805, 3303, 3618, 293, 217, 2227, 285, 540, 627]",Recent behavior in context and historical patterns suggest a tendency to visit places at similar times of the week
+481,627,"[3618, 1278, 540, 3805, 285, 627, 217, 293, 3303, 3812]","The user has a strong pattern of visiting places at specific times and days, which is reinforced by recent behavior in the context"
+481,3618,"[3618, 1278, 3805, 3812, 285, 217, 3303, 293, 2231, 540]",prediction based on recent contextual information and historical stays
+481,3618,"[1278, 3618, 3812, 3805, 285, 1, 293, 217, 627, 3303]","Based on the user's historical stays and recent context, I predicted that they will likely visit one of their regular locations (1278, 3618) or a location visited recently (3812, 3805), with some uncertainty towards other familiar places."
+481,1278,"[1278, 3618, 3805, 540, 285, 3812, 627, 217, 3303, 293]",repeated visits to places at certain times/days and recent behavior
+481,1278,"[1278, 3618, 627, 3805, 285, 540, 3812, 217, 293, 3303]",Recurring daily patterns and recent behavior suggest the user will likely visit a familiar location
+481,1278,"[3618, 1, 627, 3805, 285, 3812, 217, 3303, 293, 540]",Recent stays at places 3618 and 1278; frequent visits to place 627 on Thursdays; visits to place 3805 on Sundays
+481,1337,"[3618, 1278, 540, 285, 3805, 627, 3812, 217, 3303, 293]",Recent visits to places at similar times/days and patterns in historical stays
+481,3618,"[3618, 1278, 3812, 285, 627, 3805, 217, 3303, 293, 540]",Recent visits to places at certain times/days and repeated patterns in the user's stay history
+481,64,"[1278, 3618, 3805, 627, 293, 3812, 217, 3303, 540, 285]",Pattern based on historical stays and recent behavior in context.
+481,3618,"[3618, 1278, 3805, 3812, 627, 3303, 293, 217, 1337, 285]",Recent visits to place IDs 3618 and 1278 suggest a strong likelihood of returning to these places.
+481,3618,"[1278, 3618, 3812, 627, 3303, 293, 217, 540, 285, 1]",predicting next likely place based on recent behavior and patterns in the user's activity history
+481,1170,"[1278, 3618, 540, 3805, 285, 627, 3812, 217, 293, 3303]",Recent pattern of frequent visits to place ID 1278 and 3618
+481,1278,"[1278, 3618, 3812, 285, 627, 1, 217, 3303, 293, 540]",Recent frequent visits to place 1278 and 3618 lead me to predict the user will likely visit one of these places next.
+481,3618,"[3618, 1278, 540, 3805, 285, 3812, 217, 293, 3303, 627]",Based on the user's historical stays and recent behavior in the context of visits to specific places at certain times and days.
+481,1278,"[3618, 1278, 540, 3805, 285, 627, 217, 293, 3303, 1]","The prediction is based on the user's historical pattern of visiting place 3618 (Monday and Thursday mornings), followed by visits to places 1278, 540, and 3805. The recent context suggests a higher likelihood of visiting these places given their proximity in time."
+481,1278,"[3812, 1, 217, 627, 285, 540, 3303, 293, 3805, 3600]",The prediction is based on the user's recent and historical stays. The most likely places are where they have stayed before during similar times of day and days of week.
+481,3618,"[3618, 1278, 540, 3805, 285, 627, 3812, 217, 293, 3303]","The prediction is based on the user's historical stay patterns and recent behavior. The top predicted places are likely to be visited due to their proximity in time and frequency of visits. The most recent place (3618) has been visited frequently at similar times, making it a strong candidate for the next visit."
+481,1278,"[1278, 3618, 285, 540, 3805, 627, 217, 3303, 293, 3812]",Recent pattern of frequent visits to place 1278 on weekdays and place 3618 on Thursdays
+481,3618,"[1278, 3618, 3805, 540, 285, 627, 3812, 217, 293, 3303]",recent stays at home office and regular Monday visits
+481,1278,"[1278, 3618, 3805, 285, 1, 627, 293, 217, 3303, 540]",Recent behavior and historical patterns suggest the user is likely to visit a work or school location
+481,1278,"[3618.0, 1278.0, 3805.0, 285.0, 627.0, 3812.0, 217.0, 293.0, 3303.0, 1.0]","Based on historical stays and recent behavior in context, the prediction is that the user will likely visit a place they have visited before, with high probability of visiting places at similar times/days"
+481,1278,"[1278, 3618, 3812, 285, 217, 627, 3303, 293, 540, 1]",recent visits to locations with a strong pattern of daily repetition
+481,3618,"[3812, 627, 285, 217, 3303, 293, 540, 1, 3805, 3618]",Recent stays at 1278 and historical patterns of visits to 3618 on Thursdays and Fridays suggest a high likelihood of the next stay being at one of these places.
+481,1,"[3812, 3303, 627, 293, 217, 285, 540, 1, 3805, 627]","The user has shown a regular pattern of visiting places at certain times/days and has recently been to place 1278, so the prediction is based on this pattern and recent behavior."
+481,1980,"[1278, 3618, 3812, 217, 285, 540, 627, 293, 3303, 3805]","The user has a strong daily routine of visiting places at specific times and days, with recent stays indicating a high likelihood of returning to the most frequently visited place (1278) or one of the places recently stayed."
+481,374,"[1278, 3618, 3812, 285, 540, 627, 3805, 3303, 293, 217]",Recent and historical patterns of frequent visits to the same place ID (1278) on certain days of the week and times
+481,1278,"[1278, 3618, 3805, 285, 627, 3812, 217, 293, 3303, 1]",Recent behavior and patterns in history suggest frequent visits to the home office (place_id 1278)
+481,490,"[3618, 1278, 3812, 3805, 285, 540, 627, 217, 293, 3303]",Pattern recognition and recent behavior
+481,521,"[1278, 3618, 3805, 627, 3812, 1, 217, 293, 3303, 1980]",Recent frequent visits to location 1278 and 3618

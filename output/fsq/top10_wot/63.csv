@@ -1,0 +1,30 @@
+user_id,ground_truth,prediction,reason
+63,557,"[2000.0, 328.0, 622.0, 1604.0, 119.0, 774.0, 437.0, 977.0, 293.0, 1.0]",Recent behavior suggests frequent visits to place 2000.0 and place 328.0
+63,1604,"[2000, 328, 622, 119, 1604]",Recent visits to place 2000 and repeated patterns in the user's history suggest a high likelihood of returning to one of these places.
+63,3514,"[119, 328, 349, 437, 456, 622, 774, 977, 119.0, 293.0]","The user tends to visit places during certain times of the day and days of the week based on their historical stays. Recently, they have visited several different locations on Tuesdays and Wednesdays."
+63,328,"[2000, 328, 622, 349, 1604, 119, 774, 437, 977, 293]","Recent behavior suggests the user will visit a popular location (2000) and historical data indicates frequent visits to locations like 328, 622, and others in the top-10 list."
+63,622,"[2000, 328, 119, 622, 437, 774, 456, 293, 977, 342]",Recent visits to places at certain times/days in both history and context indicate a high likelihood of returning to familiar locations
+63,1265,"[2000, 328, 622, 119, 1604, 774, 437, 293, 977, 456]",Recent stays at place 2000 and repeated visits to places 328 and 622 suggest the user is likely to visit one of these locations next.
+63,2000,"[2000.0, 328.0, 622.0, 1604.0, 119.0, 774.0, 293.0, 977.0, 437.0, 1.0]","Recent visits to places 2000 and 328, with a history of frequent visits on weekdays, suggest a likely visit to one of these places"
+63,328,"[1604.0, 977.0, 437.0, 774.0, 293.0, 119.0, 328.0, 622.0, 349.0, 2000.0]",predicting frequent places and locations visited around the same time
+63,2000,"[2000, 328, 622, 119, 293, 437, 774, 977, 1604, 456]",The user has a strong affinity for place ID 2000 and often visits places at 12:00 PM on weekdays.
+63,328,"[2000, 622, 328, 1604, 119, 774, 437, 977, 293, 1]",Recent behavior in context and historical patterns indicate frequent visits to places with IDs 2000 and 622
+63,159,"[2000, 328, 622, 1, 119, 456, 1604, 774, 437, 293]",Recent behavior in context and patterns in history favor places visited frequently during weekdays and at different times
+63,328,"[2000, 328, 622, 1604, 119, 349, 1, 774, 437, 293]","Based on the recent contextual information and user's historical stays, it is predicted that the next likely place ID is a repeated visit to places at certain times/days."
+63,1109,"[2000, 622.0, 328.0, 1604.0, 119.0, 977.0, 774.0, 437.0, 293.0, 456.0]",The user has a strong preference for visiting the same places on certain days and at specific times.
+63,43,"[2000.0, 328.0, 622.0, 119.0, 1604.0, 774.0, 293.0, 977.0, 437.0, 1109.0]",Recent visit to place 2000 and historical pattern of frequent visits to places 328 and 622
+63,293,"[1604, 119, 774, 977, 437, 293, 622, 456, 1, 349]","Recent behavior in the context suggests a strong likelihood of visiting place 2000 again, which is also a common destination in the user's history."
+63,1,"[2000.0, 328.0, 622.0, 119.0, 349.0, 1.0, 456.0, 1604.0, 774.0, 293.0]","Based on the user's historical stays and recent context, it is likely that the next location will be a frequent or recently visited place."
+63,1134,"[2000.0, 328.0, 622.0, 119.0, 1604.0, 774.0, 437.0, 977.0, 293.0, 43.0]",Recent visit to popular places (2000.0) and familiar places at similar times
+63,2000,"[2000, 328, 622, 1604, 437, 774, 119, 293, 977, 1109]",Recent frequent visits to place 2000 and considering patterns of daily routines
+63,622,"[2000.0, 328.0, 622.0, 1.0, 119.0, 437.0, 293.0, 774.0, 456.0, 977.0]",Recent visits to places at certain times/days and patterns in the user's historical stays suggest that the most likely next location is a familiar place where the user has stayed before.
+63,2000,"[2000.0, 328.0, 1.0, 622.0, 119.0, 774.0, 293.0, 437.0, 977.0, 1604.0]",recent behavior in context and historical patterns suggest frequent visits to specific places
+63,1604,"[2000, 328, 119, 1, 622, 774, 437, 293, 977, 1604]","Recent and historical patterns of visiting the same places at similar times/days, with a slight bias towards weekend and evening visits"
+63,622,"[2000, 328, 622, 119, 774, 456, 293, 977, 437, 1604]","Recent stays at 2000 and 622, with a history of visiting places on different days of the week, so it's likely to continue this pattern."
+63,2859,"[2000, 328, 622, 119, 774, 293, 437, 977, 1, 349]","Based on the user's historical stays and recent context, the next likely place ID is predicted to be places frequently visited during weekdays, especially at work hours (2000)"
+63,328,"[2000, 328, 622, 119, 293, 456, 774, 437, 977, 2859]",Recent behavior in context and historical pattern of frequent visits to place 2000
+63,328,"[2000.0, 328.0, 1604.0, 622.0, 119.0, 774.0, 437.0, 977.0, 293.0, 456.0]",Recent visits to places and days of the week indicate a high probability of returning to familiar locations
+63,2000,"[2000, 328, 1604, 622, 119, 774, 437, 977, 2859, 293]",Recent context suggests the user is likely to visit places they've been to recently
+63,328,"[2000, 328, 622, 1604, 774, 437, 293, 119, 1, 977]",recently visited places with high frequency
+63,2000,"[2000, 328, 622, 119, 1, 349, 437, 774, 977, 293]","Recent behavior in context suggests frequent visits to place 2000 and 328, with occasional stays at other places"
+63,2000,"[2000, 328, 119, 1, 622, 349, 437, 774, 293, 977]",recent and historical patterns of visiting place IDs 2000 and 328 suggest the next likely places to visit

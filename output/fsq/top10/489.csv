@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+489,1,"[7, 6, 4, 3, 8, 5, 2]","Based on the activity pattern of this user and recent context stays, I predicted that they are likely to visit places with similar characteristics (time and day) as their previous visits."
+489,933,"[7, 14, 11, 2, 10, 6, 15, 5]",The user's activity pattern and recent stays suggest that the next location will likely be a place they have visited before during the same day of the week.
+489,933,"[7, 10, 6, 11, 9, 8, 5]","The prediction is based on the user's historical activity pattern and recent context, considering temporal information of the target stay."
+489,319,"[7072, 7073, 7071, 7069, 7074, 7080, 7056, 7045, 7037, 7028]",repeated visits and temporal patterns

@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+526,374,"[2430, 1289, 2213, 2614, 3243, 2268, 1957, 1576, 746, 2213]",Recent behavior and historical patterns suggest a strong likelihood of visiting places with similar weekday and time distributions
+526,374,"[2430, 1289, 2213, 3243, 2268, 2614, 1576, 746, 1957, 2213]",Recent visits to place ID 2430 and 1289 suggest a higher likelihood of the user returning to these places.
+526,2430,"[2430, 2213, 1289, 2614, 3243, 1957, 2268, 1576, 746, 374]",Recent behavior suggests the user tends to visit familiar locations during weekdays
+526,1139,"[2430, 1289, 2614, 2213, 3243, 1957, 2268, 1576, 746, 374]",based on recent and historical patterns of regular visits to specific places at certain times/days
+526,1289,"[2430, 1289, 2213, 2614, 1576, 2268, 3243, 1957, 746, 374]","Predicted places are based on the user's recent frequent visits to work/school (place_id: 2430), home (place_id: 1289) and other regular locations"
+526,2213,"[2430, 1289, 2614, 2213, 3243, 1957, 2268, 1576, 746, 1139]",Recent behavior and historical patterns suggest frequent visits to home/work locations

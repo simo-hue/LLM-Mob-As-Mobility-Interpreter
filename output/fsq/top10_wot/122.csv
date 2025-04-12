@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+122,2064,"[2172, 2763, 2064, 2267, 538, 43, 371, 1739, 3737, 1743]",Recent behavior suggests frequent visits to places on Tuesday mornings and occasional visits to places like 2172 and 2267
+122,2763,"[2763.0, 2064.0, 2172.0, 2267.0, 371.0, 538.0, 43.0, 1743.0, 3737.0, 2075.0]",Recent visits to places 2763 and 2064 suggest a high likelihood of returning to these locations.
+122,1743,"[2763, 2064, 2172, 538, 371, 1743, 3737, 43, 2267, 2172]",Predicted based on user's consistent morning routine at work (place_id: 2763) and regular visits to home/neighborhood (place_id: 2064)
+122,2064,"[2763.0, 2064.0, 2172.0, 2267.0, 538.0, 43.0, 371.0, 2763.0, 1743.0, 2064.0]","Recent visits to place 2064 on Tuesdays and Wednesdays, also frequent stays at places 2763 and 2172, with recent visit in the context"
+122,2064,"[2763.0, 2172.0, 2064.0, 2267.0, 538.0, 43.0]",The user has a strong preference for visiting location 2064 on weekdays and has recently been to similar locations in the context
+122,2064,"[2064, 2763, 2172, 2267, 371, 538, 43, 1743, 2076.0, 2058.0]",The user tends to visit places around certain times/days and has recently been visiting place ID 2064
+122,2064,"[2064, 2763, 2172, 538, 43, 371, 2267, 1743, 1645, 1578]",Recent daily patterns and frequent places in the user's history suggest a high probability of revisiting one of their favorite locations.
+122,2064,"[2064, 2763, 2172, 538, 43, 371, 1743, 2267, 2758, 2076]",based on the user's historical stays and recent context

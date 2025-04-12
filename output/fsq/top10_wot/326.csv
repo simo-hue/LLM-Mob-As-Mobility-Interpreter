@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+326,159,"[1077, 875, 538, 537, 309, 157, 1, 2, 191, 612]",Pattern-based prediction incorporating recent behavior
+326,490,"[1671, 975, 1169, 1350, 2368, 279, 512, 612, 665, 2367]","Based on the user's historical activity patterns and recent behavior, we predict that they will likely visit places with IDs similar to those visited in the past, with a higher likelihood of visiting places frequently visited at night (e.g., 1671) or during weekdays (e.g., 1350)"
+326,731,"[1, 2, 875, 538, 537, 136, 159, 490, 1077, 975]","The user's recent behavior has shown a tendency to visit location 1 frequently, especially on Thursdays. Additionally, they have visited location 2 and 875 multiple times in the past."
+326,2513,"[1077, 875, 875, 538, 537, 1, 241, 136, 159, 490]",Recent visits and historical patterns suggest the user is likely to visit places with similar IDs
+326,1,"[1, 538, 537, 875, 1077, 1559, 2367, 1169, 1349, 1368]",Recent morning visits to a few specific places and historical patterns of evening stays at these locations
+326,684,"[159, 490, 731, 2513, 1, 538, 537, 309, 157, 1]","Recent behavior in context shows a strong likelihood of visiting place 159, and historical stays also suggest visits to similar places at this time"
+326,607,"[2757, 1349, 1378, 2166, 1232, 1331, 1363, 1340, 1355, 1324]",Prediction based on historical patterns of visiting places on similar days and times
+326,1083,"[2.0, 1077.0, 1379.0, 875.0, 538.0, 537.0, 1.0, 678.0, 975.0, 1550.0]","Recent behavior in <context> suggests the user is likely to visit a place they have visited recently, while historical pattern shows frequent visits at night on weekends."
+326,1,"[975, 678, 1169, 1349, 1550, 279, 2367, 1559, 2770, 1671]",Pattern of late-night stays and recent visits to similar places
+326,743,"[2368, 2770, 279, 1559, 1169, 1349, 1077, 975, 678, 875]","The user has a strong tendency to visit the same places at certain times and days, and recent behavior suggests they may be more likely to return to familiar locations."
+326,1304,"[191.0, 612.0, 665.0, 1550.0, 279.0, 54.0, 2.0, 1077.0, 875.0, 875.0]","Based on the user's past behavior and recent context, we predict that they are likely to visit one of their most frequently visited places."
+326,705,"[875, 538, 537, 309, 157, 1, 607, 1083, 743, 1304]",The prediction is based on the user's recent behavior in the context and their historical stays at certain times/days
+326,1129,"[1083, 743, 1304, 1, 705, 538, 537, 309, 157, 1]","Recent activity shows user tends to visit place 1083 on Wednesday mornings, so this is the most likely next location."

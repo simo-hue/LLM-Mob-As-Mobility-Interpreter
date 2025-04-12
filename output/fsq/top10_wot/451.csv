@@ -1,0 +1,16 @@
+user_id,ground_truth,prediction,reason
+451,1801,"[2314, 1530, 438, 1040, 3262, 374, 597, 237, 1145, 517]",Predicted based on the user's historical stays and recent contextual information
+451,1306,"[2314, 1530, 148, 597, 1040, 3262, 374, 237, 994, 1106]","Based on the user's historical stays and recent context, I predicted their next likely places as a combination of frequent destinations and those recently visited."
+451,500,"[1530, 2314, 1014, 148, 597, 237, 994, 437, 1145, 1901]",Based on historical patterns and recent behavior in context
+451,1863,"[1530, 2314, 994, 437, 1145, 177, 1901, 387, 245, 517]",Recent context suggests the user will likely visit a place they've visited frequently in the past.
+451,1422,"[1530, 2314, 1801, 1306, 437, 994, 1014, 517, 148, 237]",Predicted based on the user's recent and historical patterns of visiting places at similar times/days.
+451,1863,"[2314, 1530, 994, 437, 1145, 177, 1901, 387, 245, 1014]","Recent context suggests a possibility of returning to familiar places like 2314 and 1530, with a slight bias towards evening visits. Historical data shows a repeated pattern of visiting place 994 on Mondays, which is also supported by the current Monday night."
+451,1306,"[2314, 1530, 1863, 994, 517, 437, 1145, 1014, 3262, 374]","The prediction is based on the user's frequent visits to places with IDs 2314, 1530, and 1863, especially during the weekend"
+451,1863,"[2314, 1530, 994, 437, 1106, 1145, 177, 1014, 438, 517]",Recent behavior suggests a late-night or early morning visit to a location with similar characteristics as the previous locations.
+451,200,"[2314, 1530, 1863, 994, 437, 1145, 517, 148, 3262, 374]",based on recent patterns and visits
+451,1306,"[2314, 1530, 994, 1863, 1145, 437, 1106, 517, 148, 1040]",Recent contextual information and historical patterns suggest a likely visit to places previously visited around the same time/day.
+451,2637,"[2314, 1530, 994, 148, 237, 517, 3262, 374, 597, 297]",Recent visits to place ID 2314 at night and weekday stays are likely to continue.
+451,283,"[1106.0, 994.0, 1530.0, 2314.0, 1863.0, 148.0, 237.0, 296.0, 1306.0, 200.0]","Recent patterns of Sunday afternoon stays at places 1106 and 994, and recent behavior suggests similar behavior"
+451,1306,"[2314, 1530, 994, 3262, 374, 597, 237, 202, 285, 1106]","Recent visits to places like 2314 and 1530, as well as daily habits and routines"
+451,682,"[1306, 994, 1530, 2314, 517, 148, 200, 296, 3262, 374]",Recent behavior in context and patterns in history suggest user is likely to visit place IDs with recent frequency
+451,1306,"[994, 1530, 2314, 437, 517, 148, 1040, 296, 237, 3262]",Recent visits to place 994 and repeated patterns of visiting place 1530 at certain times/days

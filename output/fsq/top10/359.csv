@@ -1,0 +1,18 @@
+user_id,ground_truth,prediction,reason
+359,2344,"[2344, 1979, 12, 10, 9, 7]",The user's activity pattern suggests repeated visits to certain places during certain times.
+359,2344,"[1435, 1436, 1450, 1441, 1428]",The predicted places are based on the user's frequent visits during weekends and early morning hours.
+359,2344,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]","The predicted locations are based on the user's activity pattern in history and context, with a strong preference for places visited during similar times of day and weekdays."
+359,2344,"[2344, 3386, 2344, 2344, 2344, 2344, 2344, 2344, 2344, 2344]",based on user's activity pattern and recent stays
+359,2344,"[6, 5, 3, 2, 1]",The prediction is based on the user's frequent visits to places during certain times and days of the week.
+359,2344,"[2896, 2905, 2853, 2811, 2749, 2708, 2657, 2616, 2575, 2534]","The user's activity pattern shows a strong tendency to visit the same places at similar times on different days. The context suggests recent visits to these places, and the target stay is in line with this pattern."
+359,2344,"[1233, 1221, 1209, 1195, 1181, 1167, 1153, 1139, 1125, 1111]",based on the user's activity pattern and recent context
+359,2344,"[1, 2, 3, 6, 7, 8, 9, 10, 11, 12]",Predicted based on frequent weekday morning visits to nearby places
+359,2344,"[14, 10, 9, 8, 7, 5, 3, 2, 1, 0]","repeated visits to certain places during certain times, especially Thursday mornings"
+359,2344,"[1, 2, 3, 6, 5, 7, 4]","The user's activity pattern suggests frequent visits to places on weekdays, especially during morning hours. The recent context stays indicate that the user has been visiting place ID 1-7 recently."
+359,2344,"[1347, 1358, 1363, 1372, 1380, 1391, 1419, 1436, 1454, 1475]","The prediction is based on the user's activity pattern of repeated visits to certain places during certain times and weekdays, considering the temporal information of the target stay."
+359,2344,"[3, 1, 2, 6, 9, 5, 7, 8, 4]",predicting next location based on the user's repeated visits to certain places during certain times
+359,2344,"[2345, 2346, 2347, 2349, 2350, 2351, 2352, 2353, 2354, 2355]",The prediction is based on the user's regular morning routine and recent activity pattern.
+359,2344,"[2, 3, 1, 6, 5, 7]",Predicted places are the most visited ones during Thursday mornings based on user's historical activity pattern and recent context.
+359,2344,"[2, 3, 1, 5, 6, 7, 8, 9, 10, 4]","Based on the user's activity pattern and recent context, I predicted their next location as one of their frequently visited places, considering day of the week and time of stay."
+359,2344,"[17, 15, 13, 12, 10]","The prediction is based on the user's activity pattern and recent context, considering their regular morning stays and possible variations due to day of the week."
+359,2344,"[6, 10, 15, 18, 11, 7, 14, 12, 8, 5]",based on the user's activity pattern of repeated visits to certain places during certain times and recent activities in the context

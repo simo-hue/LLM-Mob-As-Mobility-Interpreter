@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+462,3171,"[12, 11, 10, 9, 8, 7, 6, 5, 4, 3]","Based on the user's activity pattern and recent context, it is likely that they will visit a familiar location during their typical day, with Tuesday being the most probable day."
+462,2885,"[6, 11, 3, 4, 9, 10, 2, 5, 7, 8]","The predicted places are based on the user's historical activity pattern and recent context stays. The target stay is during a weekday afternoon, which suggests the user might visit similar locations as previously experienced."
+462,943,"[6, 4, 3, 8, 2, 10, 9, 1, 7, 5]","The target stay's temporal information is similar to the context stays' and history shows frequent visits to place IDs 1, 2, 3, 4, 6, 7, 8, 9 and 10 on Sundays."
+462,3171,"[7, 9, 10, 12, 14, 5, 11, 6, 8, 4]",repeated visits to certain places during certain times and considering the context stays
+462,943,"[12, 6, 7, 3, 9, 11, 8, 4, 5, 10]","Based on the user's activity pattern and recent context stays, the top 10 most likely places to visit next are the ones this user has previously visited during similar times of the day and week."
+462,420,"[6, 3, 7, 4, 5, 8, 9, 10, 1, 2]","The prediction is based on the user's activity pattern and recent context. The target stay is on Wednesday evening, which matches one of the recent stays in the context. The user tends to visit places 6 and 3 frequently, especially during weekdays. Place 7 is also a popular destination, but mostly visited during weekends. Places 4, 5, and 8 are occasional destinations. Places 9, 10, 1, and 2 are less frequent."
+462,3171,"[3171, 3042, 943, 420, 2885, 504]","The prediction is based on the user's activity pattern and recent activities in context, considering time of day and weekday."

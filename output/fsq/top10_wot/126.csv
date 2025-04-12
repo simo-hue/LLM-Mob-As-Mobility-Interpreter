@@ -1,0 +1,12 @@
+user_id,ground_truth,prediction,reason
+126,923,"[1094, 1181, 3121, 386, 116, 2063, 304, 1126, 1253, 775]","The model predicts the next likely place based on the user's historical stays and recent context, considering patterns of repeated visits at certain times/days."
+126,304,"[923.0, 561.0, 711.0, 3121.0, 1181.0, 386.0, 116.0, 2063.0, 1126.0, 1016.0]",Pattern-based prediction incorporating recent behavior
+126,923,"[923, 561, 775, 985, 1, 57, 10, 1253, 1094, 3618]",Recent pattern of frequent visits to place ID 923 and surrounding places
+126,694,"[1094, 1181, 2063, 3121, 3618, 386, 711, 775, 985, 1253]","The user has a regular pattern of staying at the same places on certain days, and recent behavior suggests they might go to their usual Monday or Thursday spot."
+126,923,"[923, 561, 1181, 3121, 711, 1094, 3618, 386, 116, 2063]",Recent visits to 694 and historical patterns of visiting places at certain times/days
+126,694,"[923, 561, 1181, 386, 116, 2063, 3121, 1094, 3618, 1253]",The user has a strong preference for place 923 on weekdays and recent behavior suggests they may visit this location again.
+126,711,"[1094, 1181, 923, 3121, 1253, 775, 561, 3618, 386, 116]",Recent visits to place 694 and previous visits to places on Wednesday and Thursday
+126,1150,"[923.0, 561.0, 1253.0, 923.0, 1094.0, 1181.0, 3121.0, 694.0, 116.0, 2063.0]","The user has a strong pattern of visiting places at similar times and days, with recent visits to place_id 923 and 694, which are the top two most visited places in their history."
+126,1156,"[923, 561, 7711, 2063, 116, 3121, 1181, 1094, 3618, 1253]",Recent pattern of frequent visits to place 923 on Mondays and Thursdays
+126,3513,"[1082, 1094, 3618, 1181, 116, 2063, 3121, 386, 1253, 771]",predicting based on historical patterns and recent contextual information
+126,3751,"[1094, 3121, 386, 1181, 116, 561, 1253, 3618, 2063, 1294]",Pattern recognition of recent stays and contextual information

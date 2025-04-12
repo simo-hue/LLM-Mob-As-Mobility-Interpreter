@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+2,1372,"[1372, 1082, 638, 1019, 939, 1295, 3084, 3601, 1404, 1018]","Based on the user's historical stays and recent behavior, we predict they will visit a location similar to their most frequent destinations (1372, 1082, and 638) with a slight bias towards evening visits on weekends or weekdays."
+2,638,"[1372, 1082, 1019, 3084, 638, 939, 3601, 1295, 1404, 1018]","Recent contextual information shows frequent visits to place ID 1372, while historical pattern suggests a balance of other places"
+2,638,"[1404, 1082, 1019, 3084, 3601, 637.0, 1295.0, 939.0, 638.0, 1372.0]",predicted places based on the user's recent and past activity patterns
+2,3084,"[1372, 1082, 638, 1019, 3601, 939, 1295, 3084, 1404, 1018]","Recent visits to places at similar times and days in the context, with a strong pattern of visiting place 1372 on Fridays"
+2,1019,"[1372, 1082, 638, 1019, 939, 3601, 1295, 1404, 3084, 1018]",Recent behavior in context and patterns in history suggest the user is likely to visit places they have visited before during similar times of day
+2,3084,"[1372, 1082, 638, 939, 1018, 3084, 3601, 1295, 1404, 1019]",Recent visits to places at certain times/days and repeated patterns in the user's history

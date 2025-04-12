@@ -1,0 +1,11 @@
+user_id,ground_truth,prediction,reason
+291,1091,"[3741, 1625, 1576, 1191, 503, 722, 2577, 248, 1, 722]","Based on user's historical stays and recent behavior in context, the most likely places are those visited frequently or recently."
+291,1040,"[3741, 1576, 1625, 1191, 503, 722, 2577, 248, 1091, 1]","Based on user's historical stays and recent contextual information, the most likely places are those frequently visited by the user"
+291,1091,"[3741, 1625, 1576, 1191, 503, 722, 2577, 248, 1091, 1040]",Recent and historical behavior suggests the user is likely to visit places they've visited before at similar times/days.
+291,1289,"[3741, 2577, 1191, 503, 722, 248, 1, 1091, 1040, 1576]","The user's history shows repeated visits to place 3741 at various times and days, while recent behavior in context suggests a visit to this place is likely"
+291,1625,"[3741.0, 1091.0, 1576.0, 1625.0, 722.0, 1191.0, 503.0, 248.0, 2577.0, 1289.0]","Based on the user's historical stays and recent behavior, it is likely that they will visit a location similar to their previous frequent destinations."
+291,3741,"[3741, 1625, 1576, 1191, 503, 722, 2577, 248, 1091, 1040]",based on historical patterns and recent behavior
+291,3741,"[3741, 1625, 1576, 1191, 503, 722, 248, 2577, 1289, 1091]",Recent visits to place 3741 and historical patterns suggest this is the next likely location.
+291,3741,"[3741, 1625, 1576, 1191, 503, 722, 2577, 248, 1091, 1289]","Based on the user's historical stays and recent context, I predict that they will visit place ID 3741 again, as it is their most frequent location."
+291,3741,"[3741, 1625, 2577, 1191, 722, 503, 248, 1576, 1289, 1]",based on frequent visits to place 3741 and recent stays at this location
+291,3741,"[3741.0, 1625.0, 1576.0, 722.0, 2577.0, 248.0, 503.0, 1191.0, 1.0, 3741.0]",recent repeated visits to place_id 3741 and considering historical patterns

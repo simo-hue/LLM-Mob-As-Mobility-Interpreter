@@ -1,0 +1,132 @@
+user_id,ground_truth,prediction,reason
+41,1,"[2856.0, 3136.0, 2871.0, 3289.0, 3545.0, 1759.0, 1200.0, 3612.0, 3439.0, 2897.0]",The user tends to visit the same places at similar times and days
+41,1,"[2856.0, 3136.0, 249.0, 1200.0, 1759.0, 2871.0, 3439.0, 3612.0, 1289.0, 885.0]","Based on the user's recent behavior and historical patterns, I predict they will likely visit one of their frequently visited places."
+41,1,"[2856.0, 3136.0, 2871.0, 3289.0, 3439.0, 1992.0, 3612.0, 1289.0, 1759.0, 885.0]",recent behavior in <context> and historical patterns
+41,3760,"[2856, 3136, 3289, 3439, 2871, 1759, 1992, 3612, 1289, 885]",Recent behavior in context suggests returning to previously visited places on Sundays and Mondays
+41,1098,"[2856.0, 3136.0, 3289.0, 3439.0, 2871.0, 1759.0, 1992.0, 3612.0, 1289.0, 885.0]",prediction based on recent repeated visits and patterns in history
+41,1759,"[2856.0, 3136.0, 3289.0, 3439.0, 2871.0, 1759.0, 3612.0, 1289.0, 885.0, 1098.0]","Based on the user's activity pattern of frequent visits to places with IDs 2856, 3136, 3289, and 3439, as well as recent behavior in <context>, which shows a sequence of similar locations at around 11:47 AM, I predict that the next likely place is one of these familiar spots."
+41,3007,"[2856.0, 3136.0, 3289.0, 3439.0, 2871.0, 2897.0, 1992.0, 3612.0, 1759.0, 1289.0]",Recent and historical patterns show frequent visits to these places during similar times of the day
+41,3027,"[2856.0, 3136.0, 3289.0, 2871.0, 1098.0, 3439.0, 3612.0, 1289.0, 3125.0, 3144.0]",Predicted based on recent repeated visits to places at similar times
+41,3136,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 1098.0, 3760.0]",Prediction based on user's historical activity pattern and recent context
+41,3469,"[1098, 2856, 1759, 2871, 3289, 3136, 3612, 1992, 832, 1289]",based on historical patterns and recent behavior
+41,3289,"[2856, 3136, 3289, 2871, 1759, 3007, 3027, 3136, 3469, 3612]","Recent behavior shows consistent visits to places at similar times on Mondays and Tuesdays, while historical data suggests regular occurrences of stays in the evening."
+41,3439,"[3289, 2856, 3136, 2871, 1759, 3439, 3612, 1289, 1992, 1098]",Pattern analysis from historical stays and recent context
+41,1,"[2856.0, 3136.0, 3289.0, 3439.0, 2871.0, 2897.0, 1992.0, 3612.0, 1289.0, 885.0]","Based on the user's activity pattern and recent behavior, the most likely next places are a mix of frequent visited locations and those with high probability in recent days."
+41,1,"[2856, 3136, 3290, 2871, 1992, 1289, 3288, 3545, 1200, 1759]",Pattern analysis of historical stays and recent context
+41,3760,"[2856, 3136, 3289, 2871, 3612, 2897, 3128, 3545, 3439, 1759]",Recent visits to places at similar times and days in the context and historical stays suggest a likelihood of returning to familiar locations.
+41,1,"[2856.0, 3136.0, 3289.0, 3439.0, 2871.0, 1759.0, 3612.0, 1289.0, 885.0, 249.0]",predicted places are the most frequent and recent visits in the user's history
+41,1,"[3289, 3136, 2856, 2871, 3439, 1759, 3612, 249, 1289, 1098]",Recent behavior and historical patterns suggest a return to the usual weekly routines
+41,1,"[2856, 3136, 3289, 2871, 3439, 1759, 3612, 1289, 885, 1992]",Recent and historical visits to these locations at similar times
+41,2211,"[2856.0, 3136.0, 3289.0, 2871.0, 3545.0, 1200.0, 1759.0, 3612.0, 1289.0, 885.0]",Predicted based on user's historical stays and recent contextual information
+41,1,"[2856, 3136, 3289, 2871, 1759, 3612, 1992, 1289, 3127, 3293]","Recent visits to places on Monday and Wednesday, similar time of day and day of week as previous stays"
+41,3760,"[2856, 3136, 3289, 2871, 1759, 2897, 3612, 1289, 3439, 1098]",recent visits to places at certain times/days and patterns in the user's historical stays
+41,3812,"[2856.0, 3136.0, 3289.0, 2871.0, 3439.0, 1759.0, 1289.0, 1992.0, 3612.0, 2897.0]",next likely places based on recent patterns and stays
+41,1,"[2856, 3136, 3289, 2871, 2897, 1992, 3612, 1289, 1759, 885]",recent frequent visits to places and time of day
+41,1,"[3289, 3136, 2856, 2871, 3439, 3612, 1759, 1992, 1289, 885]",Recent contextual information shows the user is likely to visit places that are visited on weekends and near the end of these stays
+41,3760,"[2856.0, 3136.0, 3289.0, 3439.0, 2871.0, 1759.0, 3612.0, 1289.0, 885.0, 249.0]",The user typically visits places on Sunday and Saturday afternoons; recent behavior indicates a high probability of visiting these places
+41,249,"[2856, 3136, 3289, 3439, 2871, 1759, 1992, 3612, 1289, 885]",Recent visits to the same places and similar days of week in both history and context
+41,1,"[3289, 3136, 2856, 2871, 3545, 3612, 3439, 1289, 1759, 2897]",based on the user's historical pattern of frequent visits to places on Sundays and weekdays
+41,1,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 3612.0, 1289.0, 3439.0, 1992.0, 832.0]","Based on the user's historical stays and recent behavior, I predict they will visit one of their most frequent locations, likely a work or home place."
+41,3136,"[2856, 3136, 1289, 2871, 3289, 2897, 1992, 3612, 3545, 1200]","Based on historical stays and recent context, the user is likely to visit places they have visited before, especially on Sundays"
+41,3545,"[2856.0, 3760.0, 3289.0, 3136.0, 2897.0, 2871.0, 1759.0, 3439.0, 3612.0, 1289.0]","Recent behavior suggests a tendency to visit places on Sundays and Mondays, with a strong preference for places visited previously"
+41,3289,"[3136.0, 2856.0, 3289.0, 3545.0, 2871.0, 3439.0, 1759.0, 1289.0, 3612.0, 1992.0]",Recent visits to these places and their occurrence in the user's history
+41,2031,"[2856.0, 3136.0, 3289.0, 2871.0, 1992.0, 3612.0, 1289.0, 1759.0, 885.0, 1098.0]","Recent visits to places on weekends and days off from work, along with frequent visits to home/work locations"
+41,1992,"[2856.0, 3136.0, 1289.0, 2871.0, 3289.0, 3545.0, 3439.0, 1759.0, 3612.0, 885.0]",Next likely places are based on recent patterns and frequent visits
+41,1,"[2856.0, 3136.0, 3289.0, 3545.0, 2871.0, 3439.0, 1759.0, 2897.0, 3612.0]",The user tends to visit places at similar times of the day and has a strong pattern of revisiting previous locations.
+41,3439,"[2871, 2856, 3289, 3545, 3136, 1759, 1289, 3439, 2897, 1098]",Recent repeated visits to these places in the context
+41,1759,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 1992.0, 3760.0, 3612.0, 1289.0, 885.0]","The user typically visits places at similar times of the day and on similar days of the week, with a recent focus on visits to place ID 2856.0."
+41,2871,"[3289, 3136, 2856, 2871, 1992, 3439, 3612, 1289, 2897, 3545]",Based on historical patterns of frequent visits to these places and the recent behavior of visiting place 1992 on Tuesday
+41,2211,"[2856.0, 3136.0, 3289.0, 2871.0, 1765.0, 249.0, 1098.0, 3439.0, 832.0, 1992.0]",Recent visits to familiar places and same-day patterns
+41,2871,"[2856.0, 3136.0, 3289.0, 3439.0, 2871.0, 1759.0, 1289.0, 3760.0, 3612.0, 1992.0]",Recent visit to the same places as in the past
+41,1,"[2856, 3136, 3289, 3439, 3760, 1759, 2897, 1992, 1289, 2211]","Recent behavior in the context indicates a strong likelihood of visiting places visited during the week, with a slight bias towards the places visited on Wednesday and Thursday."
+41,3289,"[3289, 3136, 2856, 2871, 1759, 3439, 3612, 1289, 1098, 1992]",Recent patterns in stays and context suggest frequent visits to these places
+41,586,"[2856.0, 3136.0, 3289.0, 2871.0, 3545.0, 1200.0, 1759.0, 2897.0, 1992.0, 1289.0]",Recently frequent places and places visited at similar times/days
+41,1,"[2856.0, 3136.0, 2871.0, 3289.0, 3545.0, 1200.0, 1759.0, 3439.0, 2897.0, 1992.0]",Recent behavior and historical patterns suggest frequent visits to work or home locations
+41,1,"[2856, 3136, 2871, 1289, 3289, 3439, 3612, 1759, 885, 1992]",Next likely places based on patterns in the user's historical stays and recent contextual information
+41,1,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 3439.0, 3612.0, 1992.0, 1098.0, 1289.0]",Recent behavior indicates frequent visits to these places on Fridays and Sundays
+41,2605,"[3289, 3136, 2856, 2871, 3612, 3439, 2897, 1759, 1992, 1289]","Recent behavior suggests a strong affinity for places visited on Friday and Saturday, with the top prediction being the most frequently visited place during these days"
+41,1,"[2856.0, 3136.0, 2871.0, 3289.0, 3545.0, 1200.0, 1759.0, 3612.0, 1289.0, 885.0]","The predicted places are based on the user's historical stays and recent contextual information, considering patterns of repeated visits at certain times and days."
+41,1,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 3612.0, 1289.0, 3439.0, 1992.0, 885.0]",Most recent places visited and timing suggest likely return to familiar locations
+41,1,"[2856.0, 3136.0, 3289.0, 3439.0, 2871.0, 1759.0, 1289.0, 885.0, 1992.0, 832.0]",Recent visits to home/work places and common visitation patterns
+41,3545,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0]","Based on historical patterns and recent behavior, the most likely next place ID is one of the frequently visited places (e.g., 2856.0, 3136.0)"
+41,3469,"[3612, 3289, 3136, 2856, 2871, 3439, 1992, 1289, 1759, 885]",Recent patterns of repeated visits and current context suggest similar locations on Monday
+41,1759,"[2856.0, 3136.0, 249.0, 1200.0, 1759.0, 3289.0, 2871.0, 3612.0, 1289.0, 885.0]","Recent behavior suggests frequent visits to places 2856 and 3136, with some likelihood of revisiting other familiar locations."
+41,296,"[3289.0, 3136.0, 2856.0, 2871.0, 3545.0, 3612.0, 1289.0, 3469.0, 1759.0, 1992.0]","Recent context shows frequent visits to places with IDs in the predicted list on Sundays and Mondays, while historical pattern suggests repeated visits to some of these places at certain times."
+41,3007,"[2856.0, 3136.0, 3289.0, 3439.0, 2871.0, 1992.0, 3612.0, 1289.0, 1759.0, 885.0]",based on previous patterns and recent behavior
+41,3136,"[2856, 3136, 3289, 2871, 3439, 1759, 3612, 1289, 1992, 885]",Recent pattern of visiting place 2856 in the afternoon and considering other frequent places like 3136 and 3289
+41,249,"[2856.0, 3136.0, 1759.0, 3289.0, 2871.0, 2897.0, 3612.0, 1289.0, 3439.0, 3760.0]",predicting next likely places based on user's historical stay patterns and recent behavior
+41,1,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 3612.0, 1289.0, 3439.0, 3760.0, 885.0]",prediction based on repeated visits to places at certain times/days and recent behavior
+41,1,"[2856.0, 3136.0, 2871.0, 1289.0, 3289.0, 3439.0, 1759.0, 2897.0, 3612.0, 1098.0]",Recent activity pattern and historical data suggest frequent visits to these places on weekdays
+41,3760,"[2856.0, 3136.0, 1289.0, 3289.0, 2871.0, 3439.0, 1992.0, 3612.0, 1759.0, 885.0]","Recent visits to these places on weekends and weekdays, respectively."
+41,1098,"[2856.0, 3136.0, 249.0, 3289.0, 2871.0, 1200.0, 1759.0, 1992.0, 3612.0, 1289.0]",Recent behavior and historical patterns indicate frequent visits to these locations
+41,1407,"[2856.0, 3136.0, 3289.0, 3439.0, 2871.0, 1759.0, 3612.0, 1289.0, 1098.0, 1992.0]",Recent behavior in <context> and patterns in <history> suggest likely places to visit based on day of the week and time.
+41,3136,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 3612.0, 1289.0, 3439.0, 1992.0, 1098.0]",The user has shown a pattern of frequent visits to these places at certain times/days.
+41,3545,"[2856.0, 3136.0, 2871.0, 3289.0, 3439.0, 1759.0, 1098.0, 3612.0, 1289.0, 885.0]","Based on the user's historical stays and recent context, the top 10 likely places are predicted to be the most frequently visited or recently stayed locations."
+41,3469,"[2856.0, 3136.0, 3289.0, 3439.0, 2871.0, 1759.0, 3612.0, 1289.0, 885.0, 1992.0]","Recent frequent visits to places at similar times and days, combined with historical patterns of regular returns"
+41,3289,"[3289, 2856, 3128, 3136, 3545, 2871, 1992, 1289, 3612, 1098]",Prediction based on recent contextual information and historical stay patterns.
+41,3439,"[2856.0, 3136.0, 3289.0, 2871.0, 3545.0, 1759.0, 3612.0, 3439.0, 1289.0, 885.0]","the user tends to visit places at certain times and days based on their historical stays, and has recently visited similar locations"
+41,2856,"[2856.0, 3136.0, 3289.0, 2897.0, 2871.0, 3545.0, 3439.0, 1992.0, 3612.0, 1289.0]",Recent behavior and historical pattern suggest the user is likely to revisit a familiar location
+41,115,"[2856.0, 3136.0, 3289.0, 3439.0, 3545.0, 2871.0, 1759.0, 3612.0, 2897.0, 1992.0]","Based on the user's historical stays and recent behavior, the predicted next place is likely to be a location where they have spent time previously, possibly on weekdays."
+41,1,"[2856, 3136, 3289, 3439, 2871, 1992, 1759, 1289, 3612, 2897]",Patterned behavior and recent visits
+41,1,"[3289, 3136, 2856, 3439, 2871, 1759, 3612, 1289, 1992, 832]",Predicted based on the user's historical stays and recent context
+41,3760,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 3612.0, 3439.0, 1289.0, 885.0, 115.0]",Recent visits to places at similar times/days and repeated patterns in historical stays
+41,1098,"[2856, 3136, 3289, 2871, 3439, 1759, 3612, 1289, 2897, 1992]",Recent visit to a place and historical pattern of daily commute
+41,3007,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 3612.0, 3439.0, 1289.0, 885.0, 1992.0]",prediction based on recent activity and historical patterns
+41,1759,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 1098.0, 3760.0, 3612.0, 1289.0, 885.0]","Recent behavior suggests frequent visits to places with IDs 2856, 3136, and 3289"
+41,3469,"[2856.0, 3136.0, 3289.0, 2871.0, 1992.0]","Based on the user's historical stays and recent context, it is likely that the next place visited will be a familiar location with frequent visits during weekdays, especially in the late afternoon/early evening."
+41,1528,"[2856.0, 3136.0, 3289.0, 3439.0, 2871.0, 1759.0, 3612.0, 1289.0, 2897.0, 1992.0]",The user's recent behavior suggests a preference for places they have visited previously during similar times of the week.
+41,3136,"[2856, 3136, 3289, 2871, 3439, 1759, 1098, 3612, 1289, 885]",Pattern analysis of historical stays and recent behavior in context
+41,3289,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 3612.0, 1289.0, 3007.0, 1528.0, 1098.0]",Based on the historical pattern of repeated visits to certain places at specific times/days and recent behavior in the context
+41,339,"[2856, 3136, 3289, 2871, 1759, 3612, 3118, 3439, 1289, 1098]","The user has a pattern of visiting these locations on specific days and times in their history, which is repeated in the recent context."
+41,946,"[2856, 3136, 3289, 2871, 1992, 1759, 3612, 1289, 885, 1098]",Recent stays at similar times and days suggest user is likely to return to familiar locations.
+41,1,"[2871, 3136, 3289, 2856, 1992, 3612, 1289, 1098, 3439, 1759]","Recent frequent visits to places with IDs 2871, 3136 and 3289 suggest a high likelihood of returning to these locations"
+41,1,"[2856, 3136, 1289, 2871, 3289, 3439, 3612, 1992, 2850, 1098]","The user has previously stayed in these places at similar times and days of the week, with recent behavior suggesting they are likely to return to familiar locations."
+41,1,"[3289, 3136, 2856, 2871, 3612, 3545, 1200, 1992, 1098, 1289]",recent stay at location 3289 and historical stays at similar times/days
+41,1,"[3612.0, 3289.0, 3136.0, 2871.0, 2856.0, 1992.0, 1289.0, 1098.0, 936.0, 832.0]","The prediction is based on the user's historical stay patterns and recent behavior, suggesting a return to frequently visited places on Sundays."
+41,1,"[2871, 3136, 2856, 3289, 3545, 1200, 1759, 3612, 1289, 1098]",Recent weekend stays at similar times and places suggest a likely return to these locations
+41,3760,"[2856, 3136, 3289, 2871, 1098, 3439, 3612, 1289, 885, 1759]","The user tends to visit the same places at similar times and days, with a recent pattern of visiting place ID 2856 on Sundays."
+41,1,"[2856, 3136, 3289, 2871, 1759, 3612, 1289, 3439, 1992, 1098]",Recent stays at similar places and times suggest a high likelihood of returning to familiar locations.
+41,1,"[2856.0, 3136.0, 1289.0, 2871.0, 3289.0, 3439.0, 3612.0, 1992.0, 832.0, 1098.0]","Based on the user's historical stays and recent behavior in context, the next likely places are those that have been frequently visited at similar times or days, with a focus on the most recently visited place (3760.0)"
+41,3760,"[2856.0, 3136.0, 2871.0, 1289.0, 3289.0, 3439.0, 1992.0, 3612.0, 1098.0, 832.0]",recent frequent visits to these places
+41,1,"[2856.0, 3136.0, 3289.0, 2871.0, 3439.0, 3612.0, 1289.0, 1759.0, 885.0, 1992.0]",The user typically visits these places on weekends and recently spent time at home (place ID 1)
+41,2211,"[2856.0, 3136.0, 3612.0, 3289.0, 2871.0, 3439.0, 1759.0, 2897.0]","Recent stay at place 3760 and consistent visits to places 2856, 3136 and others"
+41,3687,"[2856, 3136, 3289, 2871, 1759, 3760, 3439, 3612, 1289, 885]",Recent visits to similar places on Sundays and frequent stays at these places suggest the user will likely visit one of their favorite locations
+41,3493,"[2856.0, 3136.0, 2871.0, 3289.0, 3439.0, 1759.0, 3760.0, 1992.0, 3612.0, 1289.0]",recent behavior suggests frequent visits to these places at similar times
+41,249,"[3760, 2856, 3136, 3289, 3439, 2871, 1759, 1289, 3612, 3545]",Recent patterns of repeated visits to places at certain times/days and the user's current behavior
+41,1,"[3289, 3136, 2856, 2871, 3439, 1098, 1992, 1289, 1280, 1200]","Based on the historical stays and recent context, the predicted places are likely to be visited next due to repeated visits and proximity in time"
+41,2211,"[2856.0, 3136.0, 2871.0, 3289.0, 1759.0, 3439.0, 249.0, 3612.0, 1289.0, 885.0]",Recent daily patterns and frequent visits to places at certain times
+41,1,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 3760.0, 3612.0, 1289.0, 3439.0, 3493.0]","Based on the historical stays, the user tends to visit familiar places at similar times and days, with recent behavior indicating a higher likelihood of visiting places from their last few stays."
+41,1,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 249.0, 1098.0, 3439.0, 1992.0, 3612.0]",prediction based on user's activity pattern in historical stays and recent contextual information
+41,3760,"[2856.0, 3136.0, 3289.0, 2871.0, 3439.0, 249.0, 1759.0, 1289.0, 885.0, 1992.0]",next location based on the user's historical stays and recent behavior
+41,1,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 1.0, 3760.0, 3612.0, 1289.0, 885.0]","Based on the user's historical stays and recent context, we predict that the next likely place ID is one of their frequently visited places at similar times/days."
+41,2589,"[2211, 2871, 3136, 2856, 3289, 1767.0, 1992.0, 3612.0, 1289.0, 885.0]",The prediction is based on the recent contextual information and patterns in the user's historical stays. The most likely places are those visited recently or frequently during similar days of the week.
+41,1,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 2897.0, 3612.0, 1289.0, 3439.0, 1992.0]",Recent visits to places at the same time/days in both history and context
+41,1992,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 2856.0, 3612.0, 1289.0, 3439.0, 1098.0]",Next likely place is based on recent patterns and frequent visits.
+41,1,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 3612.0, 1289.0, 3439.0, 3760.0, 1992.0]","The user tends to visit the same places at similar times and days, with recent behavior suggesting a likely return to previously visited locations."
+41,1,"[2856.0, 3136.0, 2871.0, 3289.0, 3439.0, 1760.0, 1289.0, 1992.0, 2589.0, 3612.0]",Recent and historical frequent visits to these places
+41,1,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 2897.0, 1992.0, 3612.0, 3439.0, 1289.0]",The user tends to visit similar places at the same time of day and has recently been frequenting these locations.
+41,3817,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 3439.0, 3612.0, 1289.0, 885.0, 1992.0]","The user's historical pattern suggests frequent visits to places with IDs 2856.0, 3136.0, and 3289.0 on Sundays and Mondays. The recent context also indicates a visit to place 1.0 on Monday, which increases the likelihood of similar locations being visited next."
+41,2856,"[3136.0, 3289.0, 2856.0, 2897.0, 1992.0, 3760.0, 1759.0, 3612.0, 1289.0, 3439.0]",based on historical patterns and recent behavior
+41,1,"[3136.0, 3289.0, 2856.0, 249.0, 1759.0, 2871.0, 3612.0, 1289.0, 1098.0, 3439.0]","Recent behavior in the context suggests a high likelihood of returning to places visited on Tuesday and Wednesday, with a strong preference for place 2856."
+41,1,"[2856.0, 3136.0, 3289.0, 3439.0, 2871.0, 1759.0, 1289.0, 3817.0, 249.0, 3612.0]",Next likely places are based on recent patterns of the user in both history and context
+41,3760,"[3136.0, 3289.0, 2871.0, 1759.0, 2856.0, 3612.0, 1289.0, 3439.0, 249.0, 1098.0]",Recent behavior and patterns in the user's activity suggest they will visit a place they have been to before at around this time of day.
+41,1,"[2856.0, 3136.0, 3289.0, 3439.0, 2871.0, 1759.0, 3612.0, 1289.0, 885.0, 3817.0]",next location likely to be one of the most frequently visited places based on historical pattern and recent behavior in context
+41,1,"[2856, 3289, 3136, 2871, 1759, 1098, 3439, 3612, 1289, 885]",The user tends to visit the same places at similar times and days
+41,1,None,Invalid JSON format from model
+41,1098,"[2856.0, 3136.0, 3289.0, 2871.0, 1759.0, 1289.0, 3612.0, 2897.0, 1992.0, 1098.0]",based on repeated visits to places at certain times/days in the history and recent behavior in context
+41,3439,"[3760, 2856, 3136, 3289, 3439, 2871, 1759, 3612, 1289, 885]",Recent visits to places in context and patterns of repeated visits in history suggest frequent stays at these locations
+41,2811,"[2856, 3136, 3289, 2871, 1759, 1197, 3612, 1992, 1098, 843]","Based on historical stays and recent behavior in the context, I predicted the user is likely to visit places they have visited before at similar times of day."
+41,1759,"[2856.0, 3136.0, 3289.0, 3439.0, 2871.0, 1759.0, 1098.0, 832.0, 1992.0, 3612.0]",Recent visits and patterns in history suggest the user is likely to visit a place they've visited before at a similar time of day.
+41,1,"[3289, 3136, 2856, 2871, 3545, 3439, 1992, 1289, 3612, 1098]",Recent visit to places at morning and afternoon hours
+41,3545,"[3289, 3136, 2856, 2871, 3439, 3545, 2897, 1992, 1289, 1098]",recently visited places and time of day
+41,2811,"[2856.0, 3136.0, 1289.0, 3289.0, 3439.0, 2871.0, 1759.0, 3612.0, 1992.0, 832.0]",Recent visits to Monday places and Friday places
+41,3289,"[3289, 3136, 2811, 2871, 1759, 2856, 3554, 249, 832, 3612]",Recent visits to work and previous routine of frequent stays in similar places on weekends suggest a likely return to these locations.
+41,3469,"[2871, 1759, 3136, 2856, 3612, 1289, 3439, 3289, 3545, 2897]",Recent behavior suggests a visit to the most frequently visited places and those recently visited
+41,1269,"[2856.0, 3136.0, 3289.0, 3545.0, 2871.0, 1289.0, 1759.0, 3612.0, 2897.0, 1098.0]",Recent visits to places and patterns in history
+41,1463,"[3545, 2811, 3289, 2856, 3136, 3439, 2897, 3612, 1289, 2871]",Recent pattern of visits on Friday and recent visit to place 3289
+41,909,"[1200, 1759, 2856, 3136, 3289, 3439, 3612, 3760, 1992, 1289]","based on historical patterns of frequent visits to certain places at specific times/days, with recent behavior in context favoring these locations"
+41,249,"[2856, 3136, 3289, 3439, 2871, 1098, 1992, 1289, 1759, 3612]","The user has a strong tendency to visit the same places at similar times and days, with recent behavior indicating a higher likelihood of visiting place IDs from their historical stays."
+41,1,"[3289, 3136, 2856, 2871, 3612, 3545, 1759, 1269, 1289, 909]","Recent context suggests a high likelihood of visiting places visited on Friday or Saturday, and historical data shows a strong pattern of returning to previously visited locations"
+41,1,"[2856.0, 3136.0, 3289.0, 3439.0, 2871.0, 1759.0, 3612.0, 1289.0, 2850.0, 249.0]",Recent stays and pattern in history suggest likely places
+41,1,"[2871, 3289, 3136, 2856, 1759, 3439, 249, 1992, 1289, 1098]",Recent behavior and historical patterns suggest a continued preference for places visited during weekdays
+41,3760,"[3289.0, 3136.0, 2856.0, 2871.0, 3545.0]",Recent behavior and historical patterns suggest frequent visits to specific locations at certain times/days

@@ -1,0 +1,11 @@
+user_id,ground_truth,prediction,reason
+199,2218,"[923, 1126, 579, 342, 711, 685, 786, 145, 425, 413]","The user has a strong tendency to visit place 923 on Mondays and Fridays, and also visits places 1126, 579, 342, 711, 685, 786, 145 and 425/413 occasionally."
+199,342,"[923, 1126, 579, 342, 711, 685, 145, 786, 1007, 409]",Recent and historical stays indicate a strong likelihood of returning to familiar locations
+199,923,"[923, 1126, 342, 579, 692, 409, 711, 145, 685, 786]",Recent frequent visits to place ID 923 and context indicates user is likely to visit a similar location
+199,449,"[923, 1126, 579, 342, 409, 711, 786, 145, 685, 692]",Recent stays at places with similar IDs and historical patterns of repeated visits
+199,736,"[1126, 579, 692, 711, 409, 145, 342, 425, 413, 1007]","The user tends to visit similar places at around the same time on the same day of the week, and recent behavior shows a shift towards more frequent visits in the morning and afternoon."
+199,202,"[923, 1126, 579, 409, 711, 685, 692, 351, 145, 1007]",The user has a strong pattern of visiting places at certain times/days based on their history. The recent context suggests that the user is still in the same routine.
+199,923,"[923, 1126, 579, 342, 711, 145, 351, 1007, 692, 409]",Recent frequent visits to place 923 and similar days-of-week patterns in both history and context
+199,1101,"[923, 1126, 579, 342, 711, 685, 786, 145, 449, 736]","Based on the user's historical stays and recent behavior, the top 10 predicted places are locations they have visited frequently in the past."
+199,923,"[923, 1126, 579, 692, 1007, 923, 923, 923, 923, 923]",Recurring pattern of visiting place ID 923 at various times and days
+199,449,"[923, 1126, 579, 342, 692, 711, 145, 409, 351, 1007]",recent visits to places at certain times/days and patterns in the user's historical stays

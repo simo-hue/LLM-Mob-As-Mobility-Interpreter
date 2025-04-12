@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+524,3817,"[2798, 293, 2261, 2200, 1300, 3814, 1585, 624, 3433, 220]",Recent location history and current day of week suggest a likely return to previously visited places
+524,1739,"[2798, 293, 2200, 2261, 1300, 1585, 624, 3433, 3814, 3817]",Recent visits to places in the context and frequent stays at similar times/days in the history.
+524,2798,"[2798, 293, 2200, 1300, 3814, 2261, 624, 3433, 1585, 3817]","Recent behavior in context suggests frequent visits to place ID 2798 and 293, and patterns in history indicate a likelihood of returning to these places"
+524,2200,"[3814, 1300, 3817, 2200, 3433, 624, 1585, 293, 2261, 1739]","Recent contextual information suggests a likely destination on Fridays, with the user previously visiting places at similar times"
+524,2798,"[293, 2798, 3814, 2200, 1300, 2261, 624, 3433, 1739, 1585]",Next location predicted based on historical patterns and recent context.
+524,2200,"[3817, 3814, 1300, 2200, 3433, 624, 1585, 2261, 293, 3819]",recent visits to similar places and daily patterns
+524,2798,"[2798, 293, 2200, 2261, 1300, 3814, 624, 1585, 3433, 1173]","Recent behavior suggests frequent visits to place 2798 and 2200 on weekdays, with occasional stays at places 293 and 2261"
+524,2200,"[293, 2798, 2200, 1300, 2261, 3814, 624, 1585, 3433, 1173]",Predicted based on historical patterns and recent behavior
+524,1739,"[2798, 293, 2200, 1300, 1173, 3814, 2261, 624, 3433, 1585]",Recent behavior suggests frequent visits to home/workplaces and nearby locations
+524,1739,"[2261, 3433, 3814, 1300, 1173, 293, 2798, 2200, 1585, 624]",Recent visits to place 2798 and repeated stays at times/days indicate high probability of returning to these places
+524,2798,"[2798, 293, 2200, 1300, 1173, 3814, 2261, 624, 3433, 1585]",Recent visits to places at certain times/days suggest frequent stays at these locations
+524,2200,"[2798, 293, 2261, 2200, 1300, 3814, 624, 1585, 3433, 2200]",recent visits to regular places and time patterns
+524,2798,"[1300, 2200, 2261, 293, 3433, 3814, 624, 1585, 2798, 2930]","The user's recent behavior in the context suggests they are heading towards their regular destinations on Fridays, and their historical stays show a pattern of visiting these places."

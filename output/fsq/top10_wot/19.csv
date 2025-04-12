@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+19,908,"[1305, 2749, 3237, 1444, 919, 38, 371, 538, 627, 927]","Recent stays in history and context suggest frequent visits to places with IDs 1305, 2749, 3237 and 1444."
+19,687,"[1444, 1305, 3237, 2749, 538, 371, 627, 927, 919, 1980]","Recent stays at context places (1305, 908) and frequent visits to places like 1444, 3237, and 2749 in user's history"
+19,412,"[1444, 3237, 1305, 919, 538, 371, 927, 627, 1980, 111]","Based on the user's historical stays and recent context, I predict they will visit one of their frequently visited places with a strong pattern of visiting 1444 and 3237 during weekdays and weekends."
+19,821,"[1305.0, 2749.0, 3237.0, 1444.0, 538.0, 1980.0, 919.0, 627.0, 927.0, 687.0]","Based on the user's historical stays and recent behavior, we predict they will visit places that are frequently visited at similar times or days of the week."
+19,2749,"[1305.0, 2749.0, 3237.0, 1444.0, 538.0, 627.0, 927.0, 919.0, 687.0, 412.0]","Based on the user's historical stays and recent behavior, I predict that they will visit one of their most frequently visited places, likely a work or home location."
+19,1334,"[1305, 2749, 3237, 1444, 538, 371, 1282, 627, 927, 919]",Recent and historical patterns show a strong likelihood of visiting the user's familiar locations
+19,3237,"[1305, 2749, 3237, 1444, 919, 927, 1980, 538, 627, 412]",recent visits to place 1305 and historical patterns of visiting places at certain times/days

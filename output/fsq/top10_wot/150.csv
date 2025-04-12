@@ -1,0 +1,12 @@
+user_id,ground_truth,prediction,reason
+150,345,"[3776, 345, 3667, 2733, 3593, 30, 935, 691, 240, 3805]","The user tends to visit place 3776 frequently, especially on Tuesdays and Saturdays. The recent context suggests the user is likely to continue this pattern."
+150,3667,"[3776, 3667, 345, 2733, 3593, 930, 3805, 2867, 691, 240]",Recent visits to home/office and repeated patterns on Tuesdays and Thursdays
+150,3776,"[3667, 345, 3776, 2733, 935, 3593, 30, 3805, 691, 2867]",based on recent visits to places at certain times/days
+150,935,"[3805, 3776, 2867, 2733, 3593, 935, 345, 30, 691, 722]",recent frequent visits to similar places and times
+150,167,"[3776, 2733, 345, 3667, 935, 30, 691, 3593, 3174, 3805]","Based on the user's historical stays and recent contextual information, I predict that they will visit one of their most frequently visited places, likely a work or home location."
+150,3776,"[3776, 2733, 3667, 345, 3593, 3805, 2867, 691, 30, 935]",based on frequent visits to places and recent behavior in the context
+150,1980,"[3776, 2733, 345, 3667, 3593, 30, 935, 691, 2867, 3805]",Recent visits to places at certain times/days with a high likelihood of repetition.
+150,3776,"[345, 3667, 935, 2733, 3805]","The user's recent activities suggest a pattern of visiting the same places on specific days and times, with a bias towards places visited frequently (e.g., place 345 and 3667)"
+150,3776,"[3776, 2733, 345, 3667, 935, 691, 30, 3593, 3805, 2867]","Recent stays at place 3776 and pattern of repeated visits to places 345, 3667, and 2733 at certain times/days"
+150,551,"[3776, 2733, 345, 3667, 30, 935, 3593, 3805, 691, 2867]",Recent pattern of returning to places at similar times and days
+150,935,"[3776, 2733, 3667, 345, 3593, 30, 935, 691, 2867, 3805]","The user has a strong tendency to visit place 3776 during weekdays and late evenings, with some variation towards weekends. Recent context suggests they are likely to continue this pattern."

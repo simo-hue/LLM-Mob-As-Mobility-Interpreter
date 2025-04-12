@@ -1,0 +1,13 @@
+user_id,ground_truth,prediction,reason
+507,2596,"[2923, 2596, 2022, 2574, 2711, 3154, 1603, 1502, 2824, 1952]","Based on the user's historical stays and recent context, I predict that they will visit one of their most frequently visited places on Saturday evenings."
+507,2923,"[2923, 2596, 2022, 2574, 3154, 1952, 1603, 1502, 2711, 1255]","Based on the user's recent and historical behavior, the next likely places are their most frequent weekend destinations"
+507,2811,"[3154, 2574, 2022, 2923, 2596, 2711, 1603, 1502, 1266, 2368]","The user's recent behavior has shown a tendency to visit places with ID close to 2596 and 2923 on Sundays, which is the current day of the week. The historical stays also show a pattern of visiting places with these IDs at around this time."
+507,1609,"[2596, 2923, 538, 2811, 2022, 2574, 2711, 1502, 1603, 1255]","The user has a strong tendency to visit places at the same time on consecutive days and weekends, considering their recent behavior"
+507,1,"[3154, 2574, 2596, 2923, 2022, 1502, 2824, 2711, 1952, 1603]",Recent stays at similar times/days in <context> and historical pattern of frequent visits to certain places
+507,374,"[2923.0, 2596.0, 2811.0, 1609.0, 1255.0, 3154.0, 2574.0, 2711.0, 2022.0, 1502.0]",Recent and historical patterns show a strong likelihood of the user returning to their most frequent destinations.
+507,1609,"[2596, 2923, 2811, 1603, 2574, 2711, 2022, 1502, 1255, 2587]","Based on the user's historical stays and recent context, I predict they will likely visit a location similar to their recent visits during weekdays."
+507,2596,"[2596.0, 2923.0, 2022.0, 2574.0, 3154.0, 1952.0, 1502.0, 2824.0, 2711.0, 3805.0]",The user tends to visit places with similar IDs near the end of their stays and has recently visited place 1609 in the afternoon.
+507,2811,"[2596, 2923, 2022, 2574, 2711, 3154, 1952, 1603, 1502, 2824]","The user has a strong daily pattern of visiting locations near the end of the day (Friday evening), and recent behavior indicates a likelihood to continue this pattern"
+507,829,"[2923, 2596, 2022, 2574, 2711, 1473, 1603, 1502, 2824, 1255]",recent behavior in context suggests frequent visits to these locations
+507,1473,"[2711.0, 2574.0, 2596.0, 2923.0, 2022.0, 1603.0, 1502.0, 3154.0, 2824.0, 2368.0]","The user has a strong tendency to revisit previous locations on Friday evenings and Sundays, with recent visits to places 1473 and 202, suggesting a high likelihood of returning to these or similar locations."
+507,1734,"[2923, 2596, 2022, 2574, 3154, 1502, 1603, 2824, 2711, 2589]",Prediction based on recent behavior in context and patterns in history

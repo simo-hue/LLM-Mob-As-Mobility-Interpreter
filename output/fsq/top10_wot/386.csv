@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+386,3816,"[3443, 1305, 1116, 102, 1435, 3443, 3443, 3443, 3443, 3443]",Based on the user's recent activity pattern and frequent visits to place_id 3443
+386,3443,"[1305, 3443, 1116, 1435, 102, 3816]",Recent pattern of frequent visits to place 3443 and occasional visits to places 1305 and 1116
+386,3443,"[1305, 102, 1116, 1435, 3443]",Recent behavior in context suggests frequent visits to place 3443 on weekdays; historical data shows repeated visits to places at certain times/days

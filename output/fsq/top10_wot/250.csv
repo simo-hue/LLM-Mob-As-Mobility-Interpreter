@@ -1,0 +1,10 @@
+user_id,ground_truth,prediction,reason
+250,1441,"[1809, 1441, 328, 2609, 1416, 585, 2604, 883, 1368, 2773]",The user tends to visit places frequently during the same time of day and has recently visited a few places before noon on Friday.
+250,1416,"[1809, 1441, 328, 2773, 623, 470, 427, 2604, 2358, 883]","Based on historical patterns and recent behavior, the next likely place is a routine spot with high frequency"
+250,1809,"[1809, 1441, 328, 2604, 585, 1368, 883, 203, 427, 470]",Recent frequent visits to place 1809 and 1441
+250,2609,"[1809, 328, 1441, 2604, 2358, 883, 1368, 585, 42, 427]","Recent behavior suggests the user tends to visit places at certain times/days, and these places are most likely based on their historical stays."
+250,1441,"[1809, 328, 1441, 623, 427, 2773, 2609, 883, 1368, 42]","Recent visits to these places at similar times and days, and consistent patterns in the user's activity history"
+250,328,"[1809, 1441, 328, 623, 427, 470, 2773, 2609, 2358, 42]",Recent behavior in context and patterns in history suggest frequent visits to places with high probability
+250,585,"[1809, 1416, 2609, 1441, 328, 883, 1368, 203, 585, 42]",Recent frequent visits to places at the same time/days and similar patterns in history
+250,758,"[1809, 1368, 883, 2604, 2609, 2358, 427, 623, 328, 1441]","Recent behavior suggests user tends to visit places near the end of their stay sequence, and they have visited these locations frequently in the past."
+250,1809,"[1809, 1441, 2609, 328, 585, 2358, 2604, 883, 1368, 42]","Based on the user's historical stays and recent contextual information, I predict they will visit a location similar to their previous frequent destinations."

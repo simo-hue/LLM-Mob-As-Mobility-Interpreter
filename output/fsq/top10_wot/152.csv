@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+152,2335,"[1846, 941, 3426, 1021, 3805, 2935, 1575, 245, 719, 1329]",Recent stays in context and historical patterns suggest the user is likely to stay at a familiar location
+152,506,"[941, 1846, 3426, 3805, 245, 719, 1021, 1329, 1575, 2867]",Recent context indicates repeated visits to places at similar times/days
+152,1700,"[941, 1846, 3426, 3805, 2867, 1329, 2335, 719, 1045, 1575]",The user's recent behavior in the context indicates a strong tendency to visit places at night and on weekends. The historical data also suggests frequent visits to place 941 and other locations near it.
+152,975,"[941.0, 3805.0, 1846.0, 1329.0, 2335.0, 506.0, 1700.0, 3426.0, 2935.0, 245.0]",Recent behavior in <context> and patterns in <history> suggest the user is likely to revisit familiar places at similar times
+152,1021,"[1846, 941, 3426, 3805, 1045, 2867, 245, 719, 506, 1575]","Recent stays in context and historical pattern of frequent visits to places with IDs 1846, 941, and 3426"

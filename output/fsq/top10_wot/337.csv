@@ -1,0 +1,39 @@
+user_id,ground_truth,prediction,reason
+337,3817,"[3130, 2633, 1015, 1309, 751, 342, 1345, 523, 491, 627]","The user has a history of frequent visits to places 3130 and 2633 on weekdays and weekends, with occasional visits to other locations."
+337,3130,"[1309, 2633, 1015, 3130, 751, 342, 1345, 523, 391.0, 627.0]","Recent stays at places with varying times and days were considered, along with historical patterns of repeated visits to specific locations"
+337,1015,"[1309, 2633, 1015, 627, 374, 523, 751, 342, 1345, 1]","The user tends to frequent certain places at specific times and days based on their historical stays. In the recent context, they have visited a place (3130) multiple times in the past few days. Therefore, I predict that they will likely visit one of these places again, with the most probable being 1309."
+337,2633,"[1309, 2633, 1015, 3130, 751, 342, 1345, 523, 491, 3817]",Predicted based on recent contextual information and historical patterns.
+337,3130,"[1309, 2633, 3130, 1015, 751, 342, 523, 3817, 627, 374]",Predicted places are based on user's historical stays and recent behavior in context
+337,3130,"[1309, 3130, 751, 1015, 523, 491, 342, 1345, 2633, 627]",Based on historical patterns and recent behavior
+337,3130,"[1345, 1309, 751, 1015, 523, 491, 2633, 627, 342, 374]",Recent visits to places at certain times/days combined with historical patterns
+337,3130,"[1309, 1015, 2633, 3130, 627, 374, 751, 342, 1345, 523]",based on recent patterns in the user's activity
+337,114,"[1309, 2633, 3130, 1015, 751, 342, 1345, 523, 1, 627]",Recent behavior suggests frequent visits to places 3130 and 2633
+337,1015,"[1309, 2633, 1015, 3130, 523, 342, 1345, 627, 751, 374]",The user tends to revisit places they have visited in the past and has a strong preference for place 3130
+337,3130,"[1309, 2633, 1015, 3130, 523, 751, 342, 1345, 627, 374]","Based on the user's recent behavior in context and historical stays, the prediction is a mix of places visited frequently and recently."
+337,1825,"[1309, 2633, 3130, 1015, 627, 342, 1345, 523, 751, 374]","based on recent stays and weekdays, the user tends to visit familiar places around midnight or in the morning"
+337,128,"[1309, 2633, 751, 1015, 523, 342, 1345, 114, 1825, 627]","The prediction is based on the recent and historical patterns in the user's activity, including repeated visits to certain places at specific times/days."
+337,3130,"[1309, 2633, 1015, 3130, 751, 342, 1345, 523, 491, 1825]","Recently visited place (114) and the time of day suggests a likely visit to places like 1309, 2633 or 1015"
+337,1318,"[3130, 1015, 2633, 1309, 1345, 342, 627, 523, 751, 1825]",The user tends to stay in the same place on weekends and recent stays have been at places that are not frequently visited
+337,3130,"[1309.0, 2633.0, 1015.0, 3130.0, 342.0, 1345.0, 751.0, 523.0, 1825.0, 128.0]",based on the user's historical stays and recent behavior
+337,2633,"[3130, 2633, 1015, 1309, 1825, 1327, 1412, 1364, 1376, 1381]",Recent visits to the same place (3130) and similar places at the same time/day in the past.
+337,627,"[1309, 1015, 2633, 3121, 3130, 627, 523, 1345, 751, 342]",Pattern analysis from historical stays and recent behavior in context
+337,3130,"[1345, 2633, 3130, 1309, 1015, 627, 523, 342, 751, 491]",Recent visits to familiar places and days
+337,2119,"[1309, 2633, 1015, 3130, 627, 342, 1345, 523, 491, 751]","Recent contextual information suggests a strong likelihood of visiting place ID 1309, followed by other places frequently visited at similar times/days in the user's history."
+337,3130,"[1309, 627, 342, 2633, 1015, 523, 751, 1345, 491, 374]","Recent behavior suggests the user tends to visit familiar locations during weekdays, with a slight bias towards evening visits"
+337,558,"[1309, 3130, 2633, 1015, 523, 342, 751, 1345, 627, 374]",Recent behavior suggests frequent visits to places with IDs 1309 and 3130
+337,1492,"[1309, 2633, 1015, 3148, 342, 1345, 523, 751, 2119, 1]",The user's recent behavior and historical patterns suggest they are likely to visit the places they frequently go to on Fridays or Mondays
+337,3130,"[1309, 2633, 1015, 3130, 751, 342, 1345, 523, 2119, 1492]","The prediction is based on the user's recent behavior and historical stays. The most likely places are those where the user has stayed before, especially at similar times of day."
+337,1015,"[3130.0, 2633.0, 1015.0, 1309.0, 1345.0, 627.0, 374.0, 523.0, 2119.0, 1492.0]","Recent behavior and historical patterns suggest frequent visits to place 3130, with possible variations to places 2633 and 1015."
+337,558,"[1309, 2633, 3130, 523, 751, 1015, 1345, 1492, 342, 374]","Recent visits to places at certain times/days in the context and history, with high probability of re-visiting a place"
+337,563,"[1309, 2633, 3130, 1015, 523, 342, 751, 1345, 627, 374]",Recent visits to places at certain times/days and patterns in historical stays
+337,3130,"[3130, 2633, 1015, 1309, 1345, 342, 751, 627, 523, 491]","Recent stays at 3130 and 1015 suggest a high likelihood of returning to these locations, while historical patterns show frequent visits to places like 2633 and 1309. The context also points towards a weekend stay."
+337,1015,"[1309.0, 2633.0, 1015.0, 3130.0, 374.0, 751.0, 342.0, 1345.0, 523.0, 1.0]",Recent behavior suggests a high probability of visiting places that were previously visited during this time on Thursday or Friday
+337,2204,"[3130, 2633, 1015, 1309, 751, 1345, 342, 523, 627, 374]","The user frequently visits places at specific times of the day and days of the week, with a strong tendency to return to recently visited locations."
+337,3130,"[3130, 2633, 1015, 1309, 1345, 627, 374, 523, 491, 2204]",Recent behavior suggests a high likelihood of the user returning to their previous frequent locations
+337,3247,"[1309.0, 563.0, 1015.0, 2204.0, 2633.0, 3130.0, 374.0, 523.0, 627.0, 751.0]","The prediction is based on the user's recent and historical stays, considering patterns in time of day, day of week, and place ID."
+337,2633,"[2204, 1309, 1015, 523, 2633, 627, 751, 342, 1345, 374]",Prediction based on recent stays and repeated visits to places at certain times/days
+337,285,"[1345, 751, 1015, 2204, 342, 523, 374, 627, 1, 491]",The prediction is based on the user's recent behavior and historical patterns. The top-ranked places are the ones the user has visited recently or frequently in the past.
+337,172,"[1309, 751, 1015, 523, 342, 1345, 2204, 284, 491, 285]",The model considers the user's past behavior and recent activities to predict their next location. The top predictions include places visited during similar days of the week or at similar times.
+337,2633,"[1309, 3130, 2633, 1015, 342, 1345, 751, 523, 491, 285]","Based on the user's historical stays and recent contextual information, I predict they will visit one of their frequently visited places or locations that have a strong connection to the current day."
+337,3130,"[3130.0, 2633.0, 1309.0, 1015.0, 751.0, 342.0, 1345.0, 523.0, 285.0, 172.0]",Recent stays at 3130.0 and visits to 2633.0 and 1309.0 in the last week suggest a strong likelihood of returning to these places.
+337,3130,"[1309.0, 1015.0, 523.0, 285.0, 172.0, 1517.0, 2633.0, 1345.0, 342.0, 751.0]",Recently visited and historically frequent places

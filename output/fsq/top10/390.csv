@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+390,295,"[7, 5, 10, 2, 9, 4, 3, 1]","Based on the user's historical stays and recent context, the prediction is that they will most likely visit place ID 7, given their frequent visits to this location during weekdays and early mornings."
+390,2391,"[3132, 2391, 2987, 2111, 2391, 2391, 2391, 2391, 2391, 2391]",The prediction is based on the recent activities of the user in the context and the activity pattern learned from the history. The target stay falls during the weekend when the user has been to similar places before.
+390,2391,"[3132, 2391, 2987, 2391, 2111, 2391, 2391, 2391, 2391, 2391]","Based on the user's activity pattern and recent context, it is likely that they will visit places they have been to before during similar times of day."

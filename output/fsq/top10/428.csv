@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+428,342,"[9, 6, 5, 8, 7, 4]","The prediction is based on the recent activity pattern and context of this user, taking into account the temporal information of the target stay."
+428,2608,-100,Risposta malformata: manca la chiave 'prediction'.
+428,2507,"[2401, 417, 2507, 2608, 1136, 371, 1903, 1, 9, 343]","Based on the user's activity pattern and recent context stays, I predicted that the next place the user will visit is likely to be a place they have visited previously during similar times of day and days of the week."
+428,2507,"[14, 4, 5, 10, 3, 6, 2]","Based on the user's activity pattern and recent stays in context, I predict they will visit a place with high probability of being visited during nighttime (Friday)"
+428,2252,"[3485, 3498, 3503, 3511, 3522, 3534, 3546, 3559, 3572, 3585]",The prediction is based on the recent activity pattern of the user in the context stay and the temporal information of the target stay.
+428,3173,"[3485, 417, 343, 344, 1136, 466, 2507, 1903, 371, 1]","The prediction is based on the user's activity pattern and recent context, which indicates that they tend to visit certain places during specific times of the day and week."
+428,2507,"[3173, 3485, 2507, 417, 1136, 371, 343, 344]",Predicted places based on recent activity pattern and temporal context
+428,2507,"[3485, 3173, 2252, 2507, 343, 344, 417, 371, 1136, 466]",The prediction is based on the recent context and historical pattern of repeated visits to certain places during certain times.

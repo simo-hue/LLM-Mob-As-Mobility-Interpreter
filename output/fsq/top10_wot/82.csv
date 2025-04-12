@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+82,775,"[3774, 775, 1165, 772, 371, 646, 1774, 1160, 1189, 1191]","Recent visits to place 3774 and repeated stays at times/days in history, with a recent stay in context"
+82,775,"[3774, 775, 1165, 646, 772, 371, 1774, 197, 771, 775]",Recent behavior in context indicates a strong likelihood of returning to familiar places on Tuesday morning
+82,775,"[3774, 1165, 775, 646, 772.0, 371.0, 197.0, 1774.0, 772.0, 1174.0]","Based on the user's historical stays and recent context, it is likely that they will visit a place they have been to before, possibly at a similar time of day"
+82,1774,"[3774, 775, 1165, 646, 772, 371, 1774, 197, 775, 3774]","Recently visited places on Tuesdays and Wednesdays, with a strong likelihood of repeating these patterns."
+82,1774,"[3774, 775, 1165, 646, 772, 371, 1774, 1165, 3774, 775]","The user's recent behavior in the context of staying at locations on Monday and Tuesday mornings, with a strong likelihood to visit places that are commonly visited during these times."

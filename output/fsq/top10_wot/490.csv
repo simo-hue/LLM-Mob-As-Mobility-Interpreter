@@ -1,0 +1,123 @@
+user_id,ground_truth,prediction,reason
+490,3110,"[3685, 3418, 3328, 2520, 2992, 3110, 3370, 754, 3120, 1]","Recent stays at places with high frequency in history, and current context suggests visit to familiar locations"
+490,1624,"[3685, 3418, 3328, 2520, 3370, 3110, 2992, 3120, 754, 1]","The user's recent behavior in the context suggests a high probability of visiting places they've been to before, especially on weekdays. Given their historical stays, there is a strong pattern of frequent visits to place IDs 3685 and 3418, making them the top predictions."
+490,2992,"[3418, 3328, 2520, 3685, 3370, 3075, 3120, 2992, 754, 3110]",The prediction is based on the user's historical pattern of frequent visits to these places during similar times and days.
+490,3110,"[3418, 3328, 2520, 3370, 3685, 3110, 3075, 754, 3290, 1624]",Recent visits to places on certain days and times suggest the user is likely to visit familiar locations
+490,3685,"[3418, 3328, 2520, 3685, 3110, 3075, 1624, 2992, 3290, 754]",Pattern recognition and recent behavior suggest a return to familiar places
+490,2494,"[3328.0, 2520.0, 3418.0, 3370.0, 3685.0, 3110.0, 2992.0, 1624.0, 754.0, 3290.0]","The user tends to visit the same places on certain days and times based on their historical stays, and recent behavior suggests a tendency towards visiting place 3328."
+490,3250,"[3418, 3328, 2520, 3290, 3370, 3685, 3110, 2992, 1624, 754]",Recent contextual information and historical patterns suggest frequent visits to places with similar IDs.
+490,1,"[3418, 3328, 2992, 2520, 3685, 3370, 3120, 3110, 3290, 754]","The user tends to visit these places at similar times and days, with a recent trend towards 3418"
+490,3120,"[3685, 3418, 3328, 2520, 3110, 3370, 3075, 2494, 3250, 1]",Recent pattern of visiting places at similar times and days continues
+490,3641,"[3685, 3328, 2520, 3418, 3290, 3120, 3370, 754, 2992, 3110]",Recent stays at the same time on Tuesday suggest a preference for place ID 3685.
+490,3519,"[3418, 3328, 2520, 3685, 2992, 3110, 3370, 3120, 754, 2494]",Recent behavior and historical patterns suggest the user is likely to revisit places they have previously visited at similar times/days.
+490,2992,"[3418, 3328, 2520, 3685, 3075, 3110, 3370, 3290, 754, 2992]",Recent visits to places in context and historical pattern of repeated visits
+490,1,"[3418, 3328, 3120, 3685, 2520, 3370, 3075, 754, 3110, 1]","Recent visits to similar places and weekdays, with a strong presence of place 3418"
+490,3519,"[3418, 3328, 2520, 3120, 3685, 2992, 3110, 754, 3290, 3370]",Recent pattern of visiting places on Tuesday and Wednesday at similar times suggests a high likelihood of revisiting familiar locations.
+490,754,"[3418, 3328, 2520, 3685, 3110, 3370, 2992, 754, 3120, 1]",Recent visits to similar places and time of day
+490,3120,"[3418, 3328, 2520, 3685, 2992, 3110, 3370, 3075, 3290, 3120]",Predicted based on frequent visits to places at similar times and days
+490,1,"[3418, 3328, 2992, 2520, 3685, 3370, 3075, 3110, 754, 1]","Based on the user's historical stays and recent context, I predicted their next likely place ID based on patterns of repeated visits to certain places at specific times/days."
+490,861,"[3418, 3328, 2520, 3685, 3370, 3110, 754, 3120, 2992, 1]","The user tends to visit places on specific days of the week and at certain times, with recent behavior suggesting a high likelihood of visiting place IDs 3418 and 3328"
+490,3290,"[3328.0, 3418.0, 2520.0, 3685.0, 3110.0, 3370.0, 3075.0, 3120.0, 1.0, 754.0]",Recent visits and frequent stays at similar times/days suggest continued patterns
+490,3328,"[3685, 3418, 3328, 2520, 3110, 3075, 2992, 754, 1624, 3120]","Based on recent contextual information and historical patterns, the most likely places to visit are those frequently visited during weekdays, especially at times close to midnight or early in the morning."
+490,3685,"[3418, 2520, 3328, 3685, 3075, 3120, 2992, 754, 3370, 3110]","Recent and historical behavior suggests the user tends to visit similar places during different times of the day, with a strong affinity for place ID 3418"
+490,3370,"[3418, 2992, 2520, 3328, 3110, 3685, 3370, 3290, 3120, 754]","Recent behavior suggests a strong affinity for places visited at similar times of the day, and historical data shows consistent visits to these locations"
+490,3685,"[3418, 3328, 2520, 3685, 3290, 3075, 3110, 2992, 754, 3120]","Based on the user's historical stays and recent contextual information, I predict they will visit one of their most frequently visited places, likely due to daily routines or regular activities."
+490,3075,"[1.0, 2520.0, 3120.0, 3075.0, 3200.0, 3290.0, 3328.0, 3370.0, 3418.0, 3685.0]",Recent behavior in <context> is consistent with historical patterns
+490,3290,"[3685, 3328, 3370, 2520, 3418, 754, 2992, 3110, 3120, 1]","Recent behavior suggests frequent visits to place 3685 and 3328 at late night/early morning hours, with some occasional visits to places 3370 and 2520. Additionally, the user has a history of visiting multiple locations on weekdays."
+490,3328,"[3685, 3370, 2520, 3120, 3328, 2992, 754, 3418, 3110, 1]",Recent contextual information and historical patterns suggest the user is likely to visit places they have visited in the same day of the week at a similar time.
+490,2520,"[3418, 3328, 3685, 3370, 2520, 3120, 3290, 754, 2992, 1]","Based on the user's historical pattern of visiting places on specific days and times, combined with recent behavior in the context, I predict they are likely to visit one of their frequent locations."
+490,3685,"[3418, 3328, 3685, 2520, 3110, 3370, 3075, 3290, 754, 3120]",Recent behavior suggests the user is likely to visit familiar places with similar day of week and time patterns
+490,3075,"[3328, 2520, 3418, 3290, 3685, 3075, 3120, 1, 3370, 754]","Recent contextual information suggests the user will visit a place similar to those in their recent stays, and historical data indicates they tend to visit places multiple times"
+490,2416,"[3418, 3290, 3328, 2520, 3370, 3685, 3075, 3120, 754, 2992]",Recent stays at similar times and places in the context suggest frequent visits to these locations.
+490,3328,"[3328, 2520, 3685, 3370, 3075, 3120, 3290, 2992, 754, 3200]",Pattern of frequent visits to places in the history and recent behavior in context suggest the user is likely to visit a place they have been to before
+490,2520,"[3418, 3328, 2520, 3685, 3370, 3075, 754, 2992, 3110, 1]","Based on the historical stays and recent context, I predicted the user's next likely places as those they have visited frequently or recently."
+490,3685,"[3418, 3328, 3685, 2520, 3370, 3075, 3120, 754, 2992, 3290]","Based on historical patterns and recent context, the predicted next place ID is likely to be a familiar location visited at similar times of day."
+490,1,"[3685, 3418, 3328, 2520, 3075, 3110, 2992, 754, 1624, 3120]",Recent stays at similar times/days and repeated visits to certain places
+490,2520,"[2520, 3418, 3328, 3685, 3075, 3110, 3120, 2992, 754, 3200]",Recent behavior in context suggests frequent visits to places with IDs 2520 and 3418.
+490,3290,"[3418.0, 3328.0, 2520.0, 3370.0, 3685.0, 3075.0, 3110.0, 754.0, 2992.0, 1624.0]","Recent stays at similar times/days in <context> are repeated in the user's history, with a high likelihood of visiting places like home (3418) or work/leisure areas (3328, 2520)"
+490,3328,"[3685, 3370, 2520, 3328, 3290, 3075, 3418, 754, 1624, 3110]",based on the user's historical stays and recent contextual information
+490,3075,"[3418, 3328, 2520, 3685, 3370, 3120, 3075, 754, 2992, 1]","The prediction is based on the recent behavior of visiting places at similar times and days, as well as repeated visits to certain locations in the user's history."
+490,3290,"[3418, 3328, 2520, 3685, 2992, 3110, 3120, 754, 3290, 3370]",Recent and historical patterns indicate the user tends to visit similar places on weekends and weekdays around similar times
+490,2520,"[3418, 3328, 2520, 3685, 3110, 3370, 2992, 754, 3120, 1]","The user's recent behavior shows a strong preference for places 3290 and 3328 on Sundays/Mondays, so we predict them to continue this pattern, with slight variations"
+490,3685,"[3418, 3328, 2520, 3685, 3370, 3075, 3110, 754, 2992, 3120]","Recent pattern of regular Monday and Friday visits to places with IDs 3290, 3328, 2520, 3370, 3685, combined with history of visiting place ID 3418 during similar hours and days."
+490,2992,"[3418, 3328, 2520, 3685, 2992, 3290, 3110, 754, 3120, 1]",Recent visits to places at similar times/days and repeated visits in history
+490,754,"[3418, 3328, 2520, 3685, 3075, 3290, 3120, 754, 3110, 3370]",Recurring patterns in the user's historical stays and recent contextual information
+490,754,"[3418, 3328, 2520, 3685, 2992, 3110, 3370, 3290, 3075, 3120]",Recent visits to places at certain times/days and repeated patterns in the user's activity history.
+490,2811,"[3418, 3328, 2520, 3685, 3075, 3110, 2992, 3370, 3120, 1]",recent repeated visits to places on Mondays and Tuesdays
+490,2443,"[3685, 3328, 2992, 2520, 3418, 3120, 3370, 3075, 3200, 754]","Recent and historical patterns suggest frequent visits to locations with ID 3685, followed by places with IDs 3328, 2992, and others"
+490,3110,"[3418, 3328, 2992, 2520, 3685, 3370, 3110, 754, 3120, 1]",based on recent and historical patterns of the user's stays
+490,1,"[3418, 3328, 754, 2992, 2520, 3685, 3120, 3370, 3075, 2811]","The user has a regular routine on weekdays and often visits places at similar times, with some variation"
+490,2992,"[3418, 3328, 2520, 3685, 3370, 3075, 754, 3120, 2992, 3110]","Recent visits to places at the same time and day of week, with a strong tendency towards previously visited locations"
+490,3110,"[3418, 3328, 2520, 3685, 3110, 3370, 3120, 754, 3200, 3290]",Recent behavior in context suggests frequent visits to places with IDs 1 and 3418
+490,754,"[3418, 3328, 2520, 3370, 3685, 3075, 754, 1624, 3110, 2992]",Recent patterns in the user's behavior suggest frequent visits to places with IDs 3418 and 3328
+490,3250,"[3418, 3328, 2520, 3685, 3075, 2992, 3120, 3110, 3370, 1624]","Recent patterns and stays on Thursdays suggest a likely return to familiar places, with an increased chance of staying at the most visited place (3418)"
+490,3120,"[3418, 3328, 2520, 3685, 3370, 3110, 2992, 3120, 3290, 754]",Recent pattern and history suggests a strong likelihood of visiting familiar places on the same day
+490,3641,"[3685, 3370, 3328, 2992, 3110, 2520, 3418, 3290, 754, 1]",Pattern recognition from user's historical stays and recent behavior in context
+490,3110,"[3418, 3328, 2520, 3685, 3110, 2992, 754, 3120, 3370, 3075]","Recent visits to places at similar times/days in both history and context, with a strong emphasis on Monday-Wednesday routine"
+490,3313,"[3418, 3328, 2520, 3685, 3370, 3075, 3120, 3290, 754, 1]",Based on the user's previous visits and recent behavior
+490,754,"[3418, 3328, 2520, 3685, 3370, 3075, 3120, 3290, 754, 2992]",Recent pattern of visiting places at similar times on weekends and weekdays suggests continued regularity
+490,3328,"[3685, 3418, 3328, 3120, 2520, 2992, 3110, 3370, 3075, 3200]",recently visited places at similar times and days
+490,2520,"[3418, 3328, 2520, 3685, 3075, 3110, 2992, 754, 3120, 1]",The user tends to visit certain places at specific times/days and has recently been visiting place 3328 and 2520
+490,3685,"[3418, 3328, 3120, 3685, 3110, 3313, 754, 2520, 3370, 2992]","Based on the user's historical stays and recent behavior, I predicted the top 10 most likely places they will visit next, considering patterns in both data sets."
+490,1,"[3685, 3418, 3328, 2520, 2992, 754, 3110, 3075, 3290, 3370]",Recent visits to places on Monday and Sunday
+490,3120,"[3418, 3328, 754, 2520, 3685, 3110, 3370, 3075, 3120, 3200]","Based on the user's historical stays and recent behavior, I predict they will visit a location they have visited before, likely during their usual working hours or commute time"
+490,2811,"[3418, 3328, 2520, 3685, 3075, 3110, 754, 2992, 1624, 1]",Recent visits to places at similar times/days in the context and historical patterns of repeated visits
+490,2992,"[3418, 3328, 2520, 3685, 3370, 3075, 2992, 754, 1624, 3110]",Recent pattern of visits to similar places on Monday and Friday
+490,3110,"[3685, 3328, 2520, 3418, 3110, 3370, 3120, 754, 3200, 3290]",based on historical patterns and recent behavior
+490,3313,"[3328.0, 2520.0, 3418.0, 3685.0, 3120.0, 3110.0, 2992.0, 3370.0, 3075.0, 2811.0]","Recent frequent visits to these places, with Monday and Tuesday's patterns considered"
+490,754,"[3418, 3328, 2520, 3685, 3075, 3120, 2992, 3110, 3370, 3290]",Recent visits to places at certain times/days combined with historical patterns and contextual information
+490,3418,"[3328.0, 2520.0, 3418.0, 3685.0, 3110.0, 2992.0, 3370.0, 3075.0, 2811.0, 3313.0]","Based on the recent behavior in <context>, we predict that the user is likely to visit places similar to those they visited recently."
+490,1,"[3685, 3418, 3328, 3110, 2992, 2520, 3370, 3075, 3120, 754]",based on recent visits and patterns in history
+490,3641,"[3418, 3328, 2520, 3110, 3685, 3370, 754, 3120, 3290, 2992]","Based on the user's historical stays and recent behavior, I predict that they will visit one of their most frequently visited places on a weekday afternoon or evening."
+490,2811,"[3685, 3370, 3328, 2520, 3418, 754, 3120, 3110, 3290, 2992]","Recent visits to places at certain times/days, with consideration of repeated patterns in the user's historical stays."
+490,1624,"[3685, 3418, 3328, 2520, 2992, 3110, 3370, 3075, 754, 3120]",pattern-based prediction incorporating recent contextual information
+490,3519,"[3418, 3328, 2520, 3685, 3370, 3075, 754, 2992, 3120, 2811]","Recent contextual information and historical patterns suggest frequent visits to places with IDs 3418, 3328, 2520, and 3685"
+490,3290,"[3685, 3370, 3418, 3328, 2520, 3075, 3110, 754, 3120, 1]",Recent stays at 3685 and 3370 suggest a high probability of returning to these places.
+490,2520,"[3418, 3328, 2520, 3685, 3075, 3110, 3370, 3120, 754, 1624]","Based on the user's historical stays and recent context, the most likely places are those visited frequently at similar times/days or recently, such as home (3418), work (3328), a favorite restaurant (2520), another regular location (3685), and some common daily routine spots."
+490,3370,"[3418, 3328, 2520, 3685, 3370, 3120, 3110, 2992, 754, 1624]",Predicting the next likely place based on historical stays and recent contextual information.
+490,3685,"[3418, 3328, 2520, 3685, 3110, 2992, 754, 3120, 3075, 1]",Recent pattern of visits to places at similar times/days and repeated visits to certain locations
+490,3025,"[3328, 3418, 3290, 2520, 3370, 3685, 754, 2992, 3110, 3075]","Based on the user's historical stays and recent contextual information, I predict they will likely visit one of their most frequent locations or places visited recently"
+490,3250,"[3418, 3328, 2520, 3685, 2992, 3110, 3075, 3120, 3370, 754]",Recent frequent stays at places with similar ID
+490,1,"[3418, 3328, 2520, 3685, 3370, 3290, 754, 2992, 3110, 1]",predicted based on recent and historical patterns of repeated visits
+490,3641,"[3418, 3328, 2520, 3685, 3370, 3075, 3110, 2992, 754, 1624]",predicted based on repeated visits and recent behavior
+490,2811,"[3685, 3418, 3328, 2520, 3370, 3120, 3250, 3025, 754, 2992]",Recent visits to places on Wednesday and recent evening stays
+490,754,"[3685, 3418, 3328, 2520, 3075, 3370, 3120, 3110, 754, 2992]","Recent context suggests the user tends to visit places on Wednesdays afternoons, so places visited during this time period in history are prioritized."
+490,3313,"[3685, 3418, 3328, 3370, 2520, 3120, 2992, 3110, 3290, 754]",Recent stays on Wednesday and current context suggest returning to familiar places like 3685 or nearby alternatives
+490,754,"[3685, 3418, 3328, 2520, 3110, 3370, 3120, 2992, 3290, 754]",Predicted based on recent contextual information and patterns in the user's historical stays
+490,2520,"[3641, 3110, 3685, 3328, 3370, 3075, 2520, 3290, 3210, 1624]",Based on the user's historical stays and recent behavior in the context of a Wednesday evening visit to places with IDs 754 and 3313.
+490,3370,"[3418.0, 3328.0, 2520.0, 3685.0, 3075.0, 3110.0, 2992.0, 754.0, 3290.0, 3120.0]",Recent pattern of staying at home on Wednesdays and Thursdays
+490,3685,"[3418, 3328, 2520, 3685, 3075, 3110, 3290, 2992, 754, 1]",Recent visits to places at certain times/days and historical patterns suggest the user is likely to revisit a familiar location
+490,3025,"[3418, 3328, 2520, 3685, 3370, 754, 3120, 2992, 3290, 3110]",based on recent and historical patterns
+490,2811,"[754, 2992, 3418, 2520, 3328, 3370, 3685, 3110, 3120, 3075]","Based on the historical stays and recent contextual information, the predicted next likely places are a mix of frequently visited locations at similar times of day"
+490,3110,"[3685, 3370, 2520, 3328, 3075, 3110, 754, 2992, 3418, 3120]","The user's recent behavior in the <context> shows a strong tendency to visit these places on Thursdays and Fridays. In their <history>, they have visited similar places at similar times."
+490,3641,"[3418, 3328, 2520, 3685, 3370, 2992, 754, 3120, 3025, 2811]",based on the user's historical stays and recent behavior
+490,3120,"[3418, 3328, 2520, 3685, 3370, 3075, 3120, 2992, 754, 3110]",Predicted based on historical patterns and recent context
+490,1139,"[3418, 3328, 2520, 3685, 3370, 3075, 3110, 3120, 3025, 2811]","The user has a consistent pattern of visiting places at similar times/days, with recent behavior indicating they are likely to visit familiar locations"
+490,861,"[3685, 3328, 2520, 3418, 3110, 3075, 3370, 3290, 754, 2992]",The prediction is based on the user's regular visits to certain places on specific days of the week and times.
+490,2218,"[3418, 3328, 2520, 3685, 3110, 3120, 3370, 3075, 754, 2992]","The user tends to visit places at similar times of the day and week, with a recent trend towards visiting place 3418, so we predict they will likely visit one of their most frequently visited places."
+490,2520,"[3685, 3418, 3328, 2520, 3120, 3370, 3075, 754, 2992, 1624]",recent pattern of visiting places at night and previous stays in the same locations
+490,754,"[3418, 3328, 2520, 3685, 3370, 3110, 754, 3120, 2992, 1624]","Based on the user's historical stays and recent contextual information, I predict they are likely to visit a familiar location, possibly work or home, given their consistent daily routines."
+490,3641,"[3418, 3328, 2520, 3685, 2992, 754, 3110, 3370, 3120, 1]","The user has a consistent routine of visiting places at specific times/days, and recent behavior suggests they are more likely to visit places from their history"
+490,2416,"[3290.0, 3328.0, 2520.0, 3418.0, 3685.0, 3370.0, 3075.0, 3120.0, 754.0, 1.0]","The prediction is based on the user's historical pattern of staying in similar places around the same time on different days, with a recent visit to place 2520 and a visit to place 754 earlier today."
+490,3120,"[3685, 3418, 3328, 2520, 3075, 3370, 754, 3120, 3290, 2992]",Recent frequent visits to places with IDs 3685 and 3418
+490,1,"[3418, 3328, 2520, 3685, 754, 3120, 3370, 3075, 3290, 3110]","The user has a consistent pattern of visiting places at specific times and days, with the recent context showing a tendency to visit place 754 and 2520"
+490,1209,"[3418, 3328, 2520, 3685, 3370, 3075, 754, 2992, 3110, 3120]","Based on historical patterns and recent context, the most likely places are those visited frequently in the evening and at night."
+490,3290,"[3328, 3418, 2520, 3685, 3075, 3120, 3200, 3290, 754, 2992]","The user's recent behavior indicates frequent visits to places with IDs 3328 and 3418, while their historical pattern shows a preference for Monday afternoon stays at place ID 3200. The prediction takes into account these patterns and the context of recent visits to places with IDs 3641, 2416, and 3120."
+490,2520,"[3418, 3328, 2520, 3120, 3685, 3370, 3075, 3200, 754, 2992]","The user tends to visit the same places at similar times of the day and days of the week. The recent context shows a focus on places with IDs near 3290, so we predict they will likely revisit these locations."
+490,3370,"[3685, 3370, 3328, 3120, 2520, 3418, 2992, 754, 3110, 3290]",Recent behavior and historical patterns suggest a high likelihood of visiting familiar places around similar times
+490,3685,"[3418.0, 3328.0, 2520.0, 3685.0, 3290.0, 3120.0, 3075.0, 2992.0, 754.0, 1.0]",Recent behavior in context suggests the user is likely to visit a place similar to their recent stays
+490,754,"[3418, 3328, 2520, 3685, 3370, 3120, 3075, 2992, 754, 3290]",predicting the next likely place based on patterns in history and recent behavior in context
+490,3418,"[3685, 3418, 3328, 2520, 3075, 3370, 3110, 2992, 3290, 754]","Recent behavior in the context suggests a possible transition to places visited previously on the same day of the week, with some consideration given to frequent visits during certain times"
+490,861,"[3685, 3328, 2520, 3418, 3370, 3075, 3120, 2992, 1624, 754]","Recent visits to places on Tuesday and Wednesday, with a strong likelihood of returning to the same locations"
+490,1624,"[3685, 3370, 2520, 3328, 3075, 3120, 754, 2992, 3110, 3418]",Pattern of visiting places on certain days and times
+490,754,"[3685, 3418, 3328, 2520, 3075, 3370, 3110, 754, 3120, 1]",Recent patterns of frequent visits to places with IDs 3685 and 3418 suggest a high likelihood of returning to these locations
+490,3290,"[2520, 3328, 3685, 3075, 3110, 3120, 3370, 3290, 3418, 754]","Based on the user's historical stays and recent context, I predict they will visit a location similar to their most frequent places at times/days with similar patterns."
+490,2520,"[3418, 3328, 2520, 3685, 3075, 2992, 3110, 1624, 754, 3200]","Based on the user's historical stays and recent behavior, the most likely next place is one they have visited previously, especially around similar times of day."
+490,3370,"[3685, 3418, 3328, 2992, 2520, 754, 3110, 3120, 3075, 1]",Recent patterns show a higher likelihood of visiting places visited at similar times and days in the past.
+490,3685,"[3685, 3418, 3328, 3370, 2520, 754, 3120, 2992, 3290, 1624]",predicting next likely place ID based on historical stay patterns and recent contextual information
+490,3075,"[3418, 3328, 754, 3290, 2520, 3370, 3685, 3075, 3120, 1]","Based on the historical stays and recent context, I predict that the user will visit places they have been to before, likely at similar times and days of the week."
+490,1,"[3418, 3328, 2520, 3370, 3685, 3290, 3120, 754, 2992, 3110]",based on recent behavior and patterns in historical stays
+490,3519,"[3418, 3328, 2520, 3370, 3685, 3075, 3120, 754, 3290, 2992]","Recent visits to place 3418 and 3328, consistent with historical pattern"
+490,3290,"[3418, 3328, 2520, 3370, 3685, 3075, 3120, 754, 2992, 3110]",Recent behavior in the context suggests a tendency to visit places at similar times and days as before
+490,3370,"[3685, 3328, 2520, 3370, 3075, 3110, 754, 2992, 3418, 1624]",Recent behavior and historical patterns indicate a likely return to the last visited place or places that are frequently visited around this time of day
+490,3685,"[3418, 3328, 2520, 3685, 3075, 3519, 3110, 2992, 754, 1]",Recent and historical patterns of visiting places at similar times/day

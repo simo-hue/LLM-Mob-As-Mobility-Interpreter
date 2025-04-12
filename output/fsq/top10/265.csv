@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+265,992,"[8, 1, 0, 7, 6, 5, 4, 3, 2, 9]","The prediction is based on the user's activity pattern and context, considering repeated visits during certain times of the week"
+265,992,"[804, 3473, 2241, 2172, 197, 2444, 2080, 992, 219, 72]",Prediction based on the user's activity pattern and recent context stays.
+265,992,"[804, 3473, 2241, 2172, 197, 2444, 1980, 2051, 2087, 2035]","Based on the user's historical activity pattern and recent context, I predict their next location to be one of their frequently visited places during weekdays."
+265,342,"[804, 3473, 327, 2444, 2241, 2172, 197, 1980, 219, 992]","Based on the user's historical stays and recent context, I predict that they will visit places they have visited before during similar times of day (e.g. Sunday morning)"
+265,992,"[3473, 2241, 1970, 2444, 1980, 804, 992, 2172, 19, 7]","The prediction is based on the user's daily routine and preferences learned from their historical stays, considering their recent activities and temporal information of the target stay."

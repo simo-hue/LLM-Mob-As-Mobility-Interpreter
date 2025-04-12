@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+35,282,"[1213, 914, 873, 894, 1213, 1238, 873, 1213, 1213, 873]","Recent patterns show a strong likelihood of returning to frequently visited locations (873 and 1213), with possible short trips to other places"
+35,914,"[1213, 914, 873, 1238, 282, 894, 1213, 1213, 873, 1213]",The user has a pattern of visiting places on Saturday morning and Friday evening. Recent stays in <context> show the user is still active during these times.
+35,914,"[1213.0, 914.0, 873.0, 1238.0, 282.0]","Based on the user's historical stays and recent behavior in context, it is likely that they will visit a place with a history of frequent visits (e.g., 1213.0) or a recent location (e.g., 914.0)."
+35,873,"[1213, 914, 873, 1213, 873, 873, 1213, 914, 873, 873]",Recent patterns suggest the user is likely to return to their most frequent destinations

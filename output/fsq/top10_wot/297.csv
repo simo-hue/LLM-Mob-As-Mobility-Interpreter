@@ -1,0 +1,65 @@
+user_id,ground_truth,prediction,reason
+297,1711,"[3703, 1711, 1486, 829, 409, 686, 1372, 1403, 721, 2393]",predicting a return to familiar locations based on historical patterns and recent behavior
+297,1711,"[3703, 1711, 1486, 721, 409, 1372, 1403, 829, 686, 917]","Recent frequent visits to place 3703 and 1711, with similar day-of-week patterns in both history and context"
+297,3703,"[3703, 1711, 1486, 721, 686, 409, 829, 1372, 1403, 2393]",Pattern of frequent visits to places on certain days and times
+297,3703,"[3703, 1711, 2393, 409, 829, 1372, 1403, 485, 686, 721]",The user has a strong preference for place 3703 and also frequently visits place 1711. Recent context suggests they are more likely to visit these places.
+297,846,"[3703, 1711, 829, 409, 686, 1372, 1403, 2299, 1783, 485]",Recent visits to place 3703 and 1711 suggest these are likely next destinations.
+297,1,"[3703, 1711, 846, 721, 1486, 1783, 2299, 686, 1372, 1403]",Recent stays at place 3703 and history of visiting this place on Sundays suggest a high likelihood of the user returning to place 3703. The recent stay on Saturday also increases the probability of staying at place 846 or 721.
+297,1777,"[3703, 1711, 846, 485, 721, 1486, 1783, 2299, 686, 1372]",The user has a strong pattern of visiting place 3703 at the end of the week and also recently visited there in the context. The next likely places are also based on this historical pattern and the recent visit to place 846.
+297,3703,"[3703, 1711, 846, 485, 721, 1486, 1783, 2299, 686, 1372]","Recent and historical patterns indicate the user tends to visit place ID 3703 frequently, with a strong probability of revisiting on Monday."
+297,3703,"[3703, 1711, 846, 485, 721, 1486, 1783, 2299, 686, 1372]","Recent behavior in context indicates frequent visits to place 3703, and historical stays show similar patterns"
+297,1711,"[3703, 1711, 846, 485, 721, 1486, 1783, 2299, 686, 1372]","The user tends to visit the same places at similar times/days, and recent behavior shows a strong preference for location 3703."
+297,1783,"[3703, 1711, 1486, 721, 409, 829, 686, 1372, 1403, 2393]","Recent behavior suggests the user tends to stay at home on Sundays and Tuesdays, while also showing a strong affinity for location 3703. The prediction takes into account these patterns as well as the recent visits to locations 1711, 1486, and 721."
+297,1711,"[3703, 1711, 2393, 1783, 829, 409, 1372, 1403, 686, 485]",Pattern of frequent visits to location 3703 and 1711 in the evening
+297,3703,"[3703, 1711, 1792, 1372, 829, 409, 485, 721, 1486, 686]",The user has a strong preference for staying at home or in their regular routine
+297,1452,"[3703, 1711, 846, 485, 721, 1486, 1783, 2299, 686, 1372]","The user's recent activity shows a strong pattern of visiting place 3703 during the day, and also has visited places like 1711 and 846 in the evening. This suggests that they may be heading back to one of these locations."
+297,3789,"[3713.0, 3703.0, 1711.0, 829.0, 409.0, 686.0, 1372.0, 1403.0, 2299.0, 1486.0]",Predicted based on user's past visit patterns and recent behavior
+297,3703,"[3703, 1711, 1783, 1486, 829, 409, 686, 1372, 1403, 2393]",Recent behavior and patterns in the user's history suggest a high likelihood of visiting places they have visited before on Tuesdays or Fridays.
+297,3703,"[3703, 1711, 829, 409, 686, 1372, 1403, 2385, 2393, 3789]","Recent and historical patterns indicate a strong likelihood of returning to previously visited places, especially 3703 and 1711."
+297,846,"[3703, 1711, 2393, 829, 409, 1783, 485, 721, 1372, 1403]",Recent visits to place 3703 and consideration of day-of-week patterns
+297,846,"[3703, 1711, 829, 409, 485, 721, 686, 1372, 1403, 2393]",recent frequent visits to place 3703
+297,1276,"[3703, 1711, 3789, 2393, 829, 409, 686, 1372, 1403, 721]","Recent behavior suggests a high likelihood of returning to familiar places, especially on Thursday and Friday afternoons"
+297,1711,"[3703, 1711, 845.0, 686.0, 1372.0, 1403.0, 829.0, 409.0, 2393.0, 1276.0]",Predicted based on recent behavior and historical patterns
+297,846,"[3703, 1711, 1276, 1486, 721, 2393, 409, 829, 1372, 686]",recent visits to known locations and patterns in historical stays
+297,1544,"[3703, 1711, 846, 2393, 1276, 409, 829, 1372, 1403, 686]",Recent patterns of staying at the same place on similar days and times suggest this user is likely to return to a familiar location.
+297,3312,"[3703.0, 1711.0, 1372.0, 829.0, 409.0, 686.0, 1403.0, 1486.0, 721.0, 2393.0]",Recent and historical patterns suggest frequent visits to places 3703.0 and 1711.0 on weekdays
+297,846,"[3703, 1711, 1486, 721, 1372, 1403, 829, 409, 2393, 1544]","Based on historical patterns and recent behavior, the user is likely to visit places they have visited before, especially during weekends"
+297,3703,"[3703, 1711, 1486, 721, 2299, 686, 1372, 1403, 829, 409]","Based on the historical pattern of repeated visits to place 3703 at certain times and days, as well as the recent context of spending time in places like 1711, 846, and 1544."
+297,1711,"[3703, 1711, 846, 1486, 721, 409, 829, 1372, 1403, 686]",Recent visits to place 3703 and pattern of visits on Sundays and Thursdays
+297,3703,"[3703, 1711, 829, 409, 1372, 1403, 686, 721, 485, 1486]",Recent pattern of frequent visits to place 3703 and occasional visits to places 1711 and 829
+297,1711,"[3703.0, 1711.0, 1486.0, 1372.0, 829.0, 409.0, 686.0, 485.0, 721.0, 2299.0]","recent stays at 3703 and 1711, with a focus on evening visits to these places"
+297,3703,"[3703, 1711, 846, 721, 1486, 409, 829, 1372, 1403, 686]","The user has a history of frequent stays at location 3703 on weekends and evenings, with occasional visits to locations 1711 and 846. The recent context suggests the user may return to one of these familiar places."
+297,846,"[3703, 1711, 686, 829, 409, 1403, 1372, 2299, 1486, 721]",Recent stays and historical patterns suggest a high likelihood of returning to familiar places
+297,846,"[3703, 1711, 1486, 721, 409, 2393, 829, 1372, 1403, 686]",Predicted based on recent weekday behavior and repeated visits to places at certain times/days
+297,3703,"[3703, 1711, 829, 409, 1372, 1403, 686, 2299, 485, 721]",Recent behavior and historical patterns suggest the user is likely to visit a place at night
+297,1711,"[3703, 1711, 846, 2393, 1486, 829, 409, 686, 1372, 1403]",Recent visits to places at certain times/days and repeated patterns in history.
+297,1711,"[3703, 1711, 846, 485, 721, 1486, 1783, 2299, 686, 1372]","Recent context suggests frequent visits to place 3703, while historical pattern shows regular stays at place 1711."
+297,3703,"[3703, 1711, 829, 409, 2299, 1372, 1403, 721, 1486, 1783]","Based on the user's historical stays and recent behavior, I predicted their next likely places based on patterns of repeated visits at certain times/days."
+297,2690,"[3703, 1711, 846, 485, 721, 1486, 1783, 2299, 686, 1372]",Most recent stays and times suggest a high likelihood of returning to the same places
+297,2393,"[3703, 1711, 1372, 1403, 829, 409, 686, 2299, 1795, 721]",based on recent patterns of daily and weekly habits
+297,846,"[3703, 1711, 1486, 829, 409, 1372, 686, 2299, 721, 485]","The user has a strong pattern of visiting place ID 3703 on Sundays and Mondays, with recent visits also indicating a preference for this location. Additionally, the historical stays show a frequent visit to place ID 1711 on weekends."
+297,1288,"[3703, 1711, 839, 686, 409, 829, 1372, 1403, 1486, 721]",Recent visits to place 3703 and pattern of Sunday stays at place 1711
+297,1288,"[3703, 1711, 1486, 721, 686, 1372, 1403, 829, 409, 2393]","Recent behavior suggests frequent visits to place ID 3703 and 1711, with some variation in day of the week; history shows similar patterns"
+297,846,"[3703, 1711, 2393, 2690, 1288, 409, 829, 686, 1372, 1403]","Recent behavior in context suggests returning to familiar places and times, while historical pattern shows strong affinity for place 3703"
+297,3703,"[3703, 1711, 2393, 1288, 846, 409, 829, 686, 1372, 1403]","Based on the user's historical stays and recent behavior in context, I predict their next likely place ID to be one of the places they frequently visit."
+297,3703,"[3703, 1711, 1288, 2393, 409, 829, 485, 721, 1783, 686]","The user's recent stays at places like 3703 and 1288 are likely to continue, as well as their repeated visits to place 1711 on weekends"
+297,1711,"[3703, 1711, 1288, 409, 829, 1783, 2393, 485, 721, 686]","recent frequent visits to place 3703 and repeated weekend visits to places 1711, 1288, 409, 829, and 1783"
+297,293,"[3703, 1711, 846, 1288, 2393, 409, 829, 686, 1372, 1403]",Recent visits to places at certain times/days and patterns in historical stays
+297,1473,"[1372, 829, 409, 686, 721, 1783, 2299, 1486, 485, 846]","Based on the user's historical stays and recent contextual information, I predict that they will likely visit one of their previously visited places at a similar time/day, with an emphasis on weekends and early evening hours."
+297,846,"[3703, 1711, 829, 1372, 1403, 409, 686, 2299, 1486, 721]","The user has a history of frequent visits to place 3703 on Fridays and Sundays, with recent stays in the given context. The prediction prioritizes these places based on their recency and frequency."
+297,3703,"[3703, 1711, 1486, 829, 409, 2393, 686, 1372, 1403, 2299]",Recent visits to places at certain times/days and patterns in the user's history suggest a strong likelihood of revisiting familiar locations.
+297,1711,"[3703, 1711, 846, 485, 721, 1486, 1783, 2299, 686, 1372]",The user has a strong pattern of returning to their home location (place_id=3703) and visiting the location with place_id=1711 frequently.
+297,3703,"[3703, 1711, 2393, 1486, 721, 485, 829, 409, 686, 1372]",Recent visits to place 3703 and consideration of historical patterns
+297,2690,"[3703, 1711, 846, 485, 721, 1486, 1783, 2299, 686, 1372]",Recent frequent visits to place 3703 and historical patterns of revisiting places at similar times/days
+297,3703,"[3703, 1711, 846, 485, 721, 1486, 1783, 2299, 686, 1372]","Based on the user's activity pattern, I predict they will visit a place similar to their recent frequent visits (e.g., 3703) or places with repeated stays at certain times/days (e.g., 1711)."
+297,3703,"[3703.0, 1711.0, 1372.0, 829.0, 409.0, 2299.0, 686.0, 1403.0, 2393.0, 2690.0]","Based on the user's historical stays and recent behavior, we predict that they will likely visit a location they have previously visited during similar days of the week or times."
+297,721,"[3703, 1711, 721, 485, 1486, 1783, 686, 1372, 1403, 829]","Pattern of frequent visits to place 3703 at similar times and days in the history, with recent confirmation in the context"
+297,3703,"[3703, 1711, 829, 1372, 1403, 409, 686, 2690, 2393, 485]",Recent visits to place 3703 and repeated stays at places with similar day of week or time
+297,3703,"[3703, 1711, 829, 409, 2299, 686, 1372, 1403, 1486, 485]",Recent behavior suggests frequent visits to places 3703 and 1711
+297,2393,"[3703, 1711, 721, 1486, 829, 409, 2393, 686, 1372, 1403]","Based on historical stays and recent context, the predicted next place ID is likely to be one of the places visited during weekdays, with a strong likelihood of returning to place 3703 due to its frequent visits"
+297,3703,"[3703, 1711, 721, 1486, 839, 409, 686, 1372, 1403, 829]",Recent visits to places at certain times/days and patterns in the user's historical stays suggest a high likelihood of returning to familiar locations.
+297,3703,"[3703, 1711, 721, 1486, 1372, 829, 409, 2393, 686, 1403]",Recent frequent visits to place 3703 and repeated stays at place 1711 on Sundays
+297,3703,"[3703, 1711, 829, 409, 1372, 1403, 1783, 2299, 2393, 686]","Recent context shows frequent visits to place 3703 on weekdays and weekends, with a slight bias towards Sundays. Historical data also indicates regular stays at places 1711, 829, 409, 1372, 1403, 1783, 2299, 2393, and 686, making these locations the most likely candidates for the next stay."
+297,2393,"[3703, 1711, 2393, 829, 409, 686, 1372, 1403, 1486, 721]","Recent behavior in context suggests frequent visits to places with ID 3703 and 2393, while historical pattern shows regular stays at places with ID 1711."
+297,1711,"[3703, 1711, 2393, 409, 829, 1372, 1403, 686, 485, 721]",Recent frequent visits to 3703 and repeated stays at 1711 suggest a high likelihood of returning to these locations. The context also shows recent activity around 3703 and 2393.
+297,3703,"[3703, 1711, 829, 409, 1372, 1403, 686, 829, 2393, 485]","Recent contextual information suggests frequent visits to place ID 3703, while historical pattern shows regular stays at place IDs 1711 and 829."

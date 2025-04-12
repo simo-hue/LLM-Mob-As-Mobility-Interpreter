@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+222,2329,"[3610, 3228, 928, 2481, 2329, 3267, 3190, 2783, 2061, 3698]","The user's historical stays suggest a strong preference for places 3610 and 3228 on weekends, while recent behavior in the context indicates a high likelihood of visiting place 928 during the day."
+222,2329,"[3610.0, 3228.0, 2481.0, 928.0, 2329.0, 3190.0, 2783.0, 3267.0, 2706.0, 506.0]","Based on the user's historical stays and recent context, the most likely places to visit next are their frequent locations"
+222,2329,"[3610.0, 3228.0, 2481.0, 928.0, 506.0, 2329.0, 3190.0, 2783.0, 2706.0, 3267.0]","Recent behavior suggests a high likelihood of returning to previously visited places, with Saturday and Tuesday being particularly prominent days."
+222,928,"[3610.0, 3228.0, 2481.0, 928.0, 2329.0, 506.0, 3267.0, 2706.0, 3190.0, 2783.0]","Recent visit to 506 and frequent visits to 3610, 3228, 2481, and 928 suggest a high likelihood of returning to these places."

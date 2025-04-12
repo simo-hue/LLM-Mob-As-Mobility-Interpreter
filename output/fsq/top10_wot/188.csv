@@ -1,0 +1,61 @@
+user_id,ground_truth,prediction,reason
+188,3530,"[2677, 538, 2390, 3087, 788, 598, 1, 735, 450, 53]",The prediction is based on the user's frequent visits to places at certain times/days and recent behavior in context.
+188,1253,"[2677, 598, 538, 2390, 3087, 788, 986, 530, 53, 110]",Recent pattern of visiting places at similar times/days and considering the user's historical stays
+188,300,"[2677, 2390, 538, 538, 530, 110, 699, 788, 986, 3087]","Recent visits to places at certain times/days, and historical patterns of repeated visits"
+188,788,"[2677, 2390, 538, 3087, 538, 2389, 298, 739, 598, 110]",Prediction is based on recent behavior and patterns in the user's historical stays.
+188,735,"[2677, 3087, 2390, 538, 203, 1295, 986, 788, 598, 450]","Recent frequent visits to places on Sunday and Monday, with some overlap with the history of daily patterns."
+188,3530,"[2677, 1, 3087, 2390, 538, 203, 1295, 986, 598, 53]","Recent behavior in context suggests frequent visits to place 2677 on Monday evenings, and historical pattern shows that this user often goes to places 1 and 3087. The prediction also takes into account the user's daily routine and preferred locations."
+188,344,"[2677, 2390, 3087, 538, 203, 110]",Recent pattern of visiting places on weekdays and Sundays
+188,788,"[2677, 2390, 538, 3087, 788, 598, 986, 530, 110, 53]","Based on the user's historical stays and recent behavior, I predict their next likely place ID is a location they often visit late at night or in the evening, possibly for relaxation or leisure."
+188,3530,"[2677, 2390, 598, 788, 3087, 538, 203, 1295, 986, 53]","Recent stays at home (2677) and work/school (2390, 598, 3087) suggest a likely evening visit to one of these places."
+188,1,"[2677, 1, 598, 3087, 788, 538, 2390, 530, 110, 699]","Based on the user's historical stays and recent behavior, the top 10 predicted places are the most frequently visited locations at similar times of day."
+188,3530,"[2677, 598, 2390, 538, 788, 3087, 986, 530, 110, 699]",Recent stays at similar times/days and repeated visits to places
+188,758,"[2677, 598, 538, 2390, 3087, 788, 700.0, 699.0, 110.0, 530]","Recent stays and historical patterns indicate frequent visits to the user's home/work and nearby locations on weekdays, with occasional weekend trips"
+188,788,"[2390, 2677, 538, 3087, 788, 598, 53, 530, 110, 699]","Recent visits to places on weekends and weekdays are taken into account, along with frequent stays at locations like 2390 and 2677."
+188,598,"[2677, 2390, 598, 538, 203, 1295, 3087, 788, 986, 53]","The user's historical stays show a tendency to visit certain places on specific days of the week and times, while the recent context suggests an increased likelihood of visiting places at night."
+188,598,"[2677.0, 2390.0, 538.0, 3087.0, 758.0, 788.0, 675.0, 450.0, 110.0, 699.0]",Recent visits to places at certain times/days
+188,570,"[2677, 2390, 538, 738, 3087, 538, 758, 788, 699, 530]",Predicted based on recent contextual information and patterns in historical stays
+188,41,"[2677, 2390, 538, 3087, 788, 986, 1306, 110, 699, 53]",based on historical patterns and recent behavior
+188,2047,"[2677, 2390, 538, 298.0, 738.0, 1.0, 1305.0, 598.0, 788.0, 2999.0]","Based on user's historical stays and recent context, the most likely places to visit next are their usual evening destinations, including work/school places, with a slight bias towards places visited in the same day of week as today."
+188,58,"[2677, 2390, 538, 3087, 788, 986, 1295, 110, 699, 530]",Pattern recognition from historical stays and recent behavior in context
+188,3530,"[2677, 538, 2390, 3087, 788, 986, 530, 699, 570, 41]",predicting based on recent patterns and weekend visits
+188,598,"[2677, 2390, 203, 538, 598, 3087, 788, 986, 110, 699]",The prediction is based on recent patterns in the user's stay history and context
+188,2677,"[2677, 2390, 538, 203, 1295]",Recent visits to these places in the context and consistent patterns in the history
+188,1295,"[2677, 2390, 538, 203, 110, 699, 3087, 788, 986, 735]","Based on the user's historical stays and recent context, I predict that they are likely to visit a place they have visited before at similar times/days."
+188,3530,"[2677, 1, 598, 3087, 2390, 538, 203, 788, 986, 53]","Based on the user's recent behavior and historical patterns, the top 10 predicted places are a mix of frequent visits (e.g., home/work) and one-time stops."
+188,598,"[2677, 2390, 538, 3087, 788, 598, 986, 700, 699, 110]","Recent visits to places on Monday and Tuesday, as well as regular Sunday visits"
+188,986,"[2677.0, 2390.0, 538.0, 3087.0, 53.0, 110.0, 699.0, 598.0, 1295.0, 675.0]",Recent visit to a location on Monday evening and Tuesday evening suggests user may be heading back there
+188,134,"[2677, 538, 2390, 3087, 788, 1295, 675, 450, 203, 110]","Recent context indicates a likely evening visit to the same place as Monday's last stay, with a strong bias towards previously visited places during this time of day."
+188,241,"[2677, 2390, 538, 3087, 788, 986, 700.0, 110.0, 53.0, 598.0]",Pattern of repeated visits to places at certain times/days and recent behavior in context
+188,3601,"[2677, 2985, 2390, 538, 3087, 788, 1306, 1358, 134, 241]",Recent stays at late-night hours and weekdays suggest the user might visit places that were previously visited during these times
+188,3530,"[2677, 2390, 538, 598, 986, 3087, 788, 298, 110, 699]",Recently frequent locations on Monday and Wednesday have been visited
+188,33,"[2677, 3087, 2390, 538, 203, 1295, 986, 788, 598, 450]",Recent behavior and historical patterns suggest the user is likely to visit familiar places at similar times/days
+188,123,"[2390, 2677, 538, 598, 3087, 788, 986, 530, 110, 699]","The user tends to visit places on Sundays and Mondays, recently visiting place 2390 on Monday. The most frequent place ID is 598, which is also a common destination."
+188,3464,"[2677, 598, 986, 3087, 2390, 538, 203, 1295, 788, 53]","Based on historical stays and recent behavior, the prediction is a mix of frequent and recently visited places, with a slight bias towards evening hours."
+188,819,"[2677, 2390, 538, 598, 3087, 788, 986, 110, 699, 53]",Predicting the next likely place ID based on recent patterns in both historical stays and context.
+188,598,"[2677, 3087, 2390, 986, 538, 598, 788, 530, 699, 53]",Prediction based on user's activity pattern in history and recent contextual information
+188,182,"[2677.0, 3087.0, 2390.0, 538.0, 203.0, 1295.0, 788.0, 986.0, 699.0, 53.0]",Recent visits to these places and their regular patterns in the past
+188,496,"[2677.0, 2390.0, 698.0, 3087.0, 538.0]",Next place ID is likely to be one of the most frequent and recent places visited at around similar times
+188,598,"[2677.0, 2390.0, 538.0, 3087.0, 819.0]","The user has a consistent pattern of visiting places at similar times on certain days, and the recent context suggests that they are likely to visit a place with a high probability based on their historical stays."
+188,986,None,Invalid JSON format from model
+188,2677,"[2677, 2390, 538, 298, 1438]",Recent stays at similar times on Monday and Wednesday suggest a return to familiar locations
+188,1,"[298.0, 538.0, 1438.0, 2390.0, 700.0, 496.0, 735.0, 3087.0, 598.0, 2677.0]",prediction based on user's historical stays and recent contextual information
+188,2761,"[2677, 598, 2390, 3087, 788, 538, 986, 538, 110, 496]",Recent visits to places at certain times/days suggest a likelihood of visiting these locations again.
+188,550,"[2677, 2390, 538, 110, 3087, 788, 986, 530, 53, 298]",Pattern of daily and weekly routines
+188,3530,"[2677, 598, 450, 3087, 788, 986, 2390, 538, 203, 1295]",Recent behavior suggests a strong possibility of returning to familiar places on Monday evening.
+188,134,"[2677, 2390, 538, 298, 3087, 788, 986, 530, 110, 699]","The user's recent behavior in the context suggests a tendency to revisit places at certain times/days, and patterns in their history reveal frequent visits to these specific locations."
+188,3530,"[2677, 1, 2390, 538, 3087]",Recent visits to these places in the context and historical pattern of frequent visits during weekends
+188,598,"[2677.0, 538.0, 2390.0, 598.0, 3087.0, 786.0, 986.0, 550.0, 53.0, 110.0]","Recent evening visits to places with IDs 2677 and 3530 suggest a higher likelihood of visiting these locations again, while the overall pattern in <history> also favors places 598, 538, and 2390."
+188,3021,"[2677, 1, 538, 3087, 788, 986, 2390, 699, 530, 110]",Recent visits to unique places and repeated visits at certain times/days
+188,2677,"[2677, 538, 2988, 203, 2390, 1295, 3087, 788, 986, 110]","Recent contextual information shows the user was at home (3530) and previously visited places like work, school or daily routines around 6-8 pm on weekdays; historical data also indicates frequent visits to these locations during those times"
+188,1294,"[2390, 2677, 538, 2988, 1302, 134, 53, 110, 2999, 599]",Recent stays at similar times and days indicate likely visits to places 2390 and 2677.
+188,3530,"[2677, 2989, 2390, 538, 3087, 788, 986, 598, 110, 53]",Recent visits to places at certain times/days and patterns in history
+188,1972,"[2677, 598, 1303, 538, 203, 2390, 2986, 788, 1, 530]","Based on historical patterns and recent behavior, the user is likely to visit places they have previously visited at similar times/days, with a slight bias towards their most frequent locations."
+188,1,"[2677, 598, 1, 1305, 538, 2390, 3087, 788, 53, 699]",Pattern recognition from historical stays and recent context indicates frequent visits to places with similar IDs
+188,598,"[2677, 598, 538, 2390, 3087, 788, 986, 530, 110, 699]",recent stay at place 2677 and previous patterns of stays on Sundays and Mondays
+188,2677,"[2677, 2390, 538, 1303.0, 698.0, 53.0, 2988.0, 203.0, 1294.0, 2989.0]",Recent stays at new places and repeated visits on Mondays
+188,3530,"[2677, 2390, 538, 203, 1295, 3087, 788, 986, 530, 53]",Pattern recognition of frequent visits to places at certain times/days and recent behavior.
+188,598,"[2677, 2390, 538, 3087, 1, 598, 530, 110, 699, 53]",Recent pattern of visiting places at specific times and days in the context and history
+188,282,"[2390, 538, 203, 3087, 788, 986, 2677, 110, 699, 530]","Based on the user's historical stays and recent context, I predict they will visit places similar to their regular spots on Sundays or Mondays, with a slight preference for evening visits."
+188,986,"[2390, 2677, 538, 1295, 3087, 538, 2390, 788, 110, 53]",Recent visits to places and days of the week suggest a continued pattern of frequent visits to places at certain times and on specific days.
+188,2677,"[2677, 3087, 2390, 538, 203, 1295, 788, 530, 110, 699]",recent weekday stays at work

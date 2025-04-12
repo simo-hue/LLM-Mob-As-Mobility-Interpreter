@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+375,759,"[225, 211, 897, 759, 2916, 2684, 542, 419, 554, 496]","The user's recent stays and daily patterns suggest they tend to visit the same places at similar times, with a strong preference for place 225."
+375,1738,"[225, 211, 897, 759, 1, 2684, 542, 419, 554, 2916]",The user has a strong preference for place ID 225 and also tends to visit places on certain days of the week. Recent context suggests that the user may be heading towards place ID 225 again.
+375,759,"[225, 211, 2916, 897, 759, 2684, 1, 542, 419, 121]",Predicted based on historical patterns and recent context
+375,225,"[225.0, 211.0, 897.0, 759.0, 2684.0, 542.0, 419.0, 1738.0, 1.0, 2916.0]",based on patterns in history and recent behavior in context
+375,759,"[225.0, 211.0, 759.0, 897.0, 496.0, 2916.0, 2684.0, 419.0, 542.0, 1738.0]","Recent stays at 225.0 and 759.0 suggest a strong likelihood of returning to these places, with some probability also on days of the week when they are typically visited."
+375,225,"[211, 225, 2916, 419, 542, 759, 857, 897, 2684, 1]","The user has a strong tendency to visit places at certain times/days based on their historical stays, and recent behavior suggests they may return to familiar locations."
+375,759,"[225, 211, 759, 897, 2916, 2684, 419, 542, 1, 496]",based on historical patterns and recent context
+375,225,"[225.0, 211.0, 1.0, 759.0, 897.0, 2916.0, 2684.0, 419.0, 542.0, 496.0]",based on the user's frequent visits to places at certain times and days in their historical stays
+375,1,"[225, 211, 759, 2916, 897, 496, 554, 419, 542, 2684]","Recent stays at 225 on Friday and Saturday suggest a likely visit to 225. Additionally, historical data shows frequent visits to 211, 759, and other places on Monday, Friday, and Saturday."
+375,690,"[225.0, 211.0, 759.0, 897.0, 2916.0, 419.0, 542.0, 2684.0, 554.0, 496.0]",prediction based on historical pattern of visiting place 225 at various times and days
+375,211,"[225, 211, 897, 759, 2916, 419, 542, 2684, 496, 554]","Recent patterns of staying at place 225 on Fridays and Saturdays, as well as repeated visits to places 211 and 759"
+375,759,"[225.0, 211.0, 759.0, 897.0, 2916.0, 2684.0, 419.0, 542.0, 496.0, 554.0]","Recent behavior indicates frequent visits to places 225 and 211 on Saturday evenings, while also considering patterns in the user's history."
+375,211,"[225.0, 211.0, 759.0, 897.0, 2916.0, 2684.0, 690.0, 542.0, 419.0, 1.0]","The user tends to visit places at certain times/days, and the recent behavior in context shows a pattern of visiting place 211 on Mondays."

@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+134,1,"[361, 329, 1246, 201, 821, 465, 159, 102, 2874, 1686]",Recent patterns in the user's stay history suggest a likelihood of visiting the same places on similar days and times
+134,2252,"[1246.0, 361.0, 329.0, 201.0, 2874.0, 821.0, 1686.0, 2252.0, 159.0, 102.0]","Recent frequent visits to places 1246.0 and 361.0, with historical patterns of visits at similar times/days"
+134,1,"[329, 361, 1246, 201, 101, 102, 2874, 159, 821, 1]","Recent behavior in context suggests the user may be heading to a home or residence (place_id=1), but historical pattern shows frequent visits to places at certain times/days, so prediction also considers those factors."
+134,1,"[1246.0, 329.0, 361.0, 102.0, 2938.0, 2874.0, 159.0, 201.0, 3014.0, 821.0]",Recent visits to places with high frequency in history
+134,1,"[1246, 102, 329, 361, 821, 201, 3014, 159, 2874, 1686]",The user has shown a tendency to visit certain places on specific days of the week and at certain times. The recent context suggests that they may continue this pattern.
+134,1,"[329, 361, 1246, 821, 201, 465, 203, 102, 62, 2874]",Recent stays at similar times and days in the history patterned with this user's activity

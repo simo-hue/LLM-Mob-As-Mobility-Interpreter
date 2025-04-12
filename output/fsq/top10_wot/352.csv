@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+352,2548,"[1011, 2548, 2691, 974, 577, 218, 290, 525, 919, 593]",Next location predicted based on recent activity pattern and repeated visits to places at certain times/days.
+352,1011,"[1011, 2548, 2691, 593, 525, 919, 290, 577, 218, 3397]","The user has a consistent pattern of visiting places on weekdays and weekends, with a strong preference for place IDs 1011 and 2548. The recent behavior in the context suggests that the user is likely to continue this pattern."
+352,998,"[2691, 2548, 1011, 525, 593, 919, 290, 577, 218, 3397]",Recent stays at places with high frequency in the given history and context
+352,508,"[2691, 1011, 2548, 3397, 577, 218, 919, 525, 593, 290]","The recent behavior in the context indicates a strong likelihood of returning to previously visited places, with a focus on places visited at times close to the current time."
+352,1011,"[2691, 2548, 1011, 919, 3397, 218, 525, 290, 593, 577]","Recent visits to places at certain times/days, with a slight bias towards weekend hangouts and work/school commutes"
+352,2548,"[2691, 2548, 1011, 919, 577, 3397, 218, 290, 525, 593]",Recent behavior suggests the user is likely to visit a location they visited on Monday morning or Tuesday afternoon

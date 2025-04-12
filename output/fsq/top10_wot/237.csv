@@ -1,0 +1,39 @@
+user_id,ground_truth,prediction,reason
+237,3076,"[3775, 2458, 3076, 2522, 976, 2129, 3258, 2466, 1634, 465]","The user tends to visit the same places on certain days and times, with recent visits favoring place 3775."
+237,2645,"[2458, 3775, 3076, 2522, 976, 2129, 3258, 2466, 465, 408]","Based on the user's historical stays and recent behavior, I predict that they are likely to visit one of their frequently visited places, especially since the most recent stays show a preference for weekdays."
+237,2645,"[3775, 2458, 3076, 2522, 976, 1435, 854, 3258, 2466, 465]",based on historical patterns and recent behavior
+237,333,"[2458, 3775, 3076, 2522, 976, 2129, 3258, 2466, 1634, 2645]",based on historical patterns and recent behavior
+237,333,"[2458, 3775, 3076, 976, 2522, 253, 2129, 3258, 2466, 2645]",Recent visits to places at certain times/days and patterns in user's historical stays.
+237,231,"[3076, 2522, 2458, 3775, 976, 3258, 2466, 2129, 253, 465]","Recent stay at location 3076 and pattern of visiting this location on Fridays suggests a high likelihood of returning to this location. Additionally, the user has stayed at multiple locations in the past which are likely places for their next visit."
+237,2458,"[3775, 2458, 3076, 2522, 976, 2129, 3258, 2466, 2645, 333]",The prediction is based on the user's historical pattern of visiting place 3775 at early hours and other places in context with Friday night
+237,2458,"[3775, 2458, 3076, 2522, 976, 2149.0, 2466.0, 3258.0, 465.0, 333.0]",Predicted based on user's historical stays and recent behavior
+237,2466,"[3775, 3076, 2522, 2458, 976, 2129, 3258, 2466, 253, 465]",recent frequent visits to places at certain times/days
+237,3738,"[2458, 3076, 3775, 976, 2522, 253, 2129, 3258, 2466, 762]",Predicted based on historical patterns and recent contextual information
+237,3775,"[3775, 2458, 3076, 2522, 976, 2129, 3258, 2466, 762, 465]","Recent behavior in context suggests frequent visits to places on weekdays and weekends, with strong preference for staying at home (place_id=3775), followed by regular daily routines"
+237,2466,"[2458.0, 3076.0, 3775.0, 2522.0, 976.0, 1435.0, 2129.0, 3258.0, 2466.0, 762.0]",based on the user's historical stays and recent behavior
+237,3076,"[2458.0, 3076.0, 2522.0, 976.0, 2129.0, 3258.0, 2466.0, 3775.0, 762.0, 3738.0]",Recent behavior and historical patterns suggest the user will likely visit a place they have visited recently or at similar times/days.
+237,2466,"[3775, 2458, 3076, 2522, 976, 3258, 2129, 2466, 465, 253]",Recent stays at office and considering morning routines
+237,3076,"[2458, 3076, 3775, 976, 2522, 2129, 3258, 2466, 465, 253]","Recent behavior indicates frequent visits to place ID 2458 and 3076, with a slight bias towards weekdays; historical pattern shows repeated visits at certain times/days"
+237,2466,"[3775, 3076, 2458, 2522, 976, 2129, 3258, 2466, 465, 253]",Recent and historical patterns suggest the user is likely to stay at a location on Monday or Tuesday morning
+237,762,"[3775, 2458, 3076, 2522, 976, 2129, 3258, 2466, 465, 253]",Predicted based on recent patterns and time of day
+237,2121,"[2458, 3775, 3076, 976, 2522, 2129, 3258, 2466, 253, 465]","Recent stays and patterns in history suggest the user is likely to visit a familiar place, with 2458 being the most probable due to its frequent appearance"
+237,477,"[3775, 2458, 3076, 976, 2522, 3258, 2466, 2129, 253, 465]","Based on the user's historical stays and recent contextual information, the prediction is a mix of frequent locations (3775, 2458) and places visited at similar times/days as in the context"
+237,3775,"[2458.0, 3076.0, 3775.0, 2522.0, 976.0, 253.0, 2129.0, 3258.0, 2466.0, 465.0]",Recent behavior and historical patterns indicate a strong likelihood of returning to previously visited places
+237,3775,"[2522, 3076, 2458, 976, 3775]","Recent behavior suggests frequent visits to places with IDs 2522 and 3076 on Fridays, while historical data shows a strong affinity for place ID 2458 and other places on weekdays."
+237,3076,"[2458, 3076, 3775, 976, 2522, 2129, 3258, 2466, 465, 477]","Recent behavior suggests frequent stays at home or nearby locations, with occasional visits to work or other places"
+237,3775,"[977.0, 2458.0, 3076.0, 3775.0, 2522.0, 3258.0, 2466.0, 2129.0, 465.0, 477.0]",next likely places based on recent behavior and historical patterns
+237,3076,"[3775, 2458, 3076, 976, 2522, 2129, 3258, 2466, 465, 253]","Based on the user's historical stays and recent context, I predict that they will visit a place similar to their frequent morning stays at location ID 3775."
+237,2466,"[2458.0, 3775.0, 3076.0, 976.0, 2522.0, 2129.0, 3258.0, 2466.0, 465.0, 1435.0]",based on the user's historical stays and recent behavior in context
+237,3775,"[2466, 2522, 3076, 3775, 2458, 976, 2129, 3258, 465, 253]",The user's recent behavior in the context and historical stays suggest a high probability of visiting places with similar day of week and time patterns.
+237,293,"[2458.0, 3076.0, 3775.0, 976.0, 2522.0, 2129.0, 3258.0, 2466.0, 1435.0, 854.0]",recent behavior in context and patterns in history
+237,2522,"[2458, 3076, 3775, 976, 2522, 2129, 3258, 2466, 465, 293]",Predicted based on historical patterns and recent behavior
+237,2129,"[3775, 2458, 3076, 2522, 976, 2129, 3258, 2466, 293, 465]","Recent behavior in context suggests the user is more likely to visit places that are typically visited during the weekdays, and based on the historical stays, this user tends to repeat visits to places at certain times of the day"
+237,2231,"[2458, 3775, 3076, 2522, 976, 1435, 3258, 2466, 2129, 253]","The user tends to visit home (3775) regularly and also has a history of frequent visits to work (2458), with some variations in their daily routine."
+237,2237,"[3775, 2458, 3076, 2522, 976, 2129, 3258, 2466, 253, 465]",Recent behavior in context suggests the user is likely to stay at a location similar to their typical morning routine
+237,3775,"[3775, 2458, 3076, 2522, 976, 2129, 3258, 2466, 1435, 854]",Recent behavior in context suggests the user tends to visit familiar places during weekdays; historical stays indicate a strong affinity for place ID 3775 on Sundays and Wednesdays.
+237,976,"[2458.0, 3076.0, 3775.0, 976.0, 2522.0, 2129.0, 3258.0, 2466.0, 2231.0, 2237.0]",Pattern in historical stays and recent behavior
+237,3076,"[2458.0, 3076.0, 3775.0, 2522.0, 976.0, 2231.0, 2237.0, 465.0, 2129.0, 3258.0]",Recent stay patterns and time-based visitations suggest the user is likely to return to their regular locations.
+237,3775,"[3775, 2458, 3076, 2522, 976, 3258, 2466, 2129, 2237, 465]",Recent location patterns and day of week suggest likely locations
+237,256,"[2458.0, 3076.0, 3775.0, 2522.0, 976.0, 2129.0, 3258.0, 2466.0, 2237.0, 465.0]",based on historical patterns and recent behavior
+237,3076,"[3775, 2458.0, 3076.0, 976.0, 2522.0, 2129.0, 3258.0, 2466.0, 465.0, 256.0]",Recent visits to places at certain times/days and patterns in the historical stays were considered.
+237,3775,"[2458.0, 3076.0, 3775.0, 976.0, 2522.0, 3258.0, 2466.0, 2129.0, 465.0, 256.0]",Recent and historical patterns suggest the user will likely visit a familiar place around evening/night.

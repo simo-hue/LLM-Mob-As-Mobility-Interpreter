@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+398,3476,"[3476, 129, 897, 756, 675, 596, 3805, 2950, 165, 1120]","The user has a strong daily routine and typically visits the same place on certain days of the week, especially during peak hours. The recent context suggests that they are likely to continue this pattern."
+398,3476,"[3346, 897, 756, 675, 3805, 2950, 129, 165, 1120, 590]",Pattern analysis and recent behavior
+398,3476,"[1120, 590, 3805, 675, 756, 129.0, 165.0, 2333, 2950, 897]",Recent visits to place 3476 and pattern of repeated visits at times/days in history suggest likely stays at similar locations.
+398,3476,"[3476, 129.0, 897.0, 756.0, 165.0, 3805.0, 675.0, 1120.0, 590.0, 2950.0]","Recent behavior suggests the user is likely to visit a place they have been to before, especially those visited recently in the context."

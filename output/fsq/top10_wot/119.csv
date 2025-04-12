@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+119,2552,"[2552, 626, 28, 1, 2552, 2552, 2552, 2552, 2552, 2552]","Based on the user's historical stays and recent behavior, the top predictions are all places this user has visited in the past, with a strong likelihood of returning to their most frequent locations."
+119,2552,"[28, 626, 1, 2552, 2552, 2552, 2552, 2552, 2552, 2552]","The user has a consistent pattern of visiting different places on specific days of the week and times, with recent behavior indicating a preference for visits to place_id 28 and 626."
+119,2552,"[2552.0, 2552.0, 1.0, 2552.0, 2552.0, 2552.0, 28.0, 626.0, 2552.0, 1.0]","Based on the user's historical stays and recent behavior, I predict they will visit their most frequent locations or revisit a place recently visited."
+119,2552,"[2552.0, 1.0, 626.0, 28.0, 2552.0, 2552.0, 1.0, 2552.0, 1.0, 2552.0]",Recent contextual information suggests frequent visits to places at similar times/days as in the past
+119,1,"[2552.0, 1.0, 626.0, 28.0, 2552.0, 2552.0, 2552.0, 2552.0, 2552.0, 2552.0]",Recent frequent visits to place with ID 2552 and some occasional visits to other places
+119,2552,"[2552.0, 2552.0, 2552.0, 2552.0, 2552.0, 2552.0, 2552.0, 1.0, 626.0, 28.0]","The user tends to visit places repeatedly at certain times and days, with recent behavior suggesting a high likelihood of revisiting familiar locations."
+119,2552,"[626, 28, 2552, 1, 2552, 2552, 2552, 2552, 2552, 2552]",Recent visits and patterns in history suggest user tends to stay at places with ID 2552 on Saturday evenings
+119,2552,"[2552, 2552, 2552, 2552, 2552, 1, 1, 28, 626, 1]","The user has a consistent pattern of visiting place ID 2552 on weekends and weekdays with some exceptions, and recently visited place ID 2552. Therefore, the most likely places are this place ID followed by other places IDs."
+119,2552,"[2552, 1, 626, 28, 2552, 1, 2552, 2552, 2552, 2552]","Based on the user's historical stays and recent behavior, I predict they will visit places they have been to before, with a focus on weekdays and locations near their most frequent stay."
+119,2552,"[2552, 1, 626, 28, 2552, 2552, 2552, 2552, 2552, 1]",Recent and historical frequent visits to place ID 2552 at various times/days
+119,2552,"[2552, 1, 28, 626, 2552, 2552, 2552, 2552, 2552, 2552]",pattern of frequent visits to place ID 2552 and recent contextual information indicating similar behavior
+119,2552,"[626, 28, 1, 2552, 2552, 2552, 2552, 2552, 2552, 2552]",Recent stays at home and a likely sleep-in on Tuesday
+119,1,"[626.0, 28.0, 1.0, 2552.0, 2552.0, 2552.0, 2552.0, 2552.0, 2552.0, 2552.0]",based on recent behavior and historical patterns

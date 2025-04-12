@@ -1,0 +1,27 @@
+user_id,ground_truth,prediction,reason
+36,2800,"[2800, 3070, 538.0, 999.0, 2475.0, 2318.0, 1634.0, 2977.0, 368.0, 2818.0]",The predicted next place ID is likely a place the user frequently visits in similar times of day.
+36,2800,"[2800, 3070, 999, 538, 368, 2475, 1634, 2318, 2977, 3070]","Based on the user's historical stays and recent behavior, I predict that they will likely visit a location at or near one of their regular morning spots."
+36,3070,"[3070.0, 2800.0, 538.0, 999.0, 368.0, 2475.0, 1634.0, 2318.0, 2977.0, 2801.0]",Recent pattern of visits to places at certain times/days and the user's historical stays suggest a high likelihood of revisiting familiar locations
+36,2800,"[2800, 3070, 999, 538.0, 368.0, 2475.0, 1634.0, 2318.0, 2977.0, 3070]","Recent behavior in <context> suggests the user is likely to visit places they have visited recently, and patterns in <history> indicate frequent visits to place ID 2800 on weekdays."
+36,2800,"[2800, 3070, 538, 999, 2475, 1634, 2318, 368, 2977, 3070]",Recent and historical stays at 2800 and 3070 suggest a high likelihood of returning to these places
+36,3070,"[2800, 3070, 538.0, 999.0, 368.0, 2475.0, 1634.0, 2318.0, 2977.0, 3070]","Based on the user's historical stays and recent behavior, the most likely places to visit next are their typical Monday morning locations with a slight bias towards their Friday morning habits."
+36,2800,"[2800, 3070, 999, 538, 368, 2475, 1634, 2318, 2977, 307]","Recent behavior indicates frequent visits to places with IDs 2800 and 3070 on weekdays, so the next likely place is one of these two."
+36,3070,"[2800, 3070, 999, 538, 368, 2475, 1634, 2318, 2977, 537]","Recent behavior in context suggests a strong tendency to visit place ID 2800 and 3070, with historical patterns also pointing towards these locations"
+36,3070,"[2800, 3070, 538, 999, 368, 2475, 2318, 1634, 2977, 307]",Recent pattern of frequent visits to places with IDs 2800 and 3070 suggests a strong likelihood of revisiting these locations next.
+36,2800,"[2800, 3070, 999, 538, 368, 2475, 1634, 2318, 2977, 538]","Recent contextual information and historical patterns indicate frequent visits to places with ID 2800, followed by place IDs that have been visited regularly"
+36,2800,"[2800, 3070, 999, 538.0, 368.0, 2475.0, 1634.0, 2318.0, 2977.0, 3073.0]","Recent behavior and historical patterns suggest the user is likely to visit a familiar location, possibly on Thursday or Friday morning."
+36,2800,"[2800, 3070, 538.0, 999.0, 368.0, 2475.0, 1634.0, 2318.0, 2977.0, 2825.0]",Recent behavior and historical patterns suggest the user is likely to visit their usual morning destinations.
+36,2800,"[2800, 3070, 538.0, 999.0, 368.0, 2475.0, 1634.0, 2318.0, 2977.0, 3071.0]","The user's recent behavior and historical pattern suggest a high likelihood of visiting places they have previously visited, with the top prediction being their most frequent location (2800)"
+36,2800,"[2800, 3070, 999, 538, 2475, 1634, 2318, 368, 2977]",Recent stays at places with high frequencies in the history and context
+36,781,"[2800, 3070, 999, 538, 368, 2475, 2318, 1634, 2977, 3070]",Recent behavior indicates frequent visits to places like 2800 and 3070 on Mondays/Wednesdays/Fridays.
+36,2800,"[2800, 3070, 999, 538.0, 368.0, 2475.0, 1634.0, 2318.0, 2977.0, 781]",next likely place ID based on recent patterns in both <history> and <context>
+36,3070,"[2800, 3070, 538.0, 999.0, 2475, 1634.0, 2318.0, 781, 368.0, 2977.0]",next likely places based on patterns in history and recent context
+36,2800,"[2800, 3070, 999, 538, 368, 2475, 1634, 2318, 781, 2977]",Recent patterns of staying at place 2800 on weekdays suggest it's a likely destination
+36,3070,"[2800, 3070, 999, 538, 368, 2475, 1634, 2318, 2977, 781]","Based on the historical stay pattern and recent context, the top prediction is likely to be a return visit to the previously frequent location (2800), considering the morning hours and weekdays."
+36,2744,"[2800, 3070, 999, 538, 368, 2475, 1634, 2318, 781, 2977]",Recent frequent visits to places with IDs 2800 and 3070 suggest a high likelihood of returning to these locations
+36,189,"[2800, 3070, 538, 999, 2475, 1634, 2318, 2977, 368, 2744]",Prediction based on daily routine and recent behavior.
+36,3070,"[2800, 3070, 999, 538, 2475, 1634, 2318, 368, 2977, 2744]","Recent and historical patterns suggest frequent visits to places with ID 2800, followed by other commonly visited locations"
+36,2800,"[2800, 3070, 999, 538, 368, 2475, 2318, 1634, 2744, 189]",The user tends to stay at places with ID 2800 during weekdays and has recently visited some of these places.
+36,2800,"[2800, 3070, 999, 2744, 538.0, 1634.0, 2318.0, 2475.0, 368.0, 2977.0]",Recent behavior and patterns in history suggest frequent visits to the same locations at similar times/days.
+36,2800,"[2800, 3070, 999, 2744, 538, 368, 2475, 1634, 2318, 2977]",predicting the next likely place ID based on the user's historical stays and recent contextual information
+36,3070,"[2800, 3070, 538.0, 999.0, 2475.0, 2318.0, 1634.0, 189, 2977.0, 368]","The prediction is based on the user's historical stays and recent behavior in the context, showing a strong preference for place IDs 2800 and 3070, with some variation depending on the day of the week."

@@ -1,0 +1,17 @@
+user_id,ground_truth,prediction,reason
+409,2414,"[2414.0, 1796.0, 2293.0, 1773.0, 1679.0, 1099.0, 3734.0, 2193.0, 2642.0, 2425.0]",The user has a regular Monday morning routine at location 2414 and also frequently visits locations 1796 and 2293 on different days.
+409,1796,"[2414, 1796, 2293, 1773, 3734, 2425, 2642, 2193, 1099, 1679]",based on frequent visits and recent behavior
+409,2414,"[2425, 1796, 2293, 1773, 1679, 1099, 3734, 2193, 2642, 2414]","Recent context suggests a return to a familiar location (1796), but historical patterns also indicate a possible visit to 2425 or other places that have been visited at similar times and days."
+409,1796,"[2293, 1773, 1099, 1679, 3734, 2193, 2642, 2414, 1796]",Recent behavior indicates a possible change in pattern
+409,1796,"[2193, 2293, 1773, 1679, 1099, 3734, 2642, 2414, 1796, 1099]",Recent contextual information and historical patterns suggest the user is likely to visit a location around 12h clock format with similar day_of_week and place_id as their recent stays
+409,1796,"[2414, 1796, 1773, 1679, 1099, 2193, 2642, 3734, 2293, 3731]",recent stays at similar times of the day have led to increased likelihood of visits to these locations
+409,2414,"[2414, 1796, 2293, 1773, 1679, 1099, 2193, 2642, 3734, 2737]",Predicted places based on historical patterns and recent behavior.
+409,1796,"[1796, 2414, 2293, 1773, 1679, 1099, 3734, 2193, 2642]","Recent behavior and historical patterns indicate frequent visits to 1796 and 2414, with some variation and exceptions"
+409,1796,"[2414.0, 1796.0, 2293.0, 1773.0, 1679.0, 1099.0, 3734.0, 2193.0, 2642.0, 2193.0]","Based on user's historical stays and recent contextual information, the next likely places are a mix of frequent and less frequent locations, with 2414 and 1796 being most probable due to their repeated visits"
+409,2414,"[2414, 1796, 1773, 2293, 2193, 2642, 3734, 1679, 1099]","Based on the user's historical stays and recent context, I predict they will visit one of their most frequent places, possibly their workplace (2414), or a place they visited recently (1796)"
+409,1796,"[2414, 1796, 2293, 1773, 1099, 2193, 2642, 3734, 1679, 1670]",The prediction is based on the user's historical stays and recent contextual information. The top predicted places are those where the user has previously stayed during similar times of the day and week.
+409,1796,"[1796.0, 2414.0, 2293.0, 1773.0, 1679.0, 1099.0, 3734.0, 2193.0, 2642.0, 2681.0]","Based on historical stays and recent behavior in context, the predicted next place ID is likely to be one of the most visited places or a place recently visited."
+409,1773,"[2414.0, 1796.0, 2293.0, 1773.0, 1679.0, 1099.0, 3734.0, 2193.0, 2642.0, 2193.0]","The user has a history of visiting these places on Monday and Tuesday mornings and afternoons, and the recent context suggests they are likely to continue this pattern."
+409,1796,"[1796, 2414, 2293, 1773, 3734, 2193, 2642, 1099, 1679, 1078]","The user tends to visit the same places at similar times and days, with a recent bias towards location 1796."
+409,1796,"[2414, 1796, 2293, 1773, 1099, 3734, 2642, 2193, 1679, 1677]","Based on the user's historical stays and recent context, I predict they will visit one of their most frequent locations at a similar time of day, with Monday being the most likely day."
+409,1796,"[2414, 1796, 1773, 2293, 1099, 3734, 2193, 2642, 1679, 1099]","Based on the user's historical stays and recent context, I predict they will visit one of their most frequently visited places at a similar time and day."

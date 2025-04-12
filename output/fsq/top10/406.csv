@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+406,708,"[1, 6, 3, 7, 4, 2, 9, 5, 8]",The prediction is based on the user's activity pattern of frequent visits to certain places during certain times and days.
+406,265,"[3295, 708, 1, 1005, 707, 2588, 2767, 1253, 531, 343]",Recent repeated visits to certain places during certain times
+406,409,"[16, 10, 6, 5, 3]","The user has a pattern of visiting place 16 on Saturdays, and considering the recent context of Saturday stays in <context>, the next likely place is 16."
+406,689,"[12, 11, 9, 8, 7, 5, 4]",The prediction is based on the user's activity pattern and context. The top 10 most likely places are ranked in descending order according to their visit frequencies during similar time periods.
+406,2490,"[1, 6, 7, 12, 15, 2, 3, 5, 11, 4]","Based on the user's activity pattern and recent context stays, I predicted that they might visit place 1 again since it has been their most frequent destination during weekdays."
+406,2686,"[2490, 707, 1923, 1253, 3002, 223, 293, 1923]",based on the activity pattern and recent context

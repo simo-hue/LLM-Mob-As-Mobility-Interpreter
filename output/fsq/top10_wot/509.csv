@@ -1,0 +1,10 @@
+user_id,ground_truth,prediction,reason
+509,1725,"[1725, 3125, 297, 635, 919, 307, 3805, 338, 1897, 1256]","Recent behavior in context suggests the user tends to stay at location 1725, also present in their historical stays"
+509,1725,"[1725, 3125, 297, 635, 3805]","Recent pattern of frequent visits to 1725 and 3125 on weekdays, with Saturday visits to 1897 and other places"
+509,231,"[1725, 3125, 1897, 297, 1256, 635, 919, 307, 3805, 338]",The user tends to visit places at similar times and days of the week
+509,846,"[1725, 3125, 297, 1897, 846, 635, 3805, 919, 307, 231]",Recent behavior and historical patterns suggest the user is likely to visit places they have previously visited around similar times of day.
+509,2212,"[1725, 3125, 297, 1256, 635, 919, 3805, 307, 338, 231]",Predicted based on historical patterns of frequent visits to places on certain days and recent behavior in context.
+509,509,"[1725, 3125, 846, 297, 635, 307, 3805, 919, 338, 2212]",Recent behavior and patterns in the user's history suggest a high likelihood of visiting places already frequented at certain times/days.
+509,1725,"[3125, 1725, 297, 635, 919, 3805, 2212, 509, 1256, 307]",Recent contextual information and historical patterns point to a likely visit to a previously visited place during the same day of the week
+509,71,"[1725, 3125, 297, 1897, 635, 307, 919, 1256, 3805, 338]","The user has a strong tendency to visit places on certain days of the week and times of day, with recent behavior in <context> suggesting a high likelihood of returning to familiar locations"
+509,1531,"[3125, 1725, 297, 635, 919, 307, 1256, 3805, 338, 139]","The user has a strong tendency to visit the same places at similar times and days of the week, especially on Mondays and Fridays. Recent context suggests they will likely continue this pattern."

@@ -1,0 +1,25 @@
+user_id,ground_truth,prediction,reason
+322,1106,"[3810, 369, 1426, 2212, 70, 11, 145, 3805, 423, 2891.0]",Recent stays at different times of the day and week suggest a shift to new locations
+322,2891,"[3196, 2891, 3810, 2201, 300, 343, 145, 70, 3805, 423]",The user tends to visit the same places on certain days of the week and at similar times.
+322,3196,"[3196, 2891, 3810, 11, 3805, 423, 1426, 300, 145, 70]",Recent stays in context indicate a strong likelihood of returning to familiar places
+322,3196,"[3196, 2891, 3810, 423, 1426, 11, 70, 2212, 3805, 145]",Recent stays at similar times/days and frequent visits to places 2891 and 3196
+322,1978,"[3196, 2891, 3810, 1426, 2201, 11, 145, 70, 186, 423]","The prediction is based on the user's historical behavior of frequently visiting locations 3196 and 2891, with a recent pattern of staying at these places around midnight on Monday and Friday. The model also considers the day-of-week patterns in the context, where the user tends to visit location 1426 on Thursday."
+322,3196,"[3805, 3196, 2891, 3810, 423, 1426, 11, 2212, 70, 145]","The prediction is based on the user's regular visits to places at certain times and days, with a focus on recent behavior in the context of Friday evening and Monday morning"
+322,2891,"[3196, 2891, 3810, 1426, 11, 2212, 70, 3805, 423, 145]",predicting based on recent behavior and historical patterns
+322,258,"[3196, 2891, 3810, 1426, 3805, 11, 1978, 2212, 371, 70]",Recent contextual information indicates frequent visits to location 3196 and location 2891. Historical stays show repeated visits to these locations at certain times/days.
+322,2891,"[3810, 3196, 2891, 1978, 1426, 258, 2201, 3805, 145, 11]",Predicted based on recent patterns and time of day
+322,3196,"[3810.0, 1426.0, 1978.0, 11.0, 145.0, 3805.0, 2212.0, 70.0, 186.0, 423.0]","Based on the user's historical stays and recent context, the top predictions are places frequently visited during weekdays, weekends, and evening hours."
+322,3264,"[3196, 2891, 3810, 423, 1426, 3805, 277, 145, 371, 70]",Recent stay at place ID 3196 and historical pattern of visiting the same location on weekends
+322,210,"[3810.0, 2891.0, 3196.0, 145.0, 277.0, 1426.0, 11.0, 371.0, 2212.0, 70.0]","The user has a consistent pattern of staying at home on Mondays and Tuesdays, with some exceptions like Friday night visits to place 277. Recent context suggests the user is likely to stay somewhere similar over the weekend."
+322,3196,"[3196, 2891, 3810, 423, 1426, 3805, 145, 277, 2212, 70]",Recent visits to places at similar times/days and repeated patterns in history
+322,3196,"[3810, 3805, 3196, 1426, 423, 2891, 3264, 2212, 70, 186]","The prediction is based on the user's historical stays and recent behavior in context. The top 10 predictions include places the user has visited frequently or recently, with a higher weight given to places visited during similar times of day and days of the week."
+322,3196,"[3810, 2891, 3196, 1426, 3805, 423, 2212, 70, 11, 145]","The prediction is based on the user's historical stays and recent context. The most likely places are those visited frequently in the past (e.g., place ID 2891) or recently (e.g., place ID 3196)."
+322,3196,"[3196, 2891, 3805, 3810, 423, 1426, 11, 3264, 210, 2212]","Based on the user's historical stays and recent context, the most likely next place is a location where the user has spent significant time in the past (e.g., weekends), possibly with some preference for weekdays as well."
+322,3196,"[3196, 2891, 3810, 1426, 11, 3805, 2212, 2201, 371, 70]",Recent contextual information suggests a high probability of returning to the most frequently visited place (3196)
+322,3196,"[3196, 2891, 3810, 1426, 2201, 300, 3805, 11, 145, 2212]",Recent stays at 3196 and historical patterns of regular visits to these places
+322,2891,"[3196, 2891, 3810, 2212, 3805, 423, 145, 1426, 11, 70]",The user tends to visit places during certain times/days and has a recent preference for place ID 3196
+322,369,"[3196, 2891, 3810, 423, 11, 1426, 2201, 145, 70, 186]",Recent frequent visits to place 3196 and historical patterns of repeated visits to place 2891 suggest this user is likely to visit one of these places again.
+322,2891,"[3196, 2891, 3810, 3795, 423, 11, 145, 1426, 2212, 70]","Recent visits to places 3196, 2891 and 369 suggest likely next destinations are these places"
+322,3196,"[3196, 2891, 3810, 2201, 145, 11, 70, 186, 423, 1426]",Recent stays at 3196 and historical patterns of visiting 2891 and 3810 on certain days suggest a high likelihood of returning to these locations.
+322,20,"[3196.0, 2891.0, 3810.0, 423.0, 1426.0, 369.0, 11.0, 2201.0, 3805.0, 70.0]",Recent stays and days of the week suggest this user is likely to visit places they have previously visited at similar times/days
+322,3196,"[3810, 423, 145, 1426, 3805, 2212, 70, 11, 186, 2891.0]","Based on the user's historical stays and recent context, it is likely that they will visit places in similar locations and at similar times of day."

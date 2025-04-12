@@ -1,0 +1,56 @@
+user_id,ground_truth,prediction,reason
+521,3227,"[3227, 3319, 3645, 3812, 2538, 2004, 3143, 3220.0, 3131.0, 3294.0]",recent frequent visits to place 3227 and 3319
+521,3319,"[3227, 3319, 3645, 3812, 2004, 3143, 3150, 3188, 3206, 3251]","The user's recent behavior shows a consistent pattern of visiting certain locations on specific days and times, which is likely to continue."
+521,3645,"[3645, 3227, 3319, 3812, 2538, 3143, 2004, 3319, 3227, 3319]","Based on the user's historical stays and recent behavior in context, I predict they will visit one of their most frequently visited places, with a strong likelihood of visiting the same place as their last stay."
+521,1,"[3319, 3227, 3645, 3812, 2538, 2004, 3143, 3311, 3626, 3150]","Based on the user's historical activity pattern and recent context, it is likely that they will visit a location similar to their previous frequent locations"
+521,3319,"[3319, 3227, 3645, 3812, 2004, 3143, 2538, 1, 3316.0, 3321.0]","Based on the historical pattern of frequent visits to places 3319 and 3227 at various times on multiple days of the week, especially Sundays and Mondays, and considering recent behavior in the context of visiting place 2004 on Friday, I predict that the next likely place will be one of these two regular locations or possibly a new location discovered during this stay."
+521,3817,"[3645, 3319, 3227, 2004, 2538, 3812, 3143, 1, 3319.0, 3319]",Recent stay at place 3645 and frequent visits to places 3319 and 3227 in the history
+521,3817,"[3227, 3319, 3645, 3812, 2004, 3143, 2538, 1, 3817, 3126]",predicting based on recent patterns and user's activity history
+521,3817,"[3645, 3319, 3227, 3812, 2004, 3143, 1, 3817, 3143, 3319]","Recent behavior suggests a likely return to familiar locations, with higher probability of visits to places visited frequently in the past (3645 and 3319), and lower likelihood of new destinations."
+521,3817,"[3227.0, 3319.0, 3645.0, 3812.0, 2004.0, 3143.0, 3817.0, 3220.0, 3301.0, 3906.0]","Recent behavior suggests frequent visits to places 3227.0 and 3319.0 on weekdays, while weekend patterns indicate stays at 3645.0 and 3812.0"
+521,3143,"[3645.0, 3227.0, 3319.0, 3812.0, 2004.0, 3143.0, 3817.0, 3136.0, 3118.0, 3291.0]",Recent stays at 3645.0 and 3817.0; historical patterns suggest next stay at a similar location
+521,3227,"[3319.0, 3227.0, 3645.0, 3812.0, 2004.0, 3143.0, 3817.0, 3319.0, 3227.0, 3645.0]","Based on the user's historical stay pattern and recent behavior in the context, I predicted the next likely places they may visit"
+521,3319,"[3319, 3645, 3227, 3812, 2004, 3143, 3817, 3318.0, 3331.0, 3336.0]",Predicted based on user's regular visits to places at certain times/days and recent behavior in the context
+521,3227,"[3319, 3645, 3812, 3227, 3143, 2004, 3817, 3318.0, 3142.0, 2011.0]","Based on the user's historical stays and recent contextual information, I predict that they will visit one of their most frequently visited places at a similar time/day combination."
+521,3319,"[3319.0, 3227.0, 3645.0, 3812.0, 3143.0, 2004.0, 3319.0, 3319.0, 3319.0, 3319.0]",recent pattern of frequent visits to places at times/days similar to those in the history
+521,2538,"[3645.0, 3319.0, 3227.0, 3143.0, 3812.0, 2004.0, 3319.0, 3319.0, 3645.0, 3319.0]",predicted based on historical patterns and recent contextual information
+521,2092,"[3319.0, 3645.0, 3227.0, 3812.0, 2004.0, 3143.0, 2538.0, 3319.0, 3319.0, 3645.0]",Recent behavior and historical patterns favor places with frequent visits on weekends or late evenings
+521,3319,"[3645.0, 3227.0, 3319.0, 3812.0, 2004.0, 3143.0, 2538.0, 2092.0, 3311.0, 3151.0]","Based on the user's historical stays and recent behavior, I predict they will visit a place that is frequently visited during weekdays, possibly their home or workplace."
+521,3227,"[3227, 3319, 3645, 3812, 3143, 2538, 2092, 2004, 3319.0, 3143.0]",Recently visited the same places as before and also considered historical data
+521,3645,"[3319, 3645, 3227, 3812, 2004, 3143, 2538, 2092, 3319.0, 3292]",Recent visits to places at certain times/days and patterns in the user's historical stays.
+521,3143,"[3645, 3319, 3227, 2538, 2092, 3812, 3143, 2004, 3319.0, 3645.0]","Recent frequent visits to places with ID 3645 and 3319 suggest high likelihood of returning to these locations, while also considering the user's weekend routine."
+521,3319,"[3227, 3319, 3645, 2092, 3812, 3143, 2004, 3319, 3227, 3645]",predicting based on historical pattern and recent contextual information
+521,2538,"[3319, 3227, 3645, 3812, 3143, 2004, 3319, 3227, 3319, 3645]",Predicted places based on the user's historical patterns and recent context
+521,3319,"[3319, 3227, 3645, 3812, 3143, 2538, 2004, 3319.0, 3645.0, 3227.0]","Recent patterns of the user's stay times and locations suggest a preference for home/study areas (3319) and work/social gatherings (3227), with slight deviations to other familiar places"
+521,3645,"[3645, 3319, 3227, 3143, 3812, 2538, 2004]","Based on the user's historical stays and recent contextual information, I predict that the next likely place ID will be one of their frequently visited locations, with a bias towards places visited recently."
+521,3645,"[3319.0, 3227.0, 3645.0, 3143.0, 2538.0, 3812.0, 2004.0]",The user's recent behavior in the context is to visit places at certain times/days and this pattern continues with most likely next place being a repeated visit.
+521,3319,"[3227, 3319, 3645, 3812, 2538, 2004, 3143, 3227, 3319, 3645]",Recent patterns suggest frequent visits to home (3227) and work/study locations
+521,3319,"[3227.0, 3319.0, 3645.0, 3812.0, 2538.0, 2004.0, 3143.0, 3227.0, 3319.0, 3645.0]",Recent contextual information and historical stay patterns indicate a high likelihood of visiting familiar places.
+521,3227,"[3227, 3319, 3645, 3812, 2004, 3143, 3130.0, 3201.0, 3238.0, 3506.0]","Recent context shows the user is likely to be at work or home, historical patterns suggest frequent visits to place_id 3227 and place_id 3319"
+521,3645,"[3319.0, 3645.0, 3227.0, 3812.0, 2004.0, 3143.0, 3318.0, 3106.0, 3841.0, 3132.0]","Based on the user's historical stays and recent behavior, I predict they will visit one of their most frequent locations at a similar time and day."
+521,3319,"[3319, 3645, 3227, 3812, 2004, 3143, 3131, 3111, 3050, 3008]",The user tends to visit the same places at similar times/days and has recently been frequenting place IDs 3319 and 3645
+521,3645,"[3319.0, 3227.0, 3812.0, 3645.0, 2004.0, 3143.0, 3319.0, 3319.0, 3319.0, 3319.0]",prediction based on recent and historical patterns of staying at certain places
+521,3645,"[3227, 3319, 3812, 2004, 3645, 3143, 3227, 3328.0, 3299.0, 3264.0]","The user tends to stay at places on weekdays and weekends, with a strong preference for place ID 3227 and 3319."
+521,3319,"[3319, 3227, 3645, 3143, 3812, 2004, 3319, 3645, 3227, 3319]",Recent stays at places with similar IDs and times of day suggest user is likely to visit a familiar location
+521,2004,"[3227, 3319, 3645, 3143, 3812, 2004, 3319, 3227, 3319, 3645]","Based on the user's historical stays and recent context, I predict they will likely visit places they have been to before, with a preference for weekday evenings"
+521,3319,"[3645, 3319, 3227, 3812, 2004, 3143, 3319, 3645, 3319, 3227]","The user has a strong tendency to visit places on weekends and Fridays, with a preference for place ID 3645."
+521,3645,"[3319, 3645, 3227, 3812, 2004, 3143, 3318, 3611, 3230, 3511]",based on recent behavior and historical patterns
+521,3319,"[3645, 3319, 3227, 3812, 2004, 3143, 3136.0, 3841.0, 3843.0, 3842.0]",Recent visits to places at similar times and days
+521,3319,"[3645, 3319, 3227, 3812, 2004, 3143, 3319.0, 3319, 3645, 3227]",Recent behavior and historical patterns suggest the user may visit a similar place to their recent stays or revisiting places from their past.
+521,3227,"[2004, 3227, 3319, 3645, 3812, 3143, 3227, 3143, 3319, 3645]",Recent stays at 2004 and repeated visits to places at certain times/days in the user's history.
+521,3319,"[3319, 3645, 3227, 3812, 2004, 3143, 3319, 3143, 3227, 3227]",Recent stays at night time and weekend
+521,3143,"[3645, 3319, 3227, 3812, 2004, 3143, 3318.0, 3134.0, 3621.0, 3251.0]",Recent visits to places at certain times/days and repeated patterns in the user's activity history were considered.
+521,3319,"[3645, 3227, 3319, 3812, 3143, 2004, 3319, 3227, 3319, 3645]",Recent visits to places at certain times/days and patterns in the user's historical stays
+521,3319,"[3319, 3227, 3645, 3812, 3143, 2004, 3319, 3319, 3227, 3319]",Predicted based on historical pattern of frequent visits to places on specific days and times.
+521,3227,"[3227, 3319, 3645, 3812, 2004, 3143, 2041, 2010, 2028, 2039]",Predicted based on recent frequent places and repeated visits
+521,2092,"[3319, 3645, 3227, 3812, 3143, 2004, 3319, 3319, 3319, 3319]",Recent frequent stays at 3319 and 3645 suggest this user is likely to return to one of these places
+521,3319,"[3645, 3319, 3227, 3143, 3812, 2004, 2092]",Recent behavior in context suggests the user tends to stay at places on weekends and weekdays evening
+521,2538,"[3645.0, 3227.0, 3319.0, 3812.0, 2004.0, 3143.0, 2092.0, 3319.0, 3319.0, 3227.0]",Recent stays at 3645 and 3319 suggest a high likelihood of visiting these places again
+521,3319,"[3645, 3319, 3227, 3812, 2004, 2092, 2538, 3143, 3151, 3081]",Recent behavior and historical patterns suggest frequent visits to places with IDs in the range 3000-4000
+521,3319,"[3227, 3319, 3645, 3812, 2092, 2004, 3143, 2538, 3146, 2050]","Recent behavior suggests frequent visits to places like 3227 and 3319, while historical patterns indicate a possible visit to place 3645 on weekends."
+521,3319,"[3227, 3319, 3645, 3812, 2092, 2538, 2004, 3143, 3227.0]","Recent visits to places at certain times/days, with a strong bias towards weekends and weekdays around noon"
+521,3319,"[3227, 3319, 3645, 3812, 2004, 2538, 3143, 3220, 3318, 3331]","The user's historical stays show a strong preference for places 3227 and 3319 on weekdays, while 3645 is visited frequently on weekends. Recent context shows continued visits to place 3319."
+521,3227,"[3319, 3645, 3227, 3812, 2538, 2004, 3143, 3131, 3150, 3206]",Pattern of repeated visits to places at certain times/days and recent behavior in context
+521,3319,"[3319, 3645, 3227, 3812, 2004, 3143, 3331.0, 3289.0, 3258.0, 3262.0]","Recent visits to places 3319 and 3227, as well as the user's typical Sunday evening stays at place 3645."
+521,3319,"[2004.0, 3319.0, 3812.0, 3645.0, 3227.0, 3143.0, 3319.0, 3227.0, 3319.0, 3116.0]",Recent visits to places at similar times and days suggest a high likelihood of returning to these locations.
+521,2538,"[3319, 3645, 3227, 3812, 2004, 3143, 3318, 3206, 3151, 3045]","Based on the user's historical stays and recent context, I predict that they will visit a location with similar characteristics to their previous visits, likely being near home or work."

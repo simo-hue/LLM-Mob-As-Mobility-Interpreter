@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+370,3797,"[3797, 1474, 2088, 1980, 167, 2708, 1578, 1120, 737, 484]",Recent visits to place 3797 and recent behavior on Wednesday
+370,1578,"[3797, 1474, 2088, 1980, 2708, 167, 1120, 737, 484, 2912]","Based on the user's historical stays and recent context, I predict they will visit their most frequent location (3797) or a location visited recently in <context>"
+370,3797,"[3797, 1474, 2088, 1980, 167, 737, 484, 1120, 2708, 1578]","Recent context suggests frequent visits to the same place at similar times and days, which is consistent with historical pattern of staying in one location for a prolonged period"
+370,3797,"[3797, 1474, 2088, 1980, 167, 1120, 737, 484, 1578, 2758]","The user's history suggests frequent visits to place ID 3797 on weekdays and weekends, with a recent context of staying there. Place IDs 1474, 2088, and 1980 are also common destinations in the user's history, while places 1120, 737, 484, and 1578 have been visited less frequently. Finally, place ID 2758 is an outlier that has only been visited once."
+370,1474,"[3797, 1474, 1980, 2088, 1578, 167, 737, 484, 1120, 2758]",Recent behavior indicates the user is likely to visit a familiar location during their typical day of week and time range
+370,1474,"[3797, 1474, 2088, 1980, 1578, 1120, 737, 484, 167, 2912]","Based on the user's historical stays and recent context, we predict that they will visit a familiar location with a high probability of being the same as their previous stays."
+370,1474,"[167, 737, 1980, 2088, 484, 1120, 2758, 1474, 1188, 637]",The user has a strong pattern of visiting the same place on weekdays (3797) and recently visited some other places within this context.
+370,3797,"[1980, 3797, 1474, 1120, 167, 737, 484, 1188, 637, 1191]","Recent visits to places at certain times/days, including repeated visits to places like 3797 and 1474"

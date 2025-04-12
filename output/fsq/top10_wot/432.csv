@@ -1,0 +1,10 @@
+user_id,ground_truth,prediction,reason
+432,850,"[3062, 850, 801, 214, 1020, 219, 3512, 1316, 3816, 475]","Recent context shows a strong tendency to visit places at the same time of day and day of week as previous visits, and historical data suggests frequent visits to these locations"
+432,850,"[3062, 850, 801, 1020, 219, 213, 1980, 1316, 214, 3816]",The user has a history of visiting certain places at specific times and days. The recent context shows the user is likely to visit places similar to those visited in the past.
+432,300,"[3062, 850, 801, 1020, 219, 214, 1980, 1316, 3816, 1610]","The prediction is based on the user's historical stays, which show a strong preference for visiting place ID 3062 at certain times/days, and recent behavior in the context indicating a possible return to this location."
+432,850,"[3062, 850, 3816, 1020, 1610, 219, 214, 1316, 1980, 2172]",Recent and historical patterns suggest frequent visits to certain locations
+432,850,"[3062, 850, 2172, 1020, 3512, 1253, 214, 1316, 1434, 1610]",Recent visits to places at similar times/days and repeated patterns in the user's history
+432,14,"[3062, 850, 219, 2172, 608, 1020, 214, 1316, 3816, 1610]","Recent context suggests frequent visits to places with ID 850 and 3062, and historical data shows a tendency to visit these locations on Fridays and Saturdays."
+432,850,"[3062, 850, 214, 1020, 219, 1316, 1610, 3816, 219, 14]",Recent frequent visits to place 3062 and historical patterns suggest likely next location
+432,850,"[3062, 850, 214, 1020, 3816, 1610, 219, 2172, 608, 3628]",The user tends to visit the same places at similar times/days and has recently visited a location with an ID close to 3062.
+432,850,"[3062, 1020, 3816, 214, 219]","Recent frequent visits to places with IDs 3062, 1020 and 3816."

@@ -1,0 +1,58 @@
+user_id,ground_truth,prediction,reason
+476,3726,"[3726, 2249, 1885, 2958, 1295, 2275, 538, 912, 638, 1082]","The user tends to visit places on Sundays and Mondays, with a strong preference for place ID 3726. The recent context suggests that the user is likely to continue this pattern."
+476,1885,"[3726, 2249, 1885, 2958, 1295, 1865, 538, 638, 912, 422]",Recent visits to places at similar times/days and repeated visits to common locations
+476,2249,"[3726, 2249, 1885, 2958, 1295, 538, 638, 912, 1082, 422]","Pattern of frequent visits to places 3726 and 2249, with recent behavior suggesting a possible visit to place 1885"
+476,3726,"[3726.0, 2249.0, 1885.0, 2958.0, 1295.0, 638.0, 912.0, 538.0, 422.0, 1082.0]",Recent visits to familiar places and similar times of day suggest user will likely return to a previously visited location.
+476,3726,"[3726, 1885, 2249, 1865, 638, 912, 538, 2946, 422, 1295]","Recent stays at 3726 and 1885, with a pattern of Sunday visits to 3726 and Monday/Tuesday visits to 2249/1865"
+476,2249,"[3726, 2249, 1885, 2958, 1295, 2275, 538, 912, 638, 422]","Based on the user's historical stays and recent contextual information, I predict that they will visit place ID 3726 next."
+476,2249,"[3726.0, 2249.0, 1885.0, 2958.0, 1295.0, 638.0, 538.0, 912.0, 422.0, 1082.0]",Recent stays at place 3726 and context indicate a high likelihood of returning there
+476,422,"[3726, 2249, 1885, 2958, 1295, 1865, 638, 912, 538, 422]","The user has a strong affinity for location 3726, and recent behavior suggests a high likelihood of returning there. Locations 2249 and 1885 are also frequently visited and may be plausible next destinations."
+476,460,"[3726, 2249, 1885, 2958, 1295, 2275, 538, 638, 912, 1082]",Recent visits to places at certain times/days in the <history> and the recent behavior in the <context>
+476,3726,"[3726, 2249, 1885, 2958, 1295, 1865, 538, 638, 912, 1082]","The user has a consistent pattern of visiting the same places on weekends (Sundays) and weekdays (Tuesdays, Thursdays), with a slight preference for place ID 3726"
+476,1,"[3726, 2249, 1885, 2958, 1295, 1865, 538, 638, 912, 1082]",Recent stays at location 3726 and current day of the week (Sunday) indicate a high likelihood of returning to this location.
+476,422,"[3726, 2249, 1885, 2958, 1295, 538, 638, 912, 2946, 1865]",The user tends to visit the same places at similar times and days based on historical stays.
+476,3726,"[3726, 2249, 1885, 2958, 1295, 1865, 538, 638, 912, 1082]",Recent context suggests frequent stays at location 3726 on Sundays and location 2249 during the weekdays.
+476,3084,"[3726, 2249, 1885, 2958, 1295, 1865, 538, 638, 912, 422]","Recent behavior indicates frequent visits to 3726 and 2249, while historical data shows patterns of daily routines at these locations."
+476,1885,"[3726, 2249, 1885, 2958, 1295, 2275, 538, 638, 1082, 912]",Recent visits to places at certain times/days in the context and historical stays.
+476,422,"[3726, 2249, 1885, 2958, 1295, 1865, 2275, 538, 638, 912]","Recent stays at home (422) and frequent visits to location 3726 (every Sunday), with additional influence from Monday's stay at location 1885"
+476,3726,"[3726, 2249, 1885, 2946, 638, 912, 1082, 538, 605, 3084]","The user has a history of frequent visits to place 3726 on Sundays and Mondays, as well as occasional visits on other days. The recent context also suggests this location is likely."
+476,2249,"[3726, 2249, 1885, 638, 912, 2958, 1295, 1865, 538, 422]",Recent visits to places and repeating patterns in the user's activity
+476,422,"[3726, 1885, 2249, 2958, 1295, 1865, 538, 638, 912, 422]","Recent patterns of frequent visits to places with IDs 3726 and 1885 at various times/days, with occasional visits to other locations"
+476,460,"[3726, 1885, 2249, 638, 912, 538, 2946, 1082, 422, 605]",recent visit to place 3726 and pattern of repeated visits at this time on Sundays
+476,3726,"[3726.0, 2249.0, 1885.0, 2958.0, 1295.0, 638.0, 1082.0, 912.0, 538.0, 422.0]",Recent visits to these places and their frequencies in the history suggest a high likelihood of revisiting them.
+476,3726,"[3726, 2249, 1885, 2958, 1295, 1865, 538, 638, 912, 422]",The user has a strong affinity for places at 3726 and 2249 based on their historical stays. The recent context suggests that they may be returning to these locations or one of the other frequent visited places.
+476,2209,"[3726, 2249, 1885, 2275, 638, 912, 538, 1082, 2946, 422]",recent behavior suggests frequent visits to place ID 3726 and other regular locations
+476,2249,"[3726, 2249, 1885, 2958, 1295, 538, 638, 422, 460, 912]",recent stay at 3726 and historical patterns of daily routines
+476,3084,"[3726, 2249, 1885, 2958, 1295, 2275, 538, 912, 638, 1865]",Recent visits to places at 3:00 AM and 7:00 PM on Sunday suggest a high likelihood of returning to the same place
+476,2249,"[3726, 1885, 2249, 2958, 1295, 1865, 638, 912, 538, 422]",based on historical patterns and recent behavior
+476,2249,"[3726, 2249, 1885, 2958, 1295, 1865, 538, 638, 912, 1082]","based on consistent Sunday visits to place 3726 and recent context of visiting places 2209, 2249, and 3084"
+476,1885,"[3726, 1885, 2249, 2958, 1295, 1865, 638, 912, 538, 422]","Based on the user's historical stays and recent behavior, I predict they will visit places they have been to before, especially those with a similar time pattern (e.g., Sundays at 3726)"
+476,2249,"[3726, 2249, 1885, 638, 1082, 912, 2946, 538, 422, 3084]",pattern of frequent visits to places at certain times/days
+476,422,"[3726.0, 2249.0, 1885.0, 2958.0, 1295.0, 638.0, 912.0, 538.0, 422.0, 1082.0]",The predicted places are the most visited ones in recent history and match with recent context
+476,2249,"[3726, 1885, 2249, 2958, 1295, 638, 912, 538, 2946, 1082]","Based on the user's historical pattern of visiting place 3726 at various times and days, and their recent behavior of visiting places 2249, 1885, and 422 within the past few days."
+476,1019,"[3726, 2249, 1885, 2958, 1295, 1865, 2275, 538, 638, 912]",Based on historical pattern of frequent visits to places at certain times/days and recent behavior in context
+476,2249,"[3726, 1885, 2249, 2958, 1295, 2275, 638, 912, 1082, 538]",Predicted based on user's historical stays and recent contextual information
+476,1295,"[3726.0, 2249.0, 1885.0, 2958.0, 1295.0, 2275.0, 538.0, 638.0, 912.0, 1082.0]",predicted based on recent and historical patterns of daily routines
+476,3726,"[3726.0, 1885.0, 2249.0, 2958.0, 638.0, 912.0, 538.0, 1082.0, 422.0, 1295.0]","The user has a strong tendency to visit location 3726 on Sundays and Mondays, and also visits locations 1885, 2249, and 2958 frequently. Recent context suggests the user is more likely to go to one of these places given their recent activity."
+476,2249,"[3726, 1885, 2249, 2958, 1295, 638, 912, 1082, 538, 422]",Recent activity at popular locations and historical patterns of returning to favorite places
+476,3726,"[3726.0, 2249.0, 1885.0, 2958.0, 1295.0, 638.0, 538.0, 912.0, 422.0, 1019.0]",predicting the user's next location based on historical patterns and recent behavior
+476,422,"[3726, 2249, 1885, 1295, 2958, 1865, 538, 638, 912, 422]",predicted based on historical pattern of frequent visits to place 3726 at weekends and recent behavior of visiting place 2249
+476,1,"[3726, 2249, 1885, 1295, 2958, 1865, 538, 638, 912, 422]",recent visits and weekday patterns in history match with recent context
+476,939,"[3726, 2249, 1885, 2958, 1295, 1865, 2275, 538, 638, 912]","Predicted based on user's recent and historical behavior, favoring familiar locations and places visited during similar times/days."
+476,397,"[3726, 2249, 1885, 2958, 1295, 638, 538, 1082, 912, 2946]","Recent behavior in context suggests frequent visits to places with ID 3726 and 2249; historical stays reveal strong patterns for these locations, especially on Sundays."
+476,2225,"[3726, 2249, 1885, 2958, 1295, 1865, 638, 912, 538, 422]",Recent visits to places with high frequency in historical stays and contextual information
+476,2212,"[3726, 2249, 1885, 2958, 1295, 2275, 638, 912, 2946, 538]","Recent visits to place 3726 on Saturdays and Sundays, combined with frequent visits to places 2249, 1885, and 2958."
+476,3726,"[3726.0, 2249.0, 1885.0, 638.0, 912.0, 2958.0, 1295.0, 1865.0, 2946.0, 538.0]","Recent visits and patterns in <history> suggest the user will likely visit places they have been to before, with a strong likelihood of visiting place ID 3726"
+476,3726,"[3726, 2249, 1885, 2958, 1295, 638, 912, 538, 1082, 2212]","Based on the user's previous stays and recent behavior, they tend to visit places with similar IDs on weekends, especially during late afternoon/early evening hours."
+476,3726,"[3726, 2249, 1885, 2958, 1295, 1865, 538, 638, 1082, 912]","Recent visit to 3726 and consistent daily routine in history, suggesting strong likelihood of return"
+476,2249,"[3726, 2249, 1885, 2958, 1295, 1865, 2275, 538, 638, 912]",Recent frequent visits to place 3726 and consideration of the user's overall patterns
+476,2249,"[3726, 1885, 2249, 2958, 1295, 538, 638, 912, 1082, 422]",Recent visits to place 3726 and considering patterns in history
+476,1885,"[3726, 2249, 1885, 2958, 638, 912, 538, 1082, 2946, 422]","Based on the user's historical stays and recent context, the prediction is that they will most likely visit place 3726 again."
+476,3726,"[3726, 2249, 1885, 638, 1082, 912, 2946, 538, 1865, 422]","The user's recent behavior and historical patterns suggest a strong likelihood of returning to previously visited places at similar times, with an increased probability of visiting place ID 3726."
+476,371,"[3726, 1885, 2249, 638, 1082, 912, 2946, 538, 1865, 422]",Recent stays at 3726 and 1885 with similar times of day suggest a high probability for these locations.
+476,2249,"[3726, 2249, 1885, 2958, 1295, 538, 638, 912, 1082, 2946]","The user's recent behavior in the context and historical stays suggest a high likelihood of visiting places that are frequently visited on Sundays (3726) and Mondays (2249), as well as places with similar IDs to those visited recently (1885)."
+476,2249,"[3726, 2249, 1885, 2958, 1295, 2275, 538, 638, 1082, 912]",Prediction based on recent patterns in user's activity
+476,1922,"[3726, 1885, 2249, 2958, 1295, 1865, 638, 912, 538, 422]",Pattern recognition from historical stays and recent behavior
+476,2249,"[3726, 2249, 1885, 2958, 1295, 538, 638, 912, 1082, 422]",Recent visits to 3726 and patterns in history suggest this as the most likely place.
+476,2249,"[3726, 2249, 1885, 2958, 1295, 1865, 538, 638, 912, 1082]","Based on the user's recent and historical stays, I predict their next location to be one of their most frequently visited places"
+476,422,"[3726.0, 2249.0, 1885.0, 2958.0, 1295.0, 538.0, 638.0, 912.0, 1082.0, 422.0]",recent frequent stays and similar patterns in historical data

@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+128,831,"[1408, 2335, 442, 755, 2605, 497, 1101, 257, 17, 2544]",Recent contextual information suggests a high likelihood of returning to previously visited locations; history reveals frequent visits to place IDs like 1408 and 2335 on certain days.
+128,128,"[1408, 2335, 755, 2544, 442, 2605, 1051, 831, 1253, 497]",based on patterns in the user's historical stays and recent behavior
+128,1408,"[1408, 2335, 1253, 1051, 831, 2605, 257, 442, 17, 755]",Recent contextual information and historical pattern of frequent visits to place ID 1408 at certain times
+128,1408,"[1408, 2544, 257, 2605, 2335, 755, 442, 17, 1045, 497]","Based on the user's historical stays and recent behavior, I predict they will visit a location with high frequency and proximity to previous visits."
+128,1408,"[1408, 2335, 755, 442, 497, 2605, 1045, 831, 128, 17]",recent contextual information shows frequent visits to place 1408 on Tuesday evenings
+128,1408,"[1408, 2335, 257, 442, 500, 497, 755, 134, 2605, 1045]",Recent context suggests frequent visits to location ID 1408 on weekdays and similar locations at other times.
+128,1708,"[2335, 1408, 2605, 442, 257, 755, 497, 17, 134, 500]","Recent behavior suggests a transition from frequent visits to home-like places (1408) and nearby locations (442, 257), while the user's historical stays indicate a preference for visiting places on weekends, especially late at night."

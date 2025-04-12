@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+277,1945,"[5, 2, 1, 6, 4, 3, 7, 8]","The target stay is at the weekend, so it's likely to visit places that were visited during weekends in the past. The user has a consistent morning routine and prefers visiting place 5 on Saturdays."
+277,2010,"[15, 10, 14, 12, 11, 7, 8]",The prediction is based on the user's activity pattern and recent activities. The top places are the ones frequently visited by the user during similar time frames.
+277,189,"[12, 11, 10, 9, 8, 7, 6, 5, 4, 3]","The target stay's time is close to the last context stay's start time and day of week, with a similar duration. The user tends to repeat visits on Saturday evenings, making places visited during this time more likely."
+277,2010,"[8, 6, 3, 2, 9, 4, 7]","Based on the user's activity pattern and recent context, I predict they will visit one of their frequently visited places during a typical morning time on a weekday."

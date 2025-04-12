@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+81,3173,"[1084, 3593, 3185, 151, 1077, 342, 217, 1253, 152, 3173]","Recent visits to places in history and context, with a focus on similar days of the week and times"
+81,70,"[3185, 3173, 3593, 152, 1084, 1077, 1253, 217, 342, 151]",Recently repeated visits to places at certain times/days and considering the patterns in historical stays.
+81,1077,"[3593, 3185, 3173, 1084, 1077, 152, 151, 1253, 342, 217]","The user has a frequent pattern of visiting 3593 on Tuesdays and Wednesdays, and recently visited 3185 on Monday evening. There is also a chance that the user might visit places they have been to before, like 3173 and 152."
+81,3173,"[3173, 3185, 152, 1084, 151, 1077, 217, 3593, 1253, 342]","Recent stays at 3173 and 3185, with a daily pattern on Tuesdays and Thursdays"
+81,3173,"[3593, 3185, 151, 1084, 1089, 152, 217, 1077, 1253, 342]",The user's recent behavior suggests they are more likely to visit places that were frequently visited in the past and on similar days of the week.
+81,532,"[3593, 3185, 217, 152, 1084, 1253, 1077, 151, 342, 1089]",Recent visits to places and historical patterns suggest likely destinations
+81,1089,"[3185.0, 1077.0, 3173.0, 3593.0, 152.0, 1084.0, 217.0, 1253.0, 342.0, 151.0]","Recent behavior in context suggests frequent visits to places like 3185 and 1077, while historical data shows consistent stays at 3173"

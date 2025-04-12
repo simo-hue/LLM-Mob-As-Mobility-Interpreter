@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+221,1035,"[1035, 9.0, 12.0, 937.0, 16.0, 1139.0, 165.0, 300.0, 201.0, 2278.0]","The user has a consistent pattern of visits to place 1035 on Wednesdays and Fridays, with occasional visits to places 12, 9, and 16. The recent context suggests the user is more likely to visit place 1035 again."
+221,416,"[9.0, 12.0, 1035.0, 1139.0, 300.0, 201.0, 2278.0, 165.0, 1708.0, 1561.0]","The user's recent and historical behavior suggests a tendency to visit familiar places during weekdays and weekend afternoons/evenings, with a slight bias towards home (1035)"
+221,134,"[1035, 9.0, 12.0, 937.0, 1561.0, 1708.0, 1139.0, 300.0, 201.0, 2278.0]",Recent behavior in <context> and patterns in <history> suggest frequent visits to specific locations on certain days of the week
+221,16,"[201, 9, 300, 12, 1561, 1035, 320, 1139, 2278, 1708]",based on historical patterns and recent behavior
+221,1035,"[1139, 1035, 12, 300, 201, 2278, 165, 1708, 416, 1561]","Based on the user's historical stays and recent contextual information, I predict that they are likely to visit one of their frequent locations (1035, 1139) or places where they have spent time during their most recent stay (16, 12)."
+221,1035,"[9.0, 12.0, 300.0, 1139.0, 201.0, 165.0, 1708.0, 1035.0, 2278.0, 1561.0]",The prediction is based on the user's historical stays and recent context.
+221,3807,"[1035, 12, 9, 300, 16, 2278, 1139, 165, 1708, 201]",recent stays at 1035 and context of Saturday evening stay at 416 suggest likely next place is 1035

@@ -1,0 +1,15 @@
+user_id,ground_truth,prediction,reason
+471,1230,"[1390, 1287, 624, 78, 300, 15, 1060, 3211, 1309, 768]","Based on the user's historical stays and recent behavior in context, the top 10 predicted places are a mix of frequent visited locations and recently visited ones."
+471,1287,"[1454.0, 624.0, 1287.0, 15.0, 3211.0, 300.0, 1390.0, 1309.0, 78.0, 768.0]","Recently visited 1287 and historically spent time at 1454 and 624, likely to revisit these places"
+471,1287,"[1287, 624, 15, 768, 1039, 1390, 1060, 300, 3211, 99]","Recent stays at place ID 1287 and 624 suggest a high likelihood of returning to these locations, with consideration given to daily patterns in the user's history"
+471,15,"[1287, 624, 15, 603, 1230, 1309, 300, 3211, 1390, 1060]",Pattern-based prediction considering recent behavior
+471,1160,"[1454.0, 624.0, 1287.0, 78.0, 3211.0, 1060.0, 1309.0, 1390.0, 1230.0, 15.0]",recent visits to these places in the context
+471,459,"[1309, 624, 1390, 78, 300, 3211, 1060, 15, 624, 1287]",Recent behavior suggests a high probability of returning to places visited during the day
+471,1287,"[1287, 624, 15, 300, 3211, 1060, 99, 78, 1390, 1309]","The user's recent behavior in the context suggests a visit to place 1287 on Tuesday morning. Historical data shows frequent visits to places with similar IDs (e.g., 624 and 1390) during weekdays."
+471,15,"[1287, 624, 15, 1060, 300, 459, 621, 99, 78, 1390]",Recent stays and day-of-week patterns suggest the user is likely to visit places they have visited before at similar times
+471,715,"[624.0, 1287.0, 1454.0, 300.0, 15.0, 619.0, 78.0, 3211.0, 1060.0, 1309.0]","Recent behavior suggests a preference for daily routines, with the user often staying at place 624 on Tuesdays and Fridays."
+471,1287,"[1287, 624, 15, 300, 3211, 1309, 1390, 78, 293, 1060]",Recent visits to location 1287 and its strong presence in the user's history lead me to predict a return to this place.
+471,1287,"[1287, 624, 15, 300, 1060, 3211, 1309, 1390, 715, 459]","The user has a strong daily pattern of visiting place ID 1287 on Saturday afternoons and evenings, with a secondary pattern of visiting place ID 624 during the week. The recent context suggests that the user is likely to continue this pattern."
+471,1287,"[624, 1287, 15, 1060, 1454, 99, 300, 3211, 1390, 78]",predicted based on the user's historical activity pattern and recent behavior
+471,2490,"[624, 1287, 15, 99, 1060, 300, 3211, 1309, 1390, 78]",Recent stays and patterns in history suggest the user is likely to visit locations with similar characteristics as previous visits
+471,15,"[1287, 624, 15, 300, 3211, 1060, 99, 78, 1390, 1309]","Recent visits to locations with IDs 1287 and 624, combined with patterns of daily routines and common places visited on different days of the week."

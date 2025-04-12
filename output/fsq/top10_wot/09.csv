@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+9,903,"[2679, 2660, 2792, 328, 1480, 630, 3279, 1885, 2438, 903]","Based on the user's historical stays and recent context, the top 10 most likely places to visit next are ranked according to their frequency of visits during similar times and days."
+9,2477,"[2792, 2660, 3279, 1480, 2648, 1885, 2573, 2369, 630, 328]","Recent frequent visits to places 2792 and 2660, with Monday being a peak day for these locations."
+9,3279,"[2660, 2792, 3279, 1480, 1885, 2573, 2369, 2648, 903, 3817]","Recent visits to places at certain times/days, as well as repeated visits to places in the past"

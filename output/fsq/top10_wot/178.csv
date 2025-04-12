@@ -1,0 +1,12 @@
+user_id,ground_truth,prediction,reason
+178,1,"[2353, 2058, 3812, 3805, 781, 976, 1237, 1253, 537, 686]",Recent stays in similar days and places are repeated.
+178,1,"[2353, 2058, 3812, 1253, 537, 686, 3000, 3807, 3014, 3045]","The user tends to visit the same places at similar times and days of the week, with recent visits showing a preference for place IDs 1 and 2353."
+178,1,"[2353, 2058, 3812, 3805, 784, 537, 686, 781, 1, 3014]",The user tends to visit similar places on weekends and has a recent stay at place 1.
+178,1,"[2353.0, 2058.0, 3812.0, 781.0, 300.0, 831.0, 2989.0, 537.0, 686.0, 1253.0]",The prediction is based on the user's past behavior and recent contextual information.
+178,1,"[1, 3812, 781, 2353, 2058, 1253, 3807, 537, 686, 976]",Recent visits to popular places and similar patterns in historical data suggest the user is likely to return to familiar locations.
+178,1,"[2353, 2058, 3805, 781, 3812, 1253, 686, 537, 3045, 300]","Recent behavior in context and historical patterns suggest frequent visits to places on Saturday and Thursday evenings, with a preference for place ID 2353."
+178,1,"[2353.0, 2058.0, 3805.0, 3812.0, 1253.0, 1264.0, 781.0, 300.0, 1.0, 686.0]",Pattern recognition from user's stay history and recent contextual information
+178,1,"[2353, 2058, 784, 3812, 3805, 1253, 686, 537, 831, 781]","Based on the user's historical stays and recent context, I predict that they will visit places with similar day-of-week patterns and a slight bias towards weekend locations."
+178,1,"[2353, 3812, 3817, 1064, 3000, 1253, 784, 537, 686, 1]",The prediction is based on the user's recent behavior in context and their historical pattern of visits on Saturday afternoons.
+178,300,"[2353.0, 2058.0, 781.0, 3805.0, 3812.0, 1253.0, 537.0, 686.0, 300.0, 1.0]","Based on the user's historical stays and recent contextual information, the top predictions are locations with high frequency of visits during weekends (2353.0, 2058.0) or consistent visits during weekdays (1253.0, 537.0)."
+178,1,"[2353.0, 2058.0, 3812.0, 3805.0, 981.0, 784.0, 781.0, 686.0, 537.0, 1.0]",Recent behavior suggests a tendency to visit places at similar times/days as in the past

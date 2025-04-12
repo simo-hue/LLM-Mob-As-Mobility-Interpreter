@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+170,446,"[1614, 300, 742, 446, 506, 721, 906, 1099, 784, 2058]","Based on the user's historical stays and recent contextual information, the prediction is a list of the top 10 places the user is likely to visit next, considering patterns in their daily activities and recent behavior."
+170,446,"[1579, 1614, 300, 742, 784, 2058, 635, 1099, 721, 906]",The user tends to visit similar places at the same time/day of week and recent behavior indicates a high probability of visiting a workplace (1579) or home (1614)
+170,2910,"[1099.0, 2004.0, 2910.0, 1579.0, 742.0, 1614.0, 446.0, 506.0, 906.0, 721.0]",based on recent and historical patterns of visiting the same places at similar times

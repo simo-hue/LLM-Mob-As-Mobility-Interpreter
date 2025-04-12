@@ -1,0 +1,3 @@
+user_id,ground_truth,prediction,reason
+458,2894,"[3770, 2968, 2587, 3234, 2894, 1882, 1742]","The prediction is based on the user's activity pattern of frequent visits to certain places during specific times and days, as well as the context stays which show a recent preference for evening stays at places with ID 3770, 2968, and 2587."
+458,3770,"[3770, 3234, 2968, 2894, 2587, 2567, 1882, 1742]","The prediction is based on the activity pattern of this user that was learned from the history, considering repeated visits to certain places during certain times and temporal information (i.e., start_time and weekday) of target stay."

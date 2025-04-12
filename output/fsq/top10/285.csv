@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+285,1031,"[8, 5, 3, 2, 7, 6, 4]","The prediction is based on the activity pattern of this user that was learned from their historical stays. The recent context stays suggest that the user tends to visit places with place IDs ending in 0 or 5, so we predict them visiting one of these places."
+285,597,"[8, 5, 6, 9, 7, 4, 3]","Based on the user's activity pattern and recent context, the most likely places are their frequent visited locations during the evening hours."
+285,755,"[9, 5, 8, 7, 4, 3, 2]","Based on the user's historical activity pattern and recent context, I predict that they will visit places with high frequency and proximity to their previous stays."

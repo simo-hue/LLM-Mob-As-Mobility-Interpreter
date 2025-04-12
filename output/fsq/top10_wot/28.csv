@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+28,548,"[1, 154, 193, 548, 2390, 2441, 450, 526, 234, 3210]",predicted based on historical pattern of frequent visits to location 1 and recent context of visiting location 548
+28,525,"[1, 548, 193, 154, 2390, 309, 3210, 2441, 450, 235]","Recent context suggests frequent visits to place 548 and 3210, with a strong likelihood of returning to these places."
+28,1,"[1, 2390, 309, 2441, 450, 154, 193, 3210, 3011, 526]","Based on the user's historical stays and recent context, I predict they will visit place ID 1 next."
+28,189,"[548, 154, 193, 450, 2441, 3210, 2390, 309, 234, 526]",The prediction is based on the user's recent activity patterns and historical stays.
+28,489,"[548, 1, 193, 2390, 526, 234, 154, 450, 2441, 3210]",Recent context suggests frequent visits to places 548 and 1; historical pattern shows consistent weekday habits
+28,1,"[548, 154, 193, 2390, 2441, 450, 3210, 309, 526, 234]",The prediction is based on the user's regular daily routine and recent activity pattern.
+28,548,"[548.0, 154.0, 193.0, 2390.0, 309.0, 526.0, 234.0, 525.0, 489.0, 1.0]",Recent behavior and historical pattern suggest frequent visits to common places
+28,2356,"[1, 154, 548, 2441, 3210, 2390, 309, 3011, 234, 526]",Recent stays at home (1.0) and frequent visits to 548 on Tuesdays

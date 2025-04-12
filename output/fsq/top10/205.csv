@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+205,1002,"[11, 1, 5, 3, 10, 7, 8, 2, 4, 6]","Based on the user's activity pattern and recent context, we predict that they are likely to visit places they have visited before during similar times of the day."
+205,889,"[10, 7, 6, 5, 4, 3, 2, 1]",Pattern of regular morning and evening stays at specific places during weekdays
+205,1163,"[14, 11, 15, 10, 9]",The user tends to visit certain places during the night (6-7 pm) and on Fridays.
+205,1299,"[1426, 857, 627, 1299, 3137, 836, 1002, 1048, 1456, 1434]","The target stay is during the evening on a Tuesday, which matches the user's pattern of visiting place ID 1426 at this time. The recent context also shows that the user was at place ID 857 around this time yesterday."

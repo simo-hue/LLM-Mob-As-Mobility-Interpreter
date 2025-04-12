@@ -1,0 +1,12 @@
+user_id,ground_truth,prediction,reason
+10,426,"[3383, 1794, 1795, 3805, 1002, 1533, 1227, 69, 582, 179]","Based on the user's historical stays and recent behavior, the top predictions are places where they have spent time before or recently visited. The most likely places to visit next are those that have been frequently visited in the past."
+10,413,"[3383.0, 1794.0, 1002.0, 1227.0, 3805.0, 1533.0, 69.0, 1795.0, 1001.0, 3799.0]",based on recent and historical patterns
+10,1794,"[3383, 1794, 1227, 1002, 1533, 3805, 69, 413, 1795, 179]",Recent stay at 1794 and pattern of returning to places visited previously
+10,1794,"[1794, 3383, 1227, 1002, 1533, 3805, 69, 1795, 413]",Recent stays at 1794 and context of staying there suggest a strong likelihood of returning to this place.
+10,1794,"[3383.0, 1794.0, 3805.0, 1227.0, 1002.0, 1533.0, 413.0, 69.0, 1795.0, 3799.0]","The user has a history of frequent visits to place 3383 on Sundays and a recent visit to this place in the <context>. Additionally, the user has visited place 1794 multiple times at various days."
+10,1794,"[1794, 3383, 1227, 1002, 1533, 3805, 69, 1795, 101, 102]",recent stays at home
+10,1794,"[1794, 3383, 1227, 1002, 1533, 3805, 69, 1795, 1794, 1002]",recent stays at place 1794 and pattern of repeated visits on weekends
+10,1794,"[3383.0, 1794.0, 1227.0, 1533.0, 3805.0, 1002.0, 69.0, 1795.0, 101.0]",Recent patterns and historical data suggest a high likelihood of returning to familiar locations
+10,1794,"[1794, 3383, 1227, 1002, 1533, 3805, 69, 1795, 1794, 1794]",Recent and historical stays at the same place
+10,2131,"[3383.0, 1794.0, 1227.0, 1002.0, 1533.0, 3805.0, 69.0, 1795.0, 3799.0, 1781.0]",Recent stays at 3383.0 and 1794.0; frequent visits on Sundays
+10,1227,"[3383.0, 1794.0, 1227.0, 1002.0, 3805.0, 1533.0, 69.0, 2131.0, 1795.0, 79.0]","The user tends to visit places at similar times and days, with recent visits to place 1794 being a strong indicator for the next location."

@@ -1,0 +1,23 @@
+user_id,ground_truth,prediction,reason
+234,976,"[3128, 2298, 3179, 3805, 976, 120, 1, 3812, 3814, 1073]",recently visited places at the same time of day and previous places on Sundays
+234,3128,"[3805, 3128, 3179, 976, 120, 2341, 2528, 301, 341, 1073]",Recent visits to places and day of week patterns from the context
+234,976,"[3128, 3805, 3179, 120, 976, 2298, 2341, 2528, 341, 1073]","The user tends to visit places like 3128 and 3805 during the weekdays, and place 976 on weekends"
+234,573,"[3128, 3179, 3805, 120, 976, 2298, 2341, 2528, 301, 3814]",Recent stays at 3128 and contextual information suggest the user is likely to visit a place in the same area
+234,538,"[3128, 3805, 3179, 120, 341, 1073, 2341, 1894, 2528, 2203]",Recent visits to place ID 3128 and patterns in the user's history suggest a high likelihood of returning to this location.
+234,341,"[3128, 3805, 3179, 976, 120, 3121, 3812, 2341, 2528, 341]",recent and historical visits to places on Sundays and Mondays
+234,1,"[3128, 3179, 976, 120, 3812, 3814, 2528, 2341, 1894, 301]","Recent behavior in the context suggests a return to familiar places, while historical patterns indicate a mix of work and leisure activities"
+234,3128,"[3128, 976, 3179, 120, 3812, 1894, 2528, 573, 538, 341]","Recent behavior in context shows that the user visited places with IDs 976 and 3128 on Saturday and Sunday respectively. In history, there are repeated visits to places at certain times/days, such as place ID 3128 on Sundays."
+234,2298,"[3128, 3805, 3179, 976, 120, 2341, 2528, 341, 1073, 1894]","Based on the historical pattern of frequent visits to location 3128 during weekdays and recent context indicating a visit to location 2528, I predict the next likely place ID will be one of these top 10 most probable locations."
+234,3157,"[3128, 3805, 3179, 120, 2298, 341, 1073, 976, 1894, 2528]",Predicted based on recent stays and day of the week pattern
+234,1894,"[3128, 3812, 3179, 341, 120, 2341, 1894, 2528, 3157, 2203]","Based on the user's historical stays and recent contextual information, the top 10 most probable places to visit next are a combination of frequently visited locations and places with similar day-of-week or time-of-day patterns."
+234,976,"[3128, 3179, 3805, 976, 120, 341, 1073, 2341, 1894, 2528]",The prediction is based on the user's frequent visits to these locations at different times and days.
+234,976,"[3128, 3812, 3179, 120, 341, 1073, 2341, 2528, 2203, 573]",Recent behavior suggests a preference for places visited at similar times/days in the past
+234,1894,"[3128, 3179, 120, 2298, 3805, 3812, 3814, 1073, 2528, 1894]",Recent behavior in context suggests a high likelihood of returning to familiar locations from history
+234,1237,"[3128, 3179, 3805, 120, 2298, 341, 1073, 2528, 301, 3812]","The user has a strong habit of visiting places at certain times and days based on their historical stays, and recently visited place 1894 and 976."
+234,341,"[3128, 3179, 3805, 2298, 120, 1073, 2528, 341, 301, 1894]",Recent visits to places at similar times/days and repeated patterns in historical stays.
+234,573,"[3128, 3179, 120, 3805, 2341, 2528, 1894, 976, 301, 1237]","The prediction is based on the user's recent and historical activity patterns. The top predictions include places visited frequently at similar times of the day (e.g., morning), as well as places with consistent weekend visits. The context also suggests that the user may visit a place they have been to recently."
+234,976,"[3128, 3179, 120, 976, 1894, 3812, 3814, 2341, 301, 2528]","Based on historical patterns and recent context, the predicted next likely place is a frequent visited location with similar day of week and time of day as previous visits."
+234,3157,"[3128, 3179, 3805, 120, 1894, 341, 976, 2528, 2341, 1073]",based on user's daily routines and recent behavior
+234,573,"[3128, 3179, 3805, 120, 976, 2298, 341, 1073, 2341, 1894]","Recent stays at 3128 and 3179, and previous visits to these places on Sundays"
+234,2528,"[3128, 3179, 3805, 120, 2298, 341, 1073, 2528, 2341, 1894]",Recent and historical patterns of staying at places around midnight or in the evening suggest a high likelihood of returning to these locations.
+234,2203,"[3128, 3179, 3805, 120, 976, 2298, 3121, 3812, 2341, 1894]",Recent stays and patterns in history suggest a higher likelihood of returning to familiar places

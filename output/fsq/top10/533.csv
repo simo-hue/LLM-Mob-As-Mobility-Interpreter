@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+533,1275,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]","Based on the user's activity pattern and recent context, the prediction is ranked by the places visited during similar times of day and weekdays."
+533,1,"[1275, 1, 2547, 2546, 2547, 2547, 2547, 2547, 2547, 2547]","Recent visits to place 1275 and 2547, as well as a morning stay at a workplace-like location, suggest the target stay is likely to be similar, with high probability of being at a common workplace or daily routine location."
+533,2547,"[2546, 2547, 1, 1275]","The prediction is based on the user's activity pattern of repeated visits to certain places during certain times, as well as the context stays in <context>, which provide more recent activities of this user."
+533,2547,"[2547, 1275, 2546, 2547, 2547, 1, 2547, 2547, 2547, 1]",The prediction is based on the user's historical activity pattern and recent context stays. The top predictions are places frequently visited by this user during similar times of day and weekdays.
+533,2547,"[5, 3, 2, 6, 4, 1, 8]",The prediction is based on the user's activity pattern and recent activities in the context
+533,2547,"[1, 5, 6, 2, 7, 3, 4]","The target stay is likely to be a repeated visit to the user's preferred location, based on their activity pattern and recent context"
+533,2547,"[2, 5, 6, 3, 4, 8, 1, 9]",The prediction is based on the user's recent stays in context and their historical activity pattern. The top places are those visited frequently during weekdays or weekends.

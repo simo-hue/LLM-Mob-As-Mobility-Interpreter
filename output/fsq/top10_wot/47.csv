@@ -1,0 +1,34 @@
+user_id,ground_truth,prediction,reason
+47,3510,"[1368, 3510, 2397, 293, 3433, 3083, 639, 3636, 1, 3510]",Recent and historical patterns suggest the user is likely to return to a familiar location
+47,3636,"[3510, 3636, 639.0, 293.0, 3433.0, 3083.0, 2397.0, 1.0, 351, 3082.0]",Recent and historical patterns suggest the user is likely to visit a location they have previously visited at similar times of day.
+47,2397,"[3636, 3510, 639, 3083, 293, 3433, 2397, 1, 3083, 293]","Recent stays at 3636 and 3510, frequent visits to these places on weekdays"
+47,3636,"[3636, 3510, 639, 3083, 293, 3433, 2397, 1, 3639.0, 3044.0]","The user tends to visit the same places at similar times and days, with a recent bias towards visiting place 3510 and 3636."
+47,639,"[3636, 3510, 639, 293, 3433, 3083, 2397, 1, 636, 10]","Based on the user's historical stays and recent context, it is most likely that they will visit their most frequently visited location (place ID 3636) or one of their other common destinations."
+47,374,"[3510, 3636, 639, 293, 3433, 3083, 2397, 1, 3519.0, 3082.0]",based on recent behavior and patterns in the user's history
+47,3510,"[3636, 3510, 2397, 3083, 293, 3433, 639, 1, 374, 293.0]",Predicted based on recent frequent visits to places at certain times and days
+47,2397,"[3636, 3510, 639, 3083, 2397, 293, 3433, 1, 373, 374]",based on recent behavior and historical patterns
+47,662,"[3636, 3510, 639, 3083, 293, 3433, 374, 2397, 1, 3089]","Recent behavior suggests the user will visit a familiar location, likely home (3636) or work/school (3510), with some possibility of visiting a nearby place"
+47,3636,"[3510, 3636, 639, 293, 3083, 3433, 2397, 374, 662, 1]",Recent visits to places at similar times/days in context and patterns in history
+47,3636,"[3510, 639, 3636, 293, 1, 3083, 3433, 2397, 374, 662]","Recent context suggests frequent stays at place 3510 and 3636, while historical data reveals visits to places 639 and 293. The model also considers the time of day and day of week for each stay."
+47,2397,"[3510, 3636, 639, 293, 3433, 2397, 662, 3083, 1, 639]",Recent stays at place 3510 and context suggest similar patterns in the future
+47,3510,"[3510, 3636, 639, 293, 3433, 3083, 662, 2397, 1, 293]","Based on the user's recent patterns of visiting places like 3510 and 3636 during weekdays, with a slight bias towards Mondays."
+47,3636,"[3636, 3510, 639, 3083, 293, 3433, 662, 2397, 1, 643]",Recent behavior in context suggests frequent visits to place 3636 and 3510 on weekdays.
+47,293,"[3510, 3636, 639, 293, 3433, 3083, 2397, 1, 3082, 2398]",Predicted based on recent contextual information and patterns in the user's historical stays
+47,3510,"[3510, 3636, 639, 3083, 3433, 293, 2397, 1, 636.0, 3042]","Pattern analysis suggests frequent visits to places on certain days/times, with recent behavior indicating continued patterns"
+47,3510,"[3510, 3636, 639, 3083, 2397, 293, 3433, 1, 293.0, 639.0]","Recent behavior indicates preference for places visited on Thursday and Friday, with a slight leaning towards evening stays"
+47,3636,"[3510, 3636, 639, 3083, 3433, 293, 2397, 1, 2933, 3082]",Recent stay at 3510 and historical pattern of staying at 3510 on Thursdays
+47,1471,"[3636, 3510, 639, 293, 3083, 3433, 2397, 1, 293, 3083]","Recent and historical stays at the same places (3636, 3510) suggest this user is likely to visit these locations again"
+47,1266,"[3636.0, 3510.0, 639.0, 293.0, 3083.0, 3433.0, 2397.0, 1471.0, 1.0, 293.0]",Recent context suggests frequent visits to places with IDs 3636 and 3510; historical data shows repeated stays at these locations on specific days of the week
+47,3636,"[3510, 3636, 639, 293, 3433, 2397, 3083, 1471, 1266, 1]",Recent stay at location 3510 and historical pattern of frequent visits
+47,1471,"[3510, 3636, 639, 293, 3433, 3083, 2397, 1471, 1266, 1]",Recent stays at place 3510 and repeated visits to places at certain times/days in the history
+47,3510,"[3510, 3636, 639, 293, 3433, 3083, 2397, 1266, 1471, 1]","Recent context suggests frequent visits to place 3510 and 3636, with some variation in times"
+47,662,"[2397, 293, 3433, 3083, 1471, 639, 3636, 3510, 1, 3074]","Recent stays at place 3510 and repeated visits to place 3636 on Fridays suggest a high likelihood of returning to these locations. Additionally, the recent visit to place 1471 in the context also increases its probability."
+47,3636,"[3510, 639.0, 293.0, 3433.0, 2397.0, 3083.0, 1.0, 662, 3636.0, 3079.0]",Recent behavior in <context> suggests the user is likely to visit a location similar to their recent stays
+47,3636,"[3510, 3636, 639, 3083, 293, 3433, 2397, 1, 3515.0, 3112.0]","The user's recent context suggests a high likelihood of visiting places they have visited before, specifically during the same time of day (morning/afternoon) and similar days of the week."
+47,639,"[3510, 3636, 639.0, 293.0, 3433.0, 2397.0, 3083.0, 1.0, 351.0, 3083]","The user tends to visit the same places at certain times of day (e.g., Monday mornings), and recent behavior shows a strong preference for place 3510 and 3636."
+47,3636,"[3636, 3510, 639, 293, 3433, 3083, 2397, 1, 309.0, 3084.0]",predicting next location based on recent and historical patterns
+47,3636,"[2397.0, 293.0, 3083.0, 3433.0, 3510.0, 3636.0, 639.0]","Based on the user's historical stays and recent contextual information, the prediction takes into account the user's frequent visits to place 3510 at various times of the day, as well as their tendency to visit places 3636 and 639 on weekdays."
+47,3510,"[3510, 3636, 293, 3083, 3433, 2397, 639, 1, 3083, 3083]",Recent behavior in context and patterns in history suggest the user will likely visit a place they have visited before at a similar time/day.
+47,3510,"[3636, 3510, 639, 3083, 293, 3433, 2397, 1, 3083, 293]","The user's recent behavior shows a strong preference for places 3636 and 3510 on weekdays, with occasional visits to place 639."
+47,3510,"[3636.0, 3510.0, 639.0, 293.0, 3433.0, 3083.0, 2397.0, 1.0]",The user's recent behavior in the context suggests a strong likelihood of returning to previously visited locations
+47,3636,"[3510, 3636, 639, 293, 3433, 3083, 2397, 1, 3085.0, 2979.0]",Recent stays at place 3510 and recent stay at place 3636 suggest this user is likely to visit these places next.

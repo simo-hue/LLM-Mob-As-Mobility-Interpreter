@@ -1,0 +1,39 @@
+user_id,ground_truth,prediction,reason
+278,2435,"[2435, 855, 410, 506, 300, 1871, 312, 1781, 651, 202]","Recent behavior in context suggests frequent visits to place_id 2435, and historical pattern shows this place is often visited on Thursdays; also, places 855, 410, and 506 are frequently visited, especially on Sundays"
+278,1871,"[2435, 1871, 855, 410, 506, 300, 202, 651, 1120, 3755]",Recent context and historical patterns indicate a high likelihood of returning to previously visited places at similar times.
+278,855,"[2435, 855, 410, 506, 300, 2751, 651, 1871, 342, 312]","Recent stays at 2435 and 855 suggest a high likelihood of returning to these places, with some adjustment for context."
+278,855,"[2435, 1871, 855, 410, 506, 312, 342, 2751, 651, 202]","Recent behavior in context suggests frequent visits to places with IDs 2435, 1871 and 855, while historical pattern shows visits on weekdays and weekends."
+278,855,"[2435, 855, 410, 506, 300, 202, 651, 1871, 312, 342]","Recent frequent visits to these places, especially on weekdays and weekends"
+278,506,"[2435, 855, 410, 1781, 506, 300, 202, 2751, 651, 1120]",recently frequent places with similar times
+278,620,"[2435, 855, 410, 506, 1781, 300, 202, 651, 1120, 3755]",based on recent and historical stays
+278,2045,"[2435, 855, 410, 312, 1781, 202, 651, 1871, 1120, 3755]","Recent frequent visits to places with ID 855 and 2435, and historical patterns of returning to these locations on weekends"
+278,2435,"[2435, 855, 506, 410, 1781, 300, 202, 651, 1871, 342]","Based on the user's historical stays and recent behavior in context, we predict they are likely to visit a place similar to their regular frequent locations during weekdays."
+278,855,"[2435, 855, 410, 506, 300, 651, 1871, 342, 1928, 312]",Recent contextual information and historical patterns suggest frequent visits to certain places on specific days of the week
+278,2435,"[2435, 855, 506, 410, 300, 1871, 312, 651, 202, 1120]","The prediction is based on the user's frequent visits to places 2435 and 855, especially during weekdays, and recent stays in these locations."
+278,1871,"[2435, 855, 410, 506, 300, 1871, 202, 651, 3755, 342]",recent visits to places at certain times/days and patterns in historical stays
+278,1490,"[2435, 1871, 855, 312, 506, 410, 300, 2751, 651, 202]",Recent visits to places like 2435 and 855 suggest these locations are likely next.
+278,1871,"[2435, 855, 506, 410, 300, 312, 1781, 202, 651, 3755]",based on recent behavior and historical patterns of visiting places on certain days/times
+278,1490,"[2435, 855, 506, 410, 300, 202, 2751, 651, 1120, 3755]",Recent stays at 2435 and 855 suggest these places are likely next.
+278,2435,"[2435, 855, 410, 506, 300, 202, 651, 1120, 3755, 342]","Recent activity shows a strong preference for places visited on weekdays and weekends, with a particular focus on place ID 2435"
+278,2804,"[2435, 855, 410, 506, 1781, 300, 2751, 651, 1120, 3755]","Recent behavior in context suggests the user is likely to visit places they have visited before at similar times and days, with a strong preference for place 2435"
+278,855,"[2435, 855, 506, 300, 410, 1871, 312, 1490, 2751, 651]","Recent frequent visits to places like 2435 and 855, with occasional visits to places like 506, indicate that the user is likely to return to these locations."
+278,300,"[2435, 1871, 855, 510, 300, 410, 310, 506, 202, 2751]","Recent stays at 2435 on Saturday and repeated visits to 2435, 1871, and 855 suggest high probability of returning to these places."
+278,506,"[2435, 855, 506, 410, 1781, 202, 2751, 651, 1120, 3755]","The user has shown a strong preference for visiting certain locations at specific times and days, and the recent context suggests that they are likely to continue this pattern."
+278,1783,"[2435, 855, 538, 410, 506, 1781, 300, 202, 2751, 651]","Recent stays at 2435 and recent day of the week are Saturday, which suggests a likely visit to a familiar location"
+278,855,"[2435, 855, 410, 506, 300, 1928, 1871, 312, 2751, 651]","Based on the user's historical stays and recent context, the top predictions are places frequently visited during weekdays and weekends, with a slight bias towards locations visited more recently."
+278,1296,"[2435, 855, 410, 300, 506, 1781, 651, 202, 312, 342]",based on historical stays and recent contextual information
+278,1296,"[2435.0, 410.0, 506.0, 855.0, 300.0, 1781.0, 651.0, 202.0, 1120.0, 3755.0]","Recent contextual information suggests a continued pattern of daily routines, with increased likelihood of revisiting familiar places on the same day or similar days"
+278,1871,"[2435.0, 410.0, 1781.0, 506.0, 855.0, 300.0, 1120.0, 1871.0, 342.0, 1928.0]","Recent behavior in context suggests that the user tends to visit places with IDs in [2435.0, 410.0] on Sundays and Mondays, which is consistent with their historical pattern of visiting these places."
+278,855,"[2435, 855, 1783, 312, 506, 410, 1928, 1871, 1120, 300]","Based on the user's historical pattern of visiting places at similar times and days, and considering their recent behavior in the context"
+278,300,"[2435.0, 855.0, 410.0, 1781.0, 506.0, 202.0, 2751.0, 651.0, 1120.0, 3755.0]",Recent stays at similar times/days and repeated visits to places in history
+278,855,"[2435, 855, 410, 506, 1781, 202, 651, 3755, 1871, 312]",Recent behavior in context and patterns in history suggest frequent visits to home/workplace on weekdays and leisure activities on weekends.
+278,1871,"[2435, 855, 1781, 506, 410, 651, 312, 1296, 1871, 300]",predicted based on recent contextual information and patterns in the user's historical stays
+278,652,"[2435, 855, 510, 410, 300, 1781, 312, 1928, 3755, 651]",Recent behavior and historical patterns indicate a high likelihood of returning to familiar places on the same day of the week.
+278,506,"[2435.0, 855.0, 410.0, 506.0, 1781.0, 300.0, 651.0, 1120.0, 3755.0, 1871.0]",Recent stays at the same place and similar times/days of week are likely to continue
+278,1871,"[2435.0, 855.0, 506.0, 300.0, 1871.0, 410.0, 1120.0, 3755.0, 651.0, 202.0]","Based on the user's historical stays and recent context, I predicted their next likely place ID as being one of the places they frequently visit, particularly during weekdays and weekends"
+278,2435,"[2435, 855, 410, 506, 300, 651, 312, 1781, 202, 2751]",Pattern-based prediction considering historical stays and recent context
+278,1871,"[2435, 855, 410, 538.0, 651.0, 300.0, 202.0, 312.0, 342.0, 1928.0]","The user has a strong tendency to visit places at certain times/days based on their history, and the recent context suggests they are likely to continue this pattern"
+278,855,"[2435, 855, 410, 506, 300, 1781, 651, 202, 2751, 3755]","Based on the user's historical stays and recent behavior, the most likely places are their frequently visited locations on weekdays, with a slight preference for evening visits."
+278,1490,"[2435, 855, 506, 1781, 410, 300, 312, 1928, 3755, 202]",recently visited places and time of day
+278,1490,"[2435, 855, 410, 1781, 506, 300, 2751, 651, 1871, 312]","The user has a strong pattern of visiting places 2435 and 855 on weekdays, with occasional visits to place 410. The recent context suggests the user may visit place 2435 again given its frequency in both history and context."
+278,1871,"[2435, 855, 410, 312, 506, 1871, 300, 202, 651, 3755]",Recent frequent stays at place 2435 and 855 suggest a high likelihood of returning to these locations.

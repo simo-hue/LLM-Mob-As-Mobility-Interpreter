@@ -1,0 +1,3 @@
+user_id,ground_truth,prediction,reason
+379,2791,"[3, 6, 2, 1, 10, 9, 5, 7, 8, 4]","The prediction is based on the activity pattern of the user that was learned from their history, including repeated visits to certain places during certain times. The context stays in <context> also provide more recent activities of this user."
+379,2791,"[2791, 3702, 2099, 1562, 2234]","The user has a repeated pattern of visiting places on Sunday mornings and afternoons, which is reflected in the target stay's start time and day. The context also suggests frequent visits to place 2791, so this is the most likely next place."

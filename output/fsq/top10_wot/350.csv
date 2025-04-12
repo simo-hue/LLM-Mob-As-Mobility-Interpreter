@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+350,529,"[3798, 2617, 3784, 917, 452, 2810, 562, 96, 925, 3330]",Recent contextual information suggests a high probability of visiting places visited recently in the history
+350,3784,"[3798, 2617.0, 3784, 452.0, 2810.0, 917.0, 96.0, 3798, 3798, 3798]","Given the user's historical stays and recent behavior in context, it is likely that they will visit a place they have visited before, particularly one with a similar day of the week or time of stay."
+350,3784,"[3798, 2617, 3784, 917, 562, 2810, 452, 925, 96, 3798]",based on recent and historical patterns
+350,3798,"[3798, 2617, 3784, 917, 452, 2810, 2364, 929, 562, 96]",Recent frequent visits to places 3798 and 3784 and a pattern of returning to place 2617 on Wednesdays suggest the user is likely to visit one of these places.

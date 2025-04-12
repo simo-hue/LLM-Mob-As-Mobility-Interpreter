@@ -1,0 +1,34 @@
+user_id,ground_truth,prediction,reason
+397,1586,"[3378, 1301, 972, 3035, 2024, 3511, 2700, 537, 781, 1122]","Recent behavior in context suggests the user is likely to visit a place they have visited recently (e.g., 3378), and historical data shows repeated visits to places on Saturdays and weekdays."
+397,3378,"[3378, 1301, 972, 2700, 3511, 537, 2024, 3035, 1122, 781]","Recent Saturday visits to places like 3378 and 1301, as well as a visit to 972, suggest the user is likely heading back to these familiar locations."
+397,2024,"[3378, 1301, 3035, 2513, 2700, 2024, 972, 537, 3511, 2422]",Recent behavior and historical patterns indicate a high likelihood of the user visiting familiar places during weekend evenings
+397,3378,"[3378, 1301, 972, 3511, 2700, 537, 2024, 3035, 2422, 2513]","Based on historical stays and recent context, the prediction is that the user will likely visit one of their most frequent places (3378), followed by other frequently visited locations."
+397,2024,"[3378, 1301, 972, 3511, 2700, 2024, 537, 3035, 2422, 2513]",Recent patterns and repeated visits to place 3378 suggest it is likely the next destination.
+397,3378,"[3378, 1301, 3511, 2700, 972, 2024, 537, 3035, 2422, 2513]",Predicted based on recent frequent places and day of week patterns in the user's history
+397,2024,"[3378, 3511, 1301, 972, 2024, 537, 2700, 2513, 3035, 2422]","The user has a strong tendency to visit the same places on weekends and late evenings, and recently visited some of these locations."
+397,1297,"[3378, 1301, 2700, 3511, 972, 537, 2024, 3035, 2422, 2513]",Recent and historical patterns suggest the user will likely visit a place they have visited frequently in the past
+397,1297,"[3378, 1301, 2024, 2700, 3511, 972, 537, 3035, 2422, 2513]",Recent frequent visits to place 3378 and patterns of weekend stays at places 1301 and 2024
+397,3378,"[3378.0, 1301.0, 2024.0, 972.0, 3511.0, 2700.0, 3035.0, 537.0, 1297.0, 2513.0]","Considering recent behavior and historical patterns, the predicted next place is likely to be a frequent destination or one recently visited."
+397,3378,"[3378, 1301, 3511, 2700, 972, 537, 2024, 3035, 2513, 2422]",Recent context suggests frequent visits to places at 3378 and 1301
+397,2024,"[3378, 1301, 2024, 972, 2700, 3511, 537, 1297, 3035, 2513]","Recent and historical patterns indicate a high probability of returning to familiar locations, with the top prediction being a frequent location in both recent and past activities."
+397,3378,"[3378, 1301, 972, 537, 3511, 3035, 2700, 2513, 2422, 2024]","Recent behavior shows strong affinity for 3378 and 1301, with historical patterns of visits to these places on weekends and at similar times"
+397,1693,"[3378, 1301, 972, 2700, 3511, 3035, 537, 1297, 2024, 2513]","Recent behavior in context suggests frequent visits to place 3378, while historical patterns indicate possible variations to places like 1301 and 2700."
+397,1634,"[3378, 1301, 2700, 972, 3035, 2024, 3511, 537, 2513, 2422]","Recent context indicates frequent visits to place 3378 on Sundays and Tuesdays, while historical pattern shows repeated stays at various locations on Saturdays."
+397,3378,"[3378, 1301, 972, 3035, 2024, 3511, 537, 2700, 2422, 2513]",Recent frequent visits to place 3378 and considering historical patterns.
+397,2024,"[3378, 1301, 2024, 2700, 3511, 972, 537, 3035, 2422, 1634]",Recent visits to popular places at similar times and days
+397,2024,"[3378, 1301, 972, 3035, 2700, 3511, 537, 1693, 1634, 2024]","Recent context suggests frequent visits to places with ID 3378 and 1301, while history indicates a strong preference for these locations as well."
+397,490,"[3378, 1301, 972, 3511, 2700, 3035, 537, 2024, 2513, 2422]",Based on the user's historical stays and recent behavior in context
+397,413,"[3378.0, 1301.0, 972.0, 1634.0, 2024.0, 3511.0, 2700.0, 537.0, 490.0, 2513.0]",Recent behavior in <context> and patterns in <history> suggest frequent visits to the most popular places
+397,3378,"[3378, 1301, 972, 3511, 2700, 537, 2024, 3035, 2422, 490]",Recent stays in context and historical patterns suggest frequent visits to familiar places
+397,2024,"[3378, 1301, 2024, 3511, 2700, 972, 3035, 537, 490, 413]",Recent visits to places at certain times/days and repeated patterns in the history of stays
+397,3378,"[3378, 1301, 2513, 2700, 3511, 972, 2024, 537, 3035, 490]",Recent frequent visits to place 3378 and historical patterns of visiting places at certain times/days
+397,2024,"[3378, 1301, 972, 3035, 3511, 537, 2024, 2700, 2422, 2513]",Recent behavior in context suggests frequent visits to places with IDs 3378 and 2024
+397,2422,"[3378, 1301, 972, 3511, 2024, 2513, 3035, 537, 2700, 2422]",Recent visits to place 3378 and patterns in history indicate a high likelihood of returning to this location.
+397,3378,"[3378.0, 1301.0, 972.0, 3035.0, 2700.0, 2024.0, 3511.0, 537.0, 2422.0, 2513.0]","Recent behavior suggests a high likelihood of returning to previously visited places, particularly those with frequent stays"
+397,2024,"[3378, 1301, 972, 3035, 2700, 2024, 3511, 537, 2422, 2513]",Recent behavior and historical patterns indicate a high likelihood of visiting places that are frequently visited on the same day or time.
+397,1301,"[3378.0, 1301.0, 2513.0, 2700.0, 2024.0, 3511.0, 972.0, 537.0, 3035.0, 1693.0]",Recent frequent visits to locations 3378 and 1301 suggest a high likelihood of returning to these places.
+397,537,"[3378, 1301, 2513, 3511, 970, 3035, 2024, 537, 972, 2700]",Recent stays at popular locations
+397,3378,"[3378, 1301, 3035, 3511, 2700, 972, 2024, 537, 2422, 2513]",Recent visits to places like 3378 and 1301 suggest the user might return to these familiar locations. The pattern of weekend stays at 3035 also indicates a possible visit there.
+397,2700,"[3378, 1301, 972, 3511, 3035, 2024, 2700, 537, 2513, 2422]",recent behavior in context and patterns in history indicate a strong likelihood of returning to previously visited places
+397,2024,"[3378, 1301, 972, 3511, 2024, 537, 3035, 2513, 2422, 2700]",Recent stays at places with higher frequency in history
+397,3378,"[3378, 1301, 537, 3511, 2422, 3035, 972, 2700, 2024, 2513]",Recent behavior and historical patterns suggest frequent visits to work or leisure places at similar times of the day.

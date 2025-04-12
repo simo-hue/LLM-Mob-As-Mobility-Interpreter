@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+104,2236,"[2805.0, 2236.0, 503.0, 2312.0, 2047.0, 2087.0, 506.0, 605.0, 2068.0, 2059.0]",Pattern of visiting place IDs in similar days and times
+104,2087,"[2805, 2312, 2087, 2236, 2047, 503, 606, 2090.0, 2059.0, 2078.0]","recent stays at place 2805 and pattern of visits to places 2312, 2087, 2236"
+104,2087,"[2312, 2087, 2047, 2236, 606, 2805, 503, 505, 506, 507]",Recent behavior and historical patterns suggest the user will likely visit a familiar place on Friday or Saturday evening.
+104,2236,"[2805, 2312, 2236, 2047, 503, 2087, 606, 2094, 2353, 2348]",Recent pattern of visiting places at certain times/days and repeated visits to places like 2087.0 and 2312.0
+104,2087,"[2312, 2087, 2047, 2236, 2805, 606, 503]","based on the user's history of frequent visits to place IDs 2312 and 2087, especially on weekends"
+104,2087,"[2805, 2312, 2087, 2236, 2047, 606, 503, 2098, 2079, 2064]",Recent visits to places at certain times/days and repeated patterns in the user's activity history
+104,2236,"[2087, 2312, 2236, 2047, 2805, 606, 503, 1]",The user has a strong habit of visiting place 2087 at various times and days in both history and recent context. Other likely places are where the user has stayed before or on similar days.
+104,2087,"[2087, 2312, 2047, 2236, 2805, 503, 606]",Recent stays at 2087 and pattern of revisiting this place
+104,2087,"[2312, 2047, 2087, 2805, 2236, 503, 606, 2091, 2129, 2153]",Pattern analysis of the user's historical stays and recent behavior in the context
+104,2087,"[2312, 2087, 2047, 2236, 2805, 606, 503, 2098, 2099, 2050]","Recent contextual information suggests frequent visits to places with IDs 2087, 2312, and 2047, which is consistent with historical patterns."
+104,2087,"[2312.0, 2047.0, 2087.0, 2236.0, 2805.0, 503.0, 606.0, 2049.0, 2078.0, 2094.0]",Recent visits to places at certain times/days and patterns in the historical stays
+104,2236,"[2312.0, 2087.0, 2236.0, 2047.0, 2805.0, 503.0, 606.0, 2089.0, 2063.0, 2161.0]",Predicting next likely place ID based on patterns in <history> and recent behavior in <context>
+104,2087,"[2087, 2312, 2236, 2047, 2805, 503, 606, 2048.0, 2053.0, 2074.0]",Predicted based on recent and historical stays

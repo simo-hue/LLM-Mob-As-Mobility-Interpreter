@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+336,1048,"[2839, 1253, 1048, 461, 578, 768, 508, 1281, 550, 495]",recent visits to workplace and repeated daily routines suggest likely next location is work or a common destination
+336,1126,"[1253, 1048, 578, 508, 2839, 461, 550, 495, 59, 1281]","Recent behavior indicates a high likelihood of visiting previously visited locations, with a bias towards weekdays and morning hours."
+336,550,"[1048, 1253, 508, 578, 768, 495, 550, 461, 59, 1281]","Based on the user's historical pattern of frequent visits to place ID 1048 and occasional visits to other places, particularly during weekdays and early morning hours."
+336,401,"[1253, 1048, 768, 578, 508, 1281, 495, 550, 59, 461]","The user has shown a pattern of visiting place ID 1253 on Sundays and other weekdays, and the recent context suggests this trend continues."
+336,2585,"[1048, 578, 1253, 426, 768, 508, 1281, 59, 550, 495]",The user's historical pattern shows repeated visits to certain places at specific times and days. The recent context indicates a possible return to the most frequently visited place (1048).
+336,1980,"[1253, 1048, 426, 2296, 768, 578, 461, 508, 1281, 59]","Recent stays at 1253 and 401 suggest a pattern of visits around this time on Wednesday/Thursday, while the overall history shows frequent visits to 1048; considering these patterns, the next likely places are the ones visited around similar times"

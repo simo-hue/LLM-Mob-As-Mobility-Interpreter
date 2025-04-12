@@ -1,0 +1,26 @@
+user_id,ground_truth,prediction,reason
+108,3701,"[3701, 3716, 3780, 1838, 139, 1994]",Recent behavior in context suggests the user is more likely to visit places they have visited recently
+108,1838,"[3701, 3716, 3780, 1838, 139, 1994]","Based on the user's historical stays and recent behavior, I predict they will visit one of their most frequently visited places"
+108,3701,"[3701.0, 3716.0, 3780.0, 1838.0, 139.0, 1994.0, 1.0, 1994.0, 1838.0, 139.0]",The user tends to visit places at similar times/days and has recently visited these locations
+108,3780,"[3716.0, 3701.0, 3780.0, 1838.0, 139.0]","Based on the user's historical stays and recent behavior, I predict that they will visit a location similar to their usual morning destinations."
+108,3780,"[3716.0, 3701.0, 1838.0, 3780.0, 139.0, 1994.0, 1.0, 3716.0, 3701.0, 1838.0]","Based on historical stays and recent context, the user is likely to visit a place they have visited before, possibly with a morning bias."
+108,3716,"[3716, 3701, 1838, 3780, 139, 1994, 1, 2, 3, 4]","The user typically stays at places with IDs 3716 and 3701 on weekends and weekdays, respectively. Recent behavior suggests a high likelihood of visiting place ID 3716 based on the context of Sunday morning."
+108,3701,"[3701, 3716, 1838, 3780, 139, 1994, 1, 1995, 1997, 2003]",Recent contextual information and historical pattern of daily routines.
+108,3716,"[3701.0, 3716.0, 3780.0, 139.0, 1838.0, 1994.0, 1.0]","The user has a consistent pattern of visits to three places: 3701.0, 3716.0 and 3780.0"
+108,3716,"[3701, 3716, 3780, 1838, 139, 1994]",Recent and historical patterns suggest a high likelihood of visiting familiar places on the same day of the week
+108,3701,"[3701.0, 3716.0, 3780.0, 139.0, 1838.0, 1994.0, 1.0, 10]",The user's recent behavior and historical stays suggest a strong tendency to visit the same places at similar times/days.
+108,3701,"[3701.0, 3716.0, 3780.0, 1838.0, 139.0, 1994.0, 1.0]",recent frequent stays and daily patterns in <history> combined with recent behavior in <context>
+108,3716,"[3701.0, 3716.0, 3780.0, 1838.0, 139.0, 1994.0, 1.0]","Based on the user's historical stays and recent behavior, I predict they will visit one of their most frequently visited places, likely a regular work or home location."
+108,3701,"[3780, 3701, 3716, 139, 1838, 1994, 1, 1994, 1838, 139]",Recent stays at 3716 and context suggests a high likelihood of visiting this place again
+108,3716,"[3701, 3716, 3780, 1838, 139, 1994]","The user tends to visit places at similar times and days of the week, considering recent behavior."
+108,3701,"[3780, 3701, 3716, 139, 1838, 1994, 1, 3716, 3701, 3780]","Based on the user's historical stays and recent context, it is likely that they will visit a location near where they have stayed previously, with a higher probability of visiting places they have been to recently"
+108,3780,"[3701, 3716, 3780, 1838, 139, 1994]",recent visits to familiar places
+108,3701,"[3701, 3716, 3780, 139, 1838, 1994]","Based on the user's historical stays and recent context, I predict they will visit one of their frequently visited places, with a strong likelihood of returning to place 3701"
+108,3716,"[3701.0, 3716.0, 3780.0, 139.0, 1838.0, 1994.0, 1.0]","Based on the user's historical activity pattern and recent behavior, I predict they will likely visit a location similar to their frequent places (3701.0, 3716.0), with some probability also visiting other places they have visited before."
+108,3701,"[3780, 3701, 3716, 1838, 139, 1994, 1, 139, 1994, 1838]",Recent behavior suggests a high likelihood of visiting places visited frequently in the past.
+108,3701,"[3716.0, 3701.0, 3780.0, 1838.0, 139.0, 1994.0, 1.0]",Recent behavior and historical patterns suggest frequent visits to the user's most visited places
+108,3780,"[3701, 3716, 3780, 1838, 139, 1994, 1, 139, 1838, 1994]",predicted based on recent and historical stays patterns
+108,3716,"[3701, 3716, 3780, 1838, 139, 1994, 1, 139, 3701, 3716]","Recent and historical patterns show a strong tendency to revisit previously visited places, with a slight bias towards places visited on weekdays."
+108,3716,"[3716.0, 3701.0, 3780.0, 1838.0, 1994.0, 139.0, 1.0, 3716.0, 3716.0, 3701.0]",Recent behavior and historical patterns indicate frequent visits to familiar places
+108,3701,"[3701, 3716, 3780, 1838, 139, 1994]","Pattern analysis and recent context suggest the user is likely to visit places they have visited before, especially on Mondays and Tuesdays"
+108,3716,"[3701, 3716, 3780, 1838, 139, 1994]",Recent visits and daily habits indicate a high probability of returning to visited places

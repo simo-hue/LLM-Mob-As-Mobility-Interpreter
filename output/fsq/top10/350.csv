@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+350,529,"[3330, 3798, 3784, 2617, 3791]","Based on the user's activity pattern and recent context, the most likely places for the target stay are those visited frequently during similar times of day"
+350,3784,"[3330, 3798, 3784, 2617, 452, 3799]","The prediction is based on the recent activity pattern of this user, which indicates frequent visits to certain places during specific times. The target stay's temporal information suggests a high probability of returning to place with ID 3330, followed by other frequently visited places."
+350,3784,"[2617, 3798, 3784, 528, 917, 452]","Based on the user's activity pattern and recent stays in context, it is likely that they will visit a place they have been to previously during weekdays, with places 2617 and 3784 being top contenders given their repeated visits."
+350,3798,"[4, 3, 0, 1, 2]",The user tends to visit places during similar times and days of the week
