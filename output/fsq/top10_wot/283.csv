@@ -1,0 +1,17 @@
+user_id,ground_truth,prediction,reason
+283,1117,"[1346, 1117, 612, 1319, 1731.0, 3513.0, 1305.0, 1234.0, 1248.0, 1251.0]",Recent repeated visits to place ID 1346 and 1117 suggest likely places
+283,1346,"[1117, 1346, 612, 1319, 1731, 3513, 10, 12, 13, 14]","Recent context shows frequent visits to place 1117 and 1346 on Monday, Wednesday, Friday, and Saturday. Historical pattern suggests that these places are visited at similar times of the day."
+283,1117,"[1117, 1319, 612, 1346, 1731, 3513, 10]",Recent frequent visits to places with IDs 1117 and 1346
+283,1346,"[1346, 1117, 612, 1319, 1731, 3513, 1324, 1235, 1428, 1432]",Recent context shows frequent visits to ID 1346 and ID 1117; historical pattern suggests these places are likely the next destinations
+283,1117,"[1346, 1117, 612, 1319, 1731, 3513, 10, 11, 12, 13]",Recent pattern of frequent visits to places 1117 and 1346 at similar times on weekdays
+283,1346,"[1346, 1117, 612, 1319, 3513, 1731, 10]",recent behavior in context suggests the user is likely to visit a familiar place at a similar time of day
+283,1117,"[1346, 1117, 612, 1319, 1731.0, 3513, 10]",repeated visits to places at certain times/days and recent behavior
+283,1346,"[1117, 1346, 612, 1319, 1731.0, 3513.0, 10]",Recent visits to places at similar times/days and patterns in historical stays
+283,1117,"[1346, 1117, 612, 1319, 3513, 1731, 10, 13, 19, 20]","Recent behavior suggests a high likelihood of returning to familiar places at consistent times and days, while also considering the user's overall stay patterns."
+283,1346,"[1346, 1117, 612, 1319, 3513, 1731, 10]","Based on the historical pattern of frequent visits to place ID 1346 on weekdays and occasional visits to other places, the recent behavior in context suggests a high probability of visiting place ID 1346 again, with possibility of exploring other familiar locations."
+283,1117,"[1346, 1117, 612, 1319, 1731, 3513, 10]","Recent behavior suggests frequent visits to places at certain times/days, and historical patterns favor 1346"
+283,1346,"[1346, 1117, 612, 1319, 1731, 3513, 10, 4, 5, 2]","The prediction is based on the user's frequent visits to place 1346 and 1117 during weekdays, as well as recent stays at these places."
+283,1117,"[1117, 1346, 1319, 612, 1731]",Predicted places based on historical patterns and recent behavior
+283,1117,"[1346, 1117, 612, 1319, 3513, 1731.0, 10]",Recent and historical visits to same location
+283,1117,"[1117, 1346, 612, 1319, 3513, 1731, 10, 8, 4, 2]",Recent stays and daily patterns indicate a strong likelihood of returning to previous visited locations
+283,1117,"[1346, 1117, 1319, 612, 1731, 3513, 10]","Recent context suggests frequent visits to places at certain times/days, with a strong preference for places visited frequently"

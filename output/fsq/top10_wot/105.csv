@@ -1,0 +1,15 @@
+user_id,ground_truth,prediction,reason
+105,711,"[956, 133, 711, 1130, 3805, 2845, 816, 68, 3467, 755]","Based on the historical stays and recent context, it is likely that the user will visit places they have visited before, such as place 956."
+105,3816,"[956, 3805, 2845, 133, 68, 755, 816, 572, 646, 1]",The user's recent behavior and historical pattern indicate a strong likelihood of returning to familiar locations on weekends
+105,3816,"[956, 711, 1130, 133, 3805, 2845, 816, 572, 646, 3816]",predicting based on recent and historical patterns of daily routines
+105,2845,"[956, 711, 133, 3805, 2845, 816, 572, 646, 3816, 1130]","The user has a history of frequent stays at place 956 on weekdays and weekends, with some variation in timing. Recent context suggests they may be heading to work or school today."
+105,343,"[956, 133, 755, 3805, 2845, 1130, 711, 816, 68, 1]",The user tends to visit places with similar IDs on the same day of the week and at similar times
+105,956,"[956, 3805, 2845, 711, 133, 68, 1, 755, 1130, 816]","recent visits to place 956 and 3805, historical patterns of visiting places at certain times/days"
+105,956,"[956, 133, 711, 1130, 3805, 2845, 816, 755, 615, 1]","Recent behavior suggests the user tends to visit places like 956 and 133 during weekdays, with a higher likelihood of visiting place 711 on Mondays."
+105,956,"[956, 711, 1130, 133, 1, 68, 2845, 3805, 816, 755]","The user has a strong preference for staying at place ID 956 during the day and evening, with occasional visits to places 711, 1130, and 133. The recent context suggests they will continue this pattern."
+105,587,"[956, 133, 2845, 755, 3805, 1130, 711, 1, 816, 68]","The user's recent behavior and historical patterns suggest they are likely to return to familiar places, such as their home location (956) or other frequently visited locations (133, 2845, etc.)"
+105,219,"[956, 711, 1130, 3467, 3805, 133, 2845, 816, 68, 755]",recent visits to place ID 956 and other regular locations
+105,956,"[956, 711, 1130, 3805, 133, 2845, 68, 755, 1, 587]",The user tends to stay at similar places and has a recent history of visits on Thursday and Saturday
+105,997,"[956, 1130, 133, 3805, 2845, 816, 711, 68, 1, 755]","Recent behavior and historical patterns suggest the user is likely to visit a location they have visited before, possibly at a similar time of day or on the same day of the week."
+105,694,"[956, 711, 1130, 133, 3805, 2845, 816, 68, 1, 755]","Recent stays at 956 and context of visits to these places, as well as familiarity with place IDs 711, 1130, and others"
+105,1703,"[956, 133, 3805, 2845, 755, 711, 1, 816, 219, 68]","The user's recent behavior in the context suggests a strong affinity for place 956. Historical patterns also indicate repeated visits to this location, especially on weekdays."

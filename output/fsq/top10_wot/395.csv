@@ -1,0 +1,12 @@
+user_id,ground_truth,prediction,reason
+395,600,"[2671, 1048, 1419, 1290, 1159, 2191, 1252, 1221, 231, 846]","Predicted based on recent patterns in context and historical stays, with higher likelihood given to places visited during similar times of the week."
+395,1,"[2671, 1048, 1419, 1159, 1290, 1221, 2191, 1253, 231, 600]",recent visits to places in history and context
+395,113,"[1048.0, 1290.0, 1419.0, 1159.0, 1253.0, 2191.0, 2671.0, 846.0, 231.0, 1221.0]",Pattern analysis from historical stays and recent context
+395,1048,"[1048.0, 1419.0, 1290.0, 879.0, 1159.0, 600.0, 2671.0, 1221.0, 2191.0, 1252.0]",The prediction is based on the patterns in the user's historical stays and recent behavior.
+395,2191,"[1048, 1290, 1419, 2191, 1253, 2671, 1159, 231, 1221, 113]",based on frequent weekend and weekday patterns in history
+395,2267,"[2671, 1048, 1290, 1419, 1159, 1221, 879, 846, 231, 113]","Recent context suggests user is likely to visit popular places from history, with Sunday and Monday being days of higher likelihood"
+395,238,"[1048.0, 1290.0, 2671.0, 1419.0, 879.0, 1159.0, 1221.0, 2191.0, 1253.0, 231.0]","Recent stays on Sundays and Mondays, and historical patterns of returning to popular places"
+395,1290,"[1048, 1419, 1290, 2671, 1159, 2191, 1252, 846, 231, 1221]",The user tends to visit places like home/work on weekdays and leisure activities on weekends
+395,6,"[1048, 2671, 1419, 1221, 2191, 1253, 1159, 1290, 231, 846]",The prediction is based on the most frequent visited places in the user's history and recent behavior in the context.
+395,1048,"[1048, 1290, 1419, 2671, 2191, 1159, 2267, 238, 1253, 231]",Recent visits to places at certain times/days and historical patterns suggest a strong likelihood of returning to previously visited locations
+395,2191,"[2671.0, 1048.0, 1290.0, 1419.0, 1159.0, 879.0, 1221.0, 2191.0, 1252.0, 231.0]",Recent visits to places and patterns in history are considered for prediction.

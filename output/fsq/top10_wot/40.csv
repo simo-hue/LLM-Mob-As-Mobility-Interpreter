@@ -1,0 +1,10 @@
+user_id,ground_truth,prediction,reason
+40,1941,"[1743, 2512, 1596, 2030, 371, 1743, 1941, 1743, 1941, 1596]",The user has a regular daily routine and the recent context suggests that the user might head to a place with similar attributes as their previous destinations.
+40,1941,"[1743, 2512, 1941, 1596, 2030, 371, 684, 1743.0]",The user's recent behavior in the context and historical stays suggest a likely return to visited places on similar days and times.
+40,1941,"[2512, 1743.0, 1596.0, 2030.0, 371.0, 684.0, 1941.0, 1743.0, 1596.0, 2030.0]",The prediction is based on the user's recent visits to different places and days of the week
+40,1743,"[1743.0, 1941.0, 1596.0, 2030.0, 371.0, 2512.0, 1743.0, 1743.0, 1743.0, 1743.0]",Recent behavior in context indicates a strong tendency to revisit familiar locations on weekdays
+40,1941,"[1743.0, 1941.0, 1596.0, 371.0, 2030.0, 2512.0, 1743.0, 1743.0, 1743.0, 1743.0]","Recent stays at home and work on weekdays, with occasional visits to places at night"
+40,1941,"[1743.0, 1941.0, 2512.0, 1596.0, 2030.0, 371.0, 1743.0, 1743.0, 1743.0, 1743.0]","Recent visits to the same places at similar times and days of the week, with a slight bias towards the user's most frequent locations"
+40,684,"[1743.0, 1941.0, 2512.0, 1596.0, 2030.0, 371.0, 1743.0, 1941.0, 1941.0, 1743.0]",Recent behavior suggests the user is likely to visit familiar places with a bias towards Mondays and Thursdays
+40,1941,"[2512, 1743.0, 1596.0, 2030.0, 371.0, 684, 1743.0, 1941.0, 1941.0, 1743.0]",The user tends to visit similar places at similar times and days
+40,1941,"[1743.0, 1941.0, 2512.0, 2030.0, 1596.0, 371.0, 684.0, 1739.0, 2525.0, 2534.0]",The prediction is based on the user's recent activity pattern and the fact that they have visited places with IDs 1743.0 and 1941.0 frequently.

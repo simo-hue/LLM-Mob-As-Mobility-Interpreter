@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+396,2308,"[3805, 2308, 1637, 1646, 447, 3614]",Recent stays suggest frequent visits to certain places during specific times and weekdays
+396,2473,"[3805, 2308, 1637, 447, 3614, 1646, 733, 2473, 2313, 834]","The prediction is based on the user's historical stays and recent context, considering temporal information and weekday patterns."
+396,1646,"[2473, 1637, 2308, 1646, 1839, 3805, 3614, 447, 733, 2313]","The prediction is based on the user's frequent visits to certain places during specific times and days, as well as recent activities in the context."
+396,3816,"[3805, 2473, 1637, 2308, 1839]","Based on the user's historical activity pattern and recent context stays, we predict they will visit a place they have been to during the weekend or late evening."
+396,1646,"[3805, 3816, 1637, 2308, 1646, 447, 733]",Recent activities and temporal information indicate a strong likelihood of the user returning to previously visited places during similar times
+396,2155,"[3805, 3816, 1637, 2308, 447, 3614]",Recent activity pattern and temporal information suggest the user is likely to revisit a recently visited location during similar time

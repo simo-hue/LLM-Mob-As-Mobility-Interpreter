@@ -1,0 +1,10 @@
+user_id,ground_truth,prediction,reason
+34,1751,"[1956, 1704, 1751, 3141, 1336, 3361, 2175, 1434, 309.0, 85.0]","Recent behavior suggests the user is likely to stay at a place with similar IDs as in recent days, such as 1956, and also considers places visited regularly like 1704, 1751, and 3141."
+34,3141,"[1956, 1751, 3141, 1336, 1704, 3361, 2175, 1434, 309, 2175]",Based on historical pattern of regular visits to specific places at certain times/days and recent behavior
+34,3141,"[3361, 1336, 1704, 1751, 1956, 2175, 3141, 1434, 309, 85]","Recent frequent visits to locations on Monday and Friday, especially in the morning, suggest a high likelihood of visiting similar places. The historical pattern of repeated visits to location 1704 on Fridays and location 1751 on Mondays also supports this prediction."
+34,1704,"[1956, 3141, 1704, 1336, 2175, 1751, 3361, 1434, 309, 217]",Recent behavior in context suggests frequent visits to places at dawn/dawn-noon
+34,1956,"[1956, 3141, 1751, 1336, 1704, 3361, 2175, 1434, 309, 85]",recent visits to common places at similar times
+34,1751,"[3141, 1956, 1751, 1336, 2175, 1704, 1434, 3361, 309.0, 85.0]",Recent visits to similar places and times of day suggest a high likelihood of returning to familiar locations
+34,3141,"[3141, 1956, 1751, 1704, 1336, 3361, 2175, 1434, 309.0, 85.0]",Recent repeated visits to places at certain times/days and patterns in the user's historical stays
+34,1956,"[3361, 1336, 1704, 309.0, 2175, 1434, 1751, 3141, 2157, 1956]",Recent behavior indicates a high likelihood of revisiting recent locations
+34,3141,"[1956, 1704, 1751, 3141, 1336, 3361, 2175, 1434, 309.0, 85.0]","Recent stays at 1956 and 1704 suggest a high likelihood of returning to these places, with 1751 also being a frequent destination."

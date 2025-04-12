@@ -1,0 +1,18 @@
+user_id,ground_truth,prediction,reason
+88,45,"[584, 161.0, 10.0, 2995.0, 2675.0, 3805.0, 415.0, 257.0, 233.0, 1.0]",Recent behavior and historical patterns suggest the user is likely to visit a location they have visited recently on Sundays.
+88,2469,"[10, 4, 584, 161, 3805]",The user tends to visit the same places on Sundays and has recently been there.
+88,2381,"[161, 584, 495, 3805, 2995, 489, 169, 3301, 1834, 2381]",based on recent weekend and weekday patterns
+88,627,"[161.0, 584.0, 2952.0, 517.0, 3805.0, 10.0, 970.0, 489.0, 169.0, 2469.0]",Recent patterns in historical stays and recent context suggest frequent visits to various locations
+88,415,"[3805, 584, 161, 2995, 10, 45, 2469, 2381, 627, 17]","Based on the historical stays and recent context, I predict that the user will visit place ID 3805 next, as it is a frequent destination with a late evening preference."
+88,2381,"[584, 161, 10, 3805, 2995, 257, 165, 417, 2952, 3605]",Recent visits on Tuesday and Wednesday at similar times suggest return to familiar places
+88,1,"[584, 2952, 161.0, 3805, 417.0, 517.0, 10.0, 161.0, 2675.0, 2995.0]","Based on the user's historical stays and recent behavior in context, it is likely that they will visit a familiar place at night."
+88,3632,"[584, 161.0, 495.0, 257.0, 3805.0, 2995.0, 10.0, 970.0, 489.0, 169.0]",Recent stays and days of the week patterned in history suggest a strong likelihood of returning to previously visited places on similar days
+88,2315,None,Invalid JSON format from model
+88,1,"[584, 161, 3805, 257, 10, 1, 489, 169, 3301, 1834]",The user has visited these places frequently in the past and recently
+88,226,"[161, 584, 10, 1, 17, 29, 257, 165, 2995, 495]","The user has a consistent pattern of visiting places at certain times/days in the past, and their recent behavior suggests they are likely to continue this trend."
+88,150,"[584, 161, 3805, 10, 2995, 2675, 257, 415, 970, 169]","Recent context shows the user was at place 1, and historical data suggests they often visit places around this time/day, especially on weekends"
+88,970,"[584, 161.0, 517, 2952.0, 3605.0, 257.0, 165.0, 2675.0, 2995.0, 10.0]","Recent visits to places at certain times/days, and patterns in the user's historical stays"
+88,1,"[584, 257, 3805, 161, 1, 10, 2995, 489, 169, 3301]","Recent stays at similar days of the week and times, with repeated visits to places at certain hours"
+88,1,"[584, 161, 517, 2952, 3605, 165, 2675, 161, 3805, 2995]",Pattern analysis based on historical stays and recent contextual information
+88,1,"[584, 3605, 161, 2952, 257, 3805, 10, 970, 169, 3301]",Recent visits to places at similar times/days and repeated patterns in the past
+88,1,"[161, 584, 517, 2952, 3605, 257, 3805, 2995, 10, 1]","Based on the user's historical stays and recent behavior, it is likely that they will visit a place with similar characteristics to their previous destinations."

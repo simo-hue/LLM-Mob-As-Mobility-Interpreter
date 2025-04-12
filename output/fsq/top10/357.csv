@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+357,3619,"[3810, 3822, 3805, 3812, 1190, 582, 293, 2922, 817, 3619]",the prediction is based on the user's activity pattern and context stays
+357,707,"[3812, 3821, 1190, 582, 293, 3619, 926, 1980, 3805, 3810]","The user's activity pattern suggests repeated visits to certain places during specific times, and the context stays provide more recent activities. The target stay's temporal information is also considered."
+357,1259,"[3810, 3812, 582, 293, 707, 1190, 300, 1, 3825, 3805]","The predicted places are the most frequently visited places by this user on Saturdays and weekdays, with a slight bias towards morning stays."
+357,3619,"[3812, 3810, 3795, 3778, 3761, 3754, 3747, 3730, 3713, 3696]","The predicted places are based on the user's historical stays and recent context. The target stay is on Tuesday morning, which matches with the user's common activity pattern during this time."
+357,3619,"[3810, 707, 1259, 1190, 293, 2922, 817, 3002, 3821, 3805]","The prediction is based on the user's activity pattern and context, considering repeated visits to certain places during certain times"
+357,3619,"[3812, 3810, 293, 2922, 3002, 1190, 1]",predicting places based on recent context and historical patterns of this user
+357,2390,"[1190, 293, 3812, 3805, 3002, 2922, 817, 1, 3619, 926]",based on the user's activity pattern and recent context
+357,3619,"[3812, 3810, 3805, 293, 2390, 2922, 3619, 1190, 1980, 926]",predicting based on recent activities and daily patterns

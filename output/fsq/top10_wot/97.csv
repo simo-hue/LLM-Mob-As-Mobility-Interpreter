@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+97,1147,"[2323.0, 3436.0, 2914.0, 162.0, 627.0, 1370.0, 29.0, 869.0, 1.0, 1370.0]","The user has a consistent pattern of staying at location 2323 on Mondays and Fridays, and more recently stayed at location 3436 on Tuesday."
+97,272,"[2323.0, 3436.0, 2914.0, 162.0, 1370.0, 869.0, 627.0, 29.0, 1147.0]","Recent behavior in <context> suggests the user is likely to visit a place on Tuesday or Wednesday, based on previous patterns in <history>"
+97,972,"[3436.0, 2323.0, 2914.0, 162.0, 1370.0, 627.0, 29.0, 272.0, 150.0]","Based on the user's historical stays and recent context, I predict they will visit a familiar place with similar daytime/weekday patterns."
+97,1370,"[3436, 2323, 2914, 162, 1370, 627, 869, 29, 150, 972]","Based on the user's historical stays and recent behavior, the next likely place ID is predicted to be a repeated visit to one of their most visited places."
+97,2323,"[3436.0, 2323.0, 2914.0, 162.0, 627.0, 1370.0, 29.0, 150.0, 972.0, 869.0]",Recent contextual information and historical patterns suggest frequent visits to certain locations on specific days
+97,1370,"[3436.0, 2323.0, 2914.0, 162.0, 1370.0, 627.0, 150.0, 972.0, 29.0, 869.0]","The user has shown a consistent pattern of visiting places on specific days and times, with recent activity suggesting they are likely to visit place 3436 again."
+97,1370,"[1370, 2323, 3436, 2914, 162, 627, 869, 29, 1, 162]","The user's recent behavior shows a pattern of staying at 1370 on Mondays and Tuesdays, while their history suggests frequent visits to 2323, 3436, and 2914"

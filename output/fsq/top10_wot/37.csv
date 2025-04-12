@@ -1,0 +1,15 @@
+user_id,ground_truth,prediction,reason
+37,2377,"[3539, 374, 1, 25, 503, 72, 537, 781, 3.0, 537.0]","Recent contextual information suggests the user is likely to visit a place they have previously visited on this day of week, and historical stays show patterns of visiting certain places at similar times."
+37,651,None,Invalid JSON format from model
+37,489,"[3539.0, 374.0, 503.0, 781.0, 537.0, 72.0, 1.0, 25.0, 651.0]",The user's recent behavior is similar to their historical pattern of frequent visits to places with IDs 3539 and 374.
+37,374,"[3539.0, 374.0, 1.0, 25.0, 503.0, 72.0, 537.0, 781.0, 651.0, 489.0]",The prediction is based on the user's historical activity pattern and recent behavior in context.
+37,374,"[3539.0, 374.0, 1.0, 25.0, 503.0, 72.0, 537.0, 781.0, 651.0, 489.0]","Based on the user's historical stays and recent context, it is likely that they will visit a familiar location, possibly a workplace or a regular hangout spot."
+37,374,"[3539.0, 374.0, 1.0, 503.0, 72.0, 537.0, 781.0, 651.0, 489.0, 25.0]","Recent context suggests frequent visits to places with IDs 3539 and 374, while historical data shows consistent daily patterns"
+37,3539,"[3539, 374, 1, 503, 72, 537, 781, 25, 503, 537]","The user tends to visit places with similar IDs at the same times of day, and has recently visited places with these IDs"
+37,1,"[3539, 374, 1, 25, 72, 781, 503, 537, 25, 503]",predicted based on recent visits to place 3539 and 374
+37,1016,"[3539, 374, 781, 25, 72, 503, 537, 1, 537, 72]",Recent stays at place 3539 and 374 suggest these are likely locations
+37,3539,"[537, 781, 72, 25, 503, 1, 374, 3539, 374, 27]",Prediction is based on recent behavior in context and patterns in history
+37,1928,"[3539, 374, 1, 503, 72, 537, 781, 25, 25, 25]",Recent visits to places at certain times/days and patterns in the user's activity history are considered.
+37,3539,"[3539, 1, 25, 781, 72, 537, 503, 374, 1928, 374]","Recent contextual information suggests frequent visits to places with high IDs (e.g., 3539), and historical patterns show a tendency to visit similar locations during the same time of day"
+37,1928,"[3539, 374, 1, 537, 72, 503, 781, 25, 1928, 77]","Recent behavior in context suggests frequent visits to place 3539, and history shows similar patterns"
+37,3539,"[374.0, 3539.0, 1928.0, 1.0, 25.0, 72.0, 503.0, 537.0, 781.0, 72.0]",Recent context suggests frequent visits to place 374 and place 3539

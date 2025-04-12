@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+318,347,"[2407, 1980, 1224, 506, 1485, 1473, 293, 1608, 1445, 412]",predicting based on recent behavior and historical patterns
+318,904,"[1485, 293, 506, 1224, 1033, 3181, 1473, 1445, 327, 371]","The user tends to visit places with IDs 1485 and 293 frequently, especially on Fridays. Recent context suggests a possible return to place ID 506. The model also takes into account the time of day and day of week patterns in the history."
+318,202,"[506, 1485, 293, 1476, 409, 1980, 1224, 1033, 1445, 371]",based on user's historical stays and recent context
+318,506,"[1473, 1485, 506, 293, 1608, 1224, 1033, 1980, 1445, 371]",based on historical stays and recent contextual information
+318,651,"[293.0, 506.0, 1485.0, 1224.0, 2407.0, 1980.0, 1033.0, 3181.0, 1473.0, 1445.0]","Based on historical stays and recent contextual information, the user is likely to visit a familiar place with a similar daily routine"
+318,1476,"[1980, 1473, 293, 1485, 1224, 1033, 409, 2407, 1608, 1445]",Recent stays at similar times of the week and places in history suggest a likely visit to familiar locations

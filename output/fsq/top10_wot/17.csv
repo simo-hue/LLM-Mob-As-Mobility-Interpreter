@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+17,2625,"[1312, 2625, 3035, 2998, 374, 3239, 1385, 65, 262, 1312]","Recent behavior in the context and patterns in the history suggest frequent visits to places with IDs 1312, 2625, 3035"
+17,3239,"[1312, 3035, 2625, 374, 3239]","Recent context shows a pattern of visiting places at similar times/days as in the past, with some places more likely than others based on historical stays."
+17,501,"[1312, 374, 3035, 2625, 3239, 2998, 1385, 65.0, 2979.0, 1313.0]",Recent behavior suggests a preference for staying at locations visited on weekdays or weekends.
+17,2625,"[3239, 2625, 1312, 3035, 374, 2998, 1385, 65, 2625, 1312]",Recent frequent visits to places with IDs 3239 and 2625.
+17,3239,"[3239, 2625, 1312, 3035, 374, 2998, 1385, 65.0, 2625, 501]","Recent patterns in the history of stays and recent behavior indicate frequent visits to places with IDs 3239 and 2625, with some variation in times of day."

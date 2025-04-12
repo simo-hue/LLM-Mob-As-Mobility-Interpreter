@@ -1,0 +1,18 @@
+user_id,ground_truth,prediction,reason
+57,2844,"[2844.0, 907.0, 380.0, 582.0, 3816.0, 3301.0, 328.0, 565.0, 334.0, 2785.0]",Recent and historical patterns of visits at specific times/days
+57,1,"[2844, 907, 328, 3812, 3301, 2515, 1, 907, 2167, 474]","Based on historical patterns and recent behavior, the predicted next place ID is likely to be a familiar location visited during similar times of day."
+57,1,"[2844.0, 907.0, 328.0, 810.0, 3812.0, 243.0, 2167.0, 3817.0, 565.0, 1]","Based on the user's historical stays and recent context, we predict they will visit one of their frequent locations (2844.0 or 907.0), possibly with a morning bias"
+57,2844,"[2844, 907, 1, 3812, 2167, 3301, 328, 810, 565, 334]","Based on the user's historical stays and recent contextual information, we predict that they will visit places they have been to before at similar times and days."
+57,2844,"[2844, 3812, 907, 328, 810, 565, 2785, 243, 2167, 1]",The user tends to visit places frequently on Sundays and stays at these locations until late in the night. The recent context suggests a possible return to one of these frequent Sunday spots.
+57,2844,"[907, 2844, 3301, 810, 565, 328, 3812, 2167, 243, 2785]","Based on the user's historical stays and recent contextual information, I predict they will visit a familiar location, likely at a time of day when they tend to stay at home or nearby"
+57,1141,"[2844, 907, 1, 328, 565, 810, 3812, 243, 2167, 334]","Recent and historical stays at 2844 suggest a strong likelihood of returning to this location. Additionally, the context shows recent visits to places with similar IDs (e.g., 1), indicating a tendency to revisit familiar locations."
+57,2844,"[907, 328, 334, 243, 3812, 2167, 2785, 3301, 474, 62]",Pattern-based prediction using recent contextual information
+57,2844,"[2844, 907, 3812, 328, 810, 565, 334, 2785, 243, 2167]",Recent visits to places at night and on weekends suggest a high likelihood of returning to the most frequent place ID (2844)
+57,907,"[907, 2844, 3301, 328, 810, 565, 3812, 2167, 1141, 243]",Recent stays at 907 and context of recent stays at 2844 suggest user might return to similar places
+57,907,"[2844, 907, 3301, 2515, 62, 328, 810, 565, 334, 2785]",recent frequent visits to places at certain times/days and patterns in the user's historical stays
+57,243,"[907.0, 2844.0, 1.0, 3301.0, 328.0, 3812.0, 2785.0, 243.0, 2167.0, 1141.0]",Recent and historical stays suggest a strong affinity for the places visited during weekends and early morning hours
+57,2844,"[2844, 907, 3301, 2515, 474, 328, 3812, 243, 2167, 1]",Prediction based on recent repeated visits to places at certain times/days and considering the user's activity pattern.
+57,907,"[2844, 907, 3301, 2515, 328, 334, 1, 2785, 243, 3812]",Recent repeated visits to places at certain times/days and historical patterns
+57,907,"[907, 2844, 243, 3301, 810, 328, 3812, 2785, 2167, 565]",based on frequent visits to home (907) and work/school places
+57,1,"[2844, 907, 62, 328, 1, 3301, 474, 2167, 3812, 243]","The user has a strong pattern of returning to their most visited place (2844) and also tends to visit similar places at the same time/day, considering recent behavior in context."
+57,2675,"[907, 2844, 3301, 328, 3812, 243, 2785, 2167, 907, 1]",Pattern of frequent visits to place ID 907 at dawn/dusk hours

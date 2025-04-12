@@ -1,0 +1,16 @@
+user_id,ground_truth,prediction,reason
+72,1999,"[2753, 1999, 2096, 1098, 3354, 1999, 2753, 1098, 3354, 1999]","based on recent and historical stays, the user tends to visit places at similar times of day"
+72,1098,"[2753, 1999, 1098, 3354, 2096, 1098, 1999, 2753, 1098, 1999]","The user has a strong tendency to visit places at certain times/days based on historical stays, and recent behavior suggests they are likely to continue this pattern."
+72,3354,"[2753, 1999, 1098, 3354, 2096, 1098, 1098, 1999, 2753, 3354]",Recent context suggests frequent visits to place ID 2753 on Tuesdays and Thursdays.
+72,2753,"[2753, 1098, 1999, 2096, 3354, 1098, 2753, 1999, 3354, 1098]",Recent behavior shows a strong tendency to visit places at similar times and days
+72,1098,"[3354, 2753, 1999, 1098, 2096, 1100, 3000, 2500, 3100, 3300]","Recent stays suggest frequent visits to places on Tuesdays and Thursdays, with a bias towards 3354. Historical data also shows repeated visits to these locations."
+72,1753,"[2753, 1999, 1098, 3354, 2096, 1098, 2753, 1999, 1098, 1098]","based on the user's recent and historical behavior, the most likely place is their workplace or a common meeting spot"
+72,2753,"[2753, 1999, 1098, 3354, 2096, 1098, 3354, 1098, 2753, 1999]",The user tends to visit the same places at similar times and days.
+72,1999,"[2753, 1999, 3354, 1098, 2096, 1753, None, None, None, None]","Recent stays at places 2753 and 1098, with a focus on place 2753 due to recent visits during similar times and days"
+72,2753,"[2753, 1999, 1098, 3354, 2096, 1753, 1102, 2777, 2785, 2831]",Recent stays at place 2753 and contextual information suggest a strong likelihood of returning to this location.
+72,3354,"[2753, 1098, 3354, 2096, 1999, 1753, 1099.0, 3355.0]",Recent visits to home/work on weekdays and weekend errands
+72,1098,"[2753, 1098, 2096, 1999, 3354, 1098, 2753, 1999, 3354, 1098]",Recent behavior in context indicates frequent visits to places with ID 2753 and 1098
+72,3354,"[2753, 1999, 1098, 3354, 2096, 1098, 1999, 3354, 1098, 1999]","The user tends to visit places at certain times/days based on their historical stays, and recent behavior in context also suggests a high likelihood of visiting these places."
+72,1021,"[2753, 1999, 1098, 2096, 3354, 1098, 2753, 3354, 1098, 2753]",Recent visits to places at certain times/days and patterns in the user's historical stays
+72,2753,"[2753, 1999, 2096, 1098, 3354, 1021, 1098, 2753, 3354, 1098]",Recent stays and patterns in history suggest user tends to visit familiar places during the day
+72,1098,"[2753, 1999, 1098, 2096, 3354, 1021, None, None, None, None]",recently visited places and weekday patterns

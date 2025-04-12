@@ -1,0 +1,16 @@
+user_id,ground_truth,prediction,reason
+179,3598,"[3598, 3766, 2691, 3571, 3264, 2241, 2132, 1497, 596, 416]",predicting next likely place based on recent and historical behavior
+179,1266,"[3766, 3598, 2691, 2132, 1613, 1497, 861, 596, 416, 22]",Recent behavior and historical patterns suggest a likely visit to familiar places on the same day of the week
+179,1163,"[3598, 3766, 2691, 596, 861, 22, 2132, 1497, 3017, 3571]","based on recent frequent visits to places with IDs 3598 and 3766, as well as the pattern of repeated visits at certain times/days in the history"
+179,3598,"[3598, 3766, 2132, 2691, 596, 416, 861, 22, 1497, 1266]",Recent visits to familiar places and time of day
+179,3598,"[3766, 3598, 2691, 2132, 1497, 861, 597, 416, 2241, 22]","Recent behavior in context suggests a possible visit to the same place as last time (3766), while history shows frequent visits to places with IDs similar to these."
+179,3766,"[3766, 2691, 596, 861, 1266, 2132, 22, 416, 2241, 597]",Predicted based on recent patterns of staying at similar locations
+179,3598,"[3598, 3766, 1266, 1163, 2132, 2691, 2241, 861, 597, 417]",based on frequent visits to the same place at similar times
+179,3598,"[3766, 3598, 596, 2241, 2691, 861, 22, 1497, 2132, 1345]",Based on the user's recent pattern of visiting certain places at specific times and days
+179,3598,"[3766, 596, 3264, 861, 416, 22, 2132, 1497, 2691, 3598]",based on the user's activity pattern and recent behavior
+179,3598,"[3766, 3598, 2691, 1345, 2132, 22, 596, 861, 3017, 3571]",The prediction is based on the patterns in the historical stays and recent contextual information. The top-ranked places are frequently visited at similar times and days of the week.
+179,3598,"[3598, 3766, 2691, 2132, 3264, 3017, 596, 416, 2241, 861]",Recent frequent visits to location 3598 and similar places on weekends
+179,3598,"[3766, 3598, 2691, 2132, 861, 596, 416, 2241, 22, 1497]","The user tends to stay at the same place on Sundays and Wednesdays, and given recent visits to these places, it is likely that they will visit one of these places next."
+179,3598,"[3766, 3598, 596, 2241, 861, 1497, 2132, 22, 2691, 3264]","based on historical patterns and recent behavior, the next likely places are places frequently visited at similar times/days of week"
+179,3598,"[3766, 3598, 2691, 3017, 3571, 2241, 596, 861, 22, 2132]",recent and past behaviors indicate similar places visited during similar days and times
+179,3766,"[3598, 822, 3766, 2691, 2132, 1497, 1160, 1014, 945, 861]","The user's recent activity pattern suggests a high likelihood of returning to familiar places, with a strong preference for the place visited at 07:02 PM on Sunday in the context."

@@ -1,0 +1,21 @@
+user_id,ground_truth,prediction,reason
+361,685,"[1048, 3410, 3002, 3026, 685, 3805, 293.0, 79.0, 153.0, 1290]","Based on the user's historical stays and recent behavior in context, we predict that they will likely visit a familiar location or one they have been to recently."
+361,1048,"[1048, 3410, 3002, 3805, 3026, 685, 153, 279, 1290, 342]",recent visits to places at certain times/days and frequent visits to a few specific locations
+361,1048,"[1048, 3410, 3002, 279, 153, 1290, 342, 293, 3805, 3026]","The user has a consistent pattern of visiting place 1048 on Mondays and Tuesdays, and recently visited places with IDs 3410 and 578. The most likely next place is likely to be one of these familiar locations."
+361,3410,"[1048, 3410, 578, 3002, 3026, 3805, 685, 293.0, 79.0, 1290.0]","Recent visits to place 1048 and 3410 suggest a high probability of returning to these locations, while other frequent places like 293.0 and 3002.0 also rank highly."
+361,3410,"[1048, 3410, 3002, 685, 3805, 3026, 3410, 1048, 79, 1290]",Recent visits to location 1048 and history of visiting locations on specific days have led to a high probability of returning to these places.
+361,1048,"[1048, 3410, 685, 3002, 3805, 3026, 79, 1290, 342, 279]",based on historical patterns and recent behavior
+361,3410,"[3410, 1048, 3002, 685, 3026, 79, 153, 1290, 342, 3805]","Based on the historical stays and recent behavior, I predict the user is likely to visit their regular locations at similar times of the week, with a slight bias towards places visited recently."
+361,3410,"[1048, 3410, 3002, 3026, 685, 279, 153, 1290, 342, 293]","Recent stays at 1048 and 3410 suggest a strong likelihood of returning to these places, while historical patterns reveal frequent visits to other locations."
+361,3410,"[1048, 3410, 3002, 685, 3026, 3805, 293.0, 1290.0, 342.0, 279.0]",Recent stays at places 1048 and 3410 indicate high probability of visiting these locations again.
+361,3410,"[1048, 3410, 3002, 685, 3026, 3805, 79, 153, 1290, 342]",Recent behavior suggests the user tends to visit familiar places on weekends and weekdays around dinner time
+361,1048,"[1048, 3410, 3002, 3026, 685, 293.0, 279.0, 153.0, 1290.0, 342.0]","Recent pattern of frequent visits to ID 1048 and ID 3410, with some occasional visits to other places"
+361,3026,"[1048, 3410, 3002, 3026, 685, 293.0, 3805, 279.0, 153.0, 1290]",Predicted based on recent visits to places and historical patterns of similar times and days.
+361,125,"[1048, 3410, 3002, 685, 79, 153, 1290, 342, 3805, 3026]","Recent context suggests frequent visits to place 1048, also common in history"
+361,1048,"[1048, 3410, 3026, 685, 3002, 79, 1290, 342, 3805, 293.0]",Recent frequent visit to place 1048 and pattern of visiting places at similar times/days
+361,3410,"[1048, 3410, 3002, 3026, 3805, 685, 1290, 279, 153, 79]","Recent frequent visits to place IDs 1048 and 3410, with a history of weekend stays at these locations"
+361,68,"[1048, 3410, 3002, 685, 3805, 3026, 279, 79, 1290, 342]",Based on the user's historical pattern of frequent visits to place ID 1048 and recent context indicating a stay at this location
+361,3410,"[1048, 3410, 3002, 3026, 685, 79, 279, 153, 1290, 342]",Recent stays at places with ID 1048 and 3410 suggest these locations are likely to be visited again.
+361,3410,"[1048, 3410, 3002, 3026, 685, 79, 1290, 342, 293, 3805]","Based on historical stays and recent context, the predicted places are a mix of frequent visits to place 1048 (Sundays) and other places like 3410, 3002, and 3026 that have been visited during weekdays or weekends."
+361,300,"[1048, 3410, 3002, 293.0, 68, 3026, 685, 79.0, 153.0, 279.0]","The user's recent behavior and historical pattern show a strong affinity for visiting location 1048 on weekdays, especially during the evening hours. The presence of similar visits in the context also supports this prediction."
+361,300,"[1048, 3410, 3002, 3026, 685, 293, 3805, 79, 1290, 342]","Recent frequent visits to place IDs 1048 and 3410, as well as occasional visits to other places"

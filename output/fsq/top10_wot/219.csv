@@ -1,0 +1,21 @@
+user_id,ground_truth,prediction,reason
+219,3299,"[2606, 3172, 3299, 1510, 3090, 1477, 3561, 3187, 3108, 2811]",predicted based on frequent visits and recent behavior
+219,3299,"[2606, 3172, 1510, 1074, 3063, 3090, 3187, 3299, 1477, 3561]",The user tends to visit these locations frequently and recently stayed at some of them
+219,1074,"[2606.0, 1510.0, 3172.0, 3299.0, 3090.0, 3187.0, 1074.0, 3063.0, 2811.0, 3108.0]","Recent visits to a location are likely to continue, and the user tends to visit multiple locations on weekends."
+219,2606,"[2606, 3172, 1510, 1477, 3090, 3299, 3108, 3561, 2811, 3187]","Recent visits to the same place at similar times and days, with a slight bias towards evening stays"
+219,3428,"[3108.0, 2606.0, 3299.0, 1510.0, 1477.0, 3172.0, 3090.0, 2811.0, 3509.0, 1074.0]",Recent stay at 3299 on Friday and repeated visits to 2606 on weekends
+219,3509,"[2606, 3172, 3299, 1477, 1510, 3090, 3108, 2811, 3509, 1074]","Based on the user's historical stays and recent contextual information, I predict they will visit places with a high probability of repeat visits at similar times and days."
+219,2606,"[3299, 3172, 3063, 2606, 3090, 1510, 1074, 1477, 2811, 3561]",Pattern recognition from historical stays and recent context
+219,3428,"[1510.0, 1477.0, 2606.0, 3172.0, 3090.0, 1074.0, 3299.0, 2811.0, 3108.0, 3428.0]","Given the user's frequent visits to places at similar times and days in their historical stays, as well as their recent behavior visiting place 2606 on Thursday evening, it is likely they will visit a similar location next."
+219,2606,"[2606, 3172, 1510, 1477, 3090, 3299, 2811, 3108, 3509, 3428]",recent and historical visits to places suggest a high likelihood of returning to familiar locations
+219,1096,"[2606, 3172, 1510, 3299, 3090, 1477, 3561, 3108, 3428, 3509]","Recent and historical patterns of visiting places suggest the user is likely to visit one of their frequently visited locations, with a preference for places visited in recent days"
+219,1510,"[2606, 3172, 1510, 3299, 3187, 3090, 3108, 2811, 1074, 1477]","Based on the user's historical stays and recent context, I predict that they will visit places they have been to before, especially during similar times of day."
+219,1225,"[1477, 2606, 3063, 3172, 3299, 3090, 3108, 2811, 3187, 3561]",based on historical patterns and recent contextual information
+219,2606,"[2606, 3172, 3090, 1510, 1477, 3299, 3561, 3187, 3108, 1074]",Recent visits and patterns in history indicate likely next locations are familiar places
+219,3805,"[2606, 3172, 1510, 1477, 3090, 3108, 3299, 2811, 3561, 1074]","The user has a consistent pattern of visiting the same places on certain days of the week, and their recent behavior suggests they are likely to visit places they have visited before"
+219,3805,"[2606, 3172, 1510, 1477, 3090, 3299, 3063, 2811, 3108, 1096]",recent frequent visits and daily routines
+219,2606,"[2606, 3172, 1510, 3090, 1477, 3299, 3063, 2811, 3108, 1074]",recent visit to place 2606 and historical pattern of frequent visits
+219,1096,"[2606, 3172, 1510, 1477, 3090, 3108, 3299, 3805, 2811, 3561]","Based on the historical stays and recent context, I predict that the user will visit one of their most frequently visited places, likely a home or work location."
+219,1096,"[1096, 3172, 3561, 2606, 3187, 3299, 3063, 3090, 3108, 3805]",predicting based on recent contextual information and historical patterns
+219,2606,"[2606, 3172, 1510, 1477, 3299, 3090, 3108, 3805, 1096, 3063]","Predicted based on user's frequent visits to these places at similar times/days, with recent context supporting this pattern."
+219,3299,"[3299, 3172, 2606, 1510, 1477, 3090, 3063, 2811, 3805, 1096]",Recent behavior and historical patterns suggest a visit to a familiar location

@@ -1,0 +1,11 @@
+user_id,ground_truth,prediction,reason
+115,1,"[43, 335, 464, 970, 3424, 3605, 491, 2450, 7, 280]",Recent activity patterns and historical trends suggest a high likelihood of returning to frequent locations
+115,43,"[43, 1, 7, 126, 491, 970, 3424, 2450, 3605, 1253]","Recent and historical patterns suggest frequent visits to home (place ID 43), followed by other regular locations"
+115,43,"[43, 1, 464, 3424, 491, 2450, 7, 2768, 126, 3605]",Recent stays at location 43 and recent morning stay at location 1 suggest a return to these locations.
+115,1,"[43, 3424, 491, 1, 126, 7, 2768, 2450, 3605, 970]","Recent visits to various places, with emphasis on place 43 and occasional revisits"
+115,43,"[43, 1, 3424, 491, 2450, 7, 126, 3605, 335, 970]","Recent behavior and historical patterns suggest the user is likely to visit a place they have been to before, especially at similar times and days"
+115,1,"[43, 970, 3424, 491, 2450, 7, 126, 1, 3605, 464]","Based on the user's historical stays and recent behavior, it is likely that they will visit their most frequently visited place (43), followed by places with similar day of week or time patterns."
+115,43,"[43, 1, 7, 126, 2450, 491, 335, 970, 3424, 3605]",Recent visits to place 43 and the context of visiting place 1 at Saturday lunch time suggests a high likelihood of returning to place 43 or places with similar visit patterns.
+115,1,"[43, 491, 1, 7, 126, 2450, 2515, 3605, 335, 964, 970]","The user has a consistent pattern of visiting place ID 43 at various times and days. The recent context shows that the user is likely to return to this place ID. Additionally, places IDs 1 and 7 are also visited frequently in both history and context, making them possible alternatives."
+115,43,"[43, 491, 1, 7, 126, 2515, 2450, 3605, 3424, 970]","The user has a strong pattern of visiting place 43 on most days, with recent visits on Monday and Wednesday. The context also shows the user was at place 43 recently."
+115,534,"[43, 1, 7, 126, 491, 2450, 3605, 3424, 970, 464]",Recent frequent visits to place 43 and recent visit to place 1

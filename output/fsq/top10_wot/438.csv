@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+438,304,"[2314, 417, 1143, 122, 3298, 1903, 703, 304]",based on recent context and historical patterns of repeated visits to places at certain times/days
+438,1903,"[2314.0, 417.0, 1903.0, 3298.0, 1143.0, 122.0, 703.0, 304.0, 304.0, 304.0]",Recent stays at morning hours and weekends suggest frequent visits to 2314.0 and 417.0. Contextual information indicates a high likelihood of returning to 304.0 as well.
+438,811,"[304, 2314, 417, 1143, 122, 3298, 703, 1903, 1220, 1139]",Predicted based on user's daily routine and recent behavior
+438,785,"[304, 2314, 417, 1143, 122, 703, 1903, 3298, 811, 1220]",Recent patterns of daily routine and frequent visits to specific places at certain times of the day.
+438,122,"[2314.0, 304.0, 417.0, 1903.0, 3298.0, 1143.0, 122.0, 703.0, 811.0, 785.0]","Recent behavior in <context> indicates frequent visits to place_id 2314 at late hours, while <history> shows regular morning stays at place_id 304"
+438,1016,"[304, 2314, 417, 1143, 1903, 3298, 122, 811, 785, 0]",Recent behavior and historical patterns indicate a high probability of returning to familiar locations
+438,304,"[304, 417, 2314, 1903, 1143, 3298, 122, 811, 785, 1016]",Recent behavior in context and historical patterns of regular visits to certain places at specific times/days
+438,703,"[304.0, 2314.0, 417.0, 1143.0, 122.0, 811.0, 785.0, 1016.0, 3298.0, 1903.0]","Pattern of frequent visits to places 304.0 and 2314.0 on Mondays and Fridays, with recent visit to place 304.0 in context"
+438,304,"[2314.0, 417.0, 1143.0, 122.0, 1016.0, 785.0, 3298.0, 1903.0, 304.0, 703.0]","Based on the user's historical stays and recent context, I predict that they will likely visit places where they have previously stayed or visited recently, with a bias towards evening hours and weekends."
+438,304,"[2314, 417, 1143, 122, 3298, 1903, 703, 304, 304, 304]","Based on the user's historical stays and recent context, I predict they will likely visit a place at night (based on their recent evening stays in <context>) and revisit places they have previously stayed overnight (as seen in <history>)."
+438,703,"[2314.0, 417.0, 1143.0, 122.0, 3298.0, 1903.0, 703.0, 304.0, 2314.0, 704.0]","Given the user's historical stays and recent behavior, I predict they will visit places with similar day of week patterns (e.g., frequent Sunday visits) and revisit previously visited locations."
+438,304,"[2314.0, 417.0, 1143.0, 122.0, 3298.0, 1903.0, 304.0, 703.0, 122.0, 1143.0]","Based on the user's historical stays and recent contextual information, I predict that they will visit one of their most frequent places (2314 or 417) with a slight bias towards weekdays."
+438,678,"[2314.0, 417.0, 1143.0, 122.0, 3298.0, 1903.0, 703.0, 304.0, 304.0, 304.0]","The user has a strong pattern of visiting the same place at similar times and days in their history, with recent visits to places on Friday and Monday"

@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+431,2747,"[2747, 2528, 734, 2747, 734, 2528, 2747, 2528, 2747, 734]",Recent and historical stays at location 2747 and 2528 suggest a high likelihood of the user visiting one of these locations again
+431,2747,"[2747, 734, 2528, 2747, 2528, 2747, 734, 2528, 2747, 2528]",recent stays at 2747 and context suggests similar behavior
+431,2528,"[2747, 2528, 734]",Recent pattern of frequent visits to place 2747 and occasional visits to places 2528 and 734 suggests the next likely location
+431,2747,"[2747, 2528, 734]",Recent stays at place 2747 and contextual information suggest a high likelihood of returning to this location

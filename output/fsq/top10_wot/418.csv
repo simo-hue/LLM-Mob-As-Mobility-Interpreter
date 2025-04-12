@@ -1,0 +1,26 @@
+user_id,ground_truth,prediction,reason
+418,1,"[3223, 1357, 3761, 2428, 2964, 3174, 3063, 863, 1, 2]",Recent frequent visits to place 3223 and context suggesting a return to this location
+418,1,"[3223, 1357, 3761, 3174, 3063, 863, 2428, 2964, 1, 9]",based on historical patterns and recent context
+418,1,"[3223, 1357, 3761, 3174, 3063, 863, 2428, 2964, 3223.0]",Recent visits to places at certain times/days and repeated visits in history
+418,3223,"[3223, 1357, 3761, 3063, 3174, 863, 2428, 2964, 1, 2430]",Recent visits to place 3223 and historical patterns of visiting this place on Sundays and Mondays suggest a high likelihood of returning here.
+418,2029,"[1, 1357, 2428, 2964, 3174, 3063, 863, 3761, 3223]",recently visited places and time of day
+418,1,"[3174.0, 1357.0, 3223.0, 3761.0, 3063.0, 2428.0, 2964.0, 1.0, 863.0, 2029.0]",The model predicts the next likely place based on the user's historical stays and recent behavior in context. It has a strong affinity for places visited frequently (3223) and also takes into account more recent visits to other locations.
+418,3223,"[1357.0, 3223.0, 3761.0, 3174.0, 863.0, 2428.0, 2029.0, 3063.0, 2964.0, 1.0]",Recent visits to places at certain times/days and patterns in historical stays
+418,3223,"[3223, 1357, 3761, 3174, 863, 2428, 2029, 3063, 2964, 1]",Recent visits to location 3223 and considering historical patterns of frequent stays at this location
+418,2029,"[3223, 1357, 3761, 3174, 863, 2428, 2029, 3063, 2964, 1]",predicting frequent places based on historical pattern and recent behavior
+418,1,"[1357, 2428, 2964, 3174, 3761, 863, 3063, 3223, 2029, 1]",Recent frequent visits to places with similar characteristics in the context and historical patterns of visiting these places during specific times/days
+418,3223,"[3223, 1357, 3761, 3174, 3063, 863, 2428, 2964, 2029, 1]","The user tends to visit their most frequent locations at certain times and days of the week, with a recent bias towards visiting place ID 3223."
+418,3223,"[3223, 1357, 3761, 3174, 3063, 2029, 863, 2428, 2964, 1]","The user's recent behavior in the context of historical stays suggests a high likelihood of visiting locations they have been to before, especially on weekdays"
+418,1,"[3223, 1357, 3761, 3174, 3063, 863, 2428, 2029, 2964, 1]",Historical pattern of frequent visits to place 3223 and recent behavior in the <context> suggesting a high likelihood of visiting this location again.
+418,1,"[3223, 1357, 3761, 3174, 3063, 863, 2029, 2428, 2964, 1]",Recent stays at place 3223 and the current context suggest the user is likely to stay at this location again
+418,3223,"[3174, 1357, 3761, 863, 2428, 3063, 3223, 2964, 3222, 2439]","The user tends to visit places at similar times and days of the week, with recent visits to place 1 and 3223. The top prediction is a repeat of the recent pattern."
+418,1,"[3223, 1357, 3761, 3174, 3063, 863, 2428, 2964, 1, 2635]","Recent behavior suggests frequent visits to location 3223 on weekdays and weekends, with some occasional trips to locations 1357 and 3761"
+418,3223,"[3223, 1357, 3761, 3174, 3063, 863, 2428, 2964, 2449, 2636]","The user tends to visit place 3223 frequently, especially on weekdays and weekends. Considering the recent context of visiting place 1 several times in a row, it's likely they will continue this pattern."
+418,1,"[3223, 1357, 3761, 3174, 863, 2428, 3063, 2964, 2428, 2964]",recent behavior in context and historical patterns suggest returning to a familiar location
+418,3223,"[3223, 1357, 3761, 3174, 3063, 863, 2428, 2964, 1, 2636]","Based on the user's historical stays and recent behavior, I predict they will visit a place with similar characteristics to their previous visits."
+418,1,"[1357, 2428, 3223, 2964, 3761, 3174, 3063, 863, 1]",Recent frequent visits to places at certain times/days and repeated patterns in history
+418,3223,"[3223, 1357, 3761, 3174, 863, 3063, 2428, 2964, 1, 3760]",The user has a strong tendency to visit place ID 3223 on weekdays and tends to follow similar routines on weekends
+418,2029,"[3223, 1357, 3761, 3174, 3063, 863, 2428, 2964, 3229, 1]",Recent stays in the same place and patterns in historical data suggest high likelihood of staying at familiar locations
+418,3223,"[1357, 3223, 3761, 2428, 3063, 3174, 863, 2964, 2029, 2946]",The user has a pattern of frequent visits to places at certain times and days. Recent behavior suggests they may visit place 1357 or return to previous locations like 3223.
+418,3223,"[3223, 1357, 3761, 3174, 863, 3063, 2428, 2964, 2029, 1]","Based on the user's historical stays and recent context, I predicted their next likely places as those they have previously visited at similar times/days or recently."
+418,3223,"[3761.0, 1357.0, 3174.0, 3063.0, 863.0, 2029.0, 2428.0, 2964.0, 3223.0, 1.0]",The model is highly likely to predict a visit to the same places as recent past activities and patterns in history

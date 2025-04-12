@@ -1,0 +1,120 @@
+user_id,ground_truth,prediction,reason
+260,976,"[1, 976, 2343, 3231, 2145, 2458, 2723, 2436, 2, 4]",Recent and historical patterns of frequent visits to these places at similar times/days
+260,2436,"[1, 976, 2436, 2145, 2343, 3231, 2723, 2458, 976, 2343]",The predicted places are the most frequently visited ones in the user's history and recent context.
+260,1,"[1, 976, 2436, 2145, 2343, 2723, 2458, 3231, 976.0, 2442]","The user tends to visit the same places on specific days and times, with recent behavior indicating a preference for Place IDs 1 and 2436."
+260,3231,"[2343, 976, 2436, 1, 2145, 3231, 2458, 2723, 2169.0, 2044.0]",Recent stays at similar times/day of week and repeated visits to certain places
+260,2436,"[2343, 976, 1, 2436, 2145, 3231, 2723, 2458, 976.0, 976]","Recent visits to place 976 and 2343, with a pattern of frequent stays at these locations"
+260,1,"[1, 976, 2343, 2145, 2436, 2723, 2458, 3231, 976.0, 1]",Based on historical stays and recent contextual information
+260,1317,"[1, 976.0, 2343.0, 2145.0, 2458.0, 2723.0, 3231.0, 2436.0, 976.0, 2343.0]",predicted based on recent activity patterns and user's habits
+260,3231,"[976.0, 2343.0, 3231.0, 2145.0, 2436.0, 1.0, 2723.0, 2458.0, 1317.0]",Combination of daily and weekly patterns with recent contextual information
+260,1966,"[976.0, 2343.0, 2436.0, 2145.0, 1317.0, 2723.0, 2458.0, 1.0, 3231.0, 2.0]",Predicted based on recent daily patterns and frequent visits
+260,976,"[976.0, 2436.0, 2343.0, 1.0, 2145.0, 1317.0, 2723.0, 1966.0, 3231.0, 2458.0]",Recent and historical behavior suggests most likely places are ones frequently visited during similar times of the day
+260,1,"[1, 976, 2436, 2343, 2145, 1317, 1966, 2723, 2458, 3231]","Based on the user's historical stays and recent context, I predict they will visit a familiar place like their home (ID: 1) or a regular location at a similar time and day."
+260,2436,"[1, 976, 2343, 2436, 3231, 2145, 1317, 1966, 2723, 2458]",Predicted based on historical stays and recent context
+260,3231,"[1, 976, 2343, 2436, 2145, 1966, 2723, 3231, 2458, 245]","Based on the user's historical stays and recent behavior, I predicted that they would likely visit one of their frequently visited places (home or work)"
+260,3231,"[1, 976, 2343, 2145, 2436, 3231, 1966, 2723, 2458, 976]","Based on the historical stays and recent contextual information, I predict that the user will visit one of their most frequent locations, likely a home or work place."
+260,2436,"[976, 2343, 2436, 2145, 1, 3231, 2723, 2458, 976.0, 1]",Pattern of recent behavior and repeated visits to places at certain times/days
+260,976,"[1, 976.0, 2343.0, 2436.0, 2145.0, 2723.0, 2458.0, 3231.0, 976.0, 2343.0]","The user tends to visit the same places at similar times and days, with recent context indicating a higher likelihood of visiting these places again."
+260,2436,"[1, 2436, 976, 2343, 2145, 3231, 2723, 2458, 876.0, 2464.0]",Prediction based on patterns in historical stays and recent behavior
+260,1,"[1, 976, 2343, 2436, 2145, 3231, 2458, 2723, 2147, 2359]","Recent behavior in context suggests the user might visit a place they've been to recently (e.g. 976), and historical patterns show repeated visits to certain places at specific times/days."
+260,1058,"[976, 2343, 2145, 3231, 2458, 2723, 2436, 1, 2145, 975]","Based on the user's historical stays and recent behavior, I predict that they will visit a location with similar characteristics as their recent destinations."
+260,2145,"[2343, 976, 2436, 1, 2145, 3231, 2458, 2723, 1058, 976]",Pattern of repeated visits to places at certain times/days and recent behavior in context
+260,3231,"[1, 976, 2343, 2436, 2145, 3231, 2458, 2723, 1058]",Recent behavior suggests frequent visits to these places
+260,2145,"[976.0, 2436.0, 1.0, 2343.0, 2145.0, 2723.0, 1058.0, 2458.0, 3231.0, 975.0]","Based on the user's morning routine and recent visits to specific places, I predict they will likely visit one of their most frequently visited locations."
+260,2436,"[976.0, 2436.0, 1.0, 2343.0, 2145.0, 3231.0, 2723.0, 1058.0, 2458.0]",recent behavior suggests frequent visits to places with ID 976 and 2436
+260,1,"[976.0, 2436.0, 2343.0, 1.0, 3231.0, 2145.0, 2723.0, 1058.0, 2458.0]","Recent patterns of visiting 976.0 and 2436.0 on Tuesdays and Mondays, respectively, suggest a high likelihood of visiting these places again"
+260,3231,"[976.0, 2436.0, 1.0, 2145.0, 2343.0, 3231.0, 2723.0, 2458.0]",Next likely place ID based on historical patterns and recent behavior
+260,976,"[976.0, 2343.0, 1.0, 2436.0, 2145.0, 2723.0, 2458.0, 3231.0, 976.0, 1.0]","Based on the user's historical activity pattern and recent contextual information, I predict that they will likely visit places where they have previously stayed during similar times and days."
+260,2343,"[2145.0, 2723.0, 2343.0, 1.0, 2436.0, 976.0, 3231.0, 2458.0, 976.0, 2145.0]",Recent visits to places at similar times and days of the week suggest a likely return to these locations.
+260,1237,"[1, 2436, 976, 2343, 2145, 2458, 2723, 3231, 2364, 2459]",prediction based on historical patterns and recent behavior
+260,3231,"[2436.0, 976.0, 1.0, 2145.0, 2343.0, 3231.0, 2723.0, 2458.0]",Recent frequent visits to places at certain times/days and historical patterns suggest this user is likely to return to familiar locations
+260,2145,"[1, 976, 2436, 2145, 2343, 2723, 2458, 1237, 3231, 0]",Pattern of recent and historical stays at specific times/days
+260,2436,"[976.0, 2343.0, 2436.0, 1.0, 2145.0, 3231.0, 2723.0, 2458.0, 1237.0]",pattern-based prediction considering user's past stays and recent behavior
+260,1317,"[976, 2343, 1, 2436, 2145, 3231, 2723, 2458, 1237, None]","Predicted based on recent and historical patterns, favoring morning visits to places like 976, 2343, and 1"
+260,2145,"[976.0, 2343.0, 1.0, 2436.0, 3231.0, 2145.0, 2723.0, 1317.0, 2458.0, 1237.0]",Predicted based on patterns in the user's historical stays and recent context
+260,1,"[976.0, 2343.0, 1.0, 2436.0, 3231.0, 2145.0, 1317.0, 2723.0, 2458.0]",Recent behavior suggests the user is likely to visit their most frequently visited places
+260,976,"[1317, 2723, 2436, 976, 2343, 3231, 2145, 2458, 1, 876]",The prediction is based on the user's historical stay patterns and recent behavior in the provided context.
+260,1,"[1, 2436, 976, 2343, 2145, 1317, 2723, 2458, 3231, 2479]",Recent behavior and repeated visits to places at certain times/days
+260,1317,"[1317, 976, 2343, 2436, 2145, 2723, 3231, 2458, 1, 2479]",Recent visits to places in the context and frequent stays at times of day are considered.
+260,3231,"[2343, 976, 2436, 2145, 3231, 1, 2723, 2458, 1317, 1314]","The prediction is based on the user's historical pattern of visiting places at certain times/days, and recent behavior in context."
+260,3231,"[1, 976.0, 2436.0, 2343.0, 2145.0, 2723.0, 1317.0, 2458.0, 3224.0, 3232.0]","The user has shown a consistent pattern of visiting places at specific times and days, with recent behavior indicating a strong likelihood of revisiting these locations."
+260,976,"[976.0, 2343.0, 2436.0, 2145.0, 1317.0, 2723.0, 2458.0, 3231.0, 1.0, 976.0]",Recent contextual information and patterns in historical stays suggest a high likelihood of returning to familiar places.
+260,2343,"[2343.0, 2436.0, 1317.0, 976.0, 2145.0, 2723.0, 1.0, 3231.0, 2458.0, 2145.0]","The prediction is based on the user's recent frequent places (2343, 2436) and the context of staying at home on Friday and visiting place 3231 on Saturday."
+260,1,"[1, 2436, 976, 2145, 2343, 1317, 2723, 2458, 3231, 1]",based on recent patterns of frequent returns to a few places and consistent daily routines
+260,2145,"[1, 2436, 976, 2343, 2145, 3231, 2723, 2458, 0, 0]",Predicted places are based on the historical pattern of frequent visits to places 1 and 2436 at the start of the day
+260,976,"[1, 976, 2343, 2436, 3231, 2145, 2458, 2723, 2147, 2464]",Recent visits and time-based patterns
+260,3231,"[1, 976, 2343, 2436, 3231, 2145, 2723, 2458, 0.0, 0.0]","The prediction is based on the user's recent pattern of frequent visits to places 1, 976 and 2343 on Mondays and Tuesdays."
+260,1,"[1, 976, 2343, 2436, 2145, 3231, 2723, 2458]",based on morning routines and repeated visits to certain places
+260,3231,"[1, 976, 2436, 2145, 2343, 2723, 2458, 3231, 2, 0.0]","Recent behavior in the context suggests frequent visits to place ID 1 on Monday and Tuesday mornings, while historical data shows a strong pattern of visiting place ID 1 at the start of the day."
+260,976,"[1, 976, 2436, 2145, 2343, 2723, 2458, 3231, 976.0, 2343]",based on recent patterns in both history and context
+260,2343,"[1, 976, 2436, 2145, 2343, 2723, 2458, 3231, 9757, 2354]",predicted based on patterns in the user's historical stays and recent contextual information
+260,1,"[1, 976, 2436, 2145, 2343, 3231, 2723, 2458, 0, 0]",Predicted based on recent patterns in the user's historical stays and current context
+260,1,"[1, 976.0, 2436.0, 2145.0, 2343.0, 2723.0, 2458.0, 3231.0, 2.0]",Recent morning visits to familiar places and the context of a recent Monday visit to these places make it likely that this user will return to one of their favorite locations.
+260,3231,"[1, 976, 2436, 2343, 2145, 3231, 2723, 2458, 2479, 2152]","The prediction is based on the patterns of repeated visits to places at certain times/days, considering both historical stays and recent behavior"
+260,1,"[976, 2343, 1, 2436, 2145, 2723, 2458, 3231, 0, 0]",Recent context and historical patterns indicate a strong likelihood of returning to familiar places
+260,1,"[976.0, 2343.0, 2436.0, 1.0, 2145.0, 2723.0, 2458.0, 3231.0, 976.0, 2343.0]",Predicted based on recent behavior and historical patterns of daily commutes to specific places
+260,3231,"[976.0, 2436.0, 1.0, 2145.0, 2343.0, 3231.0, 2723.0, 2458.0]",recent stays at morning times suggest a return to familiar places
+260,1966,"[1, 976.0, 2436.0, 2343.0, 2145.0, 3231.0, 2723.0, 2458.0]",recurring daily patterns in the user's history
+260,976,"[1, 976.0, 2343.0, 2436.0, 2145.0, 2723.0, 2458.0, 3231.0, 1974.0, 1966.0]","Based on the historical pattern of frequent visits to places with IDs 1 and 976.0 at similar times, and the recent context showing a visit to place 3231 just before this time range."
+260,2436,"[1, 2436, 976, 2343, 2145, 3231, 2458, 2723, 1966]",Recent repeated visits to places at certain times/days and patterns in the past
+260,1,"[1, 976, 2343, 2436, 2145, 3231, 2723, 2458, 1966, 976]",Recent visits to home (1) and repeated patterns in the history of Monday and Tuesday stays
+260,3231,"[1, 976, 2343, 2436, 3231, 2145, 2458, 2723, 1966, 976]",Based on the historical pattern of daily visits to different places and recent behavior
+260,1966,"[1, 976, 2343, 2145, 1966, 2723, 2458, 2436, 3231, 976]",predicting the user will go to one of their most frequently visited places
+260,976,"[976.0, 2436.0, 1.0, 2145.0, 2343.0, 2723.0, 3231.0, 2458.0]",The user tends to visit places at similar times of the day and repeats visits to certain locations.
+260,1,"[976.0, 2436.0, 2343.0, 2145.0, 3231.0, 2458.0, 2723.0, 1966.0, 1.0]","The user tends to visit certain places at regular times and days, and recent behavior suggests a likely return to familiar locations"
+260,1,"[1, 976.0, 2436.0, 2343.0, 2145.0, 3231.0, 2723.0, 2458.0, 1966.0]","The user's recent stays suggest frequent visits to places with ID 1, 976 and 2436, while their historical pattern shows daily routines involving place IDs 2343, 2145, 3231."
+260,3231,"[1, 976, 2343, 2436, 3231, 2145, 2723, 2458, 1966, 976]",Based on the user's activity pattern and recent behavior
+260,560,"[1, 2436, 976, 2343, 2145, 3231, 2723, 2458, 1966, 2720]",Recent visits to place ID 1 and recent day of the week is Tuesday suggest a high likelihood of visiting place ID 1 or other similar places.
+260,1966,"[1, 976, 2436, 2343, 2145, 3231, 2723, 2458, 560, 976]","Based on the user's historical activity pattern and recent context, I predict they will visit places they have been to before at similar times of day."
+260,1,"[1, 976.0, 2436.0, 2343.0, 2145.0, 3231.0, 2723.0, 560.0, 1966.0, 2458.0]",Pattern-based prediction based on historical stays and recent context
+260,1,"[976.0, 2436.0, 1.0, 2145.0, 2343.0, 3231.0, 2723.0, 560.0, 1966.0]",Recent behavior suggests a regular morning routine at familiar locations
+260,3231,"[2343, 976, 2436, 3231, 2145, 1, 2458, 2723, 560, 1966]","The predicted places are based on the user's recent visit patterns in both their <history> and <context>. The top prediction is likely due to a recurring pattern of visits during Tuesdays and Fridays, with a slight bias towards locations visited at similar times."
+260,976,"[1, 2436, 976, 2145, 2343, 560, 1966, 2723, 2458, 3231]","Based on the user's historical stays and recent contextual information, the prediction is that the next likely place ID will be one of their frequently visited locations."
+260,2343,"[1, 976.0, 2436.0, 2145.0, 2343.0, 2723.0, 2458.0, 3231.0, 1966.0, 976.0]",Predicted places based on the user's daily routines and recent behavior.
+260,2436,"[1, 976.0, 2436.0, 2145.0, 2343.0, 2723.0, 2458.0, 3231.0, 976.0, 1.0]",Recent behavior suggests the user may return to their frequent locations or stay at home
+260,1,"[1, 976, 2436, 2343, 2145, 3231, 2458, 2723, 876.0, 1022.0]","Based on the user's historical stays and recent behavior in context, I predict they will likely visit one of their most frequently visited locations."
+260,3231,"[1, 976, 2343, 2436, 2145, 2723, 2458, 3231, 976.0, 1]",Recent behavior suggests frequent visits to home and nearby locations.
+260,1966,"[976.0, 2436.0, 2343.0, 2145.0, 2723.0, 2458.0, 3231.0, 1.0]","Based on the user's historical stays and recent context, I predict they will visit one of their most frequent locations, likely a home or work place, possibly at a similar time as previous visits."
+260,2436,"[976.0, 2343.0, 2436.0, 2145.0, 1966.0, 2723.0, 1.0, 3231.0, 2458.0, 2]","Recent visits to places at certain times/days, especially on Tuesdays and Mondays"
+260,1,"[976, 2343, 2436, 2145, 1, 2723, 3231, 2458, 1966, 2140]","Based on the user's historical stays and recent context, this prediction is based on repeated visits to certain places at specific times/days."
+260,3231,"[1, 976.0, 2436.0, 2145.0, 2343.0, 3231.0, 2458.0, 2723.0, 1966.0]","The user has a consistent pattern of visiting place 1 at the start of the day and places 976.0, 2436.0, 2145.0, 2343.0 and 3231.0 on weekdays, with recent behavior suggesting a visit to place 1 today."
+260,1966,"[976.0, 2436.0, 2343.0, 2145.0, 1966.0, 2723.0, 2458.0, 1.0, 3231.0]",Pattern of daily and weekly routines in the user's history
+260,976,"[976.0, 2436.0, 2343.0, 2145.0, 2723.0, 1966.0, 1.0, 3231.0, 2458.0, 2723.0]",based on the user's recent activity pattern and historical stays
+260,2343,"[976.0, 2436.0, 2343.0, 2145.0, 1.0, 3231.0, 2723.0, 2458.0, 1966.0]",next likely place based on patterns in history and recent behavior
+260,2436,"[2436.0, 976.0, 1.0, 2145.0, 2343.0, 3231.0, 2723.0, 1966.0, 2458.0]",Recent visits to places and days of the week suggest a high likelihood of returning to familiar locations.
+260,1,"[1, 976, 2343, 2436, 2145, 3231, 2458, 2723, 1966]","The user tends to visit familiar places (1, 976, and 2343) early in the day on weekdays, and has been visiting place 2436 recently. On Thursdays, they tend to stay at place 3231 or visit place 976."
+260,3231,"[1, 976, 2343, 2436, 2145, 3231, 2458, 2723, 1966, 976]",Recent behavior in context suggests frequent visits to these places during morning hours
+260,1966,"[976.0, 2343.0, 2436.0, 1.0, 2145.0, 2723.0, 2458.0, 3231.0, 976.0, 2343.0]","The user tends to visit these places at similar times and days based on their historical stays, with recent context also suggesting a visit to one of these locations"
+260,976,"[1, 976.0, 2343.0, 2436.0, 2145.0, 2723.0, 2458.0, 3231.0, 1966.0, 976.0]",Recent stays at home and office locations suggest a high likelihood of returning to these places
+260,2343,"[1, 2436, 976, 2343, 2145, 2458, 2723, 3231, 1966, 976]",recent repeated visits to places at certain times/days and recent behavior
+260,2436,"[1, 976, 2436, 2145, 2343, 3231, 2458, 2723, 1966, 976]","Based on the user's historical stays and recent behavior, the top 10 predicted next places are the most frequently visited locations at similar times of day."
+260,1,"[1, 976, 2343, 2436, 2145, 3231, 2458, 2723, 1966, 976]",based on historical pattern of daily visits and recent context
+260,1,"[1, 976.0, 2343.0, 2436.0, 2145.0, 3231.0, 2458.0, 2723.0, 1966.0]","Recent stays at home (ID: 1) and office locations (IDs: 976.0, 2343.0, 2436.0)"
+260,1,"[976.0, 2343.0, 2436.0, 3231.0, 2145.0, 2723.0, 2458.0, 1.0]","The user has a consistent morning routine and recent stays at these places, with strong patterns on Tuesdays and Fridays."
+260,976,"[1, 976.0, 2343.0, 2145.0, 2436.0, 3231.0, 2723.0, 2458.0]",based on the user's historical activity pattern and recent behavior
+260,2343,"[1, 2436, 976, 2343, 2145, 3231, 2723, 2458, 976.0]",Pattern of repeated visits to certain places at specific times and days
+260,2436,"[1, 976, 2436, 2343, 2145, 3231, 2723, 2458, 0, 0]",The model predicts the user will likely visit one of their frequent places based on the historical pattern and recent behavior.
+260,1,"[1, 976, 2436, 2145, 2343, 2723, 2458, 3231, 976, 2343]",predicting based on historical patterns and recent behavior
+260,976,"[976.0, 2436.0, 1.0, 2343.0, 2145.0, 3231.0, 2458.0, 2723.0]",Recent stay pattern at the same time of day and similar days of the week
+260,2343,"[1, 976, 2436, 2343, 2145, 2723, 2458, 3231, 976.0]",Recent trend of frequent visits to place 1 and repeated visits to places 976 and 2436 at similar times/days
+260,2436,"[1, 976, 2343, 2436, 2145, 2723, 2458, 3231, 2460, 2474]",Recent frequent visits to specific places and consistent morning routines
+260,3231,"[1, 976.0, 2436.0, 2145.0, 2343.0, 3231.0, 2723.0, 2458.0]",Pattern recognition in historical stays and recent behavior in context
+260,1966,"[2145, 2343, 976, 2436, 2723, 2458, 1, 3231, 2460, 2562]",The predicted places are the most frequent destinations in recent history and context
+260,2436,"[1, 976, 2343, 2436, 2145, 3231, 2458, 2723, 1966, 0]",Recent visits to home (1.0) and office (976.0) suggest high likelihood of returning to these locations.
+260,1,"[976.0, 2436.0, 2343.0, 2145.0, 3231.0, 2458.0, 2723.0, 1966.0, 1.0]",Recent behavior and historical patterns suggest the user is likely to visit a familiar location at a similar time of day
+260,1,"[976.0, 2343.0, 2436.0, 2145.0, 2723.0, 1966.0, 3231.0, 2458.0, 1.0]",Pattern of daily routine and recent behavior
+260,3231,"[1, 976.0, 2343.0, 2145.0, 2436.0, 3231.0, 2723.0, 2458.0, 1966.0]","Based on historical stays and recent context, the top predictions are the most frequently visited places at this time of day (morning), with a strong likelihood of returning to the last known place."
+260,1966,"[976.0, 2436.0, 2343.0, 2145.0, 1.0, 1966.0, 2723.0, 3231.0, 2458.0, 2723.0]",The prediction is based on the user's past stays and recent behavior in the context.
+260,976,"[2343, 976, 2436, 2145, 1, 3231, 2723, 2458, 1966]",Pattern recognition from historical stays and recent behavior in the context
+260,1,"[1, 2436, 976, 2343, 2145, 2723, 2458, 3231, 1966, 976]",Next likely place ID based on patterns in the user's historical stays and recent behavior
+260,3231,"[976.0, 2436.0, 1.0, 2343.0, 2145.0, 3231.0, 2723.0, 1966.0, 2458.0, 2459.0]",recent daily patterns and frequent visits to some locations
+260,1966,"[2343, 976, 2436, 2145, 2723, 2458, 1966, 3231, 1, 976]","The user tends to visit places at similar times on the same day of the week and has recently visited place 976, making it a strong contender for their next location."
+260,976,"[1, 976, 2436, 2145, 2343, 3231, 2723, 2458, 1966, 976]","Based on historical patterns and recent behavior, the next likely place is one of the most frequently visited places"
+260,2343,"[2436.0, 976.0, 2343.0, 2145.0, 1.0, 3231.0, 2723.0, 2458.0, 1966.0, 976.0]",Recent behavior indicates frequent visits to these places on the same day of week
+260,1,"[1, 976.0, 2436.0, 2145.0, 2343.0, 3231.0, 2723.0, 2458.0, 1966.0]","Recent behavior shows the user tends to visit locations at specific times of day and on certain days, so the prediction is based on this pattern."
+260,3231,"[1, 976.0, 2436.0, 2145.0, 2343.0, 3231.0, 2723.0, 2458.0, 1966.0]",Pattern recognition and recent behavior indicate the user is likely to visit a familiar location or one with similar attributes
+260,1966,"[1, 976, 2436, 2145, 2343, 2723, 2458, 1966, 3231, 976]",Recent and historical patterns of daily routine and regular stays at specific locations.
+260,2343,"[1, 976, 2436, 2145, 2343, 2723, 2458, 3231, 0.0]",The user tends to visit places at similar times of the day and has shown recent behavior in visiting certain locations
+260,2436,"[1, 976, 2436, 2343, 2145, 2723, 2458, 3231, 1974, 2057]","Pattern of frequent visits to certain places at specific times and days, with recent behavior indicating a higher likelihood of returning to these locations."
+260,3231,"[976.0, 2436.0, 1.0, 2145.0, 2343.0, 3231.0, 2723.0, 2458.0]","Recent behavior in context suggests frequent visits to places with IDs 976.0 and 2436.0, as well as place with ID 1.0."
+260,1966,"[976.0, 2436.0, 1.0, 2145.0, 2343.0, 3231.0, 2723.0, 2458.0, 1966.0, 976.0]","Recently repeated visits to places on Tuesdays and Wednesdays, predicting the user will likely visit one of these locations again"

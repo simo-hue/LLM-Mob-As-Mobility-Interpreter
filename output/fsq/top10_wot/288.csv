@@ -1,0 +1,11 @@
+user_id,ground_truth,prediction,reason
+288,1105,"[1105, 3101, 626, 537, 1042, 1478, 857, 2954, 1459, 87]",Recent visits to place 1105 and 3101 combined with repeated Friday stays at these locations
+288,102,"[1105, 3101, 1459, 537, 1042, 857, 2954, 87, 1478, 826]","The user has a strong affinity for location 1105, visiting it multiple times on different days of the week. The recent context suggests they may be heading back to this location, but also considering other places they've visited in the past."
+288,1105,"[1105, 3101, 1459, 537, 1042, 826, 2608, 87, 1478, 523]","Pattern of frequent visits to place ID 1105 at various times/days in the past, reinforced by recent stays in <context>"
+288,3101,"[3101, 1105, 1459, 826, 1042, 537, 87, 1478, 2608, 523]","Recent contextual information indicates a strong tendency towards place 3101 and frequent visits to place 1105, which is also reflected in the historical pattern."
+288,1698,"[1105.0, 3101.0, 826.0, 1459.0, 1042.0, 523.0, 537.0, 2608.0, 87.0, 1478.0]","Pattern of daily and weekly visits to specific places, reinforced by recent behavior in the context"
+288,1753,"[1105, 3101, 1459, 537, 1042, 1478, 1698, 87, 826, 2608]","Recent visits to 1105 and 3101, and frequent visits to 1459, 537, 1042 during the week"
+288,1105,"[1105.0, 3101.0, 1459.0, 826.0, 1042.0, 537.0, 2608.0, 87.0, 1698.0, 1753.0]",recent behavior in context and patterns in history
+288,1105,"[1105, 3101, 826, 1459, 537, 1042, 2608, 87, 1698, 1753]",Recent visits to these places and patterns in the user's historical stays suggest they are likely to visit similar locations next.
+288,1105,"[1105, 3101, 1459, 1042, 537, 2608, 1698, 87, 523, 626]",Recent visits to places at certain times/days and repeated patterns in the user's historical stays are considered
+288,3101,"[3101, 1459, 1042, 1698, 1753, 537, 626, 826, 87, 2608]","Recent visits to places like 3101, and historical patterns of visiting 1459, 1042, and other places on specific days of the week."

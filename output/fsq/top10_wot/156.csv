@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+156,1,"[1765, 1097, 647, 2514, 1477, 3486, 1252, 1, 648, 1215]","The user tends to visit place 1765 on Friday and Saturday, and recently spent some time there. They also frequently stay at places with ID 1-1000. The day of the week is Saturday which is a common day for visits to these locations."
+156,1,"[1097, 2514, 1477, 647, 1765, 3486, 1, 1765, 2514, 1097]",Recent visits to places at similar times/days and overall patterns in <history> suggest the user will likely visit one of their recently frequent places.
+156,1,"[1765, 2514, 1097, 1477, 647, 3486, 1, 1, 1, 1]",Recent visits to place 1765 and considering patterns in history

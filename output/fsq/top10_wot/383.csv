@@ -1,0 +1,23 @@
+user_id,ground_truth,prediction,reason
+383,3252,"[3746, 2950, 2906, 369, 3252]","The user has a strong tendency to visit places at certain times of the day and on specific days of the week. In the recent context, they have visited place 3746 multiple times, which makes it the most likely candidate for their next location."
+383,3252,"[2906, 3746, 2950, 3252, 369, 1106, 2891, 11106, 3257, 11104]","Predicted based on recent patterns in both history and context, with a slight bias towards places visited frequently during weekdays."
+383,3746,"[2906, 3746, 2950, 3252, 369.0, 1106.0, 2891.0, 10]","Recent behavior suggests frequent visits to places with IDs 2906 and 3746, while historical stays show a mix of locations"
+383,2906,None,Invalid JSON format from model
+383,2950,"[3746, 2906, 3252, 2950, 369, 1106, 2891]","The user's recent behavior and historical pattern show a strong affinity for places 3746, 2906, and 3252 on weekdays, with occasional visits to other locations."
+383,2891,"[3746, 2906, 3252, 2950, 369, 2891]","The user has a consistent pattern of visiting places on Monday mornings, with a higher likelihood of visiting place ID 3746. The recent context suggests the same pattern continues."
+383,3746,"[3746, 2906, 3252, 2950, 369, 2891, 1106, 3265.0, 3719.0, 3277.0]","Recent behavior in context shows a strong likelihood of visiting places with IDs 3746, 2906 and 3252"
+383,2906,"[3746, 2906, 3252, 2950, 369, 2891]",recent visits to places at certain times/days and patterns in historical stays
+383,3252,"[3746, 2906, 2950, 3252, 369, 2891]","Recent behavior in context suggests a strong likelihood of returning to places visited recently, with a slight bias towards the afternoon hours"
+383,369,"[3746, 2906, 2950, 369, 3252, 2891, 1106, 2928, 2819, 2883]","The user has a strong pattern of visiting place ID 3746 on Mondays and Tuesdays, especially in the morning. The recent context also shows visits to this place. The other places are ranked based on their frequency and recency in the user's history."
+383,3252,"[3746, 2906, 3252, 2950, 369, 2891]",Predicted based on historical patterns and recent contextual information
+383,2906,"[3746, 2906, 3252, 2950, 369, 1106]",Recent visits to places at certain times/days and patterns in history are taken into consideration.
+383,3746,"[3746, 2906, 2950, 3252, 369, 2891, 1106]","The user has a history of frequent visits to these places on weekdays, especially during morning hours"
+383,2891,"[3746, 2906, 369, 3252, 2950, 1106, 2891]","The user has a history of frequent visits to these locations on Tuesdays and Mondays, especially during weekdays."
+383,369,"[3746, 2906, 369, 3252, 2950, 1106, 2891, 2950.0]","Based on the user's historical stays and recent behavior, I predict they will visit a location that is frequently visited at certain times of day and has been recently visited."
+383,2906,"[3746, 3252, 2906, 2950, 369, 2891, 1106, 2950, 3252, 2906]","Based on the user's historical stays and recent behavior in the context, the next likely places are those that have been visited frequently and recently."
+383,3252,"[3746, 2906, 2950, 3252, 369, 2891]","Recent behavior in context shows a strong pattern towards places 3746 and 2906, while historical data suggests frequent visits to places 2950, 3252, and 369"
+383,3746,"[3746, 2906, 2950, 369, 3252, 1106, 2891, 2950.0]",based on recent patterns of visiting 3252 and 2906
+383,2891,"[3746, 2906, 369, 2950, 3252, 1106, 2891]","Based on the user's historical stays and recent context, I predict they will visit places they have frequented before, particularly during the morning hours."
+383,2950,"[3746, 2906, 3252, 369, 2950, 1106, 2891]",Predicted based on recent and historical patterns of visiting places at similar times and days.
+383,369,"[2906, 3746, 3252, 369, 2950, 1106, 2891]",Recent behavior and historical patterns suggest a likely return to regular Monday destinations
+383,2950,"[3746, 2906, 2950, 3252, 369, 2891]","The user has a history of visiting these places at similar times and days, and the recent behavior in context suggests they are likely to continue this pattern."

@@ -1,0 +1,21 @@
+user_id,ground_truth,prediction,reason
+26,899,"[1120, 1072, 232, 3001, 17, 2101, 195, 65, 167, 3257]","Recent stays at 1120 and 1072 suggest a high likelihood of returning to these locations, while historical patterns also indicate frequent visits to places with similar IDs"
+26,17,"[1072.0, 2551.0, 232.0, 3001.0, 17.0, 2101.0, 899.0, 811.0, 1577.0, 465.0]",recent stays in the same place (1072) and days-of-week patterns in history suggest frequent visits to these locations
+26,57,"[1072, 899, 3022, 232, 2551, 1280, 2101, 195, 811, 762]","The user has a history of visiting places at similar times and days, with recent stays at locations 1072 and 899. This suggests they may visit one of these places again."
+26,1072,"[1072.0, 232.0, 65.0, 762.0, 293.0, 899.0, 17.0, 1120.0, 2101.0, 2551.0]","Recent context suggests a return to previously visited places, with likely locations being home and work"
+26,1,"[1072, 2551, 232, 17, 2101, 899, 811, 762, 465, 65]",Recent behavior suggests frequent visits to places at certain times/days
+26,2989,"[2101.0, 2551.0, 1072.0, 899.0, 811.0, 167.0, 195.0, 17.0, 66.0, 65.0]",Pattern of recurring places on Monday and Tuesday
+26,783,"[1072.0, 2551.0, 232.0, 3001.0, 2101.0, 899.0, 811.0, 65.0, 465.0, 762.0]",Recent stays at 1072 and recent day of the week suggest a high likelihood of returning to this place
+26,2551,"[1072, 2551, 232, 3001, 2101, 899, 811, 3257, 167, 65]",Recent visits to location 1072 and patterns of returning to visited places
+26,2101,"[1072.0, 2551.0, 3001.0, 232.0, 899.0, 811.0, 2101.0, 783.0, 2989.0, 17.0]","Based on the user's historical stays and recent context, we predict their next likely places will be locations where they have stayed before with similar time/day patterns"
+26,182,"[1072.0, 3001.0, 2551.0, 232.0, 2085.0, 17.0, 195.0, 899.0, 811.0, 65.0]","Recent behavior shows a strong tendency to visit place 1072 on Friday/Saturday, and considering historical patterns, it's likely the user will stay at this location or similar ones"
+26,201,"[2551, 1072, 780, 1280, 232, 3001, 17, 2101, 787, 195]","The user tends to visit certain places on specific days of the week and at certain times, with recent behavior indicating a higher likelihood of visiting place IDs 2551, 1072, and 780."
+26,36,"[2101, 1072, 2551, 232, 780, 1280, 195, 167, 3257, 899]",Pattern recognition from history and recent context
+26,293,"[1072.0, 2551.0, 2101.0, 1726.0, 195.0, 232.0, 17.0, 1365.0, 2998.0, 1280.0]",Recent behavior and historical patterns suggest the user will likely visit places they've been to before at similar times/days
+26,3298,"[2101, 1072, 195, 232, 3001, 2551, 899, 811, 65, 465]","Recent behavior in context suggests frequent visits to places with IDs 2101 and 1072, while historical pattern shows regular stays at these locations on weekdays."
+26,803,"[2551, 1072, 232, 762, 65, 167, 3257, 811, 899, 465]","Recent visits to 2551 and 1072, as well as consistent weekend stays at 232, 65, and 167."
+26,3442,"[1072.0, 232.0, 3001.0, 2551.0, 2101.0, 899.0, 811.0, 762.0, 465.0, 203.0]",Recent frequent visits and same-day patterns in history suggest a likelihood of returning to familiar places
+26,788,"[3442, 2551, 1072, 195, 232, 2101, 899, 811, 762, 1577]",Recent context suggests frequent visits to places with IDs similar to those in the recent past
+26,1072,"[1072.0, 2551.0, 232.0, 3001.0, 2101.0, 899.0, 811.0, 465.0, 763.0, 3442.0]",Recent visits to places and their times/days are consistent with user's historical patterns.
+26,783,"[2101, 1072, 2551, 3001, 17, 232, 762, 65, 167, 1577]",Pattern recognition in historical stays and recent context
+26,3433,"[1072.0, 2551.0, 232.0, 3001.0, 2101.0, 899.0, 811.0, 465.0, 203.0, 167.0]",predicted based on recent and historical patterns

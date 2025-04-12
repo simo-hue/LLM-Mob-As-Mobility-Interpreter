@@ -1,0 +1,16 @@
+user_id,ground_truth,prediction,reason
+485,1253,"[3116, 450, 1038, 698, 659, 990, 1626, 110, 342, 79]","The user has a strong tendency to visit places on certain days of the week and times of day, with recent behavior suggesting a high likelihood of returning to familiar locations."
+485,750,"[3116, 450, 659, 698, 1038, 1266, 1505, 1626, 342, 750]",Pattern of frequent visits to place 3116 and place 450
+485,342,"[3116, 450, 110, 659, 698, 1626, 990, 342, 1266, 79]",Recent behavior and historical patterns indicate the user is likely to visit a previously visited location on the same day of the week
+485,1314,"[3116, 450, 1505, 1038, 1266, 659, 342, 698, 750, 1253]",Recent visits to place 3116 and pattern of daily routine in history suggest frequent return to these places.
+485,110,"[3116.0, 450.0, 1038.0, 659.0, 1253.0, 750.0, 698.0, 342.0, 1266.0, 110.0]",Recent visits to places at certain times/days and patterns in historical stays
+485,1223,"[3116.0, 450.0, 1505.0, 659.0, 1038.0, 750.0, 342.0, 698.0, 1314.0, 110.0]",Recent visits to frequent places
+485,1230,"[3116, 450, 110, 1505, 698, 659, 342, 750, 990, 1223]","Recent behavior in the context indicates frequent visits to places with IDs 3116 and 450, while historical data shows a strong pattern of visiting place ID 110 on Fridays."
+485,3116,"[3116, 450, 659, 342, 110, 990, 698, 1266, 750, 1230]",Recent stays at 3116 and previous weekdays tend to end with a visit to this place
+485,3116,"[3116, 450, 1505, 990, 659, 1038, 342, 698, 1223, 1230]","Recent behavior in context suggests frequent visits to place ID 3116, and historical pattern shows repeated visits at certain times/days"
+485,3116,"[3116, 450, 110, 750, 1223, 1230, 659, 990, 342, 698]","Recent behavior in context suggests a strong likelihood of returning to familiar places, with place ID 3116 being the most likely due to its consistent appearance in both history and context."
+485,1314,"[3116, 450, 1505, 698, 990, 342, 750, 659, 79, 3464]",Recent visits to place 3116 and the pattern of visiting place 450 on Mondays suggest a high likelihood of returning to these locations.
+485,3116,"[3116, 450, 1266, 659, 698, 750, 342, 990, 110, 1505]",The user's recent behavior in context and historical pattern suggest a high probability of visiting place ID 3116.
+485,3121,"[3116, 450, 659, 1038, 1266, 750, 342, 990, 698, 110]","Recent contextual information shows a strong tendency to visit places at the same times and days as in the past, with 3116 being the most frequent location ID."
+485,698,"[3116, 450, 659, 1038, 342, 750, 990, 698, 1626, 1266]","Recent behavior in context suggests frequent visits to place ID 3116, which is also a common destination in the user's history."
+485,3116,"[3116, 450, 659, 1038, 1266, 342, 750, 990, 698, 1626]",Recent visits to places at certain times/days and historical patterns of repeated visits

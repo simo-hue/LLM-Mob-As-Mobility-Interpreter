@@ -1,0 +1,15 @@
+user_id,ground_truth,prediction,reason
+323,3160,"[3140, 3160, 3201]",Recent frequent visits to these places and similar patterns in the past
+323,3140,"[3160, 3140, 3201, 2538, 3807, 2, 1, 3, 5, 4]","Based on the user's historical stays and recent behavior in context, the prediction is that they will likely visit one of their frequently visited places at a similar time and day."
+323,3140,"[3160, 3140, 3201, 2538, 3807, 1, 3160, 3201, 3160, 3201]",Pattern of repeated visits to places at certain times/days in the user's historical stays and recent behavior in the context
+323,3160,"[3201, 3160, 3140, 2538, 3807, 3201, 3160, 3140, 3160, 3201]",Pattern of visiting places at similar times on the same days
+323,3140,"[3140, 3160, 3201, 2538, 3807]","based on the historical patterns and recent context, it is likely that the user will visit a place they have previously been to at similar times of day"
+323,3160,"[3160, 3140, 3201, 2538, 3807, 9, 4, 6, 11, 3]",based on historical patterns and recent behavior
+323,3201,"[3160.0, 3140.0, 3201.0, 2538.0, 3807.0, 9.0, 10.0, 11.0, 12.0, 13.0]","The user has a regular pattern of visiting places at the same time on the weekends, and their recent behavior in context suggests they are likely to visit place 3160 again."
+323,3160,"[3160.0, 3140.0, 3201.0, 2538.0, 3807.0, 3203.0, 3222.0, 3265.0, 3289.0, 3314.0]",recent behavior in context and patterns in history
+323,3160,"[3140, 3160, 3201, 2538, 3807]",Prediction based on historical pattern of frequent visits to places at certain times and days
+323,3160,"[3140.0, 3160.0, 3201.0, 2538.0, 3807.0, 3160.0, 3160.0, 3201.0, 3160.0, 3140.0]",Recent and historical patterns show a high likelihood of visiting the same places at similar times/days
+323,3140,"[3160, 3140, 3201, 2538, 3807]","Recent behavior in the context suggests a preference for places with ID 3160, and historical patterns also point towards this location being likely."
+323,3160,"[3160, 3201, 3140, 2538, 3807, 3203, 3214, 3159, 3195, 3222]","Based on the user's historical stay pattern and recent behavior, the most likely places to visit next are their most frequently visited locations during similar times of day."
+323,3201,"[3160, 3140, 3201, 2538, 3807]","Based on the user's historical stays and recent behavior, the next likely places are those that have been frequently visited at similar times and days."
+323,3201,"[3160, 3140, 3201, 2538, 3807]",recent behavior in context and patterns in history suggest the user is likely to stay at one of these locations

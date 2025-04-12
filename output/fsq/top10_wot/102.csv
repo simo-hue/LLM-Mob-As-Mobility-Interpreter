@@ -1,0 +1,66 @@
+user_id,ground_truth,prediction,reason
+102,2105,"[2432, 2105, 1615, 1253, 1409, 677, 1252, 1896, 2398, 861]","Recent visits to place 2398 and pattern of visiting place 2105 on Sundays/Fridays, while considering the overall historical activity."
+102,677,"[2432, 2105, 2398, 1615, 677, 1253, 1252, 1409, 1896, 861]",Recent behavior and historical patterns suggest the user is likely to visit a place they have visited before at similar times
+102,2105,"[2432, 2398, 2105, 1615, 1253, 1409, 1252, 677, 1896, 861]","The user tends to visit the same places on certain days of the week and times of day, and recent behavior has been consistent with this pattern."
+102,2432,"[2432, 2398, 2105, 1615, 1253, 1409, 677, 861, 1252, 1896]",The prediction is based on the recent behavior in the context and patterns in the history. The user has a tendency to visit place 2432 at night (Friday and Sunday) and also tends to return to visited places.
+102,2432,"[2432, 2398, 2105, 1615, 1253, 1252, 1409, 677, 1896, 1894]","Recent behavior and historical patterns suggest a strong likelihood of visiting places that were visited recently (e.g., 2432 on Tuesday) or have been frequently visited at similar times/days."
+102,1253,"[2432, 2398, 2105, 1615, 1253, 1409, 677, 1896.0]","Based on the user's historical pattern of frequent visits to places 2432 and 2398 on weekdays, especially Mondays and Tuesdays, as well as recent behavior indicating a preference for place 2105, it is likely that the next place ID will be one of these."
+102,1409,"[2398, 2432, 2105, 1615, 677, 1253, 1252, 1409, 1896, 2431]",based on the user's historical stays and recent behavior
+102,2432,"[2432, 2398, 2105, 1615, 677, 1253, 1409, 1252, 4.0, 1896.0]","Recent pattern of frequent visits to places 2432 and 2398 on weekdays, especially in the evening"
+102,2105,"[2432.0, 2398.0, 2105.0, 1615.0, 1253.0, 1409.0, 1.0, 677.0, 1896.0, 1252.0]","Recent behavior indicates the user tends to visit places 2432 and 2398 during weekdays, with some weekday visits to 2105 and occasional weekend visits to other locations"
+102,2432,"[2398.0, 2432.0, 2105.0, 1615.0, 1253.0, 1409.0, 1.0, 677.0, 1896.0, 2097.0]",Based on the historical pattern of frequent visits to places at certain times/days and recent behavior in context
+102,2398,"[2432, 2398, 2105, 1615, 1253, 677, 1409, 1615, 1252, 1]",The prediction is based on the recent behavior in context and patterns in history.
+102,2432,"[2432, 2105, 2398, 1615, 1253, 677, 1409, 1252, 1896, 1615]",Recent visits to places at certain times/days and patterns in the user's history
+102,676,"[2432, 2398, 2105, 1615, 1253, 1252, 1409, 677, 1896, 1897]","Recent behavior in context and patterns in history suggest frequent visits to places with IDs 2398, 2432, and 2105."
+102,2398,"[2432, 2398, 2105, 1615, 677, 1253, 1252, 1409, 1896, 2111]","Recent visits to places at certain times/days indicate a high likelihood of the user returning to these locations, with place ID 2432 being the most probable"
+102,2432,"[2432, 2105, 2398, 1615, 677, 1253, 1252, 1409, 1896, 676]","Based on the user's historical stays and recent behavior, the most likely places to visit are the usual work or school locations (2432, 2105, 2398) with a slight preference for evening visits"
+102,2398,"[2432.0, 2105.0, 2398.0, 1615.0, 1253.0, 677.0, 1409.0, 1252.0, 1896.0, 676.0]",Recent patterns of visits at specific times/days and repeated visits to places have been considered.
+102,2432,"[2105, 2398, 2432, 1615, 1253, 1252, 1409, 677, 1896, 676]","Recent behavior indicates frequent visits to places 2105 and 2398 on weekends, with possible daily commute to 1615. The user also tends to visit 2432 during weekdays."
+102,2105,"[2105, 2398, 2432, 1615, 677, 1409, 1253, 1252, 676, 1896]","Based on the user's historical stays and recent behavior, I predicted that the next likely place is one where they often visit on weekdays (Monday to Friday), with a strong possibility of visiting places like Home Sweet Home (2105) or Office (2398) in the evening."
+102,2398,"[2432, 2398, 2105, 1615, 677, 1253, 1252, 1409, 1896, 2105]","Recent visits to places 2398 and 2432 on Tuesday and Thursday, respectively, suggest the user might return to these locations."
+102,2432,"[2432, 2105, 2398, 1615, 677, 1253, 1409, 1252, 1896, 1615]","Recent visits to 2432 and 2105 on Wednesday and Friday, respectively, and similar patterns in the historical stays suggest a high likelihood of returning to these places."
+102,2432,"[2398, 2432, 1615, 2105, 1253, 677, 1409, 1252, 1896, 159]","Recent behavior in context suggests frequent visits to locations 2398 and 2432 on Thursdays and Saturdays, while history shows repeated visits to places at certain times/days"
+102,2488,"[2432, 2105, 2398, 1615, 677, 1253, 1409, 1252, 1615, 2105]","Recent behavior suggests frequent visits to places at specific times/days, and historical patterns also indicate likely locations."
+102,2398,"[2432, 2105, 2398, 1615, 677, 1253, 1409, 2106, 2401, 2488]","Based on the user's historical stays and recent behavior, I predict their next likely place ID will be one of their most frequently visited places during similar times and days."
+102,2105,"[2398, 2432, 2105, 1615, 1253, 677, 1409, 1252, 2488]",Recent stays and historical patterns suggest likely places to visit based on time of day and day of the week.
+102,1896,"[2432, 2398, 2105, 1615, 1253, 677, 2488]","The prediction is based on the user's historical activity pattern, including repeated visits to places at certain times/days, and recent behavior in the context."
+102,2398,"[2432, 2398, 2105, 1615, 1253, 1252, 1409, 677, 2488, 1896]",pattern of frequent visits to places at similar times and days
+102,2432,"[2432, 2398, 2105, 1615, 1253, 1252, 1409, 2488, 1896, 677]","Based on the user's historical stays and recent context, I predict that they are likely to visit one of their most frequently visited places at a similar time and day."
+102,2105,"[2432, 2398, 2105, 1615, 1253, 677, 1409, 1896, 1615, 1252]",Recent visits to places at the same time/day and repeated patterns in historical stays
+102,2432,"[2432, 2398, 2105, 1615, 677]","Recent visits to places at certain times/days, especially Tuesday evenings and weekdays"
+102,2488,"[2432, 2398, 2105, 1615, 1253, 1252, 1409, 677, 1896]","The user has a strong tendency to visit places at similar times of the day and on similar days of the week, with recent behavior indicating a preference for place ID 2432"
+102,2105,"[2398, 2432, 2105, 1615, 1253, 1252, 1409, 677, 1896, 2488]","Based on the user's historical stays and recent context, the prediction suggests the most likely places are those frequently visited during similar times of the week."
+102,2398,"[2432, 2398, 2105, 1615, 1253, 677, 2488, 1409, 1252, 1896]",based on the user's consistent visits to places at certain times/days in their history
+102,2432,"[2432, 2398, 2105, 1615, 1253, 1252, 1409, 2488, 677, 1896]","The model predicts the next place based on the user's recent behavior and historical patterns, with a strong likelihood of visiting locations that have been frequently visited in the past."
+102,2398,"[2432.0, 2398.0, 2105.0, 1615.0, 1253.0, 1252.0, 1409.0, 2488.0, 677.0, 1896.0]",Recent visits to places at similar times and days suggest continued patterns
+102,2432,"[2432, 2398, 2105, 1615, 1253, 677, 2488, 1896, 1409, 1252]","The prediction is based on the user's historical stay patterns and recent behavior, considering the most frequent places visited during similar days of the week and times of day."
+102,2238,"[2105, 2398, 2432, 1615, 1253, 1252, 1409, 677, 1896, 1897]",Recent stays on Thursday and Friday suggest a strong affinity for places 2105 and 2398
+102,144,"[2432, 2398, 2105, 1615, 1253, 1252, 1409, 677, 1896, 2238]",predicted based on recent pattern of visiting places at similar times and days
+102,243,"[1409, 1253, 1615, 2105, 677, 2398, 2432, '']",
+102,65,"[2398, 2432, 2105, 1615, 1253, 1252, 1409, 677, 2238, 144]",Recent behavior in context suggests a strong tendency to visit places visited previously at similar times/days. Historical stays show consistent patterns of visiting certain places on specific days and times.
+102,614,"[2432, 2398, 2105, 1615, 1253, 1252, 1409, 677, 2238, 144]",Recent frequent visits to place 2432 and the pattern of returning to places visited on same day of week
+102,1797,"[2432.0, 2398.0, 2105.0, 1615.0, 1253.0, 1252.0, 1409.0, 677.0, 144.0, 614.0]",Recent stays at similar times/days in the history and context suggest frequent visits to these places
+102,2432,"[2398, 2432, 2105, 1615, 1253, 677, 614, 1797, 144, 65]","Recent stays at places with IDs 2398 and 2432, frequent visits to these places on Saturdays"
+102,2105,"[2432, 2398, 2105, 1615, 1253, 677, 614, 1797, 1896.0, 161]",recent frequent visits to places on weekends
+102,2398,"[2432, 2398, 2105, 1615, 1253, 1252, 1409, 1797, 614, 65]",Recent visits to places at certain times/days and historical patterns of repeated visits
+102,2105,"[2432, 2105, 2398, 1615, 677, 1253, 1252, 1409, 614, 1797]",The prediction is based on the user's recent behavior and historical patterns. The top prediction is the most frequently visited place in both contexts.
+102,2432,"[2432, 2398, 2105, 1615, 1253, 1252, 1409, 677, 1797, 1896]","Recent behavior suggests frequent visits to places with IDs 2432 and 2398, while historical data shows a pattern of returning to place ID 2105 on Sundays."
+102,2105,"[1253, 1409, 1615, 2105, 2398, 2432, 677, 1896.0, 1252, 2404]",Recent visits to places at certain times/days and repeated patterns in the history
+102,2432,"[2398, 2432, 2105, 1615, 677, 1253, 1252, 1409, 1896, 1615]",Recent contextual information suggests a strong likelihood of visiting a place on Tuesday evening and possibly Wednesday morning.
+102,1,"[2432, 2398, 2105, 1615, 1253, 1252, 1409, 677, 1896]",predicted based on recent patterns and frequent visits to places
+102,2105,"[2398, 2432, 2105, 1615, 1253, 1252, 1409, 677, 1896, 1]",Recent behavior in context suggests the user is likely to visit familiar places on similar days and times.
+102,2398,"[2105, 2398, 2432, 1615, 677, 1253, 1252, 1409, 1896, 1]","Based on user's historical stays and recent contextual information, the next likely place ID is a mix of most visited places with slightly higher preference for morning visits"
+102,2432,"[2432.0, 2105.0, 2398.0, 1615.0, 1253.0, 1252.0, 1409.0, 677.0]","Predicted based on recent patterns in both history and context, favoring frequent locations at similar times and days."
+102,2432,"[2432, 2105, 2398, 1615, 1253, 1409, 677, 1252, 1896, 1]","recent stays at places like 2105, 2398, and 2432, especially on Mondays"
+102,2105,"[2432, 2398, 2105, 1615, 1253, 1252, 1409, 677, 1896.0]","The user's recent behavior suggests a high likelihood of returning to their favorite places, with a slight bias towards going to places they've visited on Mondays and Tuesdays."
+102,2398,"[2432, 2105, 2398, 1615, 677, 1253, 1409, 1252, 1896, 1611]","The user's recent behavior suggests a pattern of returning to previously visited places during weekdays and visiting new locations on weekends, with 2432 being the most likely due to its frequent visits."
+102,2432,"[2432, 2398, 2105, 1615, 1253, 1252, 1409, 677, 1896, 1615]","Recent and historical patterns suggest frequent visits to places with IDs 2432, 2398, and 2105, taking into account the day of the week and time of stay."
+102,1896,"[2432, 2105, 2398, 1615, 1253, 1252, 1409, 677, 1896, 1615]","Recent pattern of frequent visits to place ID 2432, and also regular stays at places with IDs 2105, 2398"
+102,2398,"[2432, 2105, 2398, 1615, 1253, 1409, 677, 1896, 1252, 1615]","The prediction is based on the user's historical visits and recent behavior. The top 10 places are the ones frequently visited by the user during the same time of day or week, considering both morning and evening sessions."
+102,2398,"[2432, 2105, 2398, 677, 1615, 1253, 1252, 1409, 1896, 1615]","Recent pattern of frequent visits to places 2432, 2105 and 2398, with a slight bias towards place 2432"
+102,2432,"[2432, 2398, 2105, 1615, 1253, 677, 1409, 1896, 1252, 1615]",Recent behavior in context and patterns in history
+102,2105,"[2432, 2105, 2398, 1615, 677, 1253, 1252, 1409, 1896, 1615]",Recent and historical patterns show frequent visits to places with ID 2432 on Wednesdays and Thursdays
+102,2432,"[2432, 2398, 2105, 1615, 1253, 677, 1896, 1252, 1409, 1614]","Based on user's activity patterns and recent behavior, the top prediction is 2432 with a strong likelihood due to consistent visits on weekdays at similar times."
+102,2105,"[2105, 2398, 1615, 1253, 1252, 1409, 677, 1614.0]","The user has a consistent pattern of visiting places on weekdays, and the recent context shows they have been frequenting place 2105 and 2398."
+102,2398,"[2398, 2432, 2105, 1615, 1253, 1252, 1409, 677, 1896.0]","The user has a strong preference for visiting places on certain days of the week and times of day, which is consistent with their historical behavior"
+102,2105,"[2432, 2105, 2398, 1615, 677, 1253, 1252, 1409, 1896, 1897]","Recent visits to places 2105 and 2432, combined with patterns in historical stays"

@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+302,2834,"[2677, 1368, 582, 841, 2834, 535, 71, 371]","based on the user's activity pattern and recent context, the most likely places are those where they have stayed before during similar times of the day"
+302,2834,"[2677, 1368, 582, 841, 535, 371, 71, 1253, 869, 592]","Based on the user's activity pattern and recent context, I predicted the top 10 most likely places for the target stay as the places where they have stayed previously during similar times of day and days of the week."
+302,2834,"[2677, 1368, 582, 841, 535, 371, 69, 71, 495, 869]",The user tends to repeat visits to certain places during the same day of the week and at similar times.

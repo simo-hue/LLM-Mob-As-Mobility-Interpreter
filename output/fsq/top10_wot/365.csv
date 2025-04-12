@@ -1,0 +1,22 @@
+user_id,ground_truth,prediction,reason
+365,293,"[764.0, 2856.0, 2082.0, 342.0, 972.0, 1043.0, 95.0, 201.0, 161.0, 293.0]",The prediction is based on the user's historical stays and recent contextual information.
+365,293,"[1043, 2856, 201, 161, 1828, 537, 764, 95, 1271, 538]",Recent stays on Sunday and Monday suggest a possible return to similar places
+365,569,"[1043, 1041, 2856, 201, 161, 538, 284, 2082, 95, 1828]",Recent visits to places at similar times and days of the week
+365,1271,"[1043, 777, 2856, 1828, 537, 764, 2082, 201, 161, 95]","The user tends to visit familiar places on certain days and at specific times, with recent behavior in the context indicating a high likelihood of visiting places visited before"
+365,570,"[2082, 2856, 1355, 1043, 95, 1828, 537, 764, 161, 201]","Recent context suggests evening visits on Sundays and Thursdays, history shows frequent Sunday visits and some Wednesday evening visits"
+365,756,"[2082, 2856, 1828, 538, 1041, 764, 201, 161, 95, 3466]",Prediction based on recent patterns and repeated visits at certain times/days
+365,1271,"[1043, 95, 1828, 537, 764, 2856, 201, 161, 569, 538]",based on the user's historical stays and recent behavior
+365,2436,"[1043, 293, 1828, 538, 2856, 201, 161, 95, 764, 569]",Recent stays and historical patterns suggest frequent visits to familiar locations
+365,95,"[1043, 293, 1828, 537, 2856, 764, 201, 161, 95, 538]",The user tends to visit places on weekends and weekdays with similar patterns in both history and context
+365,1,"[386.0, 3769.0, 293.0, 2241.0, 3466.0, 569.0, 438.0, 777.0, 2082.0, 161.0]",The prediction is based on the user's historical stay pattern and recent behavior.
+365,123,"[1043, 1058, 161, 201, 2082, 2856, 342, 538, 537, 764]",Pattern recognition based on daily and time-of-day habits in the user's history.
+365,641,"[1043, 2856, 2082, 1828, 537, 764, 95, 1, 1253, 201]",Recent behavior and historical patterns suggest the user is likely to visit a location similar to those they have visited on weekends and weekdays.
+365,1271,"[764.0, 2856.0, 2082.0, 1043.0, 1828.0, 537.0, 1, 95, 641, 123]","Based on the user's past behavior and recent context, I predict they will visit a place they have visited before at similar times or days of the week."
+365,2711,"[1043, 1828, 538, 764, 95, 286, 2856, 342, 972, 201]",Recent behavior in context and patterns in history indicate a high likelihood of the user visiting places with similar day of week and time of stay.
+365,1328,"[3466, 2241, 1053, 1043, 1852, 2856, 201, 161, 95, 95]",predicted based on recent frequent visits and time/day patterns
+365,1043,"[1043, 1828, 1929, 95, 146, 538, 537, 201, 161, 2082]",prediction based on recent trends and patterns in the user's activity
+365,75,"[146, 95, 2856, 2082, 201, 161, 342, 972, 1041, 1355]",Recent visits on Sunday and Tuesday are likely to be repeated.
+365,121,"[764.0, 284.0, 95.0, 537.0, 1828.0, 1041.0, 2856.0, 201.0, 342.0, 972.0]",based on recent context and historical patterns
+365,237,"[2082, 2856, 201, 161, 95, 1041, 972, 342, 293, 284]","The user tends to visit the same places at similar times/days, with recent behavior suggesting a strong likelihood of returning to previously visited locations."
+365,1485,"[1043, 95, 2856, 2082, 538, 777, 201, 342, 972, 284]",Recent visits to places on Sunday and Saturday suggest the user might return to these locations
+365,1271,"[2856, 201, 1828, 1043, 95, 764, 538, 284, 235, 192]","Recent behavior in the context suggests that the user is more likely to stay at places they've visited before, especially during weekdays. Historical data also shows that the user tends to return to places they've been to previously."

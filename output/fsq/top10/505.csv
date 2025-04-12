@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+505,820,"[3, 1, 2, 5, 4, 7, 8, 6, 10, 9]",based on the user's activity pattern and recent context
+505,77,"[14, 13, 12, 11, 10, 9, 8, 7]","The prediction is based on the user's activity pattern of frequent visits to certain places during specific times and days. The target stay's time and day match recent activities in the context, increasing the likelihood of repeated visits."
+505,820,"[14, 5, 3, 1, 2, 9, 11, 12, 13, 7]",The prediction is based on the user's activity pattern and recent context stays. The user frequently visits place 14 during weekdays and 5 on weekends. There are also repeated visits to places 3 and 1 during different times of day.

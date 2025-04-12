@@ -1,0 +1,15 @@
+user_id,ground_truth,prediction,reason
+478,3761,"[581, 3501, 5810, 154, 439, 611, 188, 77, 276, 293]","The user tends to visit the same places on similar days and times, and recent visits have been mostly to 3501 and 581."
+478,581,"[581.0, 3501.0, 592.0, 976.0, 439.0, 611.0, 188.0, 154.0, 77.0, 293.0]","Recent pattern of visiting place 3501 on Saturdays and Sundays, as well as frequent visits to places 581, 592, and 976"
+478,3691,"[3501.0, 581.0, 976.0, 77.0, 439.0, 611.0, 154.0, 293.0, 188.0, 396.0]",The user has a strong tendency to revisit the places they have visited in the past and especially those that are more recent.
+478,276,"[3501.0, 581.0, 976.0, 77.0, 439.0, 611.0, 154.0, 592.0, 3761.0, 3691.0]",Recent behavior and historical patterns indicate frequent visits to popular locations
+478,16,"[3501.0, 581.0, 592.0, 3761.0, 3691.0, 439.0, 77.0, 976.0, 611.0, 188.0]",Prediction based on recent contextual information and historical patterns
+478,77,"[3501.0, 581.0, 77.0, 976.0, 439.0, 611.0, 3761.0, 3691.0, 276.0, 16.0]","Based on the user's historical stays and recent behavior in context, we predict the next likely place ID to be one of their frequent locations or a location visited recently."
+478,3501,"[581, 3501, 976, 439, 611, 3691, 77, 188, 293, 154]","The user has a strong tendency to revisit previously visited places, especially at the same time on the same day of the week. Given the recent context of staying near place 581 and 276 on Thursday/Friday, it is likely that they will return to these places or similar ones."
+478,581,"[581, 3501, 581.0, 3691, 611, 976, 154, 439, 77, 16]","Recent behavior in the context suggests a high likelihood of returning to previously visited places, with special attention given to places visited on Friday and Saturday evenings."
+478,3691,"[3501, 581, 976, 77, 439, 611, 154, 293, 188, 276]",recent visits to place 3501 and time pattern suggests a likely next stay at this location
+478,643,"[3501, 581, 976, 77, 439, 611, 154, 188, 293, 276]","Based on the user's historical stays and recent context, the top prediction is a return to places frequently visited during weekdays and weekends."
+478,581,"[581.0, 3501.0, 77.0, 976.0, 439.0, 611.0, 154.0, 293.0, 188.0, 396.0]",based on the user's historical pattern of frequent visits to place 581 and 3501 at night
+478,276,"[3501, 581, 976, 77, 439, 611, 154, 188, 396, 276]",Recent visits to place 3501 and 581 suggest a high likelihood of returning to these locations.
+478,581,"[3501, 581, 977, 439, 611, 154, 293, 188, 77, 396]","Recent stays at 3501 and 581, historical patterns of visiting places on weekends"
+478,3501,"[3501.0, 581.0, 976.0, 77.0, 439.0, 611.0, 154.0, 3691.0, 643.0, 276.0]",Recent visits to places at certain times/days and repeated patterns in history

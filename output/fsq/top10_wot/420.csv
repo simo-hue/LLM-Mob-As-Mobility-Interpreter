@@ -1,0 +1,11 @@
+user_id,ground_truth,prediction,reason
+420,1083,"[2543, 2680, 3304, 722, 1083, 2034, 1416]","Recent behavior shows a consistent pattern of visiting place IDs 2543 and 2680 on Fridays, while also occasionally visiting places 3304 and 722. The user's recent stay pattern is consistent with this historical activity."
+420,789,"[2680, 2543, 3304, 789, 2034, 1083, 722, 1416, 1099, 1015]",Recent visits to places at certain times/days and patterns in the history
+420,789,"[2680, 2543, 3304, 789, 2034, 1083, 722, 1416, 7, 13]","Pattern of frequent visits to place 2680 on Fridays and similar pattern for places 2543 and 3304, with recent context showing multiple visits to these places in the last day."
+420,2680,"[2680, 2543, 3304, 2034, 1083, 789, 722, 1416, 721, 721]","Recent context and historical pattern of frequent visits to places 2680, 2543 and 3304 at certain times/days."
+420,2543,"[2680, 2543, 3304, 2034, 1083, 722, 1416, 789, 1044, 143]",based on recent pattern of visiting these places
+420,621,"[2680, 3304, 2543, 789, 2034, 1083, 1416, 722, 621, 40]",Recent visit to place ID 2543 and pattern of visiting places at certain times/days in the history
+420,2543,"[2680.0, 2543.0, 3304.0, 789.0, 2034.0, 1083.0, 1416.0, 722.0, 621.0, 40.0]",The prediction is based on the user's historical pattern of frequent visits to places at certain times and days
+420,2543,"[2680, 3304, 789, 2034, 1083, 2543, 722, 1416, 621, 1075]","The user has shown a pattern of frequent visits to place 2680 on Fridays and also recently visited this place. Additionally, the context suggests recent visits to places with similar IDs (621, 2543), making it likely for the next visit to occur at one of these locations."
+420,2543,"[2680, 789, 3304, 2034, 1083, 2543, 722, 1416, 621, 721]",Recent behavior in context and patterns in history suggest the user is likely to visit places they have visited before at similar times of day
+420,3304,"[2680.0, 789.0, 3304.0, 2543.0, 2034.0, 1083.0, 722.0, 1416.0, 621.0, 11]","Recent pattern of frequent visits to places 2680, 789 and 3304"

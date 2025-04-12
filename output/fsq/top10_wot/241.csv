@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+241,3778,"[3778, 723, 207, 235, 144, 483, 366, 1229, 1120, 3001]",recent behavior suggests the user is likely to visit a familiar place during his/her regular daily routine
+241,3778,"[3778, 723, 231, 1120, 366, 207, 144, 1229, 3001, 163]","The user has a strong tendency to visit location 3778 at the start of the day, with some variations depending on the day of the week. The recent context suggests that this pattern continues, with the addition of occasional visits to other locations"
+241,723,"[3778, 723, 235, 207, 366, 1229, 3001, 1120, 458, 163]",Recent behavior in context suggests frequent visits to the workplace (place ID: 3778)
+241,2839,"[3778, 723, 235, 207, 144, 458, 366, 1120, 1229, 3001]",Recent behavior suggests the user is currently at home or work
+241,723,"[3778, 723, 231, 1120, 1229, 1, 3001, 207, 235, 483]",Recent behavior in context and patterns in history suggest the user is likely to visit their most frequent locations or places they have visited recently
+241,232,"[3778, 723, 231, 483, 366, 1120, 1229, 1, 3001, 2839]","Recent and historical patterns of staying at home (place ID 3778) on weekdays suggest the next likely place is also at home, possibly with a visit to another familiar location (723)"
+241,3778,"[3778, 723, 1, 207, 235, 144, 231, 483, 366, 1120]",Recent stays at 3778 and recent visits to places at certain times/days indicate a high likelihood of returning to the most visited place.
+241,3778,"[3778, 723, 235, 207, 483, 1229, 366, 231, 1120, 1]",Based on historical patterns and recent behavior in the context
+241,3778,"[3778, 723, 2839, 232, 1120, 3001, 207, 235, 144, 231]",Recent behavior indicates a strong likelihood of returning to familiar places with similar schedules
+241,152,"[723, 3778, 231, 207, 235, 144, 1229, 1120, 1, 3001]",based on the user's historical stays and recent contextual information
+241,3778,"[3778, 723, 1120, 366, 458, 207, 235, 144, 483, 1229]","The user has shown a strong pattern of frequent visits to the same place (place ID 3778) on weekdays, and recent context suggests this trend continues."
+241,3778,"[3778, 723, 207, 235, 1120, 1229, 483, 366, 458, 1]",Recent behavior and historical patterns suggest the user is likely to visit places they frequent at similar times/days
+241,540,"[3778, 723, 235, 207, 144, 366, 1229, 1120, 3001, 231]","Recent contextual information suggests the user is most likely to visit a work or home location, with historical patterns favoring frequent visits to these locations on weekdays."

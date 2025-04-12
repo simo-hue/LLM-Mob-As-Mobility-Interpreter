@@ -1,0 +1,33 @@
+user_id,ground_truth,prediction,reason
+321,3119,"[3119, 1424, 3755, 291, 260, 1, 3812, 966, 518, 1185]","Recent behavior in the context suggests a strong likelihood of returning to familiar places, with time and day patterns aligned with historical stays"
+321,1,"[1185, 966, 518, 3755, 3812, 3119, 1424, 291, 260, 1]","Recent stays at 3119 and 260 suggest strong likelihood of returning to these places, while other popular destinations like 1185 and 966 are also possible given the context."
+321,3119,"[3119, 1, 291, 260, 966, 1185, 518, 3812, 3755, 1424]",Prediction based on historical stays and recent context
+321,3119,"[3119, 1424, 3812, 291, 260, 1, 966, 518, 1185, 966]",Recent stays at location 3119 and pattern of daily visits
+321,1,"[3119, 1, 966, 260, 1185, 518, 291, 3755, 3812, 1424]",The user tends to visit places at certain times/days and has recently stayed in the same place.
+321,3119,"[3119.0, 1.0, 260.0, 966.0, 1185.0, 518.0, 291.0, 3755.0, 1424.0, 3812.0]","Based on the user's historical stays and recent behavior, I predict that they will likely return to a place they have visited before, possibly during their preferred day of the week (Thursday) or at a similar time to their previous visits."
+321,2202,"[3119, 1, 1185, 966, 518, 260, 291, 3755, 3812, 1424]",Predicting based on user's historical stays and recent behavior
+321,1,"[3119, 1, 966, 1185, 518, 260, 291, 3755, 1424, 3812]",Recent visits to place 3119 and recent day of week matches with history
+321,1424,"[3119, 1, 291, 260, 1185, 966, 518, 1424, 3755, 3812]","Recent behavior suggests the user tends to visit home (3119) frequently, especially on weekends and late at night."
+321,3119,"[291, 260, 518, 1185, 966, 1424, 1, 3119, 3755, 3812]","Based on the user's historical stays and recent behavior, I predicted the top 10 likely places they might visit next."
+321,1,"[3119, 1424, 2202, 1, 291, 260, 966, 1185, 518, 3755]",Recent stays at place 3119 and the user's historical pattern of returning to this place
+321,1,"[3119, 1424, 1185, 966, 518, 2202, 260, 291, 3755, 3812]","The user's recent behavior in the context suggests a strong preference for place 3119, and their historical stays show a consistent pattern of visiting this place at certain times/days"
+321,1,"[3119, 1424, 3812, 291, 260, 1, 966, 518, 1185, 966]","The user tends to visit place ID 3119 frequently, especially on weekends and weekdays around dawn or dusk. The recent context suggests a visit to this place early in the morning."
+321,2202,"[3119, 1424, 966, 1185, 518, 260, 291, 3755, 3812, 1]",Recent contextual information and historical patterns suggest the user is likely to return to a familiar location
+321,3119,"[3119, 1, 260, 966, 1185, 518, 291, 3755, 3812, 1424]","Recent behavior suggests frequent visits to place ID 3119, with patterns in history supporting this prediction"
+321,966,"[3119, 1, 966, 1185, 518, 260, 291, 3755, 3812, 1424]",The user has a strong affinity for place ID 3119 based on historical stays and recent behavior in the context.
+321,3119,"[3119.0, 1.0, 966.0, 1185.0, 2202.0, 291.0, 260.0, 518.0, 3812.0, 3755.0]","The prediction is based on the user's historical stays and recent behavior, with a strong likelihood of returning to familiar places at similar times/days."
+321,1,"[3119, 1, 966, 2202, 1185, 518, 291, 260, 3812, 3755]",Based on the user's history of frequent visits to place ID 3119 and recent context indicating a visit to this location
+321,1,"[3119, 1, 966, 518, 260, 291, 1185, 3812, 3755, 1424]",Recent stays at 3119 and context suggest similar behavior
+321,3119,"[3119, 1424, 3755, 3812, 291, 260, 1, 966, 518, 1185]",predicting based on repeated visits to place 3119 at various times and days
+321,1,"[3119, 1, 260, 966, 2589, 1185, 291, 3755, 3812, 518]",Recent stays at night and frequent visits to place 3119 suggest a likely next stay there
+321,3119,"[3119, 1, 966, 1185, 518, 2589, 260, 291, 3755, 3812]",recently frequent places and time-based patterns in the user's history
+321,202,"[3119, 1, 260, 291, 966, 1185, 518, 3755, 3812, 1424]","The user has a strong pattern of visiting place 3119 at night on weekends, and recently visited this place multiple times. They also have a habit of visiting place 1 during the day."
+321,1,"[3119.0, 1185.0, 966.0, 518.0, 1.0, 1424.0, 260.0, 291.0, 3812.0, 3755.0]","Recent pattern of staying at place_id 3119, and frequent visits to this location throughout the history"
+321,3119,"[3119, 1424, 3755, 3812, 291, 260, 518, 966, 1185, 202]",recent stay at home and previous patterns of going to the same place
+321,3119,None,Invalid JSON format from model
+321,1,"[3119, 1, 260, 291, 966, 1185, 518, 3755, 3812, 1424]",Recent repeated visits to place ID 3119 and recent stays at other locations make it the most likely next destination.
+321,1,"[3119, 1, 966, 202, 260, 1185, 518, 3812, 1424, 291]","The user has a strong preference for place ID 3119, which is the most frequently visited location in their history. The recent context suggests that they may visit other locations as well."
+321,3119,"[3119, 3812, 1, 291, 260, 966, 518, 1185, 966, 260]","Recent behavior suggests the user tends to visit their most frequent place (3119) during weekdays and late nights. Given the current context of repeated visits to this place, we predict they will continue this pattern."
+321,1,"[3119, 1, 966, 518, 1185, 260, 291, 3755, 3812, 1424]",Based on historical stays and recent context
+321,3119,"[1185, 966, 518, 260, 291, 3812, 3755, 1424, 3119, 1]","Recent patterns of frequent visits to the same places on certain days and times, as well as recent behavior in context"
+321,1,"[3119.0, 1.0, 966.0, 1185.0, 518.0, 260.0, 291.0, 3812.0, 1424.0, 3755.0]",Recent behavior and history suggest the user is likely to visit a familiar place at night

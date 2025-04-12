@@ -1,0 +1,48 @@
+user_id,ground_truth,prediction,reason
+371,1443,"[3263, 2009, 231, 1131, 506, 705, 537, 1973, 1, 324]","Predicted places are based on the user's historical pattern of frequent visits to place IDs 3263 and 2009 on weekdays, with occasional visits to places 231, 1131, and 506. The recent context also shows a visit to place ID 1131, which increases its likelihood."
+371,2009,"[3263, 2009, 231, 1, 1973, 705, 537, 324, 829, 3069]",based on historical patterns and recent context
+371,651,"[3263, 2009, 231, 1, 705, 506, 537, 1973, 1071.0, 829]",Recent behavior in context suggests frequent visits to place ID 3263 and 2009
+371,231,"[3263, 2009, 231, 705, 1, 324, 537, 1973, 706, 1131]","Recent visits to places like 3263 and 2009, as well as the time of day and day of week patterns in <history>"
+371,159,"[3263, 2009, 231, 705, 537, 1, 324, 1973, 829, 1443]",recent behavior and historical patterns suggest frequent visits to known locations
+371,3263,"[3263, 2009, 231, 705, 1, 829, 537, 1973, 324, 706]",Recent behavior in context suggests repeated visits to place IDs like 3263 and 2009; historical data shows patterns of visiting these places at certain times/days
+371,1,"[3263, 2009, 231, 705, 1, 537, 1973, 506, 1131, 707]",The user has a consistent pattern of visiting place 3263 on weekdays and place 2009 on Mondays. The recent context shows the user's location is near these places.
+371,231,"[3263, 2009, 231, 705, 1973, 537, 1, 324, 159, 829]",Recent pattern of visiting the same place at similar times/days continues
+371,3263,"[2009, 3263, 231, 705, 537, 1973, 159, 829, 324, 1]",Recent visits to 3263 and 2009
+371,493,"[3263, 2009, 231, 159, 1973, 705, 1, 537, 324, 829]","The prediction is based on the user's frequent visits to certain locations at specific times and days, with recent behavior in <context> indicating a high probability of returning to their regular spots."
+371,707,"[2009, 3263, 231, 1, 705, 537, 1973, 9]","Recent visits to locations like 2009 and 3263, with a tendency to visit these places during morning hours"
+371,749,"[3263, 2009, 231, 707, 1, 829, 537, 705, 1973, 324]","Recent context suggests frequent visits to place 3263 and place 2009 on Fridays, while history shows repeated trips to places 231 and 707 on various days."
+371,3566,"[3263, 2009, 231, 1, 707, 493, 537, 324, 1973, 829]",Recent visits to home/work locations and consistent morning routines
+371,1,"[3263, 2009, 231, 707, 537, 705, 1, 324, 493, 749]","The user's historical pattern of frequent visits to place IDs 3263 and 2009, as well as recent behavior in the context of frequent visits on Fridays, suggests a high likelihood of returning to one of these locations."
+371,3263,"[3263, 2009, 231, 707, 507, 1973, 537, 324, 493, 749]",Recent frequent visits to places at specific times/days and repeated patterns in history
+371,1,"[3263, 2009, 231, 707, 537, 1, 324, 1973, 829, 749]",Recent frequent visits to places with high historical visit frequency
+371,2361,"[2009, 3263, 231, 705, 537, 749, 3566, 1973, 1, 324]",Recent contextual behavior and historical patterns suggest a high likelihood of returning to familiar locations with similar day-of-week and time-of-day visits.
+371,1131,"[3263, 2009, 231, 1973, 537, 705, 24, 1131, 912, 506]","Recent context suggests frequent visits to place 3263 and 2009, while historical patterns indicate possible next locations based on time of day and day of week."
+371,2361,"[231, 2009, 3263, 1, 705, 2068, 707, 2024, 2062, 2036]",Predicted places based on the user's historical stays and recent behavior.
+371,1,"[3263, 2009, 231, 2361, 705, 537, 1973, 1, 324, 829]",Recent pattern of frequent visits to locations 3263 and 2009
+371,1973,"[2009, 3263, 231, 537, 705, 324, 1131, 707, 1973, 1]","Based on user's historical stays and recent context, the most likely places are those visited frequently during weekdays, especially Monday and Friday, with a bias towards morning hours."
+371,1,"[3263, 2009, 231, 1131, 705, 537, 2361, 1973, 1, 829]","The user tends to visit the same places at similar times and days, with a recent bias towards place_id 3263"
+371,912,"[3263, 2009, 231, 1131, 707, 537, 705, 2361, 1, 1973]","Recent visits to the same places and weekdays as in the history, with a slight bias towards the most frequent place"
+371,1973,"[3263, 2009, 231, 2361, 1, 705, 1973, 537, 324, 829]","The user tends to visit the same places at similar times on weekdays and has a recent history of visiting places with IDs 3263, 2009, and 1."
+371,1,"[1, 912, 231, 3263, 2009, 705, 1131, 506, 2361, 537]","Recent context shows a tendency to visit the home location (1) and a familiar place on Monday morning. Historical data suggests frequent visits to places with IDs 912, 231, and 3263."
+371,3442,"[3263, 2009, 231, 1973, 1, 705, 537, 829, 912, 1131]",Recent stays at 3263 and 2009 indicate strong likelihood of returning to these places
+371,3263,"[3263, 2009, 231, 912, 1973, 705, 537, 829, 1, 324]",Recent behavior in context and patterns in history suggest frequent visits to home/work/study locations.
+371,3263,"[2009, 3263, 231, 705, 2361, 324, 537, 200, 1973, 1]","Based on the user's historical pattern of frequent visits to certain locations at specific times and days, as well as recent behavior in the context, it is likely that they will visit one of their frequently visited locations."
+371,1,"[3263, 2009, 231, 1, 1973, 705, 537, 324, 829, 3442]","Based on the user's historical pattern of visiting places like 3263 and 2009 frequently, and recent contextual information that suggests a strong likelihood of returning to these places"
+371,2361,"[2009, 3263, 231, 1973, 705, 537, 829, 3442, 1, 324]","Based on the user's historical stays and recent context, we predict they will visit a place similar to those they have visited in the past, with a focus on places visited recently."
+371,3263,"[3263, 2009, 231, 705, 1973, 537, 829, 1, 324, 2361]",recent stays at location 3263 and days of the week indicate a high likelihood to return to this location
+371,1,"[2009, 231, 3263, 1973, 537, 705, 507, 707, 1131, 912]","Recent behavior indicates frequent visits to places with IDs 2009, 3263 and 231."
+371,795,"[3263, 2009, 231, 537, 705, 1973, 707, 1131, 912, 2361]",Based on the recent and historical data
+371,1973,"[3263, 2009, 231, 1, 2361, 707, 537, 705, 324, 1973]","Based on the user's historical stays and recent contextual information, the prediction is the places the user often visits during weekdays and in the morning"
+371,3263,"[3263, 2009, 231, 2361, 1973, 705, 537, 829, 1, 324]",Recent contextual information shows a high likelihood of visiting place ID 3263 again
+371,3263,"[2349, 2310, 2009, 3263, 537, 1973, 705, 1, 324, 795]","The prediction is based on the user's recent behavior of visiting place 3263 at the same time on different days, and also considering their historical stays pattern."
+371,1,"[3263, 2009, 231, 1, 795, 1973, 705, 537, 324, 829]","Pattern of repeated visits to places at certain times/days in the user's history, with recent context showing a high likelihood of visiting place 3263"
+371,3263,"[3263, 2009, 231, 705, 1973, 537, 1, 324, 795, 829]","Recent frequent visits to places 3263 and 2009, with a slight bias towards weekdays and afternoons."
+371,3263,"[3263, 2009, 231, 1973, 1, 324, 829, 707, 1131, 912]",Recent frequent visits to place ID 3263 and pattern of repeated visits at certain times/days
+371,3263,"[3263, 2009, 231, 1, 705, 537, 1973, 1131, 707, 506]",The predicted places are based on the user's historical pattern of frequent visits to specific locations during certain times/days and recent behavior in context.
+371,1,"[3263, 2009, 231, 705, 1, 324, 1973, 1131, 912, 537]",Recent context suggests frequent visits to 3263 and the pattern in history indicates a strong likelihood of returning to familiar places
+371,1973,"[3263, 2009, 231, 705, 537, 324, 1, 707, 1131, 912]","Recent behavior shows a strong preference for location 3263, and history also indicates frequent visits to this location."
+371,1,"[3263, 2009, 231, 705, 537, 1973, 1, 829, 324, 912]","Recent stays at place 3263 and previous patterns of returning to places 3263, 2009, and 231 suggest high likelihood."
+371,1,"[2009, 3263, 231, 537, 705, 1, 324, 829, 1973, 707]","Based on the user's historical stays and recent behavior, I predict that the next likely place ID is one of their frequently visited places."
+371,1973,"[3263, 2009, 231, 537, 705, 1, 1973, 829, 324, 912]","Recent behavior and historical patterns suggest frequent visits to places like home (3263), work (2009) and common locations on specific days"
+371,3263,"[3263, 2009, 231, 1, 704.0, 1973, 705, 537, 324.0, 829]","Recent frequent visits to places like place ID 3263 and 2009, along with the pattern of returning on Fridays and Mondays"
+371,231,"[3263, 2009, 231, 1973, 705, 537, 1, 324, 829, 707]",Recent behavior and historical patterns indicate frequent visits to places at morning hours on weekdays

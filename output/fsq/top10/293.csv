@@ -1,0 +1,24 @@
+user_id,ground_truth,prediction,reason
+293,781,"[1, 3, 5, 2, 7, 8, 6]","The prediction is based on the recent activity pattern of this user in terms of weekday and time of day. The target stay is during daytime on Thursday when this user tends to visit places like place ID 1, 3, 5, etc."
+293,834,"[1, 3, 4, 5, 6, 7, 10, 11, 12, 14]",The user tends to visit the same places on Sundays and has visited place #1 most recently in the context. The target stay is early morning on a Sunday which matches the user's Sunday pattern.
+293,844,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]","Based on the user's activity pattern and recent context, I predicted their next location as one of their most frequently visited places during weekdays, with a higher probability for Monday."
+293,3549,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]",based on the user's activity pattern and context
+293,3310,"[1, 844, 781, 834, 3643, 2243, 2187, 1797, 2010, 3155]",based on user's activity pattern and recent stays
+293,3549,"[1234, 1456, 2345, 6789, 1111, 2222, 3333, 4444, 5555, 6666]","Based on the user's activity pattern and recent stays, I predicted the top 10 most likely places to be visited next."
+293,2187,"[3, 2, 1, 6, 4, 5, 7]",based on the user's activity pattern and recent context
+293,3643,"[2, 1, 3, 4, 6, 5, 9, 8, 0]","Based on the user's activity pattern and recent stays, the next place is predicted to be a location that has been visited frequently during this time of day (Thursday) and on this day of the week (Thursday), with a slight bias towards places visited recently."
+293,3549,"[3643, 2243, 2187, 3549, 1, 3310, 1797, 2010, 3155, 1921]",predicted based on user's activity pattern and recent context
+293,2187,"[3643, 2243, 2187, 1, 3549, 3310, 2025, 1797, 1548, 1426]",The target stay is during the daytime on a Friday when the user tends to visit similar places and frequencies as in the context.
+293,3549,"[2, 1, 3, 5, 4, 6, 0]",Predicted based on recent activities and historical patterns
+293,3549,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]","Based on the user's activity pattern and recent stays in context, I predicted that they would likely visit places they've been to before during similar times and days of the week."
+293,844,"[3, 4, 11, 10, 5, 8, 2]","The prediction is based on the activity pattern of this user that we learned from <history>, considering repeated visits to certain places during certain times and the context stays in <context>."
+293,3549,"[3643, 2243, 2187, 1, 3549, 834, 2010]",The prediction is based on the user's activity pattern of repeated visits to certain places during certain times and weekdays.
+293,3549,"[1, 3, 4, 5, 6, 8, 10, 11, 12, 13]","Based on the activity pattern and context, I predict that the user will visit one of their frequent places during this time period"
+293,3549,"[3643, 2243, 2187, 1, 3549, 2010, 1797, 3155, 844, 1921]",based on recent stays and historical pattern of visiting different places on weekdays and weekends
+293,2187,"[1, 0, 3, 4, 2, 5, 6, 7]","The prediction is based on the activity pattern of this user that we learned from <history>, e.g., repeated visits to certain places during certain times."
+293,2187,"[3, 2, 1, 4, 5, 6, 8, 9, 10, 11]","Based on the user's activity pattern and recent context, I predicted that they are likely to visit places they have been to before, with a higher probability of visiting places they have visited recently."
+293,1921,"[2187, 3643, 2243, 3549, 1797, 2010]","The prediction is based on the user's historical activity pattern and recent context, considering time of day and weekday."
+293,3267,"[2187, 2243, 3549, 3643, 1921, 1797, 2010, 3155, 834, 844]",Predicted based on user's activity pattern and context
+293,3549,"[3267, 2187, 2243, 3549, 1921, 3643, 1797, 2010, 3155, 834]","Based on the user's historical stays and recent context, I predicted the next place ID as places where the user has been frequently during Thursday evenings."
+293,3549,"[3267, 1921, 2187, 3643, 2243, 3549, 1797, 2010]",based on recent context and historical pattern
+293,3549,"[3267, 3643, 2243, 2187, 1, 3549]","The prediction is based on the user's activity pattern of repeated visits to certain places during certain times, with recent activities in context staying close to similar places."

@@ -1,0 +1,92 @@
+user_id,ground_truth,prediction,reason
+50,1575,"[3150, 2306, 1957, 1625, 1785, 1289, 1576, 1091, 2228, 2717]","Based on the user's historical stays and recent behavior, it is likely that they will visit a familiar location with similar timing patterns."
+50,2500,"[3150, 2306, 1625, 1785, 1289, 1957, 2717, 1091, 2228, 1576]",Recent behavior shows a strong tendency towards going to places at night and on weekends
+50,1289,"[3150, 2306, 1625, 1785, 1289, 1957, 2717, 2228, 1091, 1576]",Recent stays at 3150 and recent visits to places with similar IDs in history suggest a high probability of visiting place 3150 again.
+50,1625,"[3150, 2306, 1625, 1785, 2717, 1957, 1576, 1091, 1289, 2228]",Recent stays at 3150 and historical pattern of visiting during the evening on weekdays suggest this location is likely to be visited next.
+50,1785,"[3150, 2306, 1625, 1785, 1576]","Recent visits to the same place on Friday and current day, plus frequent movements between places during weekdays"
+50,2306,"[3150, 2306, 1625, 1785, 1576, 1289, 1957, 2717, 2228, 1091]","Recent behavior suggests the user is likely to visit a place they frequently go to at night and on Fridays, with a slight preference for places they have visited recently."
+50,3150,"[3150, 2306, 1625, 1785, 1289, 1957, 1091, 2717, 2228, 1576]",Recent frequent visits to places at night on weekdays and weekends
+50,1576,"[3150, 2306, 1289, 1625, 1785, 1957, 2228, 1576, 1091, 2717]","Recent frequent stays at 3150, combined with historical patterns of visiting places at similar times on Fridays and Sundays"
+50,1963,"[2306, 1625, 1785, 3150, 1957, 1289, 1091, 2717, 2228, 1576]",Recent behavior suggests the user is likely to stay in a place they have visited at similar times and days in the past
+50,1289,"[3150, 2306, 1785, 1625, 1576, 1957, 1091, 1289, 2228, 2717]",Recent stay at place 3150 and historical patterns of frequent stays on Sundays and Thursdays suggest the user is likely to visit place 3150 again.
+50,1625,"[2306, 3150, 1625, 1785, 1957, 1576, 1289, 1091, 2228, 2717]",recent behavior suggests frequent visits to places with similar IDs
+50,1957,"[3150, 2306, 1625, 1785, 1957, 1576, 2717, 2228, 1091, 1289]",Recent visits to places at certain times/days and repeated patterns in the user's historical stays.
+50,1625,"[3150, 2306, 1625, 1785, 1963, 1091, 2717, 2228, 1957, 1576]",Recent stays at 3150 and pattern of visits to places on Friday
+50,1575,"[3150, 2306, 1957, 1625, 1785, 1289, 1091, 1576, 2228, 2717]",Recent contextual information and historical patterns suggest the user is likely to visit a popular place at night
+50,2831,"[3150, 2306, 1625, 1785, 1289, 1957, 2717, 2228, 1576, 1091]",Recent context suggests the user may be heading home or to a familiar location
+50,1,"[3150, 2306, 1957, 1625, 1785, 2717, 2228, 1091, 1289, 1576]","The user tends to visit the same places at similar times and days, with a recent preference for 3150."
+50,2717,"[3150, 1957, 1625, 2306, 1785, 1289, 1091, 1576, 2228, 2717]",Recent behavior and historical patterns suggest the user is likely to return to a familiar location on Friday evening.
+50,2306,"[3150, 2306, 1625, 1785, 1957, 1289, 1091, 1576, 2228, 2717]","Based on the historical stays and recent context, the predicted places are a combination of frequent destinations (e.g., 3150, 2306) and places visited recently (e.g., 1625, 1785)."
+50,1575,"[3150, 2306, 1625, 1785, 1289, 1957, 1576, 1091, 2717, 2228]","Recent pattern of frequent visits to place 3150 on weekends and late evenings, as well as repeated visits to places 2306, 1625, and 1785"
+50,1625,"[3150, 2831, 2717, 2306, 1957, 1785, 1625, 1576, 1091, 1289]",Predicted based on the user's recent behavior and historical patterns of frequent visits to a particular place
+50,1957,"[3150, 2306, 1625, 1785, 1289, 2717, 1957, 1091, 1576, 2228]","Based on the user's historical stays and recent context, the top prediction is the place ID 3150, as it has been frequently visited at similar times of the day (evenings)"
+50,2306,"[3150, 2306, 1625, 1785, 1957, 1289, 1576, 1091, 2228, 2717]","Recent visits to popular locations like home and work, with a slight preference for evening hours"
+50,1957,"[3150, 2306, 1957, 1625, 1785, 1576, 1289, 1091, 2228, 2717]","Recent context shows frequent visits to places at the end of the week and early morning hours; historical pattern suggests daily routine with occasional long stays, which is reflected in the predicted top locations"
+50,3150,"[3150, 2306, 1957, 1625, 1785, 1576, 1289, 1091, 2717, 2228]","Based on the user's recent behavior and historical patterns, I predict they will visit one of their most frequently visited places (3150), followed by other popular locations."
+50,2306,"[3150, 1625, 2306, 1785, 1576, 1091, 1289, 2228, 1957, 2717]","Based on the user's historical stays and recent behavior, I predict they will visit a location similar to their frequent nighttime destinations."
+50,2500,"[2306, 3150, 1625, 1785, 1957, 1289, 1091, 2228, 1576, 2717]",The user tends to visit places at certain times/days based on their historical stays and recent behavior indicates a high likelihood of returning to familiar locations.
+50,1575,"[3150, 2306, 1957, 1625, 1785, 1091, 1289, 1576, 2228, 2717]",Recent stays at 3150 and current day of the week suggest a likely next stay there. The user has also shown affinity for places with IDs ending in 1957 and 2306.
+50,1289,"[3150, 2306, 1957, 1625, 1785, 2717, 2228, 1289, 1091, 1576]",Based on recent patterns and current context
+50,3150,"[3150, 2306, 1957, 1625, 1785]",Recent behavior and history suggest frequent visits to places with ID 3150 on weekdays and weekend evenings.
+50,1957,"[3150, 2306, 1785, 1625, 1957, 2717, 2228, 1091, 1576, 1289]",Recent behavior in context indicates a strong preference for location 3150
+50,1957,"[3150, 2306, 1625, 1785, 1091, 1289, 1576, 2228, 1957, 2717]",based on patterns in history and recent behavior in context
+50,3150,"[2306.0, 3150.0, 1785.0, 1625.0, 1576.0, 1289.0, 1091.0, 2717.0, 2228.0, 1957.0]","Recent behavior suggests a strong affinity for the user's typical evening destinations (2306, 3150), with some likelihood of revisiting previously visited places like 1785 and 1625."
+50,3150,"[3150, 2306, 1957, 1785, 1625, 1576, 1289, 1091, 2717]","Recent behavior in context indicates the user tends to stay at place ID 3150 during weekdays, and historical pattern suggests frequent visits to places with IDs 2306, 1957, 1785, and 1625 on weekends."
+50,1957,"[2306, 3150, 1625, 1785, 1576, 1289, 1091, 1957, 2228, 2717]","Recent stays at 3150 and previous visits to places like 2306, 1625, and 1785 suggest a likelihood of returning to these locations"
+50,1575,"[3150, 2306, 1957, 1785, 1625, 1576, 1289, 1091, 2717]","Based on the user's historical stays and recent contextual information, I predict that they will visit place ID 3150 next, as it is a common destination during weekdays and evenings."
+50,1289,"[2306, 3150, 1957, 1625, 1785, 1289, 1091, 2717, 2228, 1576]",Based on the historical pattern of frequent visits to places at certain times/days and recent behavior in context
+50,1625,"[3150, 2306, 1625, 1785, 1091, 1957, 2717, 2228, 1576, 1289]",recent stays at late-night and early-morning hours suggest a preference for evening/night visits
+50,1785,"[3150, 2306, 1957, 1625, 1785, 1289, 1576, 1091, 2228, 2717]",recent behavior in context indicates frequent visits to place_id 3150
+50,3150,"[3150, 2306, 1957, 1785, 1625, 1576, 1289, 1091, 2228, 2717]",Recent behavior suggests a likely home visit and a potential trip to other frequently visited places.
+50,3015,"[3150, 2306, 1625, 1785, 1289, 1957, 1576, 2228, 1091]",Recent stays at 3150 and patterns in history indicate a high likelihood of returning to this location.
+50,3150,"[2306, 3150, 1625, 1785, 1289, 1957, 1576, 1091, 2228, 2717]",Recent visits to places at certain times/days and repeated patterns in historical stays were considered.
+50,300,"[2306, 1625, 1785, 3150, 1091, 1289, 1957, 2228, 2717, 1576]","The user has a habit of visiting the same places on certain days and times, especially at night. The recent context suggests they are more likely to visit places like 2306 or 1625."
+50,2717,"[3150, 2306, 1785, 1625, 1957, 1576, 1289, 1091, 2228, 2717]","Recent stays at night and weekend indicate a preference for evening visits to places, especially 3150. Historical pattern shows frequent visits to these places on various days."
+50,3150,"[3150, 2306, 1785, 1625, 1576, 1091, 1289, 2228, 1957, 2717]","Recent contextual information suggests the user is likely to visit a place they have been to recently (e.g., 3150), and historical stays show frequent visits to places on certain days of the week."
+50,1957,"[2306.0, 3150.0, 1785.0, 1625.0, 1576.0, 1289.0, 1957.0, 2717.0, 2228.0, 1091.0]",Recent visits on Wednesday and Sunday suggest familiarity with these places
+50,2306,"[2306.0, 3150.0, 1625.0, 1785.0, 1576.0, 1289.0, 1091.0, 2228.0, 2717.0, 1957.0]",The user tends to visit certain places at specific times/days and recently visited places like 3150.0 on Sunday and 1957.0 on Wednesday.
+50,3591,"[3150, 2306, 1957, 1785, 1625, 1576, 1289, 1091]",Recent behavior and historical patterns suggest the user is likely to visit a place they have visited frequently in the past
+50,2500,"[3150, 2306, 1957, 1625, 1785, 1091, 1289, 2717, 2228, 1576]",Recent visits to places at certain times/days and patterns in the user's history suggest they might return to a familiar location.
+50,2228,"[3150, 2306, 1957, 1625, 1785, 1289, 1091, 2717, 2228, 1576]",Recent behavior in context suggests frequent visits to place 3150 at night
+50,1963,"[3150, 1957, 2306, 1785, 1625, 1289, 1091, 2717, 2228, 2500]",Recent behavior in context and patterns in history suggest a higher likelihood of the user visiting locations they have visited frequently on weekdays and during similar times.
+50,3150,"[2306, 3150, 1625, 1785, 1957, 2717, 1576, 1289, 1091, 2228]",Recent visits to 2306 and recent Thursday evening stays at this location
+50,2306,"[2306, 3150, 1625, 1785, 1289, 1957, 1091, 1576, 2228, 2500]",Recent behavior in context and patterns in history suggest frequent visits to places at certain times/days
+50,2500,"[3150, 2306, 1625, 1785, 1957, 1289, 1576, 2228, 1091, 2500]",based on recent behavior and historical patterns
+50,2228,"[3150, 2306, 1625, 1785, 1289, 1957, 2228, 1576, 1091, 2717]","Recent behavior suggests a higher likelihood of returning to locations previously visited at similar times/days, and also frequent visits to place 3150"
+50,3591,"[3150, 2306, 1625, 1785, 1091, 1289, 1957, 2717, 1576, 2228]","The user has recently visited places like 3150 and 2306 multiple times on weekdays, and also frequently visits place 1625 on Fridays."
+50,1957,"[3150, 2306, 1785, 1625, 1576, 1289, 1091, 2717, 2228, 1957]","The user has a strong tendency to visit the same places at similar times and days in both history and context. In the recent past, they have visited place 3150 multiple times on various days of the week, so it's likely that they will continue this pattern."
+50,3150,"[3150, 2306, 1957, 1625, 1785, 2228, 1289, 1091, 1576, 2717]",Recent frequent visits to places at night and on weekends
+50,3150,"[3150, 2306, 1957, 1625, 1785, 1289, 2228, 1091, 2500, 2717]","Based on the user's recent behavior of visiting place 3150 multiple times in the last few days, and their historical pattern of frequent visits to places like 2306, 1957, 1625, and 1785."
+50,1097,"[3150, 1957, 2306, 1785, 1625, 2228, 1091, 1289, 1576, 2717]","Recent behavior indicates a high probability of visiting places visited at similar times/days in the past, with a slight preference for evening visits on Fridays/Saturdays."
+50,2306,"[3150, 2306, 1957, 1625, 1785, 1289, 1091, 1576, 2228, 2717]","Recent contextual information suggests frequent visits to place 3150 and place 2306 on weekends, while history shows a mix of weekday visits to various places"
+50,1289,"[3150, 1957, 1625, 1785, 2306, 1289, 1091, 2228, 1576, 2717]",Recent behavior in context and patterns in history suggest a high likelihood of visiting places frequently visited at night or on weekends
+50,2228,"[3150, 2306, 1625, 1785, 1957, 1091, 2228, 2717, 1576, 1289]","The user tends to visit places on Friday evenings and has a recent stay at place 3150, indicating a strong likelihood of returning there next."
+50,1963,"[3150, 1289, 1785, 2306, 1091, 1576, 1625, 1957, 2228, 2717]",based on recent behavior and historical pattern of frequent visits to place 3150 on Sundays and Mondays
+50,1575,"[3150, 2306, 1625, 1785, 1091, 1289, 1957, 1576, 2228, 2717]",Recent visits to places at certain times/days and patterns in the user's stay history
+50,1289,"[3150, 2306, 1625, 1785, 1957, 1091, 1289, 2228, 2717, 1576]",based on recent patterns of frequent visits to places 3150 and 2306
+50,1625,"[3150, 2306, 1785, 1625, 1957, 2228, 1091, 2717, 1963, 1575]","Recent frequent visits to 3150 on weekdays and weekends, with a slight preference for evenings."
+50,1785,"[3150, 2306, 1625, 1785, 1957, 1576, 2228, 1091, 1289, 2717]","Recent behavior in the context suggests a preference for visiting place 3150 at this time of day and on Tuesday, which is also a common destination based on historical stays."
+50,3150,"[3150, 2306, 1625, 1785, 1963, 1575, 1289, 1091, 1957, 2228]",Recent context suggests frequent visits to places with high likelihood of being repeated
+50,1963,"[2306, 3150, 1625, 1785, 1957, 1289, 1576, 1091, 2228, 2717]",The user tends to visit places at similar times/days and has recently visited similar places.
+50,1785,"[3150, 2306, 1957, 1625, 1785, 1289, 1091, 2717, 2228, 1576]",recently visited 3150 and other frequently visited places
+50,1957,"[3150, 2306, 1625, 1785, 1957, 1289, 1091, 2228, 2717, 1963]",Recent behavior indicates frequent visits to place 3150 on Tuesdays/Wednesdays and Thursdays/Saturdays. History also suggests repeated visits to places at certain times/days.
+50,3150,"[3150, 2306, 1957, 1785, 1625, 1289, 1091, 1963, 2228, 2717]",Based on the user's historical stays and recent behavior in the context of this week being similar to last week.
+50,2306,"[2306.0, 3150.0, 1625.0, 1785.0, 1963.0, 1091.0, 1289.0, 1957.0, 2228.0, 1576.0]",Recent patterns suggest a preference for frequent locations and evening visits
+50,1957,"[3150, 2306, 1785, 1963, 1957, 1625, 1289, 1091, 2717, 2228]",recent behavior and historical patterns suggest the user is likely to be at home or a familiar location
+50,2500,"[3150, 2306, 1957, 1785, 1625, 1576, 1289, 1091, 2717, 2228]","Recent context indicates a high likelihood of returning to previous locations, with a slight preference for places visited during weekdays."
+50,1963,"[3150, 2306, 1957, 1625, 1785, 1289, 1091, 1576, 2228, 2717]",recent visits to places at late evening/night hours and consistency in daily routine
+50,1575,"[3150, 2306, 1957, 1289, 1625, 1785, 2717, 2228, 1576, 1091]","Recent context suggests frequent stays at 3150, while historical pattern shows variations between weekend and weekday routines."
+50,2306,"[3150, 2306, 1957, 1625, 1785, 1091, 1289, 2717, 2228, 2500]","The user has a strong tendency to visit the same places at similar times and days of the week, with recent behavior suggesting they are likely to return to familiar locations."
+50,2717,"[3150, 2306, 1957, 1625, 1785, 2717, 1091, 1289, 2228, 1576]",Recent visits to place 3150 and considering patterns in the history
+50,3150,"[3150, 2306, 1625, 1785, 1091, 1576, 1289, 2228, 1957, 2717]","Recent behavior in context suggests frequent visits to location 3150, and historical pattern shows this user tends to visit places with similar IDs on the same day of the week."
+50,3150,"[3150, 2306, 1963, 1785, 1625, 1576, 1289, 1091, 2717, 2228]","Recent behavior in context suggests a high likelihood of visiting places visited recently on Thursday and Friday, with a strong preference for 3150, followed by other frequently visited locations."
+50,2306,"[3150, 2306, 1957, 1625, 1785, 1289, 2717, 1091, 2228, 1576]","Recent and historical visits to these places, especially during similar times and days"
+50,2228,"[3150, 2306, 2717, 1625, 1785]",Based on recent stays at home and previous weekend patterns
+50,1575,"[3150, 2306, 1625, 1785, 1091, 2717, 1957, 1289, 2228, 1576]","Based on the user's recent behavior and historical stays, it is likely that they will visit a place they have been to recently, such as their home or work."
+50,1289,"[2306, 3150, 1625, 1785, 1289, 1091, 2717, 1957, 2228, 1576]","Based on the user's historical stays and recent contextual information, I predict they will visit place ID 2306 next."
+50,2306,"[3150, 2306, 2228, 1785, 1625, 1576, 1957, 1091, 2717]",Predicted based on recent and historical patterns of frequent visits to places on Fridays and Tuesdays
+50,300,"[3150, 2306, 1625, 1785, 1091, 1957, 2228, 1576, 1289, 2717]",Recent context suggests frequent visits to the home location (3150) and places of interest visited during this week
+50,912,"[3150, 2306, 1625, 1785, 1091, 1289, 2228, 1957, 1576, 2717]","Recent stays at night locations and repeated visits to places like 3150, 2306 and 1625"
+50,1404,"[3150, 2306, 1625, 1785, 1091, 1289, 1957, 2717, 2228, 1576]","The user has a strong preference for place ID 3150 and also often visits places at the end of the week, which is reflected in their historical stays. The recent context suggests that they may be heading towards their most frequent location."
+50,1289,"[3150, 2306, 1625, 1785, 1289, 1957, 2717, 2228, 1091, 1576]",Recent behavior and history suggest a strong likelihood of the user visiting one of their most frequently visited places during this time/day combination.
+50,3150,"[3150, 2306, 1625, 1785, 1957, 2717, 1091, 1576, 2228, 912]",Based on the user's historical stay patterns and recent behavior in the context

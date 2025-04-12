@@ -1,0 +1,17 @@
+user_id,ground_truth,prediction,reason
+95,1,"[3036, 3018, 3006, 1761, 1883, 1627, 1513, 1679, 1, 3006]","Based on the user's historical stays and recent contextual information, I predict they will visit one of their frequent locations or a place previously visited during similar times."
+95,300,"[3036, 1883, 3018, 3006, 1679, 1513, 1627, 3006, 1, 1761]",Based on the user's daily routine and recent behavior
+95,3006,"[3006, 3018, 1883, 3036, 1513, 1627, 1761, 1679, 1, 300]",The prediction is based on the recent visit to place 3006 and the patterns in the history of visits to places at certain times/days.
+95,3018,"[3006, 3018, 1883, 1761, 3036, 1679, 1627, 1513, 300, 1679]",Recent visits to home/work/school and daily routines
+95,1140,"[1, 1883, 1761, 3006, 3036, 3018, 1679, 1627, 1513, 300]",Predicted based on recent behavior and historical patterns
+95,3018,"[1, 1883, 3006, 3018, 1513, 1627, 1679, 3036, 1761, 1140]","Based on the user's historical stays and recent behavior, I predict they will visit one of their frequently visited places, possibly one they've visited recently like place 1 or 3006."
+95,3036,"[1, 3036, 3006, 1761, 1883, 1513, 1627, 3018, 1679, 1140]","Based on the user's historical stays and recent behavior, I predicted the top 10 likely places they might visit next, considering patterns of repeated visits to certain locations at specific times/days."
+95,1883,"[3006, 3018, 1883, 1761, 1679, 1513, 1627, 1140, 3036, 1]","Recent context shows frequent visits to places with IDs 3006 and 3018 on weekends, while historical data indicates regular weekday stays at place ID 1883."
+95,2285,"[1, 3006, 3018, 1761, 1883, 3036, 1140, 1679, 1627, 1513]","Based on the user's historical stays and recent behavior, I predict they will visit one of their most frequently visited places, likely a home or work location."
+95,3018,"[1, 3006, 3018, 1883, 1761, 3036, 1679, 1513, 1627, 2285]",repeated visits and recent behavior suggest frequent visits to known places
+95,1513,"[1, 3006, 3036, 1761, 1883, 1513, 1627, 3009, 3018, 1679]","Recent stays at places with IDs 1 and 3036, combined with historical patterns"
+95,1640,"[3006, 3018, 1883, 1, 1761, 3036, 1679, 1627, 1513, 2285]","Based on historical stays and recent context, the user is likely to visit a place they have been to before, especially during mornings and weekends."
+95,3036,"[1, 3006, 1883, 3018, 2285, 1513, 1761, 1679, 3036, 1627]",predicted based on historical patterns and recent contextual information
+95,1761,"[3006, 3018, 1, 1883, 1761, 1513, 1627, 2285, 1640, 3036]",Recent behavior in context and historical patterns suggest the user is likely to return to their most frequent places of visit.
+95,3006,"[3006, 3018, 1883, 1513, 1679, 1627, 1640, 3036, 1761, 1]",Recent pattern of frequent visits to home/work place (3006) and regular daily routine at 3018
+95,3018,"[3006, 3018, 1883, 1513, 1761, 3036, 1640, 1679, 1627, 1]","Recent behavior in context shows a strong affinity for places like 3006 and 3018, while historical data indicates frequent visits to place 1883 on Tuesdays."

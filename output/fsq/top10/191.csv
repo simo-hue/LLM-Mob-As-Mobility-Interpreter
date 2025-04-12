@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+191,396,"[3188, 2363, 2230, 1675, 2422]","Recent stays and activity pattern suggest this user tends to visit places multiple times during the week, especially at nighttime or on weekends."
+191,358,"[396, 3188, 2230, 2363, 1675, 2422, 1889, 3187, 3186, 3184]","Based on the user's activity pattern and context, I predict that the next place will be one of their recent or frequent locations, with a higher probability for places visited recently."
+191,300,"[3188, 2363, 2230, 1675, 396, 358]","The target stay is during the daytime on Sunday, and the user has a consistent pattern of staying at places with IDs 3188, 2363, and 2230 in the morning or afternoon. The recent context stays also indicate that these places are more likely to be visited during this time."

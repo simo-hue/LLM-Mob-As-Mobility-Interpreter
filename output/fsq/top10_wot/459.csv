@@ -1,0 +1,17 @@
+user_id,ground_truth,prediction,reason
+459,979,"[1344.0, 2516.0, 979.0, 1490.0, 1307.0, 1347.0, 300.0, 1889.0, 293.0, 636.0]","Recurring pattern of visits on same days and times, with recent behavior indicating a likely return to previous locations"
+459,1347,"[2516, 1347, 979, 1490, 1297, 1889, 293, 1046, 636, 300]",Recent pattern of visits on Tuesday and Wednesday suggest a high likelihood of visiting the same or similar places
+459,2629,"[2516, 1347, 979, 1490, 1889, 300, 636, 1297, 293, 1046]","Based on the user's historical stays and recent behavior, I predict they will visit places with similar IDs to their previous stops."
+459,1490,"[1347, 979, 2516, 1490, 1889, 1046, 636, 293, 300, 1297]","The prediction is based on the patterns in the user's historical stays and recent behavior. The top predicted places are those that have been frequently visited during similar times of the day (e.g., morning), days of the week (e.g., Monday, Tuesday) and times (e.g., around 08:00 AM)."
+459,1347,"[1347.0, 979.0, 2516.0, 1490.0, 1889.0, 300.0, 636.0, 293.0, 1297.0, 2629.0]",Pattern recognition from user's historical stays and recent contextual information suggests frequent visits to these places
+459,979,"[1347, 979, 2516, 1490, 293, 636, 1889, 1046, 300, 1297]",Recent visits to places at similar times of day and days of the week suggest a pattern of repeated visits
+459,979,"[1347, 2516, 979, 1490, 1889, 636, 293, 300, 1046, 1297]",Recent pattern of visiting places at similar times/days has been observed in the context.
+459,1347,"[1344.0, 2516.0, 1490.0, 979.0, 293.0, 300.0, 1297.0, 636.0, 1889.0, 2629.0]","Based on the user's historical stays and recent behavior, I predict that they will visit one of their most frequently visited places, possibly a place they have stayed at recently."
+459,2629,"[2516.0, 1490.0, 1344.0, 1347.0, 979.0, 300.0, 636.0, 1889.0, 293.0, 1046.0]","Based on historical stays and recent contextual information, the next likely places are typically visited during this time of day (morning/afternoon) and day of week (Tuesday/Friday), with a slight bias towards places already visited recently"
+459,1490,"[1347, 979, 2516, 1490, 1889, 2307, 1046, 2759, 293, 636]",Recent behavior and historical patterns suggest frequent visits to places on Monday mornings
+459,979,"[2516, 1344, 979, 1297, 293, 636, 1889, 1046, 300, 2629]",recent behavior suggests morning routine at work or school
+459,1347,"[2516.0, 1347.0, 979.0, 1297.0, 1490.0, 1889.0, 300.0, 636.0, 293.0, 1046.0]",Recent behavior and historical patterns suggest a high probability of visiting places visited frequently during the day
+459,1131,"[1347, 2516, 979, 1297, 1889, 293, 1046, 2759, 636, 300]",Recent frequent visits to places with similar IDs and day of the week patterns in history
+459,1490,"[1347.0, 979.0, 2516.0, 1490.0, 2629.0, 300.0, 1889.0, 293.0, 636.0, 1297.0]",Recent patterns and repeated visits to places at certain times/days
+459,979,"[1347, 979, 2516, 1490, 1889, 2307, 1046, 2759, 293, 636]",Pattern-based prediction considering historical stays and recent behavior in context
+459,1347,"[2516.0, 1344.0, 1297.0, 293.0, 300.0, 1131.0, 1046.0, 2759.0, 1889.0, 636.0]",Recent behavior and patterns in history suggest the user may visit a familiar location or one that has been visited during similar times of day.

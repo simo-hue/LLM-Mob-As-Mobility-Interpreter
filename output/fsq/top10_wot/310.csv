@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+310,2193,"[2425, 2062, 2193, 1716, 1773, 1468, 2293, 1724, 1679, 1765]",Recent visits to place ID 2425 and repeated visits at certain times/days suggest a high probability of returning to this location.
+310,2062,"[2425, 2062, 2193, 1773, 1724, 2293, 1679, 1716, 1468, 1730]",Recent and historical patterns of daily commute to the most frequent place (2425) suggest a high likelihood of returning there.
+310,2193,"[2425, 2062, 2193, 1773, 1724, 1716, 1679, 2293]",based on the pattern of repeated visits to places at certain times/days in the history and recent behavior in the context
+310,2062,"[2425, 2062, 2193, 1773, 1716, 1724, 2293, 1679, 1716, 174]",Recent frequent stays at 2425 and 2062
+310,2062,"[2425.0, 2062.0, 2193.0, 1773.0, 1724.0, 1679.0, 1716.0, 2293.0, 2421.0, 1741.0]",prediction based on recent frequent visits and patterns in the user's activity
+310,2425,"[2425, 2062, 2193, 1773, 1724, 1679, 1716, 2293]",predicting based on recent and historical patterns
+310,2193,"[2425, 2062, 2193, 1773, 1724, 1679, 1716, 2293]",Next likely place based on historical patterns and recent behavior in context

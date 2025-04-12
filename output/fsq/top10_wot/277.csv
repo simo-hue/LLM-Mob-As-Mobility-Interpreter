@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+277,1945,"[2010, 1764, 638, 1, 1252, 2721, 443, 3761, 283, 3034]","Based on the recent stays in <context>, it is likely that the user will visit a location they have been to before (most recently 2010), with a preference for places visited at similar times of day and days of the week."
+277,2010,"[2010, 1764, 638, 1, 1252, 3034, 3761, 2721, 443, 1945]",Recent visits to places at certain times/days and patterns in the user's historical stays
+277,189,"[2010, 1764, 3034, 638, 1252, 2721, 443, 1945, 3761, 2721]","recent stays at places 2010 and 1764, with some visits on Saturdays"
+277,2010,"[2010, 1764, 638, 1252, 2721, 3761, 443, 189, 283, 1]","Pattern of frequent visits to places 2010 and 1764 on weekdays, with recent stays at these locations in the context"

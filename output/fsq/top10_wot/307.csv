@@ -1,0 +1,10 @@
+user_id,ground_truth,prediction,reason
+307,300,"[1393, 658, 660, 506, 2732, 2213, 300, 1125, 1902, 2732]",Based on the user's historical pattern of visiting places at similar times/days and recent behavior of visiting place 660 and 1902
+307,1902,"[2213, 1393, 1125, 658, 506, 2732, 660, 300, 1902, 2732]",Recent visits to places and patterns in historical stays suggest likely future destinations.
+307,1902,"[2732.0, 660.0, 506.0, 1125.0, 2213.0, 1393.0, 300.0, 1902.0, 659.0, 658.0]",Recent and historical patterns show a strong tendency to revisit familiar places at similar times and days.
+307,300,"[660, 2732, 506, 1125, 2213, 300, 1393, 658, 6600, 660]",based on historical patterns and recent behavior
+307,660,"[2732, 660, 506, 1125, 300, 2213, 1393, 1902, 658, 660]","Based on the user's historical stays and recent behavior, I predicted their next likely places to be those they have visited before, particularly during weekdays and early morning hours, with a slight bias towards places they visit frequently."
+307,300,"[2732.0, 660.0, 506.0, 1393.0, 1125.0, 300.0, 2213.0, 1902.0, 658.0, 660.0]",Recent behavior in context and patterns in history indicate a mix of frequent and occasional visits
+307,660,"[2732.0, 660.0, 506.0, 658.0, 1125.0, 1902.0, 300.0, 2213.0, 1393.0, 660.0]","Recent visits to place 1902 and repeated weekday visits to places 2732, 660, and 506 suggest a high likelihood of returning to these locations."
+307,1902,"[506, 660, 2732, 2213, 1125, 300, 1393, 658, 1902, 660]",Prediction based on recent behavior and historical patterns
+307,660,"[2732, 660, 506, 658, 1125, 2213, 1393, 300, 1902, 1125]",Recent frequent visits to place IDs 660 and 2732 in the context and history

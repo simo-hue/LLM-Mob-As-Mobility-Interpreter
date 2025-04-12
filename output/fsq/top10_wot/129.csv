@@ -1,0 +1,28 @@
+user_id,ground_truth,prediction,reason
+129,1626,"[1626, 920, 2497, 1395, 641, 3524, 1363, 1288, 1540, 3060]",combination of historical patterns and recent contextual information
+129,1395,"[2497, 1626, 1395, 920, 641, 3060, 1288, 1540, 3524, 1363]","Recent stays at 2497 and 3060, and historical patterns suggest likely places based on day of the week and time"
+129,1626,"[2497, 1626, 3060, 1395, 920, 641, 1288, 1540, 3524, 1363]",Recent pattern of Friday visits to 2497 and Monday visits to 3060
+129,1626,"[3060, 2497, 1626, 920, 1395, 641, 1363, 3524, 1288, 1540]","Recent stays on Monday and Friday suggest a high likelihood of returning to these places, while historical patterns also favor visits to places like 3060, 2497, and 1626."
+129,920,"[1395, 1626, 920, 2497, 3060, 641, 1288, 1540, 3524, 1363]","based on historical stays and recent behavior, likely places are the user's home (1395) or frequently visited locations"
+129,3060,"[1626.0, 1395.0, 2497.0, 920.0, 641.0, 1363.0, 3524.0, 3060.0, 1288.0, 1540.0]",recent and historical visits to these places on similar days
+129,920,"[1626, 1395, 2497, 920, 3060, 641, 1363, 3524, 1288, 1540]","The user has a strong daily and time-based pattern of visits to places 1626, 1395, and 2497. The recent context suggests they are likely to continue this pattern."
+129,3060,"[2497.0, 1626.0, 1395.0, 920.0, 641.0, 1363.0, 3524.0, 3060.0, 1288.0, 1540.0]","The prediction is based on the recent trend of visiting places at certain times/days, and considering patterns in the historical stays."
+129,1786,"[1626, 1395, 2497, 920, 3060, 1288, 1540, 641, 3524, 1363]",predicting the user's next location based on their recent activity pattern
+129,1626,"[1626.0, 2497.0, 1395.0, 920.0, 3060.0, 641.0, 1288.0, 1540.0, 3524.0, 1786.0]","Recent frequent visits to places 1626 and 2497, as well as historical patterns of daily and weekly routine."
+129,3060,"[1626, 1395, 920, 2497, 641, 3060, 1363, 3524, 1288, 1540]",Recent stays at location 1626 and patterns of repeated visits on Fridays
+129,1395,"[1626, 2497, 1395, 920, 3060, 641, 1363, 3524, 1288, 1540]","Based on the user's historical stays and recent behavior, the most likely places to visit next are those with frequent visits or recency"
+129,1395,"[1626.0, 1395.0, 920.0, 2497.0, 641.0, 1363.0, 3524.0, 3060.0, 1288.0, 1540.0]","Based on the user's historical stays and recent context, I predict they will visit a place with a similar day of week (Friday) and time (morning or early afternoon), likely repeating a previously visited location such as their home or work."
+129,1626,"[2497.0, 1626.0, 920.0, 1395.0, 3060.0, 641.0, 1363.0, 3524.0, 1288.0, 1540.0]",based on historical patterns and recent behavior
+129,2497,"[2497, 1626, 920, 3060, 1395, 1363, 1288, 1540, 641, 3524]",based on historical patterns and recent context
+129,1626,"[1626, 1395, 3060, 2497, 920, 641, 1288, 1540, 1363, 3524]",Recent visits to the same places on Fridays and Mondays suggest a high likelihood of returning to these locations.
+129,1395,"[1626.0, 1395.0, 920.0, 2497.0, 3060.0, 641.0, 1363.0, 3524.0, 1288.0, 1540.0]","Based on the user's historical stays and recent context, I predict they will likely visit a place that is familiar to them, possibly a workplace or home, given their consistent Monday and Wednesday routines."
+129,1739,"[1395, 1626, 920, 2497, 3060, 641, 1363, 3524, 1288, 1540]","Based on the user's historical stays and recent context, I predict they will visit a familiar location (e.g. home or work)"
+129,1739,"[1626.0, 2497.0, 1395.0, 920.0, 3060.0, 641.0, 1363.0, 3524.0, 1288.0, 1540.0]",Recent and historical patterns suggest the user is likely to visit their most frequent locations
+129,1395,"[1626, 2497, 920, 1395, 641, 3060, 1363, 3524, 1288, 1540]",Recent visits to these places in the context and historical patterns of daily routines
+129,3060,"[1626.0, 2497.0, 1395.0, 920.0, 641.0, 1363.0, 3524.0, 1288.0, 1540.0, 3060.0]","Based on the user's historical activity pattern and recent context, I predict they will visit a familiar location, likely their workplace (1626.0), followed by other frequent destinations"
+129,1626,"[1626, 2497, 920, 1395, 1363, 3524, 641, 3060, 1288, 1540]",Recent pattern of visiting 1626 on Monday mornings and considering historical patterns
+129,3060,"[1395, 1626, 920, 2497, 641, 1363, 3524, 3060, 1288, 1540]",Recent context indicates frequent visits to place ID 1395 and 1626 on Monday; historical data shows these places are often visited at the same time/day of week.
+129,1626,"[1626.0, 2497.0, 920.0, 1395.0, 641.0, 1363.0, 3524.0, 1288.0, 1540.0]",Recent stays at 1626 and 1395 suggest a high probability of returning to these places
+129,920,"[1626.0, 1395.0, 920.0, 2497.0, 3060.0, 641.0, 1363.0, 3524.0, 1288.0, 1540.0]",Recent visits to places with similar IDs and day of the week suggest a high probability of returning to these locations.
+129,3060,"[1395, 1626, 2497, 920, 641, 1363, 3524, 1288, 1540, 3060]","Recent Monday visits to 1395 and 1626, followed by patterns from historical data"
+129,1626,"[2497, 1395, 3060, 1626, 1288, 1540, 641, 3524, 920, 1363]",Predicted based on recent behavior in context and patterns in history

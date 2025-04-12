@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+391,561,"[1120, 561, 565, 594, 610, 1121, 587, 3004, 3809, 2747]","The prediction is based on the user's activity pattern and context. The target stay is during a weekend day (Saturday) in the morning, which suggests a visit to a place that is popular for this time of day and day of the week."
+391,1337,"[561, 594, 610, 587, 1120, 565, 561, 1104, 1004, 300]",based on user's activity pattern and recent context
+391,53,"[1337, 610, 1121, 561, 594, 587, 1004, 552, 300, 265]","The prediction is based on the user's recent activities in <context>, which show a pattern of visiting places during daytime hours on weekends. This information is combined with the historical activity pattern in <history> to infer that the user may visit the same place they visited recently on Saturday."
+391,1004,"[3809, 1004, 1337, 561, 1120, 594, 587, 565, 561, 53]","based on the user's activity pattern and recent stays, considering time of day and day of week"

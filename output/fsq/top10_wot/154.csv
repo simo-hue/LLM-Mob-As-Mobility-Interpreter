@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+154,3131,"[3131.0, 506.0, 1018.0, 1720.0, 1922.0, 2030.0, 638.0, 1208.0, 751.0, 16.0]","Based on the user's historical stays and recent context, I predict that they will most likely visit place ID 3131 again, followed by other frequently visited places."
+154,939,"[3131, 506, 1018, 1720, 1922, 2307, 638, 537, 751, 16]",Recent behavior and historical patterns suggest frequent visits to specific locations
+154,3131,"[3131, 1208, 1922, 1018, 506, 751, 2307, 16, 1720, 638]","Based on the user's historical stays and recent context, I predict they will visit their most frequently visited place (3131), followed by other common places like 1208, 1922, and so on."
+154,3131,"[3131.0, 1018.0, 1208.0, 1720.0, 1922.0, 2030.0, 2307.0, 638.0, 537.0, 751.0]","The user has a strong preference for location 3131.0 and tends to visit similar places (e.g., locations 1018.0, 1208.0, 1922.0) on different days of the week."
+154,3131,"[1922, 1018, 1208, 1720, 506, 751, 2307, 16, 684, 2030]",Pattern of recent days at work and possible commute or leisure activities

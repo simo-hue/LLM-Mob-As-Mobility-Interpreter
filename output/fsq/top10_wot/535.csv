@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+535,866,"[2731, 150, 362, 300, 2853, 3442, 2885, 1361, 417, 326]","Recent visits to places at similar times and days, with a strong tendency towards repeated stays in the same places."
+535,2857,"[2731, 2853, 2885, 3442, 150, 300, 362, 354, 417, 1297]",based on recent frequent visits to 866
+535,3552,"[2731, 2853, 2885, 3442, 150, 362, 354, 417, 1297, 1361]",The prediction is based on the recent visits to places and the day of the week
+535,3211,"[2731, 2853, 1361, 354, 150, 362, 300, 866, 1297, 417]","Based on the user's historical stays and recent context, we predict they will visit places that are frequently visited at similar times of day, such as weekday afternoons/evenings, and also consider the most recently visited locations."
+535,866,"[152.0, 1297.0, 866.0, 300.0, 2853.0, 2731.0, 1361.0, 3442.0, 362.0, 354.0]","The prediction is based on the user's historical behavior and recent context. The top predictions include frequently visited places like home (152.0) and work (3442.0), as well as popular hangout spots like cafe (1297.0)."
+535,3442,"[2731, 150, 362, 354, 1361, 1297, 975, 326, 2853, 3211]","The prediction is based on the user's historical pattern of visiting similar places at certain times and days, as well as their recent behavior in the context."
+535,866,"[2731, 2853, 2885, 3211, 326, 362, 354, 3442, 300, 150]",The prediction is based on the user's frequent visits to a specific location at certain times of the day and days of the week.
+535,866,"[866, 2731, 3442, 300, 150, 2853, 3211, 362, 354, 326]",Predicted places based on user's daily routine and recent behavior
+535,3442,"[2731, 2853, 2885, 362, 354, 150, 866, 3442, 1361, 300]",Pattern-based prediction considering recent contextual information
+535,866,"[3442, 866, 300, 2731, 2853, 150, 362, 417, 326, 1297]",Recent behavior suggests frequent visits to specific locations on certain days of the week
+535,866,"[2731, 150, 2853, 362, 354, 417, 1297, 1361, 975, 326]","Recent visits to 3442 and 866 suggest a high likelihood of returning to these places. Additionally, the weekend pattern in history is taken into account."
+535,866,"[2731, 150, 362, 354, 2885, 2853, 3442, 300, 866, 2191]","Based on the user's historical stays and recent context, the prediction is based on a combination of repeated visits to places at certain times/days and recent behavior."
+535,204,"[2731, 2853, 3442, 300, 866, 362, 354, 2885, 1361, 150]","Based on historical patterns and recent behavior, the most likely places are those frequently visited during weekends and late evenings"

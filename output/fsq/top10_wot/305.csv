@@ -1,0 +1,58 @@
+user_id,ground_truth,prediction,reason
+305,3732,"[3732, 3749, 3788, 846, 506, 3273, 1432, 3394, 1404, 319]",Recent stays and patterns in the history suggest a high likelihood of returning to previously visited places on weekends and weekdays
+305,3736,"[3788, 3749, 3736, 3732, 846, 506, 319, 43, 3273, 1404]","Based on the user's historical stays and recent behavior, I predict that they will visit a place similar to their most frequently visited places during this day of the week and time."
+305,1432,"[846.0, 3732.0, 3749.0, 3788.0, 506.0, 3274.0, 319.0, 43.0, 139.0, 1404.0]",Recent frequent visits to locations with similar day and time patterns
+305,1,"[846.0, 3732.0, 3749.0, 3788.0, 506.0, 319.0, 43.0, 3273.0, 3394.0, 1404.0]",Recent visits to the same places and similar day of week patterns suggest a high likelihood of returning to familiar locations
+305,3736,"[3736, 3749, 3788, 3273, 846, 506, 2620, 319, 43, 1404]",Recent contextual information suggests a strong likelihood of returning to places previously visited during similar time frames and days.
+305,3788,"[3732, 3749, 3788, 846, 506, 319, 43, 3273, 3394, 1404]","The user's recent behavior in context and their historical stays suggest a strong likelihood of revisiting places they have been to before, with a slight bias towards evening and nighttime visits"
+305,3749,"[3736, 3749, 3788, 846, 506, 319, 43, 3273, 1394, 1404]",predicting frequent places from recent context and historical patterns
+305,3732,"[3732, 846, 3749, 3788, 319, 506, 3273, 1404, 2620, 3274]",Predicted based on user's recent behavior and historical stays.
+305,3274,"[3732, 846, 3749, 3788, 506, 319, 43, 3273, 1404, 1]",Recent behavior suggests the user may visit a familiar place like home (3732) or a regular hangout spot like cafe or restaurant
+305,2620,"[846.0, 3736.0, 3788.0, 3749.0, 3732.0, 319.0, 506.0, 43.0, 1404.0, 3273.0]","The predicted places are the most frequently visited ones in the user's history and context, considering both time and day of week patterns."
+305,3749,"[3788, 3749, 3732, 846, 506, 319, 43, 2620, 3274, 1404]","Recent context indicates frequent visits to places 3788, 3749 and 3732 on weekends, with additional likelihood of visiting place 846 during evenings"
+305,3788,"[3788, 3749, 3732, 846, 2620, 3274, 1404, 506, 319, 43]",Recent stays at place 3732 and 3749 indicate a likelihood of returning to these locations
+305,3788,"[3732, 3788, 3749, 846, 2620, 3274, 506, 319, 43, 1404]","Recent visits to places at certain times/days, and patterns in the user's history"
+305,3732,"[3732, 3749, 3788, 846, 2620, 506, 3274, 319, 43, 1404]",Recent stays and visits on Sundays and Fridays suggest a high likelihood of returning to these places
+305,3274,"[3736.0, 3749.0, 3788.0, 846.0, 506.0, 3273.0, 2620.0, 1404.0, 319.0, 43.0]",Recent visit to 3732 and the user's typical weekend routine suggests a likely repeat of past behaviors
+305,3273,"[3736, 3749, 3788, 846, 506, 3273, 319, 43, 3274, 2620]",Recent visits to places on Monday and Sunday suggest a preference for these locations at night
+305,3732,"[846.0, 3736.0, 3788.0, 3749.0, 3732.0, 319.0, 506.0, 3274.0, 3273.0, 1404.0]","The prediction is based on the user's recent behavior and historical patterns, favoring places they have visited at similar times of day or week."
+305,3394,"[3736, 3788, 3749, 846, 506, 2620, 319, 43, 3274, 3273]",Recent visits to places at certain times/days and repeated patterns in historical stays
+305,43,"[846.0, 3736.0, 3749.0, 3788.0, 506.0, 3273.0, 3732.0, 1404.0, 2620.0, 319.0]",Recent behavior suggests frequent visits to places at late night/early morning and repeated stays at certain locations
+305,3732,"[846, 3736, 3749, 3788, 506, 319, 3273, 3274, 3732, 139]",The prediction is based on the user's recent behavior in the context of their historical stays. The most likely places are the ones they have visited recently and at similar times/days.
+305,3749,"[3732, 3749, 3788, 846, 506, 3273, 1404, 319, 42, 45]",Recent contextual information and historical pattern of repeated visits to places at certain times/days suggest user is likely to visit one of their frequently visited locations.
+305,3788,"[3736, 3749, 3788, 846, 506, 319, 43, 3273, 2620, 3274]","based on the user's historical stays and recent behavior, predicting a repeat visit to a previously visited place at a similar time/day"
+305,3736,"[3736, 3749, 3788, 846, 506, 319, 43, 3274, 3273, 2620]","Recent visits to places on Friday nights and early Saturdays suggest a continuation of this pattern, with a slight preference for the most recent place IDs in context"
+305,43,"[3732, 3749, 3788, 846, 43, 506, 319, 3273, 1404, 3795]","Based on the recent trend of frequent visits to places with IDs 3732 and 3749, especially during weekdays."
+305,3749,"[3732, 3749, 3788, 846, 506, 3274, 319, 43, 1404, 3394]","Based on the historical stays and recent context, it is likely that this user will visit places they frequently visit at similar times of day."
+305,3732,"[3732, 3749, 3788, 846, 506, 319, 43, 3274, 3273, 3394]",recent visits to places at certain times/days and patterns in the user's historical stays
+305,1432,"[3732, 3788, 3749, 846, 506, 2620, 3273, 319, 43, 1404]","Recent pattern of frequent visits to places 3732, 3788 and 3749 suggests high likelihood of returning to these locations."
+305,2688,"[3788, 3749, 3736, 3273, 846, 506, 2620, 319, 43, 1404]","Based on the user's historical stays and recent behavior, I predict that they will likely visit places where they have previously stayed at night or during the weekend."
+305,2619,"[3788, 3749, 3736, 3732, 846, 506, 319, 43, 3273, 2620]","Recent stays in the context of weekend afternoons and evenings at places like 3788, 3749, and 3732 suggest a higher likelihood of visiting these locations next."
+305,3749,"[3736, 3749, 3788, 3273, 846, 506, 1432, 2688, 2619, 1404]","Recent contextual information suggests the user is likely to visit places they've visited before, especially on weekdays and late at night. Historical stays show a strong pattern of returning to locations like 3736, 3749, and 3788."
+305,3788,"[3736.0, 3749.0, 3788.0, 3273.0, 846.0, 506.0, 2620.0, 319.0, 43.0, 1404.0]",Recent stays and time of day suggest a return to previously visited places on weekends
+305,3732,"[3732, 3749, 846, 3788, 506, 319, 43, 3273, 3394, 1404]","Based on the user's historical stays and recent context, it is likely that they will visit places they have visited before, especially those with evening or nighttime stays (3732, 3749, 846), with a slight preference for weekend visits."
+305,3736,"[3788, 3749, 3736, 846, 319, 506, 3273, 2688, 2619, 1404]","Predicted based on recent behavior and historical patterns, prioritizing frequent and recently visited places"
+305,3274,"[3732, 3749, 3788, 846, 506, 319, 43, 3274, 3273, 1404]",The prediction is based on the user's recent stays and patterns in their historical data. The top predicted places are those that have been visited frequently and recently.
+305,3788,"[3749, 3788, 3732, 846, 506, 319, 43, 3736, 3273, 1404]",Recurring weekend visits to places 3749 and 3788
+305,3749,"[847, 3736, 3749, 3788, 506, 2620, 319, 1404, 3394, 43]","Recent behavior suggests the user prefers evening stays at familiar locations like 847 and 3736, with a slight preference for weekends."
+305,1863,"[3732, 3788, 3749, 846, 506, 1404, 3273, 319, 43, 2620]",Recent visits to place ID 3732 and 3788 indicate a strong likelihood of returning to these locations
+305,1436,"[3732, 846, 3274, 3749, 3788, 506, 319, 43, 1404, 3394]","The user tends to visit the same places at similar times and days, with recent behavior in context favoring these locations."
+305,1,"[3732, 846, 3749, 3788, 319, 506, 3274, 3273, 43, 1404]","The user has a tendency to visit places at certain times/days, and recent behavior shows a preference for place IDs 3732, 846, and 3749."
+305,1280,"[3732, 846, 3749, 3788, 506, 3274, 2620, 319, 43, 1404]","Based on the user's historical stays and recent behavior, I predict they will visit a place similar to those visited during weekends (e.g., Friday-Saturday) and possibly return to places previously visited during weekdays (e.g., Monday-Wednesday)."
+305,3788,"[3732, 3749, 3788, 846, 506, 319, 43, 3273, 3394, 1404]","Recent visits to 3732 and 3749, and previous patterns of staying at these locations"
+305,3732,"[3788, 3732, 3749, 846, 319, 506, 1, 1404, 3273, 3394]","Recent behavior shows a strong preference for places visited during the late hours on Friday and Saturday, with a slight bias towards places visited in the early morning"
+305,3788,"[3788, 3736, 3749, 506, 846, 3273, 1436, 1404, 1, 1280]",Pattern analysis from historical stays and recent behavior in context
+305,3736,"[3788, 3732, 3749, 846, 506, 1404, 319, 3273, 3394, 1280]",Predicted places based on recent frequentation patterns and time/day dependencies in the user's historical stays.
+305,3732,"[3732, 3788, 846, 3749, 506, 319, 3273, 1394, 1404, 3394]","Recent and historical stays suggest a tendency to visit place IDs 3732, 3788, and 846, with some variation depending on the day of the week."
+305,3394,"[3732, 3788, 3749, 846, 506, 319, 43, 3273, 1404, 2620]",Recent stays at locations 3732 and 3788 suggest continued preference for these places
+305,3732,"[3732, 846, 3749, 3788, 506, 3273, 1404, 2620, 319, 43]",Recent behavior suggests frequent visits to places like 3732 and 846; historical pattern shows tendency to visit similar locations on weekends
+305,3749,"[3732, 3788, 3749, 846, 506, 3273, 1404, 319, 43, 2620]","Recent pattern of visiting places at certain times/days in <context> and repeated visits to places like 3732, 3788, and 3749 in <history>"
+305,3788,"[3736, 846, 3273, 3732, 3788, 3749, 506, 2620, 319, 43]","The user's recent behavior indicates a preference for locations visited at late hours on weekends (Friday, Saturday), especially location 3736 and 846. The historical pattern also shows that these places are often visited on Fridays and Saturdays."
+305,3749,"[3736, 846, 506, 2620, 3274, 319, 43, 1404, 3394, 3273]",recent pattern of visiting places on weekends and weekday evenings
+305,3788,"[3788, 3736, 3749, 846, 506, 2620, 3273, 319, 43, 1404]",Recent visits on Saturday and Saturday evening were likely followed by a visit to the most common places
+305,2459,"[3732, 3749, 3788, 846, 506, 319, 43, 3274, 3273, 485]","The user's recent behavior suggests a strong likelihood of visiting places they frequent on weekends and late nights. Historical data shows a preference for places like 3732, 3749, and 3788, especially during Saturday and Friday stays. The context also indicates a possible revisit to these locations."
+305,3732,"[3732, 846, 3749, 3788, 319, 506, 2620, 3274, 3273, 485]",based on historical patterns and recent behavior
+305,1432,"[846, 3736, 3788, 3749, 506, 2620, 3273, 1404, 319, 43]","Recent behavior in context suggests a preference for place IDs 846 and 3732, while historical data shows frequent visits to places 3788 and 3749"
+305,3273,"[846.0, 3736.0, 3732.0, 3749.0, 3788.0, 506.0, 2620.0, 3274.0, 3394.0, 1404.0]","Based on the user's historical stays and recent behavior, I predict they will visit a place similar to their recent destinations, considering patterns in both."
+305,3274,"[3749, 3788, 3736, 846, 506, 3274, 319, 43, 1404, 2459]",Recently frequent places with similar daily patterns are preferred
+305,3732,"[3732, 3749, 3788, 846, 506, 319, 43, 1404, 3273, 2459]","Recent stays at 3732 and 3749 suggest a high likelihood of visiting these places again, while historical patterns show a tendency to visit 3788 and 846 on Friday nights. Context also suggests a possible visit to 2459."

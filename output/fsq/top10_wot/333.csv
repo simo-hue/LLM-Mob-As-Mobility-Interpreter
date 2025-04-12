@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+333,1223,"[1825, 1047, 1223, 2884, 647, 1055, 619, 165, 202, 3121]","The user tends to visit place 1825 frequently, and also has a pattern of visiting place 1047 on Wednesdays. In the recent context, they visited places 641 and 1163, which are not in their typical routine. We predict they will return to one of their frequent locations."
+333,413,"[1825, 1047, 1211, 1223, 3121, 2884, 1163, 641, 847, 165]","The user's historical stays show a strong affinity for place 1825, with many repeated visits throughout the week. The recent context suggests that they may be heading towards this location again."
+333,1163,"[1825, 1047, 2884, 1211, 1223, 1163, 847, 3121, 165, 619]","Based on the user's historical stays and recent behavior, I predicted that they will likely visit a location similar to their frequent destinations (e.g., 1825) or places visited recently (e.g., 1223), with consideration given to day of the week patterns (e.g., 1047 on Wednesdays)."
+333,990,"[1825, 1047, 1223, 847, 3121, 1211, 1163, 641, 413, 619]","Recent and historical patterns suggest the user is likely to return to a place they have visited before, with a bias towards places visited during weekdays and afternoon hours"
+333,1163,"[1825, 1047, 1223, 847, 3121, 1211, 1163, 413, 990, 165]",recent visits to home and work locations
+333,2884,"[1825, 1223, 1047, 847, 3121, 1211, 413, 1163, 990, 165]","Recent stays at 1825 and last contextually similar visits to places with IDs 1223, 1047, 847"
+333,2884,"[1825.0, 1047.0, 1223.0, 3121.0, 847.0, 1211.0, 413.0, 1163.0, 990.0, 2884.0]",based on historical patterns and recent behavior
+333,452,"[1825, 1223, 847, 1047, 3121, 1211, 202, 165, 1055, 619]","Recent frequent visits to places 1825 and 1223, with some patterns of daily and time-based preferences"
+333,2884,"[1825.0, 1047.0, 1211.0, 3121.0, 847.0, 1223.0, 2884.0, 165.0, 202.0, 990.0]","Based on the user's historical stays and recent behavior, I predict they will visit places with similar IDs to their most frequent locations."
+333,1,"[1825, 1047, 1223, 847, 3121, 1211, 452, 165, 202, 619]",recent visits to places and consistent patterns in the user's activity
+333,535,"[1825, 1047, 1223, 3121, 847, 2884, 452, 1211, 165, 202]","Recent stays at 1825 and current day of week pattern suggest likelihood of returning to 1825, while history shows repeated visits to 1047, 1223, and 3121 on various days"
+333,1223,"[1825.0, 1047.0, 1223.0, 3121.0, 1211.0, 847.0, 535.0, 2884.0, 619.0, 165.0]",recently frequent places and daily patterns
+333,1223,"[1825.0, 1047.0, 1211.0, 1223.0, 2884.0, 3121.0, 847.0, 165.0, 202.0, 535.0]",Recent frequent visits to places in history

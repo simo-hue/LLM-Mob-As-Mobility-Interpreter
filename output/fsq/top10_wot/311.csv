@@ -1,0 +1,26 @@
+user_id,ground_truth,prediction,reason
+311,3817,"[3535.0, 3812.0, 1.0, 831.0, 2231.0, 1921.0, 855.0, 3069.0, 3817.0, 2419.0]","based on historical patterns of visiting place 3535 at various times and days, and recent behavior of visiting places 855 and 3069"
+311,1,"[1.0, 3535.0, 3812.0, 2123.0, 832.0, 2231.0, 831.0, 2419.0, 855.0, 3069.0]","Based on the user's historical stays and recent contextual information, I predict they will visit one of their most frequently visited places at a similar time/day to their past patterns."
+311,832,"[3535.0, 3812.0, 2123.0, 832.0, 2231.0, 1921.0, 2419.0, 1.0, 831.0, 3817.0]",Recent stays at 3535.0 and historical patterns of daily and time-based visits
+311,3535,"[3535, 3812, 2231, 1921, 2123, 2419, 832, 1, 831, 1920]","The user has shown a strong preference for place ID 3535 in the past, and recent behavior suggests they are likely to stay at this location again."
+311,2939,"[3535.0, 3812.0, 832.0, 2231.0, 1921.0, 831.0, 2419.0, 2123.0, 1.0, 1.0]","The user has a strong affinity for location ID 3535 in their historical stays and recent context, making it the most likely next place."
+311,3535,"[3535, 3812, 832, 1921, 2231, 2419, 831, 2123, 2231, 1921]",Recent stays at place ID 3535 and patterns in history suggest a high likelihood of returning to this location.
+311,3535,"[3535, 3812, 2123, 832, 2231, 1921, 2419, 831, 1, 2939]","The user has a strong preference for staying at place ID 3535 on weekdays and weekends, with some variation depending on the day of the week."
+311,1072,"[3535.0, 3812.0, 832.0, 2123.0, 1.0, 2939.0, 1921.0, 2231.0, 2419.0, 831.0]","Based on the user's historical stays and recent behavior, the prediction is that they will likely visit one of their most frequently visited places, which are mostly at location ID 3535.0."
+311,1237,"[3535, 3812, 1, 2123, 832, 2231, 1921, 2419, 2939, 1072]",recent behavior in context and historical patterns
+311,2231,"[3535, 3812, 1, 2123, 832, 2231, 1921, 831, 2419, 2939]",recently frequenting place 3535 and places near it
+311,3535,"[3535, 3812, 2231, 1921, 831, 1072, 1237, 2123, 832, 2419]",Recent behavior and historical patterns suggest the user is likely to visit familiar places at regular times
+311,3069,"[3535, 3812, 1, 2123, 832, 2231, 1921, 831, 2419, 3069]","The user tends to visit place ID 3535 frequently on various days and times. The recent context also suggests a strong likelihood of visiting this location again. Additionally, there are some weaker patterns indicating possible visits to places IDs 3812, 1, and 2123."
+311,3535,"[3535, 3812, 3069, 1, 2123, 832, 2231, 1921, 2419, 831]",recent and historical visits to places at certain times/days
+311,3535,"[3535, 3812, 1, 2123, 832, 2231, 1921, 831, 2419, 3069]",Recent visits to places at similar times and days indicate a high likelihood of returning to familiar locations.
+311,1288,"[3535, 3812, 1, 2123, 832, 2231, 1921, 2419, 3069, 831]","Recent behavior in context suggests a high likelihood of visiting location 3535, with secondary possibilities including repeated visits to locations 3812 and 1"
+311,1709,"[1, 3812, 2123, 832, 2231, 1921, 831, 2419, 3069, 1288]",The user tends to visit the same places at similar times/days and has recently been frequenting a few specific locations.
+311,3535,"[3535, 3812, 1, 2123, 832, 2231, 1921, 2419, 831, 1288]",Pattern of returning to previously visited places at similar times
+311,3535,"[3535, 3812, 2123, 832, 2231, 1921, 831, 2419, 1, 1288]",Recent visits to place ID 3535 and patterns in history suggest frequent returns to this location.
+311,3069,"[3535, 3812, 1288, 1709, 1, 2123, 832, 2231, 1921, 2419]",The user tends to visit places at certain times/days and has a recent history of visiting place 3535.
+311,3069,"[1, 3812, 2123, 832, 2231, 1921, 831, 2419, 1288, 1709]",Recent stays at place 3535 and previous day's stay at 1.0 increase likelihood of returning to these places.
+311,3069,"[3535, 3812, 1921, 2231, 3069, 2123, 832, 2419, 1, 831]",Recent stays at place 3535 and recent patterns in history suggest a high likelihood of returning to this location.
+311,3535,"[3535, 3812, 832, 2123, 831, 2231, 2419, 1921, 1, 3069]",based on historical patterns and recent behavior
+311,3535,"[3535, 3812, 3069, 2123, 832, 2231, 1921, 831, 2419, 1]",Recent visits to places at certain times/days and repeated patterns in the user's historical stays.
+311,3535,"[3535, 3812, 2123, 832, 2231, 1921, 2419, 3069, 1, 831]",The user has a strong preference for place ID 3535 and often revisits this location. The recent context also suggests that the user may go back to this place.
+311,3535,"[3535, 3812, 3069, 1, 2123, 832, 2231, 1921, 831, 2419]","The user's historical stays show a strong affinity for place ID 3535, with most of their visits occurring at the same time of day (late afternoon/early evening). The recent context suggests the user may be heading back to this location. Places IDs 3812 and 3069 are also frequently visited by the user."

@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+425,1191,"[729, 696, 344, 976, 270, 165, 2392, 506, 2274, 1253]","Recent frequent stays at place 729 and patterns in history suggest a high likelihood of visiting places similar to these, with a focus on weekdays."
+425,729,"[729, 696, 344, 976, 165, 270, 2392, 506, 2274, 1191]",Recent and historical patterns of visiting places at similar times/days suggest likely next locations are the most visited places
+425,696,"[729, 696, 344, 976, 270, 2392, 2274, 506, 165, 270]","The user has a strong preference for visiting place 729 during weekdays, with recent stays at this location in the context."

@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+90,3706,"[1512, 1289, 1220, 609, 976, 2145, 3706, 3249, 2262, 789]",predicted based on historical stays and recent behavior
+90,1220,"[1512, 1289, 1220, 609, 976, 2145, 2262, 3666, 785, 789]","Based on the historical stays and recent context, I predict that the user will likely visit a familiar location (e.g., work or school) in the morning or early afternoon."
+90,3706,"[1512.0, 1289.0, 1220.0, 609.0, 3706.0, 976.0, 785.0, 789.0, 2145.0, 2262.0]","The user's historical pattern shows frequent visits to places 1512 and 1289 on weekdays, with recent stays at these locations in the <context>. The model predicts they will likely visit one of these places again."
+90,1289,"[1512, 1289, 1220, 3706, 609, 976, 2262, 789, 785, 2145]","Recent behavior suggests frequent visits to place 1512 during weekdays and morning hours, while historical pattern shows a mix of regular visits to multiple places."
+90,293,"[1512.0, 1220.0, 3706.0, 609.0, 976.0, 2145.0, 2262.0, 3666.0, 1289.0, 785.0]","Predicted based on the user's frequent visits to places during weekdays and weekends, with a strong preference for place IDs 1512, 1220, and 3706."
+90,609,"[1512.0, 1220.0, 3706.0, 1289.0, 609.0, 976.0, 2145.0, 2262.0, 789.0, 785.0]",The user tends to visit the same places on similar days and times
+90,789,"[1512, 1220, 3706, 976, 785, 789, 1289, 2262, 2145, 609]",based on historical stays and recent context

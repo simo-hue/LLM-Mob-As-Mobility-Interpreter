@@ -1,0 +1,32 @@
+user_id,ground_truth,prediction,reason
+377,1208,"[1208, 2328, 3183, 1086, 2660, 939, 2641, 3055, 1, 1099]",Recent visits to new places and morning routine
+377,1,"[1208, 2328, 1086, 3183, 939, 2641, 2660, 3055, 1, 1086]","Recent behavior in context suggests frequent visits to place 2328 on weekdays, and historical pattern shows visits to place 1208 around the same time"
+377,2328,"[2328, 1086, 3183, 3055, 1, 939, 2641, 1208, 2660, 2672]",Recent and historical patterns favor places visited during weekdays
+377,1,"[2328, 1, 1086, 3055, 3183, 2660, 939, 1208, 2641, 2689]",Predicted based on recent visits to place 2328 and the user's morning routine
+377,1086,"[2328, 1086, 1, 3183, 1208, 939, 2641, 3055, 2660, 3062]","The user has a pattern of visiting certain places at the same time every day, and recent behavior suggests they will visit place 2328 next."
+377,2328,"[2328, 1086, 3183, 1208, 939, 2660, 3055, 2641, 1, 1092]",predicted based on recent behavior and historical patterns
+377,1,"[2328, 1086, 1, 3055, 3183, 2641, 939, 1208, 2660, 3174]",recently visited the same place at a similar time
+377,1086,"[1, 2328, 1086, 3183, 939, 2641, 3055, 1208, 2660, 3062]",The user tends to visit places like home or work at regular times/days
+377,1,"[2328, 1, 1086, 3055, 3183, 939, 2641, 1208, 2660, 3067]","Based on the user's historical stays and recent context, it is likely that they will visit a place they have been to before, possibly around the same time of day, such as their regular morning spot (2328)"
+377,1086,"[2328, 1, 1086, 3055, 1208, 939, 3183, 2641, 2660, 2687]","The user tends to visit places at certain times and days based on their historical pattern, and recent behavior suggests a morning stay"
+377,3055,"[2328, 1, 1086, 939, 2641, 3183, 2660, 3055, 1208, 2641]",Based on the user's recent behavior in context and historical pattern of visiting places at certain times/days.
+377,1404,"[2328, 1, 1086, 3183, 1208, 2641, 939, 3055, 2660, 1087]",Recent behavior and historical patterns indicate a strong likelihood of returning to work or school
+377,2328,"[2328, 1, 1086, 3183, 1208, 939, 2641, 3055, 2660, 1404]","Recent behavior indicates frequent visits to place 2328 on weekdays, while historical data shows a mix of daily and weekend activities at various locations."
+377,1208,"[1, 2328, 1086, 1208, 939, 2641, 3183, 3055, 1404, 2660]",Recent visits to places at certain times/days and repeated patterns in the user's history
+377,1,"[1, 2328, 1086, 3055, 939, 2641, 3183, 1404, 1208, 2660]","Based on the user's historical stays and recent context, I predicted their next likely places as a combination of frequent visited locations (home/work) and recently used ones."
+377,3055,"[2328, 1086, 3055, 3183, 939, 1404, 1208, 2660, 2641, 1]",Pattern of daily commutes and work/school stays
+377,1086,"[2328, 1, 1086, 1404, 1208, 3183, 939, 2660, 2641, 3055]","Recent behavior shows a pattern of visiting place 2328 on Wednesdays and Mondays, as well as a slight preference for place 1. Historical data also indicates frequent visits to places 1086, 1404, 1208, and 3183."
+377,1,"[2328, 1, 1208, 1086, 3183, 939, 2641, 3055, 2660, 2679]","Recent behavior suggests frequent visits to places at certain times/days, and the user tends to revisit previously visited places."
+377,2328,"[2328, 1208, 1086, 1, 3183, 939, 2641, 3055, 2660, 2677]",Recent activity and historical patterns suggest a strong likelihood of visiting place IDs commonly visited during this time/day combination
+377,1404,"[1, 2328, 1086, 3055, 3183, 1208, 939, 2641, 2660, 2687]","based on historical patterns and recent context, considering daily routines and location dependencies"
+377,2328,"[2328, 1086, 3055, 1, 3183, 2660, 939, 2641, 1208, 1404]","The user has shown a pattern of visiting place 2328 on Mondays and Fridays, with occasional visits to other places."
+377,1404,"[1, 1086, 2328, 2660, 1208, 3055, 939, 2641, 3183, 1404]",recent and historical patterns of the user's activity
+377,2328,"[2328, 1, 1086, 3055, 1208, 3183, 939, 2641, 1404, 2660]","Recent context and historical patterns suggest daily routine with frequent visits to places 2328, 1, and 1086"
+377,1086,"[2328, 1, 1086, 3055, 1208, 2641, 939, 3183, 2660, 1404]","The user has a strong tendency to visit places at certain times and days, with recent behavior suggesting they are likely to stay at place ID 2328 again."
+377,1,"[2328, 1, 1086, 3183, 3055, 1404, 2641, 939, 1208, 2660]","The prediction is based on the user's recent behavior in <context>, which includes a visit to place ID 2328 and 1404. This pattern is consistent with their historical stays in <history>, where they frequently visited these places at similar times/days."
+377,2328,"[2328, 1086, 3055, 3183, 1208, 939, 2641, 1404, 2660, 1]","Recent behavior in context suggests frequent visits to places with IDs 2328 and 1086, while historical stays show consistent patterns of visiting place ID 1 on Mondays and Tuesdays."
+377,2328,"[2328, 1086, 1404, 939, 2660, 3183, 3055, 2641, 1208, 1]",The user tends to visit places at certain times/days based on historical data and recent behavior in the context
+377,1086,"[1208, 2328, 1086, 3055, 3183, 2641, 939, 1, 2660, 2682]",recent stays at 1 and 2328 on Tuesday
+377,1,"[2328, 1, 1086, 3055, 3183, 1208, 2641, 939, 2660, 2660]","Recent visits to 2328 and 1086 suggest the user is likely at work or school, with a strong possibility of visiting other frequent locations on weekdays."
+377,2328,"[2328, 1086, 3055, 3183, 1208, 939, 2641, 2660, 1, 3064]","The user has a frequent pattern of staying at place 2328 on Mondays and Tuesdays. In the context, they have recently visited places 1086 and 1. These patterns suggest that the next likely place is place 2328."
+377,1,"[1, 2328, 1086, 3055, 3183, 1208, 939, 2641, 2660, 2687]",Recent behavior suggests frequent visits to place 1 and occasional visits to other frequently visited places.

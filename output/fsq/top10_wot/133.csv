@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+133,211,"[1081, 211, 2392, 198, 3809, 656, 489, 3416, 526, 474]","Recent behavior in the context suggests a high likelihood of returning to previously visited places, with 1081 being the most likely."
+133,1081,"[1081, 211, 2757, 3809, 33, 3464, 489, 526, 474, 3416]",Recent visits to frequent locations
+133,1081,"[1081, 211, 2757, 3809, 3464, 489, 526, 474, 656, 554]","The prediction is based on the user's recent and historical behavior, with a strong likelihood of returning to familiar places (1081) and revisiting popular destinations (211, 2757, 3809)."

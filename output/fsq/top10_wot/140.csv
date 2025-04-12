@@ -1,0 +1,39 @@
+user_id,ground_truth,prediction,reason
+140,1024,"[1674, 411, 242, 1109, 942, 803, 1190, 2408, 1028, 1003]","Recent stays at 1674 and 411, with some consistency in days of the week"
+140,1109,"[1674, 1109, 2258, 942, 803, 2408, 411, 1190, 1028, 631]",Recent stays at home and work were similar to historical patterns
+140,942,"[1674, 1109, 1028, 942, 803, 631, 411, 2408, 2242, 1190]",Recent behavior suggests a tendency to visit places at similar times and days of the week.
+140,954,"[1674, 411, 803, 242, 631, 940, 154, 1028, 2408, 109]","The user tends to visit the same places on similar days and times, with a recent bias towards visiting place 1674 and other popular places like 411, 803, and 2408"
+140,1674,"[1674, 109, 2242, 631, 101, 1109, 8, 411, 242, 154]","The user has a daily pattern of visiting places around 10-11 am on weekdays and weekends. The recent context suggests a visit to place 954, which is likely to be followed by another visit to place 1674."
+140,2277,"[1674, 1109, 1024, 803, 411, 942, 631, 2408, 109, 101]",Recent frequent visits to certain places and repeated behavior on specific days
+140,1674,"[1674, 1109, 942, 803, 411, 2408, 109, 1024, 101, 954]",Recent frequent visits to places with IDs 1674 and 1109
+140,2065,"[1674, 411, 942, 1109, 954, 803, 2408, 109, 101, 341]",Recent behavior indicates a strong likelihood of returning to visited locations on the same day of the week and time of day.
+140,1378,"[954, 1674, 1109, 942, 631, 803, 2408, 109, 101, 60]","Recent behavior in context shows consistent visits to places at morning hours on weekdays, and historical pattern suggests a mix of daytime and evening stays"
+140,1674,"[1674, 411, 2408, 803, 1109, 942, 631, 109, 101, 60]","The user's recent behavior has shown a strong preference for visiting locations like 1674, 411 and 2408 on weekdays, which are also popular based on their historical stays. The prediction is an extension of this pattern."
+140,1024,"[2408, 1674, 1109, 109, 101, 411, 631, 942, 2242, 2277]",Recent behavior shows a strong preference for places with IDs 1674 and 2408; historical pattern suggests re-visiting popular locations on weekdays.
+140,2258,"[1674, 1109, 942, 803, 411, 2408, 2065, 1378, 1001, 60]","Based on the user's historical stays and recent context, I predict that they will visit their most common locations or places they have visited recently."
+140,411,"[1109, 1674, 942, 803, 411, 2408, 2242, 154, 109, 60]",Pattern of daily and weekly routines
+140,3805,"[1674, 2408, 1109, 2420, 341, 109]","Recent behavior suggests frequent visits to place 1674 and 2408 on weekdays, while the historical pattern indicates occasional visits to places with IDs 411 and 1028 on weekends."
+140,293,"[1674, 411, 1024, 1109, 2408, 942, 631, 2242, 109, 101]","Based on the user's historical stays and recent behavior, I predict they will visit a location with a similar frequency and timing pattern to their previous visits."
+140,1674,"[109, 411, 631, 803, 1674, 2408, 242.0, 341.0, 300.0, 1109.0]",Recent visits to places with similar time/day patterns in the history
+140,803,"[1674, 411, 803, 1109, 954, 942, 631, 2408, 1028, 109]",Recent visits to places at certain times/days continue
+140,631,"[2408, 1674, 1109, 954, 942, 803, 600, 417, 341, 242]","Based on the user's historical stays and recent behavior in the context of a Monday morning, it is likely that the next place will be one of their frequent destinations or somewhere they have visited around this time."
+140,803,"[1674, 803, 631, 954, 1109, 411, 2408, 942, 2242, 109]","Recent frequent visits to places like 1674 and 803, as well as the fact that this user is likely to visit a place around the same time on Monday"
+140,1,"[954, 1674, 803, 631, 942, 1028, 2408, 1109, 2258, 341]",Recent behavior suggests a strong likelihood of returning to familiar places at similar times
+140,954,"[1674, 803, 1109, 2408, 411, 942, 631, 2242, 1028, 109]",based on recent behavior and historical patterns
+140,1674,"[803, 1674, 954, 1028, 1109, 2258, 2408, 631, 942, 411]",Recent and historical patterns of visiting places on Monday suggest the next place ID is likely to be one of the visited locations
+140,631,"[2408, 1109, 1674, 803, 631, 411, 942, 1028, 2242, 109]","The user tends to visit similar places on the same day of the week and at around the same time, with a recent bias towards visiting place 2408 and 1109."
+140,882,"[1674, 803, 631, 2408, 1109, 411, 942, 2242, 1028, 109]",Recent visits to places and daily patterns suggest a likely stay at the user's most frequent destinations
+140,882,"[2408, 1674, 1109, 942, 631, 411, 803, 1028, 2242, 109]","recent visits to places at certain times/days, repeated patterns in historical stays"
+140,440,"[954, 1674, 631, 882, 1109, 411, 242, 109, 101, 60]","Based on historical patterns and recent behavior, the top 10 predicted places are a mix of frequently visited locations and locations with similar time/day of week patterns to the current context."
+140,954,"[1674, 631, 882, 1109, 411, 2408, 109, 154, 1024, 442]",Recent behavior and historical patterns indicate a high likelihood of visiting the same places
+140,803,"[1674, 631, 411, 2408, 1109, 442, 954, 882, 440, 1035]","Based on the user's historical stays and recent behavior, I predict they will visit places that are likely to be visited at similar times of day and days of the week."
+140,809,"[1674, 803, 411, 631, 942, 1109, 2258, 2408, 882, 440]",Recent visits to places at certain times/days suggest a likely next stop is one of the user's frequently visited locations.
+140,1028,"[803, 1674, 411, 440, 954, 809, 882, 2408, 1028, 1109]","Recent pattern of visiting places on Monday and Tuesday, with a slight bias towards morning hours"
+140,1378,"[1674, 803, 440, 954, 1109, 109, 101, 242, 417, 60]","Recent activity suggests frequent visits to places with ID 1674 and 803, with a possibility of returning to previously visited places on Monday and Tuesday."
+140,1146,"[954, 803, 809, 1028, 1378, 1674, 411, 631, 942, 2408]",recent visits to known locations
+140,1306,"[803, 1674, 411, 942, 1109, 109, 101, 60, 2408, 1024]","Recent behavior and historical patterns suggest the user is likely to visit a familiar location, such as a workplace or a regular hangout spot."
+140,1253,"[1674, 1109, 242, 417, 411, 809, 1028, 942, 300, 109]",Recent frequent visits to place 1674 and place 1109
+140,882,"[2408, 1674, 1109, 803, 411, 942, 631, 1146, 1378, 1028]",Recent behavior suggests a tendency to return to frequently visited places
+140,2233,"[1674, 411, 1109, 942, 803, 242, 154, 109, 60, 101]","Based on the user's historical stays and recent behavior, I predict they will visit a place similar to their frequent Monday morning destinations, likely with a high probability of returning to a familiar location."
+140,2592,"[1674, 1109, 411, 803, 942, 2242, 2408, 631, 1028, 1306]",Recent behavior and historical patterns suggest the user is likely to visit a location they have visited frequently in the past
+140,1253,"[1674, 411, 1039, 1109, 942, 803, 2408, 1253, 882, 2233]",Recent behavior in context suggests a preference for returning to previously visited places during the day.

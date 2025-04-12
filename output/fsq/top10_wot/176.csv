@@ -1,0 +1,26 @@
+user_id,ground_truth,prediction,reason
+176,3806,"[2152, 2357, 721, 1140, 3806, 3198, 1562, 2285, 2383, 1697]",Predicted places based on historical patterns and recent behavior.
+176,3198,"[2357, 2152, 3806, 721, 3198, 1140, 1562, 1697, 2285, 2383]","The prediction is based on the user's frequent visits to certain places at specific times and days in their historical stays, and recent behavior indicating a high likelihood of returning to these places."
+176,2152,"[2357.0, 2152.0, 3806.0, 1140.0, 721.0, 3198.0, 1697.0, 1562.0, 2285.0, 2383.0]",recent behavior in context and patterns in history
+176,3198,"[2357, 2152, 721, 1140, 1562, 2285, 2383, 3198, 3806]","Based on historical stays and recent contextual information, the next likely place ID is predicted to be one of the most frequently visited places during similar time/day combinations."
+176,2081,"[2152, 2357, 3806, 721, 1140, 2285, 2383, 1562, 3198, 1194]",Recent visits to places with high frequency and similar timing in both history and context
+176,2152,"[2357.0, 3806.0, 2152.0, 1140.0, 721.0, 3198.0, 1562.0, 2285.0, 2081.0, 2164.0]",Recent behavior and historical patterns suggest the user is likely to visit places at similar times of day/days of week
+176,2152,"[2357, 2152, 3806, 2285, 721, 3198, 1140, 1562, 2081, 721]",Based on historical patterns and recent behavior in the context of weekdays and morning/afternoon stays.
+176,2357,"[2152, 2357, 3806, 3198, 721, 1140, 1562, 2285, 2081, 2383]","The prediction is based on the user's historical stays and recent behavior. The top 10 most likely places are those that have been frequently visited at similar times of day or days of the week, with more weight given to recent visits."
+176,3806,"[2152, 2357, 3806, 3198, 721, 1140, 1562, 2081, 2285, 2383]","Based on the user's historical stays and recent behavior in context, the most likely places are their usual destinations at similar times of day."
+176,3198,"[2357, 3806, 2152, 721, 3198, 1140, 1562, 2081, 2285, 2383]",Pattern of repeated visits to places at certain times/days in history and recent behavior in context
+176,2357,"[2152, 2357, 721, 3806, 1140, 3198, 1562, 2285, 2383, 2081]","Based on historical patterns and recent behavior, the predicted next place ID is likely to be a repeated visit to a previously visited location"
+176,2324,"[2152.0, 2357.0, 3806.0, 1140.0, 721.0, 3198.0, 1562.0, 2285.0, 2383.0, 3124.0]","Pattern analysis and recent behavior suggest the user is likely to visit places they have visited frequently in the past, with a slight preference for places visited on Tuesdays and Mondays."
+176,2357,"[2152, 2357, 3806, 1140, 1562, 3198, 721, 2285, 2383, 832]","The user tends to visit the same places at similar times and days, with a recent trend of visiting place 2357"
+176,2152,"[2152, 2357, 3806, 1140, 1562, 3198, 721, 2285, 2383, 1124]","Recent behavior in context suggests a morning stay at a familiar place, likely followed by a visit to another frequent location."
+176,2357,"[3806, 2357, 2152, 3198, 1140, 1562, 721, 2285, 2383, 2324]",Based on user's historical patterns and recent behavior in context
+176,3198,"[3806, 2357, 721, 3198, 1140, 2285, 1562, 2324, 2152, 2183]","Recent behavior indicates a tendency to visit places at similar times of day, and the user has previously visited several places on weekends."
+176,2357,"[2285.0, 2357.0, 2152.0, 721.0, 3806.0, 1140.0, 2324.0, 3198.0, 1562.0, 2383.0]",The prediction is based on the historical pattern of frequent visits to certain places and the recent context of staying at similar locations.
+176,2152,"[3806, 2357, 2152, 1140, 721, 3198, 1562, 2285, 2383, 235]",based on the user's morning and evening routines
+176,1140,"[3806, 2357, 2152, 721, 1140, 3198, 2285, 1562, 2383, 1140]",predicting frequent locations based on user's daily habits
+176,3806,"[2357, 2152, 3806, 3198, 721, 1140, 1562, 2285, 2383, 3201]",Recent visits and patterns in history suggest frequent visits to places with ID 2357
+176,3198,"[2152.0, 2357.0, 3806.0, 3198.0, 721.0, 2285.0, 1562.0, 1140.0, 2183.0, 2383.0]",Predicted based on frequent visits to these locations at similar times and days
+176,2357,"[2357, 2152, 721, 3806, 3198, 1140, 1562, 2285, 2383, 2083]",predicting based on patterns in the user's activity and recent contextual information
+176,2152,"[2152, 2357, 3806, 1140, 721, 3198, 1562, 2285, 2383, 721]","Next location predicted based on user's historical pattern of frequent visits to places 2152 and 2357, with recent context indicating a possible stay at place 3806"
+176,3806,"[2357, 2152, 3806, 1140, 721, 3198, 1562, 2285, 2383, 3921]",Predicted based on the user's recent daily patterns and frequent visits to certain locations
+176,3198,"[2152.0, 2357.0, 3806.0, 3198.0, 1140.0, 721.0, 1562.0, 2285.0, 2383.0, 2089.0]",Recent behavior suggests a high likelihood of returning to recently visited locations

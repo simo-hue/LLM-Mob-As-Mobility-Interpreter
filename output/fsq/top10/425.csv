@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+425,1191,"[14, 15, 16, 17, 18, 19, 20, 21, 22, 23]","The prediction is based on the user's activity pattern and recent activities in the context, considering the time of day and weekday."
+425,729,"[7, 2, 9, 4, 6, 5, 3, 8]","The user has a consistent pattern of visiting places on different days and times. The target stay is very close to the most recent visit in the context, which suggests that the next place might be one that is frequently visited."
+425,696,"[14, 16, 15, 17, 13, 12, 11, 10, 18, 19]",The user tends to visit places with a similar duration and frequency during the same day of the week.

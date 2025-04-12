@@ -1,0 +1,19 @@
+user_id,ground_truth,prediction,reason
+248,812,"[976, 2145, 3556, 2569, 1921, 1113, 1615, 1473, 1297, 2419]","Recent behavior in context matches historical pattern of frequent visits to places with IDs 976, 2145 and 3556."
+248,2106,"[2145, 976, 3556, 2569, 1921, 1473, 2106, 1615, 1113, 665]",Recent stays at place 2145 and historical pattern of visits to places 976 and 3556.
+248,2145,"[3556, 976, 2145, 2569, 1921, 1473, 1113, 1615, 2106, 1297]",based on frequent visits to places at certain times/days and recent behavior in the context of Sunday evening
+248,1586,"[3556, 2145, 976, 2569, 1921, 1473, 1297, 2419, 358, 2106]","Based on the user's historical stays and recent behavior, the most likely places to visit are those frequently visited in the past (especially during weekdays) with a slight bias towards evening visits."
+248,2145,"[3556, 2145, 976, 2569, 1921, 2106, 1615, 1473, 1113, 665]",Recent visits to similar places and consistent daily patterns in the history suggest the user is likely to visit a place with similar characteristics.
+248,1609,"[3556, 976, 2145, 2569, 1297, 1921, 1473, 2106, 1113, 1615]",Predicted places are based on frequent visits and recent behavior.
+248,2726,"[3556, 2145, 976, 2569, 1921, 2106, 1615, 1113, 1473, 1297]","Recent stays at 3556 and 2145 suggest a high likelihood of returning to these locations. Additionally, the user has previously visited places with IDs similar to these (e.g., 976) around certain times/days."
+248,3556,"[2145.0, 3556.0, 976.0, 2569.0, 1921.0, 1473.0, 1297.0, 2419.0, 2106.0, 1615.0]",Recent visits to places at certain times/days suggest likely next stay
+248,2569,"[3556, 2145, 976, 2569, 1921, 2106, 1113, 1615, 1473, 1297]",Recent stays at 3556 and 2145 suggest a high likelihood of returning to these places
+248,2145,"[3556, 2145, 976, 2569, 1297, 1921, 2106, 1473, 1615, 1113]",Recent visits to these places in context and patterns of repeated stays in history
+248,976,"[3556, 2145, 976, 2569, 1921, 2106, 1113, 1615, 1297, 1473]","The user has a frequent pattern of staying at places with IDs 3556 and 2145 on Sundays, and given the recent context of staying at these places, it is likely they will continue this trend. Additionally, there are some other places that were visited regularly throughout their history."
+248,975,"[3556, 2145, 976, 2569, 1921, 2726, 1113, 1615, 1297, 358]","Recent behavior in context suggests the user tends to visit home location (3556) frequently, and considering historical stays, there is a pattern of visits at this time/day for work/school-related activities"
+248,1297,"[3556, 2145, 976, 2569, 1921, 2106, 1113, 1615, 358, 665]","Recent pattern of visiting the same place at dawn (e.g., 3556 on Sunday) and considering the overall distribution in history"
+248,3556,"[3556, 976, 2145, 2569, 1297, 1921, 2106, 1473, 1615, 1113]",Recent visits to places at similar times/days and frequent returns to previous locations.
+248,3556,"[3556, 2145, 976, 1297, 2569, 1921, 2106, 1113, 1615, 1473]",Recent contextual information indicates a high likelihood of returning to places visited frequently in the past
+248,2145,"[2145.0, 3556.0, 976.0, 2569.0, 1921.0, 1297.0, 1473.0, 2106.0, 1113.0, 1615.0]",likely places based on history and recent context
+248,976,"[2145, 976, 3556, 1297, 2569, 1921, 1473, 2106, 1113, 1615]",Recent visits to places at certain times/days and patterns in the user's historical stays are considered.
+248,3556,"[3556, 976, 2145, 1297, 2569, 1921, 2106, 1113, 1615, 358]","Recently frequent places like 3556 and 976 are strong candidates, while common weekend hangouts 2145, 1297, and 2569 also have a high probability. The rest of the list includes places with moderate frequency and contextual relevance."

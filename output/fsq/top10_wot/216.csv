@@ -1,0 +1,40 @@
+user_id,ground_truth,prediction,reason
+216,1,"[1479, 1027, 693, 1365, 300, 167, 1]",recent stays at home and frequent visits to places on Sundays
+216,1,"[1479, 1365, 1027, 693, 167, 300, 1, 11, 10, 8]","The user tends to visit places with IDs 1479, 1365 and 1027 on Sundays, which is the day of the week in the current context. The recent behavior shows a stay at place ID 1, indicating that it might be likely for the user to return there or nearby places."
+216,1,"[1479, 1365, 1027, 693, 300, 167, 1]","Recent frequent visits to 1479 on Sundays and Mondays, with occasional visits to other places like 1365, 1027, and 693"
+216,1,"[1479, 1365, 1027, 693, 167, 300, 1, 167, 1365, 1003]",The user tends to visit the same place at similar times and days
+216,1,"[1479, 1027, 693, 1365, 300, 167, 1, 1000]","Based on the user's historical stays and recent contextual information, I predict that they will likely visit places with similar IDs to those they have visited in the past."
+216,1,"[1479, 1365, 1027, 693, 167, 300, 1, 1, 1, 1]","Based on the user's historical stays and recent behavior, it is likely that they will visit one of their most frequent locations (1479, 1365, 1027) or a familiar place (693, 167, 300), possibly with some variation depending on the day of the week."
+216,1,"[1479, 1365, 1027, 693, 167, 300, 1, 1, 1, 1]",Recent evening visits to place ID 1479 and morning visits to various places in the past few days
+216,1,"[1479, 693, 1027, 1365, 300, 167, 1]",Recent stays at Sunday evening suggest return to familiar places
+216,1,"[1479, 1365, 1027, 693, 300, 167, 1]",Recent frequent stays at 1479 and other places on Sundays
+216,1479,"[1479, 1365, 1027, 693, 300, 167, 1]",recent stays at 1479 and historical patterns of repeated visits
+216,1479,"[1365, 1027, 693, 167, 300]",Recent visits to places and patterns in history suggest frequent visits to these locations on Sundays.
+216,1,"[1365, 1027, 693, 167, 300, 1479, 1, 696, 137, 1044]",Recent behavior and historical patterns suggest the user will visit a location with similar characteristics to previous frequent locations
+216,1479,"[1479, 1365, 1027, 693, 167, 300, 1, 101, 85, 63]",Predicted based on repetitive visits and recent contextual information
+216,1365,"[1479, 693, 1027, 1365, 300, 167, 1, 1, 1, 1]",The user has a strong pattern of visiting place 1479 at certain times and days. Recent context also suggests this is the most likely next location.
+216,3258,"[1479, 693, 1027, 1365, 167, 300, 1, 1, 1, 1]",Recent frequent visits to location 1479 and patterns of staying at home on Sundays.
+216,1027,"[1479, 1365, 1027, 693, 167, 1, 300, 3258]","Recent stays at 1479 and other places during Sundays, with a pattern of returning to these locations."
+216,1,"[1479, 1365, 1027, 693, 167, 300, 3258, 1, 1027, 1365]","The user has a strong pattern of visiting location 1479 on Sundays and Fridays, and recently visited this location in the context. The next most likely places are also Sunday locations."
+216,1027,"[1479, 1365, 1027, 693, 167, 300, 3258, 1, 1027, 1365]","The user has a strong habit of visiting the same places at similar times and days, and recent behavior shows they may be heading to their usual Sunday destinations."
+216,901,"[1479, 1365, 1027, 693, 3258, 300, 167, 1, 3258, 167]","The user has a strong preference for visiting place ID 1479 on Sundays and Mondays, and also frequently visits place ID 1365. The recent context indicates that the user is still active on Sunday evening."
+216,1,"[1479, 1, 1365, 1027, 693, 3258, 901, 167, 300, 10]",Predicted based on user's daily patterns and recent behavior.
+216,1,"[1479, 1365, 1027, 693, 300, 167, 1, 901]","Based on the user's historical stays and recent behavior, I predict the next likely places based on repeated visits at certain times/days."
+216,1479,"[1479, 1365, 1027, 693, 1, 167, 300, 901, 901, 901]","The user's historical stays show a strong pattern of visiting the same places at certain times/days, with recent behavior in <context> also suggesting this location ID"
+216,300,"[1479, 1, 1365, 1027, 693, 167, 1434, 300, 1679, 1030]","Based on historical patterns and recent context, the user is likely to visit a place they have visited multiple times before, such as their home or work"
+216,1,"[1479, 1365, 1027, 693, 167, 300, 1]",Recent visits to location 1479 and 1365
+216,1,"[1479, 1365, 1027, 693, 167, 1434, 300, 1, 0, 1378]",predicting frequent locations and taking into account recent behavior
+216,1,"[1479, 1027, 693, 1365, 300, 167, 1, 168, 2, 3]","The prediction is based on the frequent visit to place ID 1479 on Sundays and weekdays, as well as recent visits to places with IDs 1365 and 300."
+216,1479,"[1479, 1365, 1027, 693, 300, 167, 1]",The user has a strong pattern of visiting places at certain times/days in the past and is likely to continue this behavior.
+216,1,"[1479, 1, 1027, 693, 1365, 300, 167, 1365, 1027, 1479]",recently frequent places and times in the history and context
+216,1,"[1479, 693, 1027, 1365, 167, 300, 1, 167, 693, 1365]",Recent visits to place 1479 and the time of day suggest a high likelihood of returning there again.
+216,1479,"[1027, 693, 1365, 167, 300]",Recent visits to the same places and similar days of the week in both history and context suggest a continuation of this pattern.
+216,1,"[1479, 1027, 693, 1365, 300, 167, 1, 3, 4, 5]",Recurring daily patterns and recent behavior
+216,1479,"[1365, 1027, 693, 167, 300, 1, 1479, 167, 1027, 693]",Recent stays at similar times and days of the week indicate a high likelihood of visiting familiar places
+216,1589,"[1365, 1027, 693, 167, 300]","Based on the user's historical stays and recent context, I predict they will likely visit one of their favorite places from previous Sundays or Mondays."
+216,1365,"[1479, 1365, 1027, 693, 167, 300, 1, 1589]","The user has a history of frequent visits to place 1479 on Sundays and Mondays, especially during the daytime. Recent context suggests they may continue this pattern. Places like 1365, 1027, and 693 are also likely destinations based on previous stays."
+216,231,"[1479, 1027, 693, 1, 167, 1365, 300, 1589, 1679, 1028]","The user has a strong pattern of staying at location 1479 on Sundays and Mondays, and also visits other locations frequently. The recent context suggests the user is likely to return to one of their frequent locations."
+216,1,"[1479, 1, 1365, 1027, 693, 167, 1589, 300, 231]",predicting next likely places based on historical patterns and recent behavior
+216,1479,"[1479, 1027, 693, 167, 1365, 1589, 231, 300, 1, 1590]",Recent visits to location 1479 and other frequent locations in the history
+216,1,"[1479, 1027, 693, 1365, 300, 1589, 231, 167, 1, 1365]",based on historical patterns and recent behavior
+216,1,"[1479, 1027, 693, 1365, 300, 231, 1, 167]",Recent and historical stays suggest the user is likely to visit a location that has been visited at similar times/days in the past

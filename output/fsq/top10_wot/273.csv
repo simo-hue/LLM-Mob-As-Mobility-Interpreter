@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+273,960,"[1243, 960, 1135, 25, 413, 425, 690]",Most frequent places and recent context influence the prediction.
+273,690,"[1243, 960, 1135, 690, 425, 413, 25, 2238, 690, 960]","Recent behavior and historical patterns suggest the user is likely to visit places they have visited before, especially on weekdays"
+273,960,"[1243, 960, 1135, 690, 425, 413, 25, 2238, 423.0, 690.0]",Based on the historical pattern of frequent visits to place ID 1243 and recent context of visiting places with IDs 960 and 690.
+273,690,"[1243, 960, 690, 1135, 2238, 413, 425, 25, 379, 369]","Based on the user's history of frequent visits to places at certain times and days, and considering their recent behavior"

@@ -1,0 +1,11 @@
+user_id,ground_truth,prediction,reason
+238,107,"[2703, 3345, 2141, 1870, 108, 1014, 844, 131, 297, 1438]",Recent visits on Sunday and Monday and frequent stays at 2703
+238,2703,"[2703, 3345, 2141, 844, 131, 297, 1438, 1870, 108, 537]",Recent visits to location 2703 and the presence of this location in the user's history suggest a high probability for this location to be visited again.
+238,2703,"[2703, 3345, 2141, 844, 1014, 131, 297, 1438, 1870, 108]",Pattern of frequent visits to 2703 on weekends and similar patterns in history
+238,3605,"[2703, 3345, 2141, 844, 131, 297, 1438, 1870, 108, 1]",Recent visits to 2703 at different times/days
+238,2703,"[2703, 3345, 844, 2141, 108, 1870, 447, 131, 297, 1438]",Recent visits to places at certain times/days and patterns in the user's historical stays.
+238,2703,"[2703, 2141, 3345, 844, 131, 297, 1438, 1870, 108, 1]",Pattern-based prediction considering recent contextual information and historical stays
+238,2703,"[2703, 3345, 1870, 2141, 108, 3605, 650, 1314, 297, 1438]",Recent stays at 2703 and pattern of visits to this place on Saturday
+238,2703,"[2703, 3345, 2141, 844, 131, 297, 1438, 1870, 108, 1]",Recent visits to place 2703 and historical patterns of similar behavior
+238,1870,"[2703, 3345, 2141, 844, 1014, 1870, 108, 131, 297, 1438]","Recent visits to place ID 2703, along with patterns of repeated visits at certain times/days in the history"
+238,2703,"[2703, 3345, 2141, 844, 131, 297, 1438, 1870, 447, 108]",Recent behavior in context indicates frequent visits to places 2703 and 1870 on Thursdays and Saturdays

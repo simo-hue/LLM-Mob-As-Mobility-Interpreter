@@ -1,0 +1,53 @@
+user_id,ground_truth,prediction,reason
+472,2218,"[1247, 3113, 2054, 1667, 1131, 293, 300, 861, 1266, 624]",Recent visits to places at certain times/days and repeated patterns in the user's historical stays
+472,300,"[3113.0, 2054.0, 1247.0, 1214.0, 300.0, 993.0, 1995.0, 624.0, 342.0, 2218.0]",Recent visits to similar places and times
+472,1247,"[3113.0, 2054.0, 1247.0, 1266.0, 993.0, 1995.0, 624.0, 342.0, 2218.0, 300.0]",recent visits to places at certain times/days
+472,2054,"[3113, 2054, 1247, 1214, 1266, 1667, 1131, 293, 993, 624]","Pattern of repeated visits to place 3113 at certain times/days, with recent behavior in context indicating a high likelihood of returning to this location"
+472,3113,"[3113, 2054, 1247, 843, 1667, 1131, 293, 1516, 1266, 993]",Recent stays at similar times of the day and days of the week suggest a high likelihood of returning to familiar places.
+472,3113,"[3113.0, 2054.0, 1247.0, 1266.0, 2218.0, 300.0, 993.0, 1995.0, 624.0, 1667.0]",The user has a strong affinity for place 3113 and often visits it at various times of the day.
+472,2054,"[3113.0, 1247.0, 2054.0, 300.0, 1266.0, 993.0, 624.0, 1667.0, 1131.0, 293.0]",The predicted places are based on the most frequent and recent locations from the user's history and context.
+472,3113,"[3113, 2054, 1247, 1266, 993, 624, 1667, 300, 861, 1516]",Prediction based on historical pattern of frequent visits to places 3113 and 2054
+472,1247,"[3113.0, 2054.0, 1247.0, 300.0, 861.0, 1266.0, 993.0, 624.0, 1995.0, 1667.0]",Predicted based on recent frequent visits to place 3113 and presence of similar patterns in the history
+472,624,"[3113, 2054, 1247, 1667, 1516, 1266, 993, 1995, 624, 300]",Recent stays and historical pattern of frequent visits to place 3113
+472,3113,"[3113, 2054, 1247, 1667, 843, 1266, 993, 1995, 624, 293]","The user has a strong habit of visiting place ID 3113 on Sundays and Mondays, as well as places with similar IDs. The recent context also suggests visits to these locations."
+472,1247,"[3113, 2054, 1247, 1667, 1131, 293, 1516, 1266, 993, 1995]",Recent and historical behavior suggests the user is likely to visit a familiar location
+472,3113,"[3113, 1247, 2054, 1667, 1516, 993, 861, 300, 624, 293]",Recent frequent stays at location 3113 and consideration of historical patterns
+472,1247,"[3113, 1247, 2054, 1266, 993, 624, 1667, 1131, 293, 300]","The user tends to visit place ID 3113 frequently and at various times/days, with recent stays in the context; considering this pattern, I predict the next likely place as 3113."
+472,1516,"[3113, 1247, 2054, 1667, 1131, 293, 1516, 1266, 993, 624]",Recent and historical patterns suggest a high likelihood of returning to the user's most frequent location.
+472,285,"[1247, 2054, 1266, 1516, 300, 861, 293, 1667, 993, 624]","Recent behavior in context suggests frequent visits to places with ID 1247 and 3113, and historical patterns show similar patterns on weekends"
+472,409,"[3113, 1247, 2054, 1667, 1266, 1516, 993, 1995, 624, 300]","Based on the user's recent stays and patterns in their history, they are likely to return to a familiar location, with the most probable place being the one frequently visited at the same time of day."
+472,3113,"[3113, 2054, 1247, 1266, 993, 1516, 1667, 1131, 293, 300]",Recent behavior and historical patterns suggest the user is likely to return to places they have visited frequently at similar times
+472,293,"[3113, 1247, 2054, 1516, 1266, 993, 624, 1995, 409, 285]",Recent visits to place 3113 and 1247 combined with the pattern of frequent visits to these places at certain times/days make them the top predictions.
+472,1516,"[3113, 2054, 1247, 1266, 293, 999, 1667, 1516, 861, 300]",Recent frequent visits to place ID 3113 and presence in similar times/days in <history>
+472,1435,"[3113, 2054, 1247, 1266, 993, 624, 1667, 1131, 293, 300]","Based on the user's historical stays and recent behavior in context, I predict that the next likely place ID is a combination of places they have visited before at similar times and days."
+472,2054,"[3113.0, 1247.0, 2054.0, 1516.0, 1667.0, 1131.0, 293.0, 300.0, 861.0, 1266.0]",Recent stays and contextual information suggest frequent visits to the user's most visited location (3113.0)
+472,993,"[3113.0, 2054.0, 1247.0, 843.0, 1667.0, 1131.0, 293.0, 1516.0, 1266.0, 993.0]",Recent behavior shows a strong preference for place ID 3113.0 on Mondays and Wednesdays
+472,1247,"[3113, 2054, 1247, 1266, 1435, 993, 1995, 624, 861, 1516]","Recent behavior and historical patterns suggest the user is likely to visit a place they have visited frequently in the past, such as 3113 or 2054."
+472,2054,"[3113, 2054, 1247, 843, 1667, 1131, 293, 300, 861, 1266]","Recent stays at home and work, and historical patterns of visiting these places at specific times/days"
+472,1247,"[3113, 2054, 1247, 1266, 993, 1435, 861, 1516, 300, 624]","The user's historical stays show a strong preference for visiting location 3113, especially on Mondays and Tuesdays. Recent context suggests they may be heading back to this location, or potentially another common destination like 2054 or 1247."
+472,1660,"[3113.0, 2054.0, 1247.0, 1266.0, 993.0, 861.0, 300.0, 1667.0, 1516.0, 1995.0]",recent and historical patterns of frequent visits to specific places at certain times/days
+472,1247,"[3113.0, 2054.0, 1247.0, 993.0, 1667.0, 1131.0, 293.0, 300.0, 861.0, 1266.0]",Pattern of frequent visits to place 3113 at specific times and days
+472,843,"[3113, 1247, 2054, 1667, 1131, 293, 1516, 1266, 993, 624]",Recent patterns and stays in the same day of week suggest frequent visits to places with ID 3113 and 1247
+472,843,"[3113, 2054, 1247, 1667, 1516, 1266, 993, 624, 861, 300]","The user has a strong pattern of visiting place ID 3113 at similar times and days, with recent activity in the context suggesting they may continue this trend."
+472,1516,"[3113, 2054, 1247, 1516, 1667, 300, 993, 1995, 624, 1266]","Recent pattern of frequent visits to place ID 3113 and other places on weekends, considering context"
+472,2054,"[3113.0, 2054.0, 1247.0, 1667.0, 1131.0, 293.0, 300.0, 861.0, 1266.0, 624.0]",based on recent behavior and historical patterns
+472,167,"[3113.0, 1247.0, 2054.0, 1516.0, 843.0, 1667.0, 300.0, 993.0, 624.0, 1995.0]","Based on the historical pattern of frequent visits to location 3113 at similar times and days, as well as recent behavior of visiting locations 1247 and 2054."
+472,3113,"[3113.0, 2054.0, 1247.0, 843.0, 1516.0, 1667.0, 300.0, 861.0, 1266.0, 624.0]","Based on the user's historical stays and recent context, I predict they will visit a familiar location on Monday evening, likely to be their home (3113.0), with a high probability of visiting other regular locations."
+472,3113,"[3113, 2054, 1247, 1516, 1667, 300, 861, 993, 624, 167]",Recent visits to common places
+472,2054,"[1247.0, 3113.0, 2054.0, 1516.0, 167.0, 1667.0, 293.0, 300.0, 861.0, 993.0]",Pattern of frequent visits to place_id=1247.0 and place_id=3113.0 in the history and recent context suggests high likelihood
+472,1516,"[3113.0, 2054.0, 1247.0, 1266.0, 1667.0, 843.0, 993.0, 167.0, 300.0, 861.0]","Recent visits to these places, especially on weekends and at similar times"
+472,1247,"[1247.0, 2054.0, 3113.0, 1667.0, 993.0, 1995.0, 624.0, 300.0, 861.0, 167.0]",Next likely place ID based on recent behavior in context and patterns in history
+472,1660,"[3113, 2054, 1247, 1266, 1667, 300, 293, 1131, 993, 1995]",Recent stays at place 3113 and contextually similar behavior suggest this is a likely location.
+472,3113,"[3113, 2054, 1516, 1247, 1667, 1131, 293, 300, 861, 1266]","Recent context shows frequent visits to location 3113 and 2054, and history suggests similar patterns."
+472,1247,"[3113, 2054, 1247, 1516, 1266, 1667, 293, 1131, 300, 861]",recent frequent visits to places at morning time and weekday
+472,2054,"[3113, 1247, 2054, 1516, 1667, 1131, 293, 300, 861, 1266]",pattern of repeated visits to places at certain times/days in history combined with recent behavior in context
+472,3113,"[3113, 1247, 2054, 1667, 1131, 293, 300, 861, 1266, 624]",The user's historical behavior shows a strong tendency to visit the same places on similar days of the week. The recent context indicates a continued pattern of visiting place ID 3113 and other nearby locations.
+472,1247,"[3113, 2054, 1247, 1667, 1131, 293, 1516, 1266, 993, 624]",Recent context and historical patterns suggest the user is likely to visit a place similar to those visited recently.
+472,993,"[3113, 2054, 1247, 1516, 1266, 993, 624, 1995, 1131, 1667]","The user has a consistent pattern of returning to places at the same time and day of week, with recent behavior in <context> showing a high likelihood of visiting 3113 again."
+472,2431,"[3113, 2054, 1247, 1266, 993, 1667, 1516, 1995, 624, 300]",Predicted based on frequent and recent visits to these places
+472,1435,"[3113, 2054, 1247, 999, 1667, 1516, 1266, 300, 861, 624]",Recent stays at similar times and places in the context
+472,1247,"[3113, 1247, 2054, 1667, 1516, 993, 1266, 861, 293, 300]",The user's recent behavior in the context and their historical stay patterns suggest that they are likely to visit a familiar location at a similar time of day.
+472,3113,"[3113, 1247, 2054, 1516, 1266, 993, 1995, 624, 861, 1435]",Next likely places are based on recent patterns of frequent visits to place IDs in the history and context
+472,3113,"[3113.0, 1247.0, 2054.0, 300.0, 861.0, 843.0, 1667.0, 293.0, 1516.0, 1266.0]",based on the user's historical pattern of frequent visits to place 3113 at various times and days
+472,3113,"[3113, 2054, 1247, 1667, 1516, 1266, 993, 1995, 624, 300]","Based on the user's historical stays and recent behavior in the context, it is likely that they will visit places with high recurrence or proximity to their previous visits."
+472,3312,"[3113, 1247, 2054, 1266, 1667, 1516, 993, 1995, 624, 1435]",Recent behavior and historical patterns suggest the user is likely to visit a previously visited place at the same time of day

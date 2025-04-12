@@ -1,0 +1,37 @@
+user_id,ground_truth,prediction,reason
+31,2510,"[2510, 3243, 1804, 2961, 1709, 2666, 3255, 2610, 1681, 1709]","Recent behavior suggests the user is likely to visit places they have visited recently and frequently (e.g. 2510, 3243), with a bias towards visiting during weekdays."
+31,3255,"[2510, 1804, 3255, 2961, 3243, 2610, 1681, 2666, 1709, 2510]","Recent behavior and historical patterns suggest frequent visits to places with ID 2510, as well as occasional revisits to other locations."
+31,2961,"[2510, 1804, 3243, 2666, 2961, 3255, 1681, 2610, 1709.0, 2700.0]",The user tends to frequent the same places (mostly 2510) and has a recent bias towards going to these places
+31,1804,"[2510, 2961, 3243, 3255, 1804, 2610, 1681, 1709, 2666, 3241]",recent frequent visits to places with IDs 2510 and 2961
+31,2510,"[2510, 1804, 2961, 3255, 1681, 2610, 1709, 3243, 2666, 3241]","Based on the user's historical stays and recent behavior, I predict they will visit a place with a high likelihood of being their home or work location."
+31,1234,"[2510, 1804, 2961, 3255, 3243, 2666, 2610, 1681, 1709, 2510]",Recurring visits to place 2510 and recent context suggests a high likelihood of returning to this location.
+31,3255,"[2510, 3255, 2961, 1804, 3243, 2666, 1681, 2610, 1234, 1709]",Strong recent behavior towards places with ID 2510 and similar patterns in historical stays
+31,3241,"[2961, 2510, 1804, 3243, 3255, 2610, 1681, 1234, 2666, 1709]",The user tends to visit the same places at similar times/days and has recently visited a subset of these locations
+31,2204,"[2510, 1804, 2961, 3243, 2666, 1681, 2610, 1234, 3255, 3241]","The user tends to visit place 2510 frequently, especially on weekdays; recent context shows a higher likelihood of visiting places in the same area (1804 and 2961)"
+31,2510,"[2510, 2961, 1804, 3243, 2666, 1681, 2610, 1234, 3255, 2204]",recent history of frequent visits to place ID 2510 and similar day-of-week patterns in the past
+31,3255,"[2510, 3243, 1804, 2961, 2666, 1681, 2610, 1234, 3255, 2204]","Based on the user's historical pattern of frequent visits to place 2510 and other places around that time, as well as recent behavior in the context, it is likely that they will visit one of these places next."
+31,3255,"[2510, 3255, 3243, 2961, 1804, 2666, 1681, 2610, 2204, 1709]",Recent visits to place 2510 and considering historical patterns of daily and weekly habits
+31,2961,"[2510, 3241, 1804, 2961, 3243, 2666, 2610, 1681, 2204, 3255]",recent frequent visits to place ID 2510 and similar behavior in the context
+31,1804,"[2510.0, 2510.0, 2510.0, 3255.0, 2961.0, 1804.0, 2666.0, 3243.0, 1681.0, 2610.0]","Based on the user's historical stays and recent behavior in the context, it is most likely that they will visit a place with an ID of 2510."
+31,2510,"[2510.0, 3255.0, 2961.0, 1804.0, 3243.0, 2666.0, 1681.0, 2610.0, 1709.0, 2511.0]","Recent context shows a strong affinity for places with ID 2510 and 3255, while historical data suggests repeated visits to these locations at certain times/days"
+31,1804,"[2510, 3255, 2961, 1804, 2610, 1681, 3243, 2666, 1709, 2677]","Recent contextual information suggests the user tends to visit location 2510 during weekdays, which is also a common location in their historical stays. The top prediction is therefore location 2510, followed by other locations that are frequently visited at similar times or days."
+31,2666,"[2510.0, 3243.0, 1804.0, 2961.0, 3255.0, 2666.0, 1681.0, 2610.0, 1709.0, 3241.0]","Based on the user's historical stays and recent context, the most likely places to visit are those frequently visited during weekdays (Monday, Tuesday, Wednesday), with a strong preference for place_id 2510."
+31,2510,"[2510, 2961, 1804, 3243, 2686, 3255, 1709, 2610, 1681, 2676]",Based on the user's frequent visits to place 2510 and their recent behavior of returning to this location
+31,2510,"[2510, 1804, 2961, 3243, 2666, 1681, 2610, 1709, 3255, 3241]","Recent frequent visits to place 2510 and daily routine of visiting places 1804, 2961 and 3243"
+31,2510,"[2510, 3243, 1804, 2961, 2666, 1681, 2610, 2510, 2510, 2510]","Recent frequent visits to place 2510 and previous stays at places 3243, 1804, 2961, 2666, 1681, 2610, indicating a strong probability of returning to these locations"
+31,2510,"[2961, 3255, 1804, 3243, 2666, 1681, 2610, 1709, 2510, 3241]","Recent frequent visits to places 2510 and 1804, with a slight bias towards evening stays at place 2961"
+31,2510,"[2510, 1804, 2961, 3243, 2666, 3255, 1709.0, 2610, 1681, 1697]","The user has a strong tendency to visit place 2510 repeatedly, especially during weekdays, and recent context suggests they are likely to stay there."
+31,2510,"[2510, 1804, 2961, 3243, 2666, 1681, 2610, 3255, 1709, 2511]",Recent visits to place ID 2510 and historical patterns suggest next likely location is within this frequent visit pattern.
+31,2666,"[2510, 1804, 2961, 3243, 2666, 3255, 1709, 1681, 2610, 3241]",recent frequent visits to place 2510 and presence in context
+31,2961,"[2510, 3243, 2961, 1804, 2666, 1681, 2610, 1709, 3255, 2677]","The user's history suggests frequent visits to places 2510 and 3243 on weekends, while recent context shows a strong likelihood of visiting place 2666 after 03:00 PM on Sundays."
+31,3255,"[2510, 2666, 2961, 3243, 1804, 2610, 1681, 3255, 1709, 2678]",Recent visits to places with ID 2510 suggest a high likelihood of returning to those locations
+31,2510,"[2510, 3243, 2961, 2666, 2510, 1804, 1681, 2610, 2510, 3255]",Recent contextual information and historical pattern of returning to places like 2510
+31,2510,"[2510, 2961, 2666, 3255, 1804, 1681, 2610, 3243, 1709]","The user's recent behavior suggests they tend to visit similar places on the same day of the week and at around the same time, with a slight preference for Monday"
+31,2629,"[2510.0, 2666.0, 2961.0, 3243.0, 3255.0, 1804.0, 1681.0, 2610.0, 1709.0, 3241.0]","The user tends to visit place ID 2510 frequently, and has recently been there in the context of their recent stays."
+31,3255,"[2510, 2961, 3255, 3243, 1804, 2610, 2666, 1681, 1709, 2677]","Recent behavior in context suggests a high likelihood of returning to familiar places, particularly those visited recently (e.g., 2510)"
+31,2961,"[2510, 3255, 3243, 1804, 2961, 2666, 2610, 1681, 2629]",The user has a strong affinity for visiting place 2510 at various times and days in the past. The recent context suggests that this trend continues.
+31,1804,"[2510, 2510, 2510, 2510, 2510, 2629, 3255, 2961, 3243, 1804]",Based on the user's frequent visits to location 2510 and their recent stay at 2510
+31,2510,"[2510, 3243, 2629, 2961, 1804, 3255, 2666, 1681, 2610, 1709]",Recent frequent visits to places at certain times/days and similar patterns in the past
+31,1804,"[2510, 3255, 2961, 1804, 3243, 2666, 1681, 2610, 2629]","Based on the user's historical stays and recent behavior in context, it is likely that they will visit one of their most frequently visited places (2510, 3255, 2961, or 1804)"
+31,2961,"[2510, 3255, 2961, 1804, 3243, 2666, 2610, 1681, 1709, 2678]","Recent stays at place 2510 and other frequent places in history, with some variation"
+31,1804,"[2510, 2961, 1804, 3243, 3255, 2666, 2610, 1681, 1709, 2511]","The user's recent behavior suggests frequent visits to places with ID 2510 and occasional stays at locations with IDs 2961, 1804, and others."

@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+198,1419,"[10, 9, 5, 4, 3]","The target stay is on a Wednesday morning, and the user has a consistent pattern of visiting places during this time. The context also suggests that the user recently visited place 10, so it's likely they will visit this place again."
+198,1778,"[1525, 1778, 1381, 2489, 2041, 2248, 1801, 2252, 1419, 1461]","Based on the user's historical activity pattern and recent stays in context, we predict that they will visit a place with similar temporal patterns and proximity to their previous destinations."
+198,1778,"[14, 15, 16, 17, 18, 19, 20, 21, 22, 23]",The target stay is likely to be at a place the user has visited frequently during the same time of day (morning) on Thursdays.
+198,2489,"[1778, 1525, 1419, 2489, 2041]","Based on the user's activity pattern and recent context, I predict they will visit a place similar to their previous Monday evening stay."
+198,1525,"[1778, 1525, 2041, 1085, 1801, 2252, 2248, 1419, 2489, 1461]","Based on the user's activity pattern and recent context, I predict the next place will be a common destination on Monday evenings"
+198,1419,"[14, 10, 15, 16, 12, 17, 11]",The user tends to visit places with similar IDs and durations around the same time of day and weekday.
+198,1525,"[12, 7, 11, 2, 4, 14, 5, 3]","The prediction is based on the user's historical activity pattern and recent context stays. The target stay's temporal information suggests a Thursday morning visit, which aligns with the user's frequent visits to place ID 12 during this time. The top predictions are the places visited most frequently by this user during similar times of the day."
+198,2248,"[12, 10, 7, 6, 4, 3, 2]",Predicted places are based on the user's activity pattern and recent activities in the context

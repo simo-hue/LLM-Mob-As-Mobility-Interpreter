@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+124,2878,"[2878, 3350, 1842, 762, 1182, 237, 299, 222, 509, 733]","Recent stays at 2878 and 1842, combined with historical patterns of staying at these places on weekends and weekdays respectively."
+124,2878,"[2878, 3350, 1842, 237, 762, 1182, 296, 299, 1253, 733]",Recently frequent places and days of the week
+124,509,"[2878, 3350, 762, 1182, 1842, 237, 299, 296, 1253, 509]",Recent visits to places at similar times/days and patterns in the user's historical stays.
+124,1842,"[2878, 3350, 1842, 237, 762, 1182, 1253, 296, 299, 509]",Recent stays at 2878 and the user's morning routine suggest a strong likelihood of returning to these places.
+124,1842,"[2878.0, 3350.0, 237.0, 762.0, 1182.0, 1842.0, 296.0, 299.0, 509.0, 1253.0]","Based on the user's historical stays and recent contextual information, the prediction is that they will likely visit one of their previously frequent places."

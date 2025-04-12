@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+239,2170,"[1606, 2170, 2902, 1193, 343, 779]",The prediction is based on the user's activity pattern of repeated visits to certain places during certain times and recent activities in the context.
+239,2902,"[2170, 1606, 2902, 779, 1193]","Based on the user's activity pattern and recent context stays, we predict they are likely to visit a place they have been to before, possibly with a preference for weekend mornings"
+239,1606,"[1606, 2170, 2902, 779, 1193, 343, 1804]","The prediction is based on the user's activity pattern of repeated visits to certain places during certain times, with a strong influence from recent activities in context."
+239,548,"[2170, 2902, 1606, 1193, 343, 779]",based on the activity pattern and recent context

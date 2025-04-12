@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+413,3322,"[3323, 3004, 2927, 1324, 3322, 2224, 2294, 1947, 2174, 1114]","Based on the user's historical stays and recent behavior in context, the top 10 predicted places are likely to be visited next."
+413,2927,"[3323.0, 3004.0, 2927.0, 3322.0, 2224.0, 1324.0, 2629.0, 855.0, 2294.0, 1947.0]","Based on the user's historical stays and recent contextual information, the most likely places to visit next are those that have been visited frequently at similar times of day or days of the week."
+413,3323,"[3323.0, 3004.0, 2927.0, 3322.0, 2224.0, 1324.0, 2629.0, 855.0, 1741.0, 2174.0]",pattern in recent visits and historical stays

@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+204,293,"[1463, 2876, 1656, 293, 582, 1547, 1710, 3279, 396, 3343]",Recent visits to place IDs 1463 and 2876 suggest a high likelihood of returning to these places. The morning hours on Tuesday are also a strong indicator.
+204,2876,"[1463.0, 1656.0, 293.0, 2876.0, 582.0, 1710.0, 1547.0, 396.0, 3343.0, 3279.0]",Recent activity suggests the user is likely to visit places they've been to recently (1463 and 2876) with a focus on weekdays
+204,342,"[1656, 2876, 1463, 293, 582, 1547, 396, 3343, 3279, 1710]",Next location is likely to be a place that has been visited at similar times of day and days of the week as the recent stays in <context>.

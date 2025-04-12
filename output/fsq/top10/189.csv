@@ -4,3 +4,7 @@ user_id,ground_truth,prediction,reason
 189,1028,"[7, 3, 2, 1, 6, 9, 8]","The prediction is based on the user's activity pattern of repeated visits to certain places during certain times, considering the context stays and temporal information of the target stay."
 189,3496,"[3496, 1028, 793, 631, 933, 1654]",The prediction is based on the user's activity pattern of frequent visits to certain places during certain times and days.
 189,793,"[1044, 1028, 631, 793, 356, 933, 283, 3496]",The prediction is based on the user's activity pattern of frequent visits to certain places during specific times and days.
+189,933,"[14, 12, 11, 7, 5, 4, 3]","The prediction is based on the user's activity pattern of frequent visits to places 14, 12, and 11 during weekdays, as well as recent stays at these locations in the context."
+189,1122,"[1234, 1028, 631, 3496, 793, 356]","Based on the user's historical activity pattern and recent context, I predict they will visit places with similar duration and time of day as their previous stays."
+189,1211,"[1122, 1028, 3496, 793, 933, 631, 356]","Based on the user's activity pattern and recent context, I predict that they will visit a location similar to those they have visited recently, such as the office or home."
+189,3496,"[1211, 1122, 3496, 933, 793]","The user has a daily routine of visiting the same places around the same time, with recent activities suggesting a higher probability of revisiting previously visited locations."

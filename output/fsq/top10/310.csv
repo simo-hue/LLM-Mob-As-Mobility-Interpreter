@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+310,2193,"[1111, 1010, 1022, 1034, 1045, 1056, 1067, 1078, 1089, 1100]","The prediction is based on the activity pattern of this user that we learned from <history>, considering repeated visits to certain places during certain times. The context stays in <context> provide more recent activities of this user, and the temporal information (i.e., start_time and weekday) of target stay are also important factors."
+310,2062,"[10, 9, 8, 11, 5, 4, 7]","The prediction is based on the user's activity pattern and recent context, considering repeated visits to certain places during certain times."
+310,2193,"[13, 10, 9, 8, 7, 6, 5, 4, 3, 2]","The target stay is on a Wednesday and in the afternoon, which based on the context, suggests a visit to the places visited recently, with some adjustment according to the historical pattern."
+310,2062,"[9, 8, 5, 7, 10, 11, 6]","Based on the user's activity pattern and recent context, we predict that they will likely visit places they have visited before during similar times of the day"
+310,2062,"[9, 8, 7, 5, 4, 1, 10, 6, 11, 3]",The predicted places are the most frequent ones in the user's history and context.
+310,2425,"[9, 10, 12, 15, 17, 18, 21, 22, 23]",based on the user's activity pattern and recent stays
+310,2193,"[9, 8, 4, 1, 10, 6, 3]","Based on the user's activity pattern and recent context, it is likely that they will visit a place they have been to recently during similar times of the week."

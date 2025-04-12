@@ -1,0 +1,11 @@
+user_id,ground_truth,prediction,reason
+366,870,"[2809, 2973, 3483, 2392, 506, 11, 169, 1306, 506, 506]","Based on historical stays and recent behavior, the most likely places are those frequently visited at similar times and days."
+366,2809,"[2809, 3483, 2973, 2392, 3298, 506, 169, 11, 141, 197]","The user has a strong tendency to revisit place ID 2809, and also frequently visits places 3483, 2973, 2392; the recent context suggests they are likely to be at these locations."
+366,3483,"[3483, 2809, 2392, 2973, 506, 11, 169, 1306, 3298, 1008]",Recent behavior and historical patterns indicate the user tends to visit certain places at specific times/days
+366,183,"[2809, 3483, 2973, 2392, 506, 1306, 2984, 11, 169, 506]",The user has a strong preference for visiting places at specific times and days based on their historical stays. The recent context suggests the user is currently following this pattern.
+366,2809,"[2809.0, 3483.0, 2973.0, 2392.0, 506.0, 169.0, 11.0, 1306.0, 2984.0, 2603.0]","Recent behavior and historical patterns suggest the user is likely to visit a familiar place around this time of day, possibly on a weekday"
+366,3032,"[2809, 3483, 2392, 2973, 3298, 506, 169, 11, 546, 1008]",Recent and historical patterns suggest the user is likely to visit one of their frequent locations
+366,3483,"[2809, 2973, 3483, 2392, 11, 506, 169, 1306, 2984, 1008]",recent visits to places at certain times/days and patterns in the historical stays
+366,2809,"[2809, 3483, 2973, 2392, 546, 11, 506, 1008, 169, 197]",Predicted based on historical patterns and recent context of visiting places at similar times
+366,765,"[2809, 3483, 2973, 2392, 506, 169, 11, 141, 3298, 1008]",Pattern recognition and recent behavior indicate frequent visits to places 2809 and 3483
+366,3483,"[2809, 3483, 2973, 2392, 141, 3298, 1008, 506, 169, 11]",Next likely places based on the user's historical stays and recent behavior.

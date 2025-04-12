@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+30,2862,"[2162, 869, 810, 1566, 1553, 627, 1434, 374, 1031, 3807]",recently frequent places and similar day of the week
+30,700,"[1566, 1553, 1550, 1948, 266, 608, 197, 374, 506, 627]",Recent stays at place ID 1566 and pattern of visits to this place on Mondays
+30,1566,"[1553, 1566, 1550, 1948, 608, 197, 506, 1434, 627, 54]",Predicted based on frequent visits to places during similar times of the week
+30,502,"[2162, 142, 3807, 1031, 627, 1434, 1566, 1550, 197, 506]",Predicted based on recent stays at similar times and days
+30,1689,"[1553, 1566, 1158, 1948, 608, 1550, 625, 1537, 197, 506]","Predicted places are based on the user's historical stays and recent contextual information, with a bias towards places visited during similar times of day and days of the week."

@@ -1,0 +1,21 @@
+user_id,ground_truth,prediction,reason
+230,2326,"[2326, 936, 764, 3810, 2490, 781, 3451, 558, 3805, 3605]","Recent visits to 2326 and 936, with a high likelihood of return based on historical patterns"
+230,2326,"[2326, 936, 3451, 3805, 3810, 2490, 764, 781, 586, 340]","Recent contextual behavior indicates a strong likelihood of returning to familiar locations (e.g., 2326), with some preference for weekdays and late afternoon/early evening hours."
+230,936,"[2326, 936, 3451, 3805, 2490, 764, 781, 586, 3810, 3605]","The user has a strong tendency to visit places at similar times of the day and days of the week, with recent behavior in <context> suggesting a high likelihood of visiting places like 2326, 936, or 3451."
+230,1,"[2326, 936, 558, 3805, 3810, 2490, 764, 781, 586, 340]",Recent and historical stays at similar times and days indicate likely places to visit next
+230,2326,"[2326, 936, 3810, 2490, 764, 781, 558, 3805, 3451, 3]",Recent visits to places at specific times/days and repeated patterns in the user's history
+230,2326,"[2326, 936, 3810, 2490, 764, 781, 586, 2278, 340, 3]",Recent frequent visits to place ID 2326 and 936 indicate a high likelihood of returning to these locations. Other common places in the user's history are also considered.
+230,2326,"[2326, 936, 3810, 3451, 558, 3805, 764, 781, 2490, 2278]",Recent repeated visits to 2326 and consideration of patterns in history
+230,2326,"[936, 2326, 3451, 3805, 558, 764, 781, 2278, 2490, 3605]",Recent and historical patterns of frequent visits to these places on Fridays and weekdays.
+230,2326,"[2326, 936, 3451, 3805, 3810, 2490, 764, 781, 586, 2278]","The user's recent behavior suggests frequent visits to place ID 2326 on weekdays and occasional stays at other places, with a strong bias towards places they've visited before."
+230,2326,"[2326, 936, 3451, 3805, 764, 781, 2490, 3605, 586, 2278]","recent behavior in context and frequent stays at place 2326, as well as repeated visits to places 936 and 3451"
+230,2326,"[2326, 936, 3451, 3810, 3805, 2490, 764, 781, 586, 340]","Recent context indicates frequent visits to place 2326, and historical data shows patterns of daily and weekly routines"
+230,2326,"[2326, 936, 3451, 3810, 2326, 558, 764, 781, 3605, 2490]",Recent visits to place ID 2326 and historical patterns suggest this user is likely to visit a similar location
+230,936,"[2326, 936, 3451, 3805, 2490, 764, 781, 586, 3810, 340]","Recent behavior in context indicates frequent visits to place 2326, and historical pattern shows visits to places at certain times/days"
+230,936,"[936, 2326, 3451, 3805, 764, 781, 3605, 2490, 586, 2278]",predicted places based on user's historical stays and recent contextual information
+230,2326,"[2326, 936, 3805, 3451, 2490, 764, 781, 3810, 700, 586]",Recent behavior and patterns in the user's activity suggest a high likelihood of visiting places like home/work or frequently visited locations on certain days
+230,2326,"[936, 2326, 3451, 3810, 3805, 2490, 764, 781, 586, 2278]",Recent stays at similar times/day of week and repeated visits to places in the history
+230,1368,"[2326, 936, 3451, 3810, 3805, 2490, 764, 781, 586, 340]",Recent behavior suggests a high likelihood of returning to the same place at similar times and days
+230,2326,"[2326, 936, 3451, 3805, 2490, 764, 781, 3810, 558, 3605]","Recent visits to places like 2326 and 936, and historical patterns suggest a visit to these locations next"
+230,596,"[2326, 936, 3451, 3805, 2490, 764, 781, 586, 3810, 3605]",The user's recent behavior in context suggests they are most likely to return to a familiar location
+230,2326,"[936, 2326, 3451, 3805, 3810, 2490, 764, 781, 586, 2278]",based on the user's regular visits to places like 936 and 2326

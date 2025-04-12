@@ -1,0 +1,12 @@
+user_id,ground_truth,prediction,reason
+235,3450,"[3450, 1867, 2813, 1526, 795, 297, 158, 3034]","Based on the user's daily routine and recent behavior, I predict they will likely visit a familiar location (3450) in the morning."
+235,3494,"[3450, 1867, 2813, 377, 534, 1526, 795, 297, 158, 3034]",The predicted places are the most frequent and recent visited locations
+235,2813,"[3450, 1867, 2813, 158, 3034, 377, 795, 297, 1526, 28]","The predicted places are the most frequently visited ones during weekdays and weekends, considering the user's historical stays and recent behavior in context"
+235,2813,"[3450, 1867, 2813, 158, 3034, 795, 297, 1526, 377, 28]","The user tends to visit the same places at the same time on the same days (e.g., Monday mornings), and recent behavior suggests a strong likelihood of returning to familiar locations."
+235,1867,"[3450, 1867, 2813, 795, 297, 158, 3034, 1526, 534, 28]",Recent stays at place 3450 and patterns in the history suggest a high likelihood of returning to this location
+235,3450,"[3450, 1867, 2813, 3494, 297, 795, 158, 3034, 1526, 534]","Recent context suggests a high likelihood of the user visiting their typical Monday morning location, with historical data reinforcing this prediction."
+235,231,"[3450, 1867, 2813, 3494, 158, 3034, 795, 297, 1526, 534]",Recent contextual information and historical pattern of daily stays at 3450
+235,2975,"[3450, 1867, 2813, 795, 297, 158, 3034, 1526, 534, 28]",predicting based on historical patterns and recent behavior
+235,2209,"[3450, 1867, 2813, 795, 3034, 158, 377, 1526, 534, 28]","The user has a strong habit of visiting the same places at similar times and days, with recent behavior indicating a high likelihood of returning to the previous locations."
+235,467,"[3450, 1867, 2813, 795, 297, 158, 3034, 1526, 534, 377]",based on historical patterns and recent behavior
+235,3450,"[3450, 1867, 2813, 1526, 795, 297, 158, 3034, 2209, 467]",recent visits to places at certain times/days

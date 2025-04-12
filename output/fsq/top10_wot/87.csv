@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+87,587,"[2537, 897, 587, 786, 2807, 2839, 897, 5867, 2537, 5867]",Recent behavior indicates frequent visits to place 2537 on weekdays and place 587 on weekends
+87,587,"[2537, 897, 586.0, 587.0, 2839.0, 786.0, 2807.0, 897.0, 2537.0, 586.0]",predicted based on recent behavior in context and patterns in history
+87,2839,"[897.0, 587.0, 2537.0, 786.0, 2839.0, 2807.0, 879.0, 857.0, 2583.0, 2791.0]",Recent activity and historical patterns suggest the user will likely return to a familiar location
+87,587,"[897.0, 587.0, 2537.0, 786.0, 2807.0, 2839.0, 2537.0, 586.0, 587.0, 786.0]",The user tends to visit places at similar times and days of the week
+87,587,"[897.0, 587.0, 2537.0, 786.0, 2807.0, 2839.0, 2537.0, 587.0, 786.0, 897.0]","The user has a habit of visiting places at similar times and days, with recent visits to places 587 and 897."
+87,786,"[2537, 587, 897, 786, 2807, 2839, 2536, 5868, 2897, 5863]","Recent context suggests a return to the previous evening's place (2537), while history indicates the user often stays at home (587) or visits specific places on certain days"
+87,786,"[2537, 897, 587, 786, 2807, 897, 587, 2537, 786, 897]","Recent behavior suggests the user tends to visit places at night, and historical data indicates a high likelihood of returning to recently visited places."
+87,786,"[897, 587, 2537, 2807, 786, 897, 2537, 2537, 587, 786]",Predicted based on user's historical pattern of frequent visits to place 897 and recent context of visiting places 587 and 786.

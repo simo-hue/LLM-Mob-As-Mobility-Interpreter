@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+469,767,"[1814, 1333, 730, 465, 1120, 877, 767, 3514, 369, 9]","Based on the historical stays and recent contextual information, the top 10 most likely places for the user's next location are their most frequent destinations, with a focus on Thursday and Saturday nights."
+469,1700,"[1333, 730, 1814, 877, 9, 465, 1120, 369, 3514, 240]","The user tends to visit places 1333 and 730 frequently, especially on Thursdays. Recent context shows a visit to place 767 and 1157, suggesting the user may continue their current pattern."
+469,730,"[1814, 1333, 730, 767, 465, 1120, 369, 877, 3514, 9]",Recent stays at similar times and days
+469,877,"[1814, 1333, 730, 465, 767, 1120, 877, 3514, 369, 240]","Recent behavior suggests a mix of revisited places and new ones, with a higher likelihood of returning to previously visited places at similar times."
+469,767,"[1333, 1814, 730, 1120, 369, 465, 767, 3514, 877, 9]",Recent stays at 1333.0 and repeated visits to places like 1333.0 and 1814.0 indicate likely future stays at these locations.
+469,2131,"[1814, 1333, 730, 767, 877, 1120, 465, 3514, 240, 9]",Recent visits to 877 and context of Saturday night suggest the user might return to a similar location
+469,597,"[1333.0, 730.0, 1814.0, 1120.0, 877.0, 465.0, 767.0, 3514.0, 9.0, 3754.0]","The prediction is based on the user's frequent visits to places 1333.0 and 730.0, especially on Thursdays and Saturdays, as well as recent stays at places 877.0 and 1780."

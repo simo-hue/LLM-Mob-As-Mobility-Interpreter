@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+334,2600,"[3019, 2600, 518, 538, 1562, 1554, 1724, 1124, 784, 374]","Recent stays at 3019 and 2600 suggest a high probability of returning to these locations, with some likelihood of visiting other previously visited places"
+334,3019,"[3019, 2600, 538, 1562, 1362, 1179, 1124, 1724, 1554, 846]","Recent visits to places like home and work (2600, 3019), as well as a likely evening return to the same locations"
+334,3019,"[3019, 2600, 538, 1562, 1554, 1179, 784, 374, 1724, 1124]",Recent stays at 3019 and historical patterns of frequent visits to 2600 and 538 on Tuesdays and Saturdays.
+334,680,"[1562, 1554, 784, 374, 1362, 1724, 1179, 2600, 538, 1124]",Recent stays in the context of Sunday and Saturday are used to predict a visit to place 1562 with high probability.
+334,3019,"[1562, 538, 1124, 1724, 784, 374, 2600, 518, 846, 1554]",Recent stays at similar times/days and repeated visits to places
+334,2116,"[1562, 2600.0, 538.0, 1124.0, 1724.0, 1554.0, 846.0, 374.0, 784.0, 680]",prediction based on historical patterns and recent behavior
+334,3019,"[3019, 2600.0, 1562, 1362, 1124, 1115.0, 1081, 1067, 1055, 1048]","Recent context shows repeated visits to places 3019 and 680 on Sundays, with a pattern of visiting place 2600.0 during the day; predicting a high likelihood of returning to these familiar locations"
+334,3019,"[3019, 2600.0, 1562.0, 1554.0, 1124.0, 784.0, 538.0, 374.0, 1724.0, 1362.0]","Recent patterns suggest frequent visits to place ID 3019 on Sundays and Wednesdays, with some variations in time of day."

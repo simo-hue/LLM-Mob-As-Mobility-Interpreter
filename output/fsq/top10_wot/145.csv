@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+145,352,"[384, 1368, 3483, 1, 242, 152, 523, 417, 535, 154]","Recent behavior shows a strong affinity for the initial location (384), while historical data suggests possible alternatives based on day of week and time of stay."
+145,3229,"[384, 708, 416, 72, 20, 535, 154, 3229, 2845, 2178]",Recent visits and patterns in the user's activity history indicate a high probability of returning to familiar locations.
+145,1583,"[384, 3229, 2845, 2178, 3483, 535, 154, 1, 242, 523]","The user tends to visit the same place (384) frequently, and recent behavior suggests a potential change in location"
+145,682,"[384.0, 535.0, 2845.0, 152.0, 242.0, 523.0, 417.0, 2278.0, 252.0, 1.0]","The user tends to visit their most frequent places (384.0) at regular times and days, considering recent behavior in context which suggests they might stay overnight somewhere."

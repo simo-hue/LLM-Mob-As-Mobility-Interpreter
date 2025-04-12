@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+42,549,"[1429, 924, 549, 1307, 2655, 561, 876, 295, 1307, 924]","The user has a consistent pattern of visits to places on certain days and times, with recent behavior in <context> suggesting a high likelihood of visiting place ID 1429"
+42,1427,"[1429, 924, 549, 265, 1307, 876, 561, 295, 2655, 1307]",Recent patterns of visiting places at certain times/days and the current context suggest a high probability of returning to previously visited locations
+42,924,"[1429, 924, 549, 1307, 876, 2655, 561, 295, 1427, 265]",Recent frequent visits to places at certain times and days have been observed. The prediction is based on these patterns as well as the user's recent behavior.

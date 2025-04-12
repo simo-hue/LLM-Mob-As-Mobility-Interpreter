@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+49,793,"[2893, 2769, 793, 1257, 2145, 1939, 733, 1737, 506, 888]","Recent visits to places 2893 and 2769, frequent stays at these locations on specific days of the week, and some consistency with historical patterns."
+49,2893,"[2769, 2893, 1939, 793, 1257, 2145, 733, 1737, 506, 888]",Recent frequent visits to places at specific times/days in <history> and context
+49,2893,"[2769.0, 2893.0, 1939.0, 793.0, 1257.0, 2145.0, 733.0, 506.0, 1737.0, 888.0]","Based on the user's historical stays and recent behavior, I predict they will visit a place with similar characteristics to their previous visits."

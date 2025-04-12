@@ -1,0 +1,15 @@
+user_id,ground_truth,prediction,reason
+353,2860,"[2860.0, 2330.0, 1354.0, 2882.0, 1289.0, 2330.0, 2882.0, 2330.0, 1289.0, 2882.0]",Recent visits to places at similar times and days suggest a high likelihood of returning to familiar locations
+353,2882,"[2330, 2882, 1354, 1289, 2860]",Recent stays at home (2330) and weekend visits to 2882 and 1354 suggest a high likelihood of returning home or visiting one of these familiar locations.
+353,2860,"[2860.0, 2882.0, 2330.0, 1354.0, 1289.0, 2860.0, 2882.0, 2330.0, 1354.0, 1289.0]",Recent visits to places and patterns in historical stays
+353,2860,"[2860, 2330, 1354, 2882, 1289, 2851, 2873, 2895, 1302, 1326]","based on the user's historical stays and recent contextual information, the prediction is that the next likely place ID is a repeat of a previously visited location with high frequency"
+353,2330,"[2860, 2330, 1354, 2882, 1289, 2861.0, 1288.0, 2893.0, 2345.0, 2357.0]",Recent stays at 2860 and repeated visits to this place at certain times/days
+353,2330,"[2860, 2330, 1354, 1289, 2882, 1354, 2330, 2330, 1354, 1289]","Based on the user's historical stays and recent behavior, I predict that they will visit place ID 2860 again, as it is their most frequent destination"
+353,2860,"[2860.0, 2330.0, 1354.0, 1289.0, 2882.0, 2863.0, 1287.0, 2881.0, 1355.0, 1290.0]",prediction based on user's historical stays and recent contextual information
+353,2882,"[2860, 2330, 1354, 1289, 2882, 2861.0, 1356.0, 2877.0, 2893.0, 2838.0]",Predicted based on recent repeated visits to places at certain times/days in the given history and context.
+353,2860,"[2860.0, 2330.0, 1354.0, 2882.0, 1289.0, 2351.0, 2683.0, 2697.0, 2728.0, 2745.0]",Recent visits and patterns in history
+353,2330,"[2860, 2330, 1354, 1289, 2882, 2357, 1281, 1355, 2858, 1293]","Recent behavior and historical patterns suggest frequent visits to locations with IDs 2860, 2330, and 1354"
+353,2860,"[2860, 1354, 2330, 2882, 1289, 2330]",Recent behavior in context and patterns in history suggest a likely visit to the same places as before.
+353,2882,"[2330, 1354, 2860, 2882, 1289, 2351, 2348, 2346, 2325, 2293]",Recent visits to places at certain times/days and repeated patterns in the user's historical stays
+353,2330,"[2330, 2860, 1354, 1289, 2882, 2356, 1231, 1437, 1365, 2343]","Based on the historical stays and recent context, the prediction is that the user will likely visit one of their previously frequent places or a nearby location."
+353,2860,"[2860, 2882, 2330, 1354, 1289]",Recent behavior suggests the user is likely to return to previously visited places

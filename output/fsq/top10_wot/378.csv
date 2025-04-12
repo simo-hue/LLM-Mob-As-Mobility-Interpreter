@@ -1,0 +1,135 @@
+user_id,ground_truth,prediction,reason
+378,2439,"[2348.0, 1844.0, 2439.0, 1199.0, 2599.0, 2180.0, 2084.0, 3062.0, 1968.0, 1844.0]",Pattern recognition from history and recent behavior in context
+378,2084,"[2348.0, 1844.0, 2439.0, 2084.0, 1199.0, 2599.0, 1968.0, 2180.0, 3062.0, 1844.0]",Recent visits to places at certain times/days and patterns in historical stays
+378,2439,"[2348, 1199, 2599, 2180, 1844, 2439, 2084, 1968, 3062, 1845]","Recent behavior in context suggests a preference for places visited on Fridays and Saturdays, while historical data indicates a consistent pattern of visits to specific locations at certain times/days"
+378,2439,"[2348, 1199, 2599, 2439, 1844, 2180, 2084, 3062, 1968.0, 1845.0]",predicted based on user's activity pattern and recent behavior
+378,2439,"[2348, 1199, 2599, 2084, 1844, 1968.0, 3062, 2180, 2439, 1844]","The user has a pattern of visiting places at certain times and days of the week, and recent behavior suggests they are likely to visit place 2348 or 1199"
+378,2439,"[2348, 1844, 2599, 2439, 1199, 2084, 1968, 2180, 3062, 2061]","The user tends to visit the same places on certain days and times, with recent behavior suggesting a preference for place ID 2348."
+378,2439,"[2439, 1844, 2348, 2084, 1199, 2599, 1968.0, 2180, 3062, 3073]",Recent contextual information and historical stays suggest the user tends to visit places with similar IDs at similar times/days.
+378,1968,"[2348.0, 1844.0, 2439.0, 2084.0, 1199.0, 2599.0, 2180.0, 3062.0, 1968.0, 1844.0]","The user tends to visit similar places at the same times of the day, and has recently visited place 2439."
+378,2180,"[2439, 1844, 2599, 2348, 1199, 2084, 2180, 3062, 1968, 12199]",Recent behavior in context and patterns in history indicate a strong likelihood of visiting the same or similar places
+378,2599,"[2439, 1844, 2599, 2348, 1199, 2084, 1968, 2180, 3062, 2084]","The prediction is based on the user's recent and historical stays, considering patterns in both contexts. The top prediction is the most recently visited place (2439), followed by places frequently visited during the same day of the week or at similar times."
+378,1844,"[2348.0, 2439.0, 1844.0, 1199.0, 2180.0, 1968.0, 2084.0, 3062.0, 2599.0, 1994.0]",based on recent and historical patterns
+378,2599,"[2439, 1844, 2348, 1199, 2084, 2180, 1968, 2599, 3062]","Recent behavior suggests a strong affinity for places visited at similar times and days of the week, with a slight preference for places ID 2439."
+378,1844,"[2439, 1844, 2348, 2599, 1199, 2180, 1968, 2084, 3062, 1845]",Recent pattern of visiting places at the end of the day and on weekends
+378,2439,"[2439, 2348, 1844, 2599, 2180, 1199, 2084, 1968.0, 3062.0]",Recent behavior suggests frequent visits to place 2439 and 2348 during weekdays; historical data shows consistent stays at places 1844 and 2599 on Tuesdays and Thursdays
+378,1968,"[2439, 1844, 2348, 2180, 1199, 2599, 1968.0, 2084.0, 3062.0, 1844]",Recent behavior indicates a strong likelihood of returning to familiar locations
+378,1450,"[2439, 1844, 2599, 2348, 1199, 2084, 2180, 3062, 1968, 2063]",The user has a daily routine and tends to visit places during specific times of the day.
+378,2180,"[2348, 1199, 2439, 1844, 2599, 2084, 2180, 1968, 3062, 1450]",Recent behavior and historical patterns suggest most likely places are the usual work or leisure spots
+378,1844,"[2439, 1844, 2348, 1199, 2599, 2084, 1968, 1450, 2180, 3062]","Recent visits to place 2439 and context indicating likely return there; historical patterns show frequent visits to places 1844, 2348, and 1199"
+378,2599,"[2439, 1844, 2348, 2084, 2599, 1199, 1968, 1450, 2180, 3062]",Recent visits to place 2439 and considering patterns of daily routine
+378,1199,"[2439, 1844, 2348, 2599, 2084, 1450, 1199, 2180, 3062, 1968]","Based on historical patterns and recent context, the predicted next place is likely to be a place visited frequently or recently, with a strong likelihood of being 2439"
+378,2439,"[2439, 1844, 2348, 2589, 2084, 3062, 1199, 2180, 1968, 2599]","Recent frequent visits to places 2439 and 1844, with a slight bias towards visiting 2439 on Fridays."
+378,2439,"[2348.0, 1844.0, 2439.0, 2180.0, 2599.0, 1199.0, 1968.0, 2084.0, 3062.0, 1995.0]","Based on the user's activity pattern of visiting certain places at specific times and days, I predict they will visit place ID 2348.0 next."
+378,2439,"[2439, 1844, 2348, 2599, 1199, 2180, 2084, 1968, 3062, 184]",Recent visits to popular places at this time
+378,2348,"[2439, 1844, 2348, 2599, 1199, 2084, 2180, 3062, 1968, 1963]","The user has shown a strong preference for visiting places at 2439, especially during weekdays. Recent context suggests they are likely to continue this pattern."
+378,1968,"[2348, 2439, 1844, 1199, 2180, 2599, 2084, 3062, 1968, 1846]",Recent pattern of visits to places on Sundays and Fridays continues with likely next visit to place ID 2348
+378,1450,"[2348.0, 1844.0, 2439.0, 2599.0, 1199.0, 2084.0, 2180.0, 3062.0, 1968.0, 2081.0]",Recent visits to places at certain times/days and patterns in the user's historical stays
+378,1844,"[2439, 1844, 2348, 2599, 1199, 2180, 2084, 3062, 1968, 1450]",Recent stays at place ID 2439 and historical patterns of visits to these places
+378,2180,"[2439, 1844, 2348, 2599, 1199, 2180, 2084, 3062, 1968, 1450]","The user has a strong tendency to visit places at specific times and days of the week, with a focus on weekdays."
+378,2439,"[2439, 1844, 2348, 2084, 1199, 2599, 1968, 1450, 3062, 2180]",Recent visits to places on weekdays and frequent returns to previously visited locations
+378,1968,"[2439, 1844, 2348, 2599, 1199, 2084, 1968, 1450, 2180, 3062]","Recent stays and patterns in the user's history suggest a high likelihood of visiting familiar places on weekdays, with a strong possibility of going to places visited frequently during morning hours."
+378,1844,"[1844, 2599, 2439, 2348, 1199, 2084, 2180, 1968, 3062]","Recent context suggests the user tends to visit similar places at this time of day, with a bias towards visits to 1844 and 2599 on Mondays and Tuesdays."
+378,1844,"[2439, 1844, 2348, 2599, 1199, 2180, 2084, 1968, 3062]","recent visits to 2439 and morning stays at 1844 suggest likelihood of returning to these places, while evening stays at 2348 and 2599 also increase the probability"
+378,1199,"[2348, 2439, 1844, 2599, 1199, 2084, 1968, 2180, 3062, 2084]",Predicted based on historical patterns and recent contextual information
+378,2439,"[2439, 1844, 2348, 2599, 2084, 1199, 2180, 1968, 3062, 2066]",based on recent daily patterns and frequent visits to specific places
+378,1844,"[2348.0, 2439.0, 2084.0, 3062.0, 2599.0, 1844.0, 1199.0, 1968.0, 2180.0, 2084.0]",Recent visits to places at certain times/days and patterns in historical stays
+378,2180,"[2439, 1844, 2348, 2180, 1199, 2599, 2084, 3062, 1968.0, 1844.0]",recent visits to places at certain times/days and patterns in the user's historical stays
+378,2348,"[2439, 1844, 2348, 1199, 2084, 2599, 1968.0, 3062, 2180, 10]",Predicted based on user's recent and historical stays patterns
+378,2439,"[2439, 1199, 1844, 2348, 2180, 2599, 2084, 1968.0, 3062.0, 1844.0]",Recent behavior in <context> suggests frequent visits to places with IDs 2439 and 1199 on Tuesdays and Wednesdays.
+378,2439,"[2439, 1844, 2348, 2084, 3062, 2599, 1199, 2180, 1968.0, 1976]",based on recent and historical patterns
+378,1968,"[2439, 1844, 2348, 2084, 1199, 2599, 2180, 3062, 1968.0, 1844.0]",recently visited places on Wednesday and Tuesday
+378,1844,"[2439, 1844, 2348, 2180, 1199, 2084, 2599, 3062, 1968, 2084]","Recent and historical behavior suggests a high likelihood of visiting places commonly visited in the evening (2439) or during work/school hours (1844, 2348, 2180)"
+378,2348,"[2439, 2348, 1844, 2599, 1199, 2180, 2084, 3062]","Recent stays at 2439 and 2348 on Wednesday, with a morning visit to 1968 on Thursday; also considering historical patterns of frequent visits to these places."
+378,2599,"[2348, 1199, 2439, 1844, 2599, 1968, 2084, 2180, 3062]",Recent visits to places at certain times/days and patterns in history suggest the user is likely to visit a similar location
+378,1199,"[2439, 1844, 1968, 2348, 2084, 1199, 2599, 2180, 3062, 1071]","Based on the user's historical stays and recent behavior, the next likely places to visit are their most frequently visited locations, with a slight bias towards their more recent activities."
+378,2439,"[2439, 1844, 2348, 2599, 1968, 1199, 2180, 2084, 3062]",Recent behavior in context suggests a strong likelihood of returning to previously visited places at similar times and days. Historical stays show consistent patterns of visiting certain locations on specific days and times.
+378,1968,"[2439, 1844, 2348, 2084, 1199, 2599, 1968.0, 2180.0, 3062.0]",recently visited places and patterns in the history
+378,3062,"[2348, 2439, 1844, 2599, 1199, 2084, 3062, 2180, 1968]",recent stays and time of day suggest frequent visits to familiar locations
+378,1968,"[2348.0, 2439.0, 1844.0, 2084.0, 1199.0, 2599.0, 1968.0, 2180.0, 3062.0]","Based on historical stays and recent context, the user is likely to visit a place they've visited before during the same day of the week."
+378,1844,"[2348, 2439, 1199, 1844, 2599, 2180, 2084, 1968, 3062]","Based on the user's historical stays and recent contextual information, we predict they will visit one of their frequently visited places (e.g., 2348, 2439), potentially due to work or daily routine. The recent visits to these places in <context> also support this prediction."
+378,1199,"[2439, 1844, 2348, 1199, 2599, 2180, 2084, 3062, 1968, 2007]",Pattern of repeated visits to places at certain times/days in the user's history and recent behavior in the context
+378,1968,"[2439, 2348, 1844, 2599, 2084, 1199, 3062, 1968, 2180, 1991]","The user has a strong tendency to visit places at certain times of the day and on specific days of the week. Recent behavior suggests a likelihood of visiting place 2439 again, as it was visited multiple times in the recent past."
+378,2180,"[2439, 1844, 2348, 2599, 2084, 3062, 1199, 2180, 1968]",Recent behavior shows a strong affinity for place ID 2439 on Tuesdays and Sundays
+378,1844,"[2439, 1844, 2348, 2599, 2084, 1199, 3062, 2180, 1968, 1975]",recent stays at 2439 and 1844 suggest these locations are likely next
+378,2439,"[2439, 1844, 2599, 2348, 1199, 2084, 1968, 2180, 3062, 2075]","Recent visits to places at 2439 and 1844, with a strong likelihood of returning to these locations."
+378,2084,"[2348.0, 1844.0, 2439.0, 1199.0, 2599.0, 2180.0, 1968.0, 2084.0, 3062.0]",based on the user's historical stay patterns and recent context
+378,2180,"[1844, 2439, 2348, 2599, 1199, 2180, 1968, 2084, 3062, 3079]",Recent visits to places at certain times/days and historical patterns
+378,1844,"[2439, 1844, 2348, 2599, 1199, 2180, 2084, 1968, 1846, 3062]","The prediction is based on the user's recent and historical activity patterns. In the context of the provided data, it seems that the user frequently visits places with IDs 2439 and 1844 during weekdays, especially in the late afternoon and evening. Additionally, there are some repeated visits to place ID 2348, which suggests a potential frequent destination. The other high-ranking predicted locations have also been visited by the user previously, although less frequently."
+378,2348,"[2439, 1844, 2348, 2599, 1199, 2084, 2180, 3062, 1968.0, 1844.0]",Recent visits to 2439 and 1844 suggest a strong likelihood of returning to these places
+378,2599,"[2439, 1844, 2348, 2084, 2599, 1199, 2180, 3062, 1968.0, 1844.0]","Recent behavior suggests a strong affinity for 2439, while historical patterns show consistent visits to 1844 and 2348"
+378,1844,"[2439, 1844, 2348, 2180, 2084, 1199, 2599, 1968.0, 3062.0]",Recent stays at 2439 and 1844 suggest user's next likely place ID is one of these frequent locations.
+378,2439,"[2439, 1844, 2348, 2180, 1199, 2084, 3062, 1968.0, 2599, 2599]",Recent behavior shows a strong affinity for 2439 and 1844; historical patterns suggest frequent visits to these places on various days.
+378,1968,"[2439, 1844, 2348, 1199, 2599, 2180, 2084, 3062, 1968.0, 1844.0]","Based on the recent contextual information and historical stays, it's likely that the user will visit one of their most frequently visited places, which are mostly work/school locations."
+378,2180,"[2348, 2439, 1844, 2599, 1968, 1199, 2180, 2084, 3062]",The prediction is based on the user's recent behavior of frequent visits to certain places at specific times and days.
+378,2439,"[2599, 2439, 1844, 2348, 1199, 2084, 3062, 1968, 2180, 1845]",Recent and historical behavior suggests the user is likely to visit their most frequent locations
+378,2439,"[2348, 1199, 2599, 1844, 2084, 1968, 2439, 2180, 3062, 2073]",Recent context suggests frequent visits to place 2439 and 1844; history shows a mix of daily patterns and occasional long stays
+378,2180,"[2348.0, 1844.0, 2439.0, 2084.0, 1199.0, 2599.0, 1968.0, 2180.0, 3062.0, 2095.0]",based on patterns in history and recent behavior in context
+378,2599,"[2439, 1844, 2599, 2348, 1199, 2084, 3062, 1968, 2180, 3071]",recent visits to places at certain times/days
+378,2439,"[2439, 1844, 2348, 2084, 2599, 1199, 1968, 2180, 3062, 3041]","Recent visits to 2439 and 2180, frequent stays at 1844 on weekdays, and occasional visits to other places"
+378,2439,"[2348, 1844, 2439, 2084, 1199, 2180, 3062, 2599, 1968, 1977]","The prediction is based on the user's historical stays and recent behavior in the context. The user has a tendency to visit places during specific times of the day (e.g., morning hours) and days of the week (e.g., Tuesdays). Recent visits to place 2439 suggest that it may be a likely location for the next stay."
+378,2439,"[2348, 1199, 2084, 1844, 2439, 2599, 1968, 2180, 3062]","Pattern of frequent visits to places on certain days and times in the user's history, with recent context suggesting a return to familiar locations"
+378,1968,"[2439, 1844, 2599, 2348, 1199, 2180, 2084, 1968, 3062]","Recent visits to popular locations like 2439 and 2599, as well as historical patterns of returning to these places at certain times/days."
+378,1844,"[2439, 1844, 2599, 2348, 1199, 2084, 2180, 3062, 1968, 2348]","Recent behavior in the context suggests that this user is more likely to visit places at night (like 2439), and historical pattern shows a preference for visiting place 1844 on weekdays."
+378,1450,"[2348, 1199, 2599, 2180, 3062, 2084, 1968, 2439]","Based on the user's past activity pattern, the prediction is influenced by the recent visits to places 2439 and 1844, as well as the weekday patterns."
+378,1844,"[2348.0, 2439.0, 1844.0, 2599.0, 1199.0, 1968.0, 2084.0, 3062.0, 2180.0, 1450.0]",Recent behavior in context and patterns in history suggest frequent visits to popular places on Tuesday and Friday mornings
+378,1450,"[2439, 1844, 2348, 2599, 1199, 2180, 2084, 1968, 1450, 3062]","Recent behavior shows a strong preference for place ID 2439, with frequent visits in the evening. Historical data also suggests that this user often returns to places they have visited before."
+378,2180,"[2439, 2348, 1844, 2599, 1199, 2084, 1968, 2180, 3062, 1450]","The user tends to visit the same places at similar times and days, with a recent bias towards visiting places like 2439 on Tuesdays and 1844 on Fridays."
+378,2084,"[2439, 1844, 2348, 2599, 1199, 2084, 3062, 2180, 1450, 1968]",Recent visits to places on Tuesday and Friday and patterns in previous stays.
+378,1450,"[2439, 2348, 1844, 2599, 1199, 2180, 2084, 1450, 1968, 2067]","Recent contextual information shows the user has been visiting places at night, and their historical stays reveal a pattern of frequent visits to place 1844 during weekdays."
+378,1844,"[2439, 1844, 2348, 2599, 1199, 2180, 2084, 1968.0, 3062.0, 1450]",Recent stays at various times/days and repeated visits to places
+378,1450,"[2439, 1844, 2599, 2348, 1199, 2180, 2084, 1968.0, 1450, 3062]","Recent visits to 2439 and 1844, with a history of visiting these places on Tuesdays, Wednesdays, and Fridays"
+378,2180,"[2439, 1844, 2084, 2348, 2599, 1199, 1968.0, 2180, 3062, 1450]","Based on the user's historical stays and recent context, the prediction is that they will likely visit one of their most frequent locations, with a strong likelihood of returning to 2439."
+378,1844,"[2439, 1844, 2348, 2084, 2599, 1199, 1968, 3062, 2180, 1450]","recent visits to places like 2439 and 1844, as well as historical patterns of returning to these locations"
+378,2439,"[2439, 1844, 2348, 2599, 1199, 2084, 3062, 1450, 2180, 1968]","Recent contextual information shows a strong tendency towards visiting places with IDs 2439 and 1844, while historical patterns suggest frequent visits to locations 2348, 2599, and 1199."
+378,1450,"[2599, 2348, 1199, 2084, 3062, 2180, 1844, 2439, 1450, 1968]","Based on the user's historical stays and recent contextual information, it is likely that they will visit a location with a similar day-of-week pattern to their previous visits, such as 2599 or 2348."
+378,1844,"[2348, 2439, 2180, 2599, 1199, 1844, 2084, 3062, 1968.0, 1450]","Pattern recognition based on daily and time-based stays in history, considering recent contextual information"
+378,1450,"[2439, 2348, 1844, 2599, 1199, 2084, 3062, 2180, 1968, 1968]","Recent stays at places with high frequency of visits (e.g., 2439) and similar day-of-week patterns in the past (e.g., visiting 1844 on Tuesdays and Wednesdays)"
+378,2599,"[2439, 1844, 2348, 1199, 2084, 2599, 2180, 3062, 1450, 1968]","Recent visits to 2439 and 1844, with a strong pattern of visiting these locations at certain times/days, especially on Tuesdays."
+378,2439,"[2439, 1844, 2348, 1199, 2589, 2180, 2084, 3062, 1450, 2599]","Recent visits to places like 2439, and regular morning visits to places like 1844 suggest a high likelihood of returning to these locations."
+378,2439,"[2348.0, 1844.0, 2439.0, 2084.0, 1199.0, 2599.0, 1450.0, 1968.0, 2180.0, 3062.0]","Recent visits to places at certain times/days, and repeated patterns in the user's history"
+378,1968,"[2348.0, 1844.0, 2599.0, 2439.0, 1199.0, 2180.0, 2084.0, 1450.0, 3062.0, 1968.0]",Predicted based on frequent visits and recent behavior
+378,1844,"[2599, 1844, 2439, 2348, 1199, 2180, 2084, 1450, 3062, 1968]","Recent contextual information suggests user is likely to visit places they visited frequently in the past, and also those that have been recently visited."
+378,1844,"[2439, 1844, 2599, 2348, 1199, 2180, 2084, 3062, 1968, 1844]","Recent patterns in the user's activity show a strong tendency to visit locations with IDs 2439 and 1844, especially during weekdays."
+378,2599,"[2348.0, 2439.0, 1844.0, 2084.0, 1199.0, 2599.0, 1968.0, 2180.0, 3062.0]",Recent contextual information and historical patterns indicate frequent visits to places on Fridays and Tuesdays.
+378,1844,"[2348.0, 2439.0, 1844.0, 2180.0, 2084.0, 1968.0, 1199.0, 3062.0, 2599.0, 2598.0]",predicting based on recent patterns in history and context
+378,2439,"[2348.0, 2439.0, 1844.0, 1968.0, 1199.0, 2084.0, 2180.0, 2599.0, 3062.0, 1844.0]","Recent frequent visits to places 2348 and 2439, with patterns of daily and weekly routine in history"
+378,2439,"[2348, 1199, 2084, 2439, 1844, 2599, 1968.0, 2180.0, 3062.0, 1844]",based on patterns in <history> and recent behavior in <context>
+378,2439,"[2439, 1844, 2348, 2599, 1199, 2180, 2084, 3062, 1968, 1845]",Recent behavior suggests frequent visits to popular locations on Fridays and weekends.
+378,2439,"[2439, 1844, 2599, 2348, 1199, 2084, 2180, 3062, 1968.0, 1844.0]",Recent stays at 2439 and recent days of the week suggest a high likelihood of returning to this place.
+378,1844,"[2439, 1844, 2348, 2084, 1199, 2599, 2180, 3062, 1968.0, 1844]",Recent visits to 2439 and 1844 suggest a likely return to these locations.
+378,2599,"[2439, 1844, 2348, 2599, 1199, 2180, 2084, 3062, 1968.0, 1843.0]","Recent and repeated visits to the places in <context>, and consistent weekday patterns observed in <history>"
+378,2439,"[2348, 2439, 2180, 3062, 2084, 1199, 1844, 2599, 1968.0, 1844.0]",Next likely place based on recent behavior and historical patterns.
+378,1968,"[2348.0, 2439.0, 1844.0, 2084.0, 1199.0, 2180.0, 2599.0, 3062.0, 1968.0, 1846.0]",The user tends to visit certain places on specific days of the week and times of day.
+378,1450,"[2439, 1844, 2348, 2599, 1199, 2084, 2180, 3062, 1968, 3073]","Recent pattern of frequent visits to place 2439 and 1844 indicates high probability, while morning stays at places 1968 and 2348 suggest daily routines, with other locations having lesser but still significant probabilities."
+378,1844,"[2348.0, 1844.0, 2599.0, 2439.0, 1199.0, 2084.0, 2180.0, 3062.0, 1968.0, 1450.0]","Based on the user's historical stays and recent context, I predict they will visit one of their most frequently visited places, with a bias towards visits during weekdays."
+378,2599,"[2348, 1199, 2439, 2084, 2599, 2180, 1968, 1844, 1450, 3062]",Recent stays at places and days of the week suggest user's next likely location
+378,1450,"[2439, 1844, 2348, 1199, 2084, 2180, 2599, 1968, 1450, 3062]",Recent behavior suggests frequent visits to places with ID 2439 and 1844 on Tuesday and Wednesday
+378,1844,"[2439, 1844, 2348, 2180, 1199, 2084, 2599, 1968, 3062, 1450]",recurring visits to frequent places
+378,2180,"[2439, 1844, 2348, 2599, 1199, 2084, 2180, 3062, 1968, 1450]",Recent frequent visits to places at certain times/days and considering the user's historical stays.
+378,2348,"[2439, 1844, 2599, 2348, 1199, 2084, 1450, 2180, 3062, 1968]",Recent behavior suggests a likely evening visit to the previously visited places
+378,2439,"[2439, 1844, 2599, 2348, 1450, 1199, 2180, 1968, 2084, 3062]",Recently visited place at similar time/day and repeated visits to top places in the past
+378,1968,"[2599, 2439, 1844, 2348, 1199, 2180, 2084, 1450, 1968.0, 3062]",Recent behavior shows a likely move towards the office (2599) or nearby locations
+378,1844,"[2348.0, 1844.0, 2439.0, 1199.0, 2180.0, 2599.0, 2084.0, 3062.0, 1968.0, 3077.0]",Recent and historical visits to the same places on similar days
+378,2180,"[2439, 1844, 2348, 2180, 2599, 1199, 2084, 3062, 1968, 2084]",Recent stays at 2439 and recent context suggest this is a likely place to visit next.
+378,1,"[2348, 2439, 1844, 2599, 1199, 2084, 3062, 1968, 2180, 1996]",Pattern of repeated visits to places at certain times/days and recent behavior in context.
+378,2348,"[2439, 1844, 2599, 2348, 1199, 2084, 1968, 2180, 3062, 1846]",Recent visits to places at certain times/days and repeated patterns in the user's stay history.
+378,2439,"[2439, 1844, 2348, 2084, 1968, 2599, 1199, 2180, 3062, 1]",Predicted based on recent behavior and historical patterns.
+378,1968,"[2348.0, 1844.0, 2439.0, 2180.0, 1199.0, 2599.0, 1968.0, 2084.0, 3062.0, 1]","Based on the user's historical stays and recent behavior, the predicted next place is likely to be one that has been visited frequently during weekdays or weekends"
+378,1450,"[2348, 1844, 2439, 2084, 2599, 1199, 2180, 3062, 1968, 1]",The user has a recurring pattern of visiting places on certain days and times
+378,2439,"[2439, 1844, 2348, 2599, 1199, 2084, 3062, 2180, 1968, 1450]",Recent stays at 2439 and context suggest a high likelihood of visiting this place again.
+378,2439,"[2439, 1844, 2348, 2084, 1199, 2599, 1968, 1450, 2180, 3062]","Recent behavior and historical patterns suggest frequent visits to places on Friday and the past week, with a bias towards evening stays"
+378,1968,"[2348.0, 1844.0, 2599.0, 2439.0, 1199.0, 2084.0, 1968.0, 1450.0, 2180.0, 3062.0]",based on repeated visits to places at certain times/days and recent behavior in context
+378,1844,"[2348.0, 1844.0, 2439.0, 1199.0, 2599.0, 2084.0, 1450.0, 1968.0, 2180.0, 3062.0]",Pattern analysis based on historical stays and recent behavior
+378,1844,"[2348.0, 2599.0, 2439.0, 2084.0, 1199.0, 2180.0, 1450.0, 1968.0, 1844.0]",Predicted based on historical stays and recent behavior
+378,1844,"[2348.0, 2439.0, 1844.0, 2599.0, 1199.0, 2084.0, 1968.0, 2180.0, 3062.0, 2084.0]",based on historical stays and recent contextual information
+378,1968,"[2439, 1844, 2348, 2599, 1199, 2180, 2084, 3062, 1968, 1995]",Recent behavior and historical patterns suggest the user is likely to visit a familiar location
+378,1450,"[2439, 1844, 2348, 1199, 2599, 2180, 2084, 1968, 3062, 2084]",Recent behavior in context and patterns in history suggest likely places
+378,1844,"[2439, 1844, 2348, 2084, 2599, 1199, 2180, 3062, 1968, 1450]",The user tends to visit the same places during the day and has a recent history of visiting these locations.
+378,2599,"[2439, 1844, 2599, 2348, 1199, 2084, 1968, 1450, 2180, 3062]","Recent behavior suggests frequent visits to places with IDs 2439 and 1844, while historical data reveals a preference for visiting place ID 2599 on Mondays, and some variation in visited places throughout the week."
+378,2439,"[2439, 1844, 2348, 1199, 2180, 2084, 1968, 2599, 1450, 3062]","The prediction is based on the recent contextual information and historical stays. The user tends to visit place IDs 2439, 1844, and 2348 frequently."
+378,1450,"[2348.0, 2439.0, 1844.0, 1199.0, 2599.0, 2180.0, 3062.0, 2084.0, 1968.0, 1450.0]",Recent visits to 2439 and historical patterns of visiting places on Tuesday/Wednesday
+378,1844,"[2348.0, 1844.0, 2439.0, 2599.0, 1199.0, 1968.0, 2084.0, 2180.0, 3062.0, 1450]","Recent behavior suggests frequent visits to places with IDs 2348, 1844, and 2439"
+378,2180,"[2348, 2439, 2599, 1844, 1199, 2084, 2180, 3062, 1450]","The user tends to visit places at certain times and days based on their historical stays, and recently visited place IDs 1844, 2599, and 2439."
+378,1968,"[2348.0, 2439.0, 2599.0, 1844.0, 1199.0, 2084.0, 1450.0, 2180.0, 1968.0, 3062.0]",The prediction is based on the user's historical stays and recent behavior in the context of weekdays and time patterns.
+378,2439,"[2439, 1844, 2599, 2348, 1199, 2084, 3062, 2180, 1450, 1968]",Recent visits to 2439 and historical patterns indicate likely repeated visits.

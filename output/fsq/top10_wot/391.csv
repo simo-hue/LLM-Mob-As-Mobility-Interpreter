@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+391,561,"[1004, 602, 561, 565, 594, 300, 587, 1120, 2747, 3809]","The user has a strong morning routine at places with IDs 1004 and 602, and the recent context suggests a possible visit to place ID 594"
+391,1337,"[1004, 602, 561, 594, 300, 565, 587, 1120, 2747, 3809]","Recent behavior in context suggests frequent visits to 1004 at morning hours on weekdays, and also presence of similar places like 602 and 561 in history"
+391,53,"[1004.0, 602.0, 300.0, 561.0, 594.0, 587.0, 3809.0, 1121.0, 265.0, 551.0]",based on historical patterns of frequent visits to certain places and recent behavior
+391,1004,"[1004, 602, 561, 1121, 300, 587, 565, 594, 3809, 2747]",Recent patterns of daily and weekly routines are similar to historical patterns. The user tends to visit the same places at similar times of day.

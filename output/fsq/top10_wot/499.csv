@@ -1,0 +1,22 @@
+user_id,ground_truth,prediction,reason
+499,1851,"[2570, 1592, 3181, 3278, 1125, 917, 300, 446, 311, 2172]",Recent visits to places at certain times/days indicate user's tendency for repeated stays.
+499,300,"[3181, 2570, 1125, 917, 570, 300, 371, 446, 311, 2172]",Recent visits to places and consistent time-of-day patterns
+499,1,"[3181.0, 311.0, 2172.0, 1902.0, 1125.0, 927.0, 2570.0, 3278.0, 1592.0, 371.0]",Recent visit to a location at a similar time and day of the week suggests a high likelihood of returning to that location.
+499,1,"[3181, 2570, 1125, 3278, 917, 570, 1592, 371, 446, 1902]",The user's recent behavior in the context suggests a high likelihood of returning to familiar places at similar times
+499,2570,"[3181, 2570, 1125, 3278, 1902, 570, 300, 446, 311, 2172]","Based on the user's historical stays and recent contextual information, the predicted next place ID is likely to be one of their frequent visited locations, particularly those visited in the morning or late evening."
+499,1851,"[2570, 1592, 3181, 3278, 1125, 917, 570, 300, 371, 446]","Recent behavior in context suggests frequent visits to place 2570 and 1592, while historical stays indicate repeated visits to places at certain times/days"
+499,1851,"[3181, 300, 1125, 2570, 3278, 1592, 1902, 311, 2172, 446]","Pattern analysis of historical stays and recent context shows frequent visits to places at certain times/days, with a focus on weekdays."
+499,1,"[3179, 1125, 300, 570, 3181, 371, 446, 311, 2172, 1902]","Recent behavior suggests returning to familiar locations, with a slight preference for Tuesday evenings."
+499,466,"[2570, 1592, 3181, 1125, 300, 1902, 371, 446, 311, 2172]","The user tends to visit places at similar times and days, with a recent pattern of visits to place_id 2570 on Tuesdays and Wednesdays."
+499,1,"[3181, 2570, 3278, 1125, 917, 1592, 300, 371, 446, 311]",based on recent patterns and weekday similarity
+499,1,"[3181, 2570, 1592, 1125, 3278, 917, 570, 300, 371, 446]",Recent visits to places with similar day of week and time
+499,1,"[3181, 2570, 1592, 1125, 571, 371, 446, 311, 2172, 1902]","Based on the user's historical stays and recent behavior in context, I predict they will visit places that have been frequently visited at similar times of day or week."
+499,2570,"[3181, 2570, 1125, 3278, 1592, 917, 570, 300, 1902, 446]",Recent frequent visits to places at certain times/days in the context and history
+499,1,"[3181, 1125, 2570, 1678, 570, 300, 371, 446, 311, 2172]","Recent visits to places 2570 and 3181, and historical patterns of visiting these locations at similar times"
+499,1851,"[2570, 1592, 3181, 3278, 1125, 917, 570, 300, 446, 371]",recent visits to places at certain times/days and repeated patterns in the history
+499,1125,"[1125, 300, 3181, 2570, 1592, 3278, 311, 371, 446, 1902]",The user tends to visit familiar places during the same day of the week and time of day as previous stays
+499,917,"[3181, 2570, 1592, 1125, 3278, 1902, 311, 446, 2172, 1851]","The user tends to visit places repeatedly on certain days and times, and recent behavior suggests they may be heading towards their preferred locations"
+499,1125,"[3181, 2570, 1125, 917, 1592, 3278, 1851, 570, 446, 371]",Recent contextual information and historical patterns suggest the user is likely to visit a location similar to those they have previously visited at this time of day
+499,300,"[3278, 1125, 2570, 1592, 918, 3181, 570, 300, 446, 371]","Recent visits to work and home locations, with a bias towards Tuesday evening"
+499,300,"[2570.0, 1592.0, 1125.0, 3181.0, 917.0, 3278.0, 570.0, 300.0, 371.0, 446.0]",Recent visits to places in the context and frequent stays at these locations throughout history
+499,1125,"[2570, 1592, 3181, 1125, 3278, 917, 570, 446, 371, 311]",Recent and historical patterns of staying at these places on similar days and times suggest likely destinations.

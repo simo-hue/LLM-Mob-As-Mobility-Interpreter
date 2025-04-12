@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+103,3789,"[1649, 721, 1276, 3789, 1781, 1393, 419, 610, 2103, 51]","Based on user's historical pattern of frequent visits to places 1649 and 721 during weekdays, recent behavior suggests a continued trend."
+103,3789,"[1649.0, 3789.0, 1276.0, 1781.0, 1579.0, 721.0, 1393.0, 51.0, 1.0, 419.0]",recent stays at night and weekday patterns suggest likely places
+103,1358,"[1649, 1276, 721, 3789, 1781, 51, 610, 419, 2103, 1393]",Recent behavior suggests the user is likely to visit a familiar place during their daily routine
+103,721,"[1649, 3789, 1276, 721, 1781, 1393, 51, 1, 2103, 610]",The user has shown a strong preference for staying at place 1649 on weekdays and 3789 on weekends. The recent context suggests they may be heading to place 1649 again given the early morning time.

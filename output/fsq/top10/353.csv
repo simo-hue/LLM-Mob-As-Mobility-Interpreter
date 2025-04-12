@@ -1,0 +1,15 @@
+user_id,ground_truth,prediction,reason
+353,2860,"[7, 5, 3, 6, 8, 1, 4, 2]","The prediction is based on the user's historical stays and recent context, considering repeated visits to certain places during certain times."
+353,2882,"[5, 4, 3, 2, 1]",The user has a strong tendency to visit the same places at similar times of day and week
+353,2860,"[15, 12, 14, 10, 16, 13, 9, 7]",based on the user's activity pattern and recent context
+353,2860,"[7, 3, 8, 5, 9, 4, 1, 6, 2]",The prediction is based on the user's activity pattern and recent activities in the context
+353,2330,"[8, 10, 9, 7, 6, 4, 3, 2, 1, 5]","The prediction is based on the user's activity pattern and recent context, considering temporal information."
+353,2330,"[7, 4, 5, 3, 1, 9, 8, 6]",Pattern of daily and weekly routines
+353,2860,"[7, 5, 4, 3, 1, 9, 8, 2]","The prediction is based on the user's activity pattern and context, with a focus on recent activities and temporal information."
+353,2882,"[5, 11, 4, 7, 3, 9, 1, 10, 2, 8]",based on the user's activity pattern of repeated visits to certain places during certain times and recent context stays
+353,2860,"[5, 7, 8, 9, 6, 3, 4]",The prediction is based on the user's frequent visits to places during certain times and days.
+353,2330,"[5, 7, 9, 4, 8, 6, 1, 3, 2]","The prediction is based on the user's activity pattern and recent context. The user has a tendency to visit places with similar place IDs (e.g., Sunday afternoon) and during specific times (e.g., Monday morning)."
+353,2860,"[5, 3, 1, 7, 4, 2, 9]",The prediction is based on the activity pattern of this user that we learned from their historical stays. The recent context also plays a role in the prediction.
+353,2882,"[15, 14, 13, 12, 11]",prediction based on the user's activity pattern and recent context
+353,2330,"[14, 7, 15, 11, 16, 9, 13, 8]","Based on the user's activity pattern and recent context stays, the predicted next place ID is one of the places frequently visited by this user during weekdays."
+353,2860,"[14, 13, 12, 15, 11, 16, 10]",Pattern of repeated visits to certain places during certain times and recent activities in the context

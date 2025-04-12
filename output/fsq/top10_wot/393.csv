@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+393,3484,"[2499, 2631, 3484, 1404, 721, 3197, 910, 1069, 1362, 2629]","Recent behavior and historical patterns suggest the user is likely to visit a familiar location, possibly home (2499), or a place they frequently visit on weekends (2631)"
+393,3279,"[2499, 3197, 3484, 2631, 721, 1069, 1404, 416, 1082, 910]","The user has a frequent pattern of visiting place 2499 at late hours (Friday and Saturday), and recently visited places 3197 and 3484 on Saturday. Therefore, the most likely next location is place 2499."
+393,3197,"[2499, 3197, 2631, 3484, 721, 1069, 1404, 416, 1082, 3033]",Predicted based on recent weekday evening patterns and frequent visits to specific places
+393,2018,"[2631, 721, 3197, 2499, 3484, 910, 2629, 1362, 1069, 784]","Recent frequent visits on Wednesday and Friday, with a tendency to return to places visited before"
+393,1064,"[2499, 3484, 2631, 2629, 3197, 721, 1064, 2018, 742, 784]",Recent visits to these places and patterns in history suggest the user is likely to visit familiar locations at similar times

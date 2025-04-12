@@ -1,0 +1,25 @@
+user_id,ground_truth,prediction,reason
+436,2480,"[2480.0, 2078.0, 1177.0, 2691.0, 3401.0, 189.0, 2483.0, 2062.0, 2059.0, 2016.0]","The user's historical stays show a strong preference for place 2480.0 and 2078.0 on weekdays, while recent behavior in the context suggests a possible visit to place 1177.0 on Wednesday morning."
+436,2480,"[2480, 2078, 1177, 2691, 3401, 189, 2480.0]",Recent stays at 2480 and recent visits on Thursday and Friday suggest a likely visit to the same place.
+436,2480,"[1177, 2078, 2480, 2691, 3401, 189.0, None, None, None, None]",repeated visits to places at certain times/days and recent behavior
+436,1177,"[1177.0, 2078.0, 2480.0, 3401.0, 2691.0, 189.0, 2480.0, 2480.0, 2078.0, 2480.0]",recent stays and time of day indicate a likely return to usual places
+436,2480,"[2480, 2078, 1177, 2691, 3401, 189, 2480.0]",Predicted based on recent visit patterns and historical stays
+436,2480,"[2480, 2078, 1177, 2691, 3401, 189, 1177, 2480, 2078, 1177]",Recent stays at place 2480 and repeated visits to places on Thursdays
+436,2480,"[2480, 2078, 1177, 2691, 3401, 189, 2480.0]",Recent contextual information shows the user is at place ID 2480 and historical data reveals frequent visits to places at this location
+436,1177,"[189.0, 2078.0, 2691.0, 1177.0, 3401.0, 2480.0, 'null']","Recent behavior suggests frequent visits to places at certain times/days, and the user's activity pattern indicates a high likelihood of visiting 189.0 first."
+436,2341,"[2480, 2078, 1177, 2691, 3401, 189, 2480.0]",based on the user's historical stays and recent contextual information
+436,2480,"[2480, 2078, 1177, 2691, 3401, 189, 2341]","Based on the user's historical stays and recent context, I predict they will visit a familiar location with high probability."
+436,2341,"[2480, 2078, 1177, 2691, 3401, 189, 2341]",based on user's regular visits to specific places
+436,1392,"[2078.0, 1177.0, 2480.0, 2691.0, 3401.0, 189.0, 2341.0, 2480.0, 2480.0, 2078.0]",Recent stays at places with high frequency in history and context
+436,2341,"[2480, 2078, 1177, 2691, 3401, 189, 2341, 1392, 2483, 2029]","Recent behavior suggests the user is likely to visit a familiar place at a similar time of day, possibly due to work or daily routine."
+436,2480,"[2480.0, 2078.0, 1177.0, 2691.0, 3401.0, 189.0, 2341.0, 1392.0, 2485.0, 2469.0]",The prediction is based on the user's past visits and recent behavior.
+436,2691,"[2078.0, 1177.0, 2480.0, 2691.0, 3401.0, 189.0, 2341.0, 1392.0, 2480.0, 2480.0]",based on historical patterns and recent behavior
+436,1177,"[2480.0, 2078.0, 1177.0, 2691.0, 2341.0, 1392.0, 3401.0, 189.0]","Recent pattern of stays at locations 2480 and 2078, with occasional visits to other places"
+436,2480,"[2480.0, 2078.0, 1177.0, 3401.0, 2691.0, 1392.0, 2341.0, 189.0, 2084.0, 2065.0]",Recent stays on Sunday and Monday at place ID 2480 and 2078 indicate a likely visit to these places next
+436,290,"[2480.0, 2078.0, 1177.0, 2691.0, 2341.0, 189.0]",Recent behavior in context and historical patterns suggest likely repeated visits to the user's preferred locations.
+436,2480,"[1177, 2078, 2480, 2691, 3401, 189, 1175.0, 2069.0, 2479.0, 2099.0]","The user has a tendency to visit the same places at similar times and days of the week, with recent stays at place 2480 on Sundays and Wednesdays."
+436,2480,"[2480, 2078, 1177, 2691, 3401, 189, 290]",Recent visits and day of week patterns
+436,2078,"[1177, 2078, 2480, 2691, 3401, 189, 290, 2078, 2480, 1177]",Recent patterns of frequent stays at the same place on weekdays and weekend visits to a few other places
+436,2480,"[1177, 2078, 2480, 2691, 3401, 189, 290, 2480, 2480, 2480]","Recent and historical patterns of the user's activity suggest frequent visits to places with IDs 1177, 2078, and 2480, with some variations"
+436,2341,"[2480, 2078, 1177, 2691, 3401, 189, 290, 2480, 2078, 2480]",Recent stays in context and patterns in history suggest the user is likely to visit familiar places on Thursdays or weekdays.
+436,1177,"[1177, 2078, 2480, 2691, 3401, 189, None]",based on recent stays and day of week patterns

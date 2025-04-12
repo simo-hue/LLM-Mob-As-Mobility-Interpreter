@@ -1,0 +1,23 @@
+user_id,ground_truth,prediction,reason
+157,579,"[3380.0, 579.0, 631.0, 416.0, 89.0, 644.0, 796.0, 2295.0, 538.0, 1.0]","Recent frequent visits to place ID 3380 and other places on weekdays, with some weekend exceptions"
+157,3380,"[3380.0, 579.0, 631.0, 416.0, 89.0, 644.0, 796.0, 538.0, 2768.0, 703.0]","Based on historical stays and recent context, the user tends to visit similar locations on weekdays, especially during morning and afternoon hours."
+157,3691,"[3380.0, 579.0, 631.0, 89.0, 416.0, 644.0, 796.0, 1890.0, 2295.0, 2768.0]",Recent stays at place 3380 and patterns of repeated visits on certain days suggest a high likelihood of returning to this location.
+157,124,"[3380.0, 579.0, 631.0, 416.0, 89.0, 644.0, 796.0, 2295.0, 538.0, 2768.0]",Recent patterns in the user's behavior suggest they are likely to return to a familiar location
+157,3433,"[3380.0, 579.0, 631.0, 416.0, 289.0, 2295.0, 538.0, 2768.0, 1.0, 124.0]","Based on the user's historical activity pattern and recent behavior, I predict that they will likely visit a familiar location like their work or home."
+157,579,"[3380, 579, 631, 416, 89, 644, 796, 2295, 538, 703]","Based on the user's historical stays and recent behavior, I predict they will visit a location similar to their usual Wednesday morning routine."
+157,579,"[3380, 579, 631, 416, 89, 644, 796, 538, 2768, 703]","Based on the user's historical stays and recent behavior in context, the most likely places to visit next are those frequently visited during weekdays and weekends."
+157,3380,"[3380.0, 579.0, 631.0, 703.0, 1353.0, 416.0, 89.0, 2881.0, 2295.0, 2768.0]",Recent stays at place 3380 and previous day's stay at place 579 suggest a high likelihood of returning to these locations.
+157,3380,"[3380, 579, 631, 703, 89, 416, 538, 2768, 2295, 1]",Recent context and historical patterns suggest a likely return to familiar locations
+157,579,"[3380, 579, 631, 703, 416, 89, 644, 538, 2295, 2768]",Recent contextual information and historical patterns suggest the user will likely visit a familiar place
+157,703,"[3380, 579, 631, 416, 538, 703, 2768, 3586, 89, 644]",predicting the most frequent places in recent history and context
+157,579,"[3380, 579, 631, 703, 416, 2881, 644, 796, 89, 538]",recent visits to similar locations
+157,300,"[579, 3380, 631, 703, 416, 538, 1, 89, 644, 2892]","The user has a consistent pattern of visiting places 579 and 3380 during weekdays, especially on Mondays. The recent context also suggests that the user might visit place 579 or 631 today."
+157,579,"[3380, 579, 631, 703, 2768, 2295, 416, 538, 1, 644]","Recent stays at place 3380 and 579, with a pattern of repeated visits to these places on weekdays"
+157,3380,"[3380.0, 579.0, 631.0, 703.0, 416.0, 89.0, 2768.0, 1.0, 538.0, 2295.0]","Recent behavior suggests frequent visits to places with IDs [3380, 579, 631]"
+157,579,"[3380, 579, 703, 631, 416, 1, 2881, 2768, 2295, 538]","Recent behavior in context suggests a strong likelihood of returning to familiar places from history, with weekday morning and evening patterns influencing the prediction"
+157,3380,"[1, 89, 538, 644, 703, 631, 416, 2881, 2295, 2768]",based on recent behavior and historical patterns
+157,579,"[3380.0, 579.0, 631.0, 416.0, 89.0, 2768.0, 538.0, 703.0, 1.0, 2295.0]",Pattern of frequent visits to location ID 3380 and recent behavior in context
+157,3380,"[3380, 579, 631, 416, 796, 644, 2891, 2285, 538, 703]",The user's recent behavior and historical stays suggest they are likely to visit a familiar location at the same time of day
+157,579,"[3380, 579, 631, 89, 416, 703, 1889, 538, 2768, 1]",Predicted based on recent behavior and historical patterns
+157,631,"[3380.0, 579.0, 631.0, 703.0, 416.0, 89.0, 644.0, 538.0, 2768.0, 1.0]",Recent frequent visits to places at certain times/days and patterns in history
+157,1890,"[3380, 579, 631, 416, 796, 89, 644, 2295, 538, 1]",Pattern of daily commutes and recent visits to the same places

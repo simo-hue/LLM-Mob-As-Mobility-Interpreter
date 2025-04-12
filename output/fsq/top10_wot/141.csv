@@ -1,0 +1,24 @@
+user_id,ground_truth,prediction,reason
+141,2776,"[1996, 1762, 2365, 1619, 2465, 2623, 1275, 1, 201, 1579]","The user has a history of visiting places at specific times and days, with recent behavior indicating a possible visit to place ID 1996"
+141,2365,"[1619, 2365, 2465, 201, 1762, 1579, 2623, 1996, 1, 2776]","The user has a strong habit of visiting places at specific times and days, with recent behavior suggesting a high likelihood of revisiting places visited previously."
+141,2365,"[1619.0, 2365.0, 2465.0, 1762.0, 1996.0, 2623.0, 201.0, 1579.0, 2776.0, 1.0]","The user has a regular pattern of visiting places during weekdays and weekends, with some flexibility in timing"
+141,1619,"[2365, 1619, 2465, 1762, 1996, 2623, 1275, 201, 1, 1579]",Recent behavior in context suggests continued pattern of frequent visits to place 2365 on weekdays and occasional visits to places 1619 and 2465 on weekends
+141,1762,"[1762, 2465, 2623, 2365, 201, 1579, 1996, 1619, 2776, 1]",Recent context suggests a possible transition to places visited at similar times of day and week
+141,1996,"[2365, 1619, 1762, 2465, 1996, 2623, 1275, 201, 1579, 1]","Recent behavior shows frequent visits to place 2365 and 1619 on Mondays and Fridays, while history indicates occasional visits to other places"
+141,1619,"[2365, 1619, 2465, 1762, 1579, 2623, 201, 1, 1275, 202]",Recent behavior suggests a high likelihood of visiting familiar places at similar times on Sundays and Mondays
+141,2465,"[1619, 2365, 2623, 2465, 1275, 201, 1762, 1579, 1996, 1]",predicted based on recent and historical patterns of daily routine
+141,2365,"[2365, 1619, 1762, 2465, 201, 1996, 2623, 1275, 1, 1579]",Recently frequent places and day of the week patterns were considered.
+141,1619,"[2365, 1619, 1762, 2623, 1996, 2465, 1275, 201, 1579, 1]","Based on historical patterns and recent behavior, the most likely next place is a common destination during weekdays with an evening visit on Monday"
+141,2623,"[2365, 1619, 1996, 1762, 2623, 2465, 1275, 201, 1579, 1]",Recent behavior suggests regular visits to specific locations during certain times/days
+141,2465,"[1619, 2365, 2465, 1762, 201, 1996, 1579, 1275, 2623, 1]","Based on historical patterns and recent behavior, the predicted next likely places are a mix of frequently visited locations and places with similar attributes to recent stays."
+141,2365,"[2365, 1619, 2465, 1762, 201, 1, 1996, 1579, 2623, 1275]","Recent behavior shows a strong pattern of visiting places 2365 and 1619 on weekdays, with occasional visits to other locations"
+141,2365,"[2365, 1619, 2623, 1762, 201, 2465, 1, 1996, 1579, 1275]","The user tends to visit similar places at similar times and days of the week, with recent behavior indicating a strong likelihood of returning to place 2365."
+141,2465,"[1619, 2365, 2623, 2465, 1762, 1579, 1996, 201, 1275, 1]",Recent visits to places at certain times/days
+141,1619,"[1619, 2365, 2465, 2623, 1762, 1996, 1579, 201, 1, 1275]",The user tends to visit places with high frequency and proximity to recent stays.
+141,2623,"[2365, 2465, 1762, 1619, 1996, 1579, 2623, 1, 1275, 201]","Recent visits to places at certain times/days, and repeated patterns in the user's activity"
+141,2465,"[1619, 2365, 2465, 1762, 1996, 201, 1579, 1, 1275, 2024]",The prediction is based on the recent trends in the user's stay patterns and their frequent visits to certain places during specific days of the week.
+141,1619,"[2365, 1619, 201, 1762, 2465, 1996, 1579, 1, 1275, 2623]",Predicted based on recent stays and historical patterns
+141,2365,"[2365, 1619, 2465, 1762, 1996, 1579, 1, 2623, 1275, 201]","Recent visits to place 2365 and 1619, with historical pattern of daily visits"
+141,2365,"[2365, 1619, 2623, 2465, 1762, 201, 1996, 1579, 1, 1275]","The user's recent behavior shows a strong affinity for place 2365 and places near it (1619, 2623). On Fridays, they tend to visit 2465. During weekdays, they often go to 1619 or 1996. In the evenings, they prefer to be at 1762."
+141,2465,"[2365, 1619, 2623, 2465, 1762, 1996, 1579, 201, 1, 1275]",Recent visits to these places and similar timing
+141,2365,"[1619, 2365, 2465, 1762, 1996, 1579, 2623, 201, 1, 1275]",Recently visited places on Fridays and Mondays are predicted as next likely locations

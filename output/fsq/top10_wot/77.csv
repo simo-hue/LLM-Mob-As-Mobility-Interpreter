@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+77,1280,"[2005, 570, 1464, 1280, 627, 202, 237, 133, 1434, 41]",Predicting based on historical patterns and recent behavior in context
+77,31,"[1005.0, 570.0, 1434.0, 627.0, 1179.0, 347.0, 2005.0, 41.0, 31.0, 237.0]","Based on the user's historical stays and recent context, the predicted next place ID is likely to be a familiar location visited during similar times of day."
+77,2874,"[1464, 570, 2005, 1434, 1005, 1179, 347, 627, 202, 41]","Recent behavior in context shows frequent visits to place 2005 on Wednesdays and Fridays, while history indicates that the user also frequently visits places 1464, 570, and 1434."
+77,1280,"[2005, 570, 1280, 361, 2874, 41, 1005, 1179, 347, 627]","Recent behavior in context suggests the user is likely to stay at a place with similar ID to the ones visited recently, and historical data shows frequent visits to places like [2005, 570]."
+77,31,"[570, 1005.0, 2005.0, 1280.0, 31.0, 1464.0, 202.0, 237.0, 133.0, 627.0]",Recent behavior suggests regular visits to certain places
+77,1497,"[1005.0, 2005.0, 570.0, 1464.0, 627.0, 1179.0, 347.0, 2874.0, 1280.0, 41.0]",Recent visits to places on Saturday and Tuesday suggest user might return to these locations or similar ones
+77,2005,"[1179, 570, 1434, 2005, 41, 627, 237, 133, 347, 2874]",Pattern-based prediction considering recent behavior
+77,1280,"[1005.0, 570.0, 1280.0, 1464.0, 202.0, 237.0, 133.0, 627.0, 41.0, 31.0]",based on recent stays and historical patterns
+77,133,"[1005, 570, 41, 31, 1280, 347, 1179, 627, 202, 133]",Pattern recognition based on historical stays and recent context
+77,570,"[1179, 570, 1464, 202, 627, 1434, 41, 1005, 31, 2005]",Recent visits and patterns in historical stays
+77,627,"[1005.0, 1464.0, 1280.0, 2005.0, 31.0, 570.0, 627.0, 237.0, 133.0, 41.0]","The prediction is based on the user's historical stays and recent contextual information, considering patterns such as repeated visits to places at certain times/days."
+77,2633,"[2005, 1179, 570, 1280, 133, 627, 41, 1434, 31, 347]",The user is likely to stay at a place they have visited recently
+77,917,"[2005, 1280, 570, 1464, 31, 1434, 1005, 1179, 347, 627]",Recent visits to these places and patterns in the history data suggest the user is likely to revisit familiar locations

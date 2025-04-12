@@ -1,0 +1,23 @@
+user_id,ground_truth,prediction,reason
+493,31,"[2035, 671, 569, 1118, 566, 2853, 1252, 228, 505, 77]",Recent context suggests the user is likely to return to a familiar place
+493,2035,"[2035, 671, 569, 1252, 228, 2853, 505, 77, 566, 1118]",The user has a strong tendency to visit place 2035 and place 671 frequently
+493,671,"[2035, 671, 569, 1118, 2853, 1252, 228, 505, 77, 565]",Recent behavior in context suggests a higher likelihood of the user visiting place 2035
+493,343,"[2035, 671, 569, 1118, 566, 2853, 1252, 228, 505, 77]",Recent behavior in context suggests frequent visits to places at times and days similar to the past; historical data shows repeated patterns of visiting certain locations during weekdays and weekends.
+493,2035,"[2035, 671, 566, 1118, 2853, 505, 228, 77, 1252, 569]","Recent stays at 2035 and 671, with a pattern of weekday visits to 2035"
+493,671,"[2035, 671, 569, 1118, 2853, 228, 1252, 505, 77, 343]",Recent visits to place 2035 and historical patterns suggest frequent returns to this location
+493,671,"[2035, 671, 569, 1118, 566, 228, 2853, 505, 77, 343]",Recent behavior in the context suggests a strong likelihood of returning to the workplace (2035) or visiting places with similar day-of-week and time patterns.
+493,671,"[2035.0, 671.0, 569.0, 228.0, 1252.0, 505.0, 2853.0, 77.0, 343.0, 1118.0]",Predicted based on repeated visits to places at certain times/days and recent behavior in the context
+493,43,"[2035, 671, 569, 1252, 228, 2853, 505, 77, 343, 1118]","Based on the user's historical stays and recent contextual information, I predict that they are most likely to visit place ID 2035 next, given their frequent visits to this location during weekdays. The recent behavior in context also suggests a higher likelihood of visiting this place."
+493,2035,"[2035, 671, 566, 569, 1118, 485, 2853, 505, 228, 1252]","Recent stays at places like 2035 and 671, along with their historical pattern"
+493,485,"[2035, 671, 569, 566, 505, 228, 77, 1118, 1252, 2853]","Recent visits to places 2035 and 671, as well as overall patterns in the history data, suggest a high likelihood of visiting these locations again."
+493,671,"[2853, 2035, 228, 671, 569, 1118, 505, 1252, 77, 569]","Based on the user's historical stays and recent context, I predict they will likely visit one of their frequently visited places at a similar time to their previous visits."
+493,2035,"[2035, 671, 569, 1118, 2853, 1252, 228, 505, 77, 566]","Recent stays at places 2035 and 671 suggest continued frequentation, while historical patterns indicate visits to various locations on different days"
+493,2684,"[2035, 671, 569, 1118, 2853, 228, 505, 1252, 77, 485]",The user's recent behavior and historical patterns suggest they will visit one of their most frequent locations
+493,2932,"[2035, 671, 569, 1118, 2853, 228, 505, 1252, 77, 2684]","Recent behavior in context and patterns in history, such as repeated visits to places at certain times/days"
+493,671,"[2853, 2035, 1252, 228, 671, 569, 1118, 485, 505, 77]","Based on the user's historical stays and recent contextual information, I predict they will visit places they have visited frequently in the past, with a bias towards weekend destinations"
+493,671,"[2035, 228, 2853, 671, 569, 1252, 505, 1118, 77, 2684]",based on the user's historical stays and recent contextual information
+493,2035,"[2035, 671, 569, 566, 1118, 2853, 1252, 228, 505, 77]",Recent visits to place 671 and pattern of frequent visits to place 2035 suggest the user is likely to visit either one of these locations or other places with similar characteristics.
+493,671,"[2035, 671, 566, 569, 1118, 1252, 2853, 228, 505, 77]",Recent context shows a strong tendency towards visits to place 2035 and 671
+493,1183,"[2035, 671, 569, 1252, 2853, 228, 77, 485, 1118, 505]",Recent stays and patterns in the user's history suggest a high likelihood of returning to frequent locations.
+493,2035,"[2035, 671, 569, 566, 1118, 1252, 228, 2853, 505, 77]",Predicted based on recent visit to place 2035 and regular visits to places 671 and 569
+493,671,"[2035, 671, 569, 1252, 228, 2853, 505, 1183, 77, 505]",the user tends to visit these places on the same day of the week or around the same time

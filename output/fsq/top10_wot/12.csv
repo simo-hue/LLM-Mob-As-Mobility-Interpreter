@@ -1,0 +1,23 @@
+user_id,ground_truth,prediction,reason
+12,209,"[1558, 2788, 831, 894, 214, 1014, 3805, 537, 688, 1932]","The user has a consistent pattern of staying at certain places on specific days and times, with recent behavior in the context suggesting they may visit place 1558 or 2788 again."
+12,1558,"[2788, 1558, 831, 214, 1932, 3805, 537, 1014, 894, 688]","Recent stays at 2788 and 1558, frequent visits on Fridays"
+12,2788,"[2788, 1558, 1932, 831, 1014, 3805, 214, 537, 894, 688]","The user's recent behavior in the context suggests a high likelihood of returning to previously visited places (e.g., 2788 and 1558) due to their historical patterns."
+12,2788,"[2788, 1558, 831, 214, 1932, 537, 688, 3805, 1014, 894]",Recent stays and patterns in history suggest a high likelihood of returning to places visited frequently during the week.
+12,131,"[1558, 2788, 214, 894, 1014, 3805, 1932, 537, 688, 209]",Recent frequent visits to places at certain times/days and historical patterns of repeated stays
+12,209,"[2788, 1558, 1932, 3805, 1014, 894, 214, 537, 688, 131]","Recent context shows frequent visits to place 2788, and historical data indicates that this user often stays at places 1558, 1932, 3805"
+12,293,"[1558, 2788, 894, 214, 1014, 1932, 3805, 537, 688, 131]",Recent stays at similar times and days suggest a high likelihood of returning to familiar locations.
+12,1497,"[1558, 2788, 894, 214, 1932, 3805, 537, 688, 1014, 131]","Recent visits to places like 1558 and 2788, as well as the context of recent stays at these locations."
+12,1932,"[1558, 2788, 831, 1014, 894, 214, 1932, 3805, 537, 688]","The user tends to visit places at similar times and days in their historical stays, and the recent contextual information suggests a possible return to a frequent location (1558), with other popular choices being locations visited frequently throughout their history."
+12,2788,"[2788.0, 1558.0, 1932.0, 537.0, 131.0, 209.0, 293.0, 1497.0, 3805.0, 894.0]","Recent behavior and historical patterns suggest the user is likely to visit a previously visited place, possibly on Saturday or Sunday"
+12,202,"[1558, 2788, 831, 894, 214, 3805, 537, 1014, 1932, 209]","The user tends to visit places at similar times and days of the week, with a strong preference for visits on Friday and Saturday"
+12,1558,"[1558.0, 2788.0, 1932.0, 894.0, 1014.0, 537.0, 3805.0, 214.0, 688.0, 293.0]",Recent stays and patterns in history suggest likely places to visit next
+12,2788,"[1558, 2788, 1932, 894, 214, 1014, 537, 688, 3805, 1497]",Recent and historical patterns of daily commutes to specific locations at specific times
+12,1558,"[1932, 1558, 2788, 831, 214, 3805, 537, 1014, 894, 688]",The user tends to visit similar places at different times and days based on the historical data. Recent behavior shows a focus on 2788 and 1558.
+12,904,"[1558, 2788, 894, 1932, 3805, 1014, 537, 214, 831, 688]","The user has a consistent pattern of visiting places at certain times/days in the past, and this recent context suggests they are likely to visit places similar to their previous stays."
+12,300,"[2788, 1558, 1932, 3805, 537, 894, 214, 1014, 688, 904]",Pattern recognition of frequent visits to places at certain times/days in the user's history and recent behavior
+12,2788,"[1558, 2788, 894, 214, 3805, 537, 688, 1932, 1014, 831]","The user has a pattern of staying at places with IDs 1558 and 2788 on Fridays and Thursdays, and the recent context suggests they are likely to continue this trend."
+12,2788,"[1558.0, 2788.0, 894.0, 214.0, 3805.0, 1932.0, 537.0, 688.0, 904.0, 300.0]","The prediction is based on the user's historical pattern of visiting places at certain times and days, with a recent preference for places 1558 and 2788."
+12,1558,"[1558, 2788, 3211, 1932, 3805, 537, 214, 1014, 831, 894]","Recent visits to place 1558 and 2788, with a pattern of returning at night"
+12,209,"[2788, 1558, 831, 1014, 214, 3805, 1932, 537, 688, 894]",Recent visits to places at certain times/days and patterns in the user's history
+12,2788,"[1558, 2788, 894, 1014, 3805, 537, 688, 1932, 214, 831]","The user tends to visit places at similar times and days based on their historical stays, with a recent bias towards place 1558"
+12,1558,"[2788, 1558, 831, 214, 1932, 3805, 1014, 894, 537, 688]",The user tends to visit the same places at similar times and days based on their historical stays. Recent behavior in context also suggests a preference for these locations.

@@ -1,0 +1,23 @@
+user_id,ground_truth,prediction,reason
+256,300,"[1368, 1828, 1165, 301, 3181, 652, 1818, 509, 844, 3485]","Recent behavior in context indicates frequent visits to home (1368) and work (300), with tendency to follow up on Friday mornings"
+256,1368,"[1368.0, 1828.0, 1165.0, 1181.0, 300.0, 2172.0, 327.0, 3096.0, 301.0, 652.0]",The prediction is based on the user's historical stays and recent behavior in context.
+256,545,"[1368, 1828, 1165, 1170, 509, 844, 1181, 652, 1818, 300]",The user's historical pattern suggests frequent visits to places with IDs 1368 and 1828 on weekdays. Recent context indicates a similar behavior on Monday.
+256,1368,"[1368, 1828, 1165, 3181, 300, 749, 798, 894, 509, 327]","Recent behavior suggests a return to previously visited places, likely due to familiarity and routine."
+256,342,"[1368, 1165, 300, 1828, 3181, 2238, 2172, 327, 3096, 652]","Recent stays on Monday and Saturday have shown a strong affinity for places with IDs 1368, 1165 and 300. The time of day is also a factor, as the user tends to stay at these locations in the evening or early morning."
+256,1368,"[1368, 1828, 1165, 301, 300, 3181, 509, 844, 652, 1818]","Based on the user's historical stays and recent behavior, the prediction is that they will likely visit a place with an ID similar to their most frequent visited places during the day (Monday) or weekend (Friday/Saturday)."
+256,1165,"[1368, 1828, 1165, 300, 3181, 509, 844, 3485, 652, 1818]",The user has a strong tendency to visit places at similar times and days of the week. Recent activity suggests they may be heading towards their most frequently visited location.
+256,342,"[1181, 1828, 1368, 300, 327, 652, 509, 844, 3485, 1165]",Recent stays and historical patterns suggest the user tends to visit similar locations at similar times on weekends
+256,1368,"[3096, 1828, 301, 300, 327, 1818, 509, 844, 652, 3485]","The user tends to visit the same places at similar times and days, with a strong preference for Tuesday evenings and Fridays."
+256,300,"[3181, 300, 2701, 1828, 1368, 1165, 509, 844, 3485, 2172]","The user tends to visit the same places on similar days and times, with recent context showing a preference for Friday evening stays at locations like 1368 and 1165."
+256,1368,"[1828, 1368, 1165, 3096, 156, 300, 327, 301, 652, 1818]",predicting based on historical patterns and recent context
+256,3349,"[1828, 1165, 1368, 300, 301, 509, 844, 3485, 2172, 327]",Predicted places are based on recent visits to the same place (1368) and typical weekend destinations
+256,1283,"[1828, 1165, 1368, 1181, 156, 2172, 300, 301, 652, 1818]","Recent stays at 1368 and 1828 suggest likely next visit to these places, while Friday's morning stay at 342 and Saturday's morning stay at 300 indicate a possibility of visiting these places as well."
+256,1651,"[1828, 1368, 1165, 300, 3181, 509, 844, 652, 1818, 3349]",The user has a consistent pattern of returning to previously visited places on the same day of the week.
+256,1,"[1828, 1368, 300, 1165, 509, 844, 327, 328, 3100, 301]","The user tends to visit similar places at the same time/days of the week as in their past, and recently visited 1368 on Sunday."
+256,31,"[1368, 1828, 300, 1165, 1181, 3096, 156, 2172, 2072, 301]",Recent behavior and historical patterns indicate the user is likely to return to frequent locations or places visited recently on similar days of the week.
+256,523,"[1828, 1368, 1165, 300, 3181, 509, 844, 2701, 652, 1818]",based on historical patterns and recent behavior
+256,1368,"[1368, 1828, 1165, 300, 3282, 509, 844, 3485, 1283, 1651]",based on the user's historical stays and recent behavior
+256,300,"[1368, 1828, 1165, 300, 3181]","The user has a strong tendency to visit place ID 1368 on Thursdays and Fridays, and recent context suggests they are currently in the vicinity of this location."
+256,31,"[1368, 1828, 1165, 300, 327, 509, 844, 3485, 301, 652]","Recent context suggests frequent visits to places with ID 1368 and 1828 during weekdays, while historical data shows repeated stays at these locations on weekends. The prediction prioritizes these locations and considers the remaining options based on their frequency in both contexts."
+256,1368,"[1368, 1165, 1828, 327, 509, 844, 652, 1818, 3485, 523]","Recent behavior in context suggests frequent visits to places with place ID 1368 and 1165, while historical data reveals a tendency to visit other locations at certain times/days."
+256,300,"[1828, 1368, 1165, 3096, 327, 301, 300, 3181, 652, 1818]","The prediction is based on the user's recent behavior of visiting places during specific times and days, as well as repeated visits to certain locations."

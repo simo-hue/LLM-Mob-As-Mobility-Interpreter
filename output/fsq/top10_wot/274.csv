@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+274,1567,"[1074.0, 2140.0, 3817.0, 2503.0, 1661.0, 2335.0, 2423.0, 2568.0, 1567.0, 3814.0]","Recent contextual information suggests the user is likely to visit places they've visited before at similar times and days, while historical stays indicate a preference for certain locations"
+274,1567,"[2568, 1567, 2140, 1074, 3814, 2503, 1559, 1661, 1896, 2423]",The user's recent stays have shown a strong affinity for staying at place ID 2568 on weekends and late nights. This pattern is likely to continue.
+274,1567,"[1567, 2568, 1661, 1896, 2140, 1559, 1074, 3814, 2503, 3814]",Recent visits to places at certain times/days and patterns in history.
+274,2423,"[2568, 1567, 1559, 2140, 2503, 1074, 3814, 2423, 1661, 1896]","Recent behavior indicates frequent visits to place 1567 and 2568, with some variation in timing"
+274,2568,"[1567, 2568, 2423, 2140, 1661, 2503, 3814, 1074, 1559]","Recent and historical stays at place 1567, with some exceptions for places 2568 and 2423"
+274,2140,"[2568, 1567, 2423, 2140, 1074, 3814, 2503, 1661, 1896, 1559]",Predicting based on recent behavior and repeated visits at certain times/days
+274,2140,"[1567, 2568, 2140, 1074, 2503, 3814, 2335, 1661, 1896, 1559]","The user has a consistent pattern of frequent visits to places with IDs 1567 and 2568, and also occasionally visits places like 2140. The recent context suggests the user is likely to visit one of these places next."
+274,1,"[2568, 1567, 2140, 959, 1074, 3814, 2503, 1559, 1661, 1896]","The user has a history of staying at place_id 2568 on weekdays and 1567 on weekends, with recent visits to these places in the provided context. The prediction prioritizes these familiar locations."
+274,342,"[1567, 2568, 2140, 959, 1074, 3814, 2503, 1661, 1896, 1559]",recent stay at place ID 1567 and patterns in history indicating frequent visits to places with similar IDs
+274,1,"[1567, 2568, 2140, 959, 1074, 2503, 3814, 2423, 1661, 1559]",Recent visits to specific places and patterns of repeated visits on certain days
+274,1567,"[1567, 2568, 2140, 959, 3814, 1074, 2503, 1661, 1559, 2423]",Recent pattern of frequent visits to place ID 1567 and occasional visits to other previously visited places
+274,2568,"[2568, 1567, 2140, 1661, 1559, 1074, 2503, 3814, 342, 1]",Predicted based on historical stays and recent context
+274,2521,"[2568.0, 1567.0, 2140.0, 1559.0, 1074.0, 2503.0, 3814.0, 1.0, 342.0, 2423.0]",Recent behavior in <context> and historical stays show a strong correlation with visits to places ID 2568 and 1567

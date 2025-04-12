@@ -1,0 +1,15 @@
+user_id,ground_truth,prediction,reason
+54,414,"[2128, 414, 1294, 823, 607, 765, 125, 154, 1416, 3467]",Recent morning visits to similar locations at the same time
+54,414,"[2128, 414, 1294, 3467, 607, 125, 765, 3266, 154, 1416]","The user has a strong pattern of visiting places 2128 and 414 on weekends and weekdays respectively, with recent context suggesting morning visits"
+54,414,"[2128, 414, 1294, 510, 765, 607, 3266, 3467, 1416, 8]",recently frequent visits to places with IDs 2128 and 414
+54,414,"[2128, 414, 71, 1294, 607, 1245, 3467, 1416, 125, 765, 3266]","The user tends to visit places like 2128 and 414 frequently, especially on days when they start the day at home (Monday-Tuesday-Friday). In recent context, they have been visiting place 414 in the morning. On Sundays, they tend to go to place 71 or 1294. On Saturdays, they often visit places like 607, 3467, and 1416."
+54,414,"[2128, 414, 1294, 823, 607, 3467, 1416, 765, 3266, 154]","Recent contextual information suggests frequent stays at places with ID 414 and recent history of visiting places with ID 2128, while also considering overall patterns in the user's activity."
+54,414,"[2128, 414, 1294, 2505, 823, 607, 1416, 3467, 3266, 154]","The user has a strong pattern of visiting places at certain times and days, which is reinforced by their recent behavior in the context."
+54,414,"[414, 2128, 1294, 823, 607, 765, 3467, 3266, 154, 125]",Pattern of repeated visits to places at certain times/days in the history combined with recent behavior in the context.
+54,414,"[2128, 414, 1294, 771, 607, 3467, 1416, 3266, 510, 199]",Recent repeated visits to places at certain times/days in both history and context indicate a strong tendency towards home (place ID 2128)
+54,414,"[2128.0, 414.0, 1294.0, 823.0, 607.0, 3467.0, 1416.0, 3266.0, 154.0, 125.0]",Recent visits to locations at the same time of day and on similar days of the week suggest this user is likely to visit a location they have visited before in similar circumstances.
+54,414,"[2128, 414, 1294, 607, 3266, 3467, 823, 1416, 765, 125]","Based on the user's historical stays and recent behavior, it is likely that they will visit places they have been to before, especially those with a morning pattern"
+54,1,"[2128, 414, 1294, 607, 3467, 823, 765, 154, 1416, 3266]","Based on the user's historical stays and recent contextual information, it is likely that they will visit places they have visited before at similar times, such as 414 on Tuesdays or Fridays."
+54,414,"[1294, 2128, 607, 3467, 1416, 3266, 154, 125, 71, 8]",Recent visits to places and historical patterns suggest the user is likely to visit a location they have been to before during similar times of the day.
+54,2169,"[2128, 414, 1294, 607, 765, 3467, 1416, 3266, 125, 71]",prediction based on recent visits to similar places and times
+54,484,"[2128, 414, 1294, 607, 765, 1416, 823, 3467, 125, 608]","Recent behavior in context suggests the user is likely to visit places they have visited before at similar times of day, while historical data shows a strong tendency towards visits to place ID 2128."

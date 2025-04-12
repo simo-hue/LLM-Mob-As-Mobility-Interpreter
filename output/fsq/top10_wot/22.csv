@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+22,3624,"[564, 3624, 439, 1467, 300, 1373, 9.0, 3624.0, 564.0, 1373.0]",Recent visits to places at certain times/days and repeated patterns in the user's history
+22,483,"[3624, 564, 1467, 1373, 439, 300, 9.0, 8.0, 7.0, 6.0]","Recent frequent visits to place ID 3624, with some variations"
+22,564,"[564, 3624, 439, 1467, 300, 1373, 483, 9, 10, 5]","Based on the recent behavior in context and patterns in history, we predict that the user will likely visit a place they have visited frequently during weekdays, possibly a work or school location"
+22,564,"[1373.0, 439.0, 1467.0, 300.0, 483.0, 3624.0, 564.0, 3624.0, 439.0, 3624.0]","The prediction is based on the user's historical visits and recent behavior. The top three predictions are the places visited at similar times of day (7:42 AM) or recently (Monday, Wednesday)."
+22,1,"[3624, 564, 1467, 300, 1373, 439, 483, 9, 1000, 1]","The prediction is based on the user's historical pattern of frequent visits to place 3624 and 564, especially during weekdays. Recent behavior in context suggests a tendency to visit these places during morning hours."
+22,564,"[1373, 3624, 564, 439, 1467, 300, 9, 10, 11, 12]",Recent behavior in context suggests a shift towards Mondays and Tuesdays; historical stays indicate a strong connection to place_id 3624.
+22,1,"[3624, 564, 1467, 1373, 300, 439, 1267, 9]",Recent visits to places with high frequency in the user's history
+22,564,"[3624, 564, 1467, 1373, 1267, 300, 439, 9.0, 3624.0, 564.0]",Pattern recognition of previous stays and recent behavior
+22,898,"[3624.0, 564.0, 1467.0, 1373.0, 1267.0, 300.0, 439.0, 9]",Recent visits to places at certain times/days and historical stays patterns
+22,564,"[1373, 564, 439, 300, 1467, 3624, 9.0, 8.0, 6.0, 5.0]",prediction based on recent patterns in user's activity
+22,564,"[3642, 1467, 439, 300, 1373, 3625, 565, 1470, 440, 301]",The prediction is based on the patterns in the user's recent stays and their historical visits. The top predicted places are those that have been visited frequently and at similar times of the day.
+22,564,"[1373, 3624, 564, 1467, 439, 300, 9, 8, 1, 0]",The prediction is based on the historical patterns of repeated visits to places at certain times/days and recent behavior.
+22,3624,"[439, 1467, 300, 1373, 3624, 564, 3624.0, 439, 1467, 300]","Based on the user's historical pattern of visiting places at similar times and days, as well as recent behavior in the context, the most likely next place is predicted to be one that has been visited before during a similar time/day."
