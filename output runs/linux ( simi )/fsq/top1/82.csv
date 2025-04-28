@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+82,775,[3774],The user has a strong tendency to visit place 3774 during Tuesdays and early morning hours.
+82,775,[775.0],"The user has visited place 775.0 multiple times during the morning hours on Fridays and Tuesdays, and recently visited this place in the context."
+82,775,[3774],"The target stay is on a Monday morning, which based on the historical pattern shows a strong tendency to visit place 3774."
+82,1774,[775.0],"The target stay is on Tuesday morning, and the user has visited place ID 775 multiple times before, including recently"
+82,1774,[3774],"The target stay's day of the week and time are similar to recent context stays at place 3774, which is also a frequent destination in the user's history."

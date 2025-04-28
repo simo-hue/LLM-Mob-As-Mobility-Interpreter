@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+1,933,[1610.0],The user has a consistent pattern of visiting place ID 1610 on Wednesdays
+1,1610,[933.0],The target stay is on Sunday and the user has previously visited place 933 on Sundays.
+1,708,[1610.0],"Most recent places visited are similar to those during the same time of day and weekday, with a strong preference for Monday and 6-7 pm"
+1,1610,[1610.0],Recent context and historical activity pattern suggest a high probability of returning to the same place
+1,523,[3203],Recent context and history show repeated visits to place ID 3203 on Fridays
+1,933,[1610],The user's recent activities and historical stays suggest a strong likelihood of visiting the same place on Thursday as they did on Monday in the context stay.
+1,933,[1610.0],Recent activity pattern and time of day suggests the user will likely visit a place they have visited frequently on Mondays during morning
+1,1610,[1610],The user has been visiting places with ID 1610 frequently during the evening hours on Mondays and Wednesdays.

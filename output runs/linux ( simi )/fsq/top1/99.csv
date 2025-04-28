@@ -1,0 +1,19 @@
+user_id,ground_truth,prediction,reason
+99,2797,[2545.0],"The user has a consistent activity pattern of visiting place ID 2545 during Monday and Tuesday, and the recent context stays show that they visited this place on Monday, so it's likely they will visit it again."
+99,714,[2797.0],The user's activity pattern suggests repeated visits to place ID 2797 during the afternoon on Tuesdays
+99,3477,[2545.0],"The target stay is on Tuesday evening, which is a common time for the user to visit place ID 2545 based on their historical activity pattern."
+99,3536,[2545.0],The user has a consistent pattern of visiting the same place on Monday and Tuesday (place ID 2545) during similar times
+99,3477,[2545.0],The user has a repeated visit pattern to place ID 2545 on Monday afternoons.
+99,2545,[2797],The user has a repeated visit pattern to place ID 2797 during the same time of day (afternoon) and weekday (Tuesday/Wednesday)
+99,3477,[2797.0],"based on the user's activity pattern of frequent visits to places 2797 and 3477 during weekdays, with a recent visit context in <context>"
+99,3477,[2797.0],The user has a strong tendency to visit place with ID 2797 during the evening hours on Wednesday
+99,2138,[2797.0],"The user has a habit of visiting place ID 2797 on Saturday afternoons, based on their historical stays and recent context."
+99,1295,[2797.0],The user's activity pattern suggests frequent visits to place 2797 during the evening
+99,3477,[2797.0],Recent stays on Saturday and historical pattern of repeated visits to place with ID 2797
+99,3477,[3724.0],"Based on the user's activity pattern and recent context stays, it is likely that they will visit a similar place (3477) during the same time of day (evening)."
+99,1204,[2797.0],The target time and weekday are similar to the recent context stays where the user was at place ID 2797.0
+99,1295,"[2545.0, 2797.0]","Given the user's activity pattern and recent activities in the context, the most likely place ID is a repeated visit to places that were visited during weekdays."
+99,714,[2545.0],"The target stay is on a Monday and the start time is during daytime (1:16 PM), which matches with most of this user's historical stays. The context suggests that the user was at place 1295 recently, but there are no weekday afternoon stays recorded, so it's more likely to return to place 2545."
+99,2545,[3477],based on the recent activities in context and user's activity pattern in history
+99,3477,[2797.0],Recent context shows a tendency to visit place 2797 on Mondays and Tuesdays during the evening
+99,2797,"[2797.0, 2545.0, 714.0]","Recent frequent visits on Mondays and Wednesdays, same time of day"

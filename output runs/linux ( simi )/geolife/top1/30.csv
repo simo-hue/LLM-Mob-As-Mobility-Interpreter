@@ -1,0 +1,36 @@
+user_id,ground_truth,prediction,reason
+30,1,[344],Recent pattern of frequent visits to place_id 344 suggests the user is likely to stay there again.
+30,1,[1],Recent activity pattern on Tuesday suggests a return to the first location
+30,9,[344],Recent stays and history suggest the user tends to stay at place 344 during similar times of the week
+30,1,[344],Recent stays show a strong pattern of visiting place ID 344 on Fridays
+30,344,[344],Recent context shows a strong preference for place ID 344
+30,1,"[344, 751]",Recent stays on Sunday and recent duration of stay
+30,344,[344],Recent stays and recurring patterns indicate a high probability of the user staying at location 344 on Sunday evening.
+30,1,[344],Recent pattern shows the user usually stays at place 344 in the morning.
+30,1,[342],Recent stays suggest user is likely to stay at home
+30,344,[344],Recent stays and recurring patterns in history suggest the user will likely visit place 344
+30,344,[1],Recent stays indicate a strong affinity to place ID 1.
+30,344,"[342, 750]",Recent activity pattern suggests frequent visits to places 342 and 750
+30,498,"[344, 750]",Recent stays suggest user tends to visit places like 344 and 750 around this time of day on Mondays.
+30,1,[344],Recent stays and temporal info suggest the user is likely to stay at place ID 344.
+30,1,"[344, 750]",Recent activities in context suggest a tendency to stay at place 344 and 750 during Wednesday afternoon
+30,1,[344],Recent stays suggest user is likely to visit a place ID of 344.
+30,1,[342],Recent stays show a preference for place ID 342 on Thursdays
+30,1,[342],Recent activities in the context indicate a high probability of returning to place 342
+30,1,[1],Recent stays in the same place
+30,1,"[1, 342]",Recent stays suggest a high probability of staying at places with low duration (<4 hours) and a recurring pattern on Thursdays
+30,1,[344],Recent stays in context and recurring patterns in history suggest the user will likely stay at place ID 344
+30,1,[344],Recent stays and recurring patterns in history indicate a high probability of returning to the same place (344)
+30,1,[344],Recent stays at place ID 344 and recurring pattern of staying at this place on Fridays in the past
+30,1,[344],"Recent stays at place ID 1 and the target stay's day of week is Friday, which matches the user's recurring pattern on Fridays"
+30,1,[1],Recent stays and historical patterns suggest the user will visit place ID 1 again
+30,1,"[1, 344]",Recent stays in the same place and on the same day of week suggest a return to the same location.
+30,1,[344],Recent and past stays suggest a high probability of returning to the same place ID (344)
+30,1,[344],Recent stays and temporal info suggest the user will likely visit place ID 344 on Saturday morning
+30,1,[344],Recent stays and patterns in the history suggest a high likelihood of returning to place 344.
+30,1,"[344, 750]","Recent activities in <context> suggest a return to familiar locations, and the target's temporal info (Sunday) matches the user's recurring pattern on Sundays in <history>"
+30,1,[344],Recent stays show a pattern of going to place ID 344 on Sundays
+30,1,[344],Recent activities in the context and historical pattern of staying at place ID 344 on Sundays suggest the target stay will also be at this location.
+30,1,[1],Recent stays suggest frequent visits to place with ID 1
+30,1,[1],Recent stays suggest frequent visit to place ID 1 on Sundays and Mondays.
+30,1,[1],Recent activities in context and historical pattern suggest user will likely visit place ID 1

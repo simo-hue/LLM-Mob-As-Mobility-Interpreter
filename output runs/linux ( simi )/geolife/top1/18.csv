@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+18,1,[1],The target stay is on a Friday and the user has stayed at place ID 1 several times in the past and recently.
+18,564,[1],Recent stays have mostly been at place ID 1.
+18,1,[1],Given the user's consistent pattern of staying at place 1 on Mondays and other weekdays
+18,1,[1],"Based on the user's past stays, which show a strong affinity for location 1, and recent stays that continue this trend, I predict they will stay at location 1 again."

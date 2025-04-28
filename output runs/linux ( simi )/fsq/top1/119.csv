@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+119,2552,[2552.0],"Based on the user's activity pattern and recent context, it is most likely that they will visit the same place they have visited recently, given the temporal information of the target stay."
+119,2552,[28.0],recent stay at this place
+119,2552,[1.0],The user has visited this place recently in the same day of the week and similar time frame.
+119,2552,[1.0],"The user has recently visited place ID 1 on Thursday and Saturday, and the target stay is also on Wednesday, so it's likely that the user will visit the same place again."
+119,1,[1.0],"Based on the activity pattern of this user and recent context stays, it is likely that they will visit place 1 again, given the similar time and day."
+119,2552,[626.0],"The target stay time is in the morning and on Saturday, which is similar to recent stays in the context."
+119,2552,[2552.0],The user's activity pattern suggests a repeated visit to the same place during certain time.
+119,2552,[2552.0],"Based on the activity pattern and recent context, the user is likely to return to a previously visited place during similar time."
+119,2552,[1],Recent activity suggests frequent visits to place 1 during Friday morning
+119,2552,[626.0],Recent activities suggest the user tends to go to place 626 on Sundays.
+119,2552,[2552.0],"The user has a regular routine of visiting place 2552 at various times during the week, including on Mondays."
+119,2552,[2552.0],"Based on the user's activity pattern and recent context, it is likely that they will visit a place they have been to before."
+119,1,[1.0],The user tends to visit the same place during Tuesday morning

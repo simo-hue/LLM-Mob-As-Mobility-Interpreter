@@ -1,0 +1,12 @@
+user_id,ground_truth,prediction,reason
+126,923,[923.0],The user has a strong tendency to visit the same place on Friday evenings
+126,304,[923.0],"The target stay is on a Saturday, and the user has a strong activity pattern of visiting place ID 923.0 on Saturdays, with the most recent visit in the context being also to this place."
+126,923,[923.0],"Based on the user's activity pattern and recent context, it is likely that the user will visit place ID 923 again."
+126,694,[923.0],"The target stay is on a Friday afternoon, which is the same day of the week and similar time as recent stays in both history and context."
+126,923,[694],The user tends to visit place ID 694 during the same time of day and on the same day of the week as their recent visits.
+126,694,[923.0],"Based on the user's historical stays and recent context, the most likely place ID is the one they visited frequently during weekdays, specifically at 6:00-7:00 AM or PM."
+126,711,[923.0],Recent stays and temporal context suggest the user is likely to visit place ID 923
+126,1150,[923],"The user has a consistent activity pattern of visiting the same place on Mondays (4 times) and Thursdays (3 times), which matches with the target stay being on Thursday."
+126,1156,[923.0],"The target stay's time and day of the week are similar to the user's recent activities in the context, and the user has a history of repeated visits to place 923 during Thursday evening."
+126,3513,[1094.0],Recent stay on Thursday and Wednesday's evening activity pattern suggest the user is likely to visit place with ID 1094.
+126,3751,[1294],The user has a strong preference for visiting place 1294 on Fridays.

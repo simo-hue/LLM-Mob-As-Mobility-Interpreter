@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+97,1147,[3436.0],"Based on the user's historical activity pattern and recent context stays, it is most likely that the next place ID will be 3436.0 because the user has visited this location multiple times during different days of the week, including Wednesdays."
+97,272,[3436.0],The user has visited the place at 3436.0 multiple times on Tuesdays and Saturdays
+97,972,[3436.0],based on the user's activity pattern and recent context
+97,1370,[3436],"The user has a frequent visit to place ID 3436 on Mondays, which is the most recent day of the week in the target stay, and also a common time of day for their stays."
+97,2323,[3436.0],"Based on the user's activity pattern and recent context, it is likely that they will visit place 3436 again."
+97,1370,[2323.0],recent repeated visits to place 2323
+97,1370,[3436.0],Predicted based on recent activity pattern and temporal information

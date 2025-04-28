@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+31,1,[759],"Recent patterns in context suggest frequent visits to place 48 on Saturday afternoons, and considering the temporal information of target stay's start time and day of week, the prediction is that the user will visit place 759."
+31,481,"[759, 758]",Recent stays in the context indicate a pattern of staying at places with ID around 750-760 on Saturday morning.
+31,17,"[10, 9, 758]",Recent pattern of staying at place_id 10 on Monday and recurring pattern in history
+31,10,[759],"Recent frequent stays in Saturday (758, 10) and Sunday (1, 41) suggest a high probability of staying at place 759 on Monday."
+31,10,[758],Recent activities suggest the user is near a specific location on Monday afternoon
+31,9,"[759, 9]",recently visited similar places on Saturday and Monday

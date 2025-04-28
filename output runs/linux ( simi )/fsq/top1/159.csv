@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+159,2996,[2006.0],Recent frequent visit to place ID 2006 on Thursday
+159,2996,[2006],The user has been visiting place ID 2006 at nighttime on Wednesday in the past.
+159,1468,[2869.0],"The target stay is on Wednesday evening, and the user has been to place 2869 recently in the context stays"
+159,2869,[2869.0],Recent stays at place 2869 and the context suggests that this user tends to stay at the same place during the evening hours on Thursdays.

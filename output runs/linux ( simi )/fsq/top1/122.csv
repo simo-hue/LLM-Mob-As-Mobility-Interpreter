@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+122,2064,[2064.0],The target stay's time and weekday match the user's recent activity pattern.
+122,2763,[2763.0],Recent visit to place 2763 on weekdays
+122,1743,[2763.0],Based on the user's activity pattern of repeatedly visiting place ID 2763 during Thursday morning
+122,2064,[371.0],"The target stay is on a Friday morning, similar to the user's previous visits (e.g., [06:04 AM, 'Friday', 2064]) and given their recurring pattern of visiting place 2064 on Fridays."
+122,2064,[2064],"The user has a regular Monday morning stay at this place ID in the past, and recent context shows they have been visiting this place on other days as well."
+122,2064,[2064],Recent patterns and context suggest the user is likely to visit the same place again
+122,2064,[2064.0],The user has a consistent morning routine on Wednesday and recent stays suggest they tend to visit the same place
+122,2064,[2064],The user's activity pattern shows a strong tendency to visit the same place (2064) on Thursdays and early mornings.

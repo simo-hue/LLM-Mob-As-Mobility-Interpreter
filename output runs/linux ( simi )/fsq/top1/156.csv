@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+156,1,[1765.0],"Based on the user's activity pattern and recent context stays, it is likely that they will visit the same place as their previous Friday stay."
+156,1,[1],"The target stay is on a Tuesday morning, and the user has visited place 1 in recent days (context), so it's likely they will visit place 1 again."
+156,1,[1765.0],the user has visited this place (1765) before at a similar time and day of the week

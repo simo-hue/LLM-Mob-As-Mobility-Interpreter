@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+6,224,"[235, 224]","Recent stays in the context indicate that the user tends to stay in places with IDs 180 and 225. In their past stays, they have shown a recurring pattern of staying in similar places on Tuesdays."
+6,224,"[234, 225]",Recent stays and temporal info suggest the user will likely visit places they have been to before.
+6,225,"[225, 101]",Recent patterns suggest frequent visits to place 225 and occasional stops at place 101 on Tuesday.
+6,224,"[224, 225]",Recent stays in context and recurring patterns in history suggest the user is likely to return to previously visited places on Wednesday.
+6,34,"[180, 225]","The user has a recurring pattern of staying in place ID 224 on Mondays and Tuesdays, and recently stayed at place ID 101. On Wednesdays, they tend to stay at places with IDs around 224-229. Therefore, I predict the next stay will be in one of these places."
+6,224,"[224, 225]",Recent patterns of daily routine and similar stays in the context suggest a return to familiar places.
+6,225,"[224, 225]",The user's recent activities in context and recurring patterns in history suggest a stay at familiar places on Thursdays.
+6,224,"[225, 224]",Recurring patterns in history and recent context suggest frequent stays at place 225 and 224
+6,198,"[1023, 225]",Recent stays and recurring patterns in the user's activity pattern suggest a likely location on Sunday
+6,84,"[225, 224, 101]","The user tends to visit the same places on the same day of the week and time, so the recent stays suggest a high probability of visiting place 225 or 224 on Sunday."
+6,225,"[180, 101]","Recent stays on Sunday have been at similar places as previous Sundays and weekdays, considering the day of week in the target stay is also Sunday."
+6,224,"[59, 225]",Recurring pattern of staying at different places on Monday
+6,224,"[224, 225]",Recent stays show a recurring pattern of returning to the same place on Monday mornings

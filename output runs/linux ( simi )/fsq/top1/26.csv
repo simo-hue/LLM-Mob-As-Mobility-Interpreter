@@ -1,0 +1,21 @@
+user_id,ground_truth,prediction,reason
+26,899,[1072.0],"Recent context shows a visit to place ID 1072 on Saturday and Sunday, which matches the historical pattern of frequent visits to this place on Tuesdays."
+26,17,[1072.0],"Based on the user's historical activity pattern and recent context stays, it is most likely that they will visit place 1072 again in the evening of Wednesday."
+26,57,[1072.0],The user has visited this place multiple times during the same time of day (evening) and on similar days of the week (weekday)
+26,1072,[1072.0],"The target stay is on Saturday afternoon, which is a popular time for the user to visit place with ID 1072."
+26,1,[1072.0],The user has a strong activity pattern of repeated visits to place 1072.0 during Saturday and weekday evenings
+26,2989,[1072.0],Recent stays and temporal context suggest the user is likely to visit place 1072 again
+26,783,[1072.0],"Given the user's history of visiting place ID 1072 on weekends and evenings, and considering the recent context of visits to this place on Saturday evening, it is likely that the next stay will also be at this location."
+26,2551,[1072.0],Recent repeated visits to place 1072 on Saturday
+26,2101,[1072.0],Recent stays and temporal information indicate a high probability of returning to the same place as previous visit on Tuesday morning.
+26,182,[1072.0],"Based on the activity pattern of this user and the context stays in <context>, the most likely place ID is 1072.0 due to repeated visits during certain time."
+26,201,[1072.0],The user tends to visit place ID 1072 during evening on Thursday
+26,36,[1072.0],Recent visit to 1072.0 on Thursday in evening
+26,293,[2101.0],The user has a consistent pattern of visiting place 2101 during Friday evening.
+26,3298,[1072.0],The user has a repeated visit pattern to place ID 1072 on Saturday.
+26,803,[1577.0],"The user tends to visit place 1577 at around 5-6 pm on Thursday, considering the historical stays and recent context"
+26,3442,[1072.0],"The target stay is on a Friday evening, and the user has visited place with ID 1072 before on both Wednesday evenings and Friday afternoons."
+26,788,[3442],recent visit to this place during the same time and day of week
+26,1072,[1072.0],"The target stay is on Friday evening and the user has a history of visiting place 1072 during that time (e.g., at 8:11 PM on Wednesday), and also recently visited this place in the context given."
+26,783,[1072.0],The user's recent activity pattern and context suggest a high likelihood of returning to the same place as their previous stay on Saturday.
+26,3433,[1072.0],The user tends to visit this place during weekdays and in the evening

@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+27,1,[1],The user typically stays in place ID 1 on Saturdays
+27,1,"[1, 9]",Recent pattern of staying at places with ID 1 or 9 on Sundays
+27,1,[1],Recent pattern of staying at place 1 on Sundays
+27,9,[1],The user has a strong recurring pattern of visiting place ID 1 on Mondays
+27,9,"[1, 9]",Recent pattern of frequent stays at place 1 on Tuesday and Thursday continued with target stay on Tuesday

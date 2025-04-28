@@ -1,0 +1,12 @@
+user_id,ground_truth,prediction,reason
+8,626,[1904],"Based on the user's historical stays and recent context, it is likely that they will visit place 1904 again"
+8,2205,[1904],"The target stay is on Friday evening, and the user has a strong tendency to visit place with ID 1904 during this time"
+8,445,[140.0],"The target stay's day of the week and time are similar to recent stays in the context, which all went to place 140.0"
+8,1904,[2205.0],The user tends to visit place ID 2205 on Monday evenings
+8,138,[2205],The user has a regular Tuesday afternoon routine at place ID 2205
+8,96,[2205],The user has a strong tendency to visit place ID 2205 during the late afternoon/evening on Tuesdays
+8,140,[2205.0],The user has a tendency to visit the same place on Wednesday evenings and given the current context
+8,167,[1904.0],"The target stay's weekday is Sunday and time is afternoon, which are consistent with the user's previous activities, especially the recent context of visiting place 1904 on Monday evening."
+8,127,[1904],the user has visited this place recently in the evening
+8,2205,[2205],"The target stay's time and day of the week are similar to recent context stays, and there is a repeated visit pattern in the user's history"
+8,1187,[1904],"Given the user's recent stays in context and their historical pattern of visiting place ID 1904 during morning hours on Tuesdays and Thursdays, it is likely that they will visit this same place again."

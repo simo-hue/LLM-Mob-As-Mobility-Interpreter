@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+169,571,[965.0],Recent frequent visit to a certain place during evening
+169,1267,[965],"The user's activity pattern suggests a strong tendency to visit place 965 during weekdays, especially on Thursdays. The recent context of visits to this place also supports the prediction."
+169,965,[965],"The user has repeated visit to the same place (place ID 965) during certain time (morning) and day of week (Monday, Tuesday)"
+169,965,[965],Recent activity pattern indicates repeated visit to place 965 during weekdays
+169,2513,[117.0],recent visit to place 117
+169,965,[1518.0],"The target stay is on Tuesday afternoon, and the user has a history of visiting place with ID 1518 during this time"
+169,3204,[965.0],The user's activity pattern suggests frequent visits to place ID 965 on Tuesdays and Mondays.
+169,965,[3755],Recent stays on Monday and Tuesday suggest a high likelihood of returning to the same place as the last one (965.0)
+169,965,[1518],The user has a repeated visit to place 1518 during weekdays.
+169,3204,[965.0],"Based on the user's activity pattern and recent stays in context, it is most likely that they will visit a location with place ID 965."
+169,965,[3755],Based on the user's recent activity and historical pattern of visiting places around Monday afternoon.
+169,1518,[965.0],Recent frequent visits to this place on Tuesday
+169,965,[975.0],"Based on the user's activity pattern and recent context, it is most likely that they will visit place 975 again."

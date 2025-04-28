@@ -1,0 +1,73 @@
+user_id,ground_truth,prediction,reason
+32,658,[658],The target day of the week (Thursday) is similar to recent days in context and history
+32,779,"[658, 9]",Recent stays show a strong pattern of visits to place ID 658 and 9 on Fridays
+32,780,"[9, 658]",Recent stays and past patterns suggest the user is likely to visit a place in their frequent routine
+32,781,[658],The user has a recurring pattern of staying at place_id 658 on Fridays.
+32,782,"[658, 9]",Recent activity patterns and recurring stays at place IDs 658 and 9 suggest the user will likely visit these places again.
+32,632,"[658, 9]",Recent stays and recurring patterns in history suggest the user is likely to stay at either their common workplace (place_id 658) or regular hangout spot (place_id 9)
+32,783,[658],The user has a strong tendency to stay at place 658 on Fridays
+32,781,"[658, 9]",Recurring pattern of staying at place ID 658 on Fridays and recent stays in the same context
+32,784,"[658, 9]",Recent stays and recurring patterns suggest the user is likely to return to a hotel
+32,9,[658],"Recent stays show a strong tendency to stay at place 658 on Fridays, matching the temporal info in the target stay."
+32,684,"[658, 658]",Recent stays at place ID 658 and historical pattern of frequent stays at this location on Fridays.
+32,658,"[658, 9]","Recent stays in context indicate a high likelihood of returning to the same place as before, and historical patterns suggest that this user often stays at places 658 and 9 on Fridays."
+32,9,"[658, 9]",Recurring pattern of weekends at the same place
+32,658,[658],Recent recurring pattern of staying at place 658 on Saturday
+32,9,"[119, 658]","Recent stays suggest a higher likelihood of returning to familiar places (119 and 658), with the target day being Sunday, which is also a common stay for the user."
+32,785,[119],Recent activities suggest a return to a previously visited place (119)
+32,786,"[658, 785]",Recent stays at 658 and last Sunday stay at 785 suggest the user might go to these places again
+32,658,"[658, 9]","Based on the recurring pattern of visits to places 658 and 9 during weekdays and weekends, respectively."
+32,658,"[658, 9]","Recent stays in context are mostly at place 658 and 9, and historical pattern shows that user tends to stay at these places"
+32,9,"[9, 658]",Recent stays and recurring patterns suggest the user will likely stay at either place ID 9 or 658.
+32,658,"[786, 658]","Recent stays suggest user tends to visit places with high duration (>500) on Tuesday and Wednesday, and given the target stay's day of week is also Wednesday, the prediction leans towards those places."
+32,9,[658],Recent stays in the target context are at place 658
+32,658,"[658, 9]",Recent stays suggest frequent visits to places with IDs 658 and 9
+32,9,"[658, 9]",Recurring pattern of weekdays at 658 and weekends at 9
+32,9,[658],Recent stays and historical data indicate a high probability of the user staying at place ID 658 on Friday.
+32,658,"[658, 9]",Recurring pattern of weekend stays at place 658 and occasional stays at place 9
+32,1,"[1, 9]","Based on the user's recent activities and recurring patterns in their past stays, the most likely next location is a place they have stayed at recently."
+32,9,[9],Recent stays suggest the user is at place 9
+32,658,[658],Recurring pattern of staying at place 658 on Saturdays
+32,9,"[119, 658]",Recent stays at place 9 and historical pattern of alternating between places 9 and 658
+32,658,"[1, '658']",Recent frequent stays in the same place
+32,9,"[658, 119]","Recent history and context suggest that the user tends to visit place 658 on weekdays, especially Mondays."
+32,658,"[119, 658]",Recent patterns of spending Friday evenings at place ID 119 and Sunday afternoons at place ID 658 suggest the user is likely to visit these places on Monday evening.
+32,9,[658],Recent stays in context and pattern in history suggest the user is likely to stay at the same place on Tuesday.
+32,658,[658],Recurring pattern of weekend stays at place ID 658
+32,9,"[658, 9]","Recent stays and recurring patterns suggest a return to familiar places, with the user potentially visiting a previous place or returning to their usual routine."
+32,658,[1],Recent stays suggest frequent visits to place with ID 1.
+32,9,[658],Recent stays suggest frequent visits to place 658
+32,658,[658],Recent stays in context suggest a strong possibility of returning to place 658
+32,9,"[658, 9]",Recent stays suggest a high likelihood of returning to places visited in the past
+32,658,"[658, 9]",Recurring pattern of weekend stays at place 9 and weekdays stays at place 658
+32,9,[119],Recent stays suggest a weekend outing
+32,658,[1],Recent stays at place 9 and recurring pattern on Saturdays
+32,1,[119],"Recurring pattern of visiting place 119 on Sundays in the early morning hours, with recent stays at this location"
+32,9,[658],recent stays have been at place ID 658 on Sundays
+32,658,"[658, 9]",Recurring pattern of Sunday evening stays at place 658 and recent stay at place 9 in the context
+32,9,[658],Recent stays at place ID 658 and recurring pattern of staying at this place on Mondays
+32,9,[658],Recent stays at 658
+32,658,[119],Recent and past stays show a strong tendency to visit place ID 119 on Monday afternoons.
+32,658,"[658, 9]",Recent stays suggest frequent visits to place ID 658 and 9
+32,9,[658],Recent stays suggest the user tends to visit place 658 on Wednesday mornings
+32,9,"[658, 658]",Recent activity on Monday and Tuesday at similar times points to a return to the same places
+32,59,[658],Recent stays and historical patterns suggest the user will return to a place they have stayed before
+32,744,"[658, 9]",Recent activity patterns and recurring stays at places 658 and 9 suggest the user is likely to visit these locations again.
+32,9,[658],Recent recurring patterns and recent stays suggest user will likely return to a familiar place
+32,1,"[658, 9]",Recent stays at places with ID 658 and 9 in the context and recurring patterns of staying at these places on Sundays in the history
+32,9,"[658, 9]",Recent stays and recurring patterns suggest the user will likely stay at the same place
+32,705,"[658, 1]",Recurring pattern of staying at 658 on Sundays and recent stays at both locations.
+32,129,[658],Recent stays show a strong preference for place ID 658 on Sundays.
+32,658,"[658, 9]",Recent stays and recurring patterns suggest a return to the user's favorite place
+32,658,"[119, 9]",Recent stays and patterns in history suggest the user is likely to visit locations they've stayed at before.
+32,9,"[658, 9]","Based on the recurring pattern of staying at places 658 and 9 on Tuesdays and weekends, I predict that the user will likely stay at either place 658 or 9."
+32,446,"[119, 658]",Recent activities in the context and recurring patterns in the history suggest a prediction to places that are frequently visited on Tuesdays.
+32,9,"[1, 658]","Recent stays at places 1 and 658 in the context, and recurring patterns of visiting place 9 on Tuesdays and Wednesdays suggest a high likelihood of staying at these locations again."
+32,1,"[658, 9]",Recurring patterns in the history and recent stays suggest frequent visits to place 658 and place 9.
+32,9,"[658, 446]",Recurring pattern of staying at place ID 658 on Tuesdays and recent stays at both places
+32,658,[658],Recurring pattern in history and context suggests user is likely to stay at the same place (658)
+32,9,[658],Recent stays and history show a strong correlation with place ID 658
+32,754,[658],Recurring pattern of staying at place_id 658 on Thursday
+32,754,[658],"Given the user's history of frequent stays at place ID 658 on weekdays and recent activities that include a stay at place ID 1, it is likely that they will stay at place ID 658 again."
+32,119,"[658, 9]",Recent stays and historical patterns indicate the user is likely to stay at the same place or a nearby location
+32,658,[658],Recent stays and history indicate frequent visits to place 658

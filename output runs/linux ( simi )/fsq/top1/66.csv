@@ -1,0 +1,25 @@
+user_id,ground_truth,prediction,reason
+66,2509,[2509],Recent stays suggest a strong probability of the user visiting place ID 2509 again.
+66,630,[2509],Recent activity pattern shows a strong tendency to visit place 2509 on Fridays
+66,787,[538],The user's recent activities in the context and historical stays suggest frequent visits to place with ID 538 during Saturday afternoons.
+66,752,"[538, 630]","The user has a repeating pattern of visiting place 538 and 630 on Friday afternoons. The context suggests the user was at place 538 on Thursday morning and then went to place 2509 in the afternoon before going to place 630 in the evening. Considering the temporal information, it is likely that the user will return to one of these places for their Sunday stay."
+66,538,[538],"Based on the user's activity pattern and recent context, it is likely that they will visit place 538 on Monday"
+66,237,[2509],"The user has been to this place multiple times in the past, and it is also the most recent location based on context information."
+66,818,[537.0],Recent activities indicate that the user tends to visit place with ID 537 on Mondays around this time.
+66,538,[537.0],"The user has repeated visits to the same place on Fridays and Saturdays in the evening (5-6 PM), and recently visited the same place on Saturday."
+66,2509,[537.0],Recent stays on Friday afternoons at similar times suggest a high likelihood of returning to the same location.
+66,630,[537.0],Recent stays suggest a strong affinity for location 537 on Saturdays.
+66,538,[1.0],"The target stay time is similar to recent stays in the context, and the place ID 1.0 has been visited during Wednesday afternoon"
+66,538,[538],Recent visits to place 538 on Wednesday and Friday suggest a high probability of returning to this location
+66,538,[1],"The user has a repeated visit pattern on Saturday evening, especially around 5-7 PM."
+66,293,[538],The target stay is on Sunday and the context shows repeated visits to place 538 on Friday and Saturday. This pattern suggests that the user may visit this place again.
+66,538,[538],The user has repeated visits to place with ID 538 during recent times and on Sundays.
+66,538,[2509.0],recent repeated visits to place 2509 on Thursday
+66,2509,[538],Recurring Friday evening visits to place ID 538
+66,537,[538],recent weekend visits to place 538
+66,538,[2509],The user has a strong tendency to visit place 2509 during Friday evenings.
+66,203,[218],The user tends to visit place 218 during Friday evenings
+66,218,[1],The user has been to place 1 multiple times on Saturdays and the target stay is also on a Saturday
+66,154,[537],Recent activity pattern suggests frequent visit to place with ID 537
+66,538,[538],"The user has a consistent pattern of visiting place 538 on Thursdays and Fridays, and the context indicates recent visits to this location."
+66,945,[1],"The target stay's time and day match with the context stays' times and days, suggesting a repeated visit to place 1"

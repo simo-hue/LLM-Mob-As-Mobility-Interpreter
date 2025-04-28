@@ -1,0 +1,8 @@
+user_id,ground_truth,prediction,reason
+128,831,[1408],"The target stay is during the daytime on a weekday, which matches the user's historical pattern of frequent visits to place ID 1408 during these times."
+128,128,[1408],The user's activity pattern and recent context suggests a high likelihood of visiting the same place (1408) as it has been visited frequently during weekdays.
+128,1408,[1408],"Based on the user's activity pattern and recent context stays, it is likely that this user will visit the same location as before (i.e., 1408)"
+128,1408,[1408],the activity pattern suggests repeated visit to place ID 1408 during evening time on weekdays
+128,1408,[2335.0],Predicted based on historical activity pattern of repeated visits to place 2335.0 during Tuesday night.
+128,1408,[1408],"based on the user's historical stays and recent context, it is likely that they will stay at the same place"
+128,1708,[1408],The user has a strong tendency to visit place ID 1408 during Saturday evenings

@@ -1,0 +1,4 @@
+user_id,ground_truth,prediction,reason
+133,211,[1081.0],"The user's recent context stays in the last 2 days are all at place 1081, and based on the history, this place has been frequently visited during weekdays."
+133,1081,[1081.0],Recent stays in context and historical pattern of repeated visits to place ID 1081
+133,1081,[1081.0],"Based on the user's activity pattern and recent context stays, it is most likely that the next location will be a repeated visit to place 1081"
