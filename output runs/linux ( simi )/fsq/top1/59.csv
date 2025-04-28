@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+59,755,[2655],"Given the user's activity pattern and recent stays in context, it is most likely that the target stay will be at place ID 2655 due to repeated visits during late evening hours on Fridays."
+59,2947,[3709],Given the context of recent stays at place 3709 during Tuesday evening and considering the user's activity pattern of frequent visits to this place on Tuesdays
+59,1,[3709],"The target stay is on Sunday afternoon, which matches the historical pattern of this user visiting place 3709 during similar time slots."
+59,432,[270.0],The user has a regular pattern of visiting place with ID 270 on Wednesday evenings.
+59,1,[526],The user has a tendency to visit place ID 526 on Saturday evenings
+59,178,[2947],Based on recent context and historical pattern of visiting place 2947 during Saturday evening
+59,488,[526],The user tends to visit place with ID 526 on Saturday evening
+59,2167,[371],Recent weekend visit to place with ID 371
+59,970,[270.0],Recent activities have shown a pattern of visiting place ID 270 on Tuesday evenings.
+59,2060,[270],The user has a habit of visiting place 270 during weekdays in the evening.
+59,2147,[270.0],The user has a tendency to visit place with ID 270 on Saturday nights.
+59,5,[432],Recent stays on Sunday suggest a high likelihood of visiting the same place again
+59,270,[2167],Recent visits to place 2167 on Sunday evening

@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+17,2625,[1312],"Recent stays suggest that the user has been visiting place with ID 1312 on Saturday evenings, so it is likely that this pattern will continue."
+17,3239,[3239],repeated visit to a certain place during certain time
+17,501,"[2625.0, 3239.0]",the user's activity pattern shows a repeated visit to these places during Sunday morning
+17,2625,[3239],"Based on the user's activity pattern and recent context stays, it is most likely that they will visit place 3239 again."
+17,3239,[2998],The user has been to this place recently (in the context) and has a similar stay pattern in the history

@@ -1,0 +1,11 @@
+user_id,ground_truth,prediction,reason
+158,538,[2444.0],The user has shown a consistent activity pattern of visiting place with ID 2444 on Sundays and Thursdays.
+158,2444,[2444],The user has recently been to place 2444 and is likely to return there in the evening on a Saturday
+158,2036,[2629.0],The user has been to this place on Saturday and Friday recently.
+158,2645,[1163.0],"Based on the user's activity pattern and recent context stays, it is likely that they will visit a place they have been to recently during this time frame."
+158,137,[2331.0],"The user has a repeating pattern of visiting the same place on Sundays during the evening, as seen in their history and context."
+158,3446,[1173.0],Recent activities show a high probability of visiting place ID 1173
+158,325,[2629.0],The user has recently visited this place and there is no other clear pattern in their activity.
+158,2629,[1052],Recurring visit to the same place on Sunday evening
+158,3442,[3442],"Based on the user's activity pattern of repeated visits to places on Sundays and recent stays in context, we predict that they will likely visit place 3442 again."
+158,3442,[1052],based on the user's frequent visit to a certain place during certain time and recent activities in context

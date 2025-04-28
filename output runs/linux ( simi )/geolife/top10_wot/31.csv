@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+31,1,"[759, 198, 9, 10, 1, 758, 10, 48, 22, 198]",The user tends to visit places around the same time of day and in similar contexts.
+31,481,"[759, 198, 9, 10, 758, 48, 181, 198, 72, 41]",based on the user's activity pattern and recent activities
+31,17,"[759, 758, 198, 9, 10, 198, 1, 41, 181, 4]","Based on the user's activity pattern and recent context, it is likely that they will visit places with similar IDs to their previous stays during daytime hours."
+31,10,"[759, 198, 10, 9, 48, 758, 1, 181, 4, 22]","The prediction is based on the user's activity pattern of repeated visits to certain places during certain times, as well as recent context stays."
+31,10,"[759, 198, 758, 181, 10, 9, 1, 48, 10, 4]","The predicted places are based on the user's activity pattern and recent context stays. The top predictions include repeated visits to certain places during specific times of day (e.g., Saturday morning), as well as places visited recently in the context stays."
+31,9,"[759, 758, 198, 181, 10, 1, 9, 258, 259, 722]",the user tends to visit places with similar IDs in the same day or near same time

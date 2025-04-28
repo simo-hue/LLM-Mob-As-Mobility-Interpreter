@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+22,3624,[3624.0],The user's activity pattern suggests a repeated visit to place ID 3624 on Friday afternoons.
+22,483,[564.0],The target stay is on Saturday evening which seems to be a common time for this user to visit place ID 564
+22,564,[3624.0],The user has a strong tendency to visit place ID 3624 on Mondays and during the morning.
+22,564,[564],The user's recent activity pattern suggests a strong likelihood of visiting place ID 564 during Tuesday morning
+22,1,[3624.0],The user's activity pattern indicates a strong tendency to visit place ID 3624 on Fridays.
+22,564,[3624.0],Recent visits on Monday morning to place ID 3624
+22,1,[3624],Recent frequent visits to place 3624 on Mondays
+22,564,[3624.0],The user has a repeated visit to place 3624.0 during Wednesday morning based on historical activity pattern and context stays.
+22,898,[3624.0],The user has a consistent pattern of visiting place 3624 on Fridays during the morning
+22,564,[3624.0],"Based on the user's activity pattern and recent stays in the context, it is most likely that they will visit place 3624 again."
+22,564,[564.0],recent visit to the same place during similar time on a weekday
+22,564,[3624],"The user has a repeated visit pattern to place 3624 on Thursday morning, and the recent context also indicates this place."
+22,3624,[3624.0],"The user has visited the same place on Fridays before (e.g., 08:04 AM, 'Friday', 3624.0), and since it's a Friday now."

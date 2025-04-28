@@ -1,0 +1,12 @@
+user_id,ground_truth,prediction,reason
+178,1,[1237.0],Recent activity pattern and context indicates a high probability of visiting the same place on Monday afternoon.
+178,1,[1],The target stay is on a Tuesday and the user has visited place with ID 1 in similar time and day of week in the context
+178,1,[537.0],Recent weekday afternoon visits to place with ID 537
+178,1,[3812.0],Predicting the user's next location based on their recent activity pattern of visiting a certain place on Thursday afternoons.
+178,1,[537.0],The user has a repeated visit to the same place on Tuesday.
+178,1,[537.0],The user's recent activities in the context and their historical activity pattern suggest that they will visit place ID 537.0 again.
+178,1,[1237.0],"The user's recent activity is visiting places on Monday morning, and the target stay is also on Wednesday evening, making it likely that they will visit a place similar to those they visited on Monday."
+178,1,[1],"The user recently visited the same place (1) on different days and times, so it is likely to visit this place again."
+178,1,[3812.0],"Based on the user's activity pattern and context, they tend to visit place 3812 during Thursday evenings."
+178,300,[1253.0],"Given the user's activity pattern and recent context, it is most likely that they will visit the same place they went to recently on Mondays"
+178,1,[3805.0],The user has repeated visits to a certain place (3805) during certain time (Wednesday evening)

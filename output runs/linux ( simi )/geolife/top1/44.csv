@@ -1,0 +1,16 @@
+user_id,ground_truth,prediction,reason
+44,117,"[1179, 344, 1]",Recent stays in the context show frequent visits to place 1179 and the past history reveals consistent visits to places 344 and 1 on Fridays
+44,344,"[9, 344, 1]",Recent stays and recurring patterns suggest the user will revisit familiar locations
+44,344,"[338, 331]",Recurring patterns in history and recent activities in context suggest frequent visits to these places on Saturdays
+44,344,[1179],Recurring pattern on Monday morning
+44,344,"[1179, 344]",Recent pattern of staying at place 1179 and place 344 on Saturday and Monday
+44,765,[1179],Recent activities suggest user tends to stay at place with ID 1179 on Saturday mornings.
+44,1,"[1179, 344]",Recent frequent visits to places 1179 and 344
+44,333,"[761, 344]",recent stays indicate a high probability of returning to places visited recently
+44,534,"[344, 765]",Recent pattern suggests frequent visits to place 344 and 765 on Saturdays.
+44,140,[1179],Recent stays at place 1179 and temporal information in the target stay suggest a strong likelihood of returning to this location.
+44,344,[1179],Recent stays and historical patterns indicate the user tends to frequent place ID 1179 on Saturdays.
+44,760,"[1179, 344]",Recent activities in context suggest frequent visits to places with ID 1179 and 344.
+44,1,[760],Recent stays on Sunday morning
+44,1,[1],Recent stays on Wednesday and recurring pattern of staying at place with ID 1
+44,1,[1],Recent stays suggest a recurrence of the pattern on Wednesday mornings

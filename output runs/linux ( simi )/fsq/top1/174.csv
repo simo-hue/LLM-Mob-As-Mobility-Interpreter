@@ -1,0 +1,54 @@
+user_id,ground_truth,prediction,reason
+174,1544,[1123],"The target stay is on a Wednesday morning, which is similar to previous stays in the history and context. The user tends to visit place 1123 during weekdays."
+174,2905,[1123.0],The user has a daily routine of visiting place 1123 in the evening on Thursdays and recently visited there at 6:09 PM on Saturday.
+174,2905,[838.0],The user's recent activities show a pattern of visiting place 838 at this time on Fridays.
+174,3800,[1253.0],The user has a regular stay at this place on Tuesday and Friday evenings.
+174,3800,[1123.0],The user has a history of visiting place ID 1123 on Saturday evenings.
+174,838,[1253.0],Recent stays at 1253.0 on Sunday morning
+174,1123,[2905],"The target stay is very close to the most recent stays in both history and context, so it's likely that this user will return to the same place where they spent time yesterday (Thursday) during a similar time of day."
+174,3800,[3800],"Recent frequent nighttime stays at place ID 3800 in context and history, with no specific day of the week bias"
+174,3800,[1123.0],Recent weekend visit to place with ID 1123 and long stay duration on Sunday
+174,1123,[3800],based on the user's frequent nighttime stays at this place ID
+174,2905,[3800],"The target stay's time and weekday are similar to the recent context stays on Friday and Sunday, which all ended at 9:40 PM or later. Additionally, the target stay is early in the day on a Wednesday, which matches the historical activity pattern of this user, who often visits place 3800 during weekdays."
+174,1715,[1123.0],Recent activity pattern suggests frequent visit to place 1123 during morning
+174,1123,[3800],"The user has visited place 3800 multiple times in the evening on Wednesday, and this pattern is observed in both their historical stays and recent context."
+174,838,[3800],Recent history and context indicate that the user often stays at this place during the early morning hours of Friday
+174,3800,[3800],"The target stay is at night and on Sunday, similar to recent stays in the context. The user also tends to visit place 3800 multiple times."
+174,1123,[1123],based on the user's activity pattern of repeated visits to place 1123 during morning hours
+174,838,[1123.0],"The target stay is on Tuesday and around noon, which is a typical time for the user to visit place 1123 based on their historical stays."
+174,1123,[1123],Recent stays at place 1123 and temporal consistency with evening on Tuesday suggest this is the most likely next location.
+174,3800,[1123],Recurring visit to a place on Tuesday evening
+174,838,[1123],Recent stays and historical patterns suggest the user is likely to visit place ID 1123 at night on Tuesdays.
+174,1123,[1123],"Based on the user's historical stay pattern and recent context, the most likely next place ID is 1123, which was visited during similar times of the day and week."
+174,1104,[1123.0],repeated visit to place 1123 during morning time on Thursday
+174,2905,[838],"Based on the user's activity pattern and recent context, it is likely that they will visit a place they have been to recently during the same time of day."
+174,838,[1123.0],"Based on the user's activity pattern and recent context, it is likely that they will visit a place they have visited before during this time of day (morning) and day of the week (Friday)."
+174,371,[1123.0],The target stay is on Sunday evening and the user has a history of visiting place 1123 on Sundays
+174,1123,[3800],Recent activity shows a strong tendency to visit place ID 3800 in the evening on Monday.
+174,838,[1123.0],The user's activity pattern shows a repeated visit to place ID 1123 during Tuesday morning.
+174,371,[1123],The user has visited place ID 1123 multiple times during the day and on Tuesday
+174,3800,[3800],The user's recent activity pattern shows a strong tendency to visit the place with ID 3800 in the evening hours of Fridays.
+174,838,[1253],recent pattern of staying at place 1253 during Saturday morning
+174,3349,[1123],the user has a habit of visiting the same place on Mondays
+174,831,[1123.0],The user's activity pattern suggests frequent visits to place 1123 on Tuesdays.
+174,832,[1123],The user has a frequent visit to this place during the same time of day and on similar days.
+174,1123,[3800],"The user has visited the same place during similar times of day and days of the week in their past stays, so it is likely that they will continue this pattern."
+174,831,[1123],"The target stay's time and day of week match the most recent context stays, suggesting a repeated visit to place 1123."
+174,3800,[838],"Based on the user's recent activity pattern in context and their historical stays, it is most likely that they will visit place ID 838."
+174,1123,[1123.0],"The target stay is on Thursday evening and the user has visited this place (1123) multiple times in the past, including recently on Wednesday."
+174,1123,[1123.0],Repeated visit to a certain place during certain time.
+174,838,[838.0],Recent repeated visits to place with ID 838.0 on Tuesday and Wednesday
+174,1123,[1253.0],The user tends to visit this place on Sunday afternoon
+174,2905,[1253.0],The target stay's time and weekday are similar to the recent stays in the context (around 7-8 am on Monday) and the user has a consistent visit pattern to place ID 1253.0 during this time.
+174,838,[1123],"Based on the user's activity pattern and recent context, it is likely that they will visit place 1123 again since they have a history of repeated visits there during similar times."
+174,652,[1123],"The target stay is on Tuesday afternoon, which is a common time for the user to visit place ID 1123"
+174,831,[1123.0],The user has a repeated visit pattern during Tuesday afternoon
+174,2118,[1123],The user tends to visit place 1123 during mornings on Thursdays.
+174,838,[1123.0],"The user tends to visit the same place on Fridays, considering their historical stays and recent context."
+174,3349,[1253.0],The target stay's time of day and day of week match the recent pattern in context and history
+174,904,[1253.0],"based on the user's activity pattern and context stays, it is likely that the next location will be a place visited frequently during Sunday afternoons"
+174,1715,[1123.0],Recent stays and pattern of visiting place ID 1123 on Monday morning
+174,2905,[3800],The user has visited place ID 3800 on multiple occasions during weekdays and late evenings.
+174,3800,[3800],Based on the user's activity pattern of frequent visits to place with ID 3800 during late evening and nighttime
+174,2905,[1253.0],"The target stay is on Tuesday morning, which is similar to the user's recent stays in the context"
+174,1123,[3800],Recent context suggests a strong tendency to end the day at this location.

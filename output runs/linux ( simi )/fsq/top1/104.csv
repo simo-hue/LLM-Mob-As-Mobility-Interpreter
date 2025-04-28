@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+104,2236,[2087.0],The user has visited the same place multiple times during weekdays and recent context stays have also been to this place.
+104,2087,[2087],"The target stay is on a Friday night, and the user has recently visited this place (context), with a pattern of repeated visits to this place during the same time."
+104,2087,[2805.0],"Given the recent visit to place ID 2087 and the pattern of repeated visits during certain time (e.g., nighttime), it is likely that the next location will be a repeated visit to this place."
+104,2236,[2312.0],the user tends to visit the same place on Monday afternoon
+104,2087,[2805],"Based on the activity pattern of this user, which shows repeated visits to place 2805 during weekdays and late evenings, I predict that the next location is place 2805."
+104,2087,[2312.0],Recent activity pattern and context indicate frequent visits to place with ID 2312 on Thursdays
+104,2236,[2087],"Based on the user's activity pattern and recent stays in the context, it is most likely that they will visit place 2087 again."
+104,2087,[2805.0],The user has a tendency to visit the same place (2805) during similar times and days.
+104,2087,[2087.0],"Based on the user's historical stays and recent activities in the context, it is most likely that they will visit place 2087 again."
+104,2087,[2047.0],The user has a consistent pattern of visiting place ID 2047 on Wednesdays
+104,2087,[2087.0],Recent activity pattern suggests the user is likely to visit the same place again.
+104,2236,[2087],the user's recent activities suggest a high probability of returning to the same place
+104,2087,[2087.0],Recent context suggests frequent visit to this place during nighttime on Friday

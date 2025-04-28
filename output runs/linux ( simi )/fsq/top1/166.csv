@@ -1,0 +1,9 @@
+user_id,ground_truth,prediction,reason
+166,96,[138.0],The user has a consistent pattern of visiting place 138 on Fridays.
+166,96,[96.0],Recent activity pattern suggests the user is likely to visit a location they previously visited during the day
+166,229,[469.0],The user's recent stays show a pattern of visiting place 469 on Saturday evening.
+166,96,[469],Recent stay on Saturday and previous stays suggest a high probability of visiting the same place (469) in the morning.
+166,1370,[96],Recent stays in the target context (Tuesday and Thursday) and historical stays (14 occurrences) at place ID 96 suggest a high probability of the next stay also being at this location.
+166,229,[1370],The user has a strong tendency to visit places repeatedly on Thursdays.
+166,96,[1370],"The user has a recent activity pattern of visiting places 96 and 229 during the morning hours on Thursdays. Therefore, it is likely that they will visit place 1370 in the target stay."
+166,1583,[162],Recent activity pattern and context stay suggests returning to the same place as previously visited.

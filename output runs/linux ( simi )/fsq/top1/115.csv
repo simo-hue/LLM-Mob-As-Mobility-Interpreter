@@ -1,0 +1,11 @@
+user_id,ground_truth,prediction,reason
+115,1,[43.0],The user has a regular activity pattern of staying at place with ID 43 during the early morning hours on Sundays.
+115,43,[43.0],"Based on the historical stay pattern and recent context stays, the next likely place ID is 43.0 as the user tends to visit this place frequently during similar time of the day."
+115,43,[43],"The user's activity pattern shows a strong tendency to revisit places on Sundays and Mondays. Given the target stay is also on Sunday, it is likely that the next place ID will be 43."
+115,1,[43],The user's recent stays and historical pattern suggest a return to the most frequently visited location (43)
+115,43,[1],Recent activity pattern and temporal information suggest the user is likely to visit place ID 1
+115,1,[1],The user has been to the same place (place ID 1) on Saturday mornings recently and during the target stay time.
+115,43,[43],Recent repeated visit on Wednesday
+115,1,[43.0],The user has a repeated visit to place ID 43 during early morning hours on Thursdays.
+115,43,[43],Recent frequent visits to place ID 43 during Monday afternoon
+115,534,[43],"The target stay is on Wednesday evening, and the user has a habit of visiting place ID 43 during this time"

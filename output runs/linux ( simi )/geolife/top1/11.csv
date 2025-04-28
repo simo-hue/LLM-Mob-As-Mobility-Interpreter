@@ -1,0 +1,64 @@
+user_id,ground_truth,prediction,reason
+11,1,[373],Recent activities in context suggest a stay at place 373 on Sunday
+11,1,[373],Recurring pattern on Sundays
+11,1,[373],The user has a recurring pattern of staying at place_id 373 on Tuesdays.
+11,1,[373],Recent pattern of staying at place 373 on Wednesday afternoons
+11,373,[373],Recent stays and historical patterns suggest the user will likely stay at place ID 373.
+11,373,[373],Recent frequent stays and similar temporal info suggest the user will likely stay at the same location
+11,373,[305],Recent stays suggest the user is likely to visit a similar place as their previous Friday stay.
+11,414,[1],Recent patterns indicate the user has a high probability of returning to place 1.
+11,373,[373],Recent patterns of staying at place 373 on Sundays suggest the user will likely return to this location
+11,373,[373],Recent and historical stays at place 373
+11,373,[373],"The user has a strong tendency to stay at the same place (373) on Mondays, and recent stays have all been in this location."
+11,373,[373],"Recent stays in context have consistently been at place 373, and this pattern is also observed in the user's history"
+11,1,[373],Recurring pattern of staying at place 373 on Wednesday mornings
+11,373,[373],"Based on the historical pattern of frequent stays at place ID 373 on Sundays and Wednesdays, and recent activity in context suggesting a similar pattern."
+11,1,"[373, 1]",Recent activity suggests frequent stays at place ID 373 and occasional visits to other places
+11,373,[373],Based on the user's historical pattern of staying at location 373 during weekdays and mornings
+11,1,[373],Recent and historical stays suggest the user will likely stay at place 373 again
+11,1,[373],Recent stays suggest frequent visits to place_id=373
+11,1,[373],Recent and past stays suggest a high likelihood of the user returning to their most frequent location.
+11,373,[373],Recent frequent stays and recurring patterns suggest the user will stay at location 373 on Sunday.
+11,373,[373],Recent stays show a strong pattern of returning to place ID 373 on Monday mornings.
+11,1,[373],Recent recurring pattern in the context and history indicates that the user will likely stay at place ID 373.
+11,261,[373],Recent stays suggest a high probability of staying at the same place
+11,373,[373],The target stay is on a Wednesday and the recent activities in context show that the user tends to visit place 373 on Wednesdays.
+11,373,[373],Recent stays indicate that the user tends to stay at place ID 373 on Wednesdays
+11,270,"[1, 373]",Recent activity suggests a morning stay on Thursday and the user tends to return to place with ID 1 or 373
+11,373,[373],Recent stays show a strong preference for place ID 373 on Fridays.
+11,305,"[1, 373]",Recent activities suggest a pattern of alternating between places with ID 1 and other stays at place with ID 373
+11,373,[373],Recent stays suggest a high probability of returning to the same place as before
+11,372,[373],Recent history and context suggest a typical Sunday afternoon stay at the same location as before.
+11,373,"[373, 305]",recent stays at places 373 and 305 suggest a recurring pattern
+11,373,[373],Recent stays in the same place (373) and historical pattern of returning to this location on Mondays
+11,373,[373],Recent recurring pattern of staying at place_id 373 on Mondays.
+11,373,[373],Recent stays show a strong affinity for place ID 373 on Mondays and Tuesdays
+11,425,[373],The user tends to visit the same place on Wednesdays.
+11,373,[373],"Most recent activities and stays have been at location 373 on weekdays, so it's likely to stay there again."
+11,372,[373],Recent and recurring patterns show that the user tends to stay at place ID 373 during the day
+11,1,[373],Recent stays and past patterns suggest the user will likely stay at the same place as previous days
+11,373,[373],"The user's recent stays and historical pattern suggest they will return to their most frequent location, which is place ID 373."
+11,373,"[373, 425]",Recent stays on Wednesday and history of recurring patterns at place 373
+11,397,"[372, 1]","Recent stays on Wednesdays and Thursdays have been spent in places with IDs 373 and 1, suggesting the user may return to these locations."
+11,373,[373],Recurring patterns in history suggest that the user will likely stay at place 373 on Thursday.
+11,147,"[1, 373]",Recurring pattern and recent activities suggest the user will visit places with ID 1 (work) or 373 (home)
+11,373,"[1, 373]",Recent stays suggest a frequent visit to place ID 1 and occasional stay at place ID 373.
+11,2,[373],Recent stays show a strong preference for place ID 373 on Friday mornings.
+11,373,[373],Recent stays show a strong affinity for place 373.
+11,431,"[1, 373]","Recent stays at places 147 and 373, and recurring pattern of weekend stays at place 1 suggest the user will likely visit place 1 again this Saturday."
+11,436,"[1, 373]",Recent stays on Friday at night and Saturday morning suggest a visit to either place 1 or place 373.
+11,389,[436],Recent activity pattern and temporal information suggest the user is likely to visit a place they have stayed at previously on Sundays.
+11,289,[373],"The user has a recurring pattern of staying at place 373 on Sundays and weekdays, and recent activities show that they are still following this pattern."
+11,373,[373],Recurring pattern in recent days
+11,373,"[373, 1]","Recurring pattern of staying at place_id 373 on Mondays, and recent stays at different places"
+11,373,[373],Recent and past stays suggest a strong preference for place 373 on Mondays.
+11,372,[373],Recent stays in context and history show a strong pattern of staying at place 373 on Mondays
+11,372,[373],The user tends to stay at the same place on Mondays
+11,414,[373],Recurring pattern of staying at place 373 on Tuesday mornings
+11,373,[373],Recent stays and history show a strong tendency to stay at place 373
+11,373,"[372, 373]",Recent stays and recurring patterns in history suggest the user is likely to return to their typical places of stay.
+11,373,"[1, 373]",Recent stays show frequent visits to place ID 1 and 373
+11,305,"[373, 1]","Recent stays show frequent visits to places 373 and 1 on weekdays, with no notable exception."
+11,202,[373],Recent frequent stays at place 373 and same day of the week (Wednesday)
+11,400,[373],Recent stays at place 373 and historical pattern of frequent visits on Fridays suggest the user will likely stay at place 373 again.
+11,407,"[373, 400]",Recent pattern of staying at place ID 373 on Saturday and recent stays in context are mostly at place ID 373 and 400.

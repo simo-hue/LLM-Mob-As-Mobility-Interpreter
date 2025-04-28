@@ -1,0 +1,63 @@
+user_id,ground_truth,prediction,reason
+26,9,"[225, 9]",Recent activity pattern suggests the user tends to visit places with IDs 225 and 9 on Mondays.
+26,677,[1],Recent patterns in context and history suggest the user is likely to return to their recent favorite location
+26,9,"[1, 678]",Recent stays and history show a pattern of visiting place 1 on Tuesdays
+26,9,"[225, 9]",recent stays in similar days and places
+26,677,"[225, 677]",Recent patterns of visiting places 225 and 677 on Wednesdays are repeated.
+26,9,[225],Recurring pattern of visiting place with ID 225 on Thursdays
+26,9,[1],"Based on the user's recent and past stays, their most common place to visit is location 1."
+26,9,[1],Recent stays indicate a preference for place ID 1
+26,677,[1],Recent stays in context and recurring patterns in history suggest the user may return to a location they have previously visited.
+26,677,[1],Recent stays show a preference for place ID 1 on Mondays.
+26,677,[677],Recent stays and recurring patterns suggest a possible Monday evening visit to the same place
+26,677,"[677, 9]",Recent stays at place 677 and 9 on Monday
+26,655,"[225, 9]","Recent stays on Monday were mostly at places with IDs 677 and 9. Also, historical data shows recurring patterns of visits to places with IDs 225 and 9 on Fridays."
+26,677,"[225, 677]",Recent stays on Monday and Friday indicate a recurring pattern of visits to places with IDs 225 and 677.
+26,677,[1],Recent activity suggests the user may visit location 1 again
+26,677,"[655, 677]",Recent stays and temporal info suggest a pattern of visiting places on Fridays
+26,677,[1],The user recently stayed at places with ID 1 on Friday and tends to stay at the same place on the same day of the week.
+26,677,"[655, 677]",Recent stays on Friday suggest frequent visits to these places
+26,9,[1],Recurring pattern of going to place 1 on Sundays and Fridays
+26,677,[678],Recent stays and recurring patterns suggest the user will likely visit a location they have previously visited on Mondays.
+26,677,[1],Recent stays and recurring patterns suggest the user is likely to visit place ID 1 on Monday afternoon.
+26,677,"[225, 677]",Recent patterns suggest user tends to visit same places on Mondays and Fridays
+26,677,[1],Recent activities suggest the user will likely go to place ID 1
+26,677,[1],Recent stays on Monday indicate a strong likelihood of returning to the same location.
+26,677,"[1, 225, 677]","Recent stays on Monday show a pattern of staying at place 677 in the late afternoon, which is also consistent with the user's past activity."
+26,677,"[225, 9]",Recent recurring patterns and similar temporal info suggest the user is likely to visit a familiar place
+26,677,"[225, 9]","The user tends to visit place 225 and 9 on Wednesday afternoon, which is consistent with the recent stays in context."
+26,677,"[225, 677]",Recent activities show a trend of frequent stays at places with IDs 225 and 677 on Wednesdays.
+26,1,"[225, 9]",Recent stays have been at places 225 and 9 on Wednesdays.
+26,1,[678],Recent stays at place ID 677 and the temporal information suggest a likely next stay at the same place
+26,677,"[677, 1]",Recurring pattern of staying at 677 on Thursdays and 1 on Sundays
+26,677,"[225, 9]","Recent stays at place 225 and 9, with a recurring pattern of visiting these places on Thursday"
+26,677,[1],Recent stays in context and history suggest a high probability of visiting place ID 1
+26,680,[1],Recent and historical patterns suggest the user will visit location 1 on Saturday morning
+26,1,"[225, 9]",Recent stays indicate a recurring pattern of visits to place IDs 225 and 9 on Saturday
+26,9,[1],Recent stays suggest a high likelihood of returning to the same place.
+26,9,"[1, 225]",Recent frequent stays at places 1 and 225
+26,143,[1],Recent stays have been at location 1
+26,1,"[1, 225, 679, 678]","Recent pattern of visiting place 1 and places 225, 679, and 678 repeatedly"
+26,9,[225],Recent activities and recurring patterns indicate a high probability of staying at place 225 on Monday.
+26,9,[225],"Based on the historical data and recent context, it is most likely that the user will stay at the same place as their previous stays during Tuesday."
+26,677,"[225, 677]",Recent stays on Tuesday and the recurring pattern of visiting place 225 on Tuesdays
+26,677,"[225, 9]","Recent pattern of visiting place 225 on Thursdays and Sundays, and also a common stop at place 9"
+26,9,[1],Recent patterns suggest frequent visits to place 1 on Friday
+26,677,"[1, 225]",Based on the user's past recurring patterns and recent activities
+26,1,[1],Recent activities suggest going back to a previously visited place
+26,1,[1],Recent pattern of staying at place 1 on Saturday
+26,681,"[225, 9]",Recent patterns suggest the user will visit a place from previous stays and days of the week
+26,677,[677],Recent stays at place 677 and recurring patterns in history
+26,677,"[677, 225]",The user tends to visit the same places on Friday and recent stays show a preference for place 677
+26,677,[225],Recent patterns show the user tends to visit place with ID 225 on Friday afternoons.
+26,682,"[678, 1]","Based on the recent activities in context and recurring patterns in history, it is likely that the user will visit place 678 and then stay at place 1."
+26,677,[442],The user has a strong recurring pattern of staying at place ID 9 on Wednesdays and recent stays have been around this time/day; predicting the same pattern continues
+26,442,"[678, 1]",Recently frequent places
+26,677,"[442, 677]",Recent activities and patterns in the user's history suggest they tend to visit similar places around the same time on Wednesdays
+26,677,"[225, 677]",Recent stays in context (677) and historical pattern of frequent visits to 225 on Fridays
+26,677,"[225, 677]","Recent stays show a pattern of visits to place IDs 225 and 677 on Fridays, which is consistent with the temporal info in the target stay"
+26,677,[1],The user has a recurring pattern of staying at place 1 on Friday evenings.
+26,677,[1],Recent stays suggest the user is likely to go back to a place they have visited frequently on Fridays
+26,677,"[679, 1]",Recent Friday stays and similar temporal info suggest the user might be going to a common location
+26,677,[677],Recent activities in <context> suggest that the user will likely go to place 677.
+26,677,[1],Recent stays at place 677 on Friday

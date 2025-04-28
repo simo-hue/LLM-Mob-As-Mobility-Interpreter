@@ -1,0 +1,5 @@
+user_id,ground_truth,prediction,reason
+44,2637,[173.0],The user has been frequent to place with ID 173 on Sunday nights.
+44,921,[1709],"The target stay is on a Thursday afternoon, which is similar to the recent context stays, and considering the user's historical activity pattern, they tend to visit place 1709 during this time"
+44,648,[1709.0],"based on the recent context stays and user's activity pattern, which suggests frequent visits to place 1709.0 during Saturday evening"
+44,173,[1590.0],"The user has visited place 1590.0 multiple times on Wednesday, and the target stay is also on a Thursday evening."

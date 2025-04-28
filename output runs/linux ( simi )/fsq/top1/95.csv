@@ -1,0 +1,17 @@
+user_id,ground_truth,prediction,reason
+95,1,[1],The user has a repeated visit to place 1 during Monday morning
+95,300,[1],The user has a repeated visit to place ID 1 during the same time of day and weekday.
+95,3006,[3036.0],recent visit to place 3036 at morning on Tuesday
+95,3018,[1],"The target stay is on Friday evening, and the user tends to visit place with ID 1 in the morning and afternoon on Fridays."
+95,1140,[1],The user has a regular pattern of visiting place 1 on Saturday afternoons.
+95,3018,[1],"The target stay is on Saturday evening, which based on the historical pattern and recent context, is likely to be at place ID 1"
+95,3036,[1.0],"The target stay is on a Monday morning, and the user has visited place 1.0 repeatedly during this time, including in their recent context."
+95,1883,[1883.0],The user's recent activities in the context show a repeated visit to place with ID 1883 on Tuesdays.
+95,2285,[1761.0],"Based on the user's historical stays and recent context, I predict they will visit place ID 1761."
+95,3018,[3018.0],Recent activity pattern and context indicate a high likelihood of visiting the same place
+95,1513,[1.0],"based on the historical stays and recent context, it is likely that this user will go back to place ID 1"
+95,1640,[1883],"Based on the user's historical stays and recent context, it is most likely that they will visit place ID 1883 again."
+95,3036,[3036],The user has a pattern of visiting place 3036 on Tuesdays at around the same time
+95,1761,[1.0],The user has a daily routine of visiting the first place (ID 1) around morning time on Wednesdays.
+95,3006,[3018],The user tends to stay at place ID 3018 during daytime on Wednesday.
+95,3018,[3018],"The target stay's time and day of the week match with the user's recent activities in the context, which suggests a repeated visit to this place."

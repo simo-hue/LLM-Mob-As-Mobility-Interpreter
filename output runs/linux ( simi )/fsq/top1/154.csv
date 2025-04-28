@@ -1,0 +1,6 @@
+user_id,ground_truth,prediction,reason
+154,3131,[3131.0],"The user's activity pattern shows repeated visits to place ID 3131 during weekdays, especially on Mondays and Fridays, which matches the temporal information of the target stay."
+154,939,[3131.0],"Based on the user's activity pattern and recent context stays, it is likely that the target stay will also be at place ID 3131."
+154,3131,[3131.0],The target stay's time of day and day of week match the user's activity pattern in the context and history.
+154,3131,[3131.0],"Based on the user's activity pattern and recent context stays, they are likely to visit a place with ID 3131, considering their frequent visits during weekdays."
+154,3131,[3131.0],The user's historical activity pattern and recent stays in the context suggest a strong likelihood of visiting place ID 3131 again.

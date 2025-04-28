@@ -1,0 +1,56 @@
+user_id,ground_truth,prediction,reason
+33,9,"[787, 9]","Recent stays in context show a strong pattern of returning to place ID 787 at the end of the day on Tuesday, which is also consistent with recurring patterns in history"
+33,787,[787],The user tends to visit the same place (787) on Tuesday and Thursday afternoons.
+33,9,[787],Recent stays show a strong preference for place ID 787 on Tuesday.
+33,787,[787],"Recent stays in context have been at place_id 787 on Monday and Tuesday, while history shows frequent visits to this location on Wednesday"
+33,9,[787],Recent stays and history suggest the user will return to their usual location
+33,787,[787],Recent stays suggest high probability of returning to place 787
+33,9,[787],"The user has a consistent pattern of staying at place ID 787 on Thursdays, and the recent context also suggests this location"
+33,787,[593],Recent activity on Friday afternoon and similar patterns in the past
+33,1,[787],Recent stays and recurring patterns suggest the user will visit place 787 again.
+33,9,"[9, 787]",Recent pattern of weekday stays at location 9 and occasional visits to location 787
+33,787,"[7, 787]",Recent stays suggest frequent visits to places with IDs 7 and 787.
+33,9,[787],The user's recent activities show a strong tendency to stay at location 787 on Tuesdays.
+33,9,[787],Recent frequent stays at place 787 in context
+33,787,"[787, 9]",Recent stays on Wednesday and recurring pattern of staying at places with ID 787 or 9
+33,9,"[9, 787]",Recent recurring patterns of daily stays and recent stay at place_id=787 suggest a high likelihood of returning to these places.
+33,9,[851],"Recent stays show a pattern of visiting place 787 on Mondays and Tuesdays, so the next location is likely to be place 787."
+33,40,"[9, 787]","Recent activities and temporal info suggest the user is likely to stay at home (place ID 9) or a work/school location (place ID 787), considering their recurring patterns in <history>"
+33,787,[787],"Recent stays show a strong tendency to visit place 787 on Mondays and Tuesdays, with no notable pattern changes in the past few days."
+33,9,"[787, 9]","Recent stays at place 787 and the same day of week in context, also frequent stays at place 9 in history, so likely to stay at one of these places again."
+33,787,[789],Recent stays show a pattern of visiting place 787 on Tuesdays and Thursdays.
+33,9,"[789, 788]",Recent and historical patterns suggest user tends to stay at places 788 and 789 during the day.
+33,787,[787],Recent activities in context show a strong tendency to visit place 787
+33,9,[787],Recent stays at place 787 and the pattern of staying there on Thursdays in the morning.
+33,787,"[787, 9]",recent stay at place 787 on Wednesday and Thursday
+33,9,"[9, 787]","The user has a recurring pattern of staying at the same place every day, and the recent stays in the context are also at this place."
+33,9,[787],Recurring pattern on Wednesdays and recent stays at place 787
+33,790,[787],Recent stays show a high probability of returning to the same place as before
+33,787,[790],Recent activities suggest a visit to the same place
+33,9,"[1, 2]","Based on the user's past stays and recent activities, they tend to visit places with place_id in [9, 787] and have a strong preference for Mondays."
+33,9,[787],Recent frequent stays at place 787.
+33,787,[787],"Recent stays suggest frequent visits to place 787, and the target stay is on Tuesday, which matches the day of week when this place was visited before."
+33,9,"[9, 787]",Recent stays suggest frequent visits to location 9 and 787 on Wednesday
+33,787,[787],Recent pattern of returning to place with ID 787
+33,9,"[7, 9]",Recent patterns and frequent places on Thursdays
+33,787,"[9, 787]",Recent stays and recurring patterns indicate the user will likely stay at their usual places (ID 9) or a common destination (ID 787)
+33,9,[787],Recent stays suggest a high likelihood of returning to the previous stay location.
+33,1,[787],Recent activities and recurring patterns in history suggest the user is likely to visit a place they have previously stayed at on Sundays
+33,9,[787],Recent and historical stays suggest that the user will likely end up at location 787 again
+33,1,"[787, 9]","Recent stays on Thursday and Friday suggest a pattern of visiting place ID 787 on Wednesdays, so we predict the user will visit this place again."
+33,793,"[9, 787]",Recent activities suggest a pattern of alternating between home and work/study
+33,789,"[792, 791, 787]",Recent stays and past patterns suggest the user is likely to visit places they have visited before in a similar day of week.
+33,794,[787],Recent stays in the context suggest frequent visits to place_id 787
+33,795,[787],Recent frequent stays at place ID 787
+33,9,[787],Recent stays show a strong affinity for place ID 787
+33,657,[794],"The user has recently stayed at similar places (793 and 795) on Saturday and Sunday, which are consecutive days of the week. The target stay is also on Tuesday, a consecutive day."
+33,796,[789],Recent stays show a preference for place ID 789 on Tuesday afternoons.
+33,9,"[794, 795, 9]",Recent stays indicate frequent visits to place IDs 794 and 795.
+33,789,"[795, 657]",Recent stays suggest frequent visits to places 795 and 657 on Monday.
+33,1,"[657, 796]",Recent stays in context and recurring patterns in history suggest user is likely to visit similar places on Tuesday morning
+33,9,[657],Recent and historical stays suggest user is likely to stay at the same place as their recent stay on Tuesday.
+33,9,"[787, 9]","Recent stays have been on Wednesday and Thursday evenings; the target time is Tuesday morning, which matches a recurring pattern"
+33,9,[787],recent stays show a strong pattern of visiting place_id 787 on Wednesday mornings
+33,787,[787],Recent stays indicate a high probability of returning to place 787.
+33,1,[787],Recent stays and recurring patterns indicate a high probability of returning to the same place as in the past
+33,9,[9],"Recent stays suggest a strong correlation between Wednesday and Friday with place ID 9, and the target stay's day of week is Thursday, making it likely to follow this pattern."

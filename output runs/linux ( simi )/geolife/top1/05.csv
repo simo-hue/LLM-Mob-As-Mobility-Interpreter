@@ -1,0 +1,14 @@
+user_id,ground_truth,prediction,reason
+5,210,"[1, 204, 209]","Recent activities in context and recurring patterns in history indicate the user is likely to visit places with place IDs 1, 204, and 209."
+5,204,"[1, 204, 209]","Recent activities suggest frequent visits to places 1 and 204, while the target stay's day of week (Monday) is similar to previous Monday stays which often involve place 209."
+5,204,"[1, 205]",Recent stays and historical patterns suggest a visit to place_id 1 (likely home) followed by a visit to place_id 205
+5,219,"[204, 205]",Recent frequent stays at place IDs 204 and 205 suggest the user will likely return to one of these places.
+5,1,"[210, 205]",Recent activities and recurring patterns in history suggest the user will visit place IDs 210 and 205 on Thursday morning
+5,204,"[204, 209]",The user's recent activity pattern suggests a preference for places with ID 204 and 209 on Thursday mornings.
+5,210,"[204, 205, 209]","Based on the user's past stays and recent activities, I predict they will visit places with place IDs 204, 205, and 209."
+5,217,"[205, 209, 204]",Recent patterns of returning to place 205 and staying at 209 and 204 on Thursdays suggest this is a likely next location.
+5,213,"[1, 204, 209]","Recent stays on Thursday and Friday suggest frequent visits to places with IDs 1, 204, and 209."
+5,209,[221],Recent stays on Friday and Thursday suggest a pattern of visiting place 221
+5,210,"[210, 204]",Recent stays suggest a preference for places 210 and 204 on Saturdays.
+5,22,[219],Recent stays suggest frequent visits to place 219 on Sundays.
+5,97,[217],Recent stays suggest a high probability of returning to the same place as on Friday and Saturday.

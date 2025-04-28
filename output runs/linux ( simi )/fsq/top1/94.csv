@@ -1,0 +1,17 @@
+user_id,ground_truth,prediction,reason
+94,1224,[1224.0],Recent stays in context and history indicate a possible return to place 1224 on Wednesday evening
+94,3097,[1224],The user has visited this place multiple times recently and on the same day of the week.
+94,1406,[1224.0],"The user has visited this place during the same time on Monday and Tuesday in the past week, so it's likely they will visit again today."
+94,1224,"[1305, 3097]","Based on the historical stays and recent context, this user tends to visit similar places during the same time of day (e.g., evening)."
+94,1189,[1224],The user has visited the same place (1224) at similar time (evening) and day of the week (Thursday) in their recent activities.
+94,2779,[3097],"The user has a repeated visit pattern on Fridays, especially in the morning"
+94,1406,[3097.0],"The target stay is on a Friday and the last two stays in context are both on Fridays, suggesting a repeated visit to place 3097."
+94,2940,[1224.0],"Based on the user's historical stays and recent context, the most likely place ID is 1224, which was visited multiple times during weekdays, including Thursdays."
+94,1406,[1224],Recent and frequent visits to place 1224 on Saturday mornings
+94,2779,[1224.0],"Based on the user's activity pattern and recent stays in the context, it is likely that the next place ID will be 1224.0 due to frequent visits during the morning hours on Sunday."
+94,1406,[2940.0],"The target stay is on Sunday morning, and the user has been to this place (2940.0) recently in the context stays. Additionally, the user's activity pattern suggests that they often visit this place during the weekend mornings."
+94,1659,[1224.0],The user has repeated visit to place ID 1224.0 on Friday and Saturday.
+94,1224,[1224.0],The user has a regular visit to place with ID 1224 at this time on Thursday
+94,1497,[1336.0],Recently visited places on Friday
+94,1840,[1406.0],"Based on the user's activity pattern and recent context, they tend to visit places with ID 1406.0 during morning hours on Mondays."
+94,3175,[2535.0],"The target stay is on Monday morning, and the user tends to visit place with ID 2535 on Mondays"

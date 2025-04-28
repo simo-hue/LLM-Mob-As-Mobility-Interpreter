@@ -1,0 +1,61 @@
+user_id,ground_truth,prediction,reason
+16,508,[1],Continuation of the recurring pattern of staying at place ID 1 on Sundays
+16,523,[523],Recent stays have been at place 523
+16,1,"[1, 523]",Recent stays suggest frequent visit to place 1 and occasional visit to place 523 on Mondays
+16,500,"[1, 523]","Recent frequent stays at places 1 and 523, with recurring pattern on Mondays"
+16,507,[523],Recent activity pattern suggests user will likely visit place 523
+16,1,"[523, 1]",Recent stays at place ID 523 and the recurring pattern on Mondays
+16,523,[523],Recent activity suggests a high likelihood of returning to place ID 523
+16,523,[523],Recent activities in context show a trend of moving to place ID 523 on Mondays.
+16,507,"[1, 523]",Recurring pattern of staying at place 1 on Tuesdays
+16,1,"[1, 523]","Recent activities show a pattern of staying at the same place (ID 1) and occasionally visiting other places (ID 523), with no notable differences in time or day."
+16,523,"[523, 380, 528]",Recent patterns of frequent visits to place 523 and occasional stays at place 380 and place 528 suggest a high likelihood of returning to these places.
+16,523,[523],Recent stays have shown a strong preference for place 523
+16,500,"[1, 523]",Recent stays at place 523 and early morning stays at place 1 suggest a possible next location.
+16,507,"[1, 513]",Recently frequent places and early morning stays suggest user may return to their usual location or nearby
+16,1,"[1, '523']","The user has a strong recurring pattern of staying at places 1 and 523 during the night on weekdays, with recent stays at these locations in the context."
+16,500,[523],Recent stays have been mostly at place ID 523
+16,513,[523],Recent stays suggest frequent visits to place ID 523.
+16,523,"[513, 523]",Recent stays and recurring patterns indicate the user is likely to stay at place 513 or 523
+16,500,[523],Recent stays and recurring patterns indicate frequent visits to place ID 523.
+16,1,[523],Recent stays have been at place ID 523 on Fridays
+16,523,"[1, 523]",Recent stays at place 1 and the same day of week as previous stays at place 523
+16,143,"[528, 513]",Recent stays at 513 and the recurring pattern of staying at 1 on Friday suggest a likely return to these places.
+16,119,"[1, 523]",The user has a strong recurring pattern of staying at place ID 1 on Sundays and also recently stayed with high frequency around place ID 523.
+16,59,"[1, 523]","Recent stays suggest a likely return to the first location (home), while considering the last stay's time and day of week, it's more probable that the target stay will be made at the second most frequent place"
+16,1,[523],The user has a recurring pattern of staying at place 523 on Sunday afternoons.
+16,500,"[523, 1]",User tends to stay at the same place (523) on Mondays
+16,530,"[523, 528]","Recent stays in the context show frequent visits to places 523 and 528, and this pattern continues based on the recurring patterns in the history"
+16,1,[523],Recent stays show a pattern of frequent visits to place ID 523 on Mondays.
+16,511,"[500, 523]",Recent frequent visits to place IDs 500 and 523
+16,507,[523],"Recent stays show a strong affinity for place ID 523, particularly on Sundays and Mondays."
+16,523,[523],Recent stays suggest user has a pattern of going to the same place (523)
+16,530,"[1, 523]",The user has a recurring pattern of staying in place 1 on weekdays and 523 on weekends
+16,1,[1],Recent activity suggests the user is likely to stay at location 1 again.
+16,143,"[528, 523]",Recent pattern of staying at place 523 and the recurring pattern of alternating between places 1 and 523 suggests that this target stay is likely to be at either of these locations.
+16,500,"[1, 523]",Recurring pattern of staying at place ID 1 and occasional stays at place ID 523 on Thursdays
+16,1,[523],Recent stays and recurring patterns suggest user is likely to revisit a previously visited place.
+16,1,[523],Recent stays suggest a strong pattern of returning to place_id 523 on Thursday
+16,1,"[1, 523]",Recurring pattern on Fridays and recent stays at place 1
+16,1,[523],Recent stays and recurring patterns suggest the user is likely to stay at place ID 523
+16,1,"[523, 1]",Recent stays at place 523 and the temporal info suggest a likely stay at the same place or nearby
+16,523,"[523, 380, 1]",Recent stays show a pattern of frequent visits to places with ID 523 and 380. The target stay's day is Monday which has been visited on Mondays before.
+16,1,[523],Recent stays have shown a high likelihood of returning to the same place.
+16,523,"[523, 521]",Recent stays suggest frequenting places 523 and 521
+16,1,[1],The user typically stays at home on weekdays and has a recurring pattern of staying at home during the morning
+16,523,"[380, 523]","Based on recent stays and temporal info, the user is likely to visit places they previously visited around this time of day"
+16,1,[523],Recent activity suggests returning to a previously visited place
+16,511,[528],Recent and recurring pattern of staying at place 523 and then moving to nearby places
+16,523,"[523, 528]","Recent stays at place 523 and considering the temporal info, it is likely that the user will stay at a similar location around the same time on Thursday."
+16,143,"[528, 523]","The user's recent stays show a strong preference for places with ID 523, and their historical data reveals recurring patterns on Fridays."
+16,1,"[528, 1]",Recent pattern of returning to same place at similar time
+16,523,"[528, 523]","Recent stays and history indicate a high probability of returning to the same place (528) on Fridays, while also considering the possibility of visiting another similar location (523) due to the pattern of staying at different places with slight variations."
+16,515,[1],"Based on the user's historical and recent stays, they tend to stay at place ID 1 during weekends, and Saturday is a common day of the week."
+16,1,"[528, 500]","Recent stay patterns show a high likelihood of visiting place ID 528 in the morning, and another similar stay at place ID 500 later in the day."
+16,1,"[1, 523]","The target stay is on Saturday and considering the recent stays in the context, which show a mix of short and long stays at place 1 and place 523. The history also shows recurring patterns of staying at place 1 for most part of the week and occasional visits to place 523."
+16,518,[523],Recent stays suggest a high probability of returning to the same place as yesterday.
+16,1,"[1, 523]",Recent patterns of daily routine and weekend stays at places 1 and 523 suggest a stay at one of these locations.
+16,478,"[523, 515, 518]",Recent stays suggest a pattern of visiting places 523 and nearby locations on Saturday afternoons.
+16,523,"[380, 523]",Recent stays in the context suggest frequent visits to places 380 and 523.
+16,500,"[1, 523]","The user's past stays on Tuesday mornings were at place ID 1 and then 523, so I predict they will stay at one of these places again."
+16,1,"[1, 523]","Based on the user's recurring pattern of staying in places 1 and 523, and their recent activities, I predict they will stay at one of these two locations."

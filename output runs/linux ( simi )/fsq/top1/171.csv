@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+171,973,[973],"Given the historical activity pattern and recent context, it is likely that this user will continue their routine visit to a place on Wednesday afternoon."
+171,35,[973],"based on the activity pattern and recent context, the most likely place ID is 973 due to frequent visits during Thursday and similar time periods"
+171,241,[973],Recent visits on Thursday and previous stays at place ID 973 on this day of the week and time
+171,1,[2080.0],The user has repeated visits to place with ID 2080.0 during weekdays and weekend afternoons.
+171,682,[973.0],Most recent and frequent location during the same day of the week
+171,973,[973.0],The user has a consistent activity pattern of visiting the same place (place_id = 973) on Fridays at around this time.

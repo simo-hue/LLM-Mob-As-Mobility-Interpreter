@@ -1,0 +1,27 @@
+user_id,ground_truth,prediction,reason
+21,332,[1],"Recently spent time at location 1, and the day of the week matches a previous stay"
+21,9,[9],"Recent stays in the context indicate that the user tends to return to places they've been before, and based on their past patterns, it's likely they will go back to a place they've visited previously."
+21,9,[609],Recent stay at location 609 on Saturday and Tuesday is likely to be repeated.
+21,332,"[9, 1]",Recent stays indicate a high likelihood of returning to place 9 or 1
+21,332,"[312, 1]",Recent activities in context indicate a recurring pattern of stays at places 312 and 1 on Wednesday mornings.
+21,9,[1],Recent stays show frequent visits to place 1 on Wednesday afternoon
+21,332,"[9, 1]","Recent stays at place ID 9 and recent stay at place ID 1 indicate a pattern of frequent visits to these places, especially on Thursdays."
+21,332,,Invalid JSON format from model
+21,9,[9],Recent stays in the context indicate frequent visits to place ID 9 on Thursdays.
+21,332,"[9, 1]","The user has a history of staying at places with ID 9 on Sundays and Fridays, and recently stayed at place with ID 9 on Wednesday. The target stay is early Friday morning, which matches the user's recurring pattern."
+21,332,"[332, 1]",Recent stays on Friday and Thursday suggest a tendency to visit places with ID 332
+21,30,"[9, 1]",Recurring patterns in history and recent activities in context indicate user tends to stay at place ID 9 on Fridays and occasionally visits place ID 1
+21,9,"[9, 1]",Recent pattern of staying at places 9 and 1 on Saturday
+21,9,"[9, 332]",Recent activities in context suggest frequent visits to place 9 and recurring patterns in history indicate possible visit to place 332.
+21,332,"[1, 9]",Recent frequent visits to place ID 1 and 9 in the context suggest a strong possibility of the user staying at one of these places again.
+21,9,"[9, 1]",Recent activities suggest the user is likely to return to a home location
+21,332,[332],Recent stays and temporal info suggest a repeat of the Friday pattern
+21,9,"[9, 1]",Recent stays at places 9 and 1 in the context
+21,332,[1],Recent stays at place 1.
+21,332,[9],Recent stays have been at place ID 9
+21,332,"[9, 1]",Recent stays show a pattern of alternating between places with IDs 9 and 1
+21,9,[9],"The target stay is on Thursday and the recent stays have a pattern of place ID 9, so it's likely that the user will go to place ID 9 again."
+21,332,[1],Recent stays suggest a return to the most frequently visited place
+21,432,[9],Recent stays in the context indicate a strong affinity for place ID 9.
+21,9,"[332, 9]",Recent stays and recurring patterns suggest a return to a place visited on Friday mornings
+21,1,"[332, 9]","Based on the recurring patterns in history and recent activities in context, I predict that the user will visit place ID 332 (e.g., hotel) again and then go to place ID 9 (e.g., home)"

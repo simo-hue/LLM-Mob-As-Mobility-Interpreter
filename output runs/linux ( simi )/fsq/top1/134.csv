@@ -1,0 +1,7 @@
+user_id,ground_truth,prediction,reason
+134,1,[821.0],based on the user's activity pattern and recent context
+134,2252,[821.0],The user's activity pattern shows a repeated visit to place ID 821 on Tuesdays during the morning
+134,1,[821.0],The user has a regular morning routine and often stays at the same place on Sundays.
+134,1,[2252.0],The user has shown a regular morning routine in the target time of Thursday and has visited this place before
+134,1,[2252.0],"The target stay is during the morning on a Monday, which matches the historical pattern of this user to visit place 2252 at 9:17 AM on Mondays"
+134,1,[821.0],Recent frequent visit to place with ID 821 on Tuesday morning

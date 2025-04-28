@@ -1,0 +1,24 @@
+user_id,ground_truth,prediction,reason
+2,56,"[55, 70, 65]",Recent pattern of staying at places with ID 55 and historical patterns of staying at places with IDs 70 and 65 on Fridays
+2,55,[55],Recent and historical stays suggest a strong probability of the user returning to place ID 55
+2,79,"[62, 55]","Based on the user's past stays and recent activity pattern, they tend to visit place 62 and then 55 repeatedly."
+2,56,"[62, '55', '1']",Recent activity pattern suggests frequent stays at place_id 62 and occasional visits to other places in the same category as place_id 55 and 1.
+2,55,"[55, 62]",Recent stays and recurring patterns in history suggest the user will likely stay at either place 55 or 62.
+2,69,[68],Recent stays indicate a high probability of returning to the same place as Sunday
+2,56,"[70, 57, 1]",Recent stays and recurring patterns in history suggest a Sunday evening stay followed by possible return to Monday morning commute
+2,55,"[55, 70]","Recent stays at place 55 and 70, with a recurring pattern on Sundays"
+2,56,"[68, 70, 1]",Recent stays show a pattern of repeating days and places; user tends to stay near the same place on consecutive days
+2,57,"[21, 55, 70]",Recurring patterns in history and recent activities in context suggest similar places to be visited
+2,55,[55],Recent stays and historical patterns suggest the user will likely return to a place they have stayed at previously.
+2,56,"[1, 56]",Recurring pattern on Wednesday mornings
+2,55,"[57, 55]",Recent stays suggest a preference for places with IDs 55 and 57
+2,55,"[55, 57, 62]",recent stays in similar days of the week and at a similar time of day
+2,56,"[56, 55]",The user has a recurring pattern of staying at places with IDs 56 and 55 on Fridays.
+2,1,[55],Recent stays and temporal information suggest a recurring pattern on Fridays
+2,57,"[55, 62]",Recent recurring patterns in the user's stay duration and place ID suggest they will continue to visit their favorite locations on Fridays.
+2,55,"[55, 62]","Recent stays and recurring patterns in history suggest the user will likely visit place ID 55 again, possibly followed by a visit to place ID 62, which is frequently visited on Saturdays"
+2,35,"[21, 62, 55]","Based on the recurring patterns in user's past stays and recent activities, it is likely that they will visit places with similar IDs to their previous stays."
+2,55,[21],Recent stays and patterns in history suggest a likely return to the same location as the previous Saturday stay.
+2,55,"[70, 68]",Recent stays on Sunday and similar pattern in history
+2,57,"[70, 65]",Recent stays show preference for places visited on Monday and Tuesday in the afternoon
+2,55,[1],Recurring pattern on Wednesday

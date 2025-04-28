@@ -1,0 +1,15 @@
+user_id,ground_truth,prediction,reason
+105,711,[956.0],"Based on the user's activity pattern and recent stays in context, it is likely that they will visit a familiar place (956.0) during the afternoon on Wednesday."
+105,3816,[956.0],"Most recent context stays are at place ID 956.0, and the target stay is also on a Friday, similar to the recent stays."
+105,3816,[956],Recent frequent visits to place with ID 956 during Friday and weekend
+105,2845,[956.0],"Based on the user's activity pattern and recent stays in the context, I predict they will visit place 956."
+105,343,[956.0],Recent stays and historical pattern suggest the user is likely to visit place with ID 956
+105,956,[956],"Based on the user's activity pattern and recent context stays, it is most likely that they will visit a familiar place (956) due to its frequent appearance in both their historical stays and recent context."
+105,956,[956],"The user has a consistent activity pattern of visiting place 956 during weekdays, especially on Mondays."
+105,956,[956.0],"Based on the user's activity pattern and recent context stays, the most likely place ID is 956.0"
+105,587,[956.0],"The target stay's day of week and time are close to the recent context stays' times and days of week, and place 956 has been frequently visited during this day and time in the user's history"
+105,219,[956],"The user has visited place 956 multiple times in the past and recently, especially during weekdays."
+105,956,[956],repeated visit to a certain place during certain time
+105,997,[956],Recent stays at this place ID
+105,694,[956],"The user has visited place 956 multiple times during the same day of the week and time of day, so it is likely they will visit this place again."
+105,1703,[956.0],"The user's activity pattern and recent context show a strong affinity for place ID 956, which has been visited multiple times during the weekdays"
