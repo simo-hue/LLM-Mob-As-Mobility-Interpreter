@@ -1,291 +1,217 @@
 import json
-import pandas as pd
-from pandas import DataFrame
-from sklearn.preprocessing import StandardScaler
-import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
-import numpy as np
-from tqdm import tqdm         # barra di avanzamento
 import random
+import time
+from pathlib import Path
+import pandas as pd
+import requests
+from pandas import DataFrame
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+from tqdm import tqdm
+import matplotlib.pyplot as plt
+import numpy as np
 
-def load_pois(filepath: str) -> DataFrame:
-    """
-    Carica il file dei POI (vc_sites) e restituisce un DataFrame con colonne name_short, latitude, longitude.
+# -----------------------------------------------------------
+TOP_K  = 5          # deve coincidere con top_k del prompt
+N_TEST = 5        # quanti utenti valutare (None = tutti)
+# -----------------------------------------------------------
 
-    Args:
-        filepath (str): percorso relativo del CSV dei POI
 
-    Returns:
-        DataFrame: POI con colonne ['name_short', 'latitude', 'longitude']
-    """
-    df_pois = pd.read_csv(filepath)
-    df_pois = df_pois[['name_short', 'latitude', 'longitude']]
-    return df_pois
+# ---------- helper di caricamento -----------------------------------------
+def load_pois(filepath: str | Path) -> DataFrame:
+    df = pd.read_csv(filepath, usecols=["name_short", "latitude", "longitude"])
+    return df
 
-def load_visits(filepath: str) -> DataFrame:
-    """
-    Carica il file delle visite VeronaCard, costruisce un timestamp
-    e restituisce un DataFrame con ['timestamp', 'card_id', 'name_short'] ordinato.
-
-    Args:
-        filepath (str): percorso del CSV visite, con colonne ['data','ora','name_short','card_id']
-
-    Returns:
-        DataFrame: visite con colonne ['timestamp', 'card_id', 'name_short'], ordinate per timestamp
-    """
+def load_visits(filepath: str | Path) -> DataFrame:
     df = pd.read_csv(
         filepath,
         usecols=[0, 1, 2, 4],
-        names=['data', 'ora', 'name_short', 'card_id'],
+        names=["data", "ora", "name_short", "card_id"],
         header=0,
-        dtype={'card_id': str}
+        dtype={"card_id": str},
     )
-    df['timestamp'] = pd.to_datetime(
-        df['data'] + ' ' + df['ora'],
-        format='%d-%m-%y %H:%M:%S'
-    )
-    df = (
-        df[['timestamp', 'card_id', 'name_short']]
-        .sort_values('timestamp')
-        .reset_index(drop=True)
-    )
-    return df
+    df["timestamp"] = pd.to_datetime(df["data"] + " " + df["ora"], format="%d-%m-%y %H:%M:%S")
+    return df[["timestamp", "card_id", "name_short"]].sort_values("timestamp").reset_index(drop=True)
 
-def merge_visits_pois(
-    visits_df: DataFrame,
-    pois_df: DataFrame
-) -> DataFrame:
-    """
-    Unisce il DataFrame delle visite con quello dei POI su 'name_short',
-    restituendo timestamp, card_id e name_short.
-
-    Args:
-        visits_df (DataFrame): visite con ['timestamp','card_id','name_short']
-        pois_df (DataFrame): POI con ['name_short']
-
-    Returns:
-        DataFrame: colonne ['timestamp','card_id','name_short'], ordinate per timestamp
-    """
-    pois_sel = pois_df[['name_short']]
-    merged = pd.merge(
-        visits_df,
-        pois_sel,
-        on='name_short',
-        how='inner'
-    )
-    merged = (
-        merged[['timestamp', 'card_id', 'name_short']]
-        .sort_values('timestamp')
-        .reset_index(drop=True)
-    )
-    return merged
+def merge_visits_pois(visits_df: DataFrame, pois_df: DataFrame) -> DataFrame:
+    merged = visits_df.merge(pois_df[["name_short"]], on="name_short", how="inner")
+    return merged.sort_values("timestamp").reset_index(drop=True)
 
 def filter_multi_visit_cards(df: DataFrame) -> DataFrame:
+    valid_cards = df.groupby("card_id")["name_short"].nunique().loc[lambda s: s > 1].index
+    return df[df["card_id"].isin(valid_cards)].reset_index(drop=True)
+
+def create_user_poi_matrix(df: DataFrame) -> DataFrame:
+    return pd.crosstab(df["card_id"], df["name_short"])
+
+# ---------- prompt builder -------------------------------------------------
+def create_prompt_with_cluster(
+    df: pd.DataFrame,
+    user_clusters: pd.DataFrame,
+    card_id: str,
+    *,
+    top_k: int = 1,
+    exclude_last_n: int = 1,
+) -> str:
     """
-    Filtra le visite mantenendo solo le card_id che hanno visitato
-    più di un POI distinto.
-
-    Args:
-        df (DataFrame): DataFrame con ['timestamp','card_id','name_short']
-
-    Returns:
-        DataFrame: sottoinsieme di df con visite di card_id multi-visita
+    Genera un prompt (in italiano) per prevedere il prossimo POI.
+    - exclude_last_n = 1 → scenario live
+    - exclude_last_n = 2 → scenario test offline
     """
-    poi_counts = df.groupby('card_id')['name_short'].nunique()
-    valid_cards = poi_counts[poi_counts > 1].index
-    return df[df['card_id'].isin(valid_cards)].reset_index(drop=True)
+    visits = df[df["card_id"] == card_id].sort_values("timestamp")
+    seq = visits["name_short"].tolist()
 
-def create_user_poi_matrix(df):
-    user_poi_matrix = pd.crosstab(df['card_id'], df['name_short'])
-    return user_poi_matrix
+    if len(seq) <= exclude_last_n:
+        raise ValueError(f"Sequenza troppo corta per exclude_last_n={exclude_last_n}")
 
-def create_prompt_with_cluster(df, user_clusters, card_id,top_k: int = 1) -> str:
-    """
-    Costruisce un prompt per LLaMA/Ollama che chieda la previsione
-    del prossimo POI, con risposta in JSON.
+    history = seq[:-exclude_last_n]
+    current_poi = seq[-exclude_last_n]
+    cluster_id = user_clusters.loc[user_clusters["card_id"] == card_id, "cluster"].values[0]
 
-    Parameters
-    ----------
-    df : DataFrame
-        Tutte le visite (timestamp, card_id, name_short).
-    user_clusters : DataFrame
-        Tabella con colonne ['card_id', 'cluster'].
-    card_id : str
-        ID della card da predire.
-    top_k : int, default 1
-        Quante raccomandazioni chiedere (1 per singola, 3–5–10 per lista).
-    language : {'it','en'}, default 'it'
-        Lingua della risposta desiderata.
+    return f"""
+Sei un assistente turistico esperto di Verona.
+<cluster_id>: {cluster_id}
+<history>: {history}
+<current_poi>: {current_poi}
 
-    Returns
-    -------
-    str
-        Prompt pronto da passare a get_chat_completion().
-    """
-    # --- recupera cronologia e cluster ---
-    visits = df[df['card_id'] == card_id].sort_values('timestamp')
-    history = visits['name_short'].tolist()[:-1]          # senza l'ultimo
-    last_poi = visits['name_short'].tolist()[-1]          # punto di partenza
-    cluster_id = user_clusters.loc[
-        user_clusters['card_id'] == card_id, 'cluster'
-    ].values[0]
+Obiettivo: suggerisci i {top_k} POI più probabili che l'utente visiterà dopo.
+• Escludi i POI già in <history> e <current_poi>.
+• Rispondi con **una sola riga** JSON:
+  {{ "prediction": [...], "reason": "..." }}
+Rispondi in italiano.
+""".strip()
 
-    # --- costruzione prompt ---
-    template = f"""
-    Sei un assistente turistico che conosce la città di Verona.
-    <cluster_id>: {cluster_id}
-    <history>: {history}
-    <current_poi>: {last_poi}
 
-    Obiettivo: suggerisci i {{
-        1: "più probabile",
-        2: "2 POI più probabili",
-        # qualsiasi top_k > 1
-    }}[top_k] che l'utente visiterà dopo.
-
-    • Escludi i POI già in <history> e <current_poi>.
-    • Restituisci **una sola riga** JSON:
-    {{ "prediction": [...], "reason": "..." }}
-
-    Se top_k = 1, "prediction" sarà una stringa; altrimenti
-    una lista ordinata. La chiave "reason" deve essere breve (≤ 25 parole).
-    Rispondi in italiano.
-    """.strip()
-
-    return template
-
-def plot_number_of_cluster(user_poi_matrix_scaled, max):
-    sse = []
-    k_range = range(1, max)
-    for k in k_range:
-        km = KMeans(n_clusters=k, random_state=42, n_init=10)
-        km.fit(user_poi_matrix_scaled)
-        sse.append(km.inertia_)  # inertia è la somma degli errori quadratici
-
-    # grafico Elbow Method
-    plt.plot(k_range, sse, marker='o')
-    plt.xlabel('Numero di cluster (k)')
-    plt.ylabel('SSE (Somma errori quadratici)')
-    plt.title('Metodo del gomito (Elbow method)')
-    plt.grid(True)
-    plt.show()
-
+# ---------- chiamata LLaMA / Ollama ---------------------------------------
 def get_chat_completion(prompt: str, model: str = "llama3:latest") -> str | None:
-    """
-    Interroga un modello LLaMA esposto dal server *Ollama* e restituisce la
-    risposta testuale.
-
-    Parameters
-    ----------
-    prompt : str
-        Testo da inviare al modello.
-    model : str, default "llama3:latest"
-        Nome o tag del modello registrato in Ollama.
-
-    Returns
-    -------
-    str | None
-        Contenuto generato dal modello, oppure `None` se si verifica un errore.
-    """
     base_url = "http://localhost:11434"
-    api_tags  = f"{base_url}/api/tags"   # endpoint “health check”
-    api_chat  = f"{base_url}/api/chat"   # endpoint di chat
-
-    # 1) Verifica che Ollama sia in esecuzione
     try:
-        if requests.get(api_tags, timeout=2).status_code != 200:
-            print("⚠️  Server Ollama non raggiungibile. Avvialo con `ollama serve`.")
+        if requests.get(f"{base_url}/api/tags", timeout=2).status_code != 200:
+            print("⚠️  Ollama non è in esecuzione.")
             return None
     except requests.exceptions.RequestException as exc:
-        print(f"❌  Errore di connessione a Ollama: {exc}")
+        print(f"❌  Connessione Ollama fallita: {exc}")
         return None
 
-    # 2) Prepara il payload
     payload = {
         "model": model,
         "messages": [{"role": "user", "content": prompt}],
         "stream": False,
-        "options": {"raw": True}
+        "options": {"raw": True},
     }
-
-    # 3) Invia la richiesta
     try:
-        resp = requests.post(api_chat, json=payload, timeout=60)
+        resp = requests.post(f"{base_url}/api/chat", json=payload, timeout=60)
         resp.raise_for_status()
-        data = resp.json()
-        # 4) Estrai e restituisci il contenuto
-        return data.get("message", {}).get("content")
-    except requests.exceptions.HTTPError as http_err:
-        print(f"❌  HTTP error: {http_err} – payload: {resp.text}")
+        return resp.json().get("message", {}).get("content")
     except requests.exceptions.RequestException as exc:
         print(f"❌  Errore HTTP: {exc}")
-    return None
+        return None
 
-def main():
-    # 1) Caricamento e pulizia dati -----------------------------------------
-    visits_file = "data/verona/dataset_veronacard_2014_2020/dati_2014.csv"
-    poi_file    = "data/verona/vc_sites.csv"
-    
-    pois    = load_pois(poi_file)
-    visits  = load_visits(visits_file)
+# ---------- test-set builder ----------------------------------------------
+def build_test_set(df: DataFrame) -> DataFrame:
+    records = []
+    for cid, grp in df.groupby("card_id"):
+        seq = grp.sort_values("timestamp")["name_short"].tolist()
+        if len(seq) >= 3:
+            records.append(
+                {"card_id": cid, "history": seq[:-2], "current": seq[-2], "target": seq[-1]}
+            )
+    return pd.DataFrame(records)
 
-    merged_visits  = merge_visits_pois(visits, pois)
-    print(f"\nTotale righe dopo merge_visits_pois: {len(merged_visits)}")
+# ---------- MAIN -----------------------------------------------------------
+def main() -> None:
+    # -------------------------------------------------------------------- #
+    # 1) Path ai CSV                                                       #
+    # -------------------------------------------------------------------- #
+    ROOT = Path(__file__).resolve().parent
+    visits_file = ROOT / "data" / "verona" / "dataset_veronacard_2014_2020" / "dati_2014.csv"
+    poi_file    = ROOT / "data" / "verona" / "vc_site.csv"
 
-    filtered_visits = filter_multi_visit_cards(merged_visits)
-    unique_cards    = filtered_visits['card_id'].nunique()
-    print(f"Card con >1 POI distinto: {unique_cards}")
-    print(f"Totale righe finali: {len(filtered_visits)}\n")
+    # -------------------------------------------------------------------- #
+    # 2) Load & clean                                                      #
+    # -------------------------------------------------------------------- #
+    pois     = load_pois(poi_file)
+    visits   = load_visits(visits_file)
+    merged   = merge_visits_pois(visits, pois)
+    filtered = filter_multi_visit_cards(merged)
 
-    # 2) Matrice utente-POI + clusterizzazione ------------------------------
-    user_poi_matrix = create_user_poi_matrix(filtered_visits)
+    print(f"\nVisite totali (merge): {len(merged):,}")
+    print(f"Card multi-visita    : {filtered['card_id'].nunique():,}")
+    print(f"Record finali        : {len(filtered):,}\n")
 
-    scaler = StandardScaler()
-    user_poi_matrix_scaled = scaler.fit_transform(user_poi_matrix)
-
+    # -------------------------------------------------------------------- #
+    # 3) Clustering K-Means                                                #
+    # -------------------------------------------------------------------- #
+    matrix   = create_user_poi_matrix(filtered)
+    scaler   = StandardScaler()
     kmeans   = KMeans(n_clusters=7, random_state=42, n_init=10)
-    clusters = kmeans.fit_predict(user_poi_matrix_scaled)
+    clusters = kmeans.fit_predict(scaler.fit_transform(matrix))
 
-    user_clusters = pd.DataFrame({
-        "card_id": user_poi_matrix.index,
-        "cluster": clusters
-    })
-
+    user_clusters = pd.DataFrame({"card_id": matrix.index, "cluster": clusters})
     print(user_clusters["cluster"].value_counts(), "\n")
 
-    # 3) SCELTA DI UN UTENTE DA TESTARE -------------------------------------
-    card_id = random.choice(user_clusters["card_id"].tolist())
-    print(f"Testo la predizione sul card_id = {card_id}")
+    # -------------------------------------------------------------------- #
+    # 4) Selezione utenti idonei (≥3 visite)                               #
+    # -------------------------------------------------------------------- #
+    eligible_cards = (
+        filtered.groupby("card_id")
+        .size()
+        .loc[lambda s: s >= 3]       # 3 = exclude_last_n (2) + 1
+        .index
+        .tolist()
+    )
+    if not eligible_cards:
+        raise RuntimeError("Nessun utente con almeno 3 visite nel dataset!")
 
-    # 4) COSTRUZIONE DEL PROMPT ---------------------------------------------
-    prompt = create_prompt_with_cluster(
-        filtered_visits,
-        user_clusters,
-        card_id,
-        top_k=5)
+    # facoltativo: limita il numero di utenti da processare
+    MAX_USERS = 20
+    demo_cards = random.sample(eligible_cards, k=min(MAX_USERS, len(eligible_cards)))
 
-    # 5) CHIAMATA AL MODELLO LLaMA / OLLAMA ---------------------------------
-    llm_answer = get_chat_completion(prompt)
+    # -------------------------------------------------------------------- #
+    # 5) Loop di predizione & confronto                                    #
+    # -------------------------------------------------------------------- #
+    hits = 0
+    for idx, card_id in enumerate(demo_cards, 1):
+        seq = (
+            filtered[filtered["card_id"] == card_id]
+            .sort_values("timestamp")["name_short"]
+            .tolist()
+        )
+        true_next = seq[-1]                      # ground-truth
+        prompt = create_prompt_with_cluster(
+            filtered, user_clusters, card_id,
+            top_k=TOP_K,
+            exclude_last_n=2                    # penultimo = current_poi
+        )
+        answer = get_chat_completion(prompt)
+        if not answer:
+            print(f"[{idx:02}] {card_id} – nessuna risposta dal modello")
+            continue
 
-    if llm_answer is None:
-        print("⚠️  Nessuna risposta dal modello LLaMA.")
-        return
+        try:
+            pred_obj = json.loads(answer)
+            pred     = pred_obj["prediction"]
+            pred_lst = pred if isinstance(pred, list) else [pred]
+        except Exception:
+            print(f"[{idx:02}] {card_id} – parsing JSON fallito")
+            continue
 
-    print("\nRisposta grezza del modello:\n", llm_answer)
+        hit = true_next in pred_lst
+        hits += hit
 
-    # 6) PARSING  ------------------------------------------------------------
-    try:
-        obj = json.loads(llm_answer)
-        prediction = obj.get("prediction")
-        reason     = obj.get("reason")
-        print("\n🎯 Prossimo POI previsto:", prediction)
-        print("💡 Motivo/distanza sintetica:", reason)
-    except json.JSONDecodeError:
-        print("ℹ️  La risposta non è in JSON – la lascio così com'è.")
+        print(f"[{idx:02}] card_id={card_id}")
+        print(f"     history … {seq[:-2]} → current={seq[-2]}")
+        print(f"     ✅ vero next : {true_next}")
+        print(f"     🔮 predizione: {pred_lst}")
+        print(f"     🎯 hit@{TOP_K}: {'YES' if hit else 'NO'}\n")
+
+    print("-" * 60)
+    print(f"Hit@{TOP_K} complessivo: {hits}/{len(demo_cards)}  "
+          f"({hits/len(demo_cards):.2%})")
 
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("\n\n\nInterruzione manuale rilevata. Uscita in modo sicuro...")
+        print("\nInterruzione manuale. Uscita…")
