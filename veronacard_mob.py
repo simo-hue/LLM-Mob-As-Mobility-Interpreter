@@ -17,7 +17,6 @@ TOP_K  = 5          # deve coincidere con top_k del prompt
 N_TEST = 5        # quanti utenti valutare (None = tutti)
 # -----------------------------------------------------------
 
-
 # ---------- helper di caricamento -----------------------------------------
 def load_pois(filepath: str | Path) -> DataFrame:
     df = pd.read_csv(filepath, usecols=["name_short", "latitude", "longitude"])
@@ -82,7 +81,6 @@ Obiettivo: suggerisci i {top_k} POI più probabili che l'utente visiterà dopo.
 Rispondi in italiano.
 """.strip()
 
-
 # ---------- chiamata LLaMA / Ollama ---------------------------------------
 def get_chat_completion(prompt: str, model: str = "llama3:latest") -> str | None:
     base_url = "http://localhost:11434"
@@ -119,122 +117,116 @@ def build_test_set(df: DataFrame) -> DataFrame:
             )
     return pd.DataFrame(records)
 
-# ---------- MAIN -----------------------------------------------------------
-# ---------------------------------------------------------------------------
-def main() -> None:
-    # 1) PATH AI CSV --------------------------------------------------------
-    ROOT = Path(__file__).resolve().parent
-    visits_file = ROOT / "data" / "verona" / "dataset_veronacard_2014_2020" / "dati_2014.csv"
-    poi_file    = ROOT / "data" / "verona" / "vc_site.csv"
+# ---------- test su un singolo file ---------------------------------------
+def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int = 50) -> None:
+    """
+    Esegue l'intera pipeline (carica, clusterizza, predice, salva) su un
+    singolo file di log VeronaCard.
 
-    # 2) LOAD & CLEAN -------------------------------------------------------
-    pois     = load_pois(poi_file)
-    visits   = load_visits(visits_file)
+    Parameters
+    ----------
+    visits_path : Path
+        CSV con le timbrature (es. dati_2014.csv).
+    poi_path : Path
+        CSV vc_site.csv (reference POI).
+    max_users : int
+        Quante card valutare (per ridurre tempi).
+    """
+    print("\n" + "=" * 70)
+    print(f"▶  PROCESSO FILE: {visits_path.name}")
+    print("=" * 70)
+
+    # ---------- 1. load & clean ----------
+    pois     = load_pois(poi_path)
+    visits   = load_visits(visits_path)
     merged   = merge_visits_pois(visits, pois)
     filtered = filter_multi_visit_cards(merged)
 
-    print(f"\nVisite totali (merge): {len(merged):,}")
-    print(f"Card multi-visita    : {filtered['card_id'].nunique():,}")
-    print(f"Record finali        : {len(filtered):,}\n")
-
-    # 3) CLUSTERING K-MEANS -------------------------------------------------
+    # ---------- 2. clustering ----------
     matrix   = create_user_poi_matrix(filtered)
-    scaler   = StandardScaler()
-    kmeans   = KMeans(n_clusters=7, random_state=42, n_init=10)
-    clusters = kmeans.fit_predict(scaler.fit_transform(matrix))
-
+    clusters = KMeans(n_clusters=7, random_state=42, n_init=10)\
+              .fit_predict(StandardScaler().fit_transform(matrix))
     user_clusters = pd.DataFrame({"card_id": matrix.index, "cluster": clusters})
-    print(user_clusters["cluster"].value_counts(), "\n")
 
-    # 4) UTENTI IDONEI (≥3 visite) -----------------------------------------
-    eligible_cards = (
-        filtered.groupby("card_id")
-        .size()
-        .loc[lambda s: s >= 3]              # 3 = exclude_last_n (2) + 1
-        .index
-        .tolist()
+    # ---------- 3. utenti idonei ----------
+    eligible = (
+        filtered.groupby("card_id").size()
+        .loc[lambda s: s >= 3].index.tolist()
     )
-    if not eligible_cards:
-        raise RuntimeError("Nessun utente con almeno 3 visite nel dataset!")
+    demo_cards = random.sample(eligible, k=min(max_users, len(eligible)))
 
-    demo_cards = random.sample(eligible_cards, k=min(MAX_USERS, len(eligible_cards)))
-
-    # OUTPUT: directory + file CSV -----------------------------------------
-    out_dir = ROOT / "results"
+    # ---------- 4. CSV di output ----------
+    out_dir  = Path(__file__).resolve().parent / "results"
     out_dir.mkdir(exist_ok=True)
-    ts = time.strftime("%Y%m%d_%H%M%S")
-    out_file = out_dir / f"predictions_{ts}.csv"
+    ts       = time.strftime("%Y%m%d_%H%M%S")
+    out_file = out_dir / f"{visits_path.stem}_pred_{ts}.csv"
 
-    # Se il file esiste già perché avevi interrotto la run, ricaricalo
-    if out_file.exists():
-        current_results = pd.read_csv(out_file)
-    else:
-        current_results = pd.DataFrame(
-            columns=[
-                "card_id", "cluster","hit", "ground_truth","prediction","history", "current_poi",
-                 "reason"
-            ]
-        )
+    df_out = pd.DataFrame(columns=[
+        "card_id","cluster","history","current_poi",
+        "prediction","ground_truth","reason","hit"
+    ])
 
-    # 5) LOOP DI PREDIZIONE -------------------------------------------------
-    for idx, card_id in enumerate(demo_cards, 1):
+    # ---------- 5. ciclo su utenti ----------
+    for cid in demo_cards:
         seq = (
-            filtered.loc[filtered["card_id"] == card_id]
-            .sort_values("timestamp")["name_short"]
-            .tolist()
+            filtered.loc[filtered.card_id == cid]
+            .sort_values("timestamp")["name_short"].tolist()
         )
-        history     = seq[:-2]
-        current_poi = seq[-2]
-        ground_truth = seq[-1]
-
+        ground = seq[-1]
         prompt = create_prompt_with_cluster(
-            filtered, user_clusters, card_id,
+            filtered, user_clusters, cid,
             top_k=TOP_K, exclude_last_n=2
         )
-        answer = get_chat_completion(prompt)
+        ans = get_chat_completion(prompt)
 
-        # Default result dict (in caso di problemi)
-        res_dict = {
-            "card_id": card_id,
-            "hit": False,
-            "cluster": int(user_clusters.loc[user_clusters.card_id == card_id, "cluster"]),
+        rec = {
+            "card_id":   cid,
+            "cluster":   int(user_clusters.loc[user_clusters.card_id == cid, "cluster"].iloc[0]),
+            "history":   str(seq[:-2]),
+            "current_poi": seq[-2],
             "prediction": None,
-            "ground_truth": ground_truth,
-            "current_poi": current_poi,
-            "reason": None,
-            "history": str(history),
+            "ground_truth": ground,
+            "reason":    None,
+            "hit":       False
         }
 
-        if answer:
+        if ans:
             try:
-                obj = json.loads(answer)
-                pred = obj.get("prediction")
-                reason = obj.get("reason")
-                pred_list = pred if isinstance(pred, list) else [pred]
+                obj  = json.loads(ans)
+                pred = obj["prediction"]
+                pred_lst = pred if isinstance(pred, list) else [pred]
+                rec["prediction"] = str(pred_lst)
+                rec["reason"]     = obj.get("reason")
+                rec["hit"]        = ground in pred_lst
+            except Exception:
+                pass
 
-                res_dict["prediction"] = str(pred_list)
-                res_dict["reason"]     = reason
-                res_dict["hit"]        = ground_truth in pred_list
-            except Exception as e:
-                # Mantieni res_dict di default, con prediction = None
-                print(f"[{idx:02}] parsing JSON fallito: {e}")
-        else:
-            print(f"[{idx:02}] Nessuna risposta dal modello")
+        df_out.loc[len(df_out)] = rec
 
-        # Aggiungi e salva subito (salvataggio “utente-per-utente”)
-        current_results = pd.concat(
-            [current_results, pd.DataFrame(res_dict, index=[0])],
-            ignore_index=True
-        )
-        current_results.to_csv(out_file, index=False)
-        print(f"[{idx:02}] Salvato risultato – hit={res_dict['hit']}  →  {out_file.name}")
+    df_out.to_csv(out_file, index=False)
+    hit_rate = df_out.hit.mean()
+    print(f"✔  Salvato {out_file.name} – Hit@{TOP_K}: {hit_rate:.2%}")
 
-    # 6) RIEPILOGO ----------------------------------------------------------
-    total_hits = current_results["hit"].sum()
-    print("\n" + "-" * 60)
-    print(f"Run completata: {total_hits}/{len(current_results)} hit "
-          f"({total_hits/len(current_results):.2%})")
-    print(f"Risultati completi salvati in: {out_file.resolve()}")
+# ---------- test su tutti i file ------------------------------------------
+def run_all_verona_logs(max_users: int = 50) -> None:
+    ROOT   = Path(__file__).resolve().parent
+    poi_csv = ROOT / "data" / "verona" / "vc_site.csv"
+
+    # trova tutti i CSV eccetto vc_site
+    visit_csvs = [
+        p for p in (ROOT / "data" / "verona").rglob("*.csv")
+        if p.name != "vc_site.csv"
+    ]
+    if not visit_csvs:
+        raise RuntimeError("Nessun CSV di visite trovato sotto data/verona/")
+
+    for csv in sorted(visit_csvs):
+        run_on_visits_file(csv, poi_csv, max_users=max_users)
+
+# ---------- MAIN -----------------------------------------------------------
+# ---------------------------------------------------------------------------
+def main() -> None:
+    run_all_verona_logs(MAX_USERS)
 
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
