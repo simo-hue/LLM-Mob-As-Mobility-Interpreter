@@ -1,9 +1,12 @@
+import json
 import pandas as pd
 from pandas import DataFrame
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 import numpy as np
+from tqdm import tqdm         # barra di avanzamento
+import random
 
 def load_pois(filepath: str) -> DataFrame:
     """
@@ -96,18 +99,60 @@ def create_user_poi_matrix(df):
     user_poi_matrix = pd.crosstab(df['card_id'], df['name_short'])
     return user_poi_matrix
 
-# DA REVISIONARE
-def create_prompt_with_cluster(df, user_clusters, card_id):
-    user_visits = df[df['card_id'] == card_id].sort_values('timestamp')
-    poi_sequence = user_visits['name_short'].tolist()
+def create_prompt_with_cluster(df, user_clusters, card_id,top_k: int = 1) -> str:
+    """
+    Costruisce un prompt per LLaMA/Ollama che chieda la previsione
+    del prossimo POI, con risposta in JSON.
 
-    user_cluster = user_clusters.loc[user_clusters['card_id'] == card_id, 'cluster'].values[0]
+    Parameters
+    ----------
+    df : DataFrame
+        Tutte le visite (timestamp, card_id, name_short).
+    user_clusters : DataFrame
+        Tabella con colonne ['card_id', 'cluster'].
+    card_id : str
+        ID della card da predire.
+    top_k : int, default 1
+        Quante raccomandazioni chiedere (1 per singola, 3–5–10 per lista).
+    language : {'it','en'}, default 'it'
+        Lingua della risposta desiderata.
 
-    prompt = f"Cluster utente: {user_cluster}\n"
-    prompt += f"Storico visite POI: {poi_sequence[:-1]}\n"
-    prompt += f"Prevedi il prossimo POI che visiterà:"
+    Returns
+    -------
+    str
+        Prompt pronto da passare a get_chat_completion().
+    """
+    # --- recupera cronologia e cluster ---
+    visits = df[df['card_id'] == card_id].sort_values('timestamp')
+    history = visits['name_short'].tolist()[:-1]          # senza l'ultimo
+    last_poi = visits['name_short'].tolist()[-1]          # punto di partenza
+    cluster_id = user_clusters.loc[
+        user_clusters['card_id'] == card_id, 'cluster'
+    ].values[0]
 
-    return prompt
+    # --- costruzione prompt ---
+    template = f"""
+    Sei un assistente turistico che conosce la città di Verona.
+    <cluster_id>: {cluster_id}
+    <history>: {history}
+    <current_poi>: {last_poi}
+
+    Obiettivo: suggerisci i {{
+        1: "più probabile",
+        2: "2 POI più probabili",
+        # qualsiasi top_k > 1
+    }}[top_k] che l'utente visiterà dopo.
+
+    • Escludi i POI già in <history> e <current_poi>.
+    • Restituisci **una sola riga** JSON:
+    {{ "prediction": [...], "reason": "..." }}
+
+    Se top_k = 1, "prediction" sarà una stringa; altrimenti
+    una lista ordinata. La chiave "reason" deve essere breve (≤ 25 parole).
+    Rispondi in italiano.
+    """.strip()
+
+    return template
 
 def plot_number_of_cluster(user_poi_matrix_scaled, max):
     sse = []
@@ -124,52 +169,121 @@ def plot_number_of_cluster(user_poi_matrix_scaled, max):
     plt.title('Metodo del gomito (Elbow method)')
     plt.grid(True)
     plt.show()
+
+def get_chat_completion(prompt: str, model: str = "llama3:latest") -> str | None:
+    """
+    Interroga un modello LLaMA esposto dal server *Ollama* e restituisce la
+    risposta testuale.
+
+    Parameters
+    ----------
+    prompt : str
+        Testo da inviare al modello.
+    model : str, default "llama3:latest"
+        Nome o tag del modello registrato in Ollama.
+
+    Returns
+    -------
+    str | None
+        Contenuto generato dal modello, oppure `None` se si verifica un errore.
+    """
+    base_url = "http://localhost:11434"
+    api_tags  = f"{base_url}/api/tags"   # endpoint “health check”
+    api_chat  = f"{base_url}/api/chat"   # endpoint di chat
+
+    # 1) Verifica che Ollama sia in esecuzione
+    try:
+        if requests.get(api_tags, timeout=2).status_code != 200:
+            print("⚠️  Server Ollama non raggiungibile. Avvialo con `ollama serve`.")
+            return None
+    except requests.exceptions.RequestException as exc:
+        print(f"❌  Errore di connessione a Ollama: {exc}")
+        return None
+
+    # 2) Prepara il payload
+    payload = {
+        "model": model,
+        "messages": [{"role": "user", "content": prompt}],
+        "stream": False,
+        "options": {"raw": True}
+    }
+
+    # 3) Invia la richiesta
+    try:
+        resp = requests.post(api_chat, json=payload, timeout=60)
+        resp.raise_for_status()
+        data = resp.json()
+        # 4) Estrai e restituisci il contenuto
+        return data.get("message", {}).get("content")
+    except requests.exceptions.HTTPError as http_err:
+        print(f"❌  HTTP error: {http_err} – payload: {resp.text}")
+    except requests.exceptions.RequestException as exc:
+        print(f"❌  Errore HTTP: {exc}")
+    return None
+
 def main():
-    poi_file = "data/verona/vc_site.csv"
+    # 1) Caricamento e pulizia dati -----------------------------------------
     visits_file = "data/verona/dataset_veronacard_2014_2020/dati_2014.csv"
+    poi_file    = "data/verona/vc_sites.csv"
+    
+    pois    = load_pois(poi_file)
+    visits  = load_visits(visits_file)
 
-    pois = load_pois(poi_file)
-    visits = load_visits(visits_file)
-
-    merged_visits = merge_visits_pois(visits, pois)
-    print(f"Totale righe dopo merge_visits_pois: {len(merged_visits)}")
+    merged_visits  = merge_visits_pois(visits, pois)
+    print(f"\nTotale righe dopo merge_visits_pois: {len(merged_visits)}")
 
     filtered_visits = filter_multi_visit_cards(merged_visits)
-    unique_cards = filtered_visits['card_id'].nunique()
-    print(f"Numero di card_id con >1 visita distinta: {unique_cards}")
-    print(f"Totale righe dopo filtro multi-visita: {len(filtered_visits)}")
+    unique_cards    = filtered_visits['card_id'].nunique()
+    print(f"Card con >1 POI distinto: {unique_cards}")
+    print(f"Totale righe finali: {len(filtered_visits)}\n")
 
+    # 2) Matrice utente-POI + clusterizzazione ------------------------------
     user_poi_matrix = create_user_poi_matrix(filtered_visits)
-    # print(user_poi_matrix.head())
-    
-    # user_poi_matrix_scaled come matrice NumPy standardizzata pronta per KMeans.
+
     scaler = StandardScaler()
     user_poi_matrix_scaled = scaler.fit_transform(user_poi_matrix)
 
-    # Grafico per capire quanti cluster
-    plot_number_of_cluster(user_poi_matrix_scaled, 10)
-    
-    # Inizio la KMeans clusterizzazione
-    kmeans = KMeans(n_clusters=7, random_state=42, n_init=10)
-
+    kmeans   = KMeans(n_clusters=7, random_state=42, n_init=10)
     clusters = kmeans.fit_predict(user_poi_matrix_scaled)
 
-    # Salviamo i risultati in DataFrame per chiarezza
     user_clusters = pd.DataFrame({
-        'card_id': user_poi_matrix.index,
-        'cluster': clusters
+        "card_id": user_poi_matrix.index,
+        "cluster": clusters
     })
 
-    print(user_clusters.head())
-    
-    user_poi_matrix['cluster'] = clusters
-    cluster_analysis = user_poi_matrix.groupby('cluster').mean()
+    print(user_clusters["cluster"].value_counts(), "\n")
 
-    print(cluster_analysis)
-    print(user_poi_matrix['cluster'].value_counts())  # Quanti utenti per ciascun cluster
+    # 3) SCELTA DI UN UTENTE DA TESTARE -------------------------------------
+    card_id = random.choice(user_clusters["card_id"].tolist())
+    print(f"Testo la predizione sul card_id = {card_id}")
 
+    # 4) COSTRUZIONE DEL PROMPT ---------------------------------------------
+    prompt = create_prompt_with_cluster(
+        filtered_visits,
+        user_clusters,
+        card_id,
+        top_k=5)
 
+    # 5) CHIAMATA AL MODELLO LLaMA / OLLAMA ---------------------------------
+    llm_answer = get_chat_completion(prompt)
 
+    if llm_answer is None:
+        print("⚠️  Nessuna risposta dal modello LLaMA.")
+        return
+
+    print("\nRisposta grezza del modello:\n", llm_answer)
+
+    # 6) PARSING  ------------------------------------------------------------
+    try:
+        obj = json.loads(llm_answer)
+        prediction = obj.get("prediction")
+        reason     = obj.get("reason")
+        print("\n🎯 Prossimo POI previsto:", prediction)
+        print("💡 Motivo/distanza sintetica:", reason)
+    except json.JSONDecodeError:
+        print("ℹ️  La risposta non è in JSON – la lascio così com'è.")
+
+# ---------------------------------------------------------------------------
 if __name__ == "__main__":
     try:
         main()
