@@ -171,8 +171,8 @@ def main() -> None:
     else:
         current_results = pd.DataFrame(
             columns=[
-                "card_id", "cluster", "history", "current_poi",
-                "prediction", "ground_truth", "reason", "hit"
+                "card_id", "cluster","hit", "ground_truth","prediction","history", "current_poi",
+                 "reason"
             ]
         )
 
