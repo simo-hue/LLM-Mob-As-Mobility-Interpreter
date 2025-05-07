@@ -1,4 +1,18 @@
-## 🚀 Quickstart (copy‑paste)
+# ***L***arge ***L***anguage ***M***odels for Human ***Mob***ility Prediction (LLM-Mob)
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![Licence](https://img.shields.io/badge/licence-CC--BY--NC-lightgrey)
+![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux-green)
+
+Starting paper ***[Where Would I Go Next? Large Language Models as Human Mobility Predictors](https://arxiv.org/abs/2308.15197)***.
+
+## My Changes
+### 1. Implementing llama3.1 instead of GPT (openAI) Models ( They require payments )
+## Where I could Find It?
+In The file llm-Mob Directory there is the Fully Working original llm-mob without the OPENAI Dependency
+
+## My Focus On The VeronaCard Dataset
+
+### 🚀 Quickstart (copy‑paste) [How To Run It]
 
 ```bash
 # 1. Clone the repo and move into the project root
@@ -33,7 +47,7 @@ The script scans every `*.csv` inside `data/verona/**` **except** `vc_site.csv`,
 
 ---
 
-## ⚙️ Prerequisites
+### ⚙️ Prerequisites
 
 - macOS 12 / Ubuntu 22 or newer  
 - Python ≥ 3.9  
@@ -42,7 +56,7 @@ The script scans every `*.csv` inside `data/verona/**` **except** `vc_site.csv`,
 
 ---
 
-## ✅ Quick model check
+### ✅ Quick model check
 
 ```bash
 # After 'ollama serve' verify the model is registered
@@ -53,7 +67,7 @@ ollama list      # you should see a line like:
 
 ---
 
-## 🔧 Key script parameters
+### 🔧 Key script parameters
 
 | Variable in `veronacard_mob.py` | Default | Meaning |
 |---------------------------------|---------|---------|
@@ -65,7 +79,7 @@ Edit them at the top of the script to tune runtime or output granularity.
 
 ---
 
-## 📄 Example output
+### 📄 Example output
 
 ```
 card_id,cluster,history,current_poi,prediction,ground_truth,reason,hit
@@ -81,7 +95,7 @@ Full results saved to: /results/dati_2014_pred_20250507_153012.csv
 
 ---
 
-## 🛠 Troubleshooting
+### 🛠 Troubleshooting
 
 | Issue | Quick fix |
 |-------|-----------|
@@ -92,7 +106,7 @@ Full results saved to: /results/dati_2014_pred_20250507_153012.csv
 
 ---
 
-## 🗂 Dataset
+### 🗂 Dataset
 
 - **`data/verona/vc_site.csv`**  →  70 official POIs with coordinates  
 - **`data/verona/dataset_veronacard_2014_2020/`**  →  stamping logs (*dati_YYYY.csv*)  
@@ -102,18 +116,21 @@ Each file contains the columns `data, ora, name_short, card_id`.
 
 ---
 
-## 📜 Data license
+### 📜 Data license
 
 The VeronaCard logs are provided **exclusively for academic research** and may not be redistributed without permission from Ente Turismo Verona.  
 The files in this repository are therefore sample data; replace them with your own if you have a different usage agreement.
 
 ---
 
-## Results and evaluation
+### Results and evaluation
 We provide the actual prediction results obtained in our experiments in `/results`. 
 To calculate the evaluation metrics, check the IPython notebook `metrics.ipynb` and run the scripts therein.
 
-## Citation
+### Contributing
+Pull requests are welcome! Please open an issue first to discuss major changes.
+
+### Citation
 
 ```bibtex
 @article{mattioli2025Thesis,
