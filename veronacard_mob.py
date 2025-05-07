@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # -----------------------------------------------------------
+MAX_USERS = 10 # Limita demo a MAX_USERS (None = tutti)
 TOP_K  = 5          # deve coincidere con top_k del prompt
 N_TEST = 5        # quanti utenti valutare (None = tutti)
 # -----------------------------------------------------------
@@ -119,17 +120,14 @@ def build_test_set(df: DataFrame) -> DataFrame:
     return pd.DataFrame(records)
 
 # ---------- MAIN -----------------------------------------------------------
+# ---------------------------------------------------------------------------
 def main() -> None:
-    # -------------------------------------------------------------------- #
-    # 1) Path ai CSV                                                       #
-    # -------------------------------------------------------------------- #
+    # 1) PATH AI CSV --------------------------------------------------------
     ROOT = Path(__file__).resolve().parent
     visits_file = ROOT / "data" / "verona" / "dataset_veronacard_2014_2020" / "dati_2014.csv"
     poi_file    = ROOT / "data" / "verona" / "vc_site.csv"
 
-    # -------------------------------------------------------------------- #
-    # 2) Load & clean                                                      #
-    # -------------------------------------------------------------------- #
+    # 2) LOAD & CLEAN -------------------------------------------------------
     pois     = load_pois(poi_file)
     visits   = load_visits(visits_file)
     merged   = merge_visits_pois(visits, pois)
@@ -139,9 +137,7 @@ def main() -> None:
     print(f"Card multi-visita    : {filtered['card_id'].nunique():,}")
     print(f"Record finali        : {len(filtered):,}\n")
 
-    # -------------------------------------------------------------------- #
-    # 3) Clustering K-Means                                                #
-    # -------------------------------------------------------------------- #
+    # 3) CLUSTERING K-MEANS -------------------------------------------------
     matrix   = create_user_poi_matrix(filtered)
     scaler   = StandardScaler()
     kmeans   = KMeans(n_clusters=7, random_state=42, n_init=10)
@@ -150,64 +146,95 @@ def main() -> None:
     user_clusters = pd.DataFrame({"card_id": matrix.index, "cluster": clusters})
     print(user_clusters["cluster"].value_counts(), "\n")
 
-    # -------------------------------------------------------------------- #
-    # 4) Selezione utenti idonei (≥3 visite)                               #
-    # -------------------------------------------------------------------- #
+    # 4) UTENTI IDONEI (≥3 visite) -----------------------------------------
     eligible_cards = (
         filtered.groupby("card_id")
         .size()
-        .loc[lambda s: s >= 3]       # 3 = exclude_last_n (2) + 1
+        .loc[lambda s: s >= 3]              # 3 = exclude_last_n (2) + 1
         .index
         .tolist()
     )
     if not eligible_cards:
         raise RuntimeError("Nessun utente con almeno 3 visite nel dataset!")
 
-    # facoltativo: limita il numero di utenti da processare
-    MAX_USERS = 20
     demo_cards = random.sample(eligible_cards, k=min(MAX_USERS, len(eligible_cards)))
 
-    # -------------------------------------------------------------------- #
-    # 5) Loop di predizione & confronto                                    #
-    # -------------------------------------------------------------------- #
-    hits = 0
+    # OUTPUT: directory + file CSV -----------------------------------------
+    out_dir = ROOT / "results"
+    out_dir.mkdir(exist_ok=True)
+    ts = time.strftime("%Y%m%d_%H%M%S")
+    out_file = out_dir / f"predictions_{ts}.csv"
+
+    # Se il file esiste già perché avevi interrotto la run, ricaricalo
+    if out_file.exists():
+        current_results = pd.read_csv(out_file)
+    else:
+        current_results = pd.DataFrame(
+            columns=[
+                "card_id", "cluster", "history", "current_poi",
+                "prediction", "ground_truth", "reason", "hit"
+            ]
+        )
+
+    # 5) LOOP DI PREDIZIONE -------------------------------------------------
     for idx, card_id in enumerate(demo_cards, 1):
         seq = (
-            filtered[filtered["card_id"] == card_id]
+            filtered.loc[filtered["card_id"] == card_id]
             .sort_values("timestamp")["name_short"]
             .tolist()
         )
-        true_next = seq[-1]                      # ground-truth
+        history     = seq[:-2]
+        current_poi = seq[-2]
+        ground_truth = seq[-1]
+
         prompt = create_prompt_with_cluster(
             filtered, user_clusters, card_id,
-            top_k=TOP_K,
-            exclude_last_n=2                    # penultimo = current_poi
+            top_k=TOP_K, exclude_last_n=2
         )
         answer = get_chat_completion(prompt)
-        if not answer:
-            print(f"[{idx:02}] {card_id} – nessuna risposta dal modello")
-            continue
 
-        try:
-            pred_obj = json.loads(answer)
-            pred     = pred_obj["prediction"]
-            pred_lst = pred if isinstance(pred, list) else [pred]
-        except Exception:
-            print(f"[{idx:02}] {card_id} – parsing JSON fallito")
-            continue
+        # Default result dict (in caso di problemi)
+        res_dict = {
+            "card_id": card_id,
+            "hit": False,
+            "cluster": int(user_clusters.loc[user_clusters.card_id == card_id, "cluster"]),
+            "prediction": None,
+            "ground_truth": ground_truth,
+            "current_poi": current_poi,
+            "reason": None,
+            "history": str(history),
+        }
 
-        hit = true_next in pred_lst
-        hits += hit
+        if answer:
+            try:
+                obj = json.loads(answer)
+                pred = obj.get("prediction")
+                reason = obj.get("reason")
+                pred_list = pred if isinstance(pred, list) else [pred]
 
-        print(f"[{idx:02}] card_id={card_id}")
-        print(f"     history … {seq[:-2]} → current={seq[-2]}")
-        print(f"     ✅ vero next : {true_next}")
-        print(f"     🔮 predizione: {pred_lst}")
-        print(f"     🎯 hit@{TOP_K}: {'YES' if hit else 'NO'}\n")
+                res_dict["prediction"] = str(pred_list)
+                res_dict["reason"]     = reason
+                res_dict["hit"]        = ground_truth in pred_list
+            except Exception as e:
+                # Mantieni res_dict di default, con prediction = None
+                print(f"[{idx:02}] parsing JSON fallito: {e}")
+        else:
+            print(f"[{idx:02}] Nessuna risposta dal modello")
 
-    print("-" * 60)
-    print(f"Hit@{TOP_K} complessivo: {hits}/{len(demo_cards)}  "
-          f"({hits/len(demo_cards):.2%})")
+        # Aggiungi e salva subito (salvataggio “utente-per-utente”)
+        current_results = pd.concat(
+            [current_results, pd.DataFrame(res_dict, index=[0])],
+            ignore_index=True
+        )
+        current_results.to_csv(out_file, index=False)
+        print(f"[{idx:02}] Salvato risultato – hit={res_dict['hit']}  →  {out_file.name}")
+
+    # 6) RIEPILOGO ----------------------------------------------------------
+    total_hits = current_results["hit"].sum()
+    print("\n" + "-" * 60)
+    print(f"Run completata: {total_hits}/{len(current_results)} hit "
+          f"({total_hits/len(current_results):.2%})")
+    print(f"Risultati completi salvati in: {out_file.resolve()}")
 
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
