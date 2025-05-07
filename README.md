@@ -56,6 +56,23 @@ The script scans every `*.csv` inside `data/verona/**` **except** `vc_site.csv`,
 
 ---
 
+### 🖥️ Windows notes
+> **Windows 10/11** – download the official Ollama MSI, install it, then run  
+> `setx OLLAMA_HOST 127.0.0.1:11434` in PowerShell **before** executing `ollama serve`.
+
+---
+
+### 🚀 GPU inference (optional)
+If your build of Ollama supports GPU (CUDA on Linux, Metal on macOS), you can enable it with:
+
+```bash
+ollama run llama3:latest --gpu
+```
+
+*GPU support is not mandatory; the script works purely on CPU as well.*
+
+---
+
 ### ✅ Quick model check
 
 ```bash
@@ -122,6 +139,26 @@ The VeronaCard logs are provided **exclusively for academic research** and may n
 The files in this repository are therefore sample data; replace them with your own if you have a different usage agreement.
 
 ---
+
+### 🐳 Run everything in Docker (optional)
+
+```dockerfile
+# Dockerfile (minimal)
+FROM python:3.11-slim
+RUN pip install --no-cache-dir ollama==0.1.29 pandas scikit-learn tqdm matplotlib
+WORKDIR /workspace
+COPY . .
+CMD ["python","veronacard_mob.py"]
+```
+
+Build & run:
+
+```bash
+docker build -t llm-mob .
+docker run -it --rm -p 11434:11434 llm-mob
+```
+
+The container exposes Ollama on port `11434` and executes the full pipeline.
 
 ### Results and evaluation
 We provide the actual prediction results obtained in our experiments in `/results`. 

@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # -----------------------------------------------------------
-MAX_USERS = 10 # Limita demo a MAX_USERS (None = tutti)
+MAX_USERS = None  # None → use *all* users; set an int to sample
 TOP_K  = 5          # deve coincidere con top_k del prompt
 N_TEST = 5        # quanti utenti valutare (None = tutti)
 # -----------------------------------------------------------
@@ -153,7 +153,10 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int = 50
         filtered.groupby("card_id").size()
         .loc[lambda s: s >= 3].index.tolist()
     )
-    demo_cards = random.sample(eligible, k=min(max_users, len(eligible)))
+    if max_users is None:          # process *all* eligible users
+        demo_cards = eligible
+    else:                          # random sub‑sample for quick runs
+        demo_cards = random.sample(eligible, k=min(max_users, len(eligible)))
 
     # ---------- 4. CSV di output ----------
     out_dir  = Path(__file__).resolve().parent / "results"
