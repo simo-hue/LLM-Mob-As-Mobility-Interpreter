@@ -14,7 +14,7 @@ import numpy as np
 # -----------------------------------------------------------
 MAX_USERS = None  # None → use *all* users; set an int to sample
 TOP_K  = 5          # deve coincidere con top_k del prompt
-N_TEST = 5        # quanti utenti valutare (None = tutti)
+N_TEST = None        # quanti utenti valutare (None = tutti)
 # -----------------------------------------------------------
 
 # ---------- helper di caricamento -----------------------------------------
