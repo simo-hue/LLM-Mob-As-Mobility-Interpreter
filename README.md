@@ -20,9 +20,15 @@ git clone https://github.com/simo-hue/LLM-Mob-As-Mobility-Interpreter.git
 cd LLM-Mob-As-Mobility-Interpreter
 
 # 2. Install and launch a local Llama‑3 model with Ollama
+
+# Ubuntu (NEW)
+curl -fsSL https://ollama.com/install.sh | sh   # Linux – Ollama install script
+
+# MacOS
 brew install ollama                 # macOS – see <https://ollama.ai/> for Linux/Win
-ollama pull llama3
+
 OLLAMA_HOST=127.0.0.1:11434 ollama serve &   # run Ollama in the background
+ollama pull llama3
 
 # 3. Create and activate a Python virtual env called “llm”
 python3 -m venv llm
@@ -50,9 +56,11 @@ The script scans every `*.csv` inside `data/verona/**` **except** `vc_site.csv`,
 ### ⚙️ Prerequisites
 
 - macOS 12 / Ubuntu 22 or newer  
-- Python ≥ 3.9  
+- **Python ≥ 3.9 and ≤ 3.11**  
+  (⚠️ `kornia` fails to install with Python 3.12+)
 - ~ 8 GB of free disk space to download **llama3**  
 - (Optional) 32 GB RAM recommended for faster inference
+
 
 ---
 
