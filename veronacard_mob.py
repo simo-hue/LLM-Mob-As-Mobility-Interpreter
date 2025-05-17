@@ -11,6 +11,25 @@ import matplotlib.pyplot as plt
 import numpy as np
 from pathlib import Path
 
+import logging
+from datetime import datetime
+
+# ---------------- logging setup ----------------
+LOG_DIR = Path(__file__).resolve().parent / "logs"
+LOG_DIR.mkdir(exist_ok=True)
+LOG_FILE = LOG_DIR / f"run_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s: %(message)s",
+    handlers=[
+        logging.FileHandler(LOG_FILE, encoding="utf-8"),
+        logging.StreamHandler()
+    ]
+)
+
+logger = logging.getLogger(__name__)
+
 # -----------------------------------------------------------
 MAX_USERS = None  # None → use *all* users; set an int to sample
 TOP_K  = 5          # deve coincidere con top_k del prompt
@@ -21,7 +40,7 @@ N_TEST = None        # quanti utenti valutare (None = tutti)
 def load_pois(filepath: str | Path) -> DataFrame:
     df = pd.read_csv(filepath, usecols=["name_short", "latitude", "longitude"])
     
-    print(f"[load_pois] {len(df)} POI letti da {filepath}")
+    logger.info(f"[load_pois] {len(df)} POI letti da {filepath}")
     return df
 
 def list_visits_csv(base_dir="data/verona"):
@@ -47,20 +66,20 @@ def load_visits(filepath: str | Path) -> DataFrame:
     )
     df["timestamp"] = pd.to_datetime(df["data"] + " " + df["ora"], format="%d-%m-%y %H:%M:%S")
     
-    print(f"[load_visits] {len(df)} timbrature da {filepath}")
+    logger.info(f"[load_visits] {len(df)} timbrature da {filepath}")
 
     return df[["timestamp", "card_id", "name_short"]].sort_values("timestamp").reset_index(drop=True)
 
 def merge_visits_pois(visits_df: DataFrame, pois_df: DataFrame) -> DataFrame:
     merged = visits_df.merge(pois_df[["name_short"]], on="name_short", how="inner")
     
-    print(f"[merge] visite valide dopo merge: {len(merged)}")
+    logger.info(f"[merge] visite valide dopo merge: {len(merged)}")
 
     return merged.sort_values("timestamp").reset_index(drop=True)
 
 def filter_multi_visit_cards(df: DataFrame) -> DataFrame:
     valid_cards = df.groupby("card_id")["name_short"].nunique().loc[lambda s: s > 1].index
-    print(f"[filter] card multi-visita: {len(valid_cards)} / {df.card_id.nunique()}")
+    logger.info(f"[filter] card multi-visita: {len(valid_cards)} / {df.card_id.nunique()}")
     return df[df["card_id"].isin(valid_cards)].reset_index(drop=True)
 
 def create_user_poi_matrix(df: DataFrame) -> DataFrame:
@@ -108,10 +127,10 @@ def get_chat_completion(prompt: str, model: str = "llama3:latest") -> str | None
     base_url = "http://localhost:11434"
     try:
         if requests.get(f"{base_url}/api/tags", timeout=2).status_code != 200:
-            print("⚠️  Ollama non è in esecuzione.")
+            logger.warning("⚠️  Ollama non è in esecuzione.")
             return None
     except requests.exceptions.RequestException as exc:
-        print(f"❌  Connessione Ollama fallita: {exc}")
+        logger.error(f"❌  Connessione Ollama fallita: {exc}")
         return None
 
     payload = {
@@ -125,7 +144,7 @@ def get_chat_completion(prompt: str, model: str = "llama3:latest") -> str | None
         resp.raise_for_status()
         return resp.json().get("message", {}).get("content")
     except requests.exceptions.RequestException as exc:
-        print(f"❌  Errore HTTP: {exc}")
+        logger.error(f"❌  Errore HTTP: {exc}")
         return None
 
 # ---------- test-set builder ----------------------------------------------
@@ -154,11 +173,11 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int = 50
     max_users : int
         Quante card valutare (per ridurre tempi).
     """
-    print("\n" + "=" * 70)
-    print(f"▶  PROCESSO FILE: {visits_path.name}")
-    print("=" * 70)
+    logger.info("\n" + "=" * 70)
+    logger.info(f"▶  PROCESSO FILE: {visits_path.name}")
+    logger.info("=" * 70)
 
-    print(f"\t\t▶  ho caricato e pulito i dati")
+    logger.info(f"▶  ho caricato e pulito i dati")
     # ---------- 1. load & clean ----------
     pois     = load_pois(poi_path)
     visits   = load_visits(visits_path)
@@ -171,7 +190,7 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int = 50
               .fit_predict(StandardScaler().fit_transform(matrix))
     user_clusters = pd.DataFrame({"card_id": matrix.index, "cluster": clusters})
     
-    print(f"\t\t▶  ho fatto il clustering")
+    logger.info(f"▶  ho fatto il clustering")
 
     # ---------- 3. utenti idonei ----------
     eligible = (
@@ -233,7 +252,7 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int = 50
 
     df_out.to_csv(out_file, index=False)
     hit_rate = df_out.hit.mean()
-    print(f"✔  Salvato {out_file.name} – Hit@{TOP_K}: {hit_rate:.2%}")
+    logger.info(f"✔  Salvato {out_file.name} – Hit@{TOP_K}: {hit_rate:.2%}")
 
 # ---------- test su tutti i file ------------------------------------------
 def run_all_verona_logs(max_users: int = 50) -> None:
@@ -265,4 +284,4 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("\nInterruzione manuale. Uscita…")
+        logger.info("Interruzione manuale. Uscita…")
