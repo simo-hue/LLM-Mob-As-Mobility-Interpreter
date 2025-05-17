@@ -1,7 +1,6 @@
 import json
 import random
 import time
-from pathlib import Path
 import pandas as pd
 import requests
 from pandas import DataFrame
@@ -10,6 +9,7 @@ from sklearn.preprocessing import StandardScaler
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 import numpy as np
+from pathlib import Path
 
 # -----------------------------------------------------------
 MAX_USERS = None  # None → use *all* users; set an int to sample
@@ -20,7 +20,22 @@ N_TEST = None        # quanti utenti valutare (None = tutti)
 # ---------- helper di caricamento -----------------------------------------
 def load_pois(filepath: str | Path) -> DataFrame:
     df = pd.read_csv(filepath, usecols=["name_short", "latitude", "longitude"])
+    
+    print(f"[load_pois] {len(df)} POI letti da {filepath}")
     return df
+
+def list_visits_csv(base_dir="data/verona"):
+    """
+    Ritorna la lista dei CSV di visite (esclude vc_site.csv e qualsiasi file
+    che contenga 'vc_site' nel nome).
+    Cerca in tutte le sottocartelle di *base_dir*.
+    """
+    all_csv = Path(base_dir).rglob("*.csv")
+    return [
+        str(p) for p in all_csv
+        if "vc_site.csv" not in p.name.lower()
+        and "backup" not in str(p).lower()
+    ]
 
 def load_visits(filepath: str | Path) -> DataFrame:
     df = pd.read_csv(
@@ -31,14 +46,21 @@ def load_visits(filepath: str | Path) -> DataFrame:
         dtype={"card_id": str},
     )
     df["timestamp"] = pd.to_datetime(df["data"] + " " + df["ora"], format="%d-%m-%y %H:%M:%S")
+    
+    print(f"[load_visits] {len(df)} timbrature da {filepath}")
+
     return df[["timestamp", "card_id", "name_short"]].sort_values("timestamp").reset_index(drop=True)
 
 def merge_visits_pois(visits_df: DataFrame, pois_df: DataFrame) -> DataFrame:
     merged = visits_df.merge(pois_df[["name_short"]], on="name_short", how="inner")
+    
+    print(f"[merge] visite valide dopo merge: {len(merged)}")
+
     return merged.sort_values("timestamp").reset_index(drop=True)
 
 def filter_multi_visit_cards(df: DataFrame) -> DataFrame:
     valid_cards = df.groupby("card_id")["name_short"].nunique().loc[lambda s: s > 1].index
+    print(f"[filter] card multi-visita: {len(valid_cards)} / {df.card_id.nunique()}")
     return df[df["card_id"].isin(valid_cards)].reset_index(drop=True)
 
 def create_user_poi_matrix(df: DataFrame) -> DataFrame:
@@ -136,6 +158,7 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int = 50
     print(f"▶  PROCESSO FILE: {visits_path.name}")
     print("=" * 70)
 
+    print(f"\t\t▶  ho caricato e pulito i dati")
     # ---------- 1. load & clean ----------
     pois     = load_pois(poi_path)
     visits   = load_visits(visits_path)
@@ -147,6 +170,8 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int = 50
     clusters = KMeans(n_clusters=7, random_state=42, n_init=10)\
               .fit_predict(StandardScaler().fit_transform(matrix))
     user_clusters = pd.DataFrame({"card_id": matrix.index, "cluster": clusters})
+    
+    print(f"\t\t▶  ho fatto il clustering")
 
     # ---------- 3. utenti idonei ----------
     eligible = (
@@ -170,7 +195,7 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int = 50
     ])
 
     # ---------- 5. ciclo su utenti ----------
-    for cid in demo_cards:
+    for cid in tqdm(demo_cards, desc="Card", unit="card"):
         seq = (
             filtered.loc[filtered.card_id == cid]
             .sort_values("timestamp")["name_short"].tolist()
@@ -229,7 +254,11 @@ def run_all_verona_logs(max_users: int = 50) -> None:
 # ---------- MAIN -----------------------------------------------------------
 # ---------------------------------------------------------------------------
 def main() -> None:
-    run_all_verona_logs(MAX_USERS)
+    """
+    Avvia l'elaborazione su tutti i CSV di timbrature presenti in
+    data/verona/**, escluso vc_site.csv e eventuali cartelle di backup.
+    """
+    run_all_verona_logs(max_users=MAX_USERS)
 
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
