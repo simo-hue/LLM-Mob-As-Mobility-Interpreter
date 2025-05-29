@@ -1,0 +1,16 @@
+2025-05-29 15:52:34,185 INFO: Output già presente per dati_2014: salto elaborazione.
+2025-05-29 15:52:34,186 INFO: Output già presente per dati_2015: salto elaborazione.
+2025-05-29 15:52:34,186 INFO: Output già presente per dati_2016: salto elaborazione.
+2025-05-29 15:52:34,186 INFO: Output già presente per dati_2017: salto elaborazione.
+2025-05-29 15:52:34,186 INFO: Output già presente per dati_2018: salto elaborazione.
+2025-05-29 15:52:34,186 INFO: 
+======================================================================
+2025-05-29 15:52:34,186 INFO: ▶  PROCESSO FILE: dati_2019.csv
+2025-05-29 15:52:34,186 INFO: ======================================================================
+2025-05-29 15:52:34,186 INFO: ▶  ho caricato e pulito i dati
+2025-05-29 15:52:34,188 INFO: [load_pois] 22 POI letti da /Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-05-29 15:52:35,128 INFO: [load_visits] 397561 timbrature da /Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2019.csv
+2025-05-29 15:52:35,204 INFO: [merge] visite valide dopo merge: 397561
+2025-05-29 15:52:35,330 INFO: [filter] card multi-visita: 77583 / 79825
+2025-05-29 15:52:38,208 INFO: ▶  ho fatto il clustering
+2025-05-29 15:52:45,918 INFO: Interruzione manuale. Uscita…

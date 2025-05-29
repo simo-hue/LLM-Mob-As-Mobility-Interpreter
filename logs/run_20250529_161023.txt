@@ -1,0 +1,16 @@
+2025-05-29 16:10:23,189 INFO:  Output esistente per dati_2014. Usa --force o --append.
+2025-05-29 16:10:23,189 INFO:  Output esistente per dati_2015. Usa --force o --append.
+2025-05-29 16:10:23,189 INFO:  Output esistente per dati_2016. Usa --force o --append.
+2025-05-29 16:10:23,189 INFO:  Output esistente per dati_2017. Usa --force o --append.
+2025-05-29 16:10:23,190 INFO:  Output esistente per dati_2018. Usa --force o --append.
+2025-05-29 16:10:23,190 INFO: 
+======================================================================
+2025-05-29 16:10:23,190 INFO: ▶  PROCESSO FILE: dati_2019.csv
+2025-05-29 16:10:23,190 INFO: ======================================================================
+2025-05-29 16:10:23,190 INFO: ▶  ho caricato e pulito i dati
+2025-05-29 16:10:23,194 INFO: [load_pois] 22 POI letti da /Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-05-29 16:10:24,126 INFO: [load_visits] 397561 timbrature da /Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2019.csv
+2025-05-29 16:10:24,203 INFO: [merge] visite valide dopo merge: 397561
+2025-05-29 16:10:24,341 INFO: [filter] card multi-visita: 77583 / 79825
+2025-05-29 16:10:27,242 INFO: ▶  ho fatto il clustering
+2025-05-29 16:10:31,714 INFO: Interruzione manuale...
