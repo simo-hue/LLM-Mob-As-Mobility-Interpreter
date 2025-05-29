@@ -34,8 +34,10 @@ ollama pull llama3
 python3 -m venv llm
 source llm/bin/activate
 pip install -r requirements.txt
+
+# 4. Follow The Next Chapter to understand how to run the script
 ```
-# Run The Script
+### Run The Script
 
 **nuovi flag CLI** introdotti nello script `veronacard_mob.py` per controllare la (ri)elaborazione dei file di log ed evitare calcoli ridondanti.
 
@@ -45,7 +47,7 @@ pip install -r requirements.txt
 | `--force`   | Ignore any pre-existing output and recalculate **everything**       | you want to regenerate the results|
 | `--append`  | Loads latest output, processes **only** missing cards, and queues new predictions | Job stopped, incremental batch               |
 
-## Naming 
+### Naming 
 
 Output saved as
 
@@ -55,7 +57,7 @@ results/<stem>_pred_<timestamp>.csv
 
 where `<stem>` is the name of the input file ( NO extension ) (es. `dati_2014`).
 
-## Examples of use
+### Examples of use
 
 ```bash
 # 1) Only files not already processed ( skips the files in the results folder )
