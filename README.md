@@ -41,11 +41,11 @@ pip install -r requirements.txt
 
 **nuovi flag CLI** introdotti nello script `veronacard_mob.py` per controllare la (ri)elaborazione dei file di log ed evitare calcoli ridondanti.
 
-| Flag        | Behaviour                                                     | When To Use It                                    |
-|-------------|-------------------------------------------------------------------|--------------------------------------------------|
-| *(nothing)* | If exists **at least one** file `results/<stem>_pred_*.csv` skip the entire input | Standard daily execution                 |
-| `--force`   | Ignore any pre-existing output and recalculate **everything**       | you want to regenerate the results|
-| `--append`  | Loads latest output, processes **only** missing cards, and queues new predictions | Job stopped, incremental batch               |
+| Flag        | Behaviour                                                     |
+|-------------|-------------------------------------------------------------------
+| *(nothing)* | If exists **at least one** file `results/<stem>_pred_*.csv` skip the entire input |
+| `--force`   | Ignore any pre-existing output and recalculate **everything**       | 
+| `--append`  | Loads latest output, processes **only** missing cards, and queues new predictions |
 
 ### Naming 
 
