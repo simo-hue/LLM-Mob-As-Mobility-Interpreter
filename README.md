@@ -34,9 +34,38 @@ ollama pull llama3
 python3 -m venv llm
 source llm/bin/activate
 pip install -r requirements.txt
+```
+# Run The Script
 
-# 4. Run the VeronaCard prediction pipeline
-python veronacard_mob.py            # CSV results will appear in ./results
+**nuovi flag CLI** introdotti nello script `veronacard_mob.py` per controllare la (ri)elaborazione dei file di log ed evitare calcoli ridondanti.
+
+| Flag        | Behaviour                                                     | When To Use It                                    |
+|-------------|-------------------------------------------------------------------|--------------------------------------------------|
+| *(nothing)* | If exists **at least one** file `results/<stem>_pred_*.csv` skip the entire input | Standard daily execution                 |
+| `--force`   | Ignore any pre-existing output and recalculate **everything**       | you want to regenerate the results|
+| `--append`  | Loads latest output, processes **only** missing cards, and queues new predictions | Job stopped, incremental batch               |
+
+## Naming 
+
+Output saved as
+
+```
+results/<stem>_pred_<timestamp>.csv
+```
+
+where `<stem>` is the name of the input file ( NO extension ) (es. `dati_2014`).
+
+## Examples of use
+
+```bash
+# 1) Only files not already processed ( skips the files in the results folder )
+python veronacard_mob.py
+
+# 2) Recalculate all files
+python veronacard_mob.py --force
+
+# 3) It starts from the last processed file where it left off
+python veronacard_mob.py --append
 ```
 
 **Project layout reminder**

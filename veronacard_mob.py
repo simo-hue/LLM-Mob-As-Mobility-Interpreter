@@ -1,18 +1,32 @@
 import json
 import random
 import time
+import os, sys, argparse, logging
 import pandas as pd
 import requests
 from pandas import DataFrame
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from tqdm import tqdm
-import matplotlib.pyplot as plt
 import numpy as np
 from pathlib import Path
 
 import logging
 from datetime import datetime
+
+
+# --------------------------------------------------------------
+def list_outputs(visits_path: Path, out_dir: Path) -> list[Path]:
+    """Tutti i CSV già calcolati per quel file di visite."""
+    pattern = f"{visits_path.stem}_pred_*.csv"
+    return sorted(out_dir.glob(pattern))
+
+def latest_output(visits_path: Path, out_dir: Path) -> Path | None:
+    """L'output più recente (None se non esiste)."""
+    outputs = list_outputs(visits_path, out_dir)
+    return max(outputs, key=os.path.getmtime) if outputs else None
+# --------------------------------------------------------------
+
 
 # ---------------- logging setup ----------------
 LOG_DIR = Path(__file__).resolve().parent / "logs"
@@ -37,6 +51,14 @@ N_TEST = None        # quanti utenti valutare (None = tutti)
 # -----------------------------------------------------------
 
 # ---------- helper di caricamento -----------------------------------------
+def already_processed(visits_path: Path, out_dir: Path) -> bool:
+    """
+    Ritorna True se esiste almeno un CSV di output per il file di visite.
+    Esempio: dati_2014.csv  →  results/dati_2014_pred_*.csv
+    """
+    pattern = f"{visits_path.stem}_pred_*.csv"
+    return any(out_dir.glob(pattern))
+
 def load_pois(filepath: str | Path) -> DataFrame:
     df = pd.read_csv(filepath, usecols=["name_short", "latitude", "longitude"])
     
@@ -159,7 +181,7 @@ def build_test_set(df: DataFrame) -> DataFrame:
     return pd.DataFrame(records)
 
 # ---------- test su un singolo file ---------------------------------------
-def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int = 50) -> None:
+def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int = 50, force: bool = False, append: bool = False) -> None:
     """
     Esegue l'intera pipeline (carica, clusterizza, predice, salva) su un
     singolo file di log VeronaCard.
@@ -173,6 +195,39 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int = 50
     max_users : int
         Quante card valutare (per ridurre tempi).
     """
+    
+    # ---------- 0. check risultati già esistenti ----------
+    out_dir = Path(__file__).resolve().parent / "results"
+    out_dir.mkdir(exist_ok=True)
+
+    # ---------- Modalità force / append / skip ----------
+    if force and append:
+        raise ValueError("Non puoi usare --force e --append insieme.")
+
+    if append:
+        prev_path = latest_output(visits_path, out_dir)
+        if prev_path:
+            prev_df = pd.read_csv(prev_path, usecols=['card_id'])
+            processed_cards = set(prev_df['card_id'])
+        else:
+            processed_cards = set()
+    else:
+        processed_cards = set()
+        
+    
+        # visita_df è il DataFrame con tutte le card di quel file
+    if processed_cards:
+        visita_df = visita_df[~visita_df['card_id'].isin(processed_cards)]
+        if visita_df.empty:
+            logger.info(f"⏩  Tutte le card di {visits_path.stem} erano già elaborate. Skip.")
+            return
+
+
+    if not force and not append and latest_output(visits_path, out_dir):
+        logger.info(f" Output esistente per {visits_path.stem}. Usa --force o --append.")
+        return
+    
+    # ---------- 0.5 Scrivo su LOG ----------
     logger.info("\n" + "=" * 70)
     logger.info(f"▶  PROCESSO FILE: {visits_path.name}")
     logger.info("=" * 70)
@@ -250,12 +305,17 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int = 50
 
         df_out.loc[len(df_out)] = rec
 
-    df_out.to_csv(out_file, index=False)
+    if append and latest_output(visits_path, out_dir):
+        # Append senza header
+        df_out.to_csv(prev_path, mode="a", header=False, index=False)
+    else:
+        df_out.to_csv(out_file, index=False)
+
     hit_rate = df_out.hit.mean()
     logger.info(f"✔  Salvato {out_file.name} – Hit@{TOP_K}: {hit_rate:.2%}")
 
 # ---------- test su tutti i file ------------------------------------------
-def run_all_verona_logs(max_users: int = 50) -> None:
+def run_all_verona_logs(max_users: int = 50, force=False, append=False) -> None:
     ROOT   = Path(__file__).resolve().parent
     poi_csv = ROOT / "data" / "verona" / "vc_site.csv"
 
@@ -268,7 +328,7 @@ def run_all_verona_logs(max_users: int = 50) -> None:
         raise RuntimeError("Nessun CSV di visite trovato sotto data/verona/")
 
     for csv in sorted(visit_csvs):
-        run_on_visits_file(csv, poi_csv, max_users=max_users)
+        run_on_visits_file(csv, poi_csv, max_users=max_users, force=force, append=append)
 
 # ---------- MAIN -----------------------------------------------------------
 # ---------------------------------------------------------------------------
@@ -281,7 +341,24 @@ def main() -> None:
 
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Calcola raccomandazioni su tutti i log VeronaCard."
+    )
+    parser.add_argument("--force", action="store_true",
+                        help="ricalcola e sovrascrive anche se gli output esistono")
+    parser.add_argument("--append", action="store_true",
+                        help="riprende da dove si era interrotto (non ricalcola card già presenti)")
+    parser.add_argument("--max-users", type=int, default=50,
+                        help="numero massimo di utenti da processare per file (default 50)")
+    args = parser.parse_args()
+
+    if args.force and args.append:
+        parser.error("Non puoi usare insieme --force e --append.")
+
     try:
-        main()
+        run_all_verona_logs(max_users=args.max_users,
+                            force=args.force,
+                            append=args.append)
     except KeyboardInterrupt:
-        logger.info("Interruzione manuale. Uscita…")
+        logging.info("Interruzione manuale...")
+        sys.exit(1)
