@@ -45,9 +45,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # -----------------------------------------------------------
-MAX_USERS = None  # None → use *all* users; set an int to sample
 TOP_K  = 5          # deve coincidere con top_k del prompt
-N_TEST = None        # quanti utenti valutare (None = tutti)
 # -----------------------------------------------------------
 
 # ---------- helper di caricamento -----------------------------------------
@@ -181,7 +179,7 @@ def build_test_set(df: DataFrame) -> DataFrame:
     return pd.DataFrame(records)
 
 # ---------- test su un singolo file ---------------------------------------
-def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int = 50, force: bool = False, append: bool = False) -> None:
+def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int | None = None, force: bool = False, append: bool = False) -> None:
     """
     Esegue l'intera pipeline (carica, clusterizza, predice, salva) su un
     singolo file di log VeronaCard.
@@ -315,7 +313,7 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int = 50
     logger.info(f"✔  Salvato {out_file.name} – Hit@{TOP_K}: {hit_rate:.2%}")
 
 # ---------- test su tutti i file ------------------------------------------
-def run_all_verona_logs(max_users: int = 50, force=False, append=False) -> None:
+def run_all_verona_logs(max_users: int | None = None, force=False, append=False) -> None:
     ROOT   = Path(__file__).resolve().parent
     poi_csv = ROOT / "data" / "verona" / "vc_site.csv"
 
@@ -331,15 +329,7 @@ def run_all_verona_logs(max_users: int = 50, force=False, append=False) -> None:
         run_on_visits_file(csv, poi_csv, max_users=max_users, force=force, append=append)
 
 # ---------- MAIN -----------------------------------------------------------
-# ---------------------------------------------------------------------------
-def main() -> None:
-    """
-    Avvia l'elaborazione su tutti i CSV di timbrature presenti in
-    data/verona/**, escluso vc_site.csv e eventuali cartelle di backup.
-    """
-    run_all_verona_logs(max_users=MAX_USERS)
 
-# ---------------------------------------------------------------------------
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Calcola raccomandazioni su tutti i log VeronaCard."
@@ -348,7 +338,7 @@ if __name__ == "__main__":
                         help="ricalcola e sovrascrive anche se gli output esistono")
     parser.add_argument("--append", action="store_true",
                         help="riprende da dove si era interrotto (non ricalcola card già presenti)")
-    parser.add_argument("--max-users", type=int, default=50,
+    parser.add_argument("--max-users", type=int, default=None,
                         help="numero massimo di utenti da processare per file (default 50)")
     args = parser.parse_args()
 
