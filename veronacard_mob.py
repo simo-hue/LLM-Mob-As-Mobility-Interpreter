@@ -130,17 +130,17 @@ def create_prompt_with_cluster(
     cluster_id = user_clusters.loc[user_clusters["card_id"] == card_id, "cluster"].values[0]
 
     return f"""
-Sei un assistente turistico esperto di Verona.
-<cluster_id>: {cluster_id}
-<history>: {history}
-<current_poi>: {current_poi}
+        Sei un assistente turistico esperto di Verona.
+        <cluster_id>: {cluster_id}
+        <history>: {history}
+        <current_poi>: {current_poi}
 
-Obiettivo: suggerisci i {top_k} POI più probabili che l'utente visiterà dopo.
-• Escludi i POI già in <history> e <current_poi>.
-• Rispondi con **una sola riga** JSON:
-  {{ "prediction": [...], "reason": "..." }}
-Rispondi in italiano.
-""".strip()
+        Obiettivo: suggerisci i {top_k} POI più probabili che l'utente visiterà dopo.
+        • Escludi i POI già in <history> e <current_poi>.
+        • Rispondi con **una sola riga** JSON:
+        {{ "prediction": [...], "reason": "..." }}
+        Rispondi in italiano.
+        """.strip()
 
 # ---------- chiamata LLaMA / Ollama ---------------------------------------
 def get_chat_completion(prompt: str, model: str = "llama3:latest") -> str | None:
