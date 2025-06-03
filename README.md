@@ -123,18 +123,6 @@ ollama list      # you should see a line like:
 
 ---
 
-### 🔧 Key script parameters
-
-| Variable in `veronacard_mob.py` | Default | Meaning |
-|---------------------------------|---------|---------|
-| `TOP_K`      | `5`   | length of the POI list returned by the LLM |
-| `MAX_USERS`  | `50`  | number of cards processed for each log file |
-| `N_TEST`     | `100` | users used to compute the overall Hit@k metric |
-
-Edit them at the top of the script to tune runtime or output granularity.
-
----
-
 ### 📄 Example output
 
 ```
