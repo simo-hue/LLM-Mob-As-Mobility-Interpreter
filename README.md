@@ -198,17 +198,8 @@ Pull requests are welcome! Please open an issue first to discuss major changes.
 
 ```bibtex
 @article{mattioli2025Thesis,
-  title={Large Language Models for Human Mobility Prediction (LLM-Mob)},
+  title={Large Language Models for Verona Card's Human Mobility Prediction (LLM-Mob)},
   author={Mattioli, Simone},
   year={2025}
-}
-```
-
-```bibtex
-@article{wang2023would,
-  title={Where would i go next? large language models as human mobility predictors},
-  author={Wang, Xinglei and Fang, Meng and Zeng, Zichao and Cheng, Tao},
-  journal={arXiv preprint arXiv:2308.15197},
-  year={2023}
 }
 ```
