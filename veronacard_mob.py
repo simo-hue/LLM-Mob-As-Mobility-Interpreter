@@ -211,14 +211,6 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int | No
             processed_cards = set()
     else:
         processed_cards = set()
-        
-    
-        # visita_df è il DataFrame con tutte le card di quel file
-    if processed_cards:
-        visita_df = visita_df[~visita_df['card_id'].isin(processed_cards)]
-        if visita_df.empty:
-            logger.info(f"⏩  Tutte le card di {visits_path.stem} erano già elaborate. Skip.")
-            return
 
 
     if not force and not append and latest_output(visits_path, out_dir):
@@ -236,6 +228,13 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int | No
     visits   = load_visits(visits_path)
     merged   = merge_visits_pois(visits, pois)
     filtered = filter_multi_visit_cards(merged)
+    
+    # Se siamo in modalità --append, togliamo le card già processate
+    if processed_cards:
+        filtered = filtered[~filtered['card_id'].isin(processed_cards)]
+        if filtered.empty:
+            logger.info(f"Tutte le card di {visits_path.stem} erano già elaborate. Skip.")
+            return
 
     # ---------- 2. clustering ----------
     matrix   = create_user_poi_matrix(filtered)

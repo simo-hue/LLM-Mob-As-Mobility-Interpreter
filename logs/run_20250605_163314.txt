@@ -1,0 +1,19 @@
+2025-06-05 16:33:14,977 INFO:  Output esistente per dati_2014. Usa --force o --append.
+2025-06-05 16:33:14,978 INFO:  Output esistente per dati_2015. Usa --force o --append.
+2025-06-05 16:33:14,978 INFO:  Output esistente per dati_2016. Usa --force o --append.
+2025-06-05 16:33:14,978 INFO:  Output esistente per dati_2017. Usa --force o --append.
+2025-06-05 16:33:14,978 INFO:  Output esistente per dati_2018. Usa --force o --append.
+2025-06-05 16:33:14,978 INFO: 
+======================================================================
+2025-06-05 16:33:14,978 INFO: ▶  PROCESSO FILE: dati_2019.csv
+2025-06-05 16:33:14,978 INFO: ======================================================================
+2025-06-05 16:33:14,978 INFO: ▶  ho caricato e pulito i dati
+2025-06-05 16:33:14,980 INFO: [load_pois] 22 POI letti da /Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-06-05 16:33:15,635 INFO: [load_visits] 397561 timbrature da /Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2019.csv
+2025-06-05 16:33:15,687 INFO: [merge] visite valide dopo merge: 397561
+2025-06-05 16:33:15,773 INFO: [filter] card multi-visita: 77583 / 79825
+2025-06-05 16:33:17,827 INFO: ▶  ho fatto il clustering
+2025-06-05 16:33:17,960 ERROR: ❌  Connessione Ollama fallita: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x119bf1cd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-06-05 16:33:17,987 ERROR: ❌  Connessione Ollama fallita: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x119a387d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-06-05 16:33:18,013 ERROR: ❌  Connessione Ollama fallita: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1199557d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-06-05 16:33:18,038 INFO: Interruzione manuale...
