@@ -31,7 +31,7 @@ sleep 2                                   # garantisce che la porta sia up
 # 3. Lancio dello   script  #
 #############################
 cd $SLURM_SUBMIT_DIR
-python veronacard_mob.py --max-users --anchor middle --append
+python veronacard_mob.py --anchor middle --append
 
 #############################
 # 4. Pulizia e fine job     #

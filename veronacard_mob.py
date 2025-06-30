@@ -189,7 +189,7 @@ def create_prompt_with_cluster(
         """.strip()
 
 # ---------- chiamata LLaMA / Ollama ---------------------------------------
-def get_chat_completion(prompt: str, model: str = "llama3:latest") -> str | None:
+def get_chat_completion(prompt: str, model: str = "llama3:8b-instruct-q4_0") -> str | None:
     base_url = "http://localhost:11434"
     try:
         if requests.get(f"{base_url}/api/tags", timeout=2).status_code != 200:

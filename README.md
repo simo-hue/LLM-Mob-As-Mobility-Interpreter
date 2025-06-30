@@ -208,6 +208,7 @@ pip install -r requirements.txt
 ```
 
 #### Comandi Utili:
+sbatch run_llm_mob.sh           # lanciare un Job
 squeue -u $USER                 # stato job
 tail -f slurm-<JOBID>.out       # log live
 scancel <JOBID>                 # Rimozione del Job
