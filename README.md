@@ -46,6 +46,7 @@ pip install -r requirements.txt
 | *(nothing)* | If exists **at least one** file `results/<stem>_pred_*.csv` skip the entire input |
 | `--force`   | Ignore any pre-existing output and recalculate **everything**       | 
 | `--append`  | Loads latest output, processes **only** missing cards, and queues new predictions |
+| `--anchor <rule>` | Choose which POI to use as anchor for prediction (`penultimate` [default] \| `first` \| `middle` \| any integer index) |
 
 ### Naming 
 
@@ -68,6 +69,9 @@ python veronacard_mob.py --force
 
 # 3) It starts from the last processed file where it left off
 python veronacard_mob.py --append
+
+# 4) Use the POI in the middle of the trajectory as anchor ( as an EXAMPLE )
+python veronacard_mob.py --anchor middle
 ```
 
 **Project layout reminder**
