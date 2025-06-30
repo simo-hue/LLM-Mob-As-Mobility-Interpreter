@@ -198,6 +198,21 @@ To calculate the evaluation metrics, check the IPython notebook `metrics.ipynb` 
 ### Contributing
 Pull requests are welcome! Please open an issue first to discuss major changes.
 
+### HPC setup (Leonardo)
+
+```bash
+module load python/3.11.6--gcc--8.5.0
+python -m venv llm
+source llm/bin/activate
+pip install -r requirements.txt
+```
+
+#### Comandi Utili:
+squeue -u $USER                 # stato job
+tail -f slurm-<JOBID>.out       # log live
+scancel <JOBID>                 # Rimozione del Job
+saldo -b IscrC_LLM-Mob          # Controllare il SALDO
+
 ### Citation
 
 ```bibtex
