@@ -311,55 +311,55 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int | No
         "prediction","ground_truth","reason","hit"
     ])
 
-# ---------- 5. ciclo su utenti ----------
-for cid in tqdm(demo_cards, desc="Card", unit="card"):
-    seq = (
-        filtered.loc[filtered.card_id == cid]
-        .sort_values("timestamp")["name_short"].tolist()
-    )
-    target       = seq[-1]
-    idx_anchor   = anchor_index(len(seq) - 1, anchor_rule)
-    history_list = [p for i, p in enumerate(seq[:-1]) if i != idx_anchor]
-    current_poi  = seq[:-1][idx_anchor]
+    # ---------- 5. ciclo su utenti ----------
+    for cid in tqdm(demo_cards, desc="Card", unit="card"):
+        seq = (
+            filtered.loc[filtered.card_id == cid]
+            .sort_values("timestamp")["name_short"].tolist()
+        )
+        target       = seq[-1]
+        idx_anchor   = anchor_index(len(seq) - 1, anchor_rule)
+        history_list = [p for i, p in enumerate(seq[:-1]) if i != idx_anchor]
+        current_poi  = seq[:-1][idx_anchor]
 
-    prompt = create_prompt_with_cluster(
-        filtered, user_clusters, cid,
-        top_k=TOP_K, anchor_rule=anchor_rule
-    )
-    ans = get_chat_completion(prompt)
+        prompt = create_prompt_with_cluster(
+            filtered, user_clusters, cid,
+            top_k=TOP_K, anchor_rule=anchor_rule
+        )
+        ans = get_chat_completion(prompt)
 
-    rec = {
-        "card_id":   cid,
-        "cluster":   int(user_clusters.loc[user_clusters.card_id == cid, "cluster"].iloc[0]),
-        "history":   str(history_list),
-        "current_poi": current_poi,
-        "prediction": None,
-        "ground_truth": target,
-        "reason":    None,
-        "hit":       False
-    }
+        rec = {
+            "card_id":   cid,
+            "cluster":   int(user_clusters.loc[user_clusters.card_id == cid, "cluster"].iloc[0]),
+            "history":   str(history_list),
+            "current_poi": current_poi,
+            "prediction": None,
+            "ground_truth": target,
+            "reason":    None,
+            "hit":       False
+        }
 
-    if ans:
-        try:
-            obj  = json.loads(ans)
-            pred = obj["prediction"]
-            pred_lst = pred if isinstance(pred, list) else [pred]
-            rec["prediction"] = str(pred_lst)
-            rec["reason"]     = obj.get("reason")
-            rec["hit"]        = target in pred_lst
-        except Exception:
-            pass
+        if ans:
+            try:
+                obj  = json.loads(ans)
+                pred = obj["prediction"]
+                pred_lst = pred if isinstance(pred, list) else [pred]
+                rec["prediction"] = str(pred_lst)
+                rec["reason"]     = obj.get("reason")
+                rec["hit"]        = target in pred_lst
+            except Exception:
+                pass
 
-    df_out.loc[len(df_out)] = rec
+        df_out.loc[len(df_out)] = rec
 
-    if append and latest_output(visits_path, out_dir):
-        # Append senza header
-        df_out.to_csv(prev_path, mode="a", header=False, index=False)
-    else:
-        df_out.to_csv(out_file, index=False)
+        if append and latest_output(visits_path, out_dir):
+            # Append senza header
+            df_out.to_csv(prev_path, mode="a", header=False, index=False)
+        else:
+            df_out.to_csv(out_file, index=False)
 
-    hit_rate = df_out.hit.mean()
-    logger.info(f"✔  Salvato {out_file.name} – Hit@{TOP_K}: {hit_rate:.2%}")
+        hit_rate = df_out.hit.mean()
+        logger.info(f"✔  Salvato {out_file.name} – Hit@{TOP_K}: {hit_rate:.2%}")
 
 # ---------- test su tutti i file ------------------------------------------
 def run_all_verona_logs(max_users: int | None = None, force=False, append=False, anchor_rule: str | int = DEFAULT_ANCHOR_RULE) -> None:
