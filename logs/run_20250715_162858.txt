@@ -1,0 +1,24 @@
+2025-07-15 16:28:58,991 INFO: 
+======================================================================
+2025-07-15 16:28:58,991 INFO: ▶  PROCESSO FILE: dati_2014.csv
+2025-07-15 16:28:58,991 INFO: ======================================================================
+2025-07-15 16:28:58,991 INFO: ▶  ho caricato e pulito i dati
+2025-07-15 16:28:58,994 INFO: [load_pois] 22 POI letti da /Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-07-15 16:28:59,620 INFO: [load_visits] 370377 timbrature da /Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2014.csv
+2025-07-15 16:28:59,676 INFO: [merge] visite valide dopo merge: 370377
+2025-07-15 16:28:59,818 INFO: [filter] card multi-visita: 70236 / 71557
+2025-07-15 16:29:03,254 INFO: ▶  ho fatto il clustering
+2025-07-15 16:29:03,321 INFO: ▶  Analisi pattern di movimento geografico
+2025-07-15 16:29:53,428 INFO: ▶  Distanza media tra visite consecutive: 0.58 km
+2025-07-15 16:31:14,117 INFO: ✔  Salvato dati_2014_pred_20250715_162903.csv – Hit@5: 30.00%
+2025-07-15 16:31:14,159 INFO: 
+======================================================================
+2025-07-15 16:31:14,159 INFO: ▶  PROCESSO FILE: dati_2015.csv
+2025-07-15 16:31:14,159 INFO: ======================================================================
+2025-07-15 16:31:14,159 INFO: ▶  ho caricato e pulito i dati
+2025-07-15 16:31:14,164 INFO: [load_pois] 22 POI letti da /Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-07-15 16:31:14,813 INFO: [load_visits] 369587 timbrature da /Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2015.csv
+2025-07-15 16:31:14,872 INFO: [merge] visite valide dopo merge: 369587
+2025-07-15 16:31:15,017 INFO: [filter] card multi-visita: 71759 / 73424
+2025-07-15 16:31:19,174 INFO: ▶  ho fatto il clustering
+2025-07-15 16:31:19,227 INFO: ▶  Analisi pattern di movimento geografico

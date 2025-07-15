@@ -333,7 +333,7 @@ def analyze_movement_patterns(df: pd.DataFrame, pois_df: pd.DataFrame) -> pd.Dat
     return pd.DataFrame(movement_data)
 
 # ---------- chiamata LLaMA / Ollama ---------------------------------------
-def get_chat_completion(prompt: str, model: str = "llama3:8b-instruct-q4_0") -> str | None:
+def get_chat_completion(prompt: str, model: str = "llama3:latest") -> str | None:
     base_url = "http://localhost:11434"
     try:
         if requests.get(f"{base_url}/api/tags", timeout=2).status_code != 200:
@@ -512,21 +512,25 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int | No
             except Exception:
                 pass
 
-        # ---------- 7. Salvataggio finale ----------
-        if results_list:  # Solo se abbiamo dei risultati
-            df_out = pd.DataFrame(results_list)
-        
-            # Salva il file in base alla modalità
-            if append and not write_header:
-                # Append ai dati esistenti senza header
-                df_out.to_csv(output_file, mode="a", header=False, index=False)
-            else:
-                # Scrivi normalmente (nuovo file o primo append)
-                df_out.to_csv(output_file, index=False)
-        
-            # Calcola e mostra statistiche
-            hit_rate = df_out["hit"].mean()
-            logger.info(f"✔  Salvato {output_file.name} – Hit@{TOP_K}: {hit_rate:.2%}")
+        results_list.append(rec)
+
+    # ---------- 7. Salvataggio finale ----------
+    if results_list:  # Solo se abbiamo dei risultati
+        df_out = pd.DataFrame(results_list)
+    
+        # Salva il file in base alla modalità
+        if append and not write_header:
+            # Append ai dati esistenti senza header
+            df_out.to_csv(output_file, mode="a", header=False, index=False)
+        else:
+            # Scrivi normalmente (nuovo file o primo append)
+            df_out.to_csv(output_file, index=False)
+    
+        # Calcola e mostra statistiche
+        hit_rate = df_out["hit"].mean()
+        logger.info(f"✔  Salvato {output_file.name} – Hit@{TOP_K}: {hit_rate:.2%}")
+    else:
+        logger.warning("⚠️  Nessun risultato da salvare!")
 
 # ---------- test su tutti i file ------------------------------------------
 def run_all_verona_logs(max_users: int | None = None, force=False, append=False, anchor_rule: str | int = DEFAULT_ANCHOR_RULE) -> None:
@@ -547,7 +551,6 @@ def run_all_verona_logs(max_users: int | None = None, force=False, append=False,
                            force=force,
                            append=append,
                            anchor_rule=anchor_rule)
-
 
 def get_user_cluster(user_clusters: pd.DataFrame, card_id: str) -> int:
     """
@@ -570,6 +573,36 @@ def get_user_cluster(user_clusters: pd.DataFrame, card_id: str) -> int:
     
     # Usa .iloc[0] su un DataFrame filtrato è più chiaro per il type checker
     return int(matching_rows["cluster"].iloc[0])
+
+def debug_file_processing(visits_path: Path, poi_path: Path):
+    """Funzione di debug per verificare che i dati vengano processati correttamente"""
+    print(f"🔍 Debug per {visits_path.name}")
+    
+    # Verifica i dati base
+    pois = load_pois(poi_path)
+    visits = load_visits(visits_path)
+    merged = merge_visits_pois(visits, pois)
+    filtered = filter_multi_visit_cards(merged)
+    
+    print(f"📊 POI: {len(pois)}, Visite: {len(visits)}, Filtrate: {len(filtered)}")
+    
+    # Verifica utenti idonei
+    eligible = (
+        filtered.groupby("card_id").size()
+        .loc[lambda s: s >= 3].index.tolist()
+    )
+    print(f"👥 Utenti idonei (≥3 visite): {len(eligible)}")
+    
+    # Mostra esempio di sequenza
+    if eligible:
+        sample_card = eligible[0]
+        seq = (
+            filtered.loc[filtered.card_id == sample_card]
+            .sort_values("timestamp")["name_short"].tolist()
+        )
+        print(f"📝 Esempio sequenza per {sample_card}: {seq}")
+    
+    return len(eligible) > 0
 
 # ---------- MAIN -----------------------------------------------------------
 
