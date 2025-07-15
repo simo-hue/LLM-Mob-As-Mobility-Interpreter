@@ -444,22 +444,34 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int | No
     else:                          # random sub‑sample for quick runs
         demo_cards = random.sample(eligible, k=min(max_users, len(eligible)))
 
-    # ---------- 4. CSV di output ----------
-    out_dir  = Path(__file__).resolve().parent / "results"
+    # ---------- 4. Gestione file di output ----------
+    out_dir = Path(__file__).resolve().parent / "results"
     out_dir.mkdir(exist_ok=True)
-    ts       = time.strftime("%Y%m%d_%H%M%S")
-    out_file = out_dir / f"{visits_path.stem}_pred_{ts}.csv"
-
-    df_out = pd.DataFrame(columns=[
-        "card_id","cluster","history","current_poi",
-        "prediction","ground_truth","reason","hit"
-    ])
+    
+    # Determina il file di output in base alla modalità
+    if append:
+        # In modalità append, usa il file più recente esistente
+        output_file = latest_output(visits_path, out_dir)
+        if output_file is None:
+            # Se non esiste un file precedente, crea un nuovo file
+            ts = time.strftime("%Y%m%d_%H%M%S")
+            output_file = out_dir / f"{visits_path.stem}_pred_{ts}.csv"
+            write_header = True
+        else:
+            write_header = False
+    else:
+        # In modalità normale, crea sempre un nuovo file
+        ts = time.strftime("%Y%m%d_%H%M%S")
+        output_file = out_dir / f"{visits_path.stem}_pred_{ts}.csv"
+        write_header = True
     
     logger.info("▶  Analisi pattern di movimento geografico")
     movement_patterns = analyze_movement_patterns(filtered, pois)
     avg_distance = movement_patterns["distance"].mean()
     logger.info(f"▶  Distanza media tra visite consecutive: {avg_distance:.2f} km")
 
+    results_list = []
+    
     # ---------- 5. ciclo su utenti ----------
     for cid in tqdm(demo_cards, desc="Card", unit="card"):
         seq = (
@@ -477,9 +489,10 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int | No
         )
         ans = get_chat_completion(prompt)
 
+        # ---------- 6. Analisi risultato ----------
         rec = {
             "card_id":   cid,
-            "cluster":   int(user_clusters.loc[user_clusters.card_id == cid, "cluster"].iloc[0]),
+            "cluster":   get_user_cluster(user_clusters, cid),
             "history":   str(history_list),
             "current_poi": current_poi,
             "prediction": None,
@@ -499,18 +512,21 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int | No
             except Exception:
                 pass
 
-        result_list = []
-        result_list.append(rec)
-        df_out.loc[len(df_out)] = pd.DataFrame(result_list)
-
-        if append and latest_output(visits_path, out_dir):
-            # Append senza header
-            df_out.to_csv(prev_path, mode="a", header=False, index=False)
-        else:
-            df_out.to_csv(out_file, index=False)
-
-        hit_rate = df_out.hit.mean()
-        logger.info(f"✔  Salvato {out_file.name} – Hit@{TOP_K}: {hit_rate:.2%}")
+        # ---------- 7. Salvataggio finale ----------
+        if results_list:  # Solo se abbiamo dei risultati
+            df_out = pd.DataFrame(results_list)
+        
+            # Salva il file in base alla modalità
+            if append and not write_header:
+                # Append ai dati esistenti senza header
+                df_out.to_csv(output_file, mode="a", header=False, index=False)
+            else:
+                # Scrivi normalmente (nuovo file o primo append)
+                df_out.to_csv(output_file, index=False)
+        
+            # Calcola e mostra statistiche
+            hit_rate = df_out["hit"].mean()
+            logger.info(f"✔  Salvato {output_file.name} – Hit@{TOP_K}: {hit_rate:.2%}")
 
 # ---------- test su tutti i file ------------------------------------------
 def run_all_verona_logs(max_users: int | None = None, force=False, append=False, anchor_rule: str | int = DEFAULT_ANCHOR_RULE) -> None:
@@ -531,6 +547,29 @@ def run_all_verona_logs(max_users: int | None = None, force=False, append=False,
                            force=force,
                            append=append,
                            anchor_rule=anchor_rule)
+
+
+def get_user_cluster(user_clusters: pd.DataFrame, card_id: str) -> int:
+    """
+    Restituisce il cluster ID per un determinato card_id.
+    
+    Args:
+        user_clusters: DataFrame con le colonne 'card_id' e 'cluster'
+        card_id: ID della card di cui cercare il cluster
+        
+    Returns:
+        int: ID del cluster
+        
+    Raises:
+        ValueError: Se la card_id non viene trovata
+    """
+    matching_rows = user_clusters[user_clusters.card_id == card_id]
+    
+    if matching_rows.empty:
+        raise ValueError(f"Card ID {card_id} non trovata nei cluster")
+    
+    # Usa .iloc[0] su un DataFrame filtrato è più chiaro per il type checker
+    return int(matching_rows["cluster"].iloc[0])
 
 # ---------- MAIN -----------------------------------------------------------
 
