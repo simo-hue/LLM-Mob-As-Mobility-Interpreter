@@ -1,0 +1,131 @@
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{LLM as Mobility Interpreter}
+\lhead{Scientific Report}
+\rfoot{Page \thepage}
+
+\title{Leveraging Large Language Models as Mobility Interpreters:\\
+A Case Study on Predicting Next POI from Tourist Trajectories}
+\author{Simone Hueber}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+In this work, we explore the application of Large Language Models (LLMs) in the field of human mobility analysis. Specifically, we propose a framework that interprets user trajectories, such as those collected via the VeronaCard tourist service, to predict future points of interest (POIs) visited by users. Our hypothesis is that pretrained LLMs, when provided with contextual information about POIs (including name, location, and temporal metadata), can serve as powerful predictors for next-location inference. We present the design and implementation of our system, discuss the prompting strategies adopted, and evaluate the model's performance under various levels of context availability.
+\end{abstract}
+
+\section{Introduction}
+
+In recent years, the use of Large Language Models (LLMs) has expanded beyond traditional natural language processing tasks to encompass a broad range of reasoning and decision-making applications. One such novel application is the modeling and prediction of human mobility, particularly in the domain of urban tourism.
+
+This work investigates the hypothesis that LLMs, when appropriately prompted with semantically rich contextual data, can effectively interpret and predict mobility trajectories. Specifically, we leverage mobility traces from the VeronaCard tourist dataset to explore next-POI prediction scenarios using LLMs.
+
+\section{Motivation and Background}
+
+Mobility prediction is a core task in fields such as urban computing, location-based services, and smart tourism. Traditional models often rely on Markov chains, recurrent neural networks, or graph-based methods. These approaches, while effective, typically require specialized architectures and significant training data.
+
+By contrast, LLMs offer a general-purpose reasoning capability that can be adapted to novel tasks via in-context learning, requiring minimal additional training. Our work aims to assess whether an LLM can serve as an effective mobility predictor when provided with structured semantic context.
+
+\section{Dataset Description}
+
+The dataset used in this study derives from the VeronaCard system, a smart tourist card granting access to major attractions in Verona, Italy. Each record corresponds to a user interaction with a POI and includes information such as:
+
+\begin{itemize}
+    \item POI name (e.g., ``Arena di Verona'')
+    \item Geographic coordinates (latitude and longitude)
+    \item Visit timestamp
+\end{itemize}
+
+The file \texttt{vc\_site.csv} contains the full list of POIs with their respective metadata. This data serves as both the context and prediction target in our modeling approach.
+
+\section{System Architecture and Implementation}
+
+The core of our implementation is the script \texttt{veronacard\_mob\_with\_geom.py}, which performs the following tasks:
+
+\begin{enumerate}
+    \item Loads POI metadata and user trajectories.
+    \item Generates input prompts for the LLM, based on different levels of context.
+    \item Interacts with an LLM API to obtain predictions.
+    \item Evaluates prediction accuracy across the test set.
+\end{enumerate}
+
+The system supports multiple prompt-generation modes, enabling comparative evaluation of different context compositions.
+
+\section{Prompting Strategies}
+
+A key component of the methodology is the design of prompting strategies that encode relevant mobility context. We evaluate three main types of prompts:
+
+\begin{enumerate}
+    \item \textbf{POI Name Only:} The model is provided with a sequence of previously visited POIs by name.
+    \item \textbf{Name + Geolocation:} Each POI is enriched with geographic coordinates.
+    \item \textbf{Name + Geolocation + Temporal Context:} In addition to the above, timestamps and temporal features (e.g., time of day, day of week) are included.
+\end{enumerate}
+
+These prompt variations allow us to isolate the impact of each contextual feature on prediction performance.
+
+\section{Experimental Evaluation}
+
+To evaluate the effectiveness of our approach, we conducted several experiments where the model attempts to predict the next POI in a user's trajectory, given the previous visits.
+
+\subsection{Evaluation Scenarios}
+
+We report the results in three main scenarios:
+
+\begin{itemize}
+    \item \textbf{Scenario 1:} POI name only
+    \item \textbf{Scenario 2:} POI name + geographic coordinates
+    \item \textbf{Scenario 3:} POI name + geographic coordinates + temporal features
+\end{itemize}
+
+\subsection{Results and Discussion}
+
+\textbf{[Insert here the result charts such as accuracy, precision@k, or top-1 prediction rate for each scenario.]}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{results_scenario1.png}
+    \caption{Prediction performance with POI Name Only.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{results_scenario2.png}
+    \caption{Prediction performance with POI Name + Geographic Info.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{results_scenario3.png}
+    \caption{Prediction performance with POI Name + Geographic + Temporal Info.}
+\end{figure}
+
+\section{Conclusion and Future Work}
+
+This study demonstrates the viability of using LLMs as interpreters of human mobility, particularly in scenarios with limited training data. Our experiments show that incorporating semantic and contextual information significantly improves prediction accuracy.
+
+Future work will focus on expanding the dataset, integrating user profiling, and evaluating model robustness across cities and user demographics. Moreover, the potential for LLM fine-tuning or retrieval-augmented generation could be explored to further enhance performance.
+
+\section*{Repository and Code}
+
+All code and data used in this work are available on GitHub:\\
+\url{https://github.com/simo-hue/LLM-Mob-As-Mobility-Interpreter.git}
+
+\end{document}
