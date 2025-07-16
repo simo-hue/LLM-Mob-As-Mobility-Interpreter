@@ -37,6 +37,7 @@ pip install -r requirements.txt
 
 # 4. Follow The Next Chapter to understand how to run the script
 ```
+
 ### Run The Script
 
 **nuovi flag CLI** introdotti nello script `veronacard_mob.py` per controllare la (ri)elaborazione dei file di log ed evitare calcoli ridondanti.
