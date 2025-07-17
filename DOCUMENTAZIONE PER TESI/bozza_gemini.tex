@@ -4,7 +4,7 @@
 \usepackage[english]{babel}
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage{graphicx}
-\usepackage{hyperref}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue]{hyperref}
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{float}
@@ -29,9 +29,9 @@
 \maketitle
 
 \begin{abstract}
-In this work, we explore the application of Large Language Models (LLMs) in the field of human mobility analysis in the city of Verona. Specifically, we propose a framework that interprets user trajectories, such as those collected via the VeronaCard tourist service, to predict future points of interest (POIs) visited by users. Our hypothesis is that pretrained LLMs, when provided with contextual information about POIs (including name, location, and temporal metadata), can serve as powerful predictors for next-location inference. We present the design and implementation of our system, discuss the prompting strategies adopted, and evaluate the model's performance under various levels of context availability.
+In this work, we explore the application of Large Language Models (LLMs) in the field of human mobility analysis. Specifically, we propose a framework that interprets user trajectories, such as those collected via the VeronaCard tourist service, to predict future points of interest (POIs) visited by users. Our hypothesis is that pretrained LLMs, when provided with contextual information about POIs (including name, location, and temporal metadata), can serve as powerful predictors for next-location inference. We present the design and implementation of our system, discuss the prompting strategies adopted, and evaluate the model's performance under various levels of context availability.
 \end{abstract}
-
+\clearpage
 \section{Introduction}
 
 In recent years, the use of Large Language Models (LLMs) has expanded beyond traditional natural language processing tasks to encompass a broad range of reasoning and decision-making applications. One such novel application is the modeling and prediction of human mobility, particularly in the domain of urban tourism.
@@ -54,7 +54,7 @@ The dataset used in this study derives from the VeronaCard system, a smart touri
     \item Visit timestamp
 \end{itemize}
 
-The file \texttt{vc\_site.csv} contains the full list of POIs with their respective metadata. This data serves as both the context and prediction target in our modeling approach.
+The file \texttt{vc\_site.csv} contains the full list of POIs with their respective metadata. This data serves as both the context and prediction target in our modeling approach. \par
 
 \section{System Architecture and Implementation}
 
@@ -66,7 +66,7 @@ The core of our implementation is the script \texttt{veronacard\_mob\_with\_geom
     \item Interacts with an LLM API to obtain predictions.
     \item Evaluates prediction accuracy across the test set.
 \end{enumerate}
-
+\par
 The system supports multiple prompt-generation modes, enabling comparative evaluation of different context compositions.
 
 \section{Prompting Strategies}
@@ -80,7 +80,7 @@ A key component of the methodology is the design of prompting strategies that en
 \end{enumerate}
 
 These prompt variations allow us to isolate the impact of each contextual feature on prediction performance.
-
+\clearpage
 \section{Experimental Evaluation}
 
 To evaluate the effectiveness of our approach, we conducted several experiments where the model attempts to predict the next POI in a user's trajectory, given the previous visits.
@@ -95,7 +95,7 @@ We report the results in three main scenarios:
     \item \textbf{Scenario 3:} POI name + geographic coordinates + temporal features
 \end{itemize}
 
-\subsection{Results and Discussion}
+\subsection{Results and Discussion} \par
 
 \textbf{[Insert here the result charts such as accuracy, precision@k, or top-1 prediction rate for each scenario.]}
 
@@ -117,15 +117,13 @@ We report the results in three main scenarios:
     \caption{Prediction performance with POI Name + Geographic + Temporal Info.}
 \end{figure}
 
-\section{Conclusion and Future Work}
+\clearpage
+\section{Conclusion and Future Work} \par
 
 This study demonstrates the viability of using LLMs as interpreters of human mobility, particularly in scenarios with limited training data. Our experiments show that incorporating semantic and contextual information significantly improves prediction accuracy.
 
 Future work will focus on expanding the dataset, integrating user profiling, and evaluating model robustness across cities and user demographics. Moreover, the potential for LLM fine-tuning or retrieval-augmented generation could be explored to further enhance performance.
 
-\section*{Repository and Code}
 
-All code and data used in this work are available on GitHub:\\
-\url{https://github.com/simo-hue/LLM-Mob-As-Mobility-Interpreter.git}
 
 \end{document}
