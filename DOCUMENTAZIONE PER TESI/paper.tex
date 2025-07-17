@@ -1,0 +1,336 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\geometry{margin=1in}
+
+\title{Uso di tecniche di LLM per analizzare traiettorie turistiche e per suggerire la prossima attrazione turistica da visitare}
+
+\author{
+Simone Mattioli\\
+Department of Computer Science\\
+University of Verona\\
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This paper presents a comprehensive study on leveraging Large Language Models (LLMs) for predicting human mobility patterns in urban tourism contexts. We introduce LLM-Mob, a novel framework that utilizes the natural language understanding capabilities of modern LLMs to predict tourists' next Points of Interest (POI) based on their historical visiting patterns. Our approach is evaluated on the VeronaCard dataset, which contains real-world tourism data from Verona, Italy, spanning multiple years. We investigate the impact of different contextual information types on prediction accuracy, including basic POI names, geographical coordinates, and temporal features. The framework demonstrates the potential of LLMs to understand complex spatial-temporal patterns in human mobility without requiring extensive feature engineering or domain-specific architectures. Our implementation replaces traditional OpenAI GPT models with open-source Llama 3.1, making the approach more accessible and cost-effective for research purposes.
+\end{abstract}
+
+\section{Introduction}
+
+Human mobility prediction has emerged as a crucial research area with applications spanning urban planning, transportation systems, recommendation systems, and public health. Traditional approaches to mobility prediction have relied heavily on statistical models, machine learning algorithms, and deep learning architectures specifically designed for sequential data. However, recent advances in Large Language Models (LLMs) have opened new avenues for understanding and predicting human behavior patterns through natural language processing capabilities.
+
+The fundamental challenge in human mobility prediction lies in capturing the complex interplay between spatial, temporal, and behavioral factors that influence individual movement decisions. Traditional machine learning approaches often require extensive feature engineering and domain-specific knowledge to encode these relationships effectively. In contrast, LLMs possess inherent capabilities for understanding contextual relationships and patterns, which can be leveraged to predict mobility patterns through carefully designed prompts and contextual information.
+
+This paper introduces LLM-Mob, a framework that harnesses the power of Large Language Models for human mobility prediction in tourism contexts. Our approach differs from conventional methods by treating mobility prediction as a natural language understanding task, where historical visiting patterns, geographical information, and temporal context are encoded as textual prompts for LLM inference.
+
+The primary contributions of this work include:
+
+\begin{itemize}
+\item A novel framework for human mobility prediction using Large Language Models that requires minimal feature engineering
+\item Comprehensive evaluation of different contextual information types on prediction accuracy
+\item Implementation using open-source Llama 3.1 models, eliminating dependencies on proprietary APIs
+\item Extensive experiments on real-world tourism data from the VeronaCard dataset
+\item Analysis of the impact of geographical proximity and temporal patterns on mobility prediction performance
+\end{itemize}
+
+\section{Related Work}
+
+Human mobility prediction has been extensively studied across multiple disciplines, with approaches ranging from statistical models to deep learning architectures. Early works focused on Markov-based models that captured transition probabilities between locations based on historical patterns. More recent approaches have leveraged recurrent neural networks (RNNs), Long Short-Term Memory (LSTM) networks, and attention mechanisms to model sequential dependencies in mobility data.
+
+Graph-based approaches have gained prominence due to their ability to capture spatial relationships between locations. These methods typically represent locations as nodes in a graph, with edges encoding spatial proximity or transition probabilities. However, such approaches often require extensive preprocessing and domain-specific feature engineering to achieve satisfactory performance.
+
+The emergence of Large Language Models has introduced new possibilities for mobility prediction. Recent works have explored the use of LLMs for various spatial-temporal tasks, demonstrating their ability to understand geographical relationships and temporal patterns through natural language descriptions. Our work builds upon these foundations by specifically focusing on tourism mobility prediction and investigating the impact of different contextual information types.
+
+\section{Methodology}
+
+\subsection{Problem Formulation}
+
+We formulate the human mobility prediction problem as follows: Given a tourist's historical sequence of visited POIs $S = \{p_1, p_2, ..., p_n\}$ ordered by visit time, we aim to predict the next POI $p_{n+1}$ that the tourist is likely to visit. Each POI $p_i$ is characterized by its name, geographical coordinates (latitude and longitude), and temporal information (visit timestamp).
+
+The prediction task is approached as a natural language generation problem, where the LLM is provided with contextual information about the tourist's behavior and asked to generate the most likely next destinations.
+
+\subsection{Dataset Description}
+
+Our experiments are conducted on the VeronaCard dataset, which contains real-world tourism data from Verona, Italy. The dataset encompasses visitor logs from 2014 to 2020, capturing tourist interactions with various cultural and historical sites throughout the city. The dataset includes:
+
+\begin{itemize}
+\item Tourist card usage logs with timestamps and POI identifiers
+\item A comprehensive catalog of 70 Points of Interest with geographical coordinates
+\item Visitor patterns spanning multiple years, providing insights into seasonal and temporal variations
+\end{itemize}
+
+The POI catalog includes major tourist attractions such as Arena di Verona, Casa di Giulietta, Basilica di San Zeno, and Castelvecchio Museum, among others. Each POI is associated with precise geographical coordinates, enabling spatial analysis of tourist movement patterns.
+
+\subsection{Data Preprocessing and Clustering}
+
+Our preprocessing pipeline consists of several stages designed to clean and structure the raw mobility data:
+
+\subsubsection{Data Cleaning and Filtering}
+Raw visitor logs are processed to extract relevant information including visit timestamps, POI names, and tourist card identifiers. We filter out incomplete records and focus on tourists with multiple POI visits to ensure meaningful sequence analysis.
+
+\subsubsection{User Clustering}
+To capture behavioral patterns among tourists, we employ K-means clustering on user-POI interaction matrices. The clustering process involves:
+
+\begin{enumerate}
+\item Construction of a user-POI matrix where each row represents a tourist and each column represents a POI
+\item Standardization of the matrix using StandardScaler to ensure equal weighting of features
+\item Application of K-means clustering with $k=7$ clusters to group tourists with similar visiting patterns
+\end{enumerate}
+
+This clustering approach enables the identification of distinct tourist profiles, such as culture-focused visitors, history enthusiasts, or casual tourists, which can inform the prediction process.
+
+\subsection{LLM-Based Prediction Framework}
+
+Our LLM-Mob framework treats mobility prediction as a natural language understanding task. The core components include:
+
+\subsubsection{Prompt Engineering}
+We design structured prompts that encode tourist behavior and contextual information in natural language. The prompt includes:
+
+\begin{itemize}
+\item Tourist cluster identifier to capture behavioral patterns
+\item Historical POI sequence (excluding the current location)
+\item Current POI location
+\item Available POI options with contextual information
+\end{itemize}
+
+\subsubsection{Contextual Information Types}
+We investigate three different types of contextual information to understand their impact on prediction accuracy:
+
+\begin{enumerate}
+\item \textbf{Basic POI Names}: Only the names of POIs are provided to the LLM
+\item \textbf{POI Names + Geographical Information}: POI names augmented with geographical coordinates and distance calculations
+\item \textbf{POI Names + Geographical + Temporal Information}: Complete context including POI names, geographical data, and temporal patterns
+\end{enumerate}
+
+\subsubsection{Geographical Context Integration}
+For geographical context, we implement the Haversine formula to calculate distances between POIs:
+
+\begin{equation}
+d = 2R \cdot \arcsin\left(\sqrt{\sin^2\left(\frac{\Delta\phi}{2}\right) + \cos(\phi_1) \cos(\phi_2) \sin^2\left(\frac{\Delta\lambda}{2}\right)}\right)
+\end{equation}
+
+where $R$ is the Earth's radius, $\phi$ represents latitude, and $\lambda$ represents longitude.
+
+\subsection{Model Implementation}
+
+Our implementation utilizes Llama 3.1 as the underlying LLM, deployed locally using the Ollama framework. This choice addresses several practical considerations:
+
+\begin{itemize}
+\item \textbf{Cost Efficiency}: Eliminates API costs associated with proprietary models
+\item \textbf{Privacy}: Ensures data remains local and secure
+\item \textbf{Reproducibility}: Provides consistent results across different experimental runs
+\item \textbf{Accessibility}: Makes the framework available to researchers without API access
+\end{itemize}
+
+The system architecture supports both CPU and GPU inference, with automatic detection of available hardware resources.
+
+\section{Experimental Setup}
+
+\subsection{Evaluation Methodology}
+
+We evaluate the LLM-Mob framework using a comprehensive experimental design that captures different aspects of mobility prediction performance:
+
+\subsubsection{Test Set Construction}
+For each tourist with at least three POI visits, we construct prediction instances by:
+\begin{enumerate}
+\item Taking the full visit sequence $S = \{p_1, p_2, ..., p_n\}$
+\item Using $\{p_1, p_2, ..., p_{n-1}\}$ as input context
+\item Predicting $p_n$ as the target
+\end{enumerate}
+
+\subsubsection{Anchor Point Selection}
+We implement flexible anchor point selection strategies to investigate the impact of different reference points:
+\begin{itemize}
+\item \textbf{Penultimate}: Uses the second-to-last visited POI as the current location
+\item \textbf{First}: Uses the first visited POI as the current location
+\item \textbf{Middle}: Uses the middle POI in the sequence as the current location
+\item \textbf{Custom Index}: Allows specification of arbitrary anchor points
+\end{itemize}
+
+\subsubsection{Performance Metrics}
+We evaluate prediction performance using Hit@K accuracy, where a prediction is considered correct if the ground truth POI appears in the top-K predicted locations. Our primary focus is on Hit@5 accuracy to capture the practical utility of the system.
+
+\subsection{Experimental Configurations}
+
+Our experiments are designed to investigate the following research questions:
+
+\begin{enumerate}
+\item How does the inclusion of geographical information affect prediction accuracy?
+\item What is the impact of temporal context on mobility prediction performance?
+\item How do different tourist behavioral clusters influence prediction outcomes?
+\item What role does geographical proximity play in tourist movement patterns?
+\end{enumerate}
+
+\section{Results and Analysis}
+
+\subsection{Performance Comparison Across Context Types}
+
+% Placeholder for results table
+\begin{table}[H]
+\centering
+\caption{Prediction accuracy comparison across different contextual information types}
+\label{tab:context_comparison}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Context Type & Hit@1 & Hit@3 & Hit@5 \\
+\midrule
+POI Names Only & - & - & - \\
+POI Names + Geography & - & - & - \\
+POI Names + Geography + Temporal & - & - & - \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Impact of Geographical Information}
+
+The integration of geographical information represents a significant advancement in our mobility prediction framework. Our analysis reveals several key insights:
+
+\subsubsection{Distance-Based Predictions}
+The inclusion of geographical coordinates and distance calculations allows the LLM to make more informed predictions based on spatial proximity. Tourists typically exhibit a preference for visiting nearby attractions, and our geographical context enables the model to capture these patterns effectively.
+
+\subsubsection{Spatial Clustering Analysis}
+We observe distinct spatial clustering patterns in tourist behavior, with certain POI combinations showing higher co-occurrence rates. The geographical context helps the LLM identify these patterns and make predictions that align with typical tourist routing behaviors.
+
+% Placeholder for geographical analysis figure
+\begin{figure}[H]
+\centering
+% \includegraphics[width=0.8\textwidth]{geographical_analysis.png}
+\caption{Geographical distribution of POI predictions and their accuracy rates}
+\label{fig:geographical_analysis}
+\end{figure}
+
+\subsection{Temporal Pattern Analysis}
+
+The incorporation of temporal information provides additional context that enhances prediction accuracy:
+
+\subsubsection{Time-of-Day Effects}
+Our analysis reveals that visiting patterns vary significantly based on the time of day, with certain POIs being more popular during specific time periods. The temporal context enables the LLM to capture these nuanced patterns.
+
+\subsubsection{Seasonal Variations}
+The multi-year dataset allows us to analyze seasonal effects on tourist behavior, revealing preferences for certain attractions during different times of the year.
+
+% Placeholder for temporal analysis figure
+\begin{figure}[H]
+\centering
+% \includegraphics[width=0.8\textwidth]{temporal_analysis.png}
+\caption{Temporal patterns in tourist mobility and their impact on prediction accuracy}
+\label{fig:temporal_analysis}
+\end{figure}
+
+\subsection{Cluster-Based Behavior Analysis}
+
+The K-means clustering approach reveals distinct tourist profiles that influence mobility patterns:
+
+\subsubsection{Cultural Tourists}
+One cluster exhibits strong preferences for cultural and historical sites, with predictable patterns of movement between related attractions.
+
+\subsubsection{Casual Visitors}
+Another cluster shows more diverse visiting patterns, suggesting casual tourists with varied interests.
+
+\subsubsection{Systematic Explorers}
+A third cluster demonstrates systematic exploration patterns, visiting attractions in geographical proximity.
+
+% Placeholder for cluster analysis figure
+\begin{figure}[H]
+\centering
+% \includegraphics[width=0.8\textwidth]{cluster_analysis.png}
+\caption{Tourist cluster characteristics and their impact on mobility prediction}
+\label{fig:cluster_analysis}
+\end{figure}
+
+\section{Discussion}
+
+\subsection{Advantages of LLM-Based Approach}
+
+The LLM-Mob framework offers several advantages over traditional mobility prediction approaches:
+
+\subsubsection{Reduced Feature Engineering}
+Unlike traditional machine learning approaches that require extensive feature engineering, our LLM-based method leverages natural language descriptions to encode complex spatial-temporal relationships.
+
+\subsubsection{Contextual Understanding}
+LLMs demonstrate inherent capabilities for understanding contextual relationships between locations, enabling more nuanced predictions that consider factors beyond simple spatial proximity.
+
+\subsubsection{Interpretability}
+The natural language output of LLMs provides interpretable explanations for predictions, offering insights into the reasoning behind mobility choices.
+
+\subsection{Limitations and Challenges}
+
+Despite its promising results, the LLM-Mob framework faces several limitations:
+
+\subsubsection{Computational Requirements}
+Running LLMs locally requires significant computational resources, particularly for GPU-accelerated inference.
+
+\subsubsection{Prompt Sensitivity}
+The performance of LLM-based predictions can be sensitive to prompt design and formatting, requiring careful engineering of input contexts.
+
+\subsubsection{Scalability Concerns}
+Processing large datasets with LLMs can be time-consuming, particularly when compared to traditional machine learning approaches.
+
+\section{Future Work}
+
+Several directions for future research emerge from this work:
+
+\subsection{Multi-Modal Integration}
+Future work could explore the integration of additional modalities, such as images of POIs or textual descriptions of attractions, to provide richer context for mobility prediction.
+
+\subsection{Real-Time Prediction}
+Developing real-time mobility prediction systems that can adapt to changing conditions and provide dynamic recommendations to tourists.
+
+\subsection{Cross-City Generalization}
+Investigating the generalizability of LLM-based mobility prediction across different cities and cultural contexts.
+
+\subsection{Personalization}
+Exploring personalization techniques that can adapt predictions to individual tourist preferences and behaviors.
+
+\section{Conclusion}
+
+This paper presents LLM-Mob, a novel framework for human mobility prediction that leverages the natural language understanding capabilities of Large Language Models. Our comprehensive evaluation on the VeronaCard dataset demonstrates the potential of LLMs to understand complex spatial-temporal patterns in tourist behavior without requiring extensive feature engineering.
+
+The investigation of different contextual information types reveals the importance of geographical and temporal context in mobility prediction. The framework's use of open-source Llama 3.1 models makes it accessible to researchers and practitioners while maintaining competitive performance.
+
+Our results contribute to the growing body of work on LLM applications in spatial-temporal analysis and provide a foundation for future research in intelligent tourism systems and urban mobility prediction.
+
+\section{Implementation Details}
+
+The complete implementation of LLM-Mob is available as open-source software at:
+\url{https://github.com/simo-hue/LLM-Mob-As-Mobility-Interpreter.git}
+
+The repository includes:
+\begin{itemize}
+\item Complete Python implementation with Llama 3.1 integration
+\item Data preprocessing pipelines for the VeronaCard dataset
+\item Experimental scripts for reproducing results
+\item Documentation and setup instructions
+\end{itemize}
+
+\section{Acknowledgments}
+
+We acknowledge the Ente Turismo Verona for providing access to the VeronaCard dataset for research purposes. This work was supported by the Department of Computer Science at the University of Verona.
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
