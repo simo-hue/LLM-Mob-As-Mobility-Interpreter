@@ -120,7 +120,8 @@ We define three hierarchical prompting strategies, each building upon the previo
 \textbf{Confusion Matrix - Baseline Strategy}\par
 \vspace{0.5em}
 \includegraphics[width=0.8\textwidth]{../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png}
-\caption{This heatmap illustrates the model’s confusion when predicting the next POI, showing how often it mistakes one POI for another.}
+\caption{The confusion matrix illustrates the misclassification rates between the top 20 most visited POIs in Verona under the baseline strategy. Brighter colors indicate higher confusion. Notably, Castelvecchio is frequently mispredicted as the next POI, reflecting strong sequential bias or user preference patterns.
+}
 \label{fig:baseline_confusion}
 \end{figure}
 
@@ -129,7 +130,8 @@ We define three hierarchical prompting strategies, each building upon the previo
 \textbf{MRR Distribution - Baseline Strategy}\par
 \vspace{0.5em}
 \includegraphics[width=0.8\textwidth]{../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png}
-\caption{Mean Reciprocal Rank (MRR) distribution across predictions, showing how well the model ranks the correct POI.}
+\caption{The chart shows the Mean Reciprocal Rank (MRR) performance per year showing how well the model ranks the correct POI.. The values fluctuate between 11\% and 14\%, with a noticeable peak in 2020 and a dip in 2021—likely reflecting pandemic-related disruptions in tourist behavior. The trend suggests a generally stable predictive performance over time, with modest variance.
+}
 \label{fig:baseline_mrr}
 \end{figure}
 
@@ -138,7 +140,8 @@ We define three hierarchical prompting strategies, each building upon the previo
 \textbf{Top-1 Accuracy - Baseline Strategy}\par
 \vspace{0.5em}
 \includegraphics[width=0.8\textwidth]{../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png}
-\caption{Top-1 accuracy score indicating the proportion of times the correct POI was the top prediction.}
+\caption{Top-1 accuracy score indicating the proportion of times the correct POI was the top prediction.\\ The values hover between 9\% and 11\%, with the highest accuracy observed in 2019/2020 and a significant drop in 2021, likely due to atypical tourist patterns during the COVID-19 pandemic.\\ The performance trend indicates a consistent but modest ability of the model to identify the correct POI as the top prediction.
+}
 \label{fig:baseline_top1}
 \end{figure}
 
@@ -147,7 +150,7 @@ We define three hierarchical prompting strategies, each building upon the previo
 \textbf{Top-5 Hit Rate - Baseline Strategy}\par
 \vspace{0.5em}
 \includegraphics[width=0.8\textwidth]{../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png}
-\caption{Percentage of predictions where the correct POI appears among the top 5 suggested POIs.}
+\caption{Percentage of predictions where the correct POI appears among the top 5 suggested POIs. ( NO order considered in the top 5)}
 \label{fig:baseline_top5}
 \end{figure}
 
@@ -166,7 +169,7 @@ We define three hierarchical prompting strategies, each building upon the previo
 \centering
 \textbf{Confusion Matrix - Geospatial Strategy}\par
 \vspace{0.5em}
-\includegraphics[width=0.8\textwidth]{../img/your_image_1.png}
+\includegraphics[width=0.8\textwidth]{../img/}
 \caption{Confusion matrix showing prediction performance when spatial coordinates are included.}
 \label{fig:geospatial_confusion}
 \end{figure}
