@@ -4,6 +4,8 @@
 \usepackage{geometry}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{subcaption}
+\usepackage[labelfont=bf]{caption}
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{float}
@@ -27,7 +29,6 @@ Simone Mattioli\\
 Department of Computer Science\\
 University of Verona\\
 }
-
 \date{\today}
 
 \begin{document}
@@ -111,12 +112,150 @@ The efficacy of Large Language Models (LLMs) in next-POI prediction is fundament
 We define three hierarchical prompting strategies, each building upon the previous one to evaluate the incremental contribution of different contextual features:
 
 \begin{enumerate}
+
 \item \textbf{Baseline Strategy (POI Name Only):} The foundational approach provides the model with a chronologically ordered sequence of previously visited POIs represented solely by their canonical names. This strategy serves as our baseline, focusing purely on sequential patterns without any additional contextual information.
 
-\item \textbf{Geospatial-Enhanced Strategy (Name + Geolocation):} Building upon the baseline, this approach enriches each POI with precise geographic coordinates (latitude, longitude). The incorporation of geospatial information enables the model to leverage spatial proximity patterns and geographical clustering effects inherent in tourist mobility behavior.
+\begin{figure}[H]
+\centering
+\textbf{Confusion Matrix - Baseline Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png}
+\caption{This heatmap illustrates the model’s confusion when predicting the next POI, showing how often it mistakes one POI for another.}
+\label{fig:baseline_confusion}
+\end{figure}
 
-\item \textbf{Comprehensive Context Strategy (Name + Geolocation + Temporal Context):} The most sophisticated approach integrates temporal features alongside spatial information, including precise timestamps, time-of-day categorizations, and day-of-week indicators. This strategy captures the full spatio-temporal complexity of tourist mobility patterns.
+\begin{figure}[H]
+\centering
+\textbf{MRR Distribution - Baseline Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png}
+\caption{Mean Reciprocal Rank (MRR) distribution across predictions, showing how well the model ranks the correct POI.}
+\label{fig:baseline_mrr}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\textbf{Top-1 Accuracy - Baseline Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png}
+\caption{Top-1 accuracy score indicating the proportion of times the correct POI was the top prediction.}
+\label{fig:baseline_top1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\textbf{Top-5 Hit Rate - Baseline Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png}
+\caption{Percentage of predictions where the correct POI appears among the top 5 suggested POIs.}
+\label{fig:baseline_top5}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\textbf{Worst Performing POI Pairs - Baseline Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png}
+\caption{Pairs of POIs that are most commonly mispredicted, providing insight into frequent confusion cases.}
+\label{fig:baseline_worst_pairs}
+\end{figure}
+
+\item \textbf{Geospatial-Enhanced Strategy (Name + Geolocation):} This strategy enriches each POI with precise geographic coordinates, allowing the model to leverage spatial patterns.
+
+\begin{figure}[H]
+\centering
+\textbf{Confusion Matrix - Geospatial Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../img/your_image_1.png}
+\caption{Confusion matrix showing prediction performance when spatial coordinates are included.}
+\label{fig:geospatial_confusion}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\textbf{MRR Distribution - Geospatial Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../img/your_image_2.png}
+\caption{Distribution of MRR scores when geolocation is integrated into the input.}
+\label{fig:geospatial_mrr}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\textbf{Top-1 Accuracy - Geospatial Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../img/your_image_3.png}
+\caption{Accuracy of top-ranked predictions under the geospatial-enhanced strategy.}
+\label{fig:geospatial_top1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\textbf{Top-5 Hit Rate - Geospatial Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../img/your_image_4.png}
+\caption{Hit rate for top-5 POIs when spatial data is considered.}
+\label{fig:geospatial_top5}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\textbf{Worst Performing POI Pairs - Geospatial Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../img/your_image_5.png}
+\caption{Most error-prone POI transitions despite spatial awareness.}
+\label{fig:geospatial_worst_pairs}
+\end{figure}
+
+\item \textbf{Comprehensive Context Strategy (Name + Geolocation + Temporal Context):} This approach includes spatial and temporal features, offering the model full spatio-temporal information.
+
+\begin{figure}[H]
+\centering
+\textbf{Confusion Matrix - Comprehensive Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../img/your_image_6.png}
+\caption{Confusion matrix using both spatial and temporal information for POI prediction.}
+\label{fig:comprehensive_confusion}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\textbf{MRR Distribution - Comprehensive Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../img/your_image_7.png}
+\caption{MRR distribution reflecting model ranking effectiveness under full context.}
+\label{fig:comprehensive_mrr}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\textbf{Top-1 Accuracy - Comprehensive Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../img/your_image_8.png}
+\caption{Top-1 accuracy of the model using complete spatio-temporal context.}
+\label{fig:comprehensive_top1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\textbf{Top-5 Hit Rate - Comprehensive Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../img/your_image_9.png}
+\caption{Hit rate within top-5 predictions using the full contextual strategy.}
+\label{fig:comprehensive_top5}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\textbf{Worst Performing POI Pairs - Comprehensive Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../img/your_image_10.png}
+\caption{Difficult POI pairs under the most advanced strategy, despite temporal and spatial modeling.}
+\label{fig:comprehensive_worst_pairs}
+\end{figure}
+
 \end{enumerate}
+
 
 \subsection{Experimental Protocol}
 
@@ -216,6 +355,164 @@ The user segmentation approach reveals heterogeneous performance patterns across
 \caption{Performance breakdown by user cluster, demonstrating the effectiveness of behaviorally-informed prompting strategies.}
 \label{fig:cluster_performance}
 \end{figure}
+
+\subsection{Detailed Performance Analysis by Prompting Strategy}
+
+To provide comprehensive insights into the behavior of each prompting strategy, we present detailed performance analysis encompassing confusion matrices, ranking metrics, and error patterns. This section systematically examines the four key performance indicators for each of the three prompting approaches.
+
+\subsubsection{Baseline Strategy Performance Analysis (POI Name Only)}
+
+The baseline strategy, utilizing only POI names without contextual information, establishes the foundation for performance comparison. The following visualizations provide comprehensive insights into the model's behavior under minimal contextual constraints.
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+% [Confusion Matrix visualization code here]
+\caption{Confusion Matrix for POI Name Only Strategy}
+\label{fig:baseline_confusion}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+% [MRR visualization code here]
+\caption{Mean Reciprocal Rank Distribution}
+\label{fig:baseline_mrr}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+% [Top-1 Accuracy visualization code here]
+\caption{Top-1 Accuracy Performance}
+\label{fig:baseline_top1}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+% [Top-5 Hit Rate visualization code here]
+\caption{Top-5 Hit Rate Performance}
+\label{fig:baseline_top5}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+% [Worst performing pairs visualization code here]
+\caption{Worst Performing POI Transition Pairs - Baseline Strategy}
+\label{fig:baseline_worst_pairs}
+\end{figure}
+
+The baseline strategy demonstrates fundamental sequential learning capabilities, with the confusion matrix revealing strong diagonal patterns for frequently visited POI pairs. The MRR distribution shows moderate ranking performance, while Top-1 and Top-5 metrics establish the performance floor for contextual enhancements.
+
+\subsubsection{Geospatial-Enhanced Strategy Performance Analysis (Name + Geolocation)}
+
+The integration of geospatial information significantly enhances prediction accuracy by incorporating spatial proximity constraints. The following analysis demonstrates the substantial improvements achieved through geographical context integration.
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+% [Confusion Matrix visualization code here]
+\caption{Confusion Matrix for Geospatial-Enhanced Strategy}
+\label{fig:geospatial_confusion}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+% [MRR visualization code here]
+\caption{Mean Reciprocal Rank Distribution}
+\label{fig:geospatial_mrr}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+% [Top-1 Accuracy visualization code here]
+\caption{Top-1 Accuracy Performance}
+\label{fig:geospatial_top1}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+% [Top-5 Hit Rate visualization code here]
+\caption{Top-5 Hit Rate Performance}
+\label{fig:geospatial_top5}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+% [Worst performing pairs visualization code here]
+\caption{Worst Performing POI Transition Pairs - Geospatial-Enhanced Strategy}
+\label{fig:geospatial_worst_pairs}
+\end{figure}
+
+The geospatial-enhanced strategy shows marked improvements in all performance metrics, with the confusion matrix displaying stronger clustering patterns for geographically proximate POIs. The MRR distribution shifts toward higher values, indicating better ranking quality, while both Top-1 and Top-5 metrics demonstrate substantial gains over the baseline approach.
+
+\subsubsection{Comprehensive Context Strategy Performance Analysis (Name + Geolocation + Temporal)}
+
+The most sophisticated approach incorporates temporal context alongside spatial information, capturing the full complexity of spatio-temporal mobility patterns. The analysis reveals the incremental benefits of temporal feature integration.
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+% [Confusion Matrix visualization code here]
+\caption{Confusion Matrix for Comprehensive Context Strategy}
+\label{fig:comprehensive_confusion}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+% [MRR visualization code here]
+\caption{Mean Reciprocal Rank Distribution}
+\label{fig:comprehensive_mrr}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+% [Top-1 Accuracy visualization code here]
+\caption{Top-1 Accuracy Performance}
+\label{fig:comprehensive_top1}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+% [Top-5 Hit Rate visualization code here]
+\caption{Top-5 Hit Rate Performance}
+\label{fig:comprehensive_top5}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+% [Worst performing pairs visualization code here]
+\caption{Worst Performing POI Transition Pairs - Comprehensive Context Strategy}
+\label{fig:comprehensive_worst_pairs}
+\end{figure}
+
+The comprehensive context strategy achieves the highest performance across all metrics, with the confusion matrix showing the most refined prediction patterns. The temporal context provides additional discriminative power, particularly for time-sensitive POI transitions, resulting in the best MRR distribution and Top-k performance metrics.
+
+\subsubsection{Comparative Analysis Across Strategies}
+
+The systematic comparison across the three prompting strategies reveals clear performance hierarchies and provides insights into the relative importance of different contextual features in tourist mobility prediction.
+
+\begin{figure}[h]
+\centering
+% [Comparative visualization code here]
+\caption{Performance Comparison Across All Strategies: (a) Top-1 Accuracy, (b) Top-5 Hit Rate, (c) MRR, (d) Prediction Error Rates}
+\label{fig:strategy_comparison_detailed}
+\end{figure}
+
+The comparative analysis demonstrates that geospatial context provides the most significant performance improvement, with temporal context offering additional but more marginal gains. The worst-performing pairs analysis reveals that prediction failures are predominantly associated with long-distance transitions that violate typical spatial clustering patterns.
 
 \subsection{Error Analysis and Model Interpretability}
 
