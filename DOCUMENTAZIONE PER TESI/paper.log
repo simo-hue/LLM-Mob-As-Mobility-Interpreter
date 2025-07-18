@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.7.16)  18 JUL 2025 17:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.7.16)  18 JUL 2025 17:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -573,7 +573,7 @@ Package pdftex.def Info: ../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matr
 <../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png, id=44, 384.83775pt x 269.808pt>
 File: ../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png Graphic file (type png)
 <use ../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png>
-Package pdftex.def Info: ../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png  used on input line 131.
+Package pdftex.def Info: ../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png  used on input line 132.
 (pdftex.def)             Requested size: 362.37569pt x 254.07242pt.
 
 
@@ -581,69 +581,68 @@ Package pdftex.def Info: ../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distributi
 <../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png, id=54, 384.83775pt x 269.808pt>
 File: ../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png Graphic file (type png)
 <use ../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png>
-Package pdftex.def Info: ../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png  used on input line 140.
+Package pdftex.def Info: ../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png  used on input line 142.
 (pdftex.def)             Requested size: 362.37569pt x 254.07242pt.
-<../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png, id=55, 394.47375pt x 269.808pt>
+
+
+[5 <../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png>]
+<../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png, id=61, 394.47375pt x 269.808pt>
 File: ../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png Graphic file (type png)
 <use ../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png>
-Package pdftex.def Info: ../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png  used on input line 149.
+Package pdftex.def Info: ../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png  used on input line 152.
 (pdftex.def)             Requested size: 362.37569pt x 247.85585pt.
 
 
-[5 <../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png> <../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png>]
-<../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png, id=64, 634.16925pt x 284.262pt>
+[6 <../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png>]
+<../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png, id=68, 634.16925pt x 284.262pt>
 File: ../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png Graphic file (type png)
 <use ../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png>
-Package pdftex.def Info: ../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png  used on input line 158.
+Package pdftex.def Info: ../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png  used on input line 161.
 (pdftex.def)             Requested size: 362.37569pt x 162.4344pt.
 
 
-LaTeX Warning: File `../img/your_image_1.png' not found on input line 169.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:172: LaTeX Error: File `../img/' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.172 ...udegraphics[width=0.8\textwidth]{../img/}
+                                                  
+I could not locate the file with any of these extensions:
+.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:169: Package pdftex.def Error: File `../img/your_image_1.png' not found: using draft setting.
+LaTeX Warning: File `../img/your_image_2.png' not found on input line 181.
+
+
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:181: Package pdftex.def Error: File `../img/your_image_2.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.169 ...h=0.8\textwidth]{../img/your_image_1.png}
+l.181 ...h=0.8\textwidth]{../img/your_image_2.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
 
-[6 <../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png> <../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png>]
+[7 <../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png> <../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png>]
 
-LaTeX Warning: File `../img/your_image_2.png' not found on input line 178.
-
-
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:178: Package pdftex.def Error: File `../img/your_image_2.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.178 ...h=0.8\textwidth]{../img/your_image_2.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+LaTeX Warning: File `../img/your_image_3.png' not found on input line 190.
 
 
-
-[7]
-
-LaTeX Warning: File `../img/your_image_3.png' not found on input line 187.
-
-
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:187: Package pdftex.def Error: File `../img/your_image_3.png' not found: using draft setting.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:190: Package pdftex.def Error: File `../img/your_image_3.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.187 ...h=0.8\textwidth]{../img/your_image_3.png}
+l.190 ...h=0.8\textwidth]{../img/your_image_3.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -652,16 +651,16 @@ If that doesn't work, type  X <return>  to quit.
 
 [8]
 
-LaTeX Warning: File `../img/your_image_4.png' not found on input line 196.
+LaTeX Warning: File `../img/your_image_4.png' not found on input line 199.
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:196: Package pdftex.def Error: File `../img/your_image_4.png' not found: using draft setting.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:199: Package pdftex.def Error: File `../img/your_image_4.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.196 ...h=0.8\textwidth]{../img/your_image_4.png}
+l.199 ...h=0.8\textwidth]{../img/your_image_4.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -670,16 +669,16 @@ If that doesn't work, type  X <return>  to quit.
 
 [9]
 
-LaTeX Warning: File `../img/your_image_5.png' not found on input line 205.
+LaTeX Warning: File `../img/your_image_5.png' not found on input line 208.
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:205: Package pdftex.def Error: File `../img/your_image_5.png' not found: using draft setting.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:208: Package pdftex.def Error: File `../img/your_image_5.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.205 ...h=0.8\textwidth]{../img/your_image_5.png}
+l.208 ...h=0.8\textwidth]{../img/your_image_5.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -688,16 +687,16 @@ If that doesn't work, type  X <return>  to quit.
 
 [10]
 
-LaTeX Warning: File `../img/your_image_6.png' not found on input line 216.
+LaTeX Warning: File `../img/your_image_6.png' not found on input line 219.
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:216: Package pdftex.def Error: File `../img/your_image_6.png' not found: using draft setting.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:219: Package pdftex.def Error: File `../img/your_image_6.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.216 ...h=0.8\textwidth]{../img/your_image_6.png}
+l.219 ...h=0.8\textwidth]{../img/your_image_6.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -706,16 +705,16 @@ If that doesn't work, type  X <return>  to quit.
 
 [11]
 
-LaTeX Warning: File `../img/your_image_7.png' not found on input line 225.
+LaTeX Warning: File `../img/your_image_7.png' not found on input line 228.
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:225: Package pdftex.def Error: File `../img/your_image_7.png' not found: using draft setting.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:228: Package pdftex.def Error: File `../img/your_image_7.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.225 ...h=0.8\textwidth]{../img/your_image_7.png}
+l.228 ...h=0.8\textwidth]{../img/your_image_7.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -724,16 +723,16 @@ If that doesn't work, type  X <return>  to quit.
 
 [12]
 
-LaTeX Warning: File `../img/your_image_8.png' not found on input line 234.
+LaTeX Warning: File `../img/your_image_8.png' not found on input line 237.
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:234: Package pdftex.def Error: File `../img/your_image_8.png' not found: using draft setting.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:237: Package pdftex.def Error: File `../img/your_image_8.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.234 ...h=0.8\textwidth]{../img/your_image_8.png}
+l.237 ...h=0.8\textwidth]{../img/your_image_8.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -742,16 +741,16 @@ If that doesn't work, type  X <return>  to quit.
 
 [13]
 
-LaTeX Warning: File `../img/your_image_9.png' not found on input line 243.
+LaTeX Warning: File `../img/your_image_9.png' not found on input line 246.
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:243: Package pdftex.def Error: File `../img/your_image_9.png' not found: using draft setting.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:246: Package pdftex.def Error: File `../img/your_image_9.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.243 ...h=0.8\textwidth]{../img/your_image_9.png}
+l.246 ...h=0.8\textwidth]{../img/your_image_9.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -760,16 +759,16 @@ If that doesn't work, type  X <return>  to quit.
 
 [14]
 
-LaTeX Warning: File `../img/your_image_10.png' not found on input line 252.
+LaTeX Warning: File `../img/your_image_10.png' not found on input line 255.
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:252: Package pdftex.def Error: File `../img/your_image_10.png' not found: using draft setting.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:255: Package pdftex.def Error: File `../img/your_image_10.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.252 ...=0.8\textwidth]{../img/your_image_10.png}
+l.255 ...=0.8\textwidth]{../img/your_image_10.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -784,42 +783,42 @@ File: lstlang2.sty 2024/09/23 1.10c listings language file
 File: lstlang3.sty 2024/09/23 1.10c listings language file
 )
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:272: Package Listings Error: Couldn't load requested language.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:275: Package Listings Error: Couldn't load requested language.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.272 ...on=Comprehensive Context Prompt Template]
+l.275 ...on=Comprehensive Context Prompt Template]
                                                   
 The following languages weren't loadable:
     ,text$
 This may cause errors in the sequel.
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:272: Package Listings Error: language text undefined.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:275: Package Listings Error: language text undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.272 ...on=Comprehensive Context Prompt Template]
+l.275 ...on=Comprehensive Context Prompt Template]
                                                   
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 272.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 275.
 
 
 [16]
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:274: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:277: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.274 dettagliata della geografia della città.
+l.277 dettagliata della geografia della città.
                                                
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -828,13 +827,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:274: LaTeX Error: Invalid UTF-8 byte "A0.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:277: LaTeX Error: Invalid UTF-8 byte "A0.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.274 dettagliata della geografia della città.
+l.277 dettagliata della geografia della città.
                                                
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -843,13 +842,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:283: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:286: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.283 Obiettivo: suggerisci i {top_k} POI più 
+l.286 Obiettivo: suggerisci i {top_k} POI più 
                                                probabili che
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -858,13 +857,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:283: LaTeX Error: Invalid UTF-8 byte "B9.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:286: LaTeX Error: Invalid UTF-8 byte "B9.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.283 Obiettivo: suggerisci i {top_k} POI più 
+l.286 Obiettivo: suggerisci i {top_k} POI più 
                                                probabili che
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -873,13 +872,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:284: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:287: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.284 l'utente visiterà 
+l.287 l'utente visiterà 
                          dopo, considerando:
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -888,13 +887,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:284: LaTeX Error: Invalid UTF-8 byte "A0.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:287: LaTeX Error: Invalid UTF-8 byte "A0.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.284 l'utente visiterà 
+l.287 l'utente visiterà 
                          dopo, considerando:
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -926,7 +925,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 [18]
-Underfull \hbox (badness 6094) in paragraph at lines 419--419
+Underfull \hbox (badness 6094) in paragraph at lines 422--422
 []\T1/cmr/bx/n/10.95 ((a)) |\T1/cmr/m/n/10.95 Con-fu-sion Ma-trix for Geospatial-
  []
 
@@ -962,46 +961,46 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [22]
 
 [23]
-Overfull \hbox (3.19586pt too wide) in paragraph at lines 697--699
+Overfull \hbox (3.19586pt too wide) in paragraph at lines 700--702
 \T1/cmr/m/n/12 This pa-per presents the power of gen-eral (non-fine-tuning) Large Lan-guage Mod-els (LLMs)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 697--699
+Underfull \hbox (badness 10000) in paragraph at lines 700--702
 
  []
 
 
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 700--701
+Underfull \hbox (badness 10000) in paragraph at lines 703--704
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 702--703
+Underfull \hbox (badness 10000) in paragraph at lines 705--706
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 721--722
+Underfull \hbox (badness 10000) in paragraph at lines 724--725
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 723--724
+Underfull \hbox (badness 10000) in paragraph at lines 726--727
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 725--726
+Underfull \hbox (badness 10000) in paragraph at lines 728--729
 
  []
 
 
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 727--728
+Underfull \hbox (badness 10000) in paragraph at lines 730--731
 
  []
 
@@ -1028,14 +1027,14 @@ Package rerunfilecheck Info: Checksums for `paper.out':
  ) 
 Here is how much of TeX's memory you used:
  15143 strings out of 473190
- 239825 string characters out of 5715800
+ 239345 string characters out of 5715800
  818452 words of memory out of 5000000
  38056 multiletter control sequences out of 15000+600000
  576141 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,8n,79p,1140b,1031s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on paper.pdf (26 pages, 526018 bytes).
+Output written on paper.pdf (26 pages, 527066 bytes).
 PDF statistics:
  395 PDF objects out of 1000 (max. 8388607)
  310 compressed objects within 4 object streams
