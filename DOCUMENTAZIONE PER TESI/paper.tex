@@ -89,7 +89,7 @@ The POI catalog includes major tourist attractions such as Arena di Verona, Casa
 Our preprocessing pipeline consists of several stages designed to clean and structure the raw mobility data:
 
 \subsubsection{Data Cleaning and Filtering}
-Raw visitor logs are processed to extract relevant information including visit timestamps, POI names, and tourist card identifiers. We filter out incomplete records and focus on tourists with multiple POI visits to ensure meaningful sequence analysis.
+Raw visitor logs are processed to extract relevant information including visit timestamps, POI names, and tourist card identifiers. We filter out incomplete records and focus on tourists with multiple POI visits to ensure meaningful sequence analysis ( At Least 3 visits ).
 
 \subsubsection{User Clustering}
 To capture behavioral patterns among tourists, we employ K-means clustering on user-POI interaction matrices. The clustering process involves:
@@ -104,7 +104,7 @@ This clustering approach enables the identification of distinct tourist profiles
 
 \section{Prompting Strategies and Experimental Results}
 
-The efficacy of Large Language Models (LLMs) in next-POI prediction is fundamentally dependent on the design of context-aware prompting strategies that effectively encode spatio-temporal mobility patterns. Our experimental framework systematically evaluates three distinct prompting paradigms, each progressively incorporating additional contextual dimensions to assess their impact on recommendation accuracy.
+The efficacy of Large Language Models (LLMs) in next-POI prediction is fundamentally dependent on the design of context-aware prompting strategies that effectively encode spatio-temporal mobility patterns.\\ Our experimental framework systematically evaluates three distinct prompting paradigms, each progressively incorporating additional contextual dimensions to assess their impact on recommendation accuracy.
 
 \subsection{Prompting Strategy Taxonomy}
 
@@ -162,7 +162,7 @@ We define three hierarchical prompting strategies, each building upon the previo
 \label{fig:baseline_worst_pairs}
 \end{figure}
 
-\item \textbf{Geospatial-Enhanced Strategy (Name + Geolocation):} This strategy enriches each POI with precise geographic coordinates, allowing the model to leverage spatial patterns.
+\item \textbf{Geospatial-Enhanced Strategy (Name + Geolocation):} This strategy enriches each POI with precise geographic coordinates, allowing the model to leverage spatial patterns between POIs. This approach may help the model to better understand the spatial relationships between POIs, potentially improving its ability to predict the next POI based on the current one.
 
 \begin{figure}[H]
 \centering
