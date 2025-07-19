@@ -1,0 +1,147 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduzione}{2}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Lavori correlati}{3}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Metodologia}{4}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Formulazione Del Problema}{4}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Descrizione Del Dataset}{4}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Pre-elaborazione e clustering dei dati}{4}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Pulizia e filtraggio dei dati}{4}{subsubsection.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Clustering degli utenti}{4}{subsubsection.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Strategie di prompt e risultati sperimentali}{6}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Tassonomia delle strategie di prompt}{6}{subsection.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces La matrice di confusione illustra i tassi di classificazione errata tra i 20 POI più visitati a Verona con la strategia di base. I colori più brillanti indicano una maggiore confusione. In particolare, Castelvecchio viene spesso erroneamente previsto come prossimo POI, a causa di forti bias sequenziali o di modelli di preferenze degli utenti. }}{6}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:baseline_confusion}{{1}{6}{La matrice di confusione illustra i tassi di classificazione errata tra i 20 POI più visitati a Verona con la strategia di base. I colori più brillanti indicano una maggiore confusione. In particolare, Castelvecchio viene spesso erroneamente previsto come prossimo POI, a causa di forti bias sequenziali o di modelli di preferenze degli utenti}{figure.caption.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Il grafico mostra la performance del Mean Reciprocal Rank (MRR) per anno, mostrando quanto bene il modello classifica il POI corretto. I valori oscillano tra l'11}}{7}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:baseline_mrr}{{2}{7}{Il grafico mostra la performance del Mean Reciprocal Rank (MRR) per anno, mostrando quanto bene il modello classifica il POI corretto. I valori oscillano tra l'11}{figure.caption.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Punteggio di accuratezza Top-1 che indica la percentuale di volte in cui il POI corretto è stato la previsione migliore.  I valori oscillano tra il 9}}{7}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:baseline_top1}{{3}{7}{Punteggio di accuratezza Top-1 che indica la percentuale di volte in cui il POI corretto è stato la previsione migliore.\\ I valori oscillano tra il 9}{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Percentuale di previsioni in cui il POI corretto compare tra i primi 5 POI suggeriti. (NESSUN ordine considerato tra i primi 5).  I valori oscillano tra circa il 13,5}}{8}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:baseline_top5}{{4}{8}{Percentuale di previsioni in cui il POI corretto compare tra i primi 5 POI suggeriti. (NESSUN ordine considerato tra i primi 5).\\ I valori oscillano tra circa il 13,5}{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Coppie di POI che vengono più comunemente previste erroneamente, fornendo informazioni sui casi di confusione più frequenti. Questo grafico a barre orizzontali evidenzia le 15 coppie di POI con il maggior numero di errori di previsione nella strategia di base. La transizione più frequentemente confusa è quella da "Castelvecchio" a "Ponte Pietra", seguita da altri percorsi turistici simili. Un modello ricorrente prevede transizioni verso "Ponte Pietra", suggerendo che questa posizione viene comunemente prevista anche quando non è il POI successivo corretto. Queste informazioni rivelano previsioni errate sistematiche e possono guidare miglioramenti mirati nel perfezionamento del modello. }}{8}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:baseline_worst_pairs}{{5}{8}{Coppie di POI che vengono più comunemente previste erroneamente, fornendo informazioni sui casi di confusione più frequenti.\\Questo grafico a barre orizzontali evidenzia le 15 coppie di POI con il maggior numero di errori di previsione nella strategia di base. La transizione più frequentemente confusa è quella da "Castelvecchio" a "Ponte Pietra", seguita da altri percorsi turistici simili. Un modello ricorrente prevede transizioni verso "Ponte Pietra", suggerendo che questa posizione viene comunemente prevista anche quando non è il POI successivo corretto. Queste informazioni rivelano previsioni errate sistematiche e possono guidare miglioramenti mirati nel perfezionamento del modello}{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Matrice di confusione che mostra le prestazioni di previsione quando sono incluse le coordinate spaziali.}}{9}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:geospatial_confusion}{{6}{9}{Matrice di confusione che mostra le prestazioni di previsione quando sono incluse le coordinate spaziali}{figure.caption.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Distribution of MRR scores when geolocation is integrated into the input.}}{10}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:geospatial_mrr}{{7}{10}{Distribution of MRR scores when geolocation is integrated into the input}{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Accuracy of top-ranked predictions under the geospatial-enhanced strategy.}}{10}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:geospatial_top1}{{8}{10}{Accuracy of top-ranked predictions under the geospatial-enhanced strategy}{figure.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Hit rate for top-5 POIs when spatial data is considered.}}{11}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:geospatial_top5}{{9}{11}{Hit rate for top-5 POIs when spatial data is considered}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Most error-prone POI transitions despite spatial awareness.}}{11}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:geospatial_worst_pairs}{{10}{11}{Most error-prone POI transitions despite spatial awareness}{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Confusion matrix using both spatial and temporal information for POI prediction.}}{12}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:comprehensive_confusion}{{11}{12}{Confusion matrix using both spatial and temporal information for POI prediction}{figure.caption.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces MRR distribution reflecting model ranking effectiveness under full context.}}{12}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:comprehensive_mrr}{{12}{12}{MRR distribution reflecting model ranking effectiveness under full context}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Top-1 accuracy of the model using complete spatio-temporal context.}}{13}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:comprehensive_top1}{{13}{13}{Top-1 accuracy of the model using complete spatio-temporal context}{figure.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Hit rate within top-5 predictions using the full contextual strategy.}}{13}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:comprehensive_top5}{{14}{13}{Hit rate within top-5 predictions using the full contextual strategy}{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Difficult POI pairs under the most advanced strategy, despite temporal and spatial modeling.}}{14}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:comprehensive_worst_pairs}{{15}{14}{Difficult POI pairs under the most advanced strategy, despite temporal and spatial modeling}{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Protocollo sperimentale}{14}{subsection.4.2}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}{\ignorespaces Comprehensive Context Prompt Template}}{14}{lstlisting.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Metriche di valutazione}{15}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Risultati sperimentali}{15}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Confronto delle prestazioni tra strategie}{15}{subsection.4.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Performance Comparison Across Prompting Strategies}}{15}{table.caption.16}\protected@file@percent }
+\newlabel{tab:strategy_comparison}{{1}{15}{Performance Comparison Across Prompting Strategies}{table.caption.16}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}Temporal Performance Analysis}{16}{subsubsection.4.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Performance metrics by year showing temporal stability across the evaluation period.}}{16}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:temporal_performance}{{16}{16}{Performance metrics by year showing temporal stability across the evaluation period}{figure.caption.17}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2}Geographical Context Impact}{16}{subsubsection.4.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Impact of geographical context on recommendation accuracy, showing performance improvements with distance-aware prompting.}}{16}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:geographical_impact}{{17}{16}{Impact of geographical context on recommendation accuracy, showing performance improvements with distance-aware prompting}{figure.caption.18}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.3}Cluster-Specific Performance}{16}{subsubsection.4.5.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Performance breakdown by user cluster, demonstrating the effectiveness of behaviorally-informed prompting strategies.}}{16}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:cluster_performance}{{18}{16}{Performance breakdown by user cluster, demonstrating the effectiveness of behaviorally-informed prompting strategies}{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Detailed Performance Analysis by Prompting Strategy}{16}{subsection.4.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.1}Baseline Strategy Performance Analysis (POI Name Only)}{16}{subsubsection.4.6.1}\protected@file@percent }
+\newlabel{fig:baseline_confusion}{{19(a)}{17}{Confusion Matrix for POI Name Only Strategy}{figure.caption.20}{}}
+\newlabel{sub@fig:baseline_confusion}{{(a)}{17}{Confusion Matrix for POI Name Only Strategy}{figure.caption.20}{}}
+\newlabel{fig:baseline_mrr}{{19(b)}{17}{Mean Reciprocal Rank Distribution}{figure.caption.20}{}}
+\newlabel{sub@fig:baseline_mrr}{{(b)}{17}{Mean Reciprocal Rank Distribution}{figure.caption.20}{}}
+\newlabel{fig:baseline_top1}{{20(a)}{17}{Top-1 Accuracy Performance}{figure.caption.21}{}}
+\newlabel{sub@fig:baseline_top1}{{(a)}{17}{Top-1 Accuracy Performance}{figure.caption.21}{}}
+\newlabel{fig:baseline_top5}{{20(b)}{17}{Top-5 Hit Rate Performance}{figure.caption.21}{}}
+\newlabel{sub@fig:baseline_top5}{{(b)}{17}{Top-5 Hit Rate Performance}{figure.caption.21}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.2}Geospatial-Enhanced Strategy Performance Analysis (Name + Geolocation)}{17}{subsubsection.4.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.3}Comprehensive Context Strategy Performance Analysis (Name + Geolocation + Temporal)}{17}{subsubsection.4.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.4}Analisi comparativa tra strategie}{17}{subsubsection.4.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Analisi degli errori e interpretabilità del modello}{17}{subsection.4.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Worst Performing POI Transition Pairs - Baseline Strategy}}{18}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:baseline_worst_pairs}{{21}{18}{Worst Performing POI Transition Pairs - Baseline Strategy}{figure.caption.22}{}}
+\newlabel{fig:geospatial_confusion}{{22(a)}{18}{Confusion Matrix for Geospatial-Enhanced Strategy}{figure.caption.23}{}}
+\newlabel{sub@fig:geospatial_confusion}{{(a)}{18}{Confusion Matrix for Geospatial-Enhanced Strategy}{figure.caption.23}{}}
+\newlabel{fig:geospatial_mrr}{{22(b)}{18}{Mean Reciprocal Rank Distribution}{figure.caption.23}{}}
+\newlabel{sub@fig:geospatial_mrr}{{(b)}{18}{Mean Reciprocal Rank Distribution}{figure.caption.23}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.8}Discussione}{18}{subsection.4.8}\protected@file@percent }
+\newlabel{fig:geospatial_top1}{{23(a)}{19}{Top-1 Accuracy Performance}{figure.caption.24}{}}
+\newlabel{sub@fig:geospatial_top1}{{(a)}{19}{Top-1 Accuracy Performance}{figure.caption.24}{}}
+\newlabel{fig:geospatial_top5}{{23(b)}{19}{Top-5 Hit Rate Performance}{figure.caption.24}{}}
+\newlabel{sub@fig:geospatial_top5}{{(b)}{19}{Top-5 Hit Rate Performance}{figure.caption.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Worst Performing POI Transition Pairs - Geospatial-Enhanced Strategy}}{19}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:geospatial_worst_pairs}{{24}{19}{Worst Performing POI Transition Pairs - Geospatial-Enhanced Strategy}{figure.caption.25}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Configurazione sperimentale}{19}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Metodologia di valutazione}{19}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Costruzione del set di test}{19}{subsubsection.5.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.2}Selezione del punto di ancoraggio}{19}{subsubsection.5.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.3}Metriche di prestazione}{19}{subsubsection.5.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Configurazioni sperimentali}{19}{subsection.5.2}\protected@file@percent }
+\newlabel{fig:comprehensive_confusion}{{25(a)}{20}{Confusion Matrix for Comprehensive Context Strategy}{figure.caption.26}{}}
+\newlabel{sub@fig:comprehensive_confusion}{{(a)}{20}{Confusion Matrix for Comprehensive Context Strategy}{figure.caption.26}{}}
+\newlabel{fig:comprehensive_mrr}{{25(b)}{20}{Mean Reciprocal Rank Distribution}{figure.caption.26}{}}
+\newlabel{sub@fig:comprehensive_mrr}{{(b)}{20}{Mean Reciprocal Rank Distribution}{figure.caption.26}{}}
+\newlabel{fig:comprehensive_top1}{{26(a)}{20}{Top-1 Accuracy Performance}{figure.caption.27}{}}
+\newlabel{sub@fig:comprehensive_top1}{{(a)}{20}{Top-1 Accuracy Performance}{figure.caption.27}{}}
+\newlabel{fig:comprehensive_top5}{{26(b)}{20}{Top-5 Hit Rate Performance}{figure.caption.27}{}}
+\newlabel{sub@fig:comprehensive_top5}{{(b)}{20}{Top-5 Hit Rate Performance}{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Risultati e analisi}{20}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Confronto delle prestazioni tra i diversi tipi di contesto}{20}{subsection.6.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Prediction accuracy comparison across different contextual information types}}{20}{table.caption.30}\protected@file@percent }
+\newlabel{tab:context_comparison}{{2}{20}{Prediction accuracy comparison across different contextual information types}{table.caption.30}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Impatto delle informazioni geografiche}{20}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}Previsioni basate sulla distanza}{20}{subsubsection.6.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}Analisi del clustering spaziale}{20}{subsubsection.6.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {29}{\ignorespaces Geographical distribution of POI predictions and their accuracy rates}}{20}{figure.caption.31}\protected@file@percent }
+\newlabel{fig:geographical_analysis}{{29}{20}{Geographical distribution of POI predictions and their accuracy rates}{figure.caption.31}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Analisi dei pattern temporali}{20}{subsection.6.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {27}{\ignorespaces Worst Performing POI Transition Pairs - Comprehensive Context Strategy}}{21}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:comprehensive_worst_pairs}{{27}{21}{Worst Performing POI Transition Pairs - Comprehensive Context Strategy}{figure.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {28}{\ignorespaces Confronto delle prestazioni tra tutte le strategie: (a) Precisione Top-1, (b) Tasso di successo Top-5, (c) MRR, (d) Tassi di errore di previsione}}{21}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:strategy_comparison_detailed}{{28}{21}{Confronto delle prestazioni tra tutte le strategie: (a) Precisione Top-1, (b) Tasso di successo Top-5, (c) MRR, (d) Tassi di errore di previsione}{figure.caption.29}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Effetti dell'ora del giorno}{21}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Variazioni stagionali}{21}{subsection.6.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {30}{\ignorespaces Temporal patterns in tourist mobility and their impact on prediction accuracy}}{21}{figure.caption.32}\protected@file@percent }
+\newlabel{fig:temporal_analysis}{{30}{21}{Temporal patterns in tourist mobility and their impact on prediction accuracy}{figure.caption.32}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Analisi del comportamento basata sui cluster}{21}{subsection.6.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.7}Turisti culturali}{21}{subsection.6.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.8}Visitatori occasionali}{21}{subsection.6.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.9}Esploratori sistematici}{21}{subsection.6.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {31}{\ignorespaces Tourist cluster characteristics and their impact on mobility prediction}}{21}{figure.caption.33}\protected@file@percent }
+\newlabel{fig:cluster_analysis}{{31}{21}{Tourist cluster characteristics and their impact on mobility prediction}{figure.caption.33}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Discussione}{22}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Vantaggi dell'approccio basato su LLM}{22}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Ingegneria delle feature ridotta}{22}{subsection.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Comprensione contestuale}{22}{subsection.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Interpretabilità}{22}{subsection.7.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}Limitazioni e sfide}{22}{subsection.7.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.6}Requisiti computazionali}{22}{subsection.7.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.6.1}Sensibilità dei prompt}{22}{subsubsection.7.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.6.2}Problemi di scalabilità}{22}{subsubsection.7.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Lavori futuri}{23}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Integrazione multimodale}{23}{subsection.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Integrazione delle informazioni meteorologiche}{23}{subsection.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Previsione in tempo reale}{23}{subsection.8.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Generalizzazione interurbana}{23}{subsection.8.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}Personalizzazione}{23}{subsection.8.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Conclusioni}{24}{section.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Dettagli di implementazione}{25}{section.10}\protected@file@percent }
+\bibstyle{plain}
+\bibdata{references}
+\@writefile{toc}{\contentsline {section}{\numberline {11}Ringraziamenti}{26}{section.11}\protected@file@percent }
+\gdef \@abspage@last{26}
