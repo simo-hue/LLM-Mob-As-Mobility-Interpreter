@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.7.16)  18 JUL 2025 20:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.7.16)  19 JUL 2025 15:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex"
-(/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex
+**"/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex"
+(/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -570,99 +570,276 @@ Overfull \hbox (1.907pt too wide) in paragraph at lines 107--108
 
 
 [3]
-<../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png, id=42, 570.33075pt x 425.79076pt>
-File: ../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png Graphic file (type png)
-<use ../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png>
-Package pdftex.def Info: ../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png  used on input line 121.
-(pdftex.def)             Requested size: 362.37569pt x 270.54305pt.
-<../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png, id=44, 384.83775pt x 269.808pt>
-File: ../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png Graphic file (type png)
-<use ../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png>
-Package pdftex.def Info: ../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png  used on input line 131.
-(pdftex.def)             Requested size: 362.37569pt x 254.07242pt.
+
+LaTeX Warning: File `../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png' not found on input line 121.
 
 
-[4 <../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png>]
-<../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png, id=54, 384.83775pt x 269.808pt>
-File: ../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png Graphic file (type png)
-<use ../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png>
-Package pdftex.def Info: ../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png  used on input line 141.
-(pdftex.def)             Requested size: 362.37569pt x 254.07242pt.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:121: Package pdftex.def Error: File `../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.121 ...-1_come_current_POI/confusion_matrix.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
-[5 <../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png>]
-<../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png, id=61, 394.47375pt x 269.808pt>
-File: ../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png Graphic file (type png)
-<use ../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png>
-Package pdftex.def Info: ../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png  used on input line 151.
-(pdftex.def)             Requested size: 362.37569pt x 247.85585pt.
+
+[4]
+
+LaTeX Warning: File `../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png' not found on input line 131.
 
 
-[6 <../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png>]
-<../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png, id=68, 634.16925pt x 284.262pt>
-File: ../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png Graphic file (type png)
-<use ../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png>
-Package pdftex.def Info: ../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png  used on input line 160.
-(pdftex.def)             Requested size: 362.37569pt x 162.4344pt.
-<../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg, id=69, 4015.0pt x 3011.25pt>
-File: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 171.
-(pdftex.def)             Requested size: 362.37569pt x 271.78192pt.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:131: Package pdftex.def Error: File `../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.131 ...-1_come_current_POI/mrr_distribution.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
-[7 <../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png> <../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png>]
-File: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 180.
-(pdftex.def)             Requested size: 362.37569pt x 271.78192pt.
-File: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 189.
-(pdftex.def)             Requested size: 362.37569pt x 271.78192pt.
+
+[5]
+
+LaTeX Warning: File `../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png' not found on input line 141.
 
 
-[8 <../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>]
-File: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 198.
-(pdftex.def)             Requested size: 362.37569pt x 271.78192pt.
-File: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 207.
-(pdftex.def)             Requested size: 362.37569pt x 271.78192pt.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:141: Package pdftex.def Error: File `../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...O_n-1_come_current_POI/top1_accuracy.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[6]
+
+LaTeX Warning: File `../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png' not found on input line 151.
+
+
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:151: Package pdftex.def Error: File `../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.151 ...O_n-1_come_current_POI/top5_hit_rate.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[7]
+
+LaTeX Warning: File `../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png' not found on input line 160.
+
+
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:160: Package pdftex.def Error: File `../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.160 ...e_current_POI/worst_performing_pairs.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[8]
+
+LaTeX Warning: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found on input line 171.
+
+
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:171: Package pdftex.def Error: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.171 ...g/SPACE-GEO_n-1_come_current_POI/tmp.jpg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 
 
 [9]
-File: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 218.
-(pdftex.def)             Requested size: 362.37569pt x 271.78192pt.
+
+LaTeX Warning: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found on input line 180.
+
+
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:180: Package pdftex.def Error: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.180 ...g/SPACE-GEO_n-1_come_current_POI/tmp.jpg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 
 
 [10]
-File: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 227.
-(pdftex.def)             Requested size: 362.37569pt x 271.78192pt.
-File: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 236.
-(pdftex.def)             Requested size: 362.37569pt x 271.78192pt.
+
+LaTeX Warning: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found on input line 189.
+
+
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:189: Package pdftex.def Error: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.189 ...g/SPACE-GEO_n-1_come_current_POI/tmp.jpg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 
 
 [11]
-File: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 245.
-(pdftex.def)             Requested size: 362.37569pt x 271.78192pt.
-File: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 254.
-(pdftex.def)             Requested size: 362.37569pt x 271.78192pt.
+
+LaTeX Warning: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found on input line 198.
 
 
-[12] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:198: Package pdftex.def Error: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.198 ...g/SPACE-GEO_n-1_come_current_POI/tmp.jpg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[12]
+
+LaTeX Warning: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found on input line 207.
+
+
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:207: Package pdftex.def Error: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.207 ...g/SPACE-GEO_n-1_come_current_POI/tmp.jpg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[13]
+
+LaTeX Warning: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found on input line 218.
+
+
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:218: Package pdftex.def Error: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.218 ...g/SPACE-GEO_n-1_come_current_POI/tmp.jpg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[14]
+
+LaTeX Warning: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found on input line 227.
+
+
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:227: Package pdftex.def Error: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.227 ...g/SPACE-GEO_n-1_come_current_POI/tmp.jpg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[15]
+
+LaTeX Warning: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found on input line 236.
+
+
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:236: Package pdftex.def Error: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.236 ...g/SPACE-GEO_n-1_come_current_POI/tmp.jpg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[16]
+
+LaTeX Warning: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found on input line 245.
+
+
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:245: Package pdftex.def Error: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.245 ...g/SPACE-GEO_n-1_come_current_POI/tmp.jpg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[17]
+
+LaTeX Warning: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found on input line 254.
+
+
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:254: Package pdftex.def Error: File `../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.254 ...g/SPACE-GEO_n-1_come_current_POI/tmp.jpg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[18] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang2.sty
 File: lstlang2.sty 2024/09/23 1.10c listings language file
@@ -670,7 +847,7 @@ File: lstlang2.sty 2024/09/23 1.10c listings language file
 File: lstlang3.sty 2024/09/23 1.10c listings language file
 )
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:274: Package Listings Error: Couldn't load requested language.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:274: Package Listings Error: Couldn't load requested language.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -683,7 +860,7 @@ The following languages weren't loadable:
 This may cause errors in the sequel.
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:274: Package Listings Error: language text undefined.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:274: Package Listings Error: language text undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -696,7 +873,10 @@ If that doesn't work, type  X <return>  to quit.
 
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 274.
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:276: LaTeX Error: Invalid UTF-8 byte sequence (Ã\expandafter).
+
+[19]
+
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:276: LaTeX Error: Invalid UTF-8 byte sequence (Ã\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -711,7 +891,7 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:276: LaTeX Error: Invalid UTF-8 byte "A0.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:276: LaTeX Error: Invalid UTF-8 byte "A0.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -726,10 +906,7 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-
-[13]
-
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:285: LaTeX Error: Invalid UTF-8 byte sequence (Ã\expandafter).
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:285: LaTeX Error: Invalid UTF-8 byte sequence (Ã\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -744,7 +921,7 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:285: LaTeX Error: Invalid UTF-8 byte "B9.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:285: LaTeX Error: Invalid UTF-8 byte "B9.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -759,7 +936,7 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:286: LaTeX Error: Invalid UTF-8 byte sequence (Ã\expandafter).
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:286: LaTeX Error: Invalid UTF-8 byte sequence (Ã\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -774,7 +951,7 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE PER TESI/paper.tex:286: LaTeX Error: Invalid UTF-8 byte "A0.
+/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/PER TESI/PAPER/paper.tex:286: LaTeX Error: Invalid UTF-8 byte "A0.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -789,8 +966,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-[14]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[20]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -801,8 +984,11 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-[15]
+
+
+[21]
 Underfull \hbox (badness 6094) in paragraph at lines 421--421
 []\T1/cmr/bx/n/10.95 ((a)) |\T1/cmr/m/n/10.95 Con-fu-sion Ma-trix for Geospatial-
  []
@@ -830,27 +1016,22 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[16]
+[22]
 
-[17]
+[23]
 
-[18]
+[24]
 
-[19]
+[25]
 
-[20]
-Overfull \hbox (3.19586pt too wide) in paragraph at lines 702--704
-\T1/cmr/m/n/12 This pa-per presents the power of gen-eral (non-fine-tuning) Large Lan-guage Mod-els (LLMs)
- []
-
-
+[26]
 Underfull \hbox (badness 10000) in paragraph at lines 702--704
 
  []
 
 
 
-[21]
+[27]
 Underfull \hbox (badness 10000) in paragraph at lines 705--706
 
  []
@@ -861,31 +1042,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 707--708
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 726--727
+Underfull \hbox (badness 10000) in paragraph at lines 725--726
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 728--729
+Underfull \hbox (badness 10000) in paragraph at lines 727--728
 
  []
 
 
 
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 730--731
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 729--730
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 732--733
+Underfull \hbox (badness 10000) in paragraph at lines 731--732
 
  []
 
 No file paper.bbl.
 
 
-[23] (./paper.aux)
+[29] (./paper.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -904,18 +1085,18 @@ Package rerunfilecheck Info: Checksums for `paper.out':
 (rerunfilecheck)             After:  4DCB1A98B3B0A3236D7DA5D028378087;11630.
  ) 
 Here is how much of TeX's memory you used:
- 14851 strings out of 473190
- 230253 string characters out of 5715800
- 813488 words of memory out of 5000000
- 37764 multiletter control sequences out of 15000+600000
+ 14995 strings out of 473190
+ 239854 string characters out of 5715800
+ 818192 words of memory out of 5000000
+ 37902 multiletter control sequences out of 15000+600000
  576141 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,8n,79p,1140b,1893s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,8n,79p,1131b,1031s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on paper.pdf (23 pages, 1129800 bytes).
+Output written on paper.pdf (29 pages, 349913 bytes).
 PDF statistics:
- 384 PDF objects out of 1000 (max. 8388607)
- 301 compressed objects within 4 object streams
- 146 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 398 PDF objects out of 1000 (max. 8388607)
+ 320 compressed objects within 4 object streams
+ 152 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
