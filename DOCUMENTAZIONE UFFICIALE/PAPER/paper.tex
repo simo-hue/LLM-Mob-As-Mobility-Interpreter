@@ -149,7 +149,8 @@ We define three hierarchical prompting strategies, each building upon the previo
 \textbf{Top-5 Hit Rate - Baseline Strategy}\par
 \vspace{0.5em}
 \includegraphics[width=0.8\textwidth]{../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png}
-\caption{Percentage of predictions where the correct POI appears among the top 5 suggested POIs. ( NO order considered in the top 5)}
+\caption{Percentage of predictions where the correct POI appears among the top 5 suggested POIs. ( NO order considered in the top 5).\\ The values fluctuate between approximately 13.5\% and 18\%, with the highest performance reached in 2020. The significant dip in 2021 may reflect disruptions in travel behavior due to the pandemic. Despite this anomaly, the overall trend indicates that the model reliably includes the correct POI within its top 5 recommendations in most cases.
+}
 \label{fig:baseline_top5}
 \end{figure}
 
@@ -158,7 +159,8 @@ We define three hierarchical prompting strategies, each building upon the previo
 \textbf{Worst Performing POI Pairs - Baseline Strategy}\par
 \vspace{0.5em}
 \includegraphics[width=0.8\textwidth]{../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png}
-\caption{Pairs of POIs that are most commonly mispredicted, providing insight into frequent confusion cases.}
+\caption{Pairs of POIs that are most commonly mispredicted, providing insight into frequent confusion cases.\\This horizontal bar chart highlights the top 15 POI pairs with the highest number of prediction errors in the baseline strategy. The most frequently confused transition is from "Castelvecchio" to "Ponte Pietra", followed by other similar tourist routes. A recurring pattern involves transitions toward "Ponte Pietra", suggesting that this location is commonly predicted even when not the correct next POI. These insights reveal systematic mispredictions and can guide targeted improvements in model refinement.
+}
 \label{fig:baseline_worst_pairs}
 \end{figure}
 
