@@ -1,0 +1,36 @@
+\section{Configurazione sperimentale}
+
+\subsection{Metodologia di valutazione}
+
+Valutiamo il framework LLM-Mob utilizzando un disegno sperimentale completo che cattura diversi aspetti delle prestazioni di previsione della mobilità:
+
+\subsubsection{Costruzione del set di test}
+Per ogni turista con almeno tre visite a POI, costruiamo istanze di previsione tramite:
+\begin{enumerate}
+\item Considerando la sequenza completa di visite $S = \{p_1, p_2, ..., p_n\}$
+\item Utilizzando $\{p_1, p_2, ..., p_{n-1}\}$ come contesto di input
+\item Prevedendo $p_n$ come target
+\end{enumerate}
+
+\subsubsection{Selezione del punto di ancoraggio}
+Implementiamo strategie flessibili di selezione del punto di ancoraggio per studiare l'impatto di diversi punti di riferimento:
+\begin{itemize}
+\item \textbf{Penultimo}: Utilizza il penultimo POI visitato come posizione corrente
+\item \textbf{Primo}: Utilizza il primo POI visitato come posizione corrente
+\item \textbf{Medio}: Utilizza il POI centrale nella sequenza come posizione corrente
+\item \textbf{Indice personalizzato}: Consente di specificare punti di ancoraggio arbitrari
+\end{itemize}
+
+\subsubsection{Metriche di prestazione}
+Valutiamo le prestazioni di previsione utilizzando l'accuratezza Hit@K, dove una previsione è considerata corretta se il POI di base compare nelle prime K posizioni previste. Il nostro obiettivo principale è l'accuratezza Hit@5 per valutare l'utilità pratica del sistema.
+
+\subsection{Configurazioni sperimentali}
+
+I nostri esperimenti sono progettati per indagare i seguenti quesiti di ricerca:
+
+\begin{enumerate}
+\item In che modo l'inclusione di informazioni geografiche influisce sull'accuratezza della previsione?
+\item Qual è l'impatto del contesto temporale sulle prestazioni di previsione della mobilità?
+\item In che modo diversi cluster comportamentali turistici influenzano i risultati della previsione? \item Quale ruolo gioca la prossimità geografica nei modelli di spostamento turistico?
+\end{enumerate}
+

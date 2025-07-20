@@ -323,9 +323,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tikzfill/tikzfill-common.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
-INPUT ./main.aux
-INPUT ./main.aux
-INPUT main.aux
 OUTPUT main.aux
 INPUT /usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -335,14 +332,8 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.st
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-INPUT ./main.out
-INPUT ./main.out
-INPUT main.out
-INPUT main.out
-OUTPUT main.pdf
-INPUT ./main.out
-INPUT ./main.out
 OUTPUT main.out
+OUTPUT main.pdf
 INPUT ./tex/0-titlepage.tex
 INPUT ./tex/0-titlepage.tex
 INPUT ./tex/0-titlepage.tex
@@ -362,13 +353,36 @@ INPUT /usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/tex-gyre/ec-qcsr.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/tex-gyre/ec-qcsb.tfm
-INPUT ./main.toc
-INPUT ./main.toc
-INPUT main.toc
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+OUTPUT main.toc
+INPUT ./tex/1-Abstract.tex
+INPUT ./tex/1-Abstract.tex
+INPUT tex/1-Abstract.tex
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/tex-gyre/ec-qcsr.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/tex-gyre/ec-qcsb.tfm
+INPUT ./tex/2-Introduzione.tex
+INPUT ./tex/2-Introduzione.tex
+INPUT ./tex/2-Introduzione.tex
+INPUT ./tex/2-Introduzione.tex
+INPUT tex/2-Introduzione.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tex-gyre/ts1qcs.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tex-gyre/ts1qcs.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tex-gyre/ts1qcs.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/tex-gyre/ts1-qcsr.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc
+INPUT ./tex/3-Lavori Correlati.tex
+INPUT ./tex/3-Lavori Correlati.tex
+INPUT ./tex/3-Lavori Correlati.tex
+INPUT ./tex/3-Lavori Correlati.tex
+INPUT tex/3-Lavori Correlati.tex
+INPUT ./tex/4-Metodologia.tex
+INPUT ./tex/4-Metodologia.tex
+INPUT ./tex/4-Metodologia.tex
+INPUT ./tex/4-Metodologia.tex
+INPUT tex/4-Metodologia.tex
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
@@ -377,63 +391,163 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-OUTPUT main.toc
-INPUT ./tex/1-introduction.tex
-INPUT ./tex/1-introduction.tex
-INPUT ./tex/1-introduction.tex
-INPUT ./tex/1-introduction.tex
-INPUT tex/1-introduction.tex
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tex-gyre/ts1qcs.fd
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tex-gyre/ts1qcs.fd
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tex-gyre/ts1qcs.fd
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/tex-gyre/ts1-qcsr.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc
-INPUT ./tex/2-theory.tex
-INPUT ./tex/2-theory.tex
-INPUT ./tex/2-theory.tex
-INPUT ./tex/2-theory.tex
-INPUT tex/2-theory.tex
-INPUT ./tex/3-simulation.tex
-INPUT ./tex/3-simulation.tex
-INPUT ./tex/3-simulation.tex
-INPUT ./tex/3-simulation.tex
-INPUT tex/3-simulation.tex
-INPUT ./tex/4-frontend.tex
-INPUT ./tex/4-frontend.tex
-INPUT ./tex/4-frontend.tex
-INPUT ./tex/4-frontend.tex
-INPUT tex/4-frontend.tex
-INPUT ./tex/5-experiment.tex
-INPUT ./tex/5-experiment.tex
-INPUT ./tex/5-experiment.tex
-INPUT ./tex/5-experiment.tex
-INPUT tex/5-experiment.tex
-INPUT ./tex/6-conclusion.tex
-INPUT ./tex/6-conclusion.tex
-INPUT ./tex/6-conclusion.tex
-INPUT ./tex/6-conclusion.tex
-INPUT tex/6-conclusion.tex
-INPUT ./tex/7-bibliography.tex
-INPUT ./tex/7-bibliography.tex
-INPUT ./tex/7-bibliography.tex
-INPUT ./tex/7-bibliography.tex
-INPUT tex/7-bibliography.tex
-INPUT ./main.lof
-INPUT ./main.lof
-INPUT main.lof
+INPUT ./tex/5-Strategie di prompt e risultati sperimentali.tex
+INPUT ./tex/5-Strategie di prompt e risultati sperimentali.tex
+INPUT ./tex/5-Strategie di prompt e risultati sperimentali.tex
+INPUT ./tex/5-Strategie di prompt e risultati sperimentali.tex
+INPUT tex/5-Strategie di prompt e risultati sperimentali.tex
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png
+INPUT ../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/anonymouspro/t1anonymouspro.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/anonymouspro/t1anonymouspro.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/anonymouspro/t1anonymouspro.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/anonymouspro/AnonymousPro-Regular-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang2.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang2.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang2.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang3.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang3.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang3.sty
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/anonymouspro/AnonymousPro-Regular-t1.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/anonymouspro/AnonymousPro-Regular-01.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/anonymouspro/AnonymousPro-Regular-02.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/anonymouspro/AnonymousPro-Regular-03.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/anonymouspro/AnonymousPro-01.enc
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/tex-gyre/ec-qcsr.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/tex-gyre/ec-qcsr.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT ./tex/6-Configurazione Sperimentale.tex
+INPUT ./tex/6-Configurazione Sperimentale.tex
+INPUT ./tex/6-Configurazione Sperimentale.tex
+INPUT ./tex/6-Configurazione Sperimentale.tex
+INPUT tex/6-Configurazione Sperimentale.tex
+INPUT ./tex/7-Risultati e analisi.tex
+INPUT ./tex/7-Risultati e analisi.tex
+INPUT ./tex/7-Risultati e analisi.tex
+INPUT ./tex/7-Risultati e analisi.tex
+INPUT tex/7-Risultati e analisi.tex
+INPUT ./tex/8-Discussione.tex
+INPUT ./tex/8-Discussione.tex
+INPUT ./tex/8-Discussione.tex
+INPUT ./tex/8-Discussione.tex
+INPUT tex/8-Discussione.tex
+INPUT ./tex/9-Lavori Futuri.tex
+INPUT ./tex/9-Lavori Futuri.tex
+INPUT ./tex/9-Lavori Futuri.tex
+INPUT ./tex/9-Lavori Futuri.tex
+INPUT tex/9-Lavori Futuri.tex
+INPUT ./tex/10-Dettagli Implementativi.tex
+INPUT ./tex/10-Dettagli Implementativi.tex
+INPUT ./tex/10-Dettagli Implementativi.tex
+INPUT ./tex/10-Dettagli Implementativi.tex
+INPUT tex/10-Dettagli Implementativi.tex
+INPUT ./tex/11-Ringraziamenti.tex
+INPUT ./tex/11-Ringraziamenti.tex
+INPUT ./tex/11-Ringraziamenti.tex
+INPUT ./tex/11-Ringraziamenti.tex
+INPUT tex/11-Ringraziamenti.tex
+INPUT ./tex/13-conclusione.tex
+INPUT ./tex/13-conclusione.tex
+INPUT ./tex/13-conclusione.tex
+INPUT ./tex/13-conclusione.tex
+INPUT tex/13-conclusione.tex
+INPUT ./tex/12-Bibliography.tex
+INPUT ./tex/12-Bibliography.tex
+INPUT ./tex/12-Bibliography.tex
+INPUT ./tex/12-Bibliography.tex
+INPUT tex/12-Bibliography.tex
 OUTPUT main.lof
-INPUT ./main.lot
-INPUT ./main.lot
-INPUT main.lot
 OUTPUT main.lot
-INPUT tex/7-bibliography.tex
-INPUT ./tex/8-thanks-fede.tex
-INPUT ./tex/8-thanks-fede.tex
-INPUT ./tex/8-thanks-fede.tex
-INPUT ./tex/8-thanks-fede.tex
-INPUT tex/8-thanks-fede.tex
+INPUT tex/12-Bibliography.tex
+INPUT tex/11-Ringraziamenti.tex
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/anonymouspro/AnonymousPro-Regular.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qcsb.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qcsr.pfb

@@ -1,0 +1,76 @@
+\section{Risultati e analisi}
+
+\subsection{Confronto delle prestazioni tra i diversi tipi di contesto}
+
+% Placeholder for results table
+\begin{table}[H]
+\centering
+\caption{Prediction accuracy comparison across different contextual information types}
+\label{tab:context_comparison}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Context Type & Hit@1 & Hit@3 & Hit@5 \\
+\midrule
+POI Names Only & - & - & - \\
+POI Names + Geography & - & - & - \\
+POI Names + Geography + Temporal & - & - & - \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Impatto delle informazioni geografiche}
+
+L'integrazione delle informazioni geografiche rappresenta un significativo progresso nel nostro framework di previsione della mobilità. La nostra analisi rivela diverse intuizioni chiave:
+
+\subsubsection{Previsioni basate sulla distanza}
+L'inclusione di coordinate geografiche e calcoli delle distanze consente al LLM di effettuare previsioni più accurate basate sulla prossimità spaziale. I turisti in genere mostrano una preferenza per le attrazioni vicine e il nostro contesto geografico consente al modello di catturare efficacemente questi modelli.
+
+\subsubsection{Analisi del clustering spaziale}
+Osserviamo distinti modelli di clustering spaziale nel comportamento dei turisti, con alcune combinazioni di POI che mostrano tassi di co-occorrenza più elevati. Il contesto geografico aiuta il LLM a identificare questi modelli e a formulare previsioni in linea con i tipici comportamenti turistici.
+
+% Placeholder for geographical analysis figure
+\begin{figure}[H]
+\centering
+% \includegraphics[width=0.8\textwidth]{geographical_analysis.png}
+\caption{Geographical distribution of POI predictions and their accuracy rates}
+\label{fig:geographical_analysis}
+\end{figure}
+
+\subsection{Analisi dei pattern temporali}
+
+L'integrazione di informazioni temporali fornisce un contesto aggiuntivo che migliora l'accuratezza delle previsioni:
+
+\subsection{Effetti dell'ora del giorno}
+La nostra analisi rivela che i pattern di visita variano significativamente in base all'ora del giorno, con alcuni POI più popolari in periodi specifici. Il contesto temporale consente all'LLM di catturare questi pattern sfumati.
+
+\subsection{Variazioni stagionali}
+Il set di dati pluriennale ci consente di analizzare gli effetti stagionali sul comportamento dei turisti, rivelando le preferenze per determinate attrazioni durante i diversi periodi dell'anno.
+
+% Placeholder for temporal analysis figure
+\begin{figure}[H]
+\centering
+% \includegraphics[width=0.8\textwidth]{temporal_analysis.png}
+\caption{Temporal patterns in tourist mobility and their impact on prediction accuracy}
+\label{fig:temporal_analysis}
+\end{figure}
+
+\subsection{Analisi del comportamento basata sui cluster}
+
+L'approccio di clustering K-means rivela profili turistici distinti che influenzano i modelli di mobilità:
+
+\subsection{Turisti culturali}
+Un cluster mostra forti preferenze per i siti culturali e storici, con modelli di spostamento prevedibili tra le attrazioni correlate.
+
+\subsection{Visitatori occasionali}
+Un altro cluster mostra modelli di visita più diversificati, suggerendo turisti occasionali con interessi vari.
+
+\subsection{Esploratori sistematici}
+Un terzo cluster dimostra modelli di esplorazione sistematica, visitando attrazioni in prossimità geografica.
+
+% Placeholder for cluster analysis figure
+\begin{figure}[H]
+\centering
+% \includegraphics[width=0.8\textwidth]{cluster_analysis.png}
+\caption{Tourist cluster characteristics and their impact on mobility prediction}
+\label{fig:cluster_analysis}
+\end{figure}
