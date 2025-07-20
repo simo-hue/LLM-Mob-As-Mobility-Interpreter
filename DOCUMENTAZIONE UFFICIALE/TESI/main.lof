@@ -1,2 +1,39 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces La matrice di confusione illustra i tassi di classificazione errata tra i 20 POI più visitati a Verona con la strategia di base. I colori più brillanti indicano una maggiore confusione. In particolare, Castelvecchio viene spesso erroneamente previsto come prossimo POI, a causa di forti bias sequenziali o di modelli di preferenze degli utenti. }}{7}{figure.caption.3}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Il grafico mostra la performance del Mean Reciprocal Rank (MRR) per anno, mostrando quanto bene il modello classifica il POI corretto. I valori oscillano tra l'11}}{8}{figure.caption.4}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Punteggio di accuratezza Top-1 che indica la percentuale di volte in cui il POI corretto è stato la previsione migliore. I valori oscillano tra il 9}}{8}{figure.caption.5}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Percentuale di previsioni in cui il POI corretto compare tra i primi 5 POI suggeriti. (NESSUN ordine considerato tra i primi 5). I valori oscillano tra circa il 13,5}}{9}{figure.caption.6}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Coppie di POI che vengono più comunemente previste erroneamente, fornendo informazioni sui casi di confusione più frequenti. Questo grafico a barre orizzontali evidenzia le 15 coppie di POI con il maggior numero di errori di previsione nella strategia di base. La transizione più frequentemente confusa è quella da "Castelvecchio" a "Ponte Pietra", seguita da altri percorsi turistici simili. Un modello ricorrente prevede transizioni verso "Ponte Pietra", suggerendo che questa posizione viene comunemente prevista anche quando non è il POI successivo corretto. Queste informazioni rivelano previsioni errate sistematiche e possono guidare miglioramenti mirati nel perfezionamento del modello. }}{10}{figure.caption.7}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Matrice di confusione che mostra le prestazioni di previsione quando sono incluse le coordinate spaziali.}}{11}{figure.caption.8}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Distribution of MRR scores when geolocation is integrated into the input.}}{11}{figure.caption.9}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Accuracy of top-ranked predictions under the geospatial-enhanced strategy.}}{12}{figure.caption.10}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Hit rate for top-5 POIs when spatial data is considered.}}{12}{figure.caption.11}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Most error-prone POI transitions despite spatial awareness.}}{13}{figure.caption.12}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Confusion matrix using both spatial and temporal information for POI prediction.}}{14}{figure.caption.13}%
+\contentsline {figure}{\numberline {12}{\ignorespaces MRR distribution reflecting model ranking effectiveness under full context.}}{14}{figure.caption.14}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Top-1 accuracy of the model using complete spatio-temporal context.}}{15}{figure.caption.15}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Hit rate within top-5 predictions using the full contextual strategy.}}{15}{figure.caption.16}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Difficult POI pairs under the most advanced strategy, despite temporal and spatial modeling.}}{16}{figure.caption.17}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Performance metrics by year showing temporal stability across the evaluation period.}}{18}{figure.caption.19}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Impact of geographical context on recommendation accuracy, showing performance improvements with distance-aware prompting.}}{18}{figure.caption.20}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Performance breakdown by user cluster, demonstrating the effectiveness of behaviorally-informed prompting strategies.}}{19}{figure.caption.21}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Confusion Matrix for POI Name Only Strategy}}{19}{figure.caption.22}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Mean Reciprocal Rank Distribution}}{19}{figure.caption.22}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Top-1 Accuracy Performance}}{19}{figure.caption.23}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Top-5 Hit Rate Performance}}{19}{figure.caption.23}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Worst Performing POI Transition Pairs - Baseline Strategy}}{20}{figure.caption.24}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Confusion Matrix for Geospatial-Enhanced Strategy}}{20}{figure.caption.25}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Mean Reciprocal Rank Distribution}}{20}{figure.caption.25}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Top-1 Accuracy Performance}}{20}{figure.caption.26}%
+\contentsline {figure}{\numberline {27}{\ignorespaces Top-5 Hit Rate Performance}}{20}{figure.caption.26}%
+\contentsline {figure}{\numberline {28}{\ignorespaces Worst Performing POI Transition Pairs - Geospatial-Enhanced Strategy}}{21}{figure.caption.27}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Confusion Matrix for Comprehensive Context Strategy}}{21}{figure.caption.28}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Mean Reciprocal Rank Distribution}}{21}{figure.caption.28}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Top-1 Accuracy Performance}}{22}{figure.caption.29}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Top-5 Hit Rate Performance}}{22}{figure.caption.29}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Worst Performing POI Transition Pairs - Comprehensive Context Strategy}}{22}{figure.caption.30}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Confronto delle prestazioni tra tutte le strategie: (a) Precisione Top-1, (b) Tasso di successo Top-5, (c) MRR, (d) Tassi di errore di previsione}}{23}{figure.caption.31}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Geographical distribution of POI predictions and their accuracy rates}}{25}{figure.caption.33}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Temporal patterns in tourist mobility and their impact on prediction accuracy}}{26}{figure.caption.34}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Tourist cluster characteristics and their impact on mobility prediction}}{26}{figure.caption.35}%

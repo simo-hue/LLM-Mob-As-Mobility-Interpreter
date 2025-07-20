@@ -1,0 +1,37 @@
+\section{Metodologia}
+
+\subsection{Formulazione Del Problema}
+
+Formuliamo il problema di previsione della mobilità umana come segue: data la sequenza storica di POI visitati da un turista $S = \{p_1, p_2, ..., p_n\}$ ordinati in base all'orario di visita, puntiamo a prevedere il prossimo POI $p_{n+1}$ che il turista probabilmente visiterà. Ogni POI $p_i$ è caratterizzato dal suo nome, dalle coordinate geografiche (latitudine e longitudine) e dalle informazioni temporali (timestamp della visita).
+
+Il compito di previsione viene affrontato come un problema di generazione del linguaggio naturale, in cui al LLM vengono fornite informazioni contestuali sul comportamento del turista e viene chiesto di generare le prossime destinazioni più probabili.
+
+
+\subsection{Descrizione Del Dataset}
+
+I nostri esperimenti sono condotti sul dataset VeronaCard, che contiene dati turistici reali di Verona, Italia. Il dataset comprende i registri dei visitatori dal 2014 al 2023, registrando le interazioni dei turisti con vari siti culturali e storici della città. Il dataset include:
+\begin{itemize}
+\item Registri di utilizzo della tessera turistica con timestamp e identificativi dei POI
+\item Un catalogo completo di Punti di Interesse con coordinate geografiche (a Verona)
+\end{itemize}
+
+Il catalogo dei POI include importanti attrazioni turistiche come l'Arena di Verona, la Casa di Giulietta e il Museo di Castelvecchio, tra le altre. Ogni POI è associato a precise coordinate geografiche, consentendo l'analisi spaziale dei modelli di movimento dei turisti.
+
+\subsection{Pre-elaborazione e clustering dei dati}
+
+La nostra pipeline di pre-elaborazione si compone di diverse fasi progettate per pulire e strutturare i dati grezzi sulla mobilità:
+
+\subsubsection{Pulizia e filtraggio dei dati}
+I log grezzi dei visitatori vengono elaborati per estrarre informazioni rilevanti, tra cui timestamp delle visite, nomi dei punti di interesse e identificativi delle tessere turistiche. Filtriamo i record incompleti e ci concentriamo sui turisti con più visite ai punti di interesse per garantire un'analisi sequenziale significativa (almeno 3 visite).
+
+\subsubsection{Clustering degli utenti}
+Per catturare i modelli comportamentali tra i turisti, utilizziamo il clustering K-means sulle matrici di interazione utente-punto di interesse. Il processo di clustering prevede:
+
+\begin{enumerate}
+\item Costruzione di una matrice utente-punto di interesse in cui ogni riga rappresenta un turista e ogni colonna rappresenta un punto di interesse
+\item Standardizzazione della matrice utilizzando StandardScaler per garantire la stessa ponderazione delle caratteristiche
+\item Applicazione del clustering K-means con $k=7$ cluster per raggruppare i turisti con modelli di visita simili
+\end{enumerate}
+
+Questo approccio di clustering consente l'identificazione di profili turistici distinti, come visitatori interessati alla cultura, appassionati di storia o turisti occasionali, che possono influenzare il processo di previsione.
+

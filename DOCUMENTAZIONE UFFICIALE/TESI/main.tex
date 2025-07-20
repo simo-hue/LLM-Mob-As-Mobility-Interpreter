@@ -81,19 +81,31 @@
 \setcounter{page}{1}
 
 % Chapters
-\input{tex/1-introduction}
+\input{tex/1-Abstract.tex}
 \newpage
-\input{tex/2-theory}
+\input{tex/2-Introduzione}
 \newpage
-\input{tex/3-simulation}
+\input{tex/3-Lavori Correlati}
 \newpage
-\input{tex/4-frontend}
+\input{tex/4-Metodologia}
 \newpage
-\input{tex/5-experiment}
+\input{tex/5-Strategie di prompt e risultati sperimentali}
 \newpage
-\input{tex/6-conclusion}
+\input{tex/6-Configurazione Sperimentale}
 \newpage
-\input{tex/7-bibliography}
+\input{tex/7-Risultati e analisi}
+\newpage
+\input{tex/8-Discussione}
+\newpage
+\input{tex/9-Lavori Futuri}
+\newpage
+\input{tex/10-Dettagli Implementativi}
+\newpage
+\input{tex/11-Ringraziamenti}
+\newpage
+\input{tex/13-conclusione}
+\newpage
+\input{tex/12-Bibliography}
 \newpage
 
 % Figures
@@ -106,98 +118,15 @@
 % Bibliography
 \fancyhf{}
 \fancyhead[RO,LE]{ Bibliografia }
-\input{tex/7-bibliography}
+\input{tex/12-Bibliography}
 %\bibliography{tex/bibliography}
 
 % Ringraziamenti
 \newpage
 \fancyhf{}
 \fancyhead[RO,LE]{ Ringraziamenti }
-\input{tex/8-thanks-fede}
+\input{tex/11-Ringraziamenti}
 
 
 % End of document
 \end{document}
-
-
-EXAMPLES:
-
-LINK EXAMPLE
-\anchor{Name External Link}{https://www.google.com/}
-
-CODE EXAMPLE
-\begin{bashCode}{Example Code Block}
-    int a = 5;
-\end{bashCode}
-to insert: %\input{path.tex}
-
-MONOSPACE INLINE TEXT EXAMPLE
-\texttt{Example Text}
-
-MONOSPACE TEXT EXAMPLE
-\begin{verbatim}
-    monospaced text
-\end{verbatim}
-
-MATRIX EXAMPLE
-$\begin{bmatrix}
-    a & b & c\\
-    d & f & g
-\end{bmatrix}$ · 
-$\begin{bmatrix}
-    a & b & c\\
-    d & f & g
-\end{bmatrix}$ = 
-$\begin{bmatrix}
-    a & b & c\\
-    d & f & g
-\end{bmatrix}$
-
-IN-LINE EQUATION EXAMPLE
-\(x^n + y^n = z^n\)
-
-STAND-ALONE EQUATION EXAMPLE
-\[ x^n + y^n = z^n \]
-
-IMAGE EXAMPLE
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{image.png}
-    \caption{caption}
-    \label{fig:reference}
-\end{figure}
-
-SIDE IMAGES EXAMPLE
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{image1.png}
-        \caption{caption1}
-        \label{fig:reference1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{image2.png}
-        \caption{caption2}
-        \label{fig:reference2}
-    \end{subfigure}
-    \caption{total-caption}
-    \label{fig:total-reference}
-\end{figure}
-
-TABLE EXAMPLE
-\begin{table}[!htbp]
-    \centering
-    \captionsetup{justification=centering}
-    \begin{tabular}{|p{4.5cm}|p{9.5cm}|}
-        \hline
-        a1 & a2\\
-        \hline
-        b1 & b2 \\
-        \hline
-    \end{tabular}
-    \caption{caption}
-    \label{tab:reference}
-\end{table}
