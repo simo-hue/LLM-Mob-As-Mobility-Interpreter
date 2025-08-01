@@ -1,0 +1,229 @@
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+=== VERIFICA DIPENDENZE ===
+✓ pandas: 2.0.3
+✓ numpy: 1.26.4
+✓ requests: 2.32.3
+✓ scikit-learn: 1.6.1
+✓ tqdm: 4.67.1
+============================
+=== CONFIGURAZIONE GPU ===
+CUDA_VISIBLE_DEVICES: 0
+name, memory.total [MiB], memory.free [MiB]
+NVIDIA A100-SXM-64GB, 65536 MiB, 64942 MiB
+==========================
+Avvio Ollama server...
+time=2025-08-01T16:44:10.920+02:00 level=INFO source=routes.go:1235 msg="server config" env="map[CUDA_VISIBLE_DEVICES:0 GPU_DEVICE_ORDINAL:0 HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_CONTEXT_LENGTH:4096 OLLAMA_DEBUG:INFO OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:37645 OLLAMA_INTEL_GPU:false OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MODELS:/leonardo/home/userexternal/smattiol/.ollama/models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NEW_ENGINE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NUM_PARALLEL:0 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_SCHED_SPREAD:false ROCR_VISIBLE_DEVICES:0 http_proxy: https_proxy: no_proxy:]"
+time=2025-08-01T16:44:10.925+02:00 level=INFO source=images.go:476 msg="total blobs: 5"
+time=2025-08-01T16:44:10.926+02:00 level=INFO source=images.go:483 msg="total unused blobs removed: 0"
+time=2025-08-01T16:44:10.928+02:00 level=INFO source=routes.go:1288 msg="Listening on 127.0.0.1:37645 (version 0.9.3)"
+time=2025-08-01T16:44:10.928+02:00 level=INFO source=gpu.go:217 msg="looking for compatible GPUs"
+time=2025-08-01T16:44:11.080+02:00 level=INFO source=types.go:130 msg="inference compute" id=GPU-959b876f-ea50-ea6e-5b53-57465e8b8f92 library=cuda variant=v12 compute=8.0 driver=12.2 name="NVIDIA A100-SXM-64GB" total="63.4 GiB" available="63.0 GiB"
+Test connessione server...
+⚠ Server non ancora pronto
+Lancio script Python alle Fri Aug  1 16:44:18 CEST 2025...
+2025-08-01 16:44:20,548 INFO: 
+======================================================================
+2025-08-01 16:44:20,549 INFO: ▶  PROCESSO FILE: dati_2014.csv
+2025-08-01 16:44:20,549 INFO: ======================================================================
+2025-08-01 16:44:20,549 INFO: ▶  ho caricato e pulito i dati
+2025-08-01 16:44:20,558 INFO: [load_pois] 22 POI letti da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-01 16:44:22,464 INFO: [load_visits] 370377 timbrature da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2014.csv
+2025-08-01 16:44:22,545 INFO: [merge] visite valide dopo merge: 370377
+2025-08-01 16:44:22,713 INFO: [filter] card multi-visita: 70236 / 71557
+2025-08-01 16:44:28,680 INFO: ▶  ho fatto il clustering
+2025-08-01 16:44:28,741 INFO: ▶  Analisi pattern di movimento geografico
+2025-08-01 16:46:45,989 INFO: ▶  Distanza media tra visite consecutive: 0.58 km
+Card:   0%|          | 0/65892 [00:00<?, ?card/s][GIN] 2025/08/01 - 16:46:46 | 200 |    4.033938ms |       127.0.0.1 | GET      "/api/tags"
+time=2025-08-01T16:46:46.102+02:00 level=WARN source=types.go:572 msg="invalid option provided" option=raw
+time=2025-08-01T16:46:46.244+02:00 level=INFO source=sched.go:788 msg="new model will fit in available VRAM in single GPU, loading" model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 gpu=GPU-959b876f-ea50-ea6e-5b53-57465e8b8f92 parallel=2 available=67593371648 required="6.5 GiB"
+time=2025-08-01T16:46:46.332+02:00 level=INFO source=server.go:135 msg="system memory" total="502.9 GiB" free="490.0 GiB" free_swap="0 B"
+time=2025-08-01T16:46:46.332+02:00 level=INFO source=server.go:175 msg=offload library=cuda layers.requested=-1 layers.model=33 layers.offload=33 layers.split="" memory.available="[63.0 GiB]" memory.gpu_overhead="0 B" memory.required.full="6.5 GiB" memory.required.partial="6.5 GiB" memory.required.kv="1.0 GiB" memory.required.allocations="[6.5 GiB]" memory.weights.total="4.3 GiB" memory.weights.repeating="3.9 GiB" memory.weights.nonrepeating="411.0 MiB" memory.graph.full="560.0 MiB" memory.graph.partial="677.5 MiB"
+llama_model_loader: loaded meta data with 29 key-value pairs and 292 tensors from /leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = llama
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Meta Llama 3.1 8B Instruct
+llama_model_loader: - kv   3:                           general.finetune str              = Instruct
+llama_model_loader: - kv   4:                           general.basename str              = Meta-Llama-3.1
+llama_model_loader: - kv   5:                         general.size_label str              = 8B
+llama_model_loader: - kv   6:                            general.license str              = llama3.1
+llama_model_loader: - kv   7:                               general.tags arr[str,6]       = ["facebook", "meta", "pytorch", "llam...
+llama_model_loader: - kv   8:                          general.languages arr[str,8]       = ["en", "de", "fr", "it", "pt", "hi", ...
+llama_model_loader: - kv   9:                          llama.block_count u32              = 32
+llama_model_loader: - kv  10:                       llama.context_length u32              = 131072
+llama_model_loader: - kv  11:                     llama.embedding_length u32              = 4096
+llama_model_loader: - kv  12:                  llama.feed_forward_length u32              = 14336
+llama_model_loader: - kv  13:                 llama.attention.head_count u32              = 32
+llama_model_loader: - kv  14:              llama.attention.head_count_kv u32              = 8
+llama_model_loader: - kv  15:                       llama.rope.freq_base f32              = 500000.000000
+llama_model_loader: - kv  16:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+llama_model_loader: - kv  17:                          general.file_type u32              = 15
+llama_model_loader: - kv  18:                           llama.vocab_size u32              = 128256
+llama_model_loader: - kv  19:                 llama.rope.dimension_count u32              = 128
+llama_model_loader: - kv  20:                       tokenizer.ggml.model str              = gpt2
+llama_model_loader: - kv  21:                         tokenizer.ggml.pre str              = llama-bpe
+llama_model_loader: - kv  22:                      tokenizer.ggml.tokens arr[str,128256]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+llama_model_loader: - kv  23:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+llama_model_loader: - kv  24:                      tokenizer.ggml.merges arr[str,280147]  = ["Ġ Ġ", "Ġ ĠĠĠ", "ĠĠ ĠĠ", "...
+llama_model_loader: - kv  25:                tokenizer.ggml.bos_token_id u32              = 128000
+llama_model_loader: - kv  26:                tokenizer.ggml.eos_token_id u32              = 128009
+llama_model_loader: - kv  27:                    tokenizer.chat_template str              = {{- bos_token }}\n{%- if custom_tools ...
+llama_model_loader: - kv  28:               general.quantization_version u32              = 2
+llama_model_loader: - type  f32:   66 tensors
+llama_model_loader: - type q4_K:  193 tensors
+llama_model_loader: - type q6_K:   33 tensors
+print_info: file format = GGUF V3 (latest)
+print_info: file type   = Q4_K - Medium
+print_info: file size   = 4.58 GiB (4.89 BPW) 
+load: special tokens cache size = 256
+load: token to piece cache size = 0.7999 MB
+print_info: arch             = llama
+print_info: vocab_only       = 1
+print_info: model type       = ?B
+print_info: model params     = 8.03 B
+print_info: general.name     = Meta Llama 3.1 8B Instruct
+print_info: vocab type       = BPE
+print_info: n_vocab          = 128256
+print_info: n_merges         = 280147
+print_info: BOS token        = 128000 '<|begin_of_text|>'
+print_info: EOS token        = 128009 '<|eot_id|>'
+print_info: EOT token        = 128009 '<|eot_id|>'
+print_info: EOM token        = 128008 '<|eom_id|>'
+print_info: LF token         = 198 'Ċ'
+print_info: EOG token        = 128008 '<|eom_id|>'
+print_info: EOG token        = 128009 '<|eot_id|>'
+print_info: max token length = 256
+llama_model_load: vocab only - skipping tensors
+time=2025-08-01T16:46:46.616+02:00 level=INFO source=server.go:438 msg="starting llama server" cmd="/leonardo/home/userexternal/smattiol/opt/ollama/bin/ollama runner --model /leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 --ctx-size 8192 --batch-size 512 --n-gpu-layers 33 --threads 32 --parallel 2 --port 39915"
+time=2025-08-01T16:46:46.617+02:00 level=INFO source=sched.go:483 msg="loaded runners" count=1
+time=2025-08-01T16:46:46.617+02:00 level=INFO source=server.go:598 msg="waiting for llama runner to start responding"
+time=2025-08-01T16:46:46.617+02:00 level=INFO source=server.go:632 msg="waiting for server to become available" status="llm server not responding"
+time=2025-08-01T16:46:46.632+02:00 level=INFO source=runner.go:815 msg="starting go runner"
+load_backend: loaded CPU backend from /leonardo/home/userexternal/smattiol/opt/ollama/lib/ollama/libggml-cpu-icelake.so
+time=2025-08-01T16:46:46.687+02:00 level=INFO source=ggml.go:104 msg=system CPU.0.SSE3=1 CPU.0.SSSE3=1 CPU.0.AVX=1 CPU.0.AVX2=1 CPU.0.F16C=1 CPU.0.FMA=1 CPU.0.BMI2=1 CPU.0.AVX512=1 CPU.0.AVX512_VBMI=1 CPU.0.AVX512_VNNI=1 CPU.0.LLAMAFILE=1 CPU.1.LLAMAFILE=1 compiler=cgo(gcc)
+time=2025-08-01T16:46:46.687+02:00 level=INFO source=runner.go:874 msg="Server listening on 127.0.0.1:39915"
+llama_model_loader: loaded meta data with 29 key-value pairs and 292 tensors from /leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = llama
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Meta Llama 3.1 8B Instruct
+llama_model_loader: - kv   3:                           general.finetune str              = Instruct
+llama_model_loader: - kv   4:                           general.basename str              = Meta-Llama-3.1
+llama_model_loader: - kv   5:                         general.size_label str              = 8B
+llama_model_loader: - kv   6:                            general.license str              = llama3.1
+llama_model_loader: - kv   7:                               general.tags arr[str,6]       = ["facebook", "meta", "pytorch", "llam...
+llama_model_loader: - kv   8:                          general.languages arr[str,8]       = ["en", "de", "fr", "it", "pt", "hi", ...
+llama_model_loader: - kv   9:                          llama.block_count u32              = 32
+llama_model_loader: - kv  10:                       llama.context_length u32              = 131072
+llama_model_loader: - kv  11:                     llama.embedding_length u32              = 4096
+llama_model_loader: - kv  12:                  llama.feed_forward_length u32              = 14336
+llama_model_loader: - kv  13:                 llama.attention.head_count u32              = 32
+llama_model_loader: - kv  14:              llama.attention.head_count_kv u32              = 8
+llama_model_loader: - kv  15:                       llama.rope.freq_base f32              = 500000.000000
+llama_model_loader: - kv  16:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+llama_model_loader: - kv  17:                          general.file_type u32              = 15
+llama_model_loader: - kv  18:                           llama.vocab_size u32              = 128256
+llama_model_loader: - kv  19:                 llama.rope.dimension_count u32              = 128
+llama_model_loader: - kv  20:                       tokenizer.ggml.model str              = gpt2
+llama_model_loader: - kv  21:                         tokenizer.ggml.pre str              = llama-bpe
+llama_model_loader: - kv  22:                      tokenizer.ggml.tokens arr[str,128256]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+llama_model_loader: - kv  23:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+llama_model_loader: - kv  24:                      tokenizer.ggml.merges arr[str,280147]  = ["Ġ Ġ", "Ġ ĠĠĠ", "ĠĠ ĠĠ", "...
+llama_model_loader: - kv  25:                tokenizer.ggml.bos_token_id u32              = 128000
+llama_model_loader: - kv  26:                tokenizer.ggml.eos_token_id u32              = 128009
+llama_model_loader: - kv  27:                    tokenizer.chat_template str              = {{- bos_token }}\n{%- if custom_tools ...
+llama_model_loader: - kv  28:               general.quantization_version u32              = 2
+llama_model_loader: - type  f32:   66 tensors
+llama_model_loader: - type q4_K:  193 tensors
+llama_model_loader: - type q6_K:   33 tensors
+print_info: file format = GGUF V3 (latest)
+print_info: file type   = Q4_K - Medium
+print_info: file size   = 4.58 GiB (4.89 BPW) 
+time=2025-08-01T16:46:46.868+02:00 level=INFO source=server.go:632 msg="waiting for server to become available" status="llm server loading model"
+load: special tokens cache size = 256
+load: token to piece cache size = 0.7999 MB
+print_info: arch             = llama
+print_info: vocab_only       = 0
+print_info: n_ctx_train      = 131072
+print_info: n_embd           = 4096
+print_info: n_layer          = 32
+print_info: n_head           = 32
+print_info: n_head_kv        = 8
+print_info: n_rot            = 128
+print_info: n_swa            = 0
+print_info: n_swa_pattern    = 1
+print_info: n_embd_head_k    = 128
+print_info: n_embd_head_v    = 128
+print_info: n_gqa            = 4
+print_info: n_embd_k_gqa     = 1024
+print_info: n_embd_v_gqa     = 1024
+print_info: f_norm_eps       = 0.0e+00
+print_info: f_norm_rms_eps   = 1.0e-05
+print_info: f_clamp_kqv      = 0.0e+00
+print_info: f_max_alibi_bias = 0.0e+00
+print_info: f_logit_scale    = 0.0e+00
+print_info: f_attn_scale     = 0.0e+00
+print_info: n_ff             = 14336
+print_info: n_expert         = 0
+print_info: n_expert_used    = 0
+print_info: causal attn      = 1
+print_info: pooling type     = 0
+print_info: rope type        = 0
+print_info: rope scaling     = linear
+print_info: freq_base_train  = 500000.0
+print_info: freq_scale_train = 1
+print_info: n_ctx_orig_yarn  = 131072
+print_info: rope_finetuned   = unknown
+print_info: ssm_d_conv       = 0
+print_info: ssm_d_inner      = 0
+print_info: ssm_d_state      = 0
+print_info: ssm_dt_rank      = 0
+print_info: ssm_dt_b_c_rms   = 0
+print_info: model type       = 8B
+print_info: model params     = 8.03 B
+print_info: general.name     = Meta Llama 3.1 8B Instruct
+print_info: vocab type       = BPE
+print_info: n_vocab          = 128256
+print_info: n_merges         = 280147
+print_info: BOS token        = 128000 '<|begin_of_text|>'
+print_info: EOS token        = 128009 '<|eot_id|>'
+print_info: EOT token        = 128009 '<|eot_id|>'
+print_info: EOM token        = 128008 '<|eom_id|>'
+print_info: LF token         = 198 'Ċ'
+print_info: EOG token        = 128008 '<|eom_id|>'
+print_info: EOG token        = 128009 '<|eot_id|>'
+print_info: max token length = 256
+load_tensors: loading model tensors, this can take a while... (mmap = true)
+load_tensors:   CPU_Mapped model buffer size =  4685.30 MiB
+llama_context: constructing llama_context
+llama_context: n_seq_max     = 2
+llama_context: n_ctx         = 8192
+llama_context: n_ctx_per_seq = 4096
+llama_context: n_batch       = 1024
+llama_context: n_ubatch      = 512
+llama_context: causal_attn   = 1
+llama_context: flash_attn    = 0
+llama_context: freq_base     = 500000.0
+llama_context: freq_scale    = 1
+llama_context: n_ctx_per_seq (4096) < n_ctx_train (131072) -- the full capacity of the model will not be utilized
+llama_context:        CPU  output buffer size =     1.01 MiB
+llama_kv_cache_unified: kv_size = 8192, type_k = 'f16', type_v = 'f16', n_layer = 32, can_shift = 1, padding = 32
+llama_kv_cache_unified:        CPU KV buffer size =  1024.00 MiB
+llama_kv_cache_unified: KV self size  = 1024.00 MiB, K (f16):  512.00 MiB, V (f16):  512.00 MiB
+llama_context:        CPU compute buffer size =   560.01 MiB
+llama_context: graph nodes  = 1094
+llama_context: graph splits = 1
+time=2025-08-01T16:46:50.627+02:00 level=INFO source=server.go:637 msg="llama runner started in 4.01 seconds"
+time=2025-08-01T16:47:46.114+02:00 level=ERROR source=server.go:807 msg="post predict" error="Post \"http://127.0.0.1:39915/completion\": context canceled"
+2025-08-01 16:47:46,114 ERROR: ❌  Errore HTTP: HTTPConnectionPool(host='localhost', port=37645): Read timed out. (read timeout=60)
+[GIN] 2025/08/01 - 16:47:46 | 500 |          1m0s |       127.0.0.1 | POST     "/api/chat"
+Card:   0%|          | 1/65892 [01:00<1100:29:56, 60.13s/card][GIN] 2025/08/01 - 16:47:46 | 200 |    1.500903ms |       127.0.0.1 | GET      "/api/tags"
+time=2025-08-01T16:47:46.312+02:00 level=WARN source=types.go:572 msg="invalid option provided" option=raw
+slurmstepd: error: *** JOB 18161646 ON lrdn1967 CANCELLED AT 2025-08-01T16:48:06 ***

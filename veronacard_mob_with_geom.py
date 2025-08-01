@@ -14,6 +14,29 @@ import logging
 from datetime import datetime
 import math
 
+# --- CONFIGURAZIONE OLLAMA DALLA PORTA FILE ---
+OLLAMA_PORT_FILE = "ollama_port.txt"
+try:
+    with open(OLLAMA_PORT_FILE, "r") as f:
+        port = f.read().strip()
+    OLLAMA_HOST = f"http://127.0.0.1:{port}"
+except FileNotFoundError:
+    raise RuntimeError(f"❌ File {OLLAMA_PORT_FILE} non trovato. Assicurati che lo script SLURM lo generi correttamente.")
+
+# --- ATTESA CHE OLLAMA SIA ATTIVO ---
+import time
+for _ in range(10):
+    try:
+        r = requests.get(f"{OLLAMA_HOST}/api/tags", timeout=5)
+        if r.status_code == 200:
+            print("✓ Ollama è attivo")
+            break
+    except requests.exceptions.RequestException:
+        print("⏳ Attendo Ollama...")
+        time.sleep(3)
+else:
+    raise RuntimeError("❌ Ollama non ha risposto dopo 30 secondi")
+
 def calculate_distance(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     """
     Calcola la distanza in chilometri tra due punti geografici
@@ -333,8 +356,8 @@ def analyze_movement_patterns(df: pd.DataFrame, pois_df: pd.DataFrame) -> pd.Dat
     return pd.DataFrame(movement_data)
 
 # ---------- chiamata LLaMA / Ollama ---------------------------------------
-def get_chat_completion(prompt: str, model: str = "llama3:latest") -> str | None:
-    base_url = "http://localhost:11434"
+def get_chat_completion(prompt: str, model: str = "llama3.1:8b") -> str | None:
+    base_url = "http://localhost:37645"
     try:
         if requests.get(f"{base_url}/api/tags", timeout=2).status_code != 200:
             logger.warning("⚠️  Ollama non è in esecuzione.")
@@ -607,6 +630,8 @@ def debug_file_processing(visits_path: Path, poi_path: Path):
 # ---------- MAIN -----------------------------------------------------------
 
 if __name__ == "__main__":
+    
+    
     parser = argparse.ArgumentParser(
         description="Calcola raccomandazioni su tutti i log VeronaCard."
     )
