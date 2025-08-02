@@ -1,0 +1,107 @@
+🚀 AVVIO LLM-MOB CON CORREZIONI GPU
+====================================
+Job ID: 18178670
+Nodo: lrdn1962.leonardo.local
+Data: Sat Aug  2 10:55:08 CEST 2025
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+🔍 INFO GPU:
+name, memory.total [MiB], memory.used [MiB], utilization.gpu [%]
+NVIDIA A100-SXM-64GB, 65536 MiB, 2 MiB, 0 %
+CUDA_VISIBLE_DEVICES: 0
+✅ Porta: 39002
+🚀 Avvio server Ollama...
+   Comando: /leonardo/home/userexternal/smattiol/opt/ollama/bin/ollama serve
+   PID server: 2018636
+⏳ Attesa server...
+✅ Server attivo dopo 3s
+📥 Setup modello...
+✅ Modello già presente
+🧪 Test finale inferenza...
+   Payload test: {
+    "model": "llama3.1:8b",
+    "prompt": "Hello",
+    "stream": false,
+    "options": {
+        "num_predict": 5,
+        "temperature": 0.1,
+        "num_ctx": 2048
+    }
+}
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 39002 (#0)
+> POST /api/generate HTTP/1.1
+> Host: 127.0.0.1:39002
+> User-Agent: curl/7.61.1
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 176
+> 
+} [176 bytes data]
+* upload completely sent off: 176 out of 176 bytes
+100   176    0     0  100   176      0    880 --:--:-- --:--:-- --:--:--   875100   176    0     0  100   176      0     79  0:00:02  0:00:02 --:--:--    79100   176    0     0  100   176      0     41  0:00:04  0:00:04 --:--:--    41100   176    0     0  100   176      0     28  0:00:06  0:00:06 --:--:--    28100   176    0     0  100   176      0     21  0:00:08  0:00:08 --:--:--    21100   176    0     0  100   176      0     17  0:00:10  0:00:10 --:--:--     0100   176    0     0  100   176      0     14  0:00:12  0:00:12 --:--:--     0100   176    0     0  100   176      0     12  0:00:14  0:00:14 --:--:--     0100   176    0     0  100   176      0     10  0:00:17  0:00:16  0:00:01     0100   176    0     0  100   176      0      9  0:00:19  0:00:18  0:00:01     0100   176    0     0  100   176      0      8  0:00:22  0:00:20  0:00:02     0100   176    0     0  100   176      0      7  0:00:25  0:00:22  0:00:03     0100   176    0     0  100   176      0      7  0:00:25  0:00:24  0:00:01     0100   176    0     0  100   176      0      6  0:00:29  0:00:26  0:00:03     0100   176    0     0  100   176      0      6  0:00:29  0:00:28  0:00:01     0100   176    0     0  100   176      0      5  0:00:35  0:00:30  0:00:05     0100   176    0     0  100   176      0      5  0:00:35  0:00:32  0:00:03     0100   176    0     0  100   176      0      5  0:00:35  0:00:34  0:00:01     0100   176    0     0  100   176      0      4  0:00:44  0:00:36  0:00:08     0100   176    0     0  100   176      0      4  0:00:44  0:00:38  0:00:06     0100   176    0     0  100   176      0      4  0:00:44  0:00:40  0:00:04     0100   176    0     0  100   176      0      4  0:00:44  0:00:42  0:00:02     0100   176    0     0  100   176      0      3  0:00:58  0:00:44  0:00:14     0100   176    0     0  100   176      0      3  0:00:58  0:00:46  0:00:12     0100   176    0     0  100   176      0      3  0:00:58  0:00:48  0:00:10     0100   176    0     0  100   176      0      3  0:00:58  0:00:50  0:00:08     0100   176    0     0  100   176      0      3  0:00:58  0:00:52  0:00:06     0100   176    0     0  100   176      0      3  0:00:58  0:00:54  0:00:04     0100   176    0     0  100   176      0      3  0:00:58  0:00:56  0:00:02     0100   176    0     0  100   176      0      3  0:00:58  0:00:58 --:--:--     0100   176    0     0  100   176      0      2  0:01:28  0:01:00  0:00:28     0100   176    0     0  100   176      0      2  0:01:28  0:01:02  0:00:26     0100   176    0     0  100   176      0      2  0:01:28  0:01:04  0:00:24     0100   176    0     0  100   176      0      2  0:01:28  0:01:06  0:00:22     0100   176    0     0  100   176      0      2  0:01:28  0:01:08  0:00:20     0100   176    0     0  100   176      0      2  0:01:28  0:01:10  0:00:18     0100   176    0     0  100   176      0      2  0:01:28  0:01:12  0:00:16     0100   176    0     0  100   176      0      2  0:01:28  0:01:14  0:00:14     0100   176    0     0  100   176      0      2  0:01:28  0:01:16  0:00:12     0100   176    0     0  100   176      0      2  0:01:28  0:01:18  0:00:10     0100   176    0     0  100   176      0      2  0:01:28  0:01:20  0:00:08     0100   176    0     0  100   176      0      2  0:01:28  0:01:22  0:00:06     0100   176    0     0  100   176      0      2  0:01:28  0:01:24  0:00:04     0100   176    0     0  100   176      0      2  0:01:28  0:01:26  0:00:02     0< HTTP/1.1 200 OK
+< Content-Type: application/json; charset=utf-8
+< Date: Sat, 02 Aug 2025 08:56:38 GMT
+< Content-Length: 383
+< 
+{ [383 bytes data]
+100   559  100   383  100   176      4      1  0:02:56  0:01:28  0:01:28    38100   559  100   383  100   176      4      1  0:02:56  0:01:28  0:01:28    47
+* Connection #0 to host 127.0.0.1 left intact
+✅ Test OK: done=True, response_len=18
+🎉 OLLAMA PRONTO PER PYTHON SCRIPT!
+✅ Pre-test superato
+🐍 Avvio script Python...
+✅ Uso modalità normale
+2025-08-02 10:56:42,140 INFO: 🔥 Warm-up modello con parametri conservativi...
+2025-08-02 10:56:42,141 INFO: 🔄 Tentativo warm-up...
+2025-08-02 10:56:50,140 INFO: 📊 Warm-up result: done=True, response_len=9
+2025-08-02 10:56:50,141 INFO: ✓ Warm-up completato con successo
+2025-08-02 10:56:50,141 INFO: 🔍 Debug stato GPU:
+2025-08-02 10:56:50,169 INFO: 📊 GPU: NVIDIA A100-SXM-64GB, 6, 65536, 43, 0
+2025-08-02 10:56:50,205 INFO: 📋 Processi GPU attivi:
+2025-08-02 10:56:50,205 INFO:        0          -     -     -     -     -     -   -
+2025-08-02 10:56:50,206 INFO: 🔥 Warm-up modello con parametri conservativi...
+2025-08-02 10:56:50,206 INFO: 🔄 Tentativo warm-up...
+2025-08-02 10:56:50,677 INFO: 📊 Warm-up result: done=True, response_len=9
+2025-08-02 10:56:50,677 INFO: ✓ Warm-up completato con successo
+2025-08-02 10:56:50,681 INFO: 
+======================================================================
+2025-08-02 10:56:50,681 INFO: ▶  PROCESSO FILE: dati_2014.csv
+2025-08-02 10:56:50,682 INFO: ======================================================================
+2025-08-02 10:56:50,682 INFO: ▶  ho caricato e pulito i dati
+2025-08-02 10:56:50,690 INFO: [load_pois] 22 POI letti da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-02 10:56:52,638 INFO: [load_visits] 370377 timbrature da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2014.csv
+2025-08-02 10:56:52,719 INFO: [merge] visite valide dopo merge: 370377
+2025-08-02 10:56:52,885 INFO: [filter] card multi-visita: 70236 / 71557
+2025-08-02 10:56:58,833 INFO: ▶  ho fatto il clustering
+2025-08-02 10:56:58,895 INFO: ▶  Analisi pattern di movimento geografico
+2025-08-02 10:59:13,104 INFO: ▶  Distanza media tra visite consecutive: 0.58 km
+👉 Porta letta da ollama_port.txt: '39002'
+👉 Provo a contattare http://127.0.0.1:39002/api/tags
+📂 Working dir: /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter
+📄 Contenuto di ollama_port.txt: '39002'
+🔄 Attesa Ollama su http://127.0.0.1:39002...
+✓ Ollama risponde con status 200
+✓ Runner LLaMA completamente attivo
+🎉 Connessione Ollama stabilita con successo!
+Card:   0%|          | 0/50 [00:00<?, ?card/s]2025-08-02 11:04:13,254 ERROR: ❌  Timeout 300s (tentativo 1/2)
+2025-08-02 11:04:13,255 INFO: ⏳ Attendo 10s prima del prossimo tentativo...
+2025-08-02 11:07:23,362 ERROR: ❌  Timeout 180s (tentativo 2/2)
+2025-08-02 11:07:23,363 ERROR: ❌  Tutti i 2 tentativi falliti
+Card:   2%|▏         | 1/50 [08:10<6:40:22, 490.26s/card]2025-08-02 11:12:23,585 ERROR: ❌  Timeout 300s (tentativo 1/2)
+2025-08-02 11:12:23,586 INFO: ⏳ Attendo 10s prima del prossimo tentativo...
+slurmstepd: error: *** JOB 18178670 ON lrdn1962 CANCELLED AT 2025-08-02T11:12:36 ***
+🧹 Cleanup server...
+2025-08-02 11:12:36,131 ERROR: ❌  Errore richiesta: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')) (tentativo 2/2)
+2025-08-02 11:12:36,131 ERROR: ❌  Tutti i 2 tentativi falliti
+Card:   4%|▍         | 2/50 [13:23<5:08:40, 385.85s/card]2025-08-02 11:12:36,252 ERROR: ❌  Health check fallito (tentativo 1/2): HTTPConnectionPool(host='127.0.0.1', port=39002): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14cdd2c72f50>: Failed to establish a new connection: [Errno 111] Connection refused'))

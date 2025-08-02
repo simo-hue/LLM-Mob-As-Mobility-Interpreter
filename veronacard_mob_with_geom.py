@@ -37,47 +37,264 @@ TOP_K  = 5          # deve coincidere con top_k del prompt
 DEFAULT_ANCHOR_RULE = "penultimate"   # "penultimate" | "first" | "middle" | int
 # -----------------------------------------------------------
 
+# SOSTITUISCI la funzione get_chat_completion nel tuo script con questa versione corretta:
+
+def get_chat_completion(prompt: str, model: str = "llama3.1:8b", max_retries: int = 3) -> str | None:
+    """
+    Versione ottimizzata per problemi GPU/timeout Ollama
+    """
+    
+    for attempt in range(1, max_retries + 1):
+        try:
+            # Health check rapido
+            health_resp = requests.get(f"{OLLAMA_HOST}/api/tags", timeout=5)
+            if health_resp.status_code != 200:
+                logger.warning(f"⚠️  Health check fallito (tentativo {attempt}/{max_retries})")
+                if attempt < max_retries:
+                    time.sleep(10)
+                    continue
+                else:
+                    return None
+
+        except requests.exceptions.RequestException as exc:
+            logger.error(f"❌  Health check errore: {exc}")
+            if attempt < max_retries:
+                time.sleep(10)
+                continue
+            else:
+                return None
+
+        # CORREZIONE PRINCIPALE: Usa /api/generate con parametri ottimizzati
+        payload = {
+            "model": model,
+            "prompt": prompt,
+            "stream": False,
+            "options": {
+                # Parametri ridotti per evitare timeout GPU
+                "temperature": 0.1,
+                "top_p": 0.9,
+                "top_k": 40,
+                "num_ctx": 2048,        # Ridotto da 4096
+                "num_predict": 150,     # Ridotto da 200
+                "num_thread": 8,        # Ridotto da 16
+                "repeat_penalty": 1.1,
+                
+                # NUOVI: Parametri anti-timeout
+                "num_batch": 128,       # Batch più piccolo
+                "num_gpu": 33,          # Forza GPU layers
+                "low_vram": False,      # Usa VRAM completa
+                "f16_kv": True,         # Ottimizza memoria
+                
+                # Stop tokens per evitare generazioni lunghe
+                "stop": ["\n\n", "```", "---", "==="]
+            }
+        }
+        
+        try:
+            logger.debug(f"🔄 Richiesta Ollama (tentativo {attempt}/{max_retries})")
+            
+            # TIMEOUT PROGRESSIVO: Primo tentativo più lungo
+            if attempt == 1:
+                timeout = 180  # 3 minuti primo tentativo
+            elif attempt == 2:
+                timeout = 120  # 2 minuti secondo tentativo  
+            else:
+                timeout = 90   # 1.5 minuti tentativi successivi
+            
+            logger.debug(f"⏰ Timeout impostato: {timeout}s")
+            
+            # Usa /api/generate invece di /api/chat
+            resp = requests.post(
+                f"{OLLAMA_HOST}/api/generate",  # CAMBIO ENDPOINT
+                json=payload,
+                timeout=timeout,
+                headers={
+                    'Content-Type': 'application/json',
+                    'Connection': 'close'  # Forza chiusura connessione
+                }
+            )
+            
+            logger.debug(f"📈 Status: {resp.status_code}, Content-Length: {len(resp.content)}")
+            
+            # Verifica risposta HTTP
+            if resp.status_code != 200:
+                logger.error(f"❌  HTTP {resp.status_code}: {resp.text[:200]}")
+                continue
+                
+            # Verifica contenuto
+            if not resp.content:
+                logger.warning(f"⚠️  Risposta HTTP vuota")
+                continue
+                
+            # Parse JSON
+            try:
+                response_data = resp.json()
+            except json.JSONDecodeError as e:
+                logger.error(f"❌  JSON malformato: {e}")
+                logger.error(f"❌  Raw response: {resp.text[:300]}")
+                continue
+            
+            # Debug struttura risposta
+            logger.debug(f"🔍 Chiavi risposta: {list(response_data.keys())}")
+            
+            # Verifica completamento
+            done = response_data.get("done", False)
+            if not done:
+                logger.warning(f"⚠️  Risposta incompleta (done={done})")
+                
+                # Se abbiamo "done_reason": "load", il modello non è pronto
+                done_reason = response_data.get("done_reason", "unknown")
+                if done_reason == "load":
+                    logger.warning(f"⚠️  Modello ancora in caricamento, attendo...")
+                    time.sleep(15)  # Attesa più lunga
+                    continue
+                elif done_reason == "stop":
+                    logger.info(f"✓ Generazione fermata da stop token")
+                else:
+                    logger.warning(f"⚠️  Done reason: {done_reason}")
+                
+                # Anche se non "done", prova a estrarre contenuto parziale
+                
+            # Estrai contenuto (/api/generate usa "response", non "message.content")
+            content = response_data.get("response", "").strip()
+            
+            if content:
+                logger.debug(f"✓ Risposta ricevuta (lunghezza: {len(content)} caratteri)")
+                logger.debug(f"✓ Preview: {content[:100]}...")
+                return content
+            else:
+                logger.warning(f"⚠️  Campo 'response' vuoto")
+                logger.debug(f"🔍 Risposta completa: {response_data}")
+                
+                # Se abbiamo done_reason="load", potrebbe essere un contenuto vuoto normale
+                if response_data.get("done_reason") == "load":
+                    logger.info(f"ℹ️  Risposta vuota dovuta a caricamento modello")
+                    continue
+                
+        except requests.exceptions.Timeout:
+            logger.error(f"❌  Timeout {timeout}s (tentativo {attempt}/{max_retries})")
+            
+            # Se timeout al primo tentativo, il problema è serio
+            if attempt == 1:
+                logger.error(f"❌  Timeout critico al primo tentativo - possibile problema GPU")
+                
+        except requests.exceptions.ConnectionError as exc:
+            logger.error(f"❌  Connessione fallita: {exc}")
+            
+        except requests.exceptions.RequestException as exc:
+            logger.error(f"❌  Errore richiesta: {exc}")
+            
+        except Exception as exc:
+            logger.error(f"❌  Errore inaspettato: {exc}")
+            import traceback
+            logger.error(f"❌  Traceback: {traceback.format_exc()}")
+        
+        # Backoff esponenziale tra tentativi
+        if attempt < max_retries:
+            wait_time = min(attempt * 15, 45)  # Max 45s di attesa
+            logger.info(f"⏳ Attendo {wait_time}s prima del prossimo tentativo...")
+            time.sleep(wait_time)
+    
+    logger.error(f"❌  Tutti i {max_retries} tentativi falliti")
+    return None
+
+def debug_gpu_status():
+    """Debug dello stato GPU prima di iniziare"""
+    logger.info("🔍 Debug stato GPU:")
+    
+    try:
+        import subprocess
+        
+        # Stato GPU
+        gpu_info = subprocess.run(
+            ["nvidia-smi", "--query-gpu=name,memory.used,memory.total,temperature.gpu,utilization.gpu", "--format=csv,noheader,nounits"],
+            capture_output=True, text=True, timeout=10
+        )
+        
+        if gpu_info.returncode == 0:
+            logger.info(f"📊 GPU: {gpu_info.stdout.strip()}")
+        else:
+            logger.warning("⚠️  nvidia-smi non disponibile")
+            
+        # Processi GPU
+        gpu_procs = subprocess.run(
+            ["nvidia-smi", "pmon", "-c", "1"],
+            capture_output=True, text=True, timeout=10
+        )
+        
+        if gpu_procs.returncode == 0:
+            lines = gpu_procs.stdout.strip().split('\n')
+            if len(lines) > 2:  # Header + data
+                logger.info("📋 Processi GPU attivi:")
+                for line in lines[2:]:  # Skip headers
+                    if line.strip():
+                        logger.info(f"   {line}")
+            else:
+                logger.info("✓ Nessun processo GPU concorrente")
+                
+    except Exception as e:
+        logger.warning(f"⚠️  Debug GPU fallito: {e}")
+
 def warmup_model(model: str = "llama3.1:8b") -> bool:
     """
-    Esegue un warm-up del modello con una richiesta semplice.
-    Questo riduce i tempi delle richieste successive.
+    Warm-up ottimizzato per problemi GPU
     """
-    logger.info("🔥 Warm-up del modello in corso...")
+    logger.info("🔥 Warm-up modello con parametri conservativi...")
     
-    simple_prompt = "Rispondi con una sola parola: Ciao"
-    
+    # Payload minimalista per warm-up
     payload = {
         "model": model,
-        "prompt": simple_prompt,
+        "prompt": "Hi",  # Prompt più corto possibile
         "stream": False,
         "options": {
-            "num_ctx": 1024,
-            "num_predict": 10,
-            "temperature": 0.1
+            "num_ctx": 1024,      # Contesto minimo
+            "num_predict": 3,     # Solo 3 token
+            "temperature": 0.1,
+            "num_thread": 4,      # Thread ridotti
+            "num_batch": 64       # Batch piccolo
         }
     }
     
     try:
+        logger.info("🔄 Tentativo warm-up...")
         resp = requests.post(
-            f"{OLLAMA_HOST}/api/chat",
+            f"{OLLAMA_HOST}/api/generate",
             json=payload,
-            timeout=300,  # Primo caricamento può richiedere tempo
+            timeout=120,  # 2 minuti per warm-up
             headers={'Content-Type': 'application/json'}
         )
         
-        if resp.status_code == 200:
-            result = resp.json()
-            if result.get("done", False):
-                logger.info("✓ Warm-up completato con successo")
-                return True
+        if resp.status_code == 200 and resp.content:
+            try:
+                result = resp.json()
+                done = result.get("done", False)
+                response_text = result.get("response", "")
+                
+                logger.info(f"📊 Warm-up result: done={done}, response_len={len(response_text)}")
+                
+                if done and response_text.strip():
+                    logger.info("✓ Warm-up completato con successo")
+                    return True
+                elif result.get("done_reason") == "load":
+                    logger.warning("⚠️  Modello non completamente caricato durante warm-up")
+                    return False
+                else:
+                    logger.warning("⚠️  Warm-up parziale - potrebbe funzionare comunque")
+                    return True  # Ritorna True per tentare comunque
+                    
+            except json.JSONDecodeError:
+                logger.error(f"❌ Warm-up JSON malformato: {resp.text[:200]}")
+                return False
+        else:
+            logger.warning(f"⚠️  Warm-up HTTP error: {resp.status_code}")
+            return False
         
-        logger.warning(f"⚠️  Warm-up parzialmente fallito: HTTP {resp.status_code}")
+    except requests.exceptions.Timeout:
+        logger.error("❌  Warm-up timeout - GPU molto lenta o bloccata")
         return False
-        
     except Exception as exc:
-        logger.error(f"❌  Warm-up fallito: {exc}")
+        logger.error(f"❌  Warm-up errore: {exc}")
         return False
-
 
 # --- CONFIGURAZIONE OLLAMA: leggi porta dal file ---
 OLLAMA_PORT_FILE = "ollama_port.txt"
@@ -145,15 +362,6 @@ def wait_for_ollama(ollama_host, max_attempts=30, wait_interval=3):
 # Setup della connessione
 OLLAMA_HOST, OLLAMA_PORT = setup_ollama_connection()
 
-# Attendi che Ollama sia pronto
-if not wait_for_ollama(OLLAMA_HOST):
-    raise RuntimeError("❌ Ollama non ha risposto dopo tutti i tentativi")
-
-print("🎉 Connessione Ollama stabilita con successo!")
-
-# Warm-up del modello prima di iniziare
-if not warmup_model():
-    logger.warning("⚠️  Warm-up fallito, ma continuo comunque...")
 # --------------------------------------------------------------
 
 def calculate_distance(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
@@ -784,6 +992,32 @@ if __name__ == "__main__":
 
     if args.force and args.append:
         parser.error("Non puoi usare insieme --force e --append.")
+
+    # Attendi che Ollama sia pronto
+    if not wait_for_ollama(OLLAMA_HOST):
+        raise RuntimeError("❌ Ollama non ha risposto dopo tutti i tentativi")
+
+    print("🎉 Connessione Ollama stabilita con successo!")
+
+    # Warm-up del modello prima di iniziare
+    if not warmup_model():
+        logger.warning("⚠️  Warm-up fallito, ma continuo comunque...")
+    
+    debug_gpu_status()
+    
+    # Warm-up con retry
+    warmup_success = False
+    for i in range(3):
+        if warmup_model():
+            warmup_success = True
+            break
+        else:
+            logger.warning(f"⚠️  Warm-up tentativo {i+1}/3 fallito")
+            if i < 2:
+                time.sleep(20) 
+    
+    if not warmup_success:
+        logger.error("❌  Warm-up completamente fallito - possibili problemi GPU gravi")
 
     try:
         run_all_verona_logs(max_users=args.max_users,
