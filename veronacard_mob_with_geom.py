@@ -14,6 +14,71 @@ import logging
 from datetime import datetime
 import math
 
+# ---------------- logging setup ----------------
+LOG_DIR = Path(__file__).resolve().parent / "logs"
+LOG_DIR.mkdir(exist_ok=True)
+LOG_FILE = LOG_DIR / f"run_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s: %(message)s",
+    handlers=[
+        logging.FileHandler(LOG_FILE, encoding="utf-8"),
+        logging.StreamHandler()
+    ]
+)
+
+logger = logging.getLogger(__name__)
+
+# -----------------------------------------------------------
+TOP_K  = 5          # deve coincidere con top_k del prompt
+# -----------------------------------------------------------
+# -----------------------------------------------------------
+DEFAULT_ANCHOR_RULE = "penultimate"   # "penultimate" | "first" | "middle" | int
+# -----------------------------------------------------------
+
+def warmup_model(model: str = "llama3.1:8b") -> bool:
+    """
+    Esegue un warm-up del modello con una richiesta semplice.
+    Questo riduce i tempi delle richieste successive.
+    """
+    logger.info("🔥 Warm-up del modello in corso...")
+    
+    simple_prompt = "Rispondi con una sola parola: Ciao"
+    
+    payload = {
+        "model": model,
+        "prompt": simple_prompt,
+        "stream": False,
+        "options": {
+            "num_ctx": 1024,
+            "num_predict": 10,
+            "temperature": 0.1
+        }
+    }
+    
+    try:
+        resp = requests.post(
+            f"{OLLAMA_HOST}/api/chat",
+            json=payload,
+            timeout=300,  # Primo caricamento può richiedere tempo
+            headers={'Content-Type': 'application/json'}
+        )
+        
+        if resp.status_code == 200:
+            result = resp.json()
+            if result.get("done", False):
+                logger.info("✓ Warm-up completato con successo")
+                return True
+        
+        logger.warning(f"⚠️  Warm-up parzialmente fallito: HTTP {resp.status_code}")
+        return False
+        
+    except Exception as exc:
+        logger.error(f"❌  Warm-up fallito: {exc}")
+        return False
+
+
 # --- CONFIGURAZIONE OLLAMA: leggi porta dal file ---
 OLLAMA_PORT_FILE = "ollama_port.txt"
 
@@ -86,6 +151,9 @@ if not wait_for_ollama(OLLAMA_HOST):
 
 print("🎉 Connessione Ollama stabilita con successo!")
 
+# Warm-up del modello prima di iniziare
+if not warmup_model():
+    logger.warning("⚠️  Warm-up fallito, ma continuo comunque...")
 # --------------------------------------------------------------
 
 def calculate_distance(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
@@ -115,30 +183,6 @@ def latest_output(visits_path: Path, out_dir: Path) -> Path | None:
     outputs = list_outputs(visits_path, out_dir)
     return max(outputs, key=os.path.getmtime) if outputs else None
 # --------------------------------------------------------------
-
-
-# ---------------- logging setup ----------------
-LOG_DIR = Path(__file__).resolve().parent / "logs"
-LOG_DIR.mkdir(exist_ok=True)
-LOG_FILE = LOG_DIR / f"run_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s %(levelname)s: %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, encoding="utf-8"),
-        logging.StreamHandler()
-    ]
-)
-
-logger = logging.getLogger(__name__)
-
-# -----------------------------------------------------------
-TOP_K  = 5          # deve coincidere con top_k del prompt
-# -----------------------------------------------------------
-# -----------------------------------------------------------
-DEFAULT_ANCHOR_RULE = "penultimate"   # "penultimate" | "first" | "middle" | int
-# -----------------------------------------------------------
 
 def anchor_index(seq_len: int, rule: str | int) -> int:
     """
@@ -239,7 +283,7 @@ def create_prompt_with_cluster(
     pois_df: pd.DataFrame,
     card_id: str,
     *,
-    top_k: int = 1,
+    top_k: int = 5,
     anchor_rule: str | int = DEFAULT_ANCHOR_RULE,
 ) -> str:
     visits = df[df["card_id"] == card_id].sort_values("timestamp")
@@ -261,66 +305,48 @@ def create_prompt_with_cluster(
     # Ottieni coordinate del POI attuale
     current_poi_row = pois_df[pois_df["name_short"] == current_poi]
     if current_poi_row.empty:
-        # Fallback se non troviamo le coordinate
-        return create_basic_prompt(...)  # versione senza coordinate
+        raise ValueError(f"POI {current_poi} non trovato nel database")
     
     current_lat = current_poi_row["latitude"].iloc[0]
     current_lon = current_poi_row["longitude"].iloc[0]
 
-    # Calcola distanze da tutti gli altri POI disponibili
-    available_pois_with_distance = []
+    # Calcola distanze e prendi solo i più vicini (max 10 per ridurre il prompt)
+    nearby_pois = []
     for _, row in pois_df.iterrows():
         poi_name = row["name_short"]
         
-        # Salta se è già stato visitato o è il POI attuale
+        # Salta se già visitato o è il POI attuale
         if poi_name in history or poi_name == current_poi:
             continue
             
-        # Calcola distanza dal POI attuale
         distance = calculate_distance(
             current_lat, current_lon,
             row["latitude"], row["longitude"]
         )
         
-        available_pois_with_distance.append({
+        nearby_pois.append({
             "name": poi_name,
-            "distance": distance,
-            "lat": row["latitude"],
-            "lon": row["longitude"]
+            "distance": distance
         })
 
-    # Ordina per distanza (i più vicini prima)
-    available_pois_with_distance.sort(key=lambda x: x["distance"])
+    # Ordina per distanza e prendi solo i primi 10
+    nearby_pois.sort(key=lambda x: x["distance"])
+    nearby_pois = nearby_pois[:10]
 
-    # Crea la lista formattata per il prompt
-    pois_with_distance_text = "\n".join([
-        f"- {poi['name']} (distanza: {poi['distance']:.2f} km)"
-        for poi in available_pois_with_distance
+    # Crea lista compatta
+    pois_list = ", ".join([
+        f"{poi['name']} ({poi['distance']:.1f}km)"
+        for poi in nearby_pois
     ])
 
-    return f"""
-        Sei un assistente turistico esperto di Verona con conoscenza dettagliata della geografia della città.
-        
-        <cluster_id>: {cluster_id}
-        <history>: {history}
-        <current_poi>: {current_poi}
-        
-        <pois_disponibili_con_distanze>:
-        {pois_with_distance_text}
-        
-        Obiettivo: suggerisci i {top_k} POI più probabili che l'utente visiterà dopo, considerando:
-        - La distanza dal POI attuale (i turisti tendono a visitare luoghi vicini)
-        - La logica dei percorsi turistici a Verona
-        - I pattern tipici di movimento in base al cluster {cluster_id}
-        
-        • Escludi i POI già in <history> e <current_poi>.
-        • Considera che distanze minori indicano maggiore probabilità di visita.
-        • Rispondi con **una sola riga** JSON:
-        {{ "prediction": [...], "reason": "..." }}
-        
-        Nella tua ragione, menziona le distanze e perché questi POI sono logici geograficamente.
-        Rispondi in italiano.
-        """.strip() 
+    # Prompt molto più conciso
+    return f"""Turista cluster {cluster_id} a Verona.
+Visitati: {', '.join(history) if history else 'nessuno'}
+Attuale: {current_poi}
+Disponibili: {pois_list}
+
+Suggerisci {top_k} POI più probabili come prossime visite considerando distanze e pattern turistici.
+Rispondi SOLO JSON: {{"prediction": ["poi1", "poi2", ...], "reason": "breve spiegazione"}}"""
     
 def get_nearby_pois(current_poi: str, pois_df: pd.DataFrame, 
                    visited_pois: list, max_distance: float = 2.0) -> list:
@@ -407,40 +433,32 @@ def analyze_movement_patterns(df: pd.DataFrame, pois_df: pd.DataFrame) -> pd.Dat
     return pd.DataFrame(movement_data)
 
 # ---------- chiamata LLaMA / Ollama ---------------------------------------
-def get_chat_completion(prompt: str, model: str = "llama3.1:8b", max_retries: int = 3) -> str | None:
+def get_chat_completion(prompt: str, model: str = "llama3.1:8b", max_retries: int = 2) -> str | None:
     """
-    Ottiene una completion dal modello LLaMA tramite Ollama con retry automatico.
-    
-    Args:
-        prompt: Il prompt da inviare
-        model: Nome del modello (default: llama3.1:8b)
-        max_retries: Numero massimo di tentativi
-    
-    Returns:
-        Risposta del modello o None se fallisce
+    Ottiene una completion dal modello LLaMA tramite Ollama con timeout ottimizzati.
     """
     
     for attempt in range(1, max_retries + 1):
         try:
-            # Verifica preliminare che Ollama sia attivo
-            health_check = requests.get(f"{OLLAMA_HOST}/api/tags", timeout=5)
+            # Health check veloce
+            health_check = requests.get(f"{OLLAMA_HOST}/api/tags", timeout=3)
             if health_check.status_code != 200:
-                logger.warning(f"⚠️  Ollama health check fallito (tentativo {attempt}/{max_retries})")
+                logger.warning(f"⚠️  Ollama non risponde (tentativo {attempt}/{max_retries})")
                 if attempt < max_retries:
-                    time.sleep(2)
+                    time.sleep(5)
                     continue
                 else:
                     return None
 
         except requests.exceptions.RequestException as exc:
-            logger.error(f"❌  Connessione Ollama fallita (tentativo {attempt}/{max_retries}): {exc}")
+            logger.error(f"❌  Health check fallito (tentativo {attempt}/{max_retries}): {exc}")
             if attempt < max_retries:
-                time.sleep(2)
+                time.sleep(5)
                 continue
             else:
                 return None
 
-        # Prepara il payload per l'API /api/generate (più semplice)
+        # Payload ottimizzato per performance
         payload = {
             "model": model,
             "prompt": prompt,
@@ -449,58 +467,65 @@ def get_chat_completion(prompt: str, model: str = "llama3.1:8b", max_retries: in
                 "temperature": 0.1,
                 "top_p": 0.9,
                 "top_k": 40,
-                "num_ctx": 8192
+                "num_ctx": 4096,        # Ridotto da 8192 per velocità
+                "num_predict": 200,     # Limita lunghezza risposta
+                "stop": ["\n\n", "```"], # Stop su patterns comuni
+                "num_thread": 16,       # Usa più thread
+                "repeat_penalty": 1.1
             },
         }
         
         try:
-            # Invia la richiesta con timeout più generoso
-            logger.debug(f"🔄 Invio richiesta a Ollama (tentativo {attempt}/{max_retries})")
+            logger.debug(f"🔄 Richiesta Ollama (tentativo {attempt}/{max_retries})")
+            
+            # Timeout progressivo: primo tentativo più lungo per warm-up
+            timeout = 300 if attempt == 1 else 180
             
             resp = requests.post(
-                f"{OLLAMA_HOST}/api/generate", 
+                f"{OLLAMA_HOST}/api/chat", 
                 json=payload, 
-                timeout=120,  # Timeout generoso per modelli lenti
+                timeout=timeout,
                 headers={'Content-Type': 'application/json'}
             )
             
             resp.raise_for_status()
             response_data = resp.json()
             
-            # Estrai il contenuto della risposta dall'API /generate
-            content = response_data.get("response")
+            # Verifica che la risposta sia completa
+            if not response_data.get("done", False):
+                logger.warning(f"⚠️  Risposta incompleta (tentativo {attempt}/{max_retries})")
+                continue
+            
+            content = response_data.get("response", "").strip()
             if content:
                 logger.debug(f"✓ Risposta ricevuta (lunghezza: {len(content)} caratteri)")
-                return content.strip()
+                return content
             else:
-                logger.warning(f"⚠️  Risposta vuota da Ollama (tentativo {attempt}/{max_retries})")
+                logger.warning(f"⚠️  Risposta vuota (tentativo {attempt}/{max_retries})")
                 
         except requests.exceptions.Timeout:
-            logger.error(f"❌  Timeout richiesta Ollama (tentativo {attempt}/{max_retries})")
+            logger.error(f"❌  Timeout {timeout}s (tentativo {attempt}/{max_retries})")
         except requests.exceptions.HTTPError as exc:
-            logger.error(f"❌  Errore HTTP {resp.status_code}: {exc} (tentativo {attempt}/{max_retries})")
-            # Log della risposta per debug
+            logger.error(f"❌  HTTP {resp.status_code}: {exc} (tentativo {attempt}/{max_retries})")
             try:
-                logger.error(f"❌  Dettaglio errore: {resp.text}")
+                error_detail = resp.json()
+                logger.error(f"❌  Dettaglio: {error_detail}")
             except:
-                pass
+                logger.error(f"❌  Risposta raw: {resp.text[:500]}")
         except requests.exceptions.RequestException as exc:
             logger.error(f"❌  Errore richiesta: {exc} (tentativo {attempt}/{max_retries})")
-        except (KeyError, ValueError) as exc:
-            logger.error(f"❌  Errore parsing risposta: {exc} (tentativo {attempt}/{max_retries})")
-            try:
-                logger.error(f"❌  Risposta raw: {resp.text}")
-            except:
-                pass
+        except Exception as exc:
+            logger.error(f"❌  Errore inaspettato: {exc} (tentativo {attempt}/{max_retries})")
         
-        # Se non è l'ultimo tentativo, aspetta prima di riprovare
+        # Backoff progressivo tra tentativi
         if attempt < max_retries:
-            wait_time = attempt * 2  # Backoff progressivo
+            wait_time = min(attempt * 10, 30)  # Max 30s di attesa
             logger.info(f"⏳ Attendo {wait_time}s prima del prossimo tentativo...")
             time.sleep(wait_time)
     
     logger.error(f"❌  Tutti i {max_retries} tentativi falliti")
     return None
+
 # ---------- test-set builder ----------------------------------------------
 def build_test_set(df: DataFrame) -> DataFrame:
     records = []
