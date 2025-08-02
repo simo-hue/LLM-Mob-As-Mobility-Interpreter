@@ -458,21 +458,10 @@ def get_chat_completion(prompt: str, model: str = "llama3.1:8b", max_retries: in
             else:
                 return None
 
-        # Payload ottimizzato per performance
         payload = {
             "model": model,
-            "prompt": prompt,
-            "stream": False,
-            "options": {
-                "temperature": 0.1,
-                "top_p": 0.9,
-                "top_k": 40,
-                "num_ctx": 4096,        # Ridotto da 8192 per velocità
-                "num_predict": 200,     # Limita lunghezza risposta
-                "stop": ["\n\n", "```"], # Stop su patterns comuni
-                "num_thread": 16,       # Usa più thread
-                "repeat_penalty": 1.1
-            },
+            "messages": [{"role": "user", "content": prompt}], 
+            "stream": False
         }
         
         try:
@@ -496,7 +485,8 @@ def get_chat_completion(prompt: str, model: str = "llama3.1:8b", max_retries: in
                 logger.warning(f"⚠️  Risposta incompleta (tentativo {attempt}/{max_retries})")
                 continue
             
-            content = response_data.get("response", "").strip()
+            message = response_data.get("message", {})
+            content = message.get("content", "")
             if content:
                 logger.debug(f"✓ Risposta ricevuta (lunghezza: {len(content)} caratteri)")
                 return content
