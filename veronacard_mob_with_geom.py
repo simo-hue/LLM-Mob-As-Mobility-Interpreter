@@ -16,31 +16,77 @@ import math
 
 # --- CONFIGURAZIONE OLLAMA: leggi porta dal file ---
 OLLAMA_PORT_FILE = "ollama_port.txt"
-try:
-    with open(OLLAMA_PORT_FILE, "r") as f:
-        port = f.read().strip()
-    print(f"👉 Porta letta da ollama_port.txt: '{port}'")
-    print(f"👉 Provo a contattare http://127.0.0.1:{port}/api/tags")
-    OLLAMA_HOST = f"http://127.0.0.1:{port}"
-        
-    # PRINT DI DEBUG
-    print(f"📂 Working dir: {os.getcwd()}")
-    print(f"📄 Contenuto di ollama_port.txt: '{port}'")
-except FileNotFoundError:
-    raise RuntimeError(f"❌ File {OLLAMA_PORT_FILE} non trovato. Il job SLURM deve generarlo.")
 
-# --- Attendi che il runner sia attivo ---
-for _ in range(10):
+def setup_ollama_connection():
+    """Setup della connessione Ollama con retry robusto"""
     try:
-        r = requests.get(f"{OLLAMA_HOST}/api/tags", timeout=5)
-        if r.status_code == 200:
-            print("✓ Runner LLaMA attivo")
-            break
-    except requests.exceptions.RequestException:
-        print("⏳ Attendo LLaMA...")
-        time.sleep(3)
-else:
-    raise RuntimeError("❌ LLaMA non ha risposto dopo 30 secondi")
+        with open(OLLAMA_PORT_FILE, "r") as f:
+            port = f.read().strip()
+        print(f"👉 Porta letta da ollama_port.txt: '{port}'")
+        
+        ollama_host = f"http://127.0.0.1:{port}"
+        print(f"👉 Provo a contattare {ollama_host}/api/tags")
+        
+        # PRINT DI DEBUG
+        print(f"📂 Working dir: {os.getcwd()}")
+        print(f"📄 Contenuto di ollama_port.txt: '{port}'")
+        
+        return ollama_host, port
+    except FileNotFoundError:
+        raise RuntimeError(f"❌ File {OLLAMA_PORT_FILE} non trovato. Il job SLURM deve generarlo.")
+
+def wait_for_ollama(ollama_host, max_attempts=30, wait_interval=3):
+    """Attende che Ollama sia pronto con retry più robusto"""
+    print(f"🔄 Attesa Ollama su {ollama_host}...")
+    
+    for attempt in range(1, max_attempts + 1):
+        try:
+            # Prima prova un endpoint semplice
+            response = requests.get(f"{ollama_host}/api/tags", 
+                                  timeout=10,
+                                  headers={'Accept': 'application/json'})
+            
+            if response.status_code == 200:
+                print(f"✓ Ollama risponde con status {response.status_code}")
+                
+                # Test aggiuntivo: prova anche /api/version
+                try:
+                    version_resp = requests.get(f"{ollama_host}/api/version", timeout=5)
+                    if version_resp.status_code == 200:
+                        print("✓ Runner LLaMA completamente attivo")
+                        return True
+                except:
+                    pass  # Non critico se version non risponde
+                
+                # Anche se version non risponde, tags OK è sufficiente
+                print("✓ Runner LLaMA attivo (solo /api/tags)")
+                return True
+            else:
+                print(f"🔄 Tentativo {attempt}/{max_attempts}: HTTP {response.status_code}")
+                
+        except requests.exceptions.ConnectionError:
+            print(f"🔄 Tentativo {attempt}/{max_attempts}: Connessione rifiutata")
+        except requests.exceptions.Timeout:
+            print(f"🔄 Tentativo {attempt}/{max_attempts}: Timeout")
+        except requests.exceptions.RequestException as e:
+            print(f"🔄 Tentativo {attempt}/{max_attempts}: Errore {e}")
+        
+        if attempt < max_attempts:
+            print(f"⏳ Attendo {wait_interval}s prima del prossimo tentativo...")
+            time.sleep(wait_interval)
+    
+    return False
+
+# Setup della connessione
+OLLAMA_HOST, OLLAMA_PORT = setup_ollama_connection()
+
+# Attendi che Ollama sia pronto
+if not wait_for_ollama(OLLAMA_HOST):
+    raise RuntimeError("❌ Ollama non ha risposto dopo tutti i tentativi")
+
+print("🎉 Connessione Ollama stabilita con successo!")
+
+# --------------------------------------------------------------
 
 def calculate_distance(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     """
@@ -361,29 +407,91 @@ def analyze_movement_patterns(df: pd.DataFrame, pois_df: pd.DataFrame) -> pd.Dat
     return pd.DataFrame(movement_data)
 
 # ---------- chiamata LLaMA / Ollama ---------------------------------------
-def get_chat_completion(prompt: str, model: str = "llama3.1:8b") -> str | None:
-    try:
-        if requests.get(f"{OLLAMA_HOST}/api/tags", timeout=2).status_code != 200:
-            logger.warning("⚠️  Ollama non è in esecuzione.")
-            return None
-    except requests.exceptions.RequestException as exc:
-        logger.error(f"❌  Connessione Ollama fallita: {exc}")
-        return None
+def get_chat_completion(prompt: str, model: str = "llama3.1:8b", max_retries: int = 3) -> str | None:
+    """
+    Ottiene una completion dal modello LLaMA tramite Ollama con retry automatico.
+    
+    Args:
+        prompt: Il prompt da inviare
+        model: Nome del modello (default: llama3.1:8b)
+        max_retries: Numero massimo di tentativi
+    
+    Returns:
+        Risposta del modello o None se fallisce
+    """
+    
+    for attempt in range(1, max_retries + 1):
+        try:
+            # Verifica preliminare che Ollama sia attivo
+            health_check = requests.get(f"{OLLAMA_HOST}/api/tags", timeout=5)
+            if health_check.status_code != 200:
+                logger.warning(f"⚠️  Ollama health check fallito (tentativo {attempt}/{max_retries})")
+                if attempt < max_retries:
+                    time.sleep(2)
+                    continue
+                else:
+                    return None
 
-    payload = {
-        "model": model,
-        "messages": [{"role": "user", "content": prompt}],
-        "stream": False,
-        "options": {"raw": True},
-    }
-    try:
-        resp = requests.post(f"{OLLAMA_HOST}/api/chat", json=payload, timeout=60)
-        resp.raise_for_status()
-        return resp.json().get("message", {}).get("content")
-    except requests.exceptions.RequestException as exc:
-        logger.error(f"❌  Errore HTTP: {exc}")
-        return None
+        except requests.exceptions.RequestException as exc:
+            logger.error(f"❌  Connessione Ollama fallita (tentativo {attempt}/{max_retries}): {exc}")
+            if attempt < max_retries:
+                time.sleep(2)
+                continue
+            else:
+                return None
 
+        # Prepara il payload
+        payload = {
+            "model": model,
+            "messages": [{"role": "user", "content": prompt}],
+            "stream": False,
+            "options": {
+                "raw": True,
+                "temperature": 0.1,  # Più deterministico
+                "top_p": 0.9,
+                "top_k": 40
+            },
+        }
+        
+        try:
+            # Invia la richiesta con timeout più generoso
+            logger.debug(f"🔄 Invio richiesta a Ollama (tentativo {attempt}/{max_retries})")
+            
+            resp = requests.post(
+                f"{OLLAMA_HOST}/api/chat", 
+                json=payload, 
+                timeout=120,  # Aumentato timeout per modelli lenti
+                headers={'Content-Type': 'application/json'}
+            )
+            
+            resp.raise_for_status()
+            response_data = resp.json()
+            
+            # Estrai il contenuto della risposta
+            content = response_data.get("message", {}).get("content")
+            if content:
+                logger.debug(f"✓ Risposta ricevuta (lunghezza: {len(content)} caratteri)")
+                return content
+            else:
+                logger.warning(f"⚠️  Risposta vuota da Ollama (tentativo {attempt}/{max_retries})")
+                
+        except requests.exceptions.Timeout:
+            logger.error(f"❌  Timeout richiesta Ollama (tentativo {attempt}/{max_retries})")
+        except requests.exceptions.HTTPError as exc:
+            logger.error(f"❌  Errore HTTP {resp.status_code}: {exc} (tentativo {attempt}/{max_retries})")
+        except requests.exceptions.RequestException as exc:
+            logger.error(f"❌  Errore richiesta: {exc} (tentativo {attempt}/{max_retries})")
+        except (KeyError, ValueError) as exc:
+            logger.error(f"❌  Errore parsing risposta: {exc} (tentativo {attempt}/{max_retries})")
+        
+        # Se non è l'ultimo tentativo, aspetta prima di riprovare
+        if attempt < max_retries:
+            wait_time = attempt * 2  # Backoff progressivo
+            logger.info(f"⏳ Attendo {wait_time}s prima del prossimo tentativo...")
+            time.sleep(wait_time)
+    
+    logger.error(f"❌  Tutti i {max_retries} tentativi falliti")
+    return None
 # ---------- test-set builder ----------------------------------------------
 def build_test_set(df: DataFrame) -> DataFrame:
     records = []
