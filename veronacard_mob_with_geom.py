@@ -1121,8 +1121,8 @@ if __name__ == "__main__":
        
     # Controllo che OLLAMA risponda altrimenti esco 
     if not test_ollama_connection(OLLAMA_HOST, "llama3.1:8b"):
-    logger.error("❌ Ollama non funziona, aborting")
-    exit(1)
+        logger.error("❌ Ollama non funziona, aborting")
+        exit(1)
 
     try:
         run_all_verona_logs(max_users=args.max_users,
