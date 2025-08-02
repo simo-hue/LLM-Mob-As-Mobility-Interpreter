@@ -1,0 +1,155 @@
+🔍 SCRIPT DIAGNOSTICO OLLAMA SU LEONARDO
+========================================
+Data: Sat Aug  2 14:46:49 CEST 2025
+Nodo: lrdn3045.leonardo.local
+User: smattiol
+
+📋 INFORMAZIONI SISTEMA
+------------------------
+OS: Red Hat Enterprise Linux 8.8 (Ootpa)
+Kernel: 4.18.0-477.27.1.el8_8.x86_64
+Architettura: x86_64
+Uptime: up 2 weeks, 2 days, 4 hours, 30 minutes
+
+🖥️  INFORMAZIONI GPU
+-------------------
+CUDA_VISIBLE_DEVICES: 0
+
+=== nvidia-smi ===
+Sat Aug  2 14:46:49 2025       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.54.03              Driver Version: 535.54.03    CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A100-SXM-64GB           On  | 00000000:1D:00.0 Off |                    0 |
+| N/A   44C    P0              65W / 477W |      2MiB / 65536MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+
+=== GPU Memory Details ===
+index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], temperature.gpu
+0, NVIDIA A100-SXM-64GB, 65536 MiB, 2 MiB, 64942 MiB, 0 %, 0 %, 44
+
+=== Processi GPU attivi ===
+# gpu         pid  type    sm    mem    enc    dec    command
+# Idx           #   C/G     %      %      %      %    name
+    0          -     -     -     -     -     -   -              
+
+🔧 INFORMAZIONI CUDA
+-------------------
+NVCC Version: V12.3.103
+⚠️  File versione CUDA non trovato nelle posizioni standard
+Variabili ambiente CUDA:
+CPATH=/leonardo/prod/opt/compilers/cuda/12.3/none/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/python-3.11.6-i5k3c6ggftqkzgqyymfbkynpgm2lgjtd/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/util-linux-uuid-2.38.1-jkdi7kvvma7367qdmvpkada4pyiafoud/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/sqlite-3.43.2-casyrltocz5edzjhs5vzlqhwkamn7y4a/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxcrypt-4.4.35-ss2rzin25ozjy4gyy3dack36njs6navg/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gettext-0.22.3-2g7elifkgxzpypbswqnjuu5hefn4mjts/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zstd-1.5.5-gawytflrhedqdc2riwax7oduoqddx22s/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxml2-2.10.3-5eeeokp4kszufozbayq4bewwmyeuwy27/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zlib-ng-2.1.4-6htiapkoa6fx2medhyabzo575skozuir/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/xz-5.4.1-hubmwr5wc5nf6zk3ghuaikxiejuyt6bi/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libiconv-1.17-d7yvx2s6da4x2rfx44bc3perbb33rvuy/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gdbm-1.23-fs6otcki47azeywcckquj2sy4mzsnzxg/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/readline-8.2-nyw6mp6b7dvizewrf7exopvap2q32s5j/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/ncurses-6.4-asx3jea367shsxjt6bdj2bu5olxll6ni/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/expat-2.5.0-bptl3xwbvbkxxoc5x3dhviorarv4dvxv/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libbsd-0.11.7-cgxjopleu7se4y4cgi7oefbljgasr457/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libmd-1.0.4-wja3f5q3w75tqtro333fptfnji7oqxiu/include:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/bzip2-1.0.8-gp5wcz5lksrbm2gqiqjppumrhjz6gahy/include
+CUDA_HOME=/leonardo/prod/opt/compilers/cuda/12.3/none
+CUDA_VISIBLE_DEVICES=0
+LD_LIBRARY_PATH=/leonardo/prod/opt/compilers/cuda/12.3/none/lib64:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/python-3.11.6-i5k3c6ggftqkzgqyymfbkynpgm2lgjtd/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/util-linux-uuid-2.38.1-jkdi7kvvma7367qdmvpkada4pyiafoud/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/sqlite-3.43.2-casyrltocz5edzjhs5vzlqhwkamn7y4a/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxcrypt-4.4.35-ss2rzin25ozjy4gyy3dack36njs6navg/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib64:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gettext-0.22.3-2g7elifkgxzpypbswqnjuu5hefn4mjts/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zstd-1.5.5-gawytflrhedqdc2riwax7oduoqddx22s/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxml2-2.10.3-5eeeokp4kszufozbayq4bewwmyeuwy27/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zlib-ng-2.1.4-6htiapkoa6fx2medhyabzo575skozuir/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/xz-5.4.1-hubmwr5wc5nf6zk3ghuaikxiejuyt6bi/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libiconv-1.17-d7yvx2s6da4x2rfx44bc3perbb33rvuy/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gdbm-1.23-fs6otcki47azeywcckquj2sy4mzsnzxg/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/readline-8.2-nyw6mp6b7dvizewrf7exopvap2q32s5j/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/ncurses-6.4-asx3jea367shsxjt6bdj2bu5olxll6ni/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/expat-2.5.0-bptl3xwbvbkxxoc5x3dhviorarv4dvxv/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libbsd-0.11.7-cgxjopleu7se4y4cgi7oefbljgasr457/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libmd-1.0.4-wja3f5q3w75tqtro333fptfnji7oqxiu/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/bzip2-1.0.8-gp5wcz5lksrbm2gqiqjppumrhjz6gahy/lib
+_LMFILES_=/leonardo/prod/opt/modulefiles/profiles/profile/base:/leonardo/prod/opt/modulefiles/base/dependencies/bzip2/1.0.8-gp5wcz5:/leonardo/prod/opt/modulefiles/base/dependencies/libmd/1.0.4-wja3f5q:/leonardo/prod/opt/modulefiles/base/dependencies/libbsd/0.11.7-cgxjopl:/leonardo/prod/opt/modulefiles/base/dependencies/expat/2.5.0-bptl3xw:/leonardo/prod/opt/modulefiles/base/dependencies/ncurses/6.4-asx3jea:/leonardo/prod/opt/modulefiles/base/dependencies/readline/8.2-nyw6mp6:/leonardo/prod/opt/modulefiles/base/dependencies/gdbm/1.23-fs6otck:/leonardo/prod/opt/modulefiles/base/dependencies/libiconv/1.17-d7yvx2s:/leonardo/prod/opt/modulefiles/base/dependencies/xz/5.4.1-hubmwr5:/leonardo/prod/opt/modulefiles/base/dependencies/zlib-ng/2.1.4-6htiapk:/leonardo/prod/opt/modulefiles/base/dependencies/libxml2/2.10.3-5eeeokp:/leonardo/prod/opt/modulefiles/base/dependencies/pigz/2.7-bopr5vp:/leonardo/prod/opt/modulefiles/base/dependencies/zstd/1.5.5-gawytfl:/leonardo/prod/opt/modulefiles/base/dependencies/tar/1.34-amqus5s:/leonardo/prod/opt/modulefiles/base/dependencies/gettext/0.22.3-2g7elif:/leonardo/prod/opt/modulefiles/base/dependencies/libffi/3.4.4-6r7brdq:/leonardo/prod/opt/modulefiles/base/dependencies/libxcrypt/4.4.35-ss2rzin:/leonardo/prod/opt/modulefiles/base/dependencies/sqlite/3.43.2:/leonardo/prod/opt/modulefiles/base/dependencies/util-linux-uuid/2.38.1-jkdi7kv:/leonardo/prod/opt/modulefiles/base/archive/python/3.11.6--gcc--8.5.0:/leonardo/prod/opt/modulefiles/base/compilers/cuda/12.3
+LOADEDMODULES=profile/base:bzip2/1.0.8-gp5wcz5:libmd/1.0.4-wja3f5q:libbsd/0.11.7-cgxjopl:expat/2.5.0-bptl3xw:ncurses/6.4-asx3jea:readline/8.2-nyw6mp6:gdbm/1.23-fs6otck:libiconv/1.17-d7yvx2s:xz/5.4.1-hubmwr5:zlib-ng/2.1.4-6htiapk:libxml2/2.10.3-5eeeokp:pigz/2.7-bopr5vp:zstd/1.5.5-gawytfl:tar/1.34-amqus5s:gettext/0.22.3-2g7elif:libffi/3.4.4-6r7brdq:libxcrypt/4.4.35-ss2rzin:sqlite/3.43.2:util-linux-uuid/2.38.1-jkdi7kv:python/3.11.6--gcc--8.5.0:cuda/12.3
+MANPATH=/leonardo/prod/opt/compilers/cuda/12.3/none/share/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/python-3.11.6-i5k3c6ggftqkzgqyymfbkynpgm2lgjtd/share/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/util-linux-uuid-2.38.1-jkdi7kvvma7367qdmvpkada4pyiafoud/share/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/sqlite-3.43.2-casyrltocz5edzjhs5vzlqhwkamn7y4a/share/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxcrypt-4.4.35-ss2rzin25ozjy4gyy3dack36njs6navg/share/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/share/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gettext-0.22.3-2g7elifkgxzpypbswqnjuu5hefn4mjts/share/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/tar-1.34-amqus5s63wb5oknfz4pfnvdqtwwe76iw/share/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zstd-1.5.5-gawytflrhedqdc2riwax7oduoqddx22s/share/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/pigz-2.7-bopr5vpavkyl3lou5sap6iydgi3udtcm/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxml2-2.10.3-5eeeokp4kszufozbayq4bewwmyeuwy27/share/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zlib-ng-2.1.4-6htiapkoa6fx2medhyabzo575skozuir/share/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/xz-5.4.1-hubmwr5wc5nf6zk3ghuaikxiejuyt6bi/share/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libiconv-1.17-d7yvx2s6da4x2rfx44bc3perbb33rvuy/share/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gdbm-1.23-fs6otcki47azeywcckquj2sy4mzsnzxg/share/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/readline-8.2-nyw6mp6b7dvizewrf7exopvap2q32s5j/share/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libbsd-0.11.7-cgxjopleu7se4y4cgi7oefbljgasr457/share/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libmd-1.0.4-wja3f5q3w75tqtro333fptfnji7oqxiu/share/man:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/bzip2-1.0.8-gp5wcz5lksrbm2gqiqjppumrhjz6gahy/man:
+__MODULES_LMCONFLICT=bzip2/1.0.8-gp5wcz5&bzip2:libmd/1.0.4-wja3f5q&libmd:libbsd/0.11.7-cgxjopl&libbsd:expat/2.5.0-bptl3xw&expat:ncurses/6.4-asx3jea&ncurses:readline/8.2-nyw6mp6&readline:gdbm/1.23-fs6otck&gdbm:libiconv/1.17-d7yvx2s&libiconv:xz/5.4.1-hubmwr5&xz:zlib-ng/2.1.4-6htiapk&zlib-ng:libxml2/2.10.3-5eeeokp&libxml2:pigz/2.7-bopr5vp&pigz:zstd/1.5.5-gawytfl&zstd:tar/1.34-amqus5s&tar:gettext/0.22.3-2g7elif&gettext:libffi/3.4.4-6r7brdq&libffi:libxcrypt/4.4.35-ss2rzin&libxcrypt:sqlite/3.43.2&sqlite:util-linux-uuid/2.38.1-jkdi7kv&util-linux-uuid:python/3.11.6--gcc--8.5.0&python:cuda/12.3&cuda
+PATH=/leonardo/prod/opt/compilers/cuda/12.3/none/cuda-samples/bin/x86_64/linux/release:/leonardo/prod/opt/compilers/cuda/12.3/none/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/python-3.11.6-i5k3c6ggftqkzgqyymfbkynpgm2lgjtd/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/util-linux-uuid-2.38.1-jkdi7kvvma7367qdmvpkada4pyiafoud/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/sqlite-3.43.2-casyrltocz5edzjhs5vzlqhwkamn7y4a/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gettext-0.22.3-2g7elifkgxzpypbswqnjuu5hefn4mjts/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/tar-1.34-amqus5s63wb5oknfz4pfnvdqtwwe76iw/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zstd-1.5.5-gawytflrhedqdc2riwax7oduoqddx22s/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/pigz-2.7-bopr5vpavkyl3lou5sap6iydgi3udtcm/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxml2-2.10.3-5eeeokp4kszufozbayq4bewwmyeuwy27/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/xz-5.4.1-hubmwr5wc5nf6zk3ghuaikxiejuyt6bi/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libiconv-1.17-d7yvx2s6da4x2rfx44bc3perbb33rvuy/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gdbm-1.23-fs6otcki47azeywcckquj2sy4mzsnzxg/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/readline-8.2-nyw6mp6b7dvizewrf7exopvap2q32s5j/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/ncurses-6.4-asx3jea367shsxjt6bdj2bu5olxll6ni/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/expat-2.5.0-bptl3xwbvbkxxoc5x3dhviorarv4dvxv/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/bzip2-1.0.8-gp5wcz5lksrbm2gqiqjppumrhjz6gahy/bin:/leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/LLM/bin:/leonardo/home/userexternal/smattiol/opt/ollama/bin:/cineca/bin:/leonardo/home/userexternal/smattiol/.vscode-server/cli/servers/Stable-488a1f239235055e34e673291fb8d8c810886f81/server/bin/remote-cli:/leonardo/home/userexternal/smattiol/opt/ollama/bin:/cineca/bin:/leonardo/home/userexternal/smattiol/opt/ollama/bin:/leonardo/home/userexternal/smattiol/.local/bin:/leonardo/home/userexternal/smattiol/bin:/cineca/bin:/leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/gcc-8.5.0/environment-modules-5.2.0-rz47odw4phlhzhhbz7b65nv5s5othgmi/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+
+🦙 INFORMAZIONI OLLAMA
+---------------------
+Path Ollama: /leonardo/home/userexternal/smattiol/opt/ollama/bin/ollama
+Versione Ollama: Warning: could not connect to a running Ollama instance
+Warning: client version is 0.9.3
+Dimensioni binario: 32M
+Data modifica: Jun 26 09:29
+
+✅ Binario Ollama funzionante
+
+📁 MODELLI OLLAMA
+----------------
+Directory modelli: /leonardo/home/userexternal/smattiol/.ollama/models
+Spazio occupato: 4.6G
+
+Modelli installati:
+
+Blob più grandi (top 5):
+4.6G /leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29
+13K /leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-0ba8f0e314b4264dfd19df045cde9d4c394a52474bf92ed6a3de22a4ca31a177
+1.5K /leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-948af2743fc78a328dcb3b0f5a31b3d75f415840fdb699e8b1235978392ecf85
+487 /leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-455f34728c9b5dd3376378bfb809ee166c145b0b4c1f1a6feca069055066ef9a
+96 /leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-56bb8bd477a519ffa694fc449c2413c6f0e1d3b1c88fa7e3c9d88d3ae49d4dcb
+
+🌐 INFORMAZIONI RETE
+-------------------
+Hostname: lrdn3045.leonardo.local
+IP address: 10.9.0.165
+
+🔌 CONTROLLO PORTE
+-----------------
+✅ Porta 39002 libera
+✅ Porta 11434 libera
+✅ Porta 8080 libera
+
+💾 RISORSE SISTEMA
+-----------------
+Memoria RAM:
+  Totale: 502Gi
+  Libera: 492Gi
+  Usata: 3.8Gi
+
+CPU:
+  Modello: Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz
+  Core: 16
+  Load average: 2.54, 3.66, 3.88
+
+🔍 PROCESSI OLLAMA ATTIVI
+------------------------
+✅ Nessun processo Ollama attivo
+
+🐍 INFORMAZIONI PYTHON
+---------------------
+Python versione: Python 3.11.6
+Python path: /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/python-3.11.6-i5k3c6ggftqkzgqyymfbkynpgm2lgjtd/bin/python3
+
+Librerie Python rilevanti:
+❌ requests non disponibile
+✅ json disponibile
+✅ subprocess disponibile
+
+🔗 TEST CONNETTIVITÀ
+-------------------
+❌ Nessuna connessione internet
+✅ Loopback OK
+
+⚡ INFORMAZIONI SLURM
+-------------------
+Job ID: 18187319
+Nodo: lrdn3045
+Partizione: boost_usr_prod
+Tempo limite: 
+CPU allocate: 16
+GPU allocate: 1
+
+Info dettagliate job:
+     JOBID       PARTITION                 NAME     USER ST       TIME  NODES NODELIST(REASON)
+  18187319  boost_usr_prod        llm-mob-fixed smattiol  R       0:04      1 lrdn3045
+
+🧪 TEST RAPIDO OLLAMA
+--------------------
+Tentativo di eseguire ollama list...
+Error: ollama server not responding - could not connect to ollama server, run 'ollama serve' to start it
+❌ Comando fallito o timeout
+
+✅ DIAGNOSTICA COMPLETATA
+========================
+
+💡 SUGGERIMENTI:
+- Salva questo output in un file: ./diagnostic.sh > diagnostic_20250802_144650.log
+- Condividi il file per l'analisi
+
