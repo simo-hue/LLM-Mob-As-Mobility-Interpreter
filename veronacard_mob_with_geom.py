@@ -440,16 +440,16 @@ def get_chat_completion(prompt: str, model: str = "llama3.1:8b", max_retries: in
             else:
                 return None
 
-        # Prepara il payload
+        # Prepara il payload per l'API /api/generate (più semplice)
         payload = {
             "model": model,
-            "messages": [{"role": "user", "content": prompt}],
+            "prompt": prompt,
             "stream": False,
             "options": {
-                "raw": True,
-                "temperature": 0.1,  # Più deterministico
+                "temperature": 0.1,
                 "top_p": 0.9,
-                "top_k": 40
+                "top_k": 40,
+                "num_ctx": 8192
             },
         }
         
@@ -458,20 +458,20 @@ def get_chat_completion(prompt: str, model: str = "llama3.1:8b", max_retries: in
             logger.debug(f"🔄 Invio richiesta a Ollama (tentativo {attempt}/{max_retries})")
             
             resp = requests.post(
-                f"{OLLAMA_HOST}/api/chat", 
+                f"{OLLAMA_HOST}/api/generate", 
                 json=payload, 
-                timeout=120,  # Aumentato timeout per modelli lenti
+                timeout=120,  # Timeout generoso per modelli lenti
                 headers={'Content-Type': 'application/json'}
             )
             
             resp.raise_for_status()
             response_data = resp.json()
             
-            # Estrai il contenuto della risposta
-            content = response_data.get("message", {}).get("content")
+            # Estrai il contenuto della risposta dall'API /generate
+            content = response_data.get("response")
             if content:
                 logger.debug(f"✓ Risposta ricevuta (lunghezza: {len(content)} caratteri)")
-                return content
+                return content.strip()
             else:
                 logger.warning(f"⚠️  Risposta vuota da Ollama (tentativo {attempt}/{max_retries})")
                 
@@ -479,10 +479,19 @@ def get_chat_completion(prompt: str, model: str = "llama3.1:8b", max_retries: in
             logger.error(f"❌  Timeout richiesta Ollama (tentativo {attempt}/{max_retries})")
         except requests.exceptions.HTTPError as exc:
             logger.error(f"❌  Errore HTTP {resp.status_code}: {exc} (tentativo {attempt}/{max_retries})")
+            # Log della risposta per debug
+            try:
+                logger.error(f"❌  Dettaglio errore: {resp.text}")
+            except:
+                pass
         except requests.exceptions.RequestException as exc:
             logger.error(f"❌  Errore richiesta: {exc} (tentativo {attempt}/{max_retries})")
         except (KeyError, ValueError) as exc:
             logger.error(f"❌  Errore parsing risposta: {exc} (tentativo {attempt}/{max_retries})")
+            try:
+                logger.error(f"❌  Risposta raw: {resp.text}")
+            except:
+                pass
         
         # Se non è l'ultimo tentativo, aspetta prima di riprovare
         if attempt < max_retries:
