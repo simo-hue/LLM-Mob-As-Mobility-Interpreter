@@ -27,66 +27,106 @@ OLLAMA_BIN="$HOME/opt/ollama/bin/ollama"
 echo $OLLAMA_PORT > $SLURM_SUBMIT_DIR/ollama_port.txt
 echo "✅ Ho scritto la porta in ollama_port.txt: $(cat $SLURM_SUBMIT_DIR/ollama_port.txt)"
 
-# === 3. AVVIO RUNNER ===
-echo "▶ Avvio runner LLaMA sulla porta $OLLAMA_PORT..."
+# === 3. AVVIO SERVER OLLAMA ===
+echo "▶ Avvio server Ollama sulla porta $OLLAMA_PORT..."
 echo "▶ Nodo di esecuzione: $(hostname)"
 echo "▶ Working directory: $(pwd)"
 
-# Avvia il runner in background con logging migliorato
-$OLLAMA_BIN runner \
-  --model "$MODEL_PATH" \
-  --ctx-size 8192 \
-  --batch-size 512 \
-  --n-gpu-layers 33 \
-  --threads 32 \
-  --parallel 2 \
-  --port $OLLAMA_PORT > ollama_runner.log 2>&1 &
-RUNNER_PID=$!
+# Configura le variabili d'ambiente per Ollama
+export OLLAMA_HOST=127.0.0.1:$OLLAMA_PORT
+export OLLAMA_MODELS=$HOME/.ollama/models
+export OLLAMA_KEEP_ALIVE=5m
+export OLLAMA_MAX_LOADED_MODELS=1
 
-echo "▶ Runner PID: $RUNNER_PID"
+# Avvia il server Ollama in background
+echo "▶ Comando: $OLLAMA_BIN serve"
+$OLLAMA_BIN serve > ollama_server.log 2>&1 &
+SERVER_PID=$!
 
-# === 4. ATTESA SERVER MIGLIORATA ===
-echo "▶ Attesa che il server sia pronto..."
-MAX_WAIT=60  # Aumentato da 45 a 60 secondi
+echo "▶ Server PID: $SERVER_PID"
+
+# === 4. ATTESA SERVER E SETUP MODELLO ===
+echo "▶ Attesa che il server Ollama sia pronto..."
+MAX_WAIT=30  # Server dovrebbe avviarsi velocemente
 WAIT_INTERVAL=2
 
 for i in $(seq 1 $MAX_WAIT); do
   # Controlla se il processo è ancora attivo
-  if ! kill -0 $RUNNER_PID 2>/dev/null; then
-    echo "❌ Il runner si è fermato inaspettatamente!"
-    echo "▶ Log del runner:"
-    cat ollama_runner.log
+  if ! kill -0 $SERVER_PID 2>/dev/null; then
+    echo "❌ Il server Ollama si è fermato inaspettatamente!"
+    echo "▶ Log del server:"
+    cat ollama_server.log
     exit 1
   fi
   
   # Prova a connettersi
   if curl -s --connect-timeout 3 --max-time 5 "http://127.0.0.1:$OLLAMA_PORT/api/tags" >/dev/null 2>&1; then
-    echo "✓ Runner LLaMA attivo dopo $((i * WAIT_INTERVAL)) secondi"
-    
-    # Test aggiuntivo per verificare che sia davvero pronto
-    if curl -s --connect-timeout 3 --max-time 5 "http://127.0.0.1:$OLLAMA_PORT/api/version" >/dev/null 2>&1; then
-      echo "✓ Server completamente pronto"
-      break
-    fi
+    echo "✓ Server Ollama attivo dopo $((i * WAIT_INTERVAL)) secondi"
+    break
   fi
   
   if [ $((i % 5)) -eq 0 ]; then
-    echo "⏳ Attesa runner... ($((i * WAIT_INTERVAL))s / $((MAX_WAIT * WAIT_INTERVAL))s)"
+    echo "⏳ Attesa server... ($((i * WAIT_INTERVAL))s / $((MAX_WAIT * WAIT_INTERVAL))s)"
   fi
   
   sleep $WAIT_INTERVAL
 done
 
-# Verifica finale
+# Verifica finale della connessione
 if ! curl -s --connect-timeout 3 --max-time 5 "http://127.0.0.1:$OLLAMA_PORT/api/tags" >/dev/null 2>&1; then
   echo "❌ Server non risponde dopo $((MAX_WAIT * WAIT_INTERVAL)) secondi"
-  echo "▶ Log del runner:"
-  cat ollama_runner.log
-  kill $RUNNER_PID 2>/dev/null
+  echo "▶ Log del server:"
+  cat ollama_server.log
+  kill $SERVER_PID 2>/dev/null
   exit 1
 fi
 
-# === 5. SCRIPT PYTHON ===
+# === 5. CARICAMENTO MODELLO ===
+echo "▶ Caricamento del modello LLaMA..."
+
+# Prima verifica se il modello è già disponibile
+MODEL_NAME="llama3.1:8b"
+
+# Se il modello non è disponibile, crealo dal blob
+if ! curl -s "http://127.0.0.1:$OLLAMA_PORT/api/tags" | grep -q "$MODEL_NAME"; then
+  echo "▶ Creazione modello $MODEL_NAME dal blob..."
+  
+  # Crea un Modelfile temporaneo
+  cat > /tmp/Modelfile << EOF
+FROM $MODEL_PATH
+PARAMETER num_ctx 8192
+PARAMETER num_batch 512
+PARAMETER num_gpu 33
+PARAMETER num_thread 32
+EOF
+
+  # Crea il modello
+  if curl -X POST "http://127.0.0.1:$OLLAMA_PORT/api/create" \
+       -H "Content-Type: application/json" \
+       -d "{\"name\": \"$MODEL_NAME\", \"modelfile\": \"$(cat /tmp/Modelfile | tr '\n' '\\n')\"}" \
+       --max-time 300; then
+    echo "✓ Modello creato con successo"
+  else
+    echo "❌ Errore nella creazione del modello"
+    kill $SERVER_PID 2>/dev/null
+    exit 1
+  fi
+  
+  rm -f /tmp/Modelfile
+fi
+
+# Test finale del modello
+echo "▶ Test del modello..."
+if curl -X POST "http://127.0.0.1:$OLLAMA_PORT/api/generate" \
+     -H "Content-Type: application/json" \
+     -d "{\"model\": \"$MODEL_NAME\", \"prompt\": \"Hello\", \"stream\": false}" \
+     --max-time 60 >/dev/null 2>&1; then
+  echo "✓ Modello pronto per l'uso"
+else
+  echo "⚠️  Test modello fallito, ma continuo comunque..."
+fi
+
+# === 6. SCRIPT PYTHON ===
 cd $SLURM_SUBMIT_DIR
 echo "▶ Lancio script Python alle $(date)..."
 echo "▶ Directory: $(pwd)"
@@ -99,13 +139,13 @@ else
   echo "❌ Script Python fallito con codice $EXIT_CODE"
 fi
 
-# === 6. CHIUSURA ===
-echo "▶ Chiusura runner alle $(date)..."
-kill $RUNNER_PID 2>/dev/null
-wait $RUNNER_PID 2>/dev/null
+# === 7. CHIUSURA ===
+echo "▶ Chiusura server alle $(date)..."
+kill $SERVER_PID 2>/dev/null
+wait $SERVER_PID 2>/dev/null
 
-# Mostra le ultime righe del log del runner
-echo "▶ Ultime righe del log runner:"
-tail -10 ollama_runner.log 2>/dev/null || echo "Log non disponibile"
+# Mostra le ultime righe del log del server
+echo "▶ Ultime righe del log server:"
+tail -10 ollama_server.log 2>/dev/null || echo "Log non disponibile"
 
 echo "✅ Job completato!"
