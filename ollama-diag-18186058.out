@@ -1,0 +1,135 @@
+🔧 DIAGNOSTICA OLLAMA COMPLETA
+==============================
+Job ID: 18186058
+Nodo: lrdn3372.leonardo.local
+Data: Sat Aug  2 14:18:41 CEST 2025
+PWD: /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter
+📦 Caricamento moduli...
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+
+🔍 VERIFICA AMBIENTE
+CUDA_VISIBLE_DEVICES: 0
+SLURM_GPUS: 1
+SLURM_GPUS_ON_NODE: 1
+GPU 0: NVIDIA A100-SXM-64GB (UUID: GPU-c0f5ce9a-4816-f5f3-af8d-036470032d75)
+GPU Memory:
+ERROR: Option MiB is not recognized. Please run 'nvidia-smi -h' for help.
+
+OLLAMA_BIN: /leonardo/home/userexternal/smattiol/opt/ollama/bin/ollama
+OLLAMA_MODELS: /leonardo/home/userexternal/smattiol/.ollama/models
+OLLAMA_HOST: 127.0.0.1:39005
+
+📁 VERIFICA FILE E DIRECTORY
+Ollama binary exists: ✅ SI
+Models directory exists: ✅ SI
+Model blob exists: ✅ SI
+Contenuto directory modelli:
+Blobs disponibili:
+total 4805456
+drwxr-xr-x 2 smattiol interactive       4096 Jun 30 11:21 .
+drwxr-xr-x 4 smattiol interactive       4096 Jun 30 11:21 ..
+-rw-r--r-- 1 smattiol interactive      12320 Jun 30 11:21 sha256-0ba8f0e314b4264dfd19df045cde9d4c394a52474bf92ed6a3de22a4ca31a177
+-rw-r--r-- 1 smattiol interactive        487 Jun 30 11:21 sha256-455f34728c9b5dd3376378bfb809ee166c145b0b4c1f1a6feca069055066ef9a
+-rw-r--r-- 1 smattiol interactive         96 Jun 30 11:21 sha256-56bb8bd477a519ffa694fc449c2413c6f0e1d3b1c88fa7e3c9d88d3ae49d4dcb
+-rw-r--r-- 1 smattiol interactive 4920738944 Jun 30 11:21 sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29
+-rw-r--r-- 1 smattiol interactive       1481 Jun 30 11:21 sha256-948af2743fc78a328dcb3b0f5a31b3d75f415840fdb699e8b1235978392ecf85
+
+🧹 PULIZIA PROCESSI PRECEDENTI
+Porte in uso (39000-39010):
+
+🚀 AVVIO SERVER OLLAMA
+Comando: /leonardo/home/userexternal/smattiol/opt/ollama/bin/ollama serve
+PID Server: 248799
+
+⏳ ATTESA E VERIFICA SERVER
+Tentativo 1/30... TCP fallito
+Tentativo 2/30... TCP OK
+✅ Server API attivo dopo 4s
+
+🔍 VERIFICA FINALE SERVER
+✅ Server risponde alle API
+
+📋 MODELLI DISPONIBILI
+======================
+Risposta API completa:
+{
+  "models": [
+    {
+      "name": "llama3.1:8b",
+      "model": "llama3.1:8b",
+      "modified_at": "2025-06-30T11:21:36+02:00",
+      "size": 4920753328,
+      "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "llama",
+        "families": [
+          "llama"
+        ],
+        "parameter_size": "8.0B",
+        "quantization_level": "Q4_K_M"
+      }
+    }
+  ]
+}
+
+Modelli estratti:
+  - llama3.1:8b
+
+Totale modelli: 1
+
+🧪 TEST FUNZIONALITÀ
+====================
+Usando modello per test: llama3.1:8b
+
+Test 1: Risposta minima
+Risposta grezza: 
+✅ Test OK - Risposta: ''
+
+📊 STATISTICHE FINALI
+=====================
+GPU Status:
+6 MiB, 0 %, 43
+
+Processi Ollama attivi:
+smattiol  248799  1.0  0.0 6819648 116204 ?      Sl   14:18   0:00 /leonardo/home/userexternal/smattiol/opt/ollama/bin/ollama serve
+smattiol  248850  750  1.1 8966112 5957144 ?     Sl   14:18   7:30 /leonardo/home/userexternal/smattiol/opt/ollama/bin/ollama runner --model /leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 --ctx-size 8192 --batch-size 512 --n-gpu-layers 33 --threads 32 --parallel 2 --port 42861
+
+Spazio disco modelli:
+4.6G	/leonardo/home/userexternal/smattiol/.ollama/models
+
+🏁 DIAGNOSTICA COMPLETATA
+Log salvato in: ollama_diagnostic.log
+Porta utilizzata: 39005 (salvata in ollama_port_diag.txt)
+
+🧹 CLEANUP FINALE...
+Terminando server PID 248799
+Log finale:
+llama_context: reserving graph for n_tokens = 1, n_seqs = 1
+llama_context: reserving graph for n_tokens = 512, n_seqs = 1
+llama_context:        CPU compute buffer size =   560.01 MiB
+llama_context: graph nodes  = 1094
+llama_context: graph splits = 1
+time=2025-08-02T14:18:52.593+02:00 level=INFO source=server.go:637 msg="llama runner started in 3.76 seconds"
+time=2025-08-02T14:18:52.593+02:00 level=DEBUG source=sched.go:495 msg="finished setting up" runner.name=registry.ollama.ai/library/llama3.1:8b runner.inference=cuda runner.devices=1 runner.size="6.5 GiB" runner.vram="6.5 GiB" runner.parallel=2 runner.pid=248850 runner.model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 runner.num_ctx=8192
+time=2025-08-02T14:18:52.593+02:00 level=DEBUG source=server.go:736 msg="completion request" images=0 prompt=101 format=""
+time=2025-08-02T14:18:52.594+02:00 level=DEBUG source=cache.go:104 msg="loading cache slot" id=0 cache=0 prompt=11 used=0 remaining=11
+time=2025-08-02T14:19:48.272+02:00 level=DEBUG source=sched.go:503 msg="context for request finished"
+time=2025-08-02T14:19:48.272+02:00 level=DEBUG source=sched.go:343 msg="runner with non-zero duration has gone idle, adding timer" runner.name=registry.ollama.ai/library/llama3.1:8b runner.inference=cuda runner.devices=1 runner.size="6.5 GiB" runner.vram="6.5 GiB" runner.parallel=2 runner.pid=248850 runner.model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 runner.num_ctx=8192 duration=5m0s
+time=2025-08-02T14:19:48.272+02:00 level=ERROR source=server.go:807 msg="post predict" error="Post \"http://127.0.0.1:42861/completion\": context canceled"
+time=2025-08-02T14:19:48.272+02:00 level=DEBUG source=sched.go:361 msg="after processing request finished event" runner.name=registry.ollama.ai/library/llama3.1:8b runner.inference=cuda runner.devices=1 runner.size="6.5 GiB" runner.vram="6.5 GiB" runner.parallel=2 runner.pid=248850 runner.model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 runner.num_ctx=8192 refCount=0
+[GIN] 2025/08/02 - 14:19:48 | 500 |          1m0s |       127.0.0.1 | POST     "/api/generate"
+time=2025-08-02T14:19:48.738+02:00 level=DEBUG source=sched.go:322 msg="shutting down scheduler completed loop"
+time=2025-08-02T14:19:48.738+02:00 level=DEBUG source=sched.go:122 msg="shutting down scheduler pending loop"
+time=2025-08-02T14:19:48.738+02:00 level=DEBUG source=sched.go:872 msg="shutting down runner" model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29
+time=2025-08-02T14:19:48.882+02:00 level=DEBUG source=server.go:1031 msg="stopping llama server" pid=248850
+time=2025-08-02T14:19:48.882+02:00 level=DEBUG source=server.go:1037 msg="waiting for llama server to exit" pid=248850
+time=2025-08-02T14:19:49.106+02:00 level=DEBUG source=server.go:1041 msg="llama server stopped" pid=248850
