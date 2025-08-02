@@ -49,7 +49,7 @@ echo "▶ Server PID: $SERVER_PID"
 
 # === 4. ATTESA SERVER E SETUP MODELLO ===
 echo "▶ Attesa che il server Ollama sia pronto..."
-MAX_WAIT=30  # Server dovrebbe avviarsi velocemente
+MAX_WAIT=30
 WAIT_INTERVAL=2
 
 for i in $(seq 1 $MAX_WAIT); do
@@ -85,8 +85,6 @@ fi
 
 # === 5. CARICAMENTO MODELLO ===
 echo "▶ Caricamento del modello LLaMA..."
-
-# Prima verifica se il modello è già disponibile
 MODEL_NAME="llama3.1:8b"
 
 # Se il modello non è disponibile, crealo dal blob
@@ -117,37 +115,109 @@ EOF
   rm -f /tmp/Modelfile
 fi
 
-# Test finale del modello
-echo "▶ Test del modello..."
-if curl -X POST "http://127.0.0.1:$OLLAMA_PORT/api/chat" \
-     -H "Content-Type: application/json" \
-     -d "{\"model\": \"$MODEL_NAME\", \"prompt\": \"Hello\", \"stream\": false}" \
-     --max-time 60 >/dev/null 2>&1; then
-  echo "✓ Modello pronto per l'uso"
-else
-  echo "⚠️  Test modello fallito, ma continuo comunque..."
-fi
+# === 6. TEST DIAGNOSTICI DETTAGLIATI ===
+echo "▶ Esecuzione test diagnostici..."
 
-# === 6. SCRIPT PYTHON ===
+# Test 1: /api/tags dettagliato
+echo "🔍 Test 1: /api/tags dettagliato"
+curl -s "http://127.0.0.1:$OLLAMA_PORT/api/tags" | python3 -m json.tool || echo "❌ /api/tags fallito"
+
+# Test 2: /api/generate semplice
+echo "🔍 Test 2: /api/generate"
+curl -X POST "http://127.0.0.1:$OLLAMA_PORT/api/generate" \
+     -H "Content-Type: application/json" \
+     -d '{"model": "'$MODEL_NAME'", "prompt": "Say hello", "stream": false}' \
+     --max-time 60 | python3 -c "
+import sys, json
+try:
+    data = json.load(sys.stdin)
+    print(f'✓ Done: {data.get(\"done\", False)}')
+    print(f'✓ Response: \"{data.get(\"response\", \"EMPTY\")[:50]}...\"')
+except Exception as e:
+    print(f'❌ Error: {e}')
+" || echo "❌ /api/generate fallito"
+
+# Test 3: /api/chat
+echo "🔍 Test 3: /api/chat"
+curl -X POST "http://127.0.0.1:$OLLAMA_PORT/api/chat" \
+     -H "Content-Type: application/json" \
+     -d '{"model": "'$MODEL_NAME'", "messages": [{"role": "user", "content": "Say hello"}], "stream": false}' \
+     --max-time 60 | python3 -c "
+import sys, json
+try:
+    data = json.load(sys.stdin)
+    print(f'✓ Done: {data.get(\"done\", False)}')
+    message = data.get('message', {})
+    print(f'✓ Content: \"{message.get(\"content\", \"EMPTY\")[:50]}...\"')
+except Exception as e:
+    print(f'❌ Error: {e}')
+" || echo "❌ /api/chat fallito"
+
+# Test 4: Verifica log errori server
+echo "🔍 Test 4: Ultimi log server"
+echo "--- INIZIO LOG ---"
+tail -20 ollama_server.log
+echo "--- FINE LOG ---"
+
+# === 7. CREAZIONE SCRIPT DIAGNOSTICO SEPARATO ===
+echo "▶ Creazione script diagnostico..."
+cat > debug_ollama.py << 'PYEOF'
+#!/usr/bin/env python3
+import requests
+import json
+import sys
+
+def read_port():
+    with open("ollama_port.txt") as f:
+        return f.read().strip()
+
+port = read_port()
+base_url = f"http://127.0.0.1:{port}"
+
+print(f"🔍 Testing {base_url}")
+
+# Test minimale
+payload = {"model": "llama3.1:8b", "prompt": "Hello", "stream": False}
+try:
+    resp = requests.post(f"{base_url}/api/generate", json=payload, timeout=30)
+    print(f"Status: {resp.status_code}")
+    print(f"Content-Length: {len(resp.content)}")
+    if resp.content:
+        try:
+            data = resp.json()
+            print(f"JSON keys: {list(data.keys())}")
+            print(f"Done: {data.get('done')}")
+            print(f"Response: '{data.get('response', 'MISSING')[:100]}'")
+        except json.JSONDecodeError:
+            print(f"❌ Not JSON: {resp.text[:200]}")
+    else:
+        print("❌ Empty response body")
+except Exception as e:
+    print(f"❌ Error: {e}")
+PYEOF
+
+python3 debug_ollama.py
+
+# === 8. SCRIPT PYTHON PRINCIPALE ===
 cd $SLURM_SUBMIT_DIR
 echo "▶ Lancio script Python alle $(date)..."
-echo "▶ Directory: $(pwd)"
 
-# Esegui lo script Python con gestione errori
-if python veronacard_mob_with_geom.py; then
+# Esegui con debug limitato
+if python veronacard_mob_with_geom.py --max-users 5; then
   echo "✅ Script Python completato con successo"
 else
   EXIT_CODE=$?
   echo "❌ Script Python fallito con codice $EXIT_CODE"
+  echo "▶ Ultimi log server:"
+  tail -20 ollama_server.log
 fi
 
-# === 7. CHIUSURA ===
+# === 9. CHIUSURA ===
 echo "▶ Chiusura server alle $(date)..."
 kill $SERVER_PID 2>/dev/null
 wait $SERVER_PID 2>/dev/null
 
-# Mostra le ultime righe del log del server
-echo "▶ Ultime righe del log server:"
-tail -10 ollama_server.log 2>/dev/null || echo "Log non disponibile"
+echo "▶ Log finale server:"
+tail -20 ollama_server.log 2>/dev/null || echo "Log non disponibile"
 
 echo "✅ Job completato!"
