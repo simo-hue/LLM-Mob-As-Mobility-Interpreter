@@ -14,28 +14,33 @@ import logging
 from datetime import datetime
 import math
 
-# --- CONFIGURAZIONE OLLAMA DALLA PORTA FILE ---
+# --- CONFIGURAZIONE OLLAMA: leggi porta dal file ---
 OLLAMA_PORT_FILE = "ollama_port.txt"
 try:
     with open(OLLAMA_PORT_FILE, "r") as f:
         port = f.read().strip()
+    print(f"👉 Porta letta da ollama_port.txt: '{port}'")
+    print(f"👉 Provo a contattare http://127.0.0.1:{port}/api/tags")
     OLLAMA_HOST = f"http://127.0.0.1:{port}"
+        
+    # PRINT DI DEBUG
+    print(f"📂 Working dir: {os.getcwd()}")
+    print(f"📄 Contenuto di ollama_port.txt: '{port}'")
 except FileNotFoundError:
-    raise RuntimeError(f"❌ File {OLLAMA_PORT_FILE} non trovato. Assicurati che lo script SLURM lo generi correttamente.")
+    raise RuntimeError(f"❌ File {OLLAMA_PORT_FILE} non trovato. Il job SLURM deve generarlo.")
 
-# --- ATTESA CHE OLLAMA SIA ATTIVO ---
-import time
+# --- Attendi che il runner sia attivo ---
 for _ in range(10):
     try:
         r = requests.get(f"{OLLAMA_HOST}/api/tags", timeout=5)
         if r.status_code == 200:
-            print("✓ Ollama è attivo")
+            print("✓ Runner LLaMA attivo")
             break
     except requests.exceptions.RequestException:
-        print("⏳ Attendo Ollama...")
+        print("⏳ Attendo LLaMA...")
         time.sleep(3)
 else:
-    raise RuntimeError("❌ Ollama non ha risposto dopo 30 secondi")
+    raise RuntimeError("❌ LLaMA non ha risposto dopo 30 secondi")
 
 def calculate_distance(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     """
@@ -357,9 +362,8 @@ def analyze_movement_patterns(df: pd.DataFrame, pois_df: pd.DataFrame) -> pd.Dat
 
 # ---------- chiamata LLaMA / Ollama ---------------------------------------
 def get_chat_completion(prompt: str, model: str = "llama3.1:8b") -> str | None:
-    base_url = "http://localhost:37645"
     try:
-        if requests.get(f"{base_url}/api/tags", timeout=2).status_code != 200:
+        if requests.get(f"{OLLAMA_HOST}/api/tags", timeout=2).status_code != 200:
             logger.warning("⚠️  Ollama non è in esecuzione.")
             return None
     except requests.exceptions.RequestException as exc:
@@ -373,7 +377,7 @@ def get_chat_completion(prompt: str, model: str = "llama3.1:8b") -> str | None:
         "options": {"raw": True},
     }
     try:
-        resp = requests.post(f"{base_url}/api/chat", json=payload, timeout=60)
+        resp = requests.post(f"{OLLAMA_HOST}/api/chat", json=payload, timeout=60)
         resp.raise_for_status()
         return resp.json().get("message", {}).get("content")
     except requests.exceptions.RequestException as exc:
