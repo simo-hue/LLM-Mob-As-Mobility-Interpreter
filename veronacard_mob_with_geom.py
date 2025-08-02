@@ -1,6 +1,7 @@
 import json
 import random
 import time
+from typing import Optional, Dict, Any
 import os, sys, argparse, logging
 import pandas as pd
 import requests
@@ -37,165 +38,264 @@ TOP_K  = 5          # deve coincidere con top_k del prompt
 DEFAULT_ANCHOR_RULE = "penultimate"   # "penultimate" | "first" | "middle" | int
 # -----------------------------------------------------------
 
-# SOSTITUISCI la funzione get_chat_completion nel tuo script con questa versione corretta:
-
-def get_chat_completion(prompt: str, model: str = "llama3.1:8b", max_retries: int = 3) -> str | None:
+# FUNZIONE HELPER per test rapido di Ollama
+def test_ollama_connection(host: str, model: str = "llama3.1:8b") -> bool:
     """
-    Versione ottimizzata per problemi GPU/timeout Ollama
+    Test rapido di connettività e funzionalità Ollama
+    """
+    try:
+        # Test 1: Health check
+        resp = requests.get(f"{host}/api/tags", timeout=10)
+        if resp.status_code != 200:
+            logger.error(f"❌ Health check failed: {resp.status_code}")
+            return False
+            
+        # Test 2: Verifica modello
+        models = [m.get('name', '') for m in resp.json().get('models', [])]
+        if model not in models:
+            logger.error(f"❌ Model '{model}' not found. Available: {models}")
+            return False
+            
+        # Test 3: Micro inference
+        test_resp = requests.post(
+            f"{host}/api/generate",
+            json={
+                "model": model,
+                "prompt": "Hi",
+                "stream": False,
+                "options": {"num_predict": 1, "temperature": 0}
+            },
+            timeout=30
+        )
+        
+        if test_resp.status_code == 200:
+            data = test_resp.json()
+            if data.get("done") and data.get("response"):
+                logger.info(f"✅ Ollama test passed - Response: '{data.get('response')}'")
+                return True
+                
+        logger.error(f"❌ Micro inference failed")
+        return False
+        
+    except Exception as e:
+        logger.error(f"❌ Ollama connection test failed: {e}")
+        return False
+
+def get_chat_completion(prompt: str, model: str = "llama3.1:8b", max_retries: int = 3) -> Optional[str]:
+    """
+    Versione ottimizzata per HPC Leonardo con gestione timeout GPU avanzata
     """
     
     for attempt in range(1, max_retries + 1):
         try:
-            # Health check rapido
-            health_resp = requests.get(f"{OLLAMA_HOST}/api/tags", timeout=5)
+            # 1. HEALTH CHECK MIGLIORATO con info sul modello
+            logger.debug(f"🔍 Health check (tentativo {attempt}/{max_retries})")
+            
+            health_resp = requests.get(
+                f"{OLLAMA_HOST}/api/tags", 
+                timeout=10,  # Aumentato da 5 a 10s
+                headers={'Connection': 'close'}
+            )
+            
             if health_resp.status_code != 200:
-                logger.warning(f"⚠️  Health check fallito (tentativo {attempt}/{max_retries})")
+                logger.warning(f"⚠️  Health check HTTP {health_resp.status_code}")
                 if attempt < max_retries:
-                    time.sleep(10)
+                    time.sleep(5 + attempt * 5)  # Backoff progressivo
                     continue
                 else:
                     return None
+            
+            # Verifica che il modello sia disponibile
+            try:
+                models_data = health_resp.json()
+                available_models = [m.get('name', '') for m in models_data.get('models', [])]
+                if model not in available_models:
+                    logger.error(f"❌ Modello '{model}' non trovato. Disponibili: {available_models}")
+                    return None
+                else:
+                    logger.debug(f"✓ Modello '{model}' disponibile")
+            except (json.JSONDecodeError, KeyError) as e:
+                logger.warning(f"⚠️  Errore parsing models: {e}")
 
         except requests.exceptions.RequestException as exc:
-            logger.error(f"❌  Health check errore: {exc}")
+            logger.error(f"❌ Health check errore: {exc}")
             if attempt < max_retries:
-                time.sleep(10)
+                time.sleep(10 + attempt * 5)
                 continue
             else:
                 return None
 
-        # CORREZIONE PRINCIPALE: Usa /api/generate con parametri ottimizzati
+        # 2. PREPARAZIONE PAYLOAD OTTIMIZZATA
         payload = {
             "model": model,
             "prompt": prompt,
-            "stream": False,
+            "stream": False,  # Non streaming per stabilità
             "options": {
-                # Parametri ridotti per evitare timeout GPU
+                # Parametri base ottimizzati per A100
                 "temperature": 0.1,
                 "top_p": 0.9,
                 "top_k": 40,
-                "num_ctx": 2048,        # Ridotto da 4096
-                "num_predict": 150,     # Ridotto da 200
-                "num_thread": 8,        # Ridotto da 16
+                
+                # CORREZIONI CRITICHE per timeout GPU
+                "num_ctx": 1024,        # RIDOTTO da 2048 - meno memoria GPU
+                "num_predict": 100,     # RIDOTTO da 150 - risposte più brevi
+                "num_thread": 4,        # RIDOTTO da 8 - meno carico CPU
+                "num_batch": 64,        # RIDOTTO da 128 - batch più piccoli
+                
+                # Parametri GPU specifici per A100
+                "num_gpu": 33,          # Tutti i layer su GPU
+                "num_gqa": 8,           # Group Query Attention ottimizzato
+                "num_head": 32,         # Attention heads
+                "num_head_kv": 8,       # Key-Value heads
+                
+                # Ottimizzazioni memoria
+                "low_vram": False,      # Usa VRAM completa su A100
+                "f16_kv": True,         # FP16 per cache K-V
+                "use_mmap": True,       # Usa memory mapping
+                "use_mlock": False,     # Non bloccare memoria
+                
+                # NUOVO: Parametri anti-hang
+                "tfs_z": 1.0,          # Tail free sampling
+                "typical_p": 1.0,       # Typical sampling
                 "repeat_penalty": 1.1,
+                "repeat_last_n": 64,
+                "penalize_nl": True,
                 
-                # NUOVI: Parametri anti-timeout
-                "num_batch": 128,       # Batch più piccolo
-                "num_gpu": 33,          # Forza GPU layers
-                "low_vram": False,      # Usa VRAM completa
-                "f16_kv": True,         # Ottimizza memoria
-                
-                # Stop tokens per evitare generazioni lunghe
-                "stop": ["\n\n", "```", "---", "==="]
+                # Stop tokens per evitare generazioni infinite
+                "stop": ["\n\n", "```", "---", "===", "<|", "|>", "[END]"]
             }
         }
         
         try:
             logger.debug(f"🔄 Richiesta Ollama (tentativo {attempt}/{max_retries})")
+            logger.debug(f"📝 Prompt length: {len(prompt)} chars")
             
-            # TIMEOUT PROGRESSIVO: Primo tentativo più lungo
-            if attempt == 1:
-                timeout = 180  # 3 minuti primo tentativo
-            elif attempt == 2:
-                timeout = 120  # 2 minuti secondo tentativo  
-            else:
-                timeout = 90   # 1.5 minuti tentativi successivi
+            # 3. TIMEOUT DINAMICO basato su tentativo e lunghezza prompt
+            base_timeout = 60  # Base: 1 minuto
+            prompt_factor = min(len(prompt) // 100, 5)  # +1s ogni 100 caratteri, max +5s
+            attempt_factor = (4 - attempt) * 30  # Primo tentativo più lungo
             
-            logger.debug(f"⏰ Timeout impostato: {timeout}s")
+            timeout = base_timeout + prompt_factor + attempt_factor
+            timeout = max(60, min(timeout, 300))  # Tra 1 e 5 minuti
             
-            # Usa /api/generate invece di /api/chat
+            logger.debug(f"⏰ Timeout calcolato: {timeout}s")
+            
+            # 4. RICHIESTA CON GESTIONE ERRORI AVANZATA
+            start_time = time.time()
+            
             resp = requests.post(
-                f"{OLLAMA_HOST}/api/generate",  # CAMBIO ENDPOINT
+                f"{OLLAMA_HOST}/api/generate",
                 json=payload,
                 timeout=timeout,
                 headers={
                     'Content-Type': 'application/json',
-                    'Connection': 'close'  # Forza chiusura connessione
-                }
+                    'Connection': 'close',
+                    'User-Agent': 'LLM-Mob-HPC/1.0'
+                },
+                # Disabilita retry automatico di requests
+                allow_redirects=False
             )
             
-            logger.debug(f"📈 Status: {resp.status_code}, Content-Length: {len(resp.content)}")
+            elapsed = time.time() - start_time
+            logger.debug(f"📈 Risposta in {elapsed:.1f}s - Status: {resp.status_code}")
             
-            # Verifica risposta HTTP
+            # 5. VALIDAZIONE RISPOSTA HTTP
             if resp.status_code != 200:
-                logger.error(f"❌  HTTP {resp.status_code}: {resp.text[:200]}")
+                logger.error(f"❌ HTTP {resp.status_code}")
+                if resp.status_code == 500:
+                    logger.error(f"❌ Server error: {resp.text[:300]}")
+                elif resp.status_code == 404:
+                    logger.error(f"❌ Endpoint non trovato - verificare OLLAMA_HOST")
+                    return None  # Errore definitivo
                 continue
                 
-            # Verifica contenuto
+            # Verifica contenuto non vuoto
             if not resp.content:
                 logger.warning(f"⚠️  Risposta HTTP vuota")
                 continue
                 
-            # Parse JSON
+            # 6. PARSING JSON ROBUSTO
             try:
                 response_data = resp.json()
             except json.JSONDecodeError as e:
-                logger.error(f"❌  JSON malformato: {e}")
-                logger.error(f"❌  Raw response: {resp.text[:300]}")
+                logger.error(f"❌ JSON malformato: {e}")
+                logger.error(f"❌ Raw response (primi 500 char): {resp.text[:500]}")
                 continue
             
-            # Debug struttura risposta
-            logger.debug(f"🔍 Chiavi risposta: {list(response_data.keys())}")
+            # Debug dettagliato struttura
+            logger.debug(f"🔍 Response keys: {list(response_data.keys())}")
+            if 'error' in response_data:
+                logger.error(f"❌ Ollama error: {response_data['error']}")
+                continue
             
-            # Verifica completamento
+            # 7. VERIFICA COMPLETAMENTO E ESTRAZIONE CONTENUTO
             done = response_data.get("done", False)
-            if not done:
-                logger.warning(f"⚠️  Risposta incompleta (done={done})")
-                
-                # Se abbiamo "done_reason": "load", il modello non è pronto
-                done_reason = response_data.get("done_reason", "unknown")
-                if done_reason == "load":
-                    logger.warning(f"⚠️  Modello ancora in caricamento, attendo...")
-                    time.sleep(15)  # Attesa più lunga
-                    continue
-                elif done_reason == "stop":
-                    logger.info(f"✓ Generazione fermata da stop token")
-                else:
-                    logger.warning(f"⚠️  Done reason: {done_reason}")
-                
-                # Anche se non "done", prova a estrarre contenuto parziale
-                
-            # Estrai contenuto (/api/generate usa "response", non "message.content")
-            content = response_data.get("response", "").strip()
+            response_content = response_data.get("response", "").strip()
+            done_reason = response_data.get("done_reason", "unknown")
             
-            if content:
-                logger.debug(f"✓ Risposta ricevuta (lunghezza: {len(content)} caratteri)")
-                logger.debug(f"✓ Preview: {content[:100]}...")
-                return content
-            else:
-                logger.warning(f"⚠️  Campo 'response' vuoto")
-                logger.debug(f"🔍 Risposta completa: {response_data}")
+            logger.debug(f"🏁 Done: {done}, Reason: {done_reason}, Content length: {len(response_content)}")
+            
+            # Gestione stati specifici
+            if done_reason == "load":
+                logger.warning(f"⚠️  Modello in caricamento, attendo 20s...")
+                time.sleep(20)
+                continue
+            elif done_reason == "stop":
+                logger.debug(f"✓ Generazione fermata da stop token")
+            elif done_reason == "length":
+                logger.debug(f"✓ Generazione fermata per lunghezza massima")
+            elif not done and not response_content:
+                logger.warning(f"⚠️  Risposta incompleta senza contenuto")
+                continue
                 
-                # Se abbiamo done_reason="load", potrebbe essere un contenuto vuoto normale
-                if response_data.get("done_reason") == "load":
-                    logger.info(f"ℹ️  Risposta vuota dovuta a caricamento modello")
-                    continue
+            # Accetta anche risposte parziali se hanno contenuto utile
+            if response_content and len(response_content) > 10:  # Almeno 10 caratteri
+                logger.debug(f"✅ Risposta valida ricevuta")
+                logger.debug(f"📄 Preview: {response_content[:150]}...")
+                
+                # Statistiche finali
+                total_tokens = response_data.get("eval_count", 0)
+                prompt_tokens = response_data.get("prompt_eval_count", 0)
+                eval_duration = response_data.get("eval_duration", 0) / 1e9  # ns to seconds
+                
+                if total_tokens > 0 and eval_duration > 0:
+                    tokens_per_sec = total_tokens / eval_duration
+                    logger.debug(f"📊 {total_tokens} tokens in {eval_duration:.1f}s ({tokens_per_sec:.1f} tok/s)")
+                
+                return response_content
+            else:
+                logger.warning(f"⚠️  Contenuto insufficiente: '{response_content[:50]}'")
                 
         except requests.exceptions.Timeout:
-            logger.error(f"❌  Timeout {timeout}s (tentativo {attempt}/{max_retries})")
+            logger.error(f"❌ Timeout dopo {timeout}s (tentativo {attempt}/{max_retries})")
             
-            # Se timeout al primo tentativo, il problema è serio
+            # Timeout al primo tentativo = problema serio
             if attempt == 1:
-                logger.error(f"❌  Timeout critico al primo tentativo - possibile problema GPU")
+                logger.error(f"🚨 TIMEOUT CRITICO - Possibili cause:")
+                logger.error(f"   • GPU sovraccarica o memoria insufficiente")
+                logger.error(f"   • Modello non completamente caricato")
+                logger.error(f"   • Configurazione CUDA problematica")
                 
         except requests.exceptions.ConnectionError as exc:
-            logger.error(f"❌  Connessione fallita: {exc}")
+            logger.error(f"❌ Connessione fallita: {exc}")
+            logger.error(f"💡 Verificare che Ollama sia attivo su {OLLAMA_HOST}")
             
         except requests.exceptions.RequestException as exc:
-            logger.error(f"❌  Errore richiesta: {exc}")
+            logger.error(f"❌ Errore richiesta: {exc}")
             
         except Exception as exc:
-            logger.error(f"❌  Errore inaspettato: {exc}")
+            logger.error(f"❌ Errore inaspettato: {exc}")
             import traceback
-            logger.error(f"❌  Traceback: {traceback.format_exc()}")
+            logger.error(f"❌ Traceback: {traceback.format_exc()}")
         
-        # Backoff esponenziale tra tentativi
+        # 8. BACKOFF INTELLIGENTE tra tentativi
         if attempt < max_retries:
-            wait_time = min(attempt * 15, 45)  # Max 45s di attesa
-            logger.info(f"⏳ Attendo {wait_time}s prima del prossimo tentativo...")
+            # Backoff progressivo: 10s, 20s, 40s
+            wait_time = min(10 * (2 ** (attempt - 1)), 60)
+            logger.info(f"⏳ Attesa {wait_time}s prima del prossimo tentativo...")
             time.sleep(wait_time)
     
-    logger.error(f"❌  Tutti i {max_retries} tentativi falliti")
+    logger.error(f"❌ FALLIMENTO DEFINITIVO dopo {max_retries} tentativi")
     return None
 
 def debug_gpu_status():
@@ -1018,6 +1118,11 @@ if __name__ == "__main__":
     
     if not warmup_success:
         logger.error("❌  Warm-up completamente fallito - possibili problemi GPU gravi")
+       
+    # Controllo che OLLAMA risponda altrimenti esco 
+    if not test_ollama_connection(OLLAMA_HOST, "llama3.1:8b"):
+    logger.error("❌ Ollama non funziona, aborting")
+    exit(1)
 
     try:
         run_all_verona_logs(max_users=args.max_users,

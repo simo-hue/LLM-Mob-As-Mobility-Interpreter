@@ -1,0 +1,141 @@
+🚀 AVVIO LLM-MOB CON CORREZIONI GPU
+====================================
+Job ID: 18186167
+Nodo: lrdn2492.leonardo.local
+Data: Sat Aug  2 14:29:30 CEST 2025
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+🔍 INFO GPU:
+name, memory.total [MiB], memory.used [MiB], utilization.gpu [%]
+NVIDIA A100-SXM-64GB, 65536 MiB, 2 MiB, 0 %
+CUDA_VISIBLE_DEVICES: 0
+✅ Porta: 39002
+🚀 Avvio server Ollama...
+   Comando: /leonardo/home/userexternal/smattiol/opt/ollama/bin/ollama serve
+   PID server: 713728
+⏳ Attesa server...
+✅ Server attivo dopo 3s
+📥 Setup modello...
+✅ Modello già presente
+🧪 Test finale inferenza...
+   Payload test: {
+    "model": "llama3.1:8b",
+    "prompt": "Hello",
+    "stream": false,
+    "options": {
+        "num_predict": 5,
+        "temperature": 0.1,
+        "num_ctx": 2048
+    }
+}
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 39002 (#0)
+> POST /api/generate HTTP/1.1
+> Host: 127.0.0.1:39002
+> User-Agent: curl/7.61.1
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 176
+> 
+} [176 bytes data]
+* upload completely sent off: 176 out of 176 bytes
+100   176    0     0  100   176      0     79  0:00:02  0:00:02 --:--:--    79100   176    0     0  100   176      0     41  0:00:04  0:00:04 --:--:--    41100   176    0     0  100   176      0     28  0:00:06  0:00:06 --:--:--    28100   176    0     0  100   176      0     21  0:00:08  0:00:08 --:--:--    21100   176    0     0  100   176      0     17  0:00:10  0:00:10 --:--:--    17100   176    0     0  100   176      0     14  0:00:12  0:00:12 --:--:--     0100   176    0     0  100   176      0     12  0:00:14  0:00:14 --:--:--     0100   176    0     0  100   176      0     10  0:00:17  0:00:16  0:00:01     0100   176    0     0  100   176      0      9  0:00:19  0:00:18  0:00:01     0100   176    0     0  100   176      0      8  0:00:22  0:00:20  0:00:02     0100   176    0     0  100   176      0      7  0:00:25  0:00:22  0:00:03     0100   176    0     0  100   176      0      7  0:00:25  0:00:24  0:00:01     0100   176    0     0  100   176      0      6  0:00:29  0:00:26  0:00:03     0100   176    0     0  100   176      0      6  0:00:29  0:00:28  0:00:01     0100   176    0     0  100   176      0      5  0:00:35  0:00:30  0:00:05     0100   176    0     0  100   176      0      5  0:00:35  0:00:32  0:00:03     0100   176    0     0  100   176      0      5  0:00:35  0:00:34  0:00:01     0100   176    0     0  100   176      0      4  0:00:44  0:00:36  0:00:08     0100   176    0     0  100   176      0      4  0:00:44  0:00:38  0:00:06     0100   176    0     0  100   176      0      4  0:00:44  0:00:40  0:00:04     0100   176    0     0  100   176      0      4  0:00:44  0:00:42  0:00:02     0100   176    0     0  100   176      0      3  0:00:58  0:00:44  0:00:14     0100   176    0     0  100   176      0      3  0:00:58  0:00:46  0:00:12     0100   176    0     0  100   176      0      3  0:00:58  0:00:48  0:00:10     0100   176    0     0  100   176      0      3  0:00:58  0:00:50  0:00:08     0100   176    0     0  100   176      0      3  0:00:58  0:00:52  0:00:06     0100   176    0     0  100   176      0      3  0:00:58  0:00:54  0:00:04     0100   176    0     0  100   176      0      3  0:00:58  0:00:56  0:00:02     0100   176    0     0  100   176      0      3  0:00:58  0:00:58 --:--:--     0100   176    0     0  100   176      0      2  0:01:28  0:01:00  0:00:28     0100   176    0     0  100   176      0      2  0:01:28  0:01:02  0:00:26     0100   176    0     0  100   176      0      2  0:01:28  0:01:04  0:00:24     0100   176    0     0  100   176      0      2  0:01:28  0:01:06  0:00:22     0100   176    0     0  100   176      0      2  0:01:28  0:01:08  0:00:20     0100   176    0     0  100   176      0      2  0:01:28  0:01:10  0:00:18     0100   176    0     0  100   176      0      2  0:01:28  0:01:12  0:00:16     0100   176    0     0  100   176      0      2  0:01:28  0:01:14  0:00:14     0100   176    0     0  100   176      0      2  0:01:28  0:01:16  0:00:12     0100   176    0     0  100   176      0      2  0:01:28  0:01:18  0:00:10     0100   176    0     0  100   176      0      2  0:01:28  0:01:20  0:00:08     0100   176    0     0  100   176      0      2  0:01:28  0:01:22  0:00:06     0100   176    0     0  100   176      0      2  0:01:28  0:01:24  0:00:04     0100   176    0     0  100   176      0      2  0:01:28  0:01:26  0:00:02     0100   176    0     0  100   176      0      1  0:02:56  0:01:28  0:01:28     0100   176    0     0  100   176      0      1  0:02:56  0:01:30  0:01:26     0100   176    0     0  100   176      0      1  0:02:56  0:01:32  0:01:24     0100   176    0     0  100   176      0      1  0:02:56  0:01:34  0:01:22     0100   176    0     0  100   176      0      1  0:02:56  0:01:36  0:01:20     0100   176    0     0  100   176      0      1  0:02:56  0:01:38  0:01:18     0100   176    0     0  100   176      0      1  0:02:56  0:01:40  0:01:16     0100   176    0     0  100   176      0      1  0:02:56  0:01:42  0:01:14     0100   176    0     0  100   176      0      1  0:02:56  0:01:44  0:01:12     0100   176    0     0  100   176      0      1  0:02:56  0:01:46  0:01:10     0100   176    0     0  100   176      0      1  0:02:56  0:01:48  0:01:08     0100   176    0     0  100   176      0      1  0:02:56  0:01:50  0:01:06     0100   176    0     0  100   176      0      1  0:02:56  0:01:52  0:01:04     0100   176    0     0  100   176      0      1  0:02:56  0:01:54  0:01:02     0100   176    0     0  100   176      0      1  0:02:56  0:01:56  0:01:00     0100   176    0     0  100   176      0      1  0:02:56  0:01:58  0:00:58     0* Operation timed out after 120001 milliseconds with 0 bytes received
+100   176    0     0  100   176      0      1  0:02:56  0:02:00  0:00:56     0
+* Closing connection 0
+Warning: Transient problem: timeout Will retry in 5 seconds. 2 retries left.
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 39002 (#1)
+> POST /api/generate HTTP/1.1
+> Host: 127.0.0.1:39002
+> User-Agent: curl/7.61.1
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 176
+> 
+} [176 bytes data]
+* upload completely sent off: 176 out of 176 bytes
+100   176    0     0  100   176      0     79  0:00:02  0:00:02 --:--:--    79100   176    0     0  100   176      0     41  0:00:04  0:00:04 --:--:--    41100   176    0     0  100   176      0     28  0:00:06  0:00:06 --:--:--    28100   176    0     0  100   176      0     21  0:00:08  0:00:08 --:--:--    21100   176    0     0  100   176      0     17  0:00:10  0:00:10 --:--:--    17100   176    0     0  100   176      0     14  0:00:12  0:00:12 --:--:--     0100   176    0     0  100   176      0     12  0:00:14  0:00:14 --:--:--     0100   176    0     0  100   176      0     10  0:00:17  0:00:16  0:00:01     0100   176    0     0  100   176      0      9  0:00:19  0:00:18  0:00:01     0100   176    0     0  100   176      0      8  0:00:22  0:00:20  0:00:02     0100   176    0     0  100   176      0      7  0:00:25  0:00:22  0:00:03     0100   176    0     0  100   176      0      7  0:00:25  0:00:24  0:00:01     0100   176    0     0  100   176      0      6  0:00:29  0:00:26  0:00:03     0100   176    0     0  100   176      0      6  0:00:29  0:00:28  0:00:01     0100   176    0     0  100   176      0      5  0:00:35  0:00:30  0:00:05     0100   176    0     0  100   176      0      5  0:00:35  0:00:32  0:00:03     0100   176    0     0  100   176      0      5  0:00:35  0:00:34  0:00:01     0100   176    0     0  100   176      0      4  0:00:44  0:00:36  0:00:08     0100   176    0     0  100   176      0      4  0:00:44  0:00:38  0:00:06     0100   176    0     0  100   176      0      4  0:00:44  0:00:40  0:00:04     0100   176    0     0  100   176      0      4  0:00:44  0:00:42  0:00:02     0100   176    0     0  100   176      0      3  0:00:58  0:00:44  0:00:14     0100   176    0     0  100   176      0      3  0:00:58  0:00:46  0:00:12     0100   176    0     0  100   176      0      3  0:00:58  0:00:48  0:00:10     0100   176    0     0  100   176      0      3  0:00:58  0:00:50  0:00:08     0100   176    0     0  100   176      0      3  0:00:58  0:00:52  0:00:06     0100   176    0     0  100   176      0      3  0:00:58  0:00:54  0:00:04     0100   176    0     0  100   176      0      3  0:00:58  0:00:56  0:00:02     0100   176    0     0  100   176      0      3  0:00:58  0:00:58 --:--:--     0100   176    0     0  100   176      0      2  0:01:28  0:01:00  0:00:28     0100   176    0     0  100   176      0      2  0:01:28  0:01:02  0:00:26     0100   176    0     0  100   176      0      2  0:01:28  0:01:04  0:00:24     0100   176    0     0  100   176      0      2  0:01:28  0:01:06  0:00:22     0100   176    0     0  100   176      0      2  0:01:28  0:01:08  0:00:20     0100   176    0     0  100   176      0      2  0:01:28  0:01:10  0:00:18     0100   176    0     0  100   176      0      2  0:01:28  0:01:12  0:00:16     0100   176    0     0  100   176      0      2  0:01:28  0:01:14  0:00:14     0100   176    0     0  100   176      0      2  0:01:28  0:01:16  0:00:12     0100   176    0     0  100   176      0      2  0:01:28  0:01:18  0:00:10     0100   176    0     0  100   176      0      2  0:01:28  0:01:20  0:00:08     0100   176    0     0  100   176      0      2  0:01:28  0:01:22  0:00:06     0100   176    0     0  100   176      0      2  0:01:28  0:01:24  0:00:04     0100   176    0     0  100   176      0      2  0:01:28  0:01:26  0:00:02     0100   176    0     0  100   176      0      1  0:02:56  0:01:28  0:01:28     0100   176    0     0  100   176      0      1  0:02:56  0:01:30  0:01:26     0100   176    0     0  100   176      0      1  0:02:56  0:01:32  0:01:24     0100   176    0     0  100   176      0      1  0:02:56  0:01:34  0:01:22     0100   176    0     0  100   176      0      1  0:02:56  0:01:36  0:01:20     0100   176    0     0  100   176      0      1  0:02:56  0:01:38  0:01:18     0100   176    0     0  100   176      0      1  0:02:56  0:01:40  0:01:16     0100   176    0     0  100   176      0      1  0:02:56  0:01:42  0:01:14     0100   176    0     0  100   176      0      1  0:02:56  0:01:44  0:01:12     0100   176    0     0  100   176      0      1  0:02:56  0:01:46  0:01:10     0100   176    0     0  100   176      0      1  0:02:56  0:01:48  0:01:08     0100   176    0     0  100   176      0      1  0:02:56  0:01:50  0:01:06     0100   176    0     0  100   176      0      1  0:02:56  0:01:52  0:01:04     0100   176    0     0  100   176      0      1  0:02:56  0:01:54  0:01:02     0100   176    0     0  100   176      0      1  0:02:56  0:01:56  0:01:00     0100   176    0     0  100   176      0      1  0:02:56  0:01:58  0:00:58     0* Operation timed out after 120001 milliseconds with 0 bytes received
+100   176    0     0  100   176      0      1  0:02:56  0:02:00  0:00:56     0
+* Closing connection 1
+Warning: Transient problem: timeout Will retry in 5 seconds. 1 retries left.
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 39002 (#2)
+> POST /api/generate HTTP/1.1
+> Host: 127.0.0.1:39002
+> User-Agent: curl/7.61.1
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 176
+> 
+} [176 bytes data]
+* upload completely sent off: 176 out of 176 bytes
+100   176    0     0  100   176      0     79  0:00:02  0:00:02 --:--:--    79100   176    0     0  100   176      0     41  0:00:04  0:00:04 --:--:--    41100   176    0     0  100   176      0     28  0:00:06  0:00:06 --:--:--    28100   176    0     0  100   176      0     21  0:00:08  0:00:08 --:--:--    21100   176    0     0  100   176      0     17  0:00:10  0:00:10 --:--:--    17100   176    0     0  100   176      0     14  0:00:12  0:00:12 --:--:--     0100   176    0     0  100   176      0     12  0:00:14  0:00:14 --:--:--     0100   176    0     0  100   176      0     10  0:00:17  0:00:16  0:00:01     0100   176    0     0  100   176      0      9  0:00:19  0:00:18  0:00:01     0100   176    0     0  100   176      0      8  0:00:22  0:00:20  0:00:02     0100   176    0     0  100   176      0      7  0:00:25  0:00:22  0:00:03     0100   176    0     0  100   176      0      7  0:00:25  0:00:24  0:00:01     0100   176    0     0  100   176      0      6  0:00:29  0:00:26  0:00:03     0100   176    0     0  100   176      0      6  0:00:29  0:00:28  0:00:01     0100   176    0     0  100   176      0      5  0:00:35  0:00:30  0:00:05     0100   176    0     0  100   176      0      5  0:00:35  0:00:32  0:00:03     0100   176    0     0  100   176      0      5  0:00:35  0:00:34  0:00:01     0100   176    0     0  100   176      0      4  0:00:44  0:00:36  0:00:08     0100   176    0     0  100   176      0      4  0:00:44  0:00:38  0:00:06     0100   176    0     0  100   176      0      4  0:00:44  0:00:40  0:00:04     0100   176    0     0  100   176      0      4  0:00:44  0:00:42  0:00:02     0100   176    0     0  100   176      0      3  0:00:58  0:00:44  0:00:14     0100   176    0     0  100   176      0      3  0:00:58  0:00:46  0:00:12     0100   176    0     0  100   176      0      3  0:00:58  0:00:48  0:00:10     0100   176    0     0  100   176      0      3  0:00:58  0:00:50  0:00:08     0100   176    0     0  100   176      0      3  0:00:58  0:00:52  0:00:06     0100   176    0     0  100   176      0      3  0:00:58  0:00:54  0:00:04     0100   176    0     0  100   176      0      3  0:00:58  0:00:56  0:00:02     0100   176    0     0  100   176      0      3  0:00:58  0:00:58 --:--:--     0100   176    0     0  100   176      0      2  0:01:28  0:01:00  0:00:28     0100   176    0     0  100   176      0      2  0:01:28  0:01:02  0:00:26     0100   176    0     0  100   176      0      2  0:01:28  0:01:04  0:00:24     0100   176    0     0  100   176      0      2  0:01:28  0:01:06  0:00:22     0100   176    0     0  100   176      0      2  0:01:28  0:01:08  0:00:20     0100   176    0     0  100   176      0      2  0:01:28  0:01:10  0:00:18     0100   176    0     0  100   176      0      2  0:01:28  0:01:12  0:00:16     0100   176    0     0  100   176      0      2  0:01:28  0:01:14  0:00:14     0100   176    0     0  100   176      0      2  0:01:28  0:01:16  0:00:12     0100   176    0     0  100   176      0      2  0:01:28  0:01:18  0:00:10     0100   176    0     0  100   176      0      2  0:01:28  0:01:20  0:00:08     0100   176    0     0  100   176      0      2  0:01:28  0:01:22  0:00:06     0100   176    0     0  100   176      0      2  0:01:28  0:01:24  0:00:04     0100   176    0     0  100   176      0      2  0:01:28  0:01:26  0:00:02     0100   176    0     0  100   176      0      1  0:02:56  0:01:28  0:01:28     0100   176    0     0  100   176      0      1  0:02:56  0:01:30  0:01:26     0100   176    0     0  100   176      0      1  0:02:56  0:01:32  0:01:24     0100   176    0     0  100   176      0      1  0:02:56  0:01:34  0:01:22     0100   176    0     0  100   176      0      1  0:02:56  0:01:36  0:01:20     0100   176    0     0  100   176      0      1  0:02:56  0:01:38  0:01:18     0100   176    0     0  100   176      0      1  0:02:56  0:01:40  0:01:16     0100   176    0     0  100   176      0      1  0:02:56  0:01:42  0:01:14     0100   176    0     0  100   176      0      1  0:02:56  0:01:44  0:01:12     0100   176    0     0  100   176      0      1  0:02:56  0:01:46  0:01:10     0100   176    0     0  100   176      0      1  0:02:56  0:01:48  0:01:08     0100   176    0     0  100   176      0      1  0:02:56  0:01:50  0:01:06     0100   176    0     0  100   176      0      1  0:02:56  0:01:52  0:01:04     0100   176    0     0  100   176      0      1  0:02:56  0:01:54  0:01:02     0100   176    0     0  100   176      0      1  0:02:56  0:01:56  0:01:00     0100   176    0     0  100   176      0      1  0:02:56  0:01:58  0:00:58     0* Operation timed out after 120001 milliseconds with 0 bytes received
+100   176    0     0  100   176      0      1  0:02:56  0:02:00  0:00:56     0
+* Closing connection 2
+curl: (28) Operation timed out after 120001 milliseconds with 0 bytes received
+❌ Test fallito: Expecting value: line 1 column 1 (char 0)
+⚠️  Pre-test fallito, ma provo comunque con Python
+--- LOG RECENTE ---
+[GIN] 2025/08/02 - 14:33:39 | 500 |          2m0s |       127.0.0.1 | POST     "/api/generate"
+time=2025-08-02T14:33:39.244+02:00 level=DEBUG source=sched.go:343 msg="runner with non-zero duration has gone idle, adding timer" runner.name=registry.ollama.ai/library/llama3.1:8b runner.inference=cuda runner.devices=1 runner.size="5.4 GiB" runner.vram="5.4 GiB" runner.parallel=1 runner.pid=713759 runner.model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 runner.num_ctx=2048 duration=45m0s
+time=2025-08-02T14:33:39.244+02:00 level=DEBUG source=sched.go:361 msg="after processing request finished event" runner.name=registry.ollama.ai/library/llama3.1:8b runner.inference=cuda runner.devices=1 runner.size="5.4 GiB" runner.vram="5.4 GiB" runner.parallel=1 runner.pid=713759 runner.model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 runner.num_ctx=2048 refCount=0
+time=2025-08-02T14:33:44.308+02:00 level=DEBUG source=sched.go:615 msg="evaluating already loaded" model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29
+time=2025-08-02T14:33:44.310+02:00 level=DEBUG source=server.go:736 msg="completion request" images=0 prompt=104 format=""
+time=2025-08-02T14:34:05.767+02:00 level=DEBUG source=cache.go:104 msg="loading cache slot" id=0 cache=15 prompt=11 used=10 remaining=1
+time=2025-08-02T14:35:44.252+02:00 level=DEBUG source=sched.go:434 msg="context for request finished" runner.name=registry.ollama.ai/library/llama3.1:8b runner.inference=cuda runner.devices=1 runner.size="5.4 GiB" runner.vram="5.4 GiB" runner.parallel=1 runner.pid=713759 runner.model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 runner.num_ctx=2048
+[GIN] 2025/08/02 - 14:35:44 | 500 |          2m0s |       127.0.0.1 | POST     "/api/generate"
+time=2025-08-02T14:35:44.257+02:00 level=DEBUG source=sched.go:343 msg="runner with non-zero duration has gone idle, adding timer" runner.name=registry.ollama.ai/library/llama3.1:8b runner.inference=cuda runner.devices=1 runner.size="5.4 GiB" runner.vram="5.4 GiB" runner.parallel=1 runner.pid=713759 runner.model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 runner.num_ctx=2048 duration=45m0s
+time=2025-08-02T14:35:44.257+02:00 level=DEBUG source=sched.go:361 msg="after processing request finished event" runner.name=registry.ollama.ai/library/llama3.1:8b runner.inference=cuda runner.devices=1 runner.size="5.4 GiB" runner.vram="5.4 GiB" runner.parallel=1 runner.pid=713759 runner.model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 runner.num_ctx=2048 refCount=0
+🐍 Avvio script Python...
+⚠️  Uso modalità conservativa (max 3 utenti)
+  File "/leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/veronacard_mob_with_geom.py", line 1124
+    logger.error("❌ Ollama non funziona, aborting")
+    ^
+IndentationError: expected an indented block after 'if' statement on line 1123
+❌ Script Python fallito (codice: 1)
+--- STATO PROCESSO OLLAMA ---
+Server ancora attivo
+--- ULTIMI LOG OLLAMA ---
+time=2025-08-02T14:31:34.237+02:00 level=DEBUG source=sched.go:361 msg="after processing request finished event" runner.name=registry.ollama.ai/library/llama3.1:8b runner.inference=cuda runner.devices=1 runner.size="5.4 GiB" runner.vram="5.4 GiB" runner.parallel=1 runner.pid=713759 runner.model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 runner.num_ctx=2048 refCount=0
+time=2025-08-02T14:31:39.297+02:00 level=DEBUG source=sched.go:615 msg="evaluating already loaded" model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29
+time=2025-08-02T14:31:39.311+02:00 level=DEBUG source=server.go:736 msg="completion request" images=0 prompt=104 format=""
+time=2025-08-02T14:31:51.422+02:00 level=DEBUG source=cache.go:104 msg="loading cache slot" id=0 cache=15 prompt=11 used=10 remaining=1
+time=2025-08-02T14:33:39.244+02:00 level=DEBUG source=sched.go:434 msg="context for request finished" runner.name=registry.ollama.ai/library/llama3.1:8b runner.inference=cuda runner.devices=1 runner.size="5.4 GiB" runner.vram="5.4 GiB" runner.parallel=1 runner.pid=713759 runner.model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 runner.num_ctx=2048
+[GIN] 2025/08/02 - 14:33:39 | 500 |          2m0s |       127.0.0.1 | POST     "/api/generate"
+time=2025-08-02T14:33:39.244+02:00 level=DEBUG source=sched.go:343 msg="runner with non-zero duration has gone idle, adding timer" runner.name=registry.ollama.ai/library/llama3.1:8b runner.inference=cuda runner.devices=1 runner.size="5.4 GiB" runner.vram="5.4 GiB" runner.parallel=1 runner.pid=713759 runner.model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 runner.num_ctx=2048 duration=45m0s
+time=2025-08-02T14:33:39.244+02:00 level=DEBUG source=sched.go:361 msg="after processing request finished event" runner.name=registry.ollama.ai/library/llama3.1:8b runner.inference=cuda runner.devices=1 runner.size="5.4 GiB" runner.vram="5.4 GiB" runner.parallel=1 runner.pid=713759 runner.model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 runner.num_ctx=2048 refCount=0
+time=2025-08-02T14:33:44.308+02:00 level=DEBUG source=sched.go:615 msg="evaluating already loaded" model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29
+time=2025-08-02T14:33:44.310+02:00 level=DEBUG source=server.go:736 msg="completion request" images=0 prompt=104 format=""
+time=2025-08-02T14:34:05.767+02:00 level=DEBUG source=cache.go:104 msg="loading cache slot" id=0 cache=15 prompt=11 used=10 remaining=1
+time=2025-08-02T14:35:44.252+02:00 level=DEBUG source=sched.go:434 msg="context for request finished" runner.name=registry.ollama.ai/library/llama3.1:8b runner.inference=cuda runner.devices=1 runner.size="5.4 GiB" runner.vram="5.4 GiB" runner.parallel=1 runner.pid=713759 runner.model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 runner.num_ctx=2048
+[GIN] 2025/08/02 - 14:35:44 | 500 |          2m0s |       127.0.0.1 | POST     "/api/generate"
+time=2025-08-02T14:35:44.257+02:00 level=DEBUG source=sched.go:343 msg="runner with non-zero duration has gone idle, adding timer" runner.name=registry.ollama.ai/library/llama3.1:8b runner.inference=cuda runner.devices=1 runner.size="5.4 GiB" runner.vram="5.4 GiB" runner.parallel=1 runner.pid=713759 runner.model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 runner.num_ctx=2048 duration=45m0s
+time=2025-08-02T14:35:44.257+02:00 level=DEBUG source=sched.go:361 msg="after processing request finished event" runner.name=registry.ollama.ai/library/llama3.1:8b runner.inference=cuda runner.devices=1 runner.size="5.4 GiB" runner.vram="5.4 GiB" runner.parallel=1 runner.pid=713759 runner.model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 runner.num_ctx=2048 refCount=0
+--- MEMORIA GPU ---
+memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+6 MiB, 65536 MiB, 0 %
+
+📊 STATISTICHE FINALI
+---------------------
+Durata job: 374 secondi
+Risultati generati:
+total 8
+drwxr-xr-x  2 smattiol interactive 4096 Aug  2 10:56 .
+drwxr-xr-x 17 smattiol interactive 4096 Aug  2 14:29 ..
+Memoria GPU finale:
+6 MiB, 65536 MiB
+
+🏁 JOB COMPLETATO
+🧹 Cleanup server...
