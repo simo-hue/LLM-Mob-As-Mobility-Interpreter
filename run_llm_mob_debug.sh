@@ -27,9 +27,12 @@ OLLAMA_BIN="$HOME/opt/ollama/bin/ollama"
 echo $OLLAMA_PORT > $SLURM_SUBMIT_DIR/ollama_port.txt
 echo "✅ Ho scritto la porta in ollama_port.txt: $(cat $SLURM_SUBMIT_DIR/ollama_port.txt)"
 
-
 # === 3. AVVIO RUNNER ===
 echo "▶ Avvio runner LLaMA sulla porta $OLLAMA_PORT..."
+echo "▶ Nodo di esecuzione: $(hostname)"
+echo "▶ Working directory: $(pwd)"
+
+# Avvia il runner in background con logging migliorato
 $OLLAMA_BIN runner \
   --model "$MODEL_PATH" \
   --ctx-size 8192 \
@@ -37,27 +40,72 @@ $OLLAMA_BIN runner \
   --n-gpu-layers 33 \
   --threads 32 \
   --parallel 2 \
-  --port $OLLAMA_PORT &
+  --port $OLLAMA_PORT > ollama_runner.log 2>&1 &
 RUNNER_PID=$!
 
-# === 4. ATTESA SERVER ===
-for i in {1..15}; do
-  if curl -s "http://127.0.0.1:$OLLAMA_PORT/api/tags" >/dev/null; then
-    echo "✓ Runner LLaMA attivo"
-    break
-  else
-    echo "⏳ Attesa runner... ($i)"
-    sleep 3
+echo "▶ Runner PID: $RUNNER_PID"
+
+# === 4. ATTESA SERVER MIGLIORATA ===
+echo "▶ Attesa che il server sia pronto..."
+MAX_WAIT=60  # Aumentato da 45 a 60 secondi
+WAIT_INTERVAL=2
+
+for i in $(seq 1 $MAX_WAIT); do
+  # Controlla se il processo è ancora attivo
+  if ! kill -0 $RUNNER_PID 2>/dev/null; then
+    echo "❌ Il runner si è fermato inaspettatamente!"
+    echo "▶ Log del runner:"
+    cat ollama_runner.log
+    exit 1
   fi
+  
+  # Prova a connettersi
+  if curl -s --connect-timeout 3 --max-time 5 "http://127.0.0.1:$OLLAMA_PORT/api/tags" >/dev/null 2>&1; then
+    echo "✓ Runner LLaMA attivo dopo $((i * WAIT_INTERVAL)) secondi"
+    
+    # Test aggiuntivo per verificare che sia davvero pronto
+    if curl -s --connect-timeout 3 --max-time 5 "http://127.0.0.1:$OLLAMA_PORT/api/version" >/dev/null 2>&1; then
+      echo "✓ Server completamente pronto"
+      break
+    fi
+  fi
+  
+  if [ $((i % 5)) -eq 0 ]; then
+    echo "⏳ Attesa runner... ($((i * WAIT_INTERVAL))s / $((MAX_WAIT * WAIT_INTERVAL))s)"
+  fi
+  
+  sleep $WAIT_INTERVAL
 done
+
+# Verifica finale
+if ! curl -s --connect-timeout 3 --max-time 5 "http://127.0.0.1:$OLLAMA_PORT/api/tags" >/dev/null 2>&1; then
+  echo "❌ Server non risponde dopo $((MAX_WAIT * WAIT_INTERVAL)) secondi"
+  echo "▶ Log del runner:"
+  cat ollama_runner.log
+  kill $RUNNER_PID 2>/dev/null
+  exit 1
+fi
 
 # === 5. SCRIPT PYTHON ===
 cd $SLURM_SUBMIT_DIR
 echo "▶ Lancio script Python alle $(date)..."
-python veronacard_mob_with_geom.py
+echo "▶ Directory: $(pwd)"
+
+# Esegui lo script Python con gestione errori
+if python veronacard_mob_with_geom.py; then
+  echo "✅ Script Python completato con successo"
+else
+  EXIT_CODE=$?
+  echo "❌ Script Python fallito con codice $EXIT_CODE"
+fi
 
 # === 6. CHIUSURA ===
 echo "▶ Chiusura runner alle $(date)..."
-kill $RUNNER_PID
+kill $RUNNER_PID 2>/dev/null
 wait $RUNNER_PID 2>/dev/null
+
+# Mostra le ultime righe del log del runner
+echo "▶ Ultime righe del log runner:"
+tail -10 ollama_runner.log 2>/dev/null || echo "Log non disponibile"
+
 echo "✅ Job completato!"
