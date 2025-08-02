@@ -35,8 +35,10 @@ echo "▶ Working directory: $(pwd)"
 # Configura le variabili d'ambiente per Ollama
 export OLLAMA_HOST=127.0.0.1:$OLLAMA_PORT
 export OLLAMA_MODELS=$HOME/.ollama/models
-export OLLAMA_KEEP_ALIVE=5m
+export OLLAMA_KEEP_ALIVE=30m
 export OLLAMA_MAX_LOADED_MODELS=1
+export OLLAMA_NUM_PARALLEL=1
+export OLLAMA_LOAD_TIMEOUT=10m
 
 # Avvia il server Ollama in background
 echo "▶ Comando: $OLLAMA_BIN serve"
@@ -117,7 +119,7 @@ fi
 
 # Test finale del modello
 echo "▶ Test del modello..."
-if curl -X POST "http://127.0.0.1:$OLLAMA_PORT/api/generate" \
+if curl -X POST "http://127.0.0.1:$OLLAMA_PORT/api/chat" \
      -H "Content-Type: application/json" \
      -d "{\"model\": \"$MODEL_NAME\", \"prompt\": \"Hello\", \"stream\": false}" \
      --max-time 60 >/dev/null 2>&1; then
