@@ -46,3 +46,21 @@ Test 1: Micro (1 token)
 Risposta (60s): 
 ✅ Micro test OK: ''
 Test 2: Piccolo (5 token)
+Risposta (90s): 
+✅ Test piccolo OK: ''
+Test 3: JSON prompt
+Risposta JSON (120s): 
+✅ Test JSON OK: ''
+🎉 TUTTI I TEST SUPERATI!
+
+📊 STATISTICHE FINALI
+GPU:
+6 MiB, 0 %
+Processi Ollama:
+smattiol 1876760  0.2  0.0 6819968 118208 ?      Sl   14:13   0:00 /leonardo/home/userexternal/smattiol/opt/ollama/bin/ollama serve
+smattiol 1876799  790  1.1 8830936 5964300 ?     Sl   14:13  35:33 /leonardo/home/userexternal/smattiol/opt/ollama/bin/ollama runner --model /leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 --ctx-size 8192 --batch-size 512 --n-gpu-layers 33 --threads 32 --parallel 2 --port 40727
+Modelli finali:
+"llama3.1:8b"
+
+🏁 TEST COMPLETATO
+🧹 Cleanup...
