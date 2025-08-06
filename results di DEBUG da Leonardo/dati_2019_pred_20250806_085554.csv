@@ -1,0 +1,26 @@
+card_id,cluster,history,current_poi,prediction,ground_truth,reason,hit
+046EC0E2185080,1,"['Arena', 'Casa Giulietta']",Palazzo della Ragione,,Santa Anastasia,,False
+046404E2185084,3,"['Castelvecchio', 'Duomo', 'Teatro Romano', 'Arena', 'Torre Lamberti']",Casa Giulietta,"['Casa Giulietta', 'Museo Radio', 'Sighseeing', 'Palazzo della Ragione', 'Museo Miniscalchi']",Santa Anastasia,"Tutti questi punti di interesse sono vicini al cluster attuale (circa 0.2km) e si adattano ai pattern turistici di visita a monumenti storici, centri di cultura e spettacolo, coerenti con la lista dei POI visitati precedentemente",False
+046797F2185080,3,"['Casa Giulietta', 'Torre Lamberti', 'Palazzo della Ragione', 'Arena']",Duomo,,Teatro Romano,,False
+04FAB6E2185080,3,"['Duomo', 'Santa Anastasia', 'Torre Lamberti', 'Casa Giulietta', 'San Zeno', 'Arena', 'San Fermo']",Teatro Romano,,Castelvecchio,,False
+04D10AF2185080,1,"['Arena', 'Casa Giulietta']",Torre Lamberti,"['Duomo', 'Santa Anastasia', 'Palazzo della Ragione', 'Museo Miniscalchi', 'San Fermo']",Santa Anastasia,"Questi luoghi sono tra i più vicini alle attrazioni già visitate e seguono un pattern comune di interesse turistico, come evidenziato dalle distanze e dalla loro ubicazione in centro storico.",True
+04D04FF2185080,0,['Arena'],Torre Lamberti,,Duomo,,False
+042355E2185081,2,"['Teatro Romano', 'Duomo', 'Santa Anastasia', 'Castelvecchio', 'Arena', 'Palazzo della Ragione', 'Torre Lamberti']",Casa Giulietta,"['Museo Storia', 'Casa Giulietta', 'Museo Lapidario', 'San Fermo', 'Sighseeing']",Tomba Giulietta,"le distanze e le attività richiamano pattern turistici tipici (cultura, storia, rilassamento)",False
+0410A5E2185081,2,"['Torre Lamberti', 'Casa Giulietta', 'Castelvecchio']",Tomba Giulietta,,Teatro Romano,,False
+043DD6F2185081,3,"['Arena', 'Casa Giulietta', 'Duomo']",Castelvecchio,,San Zeno,,False
+040CFAF2185081,1,"['Arena', 'Palazzo della Ragione']",Torre Lamberti,,Casa Giulietta,,False
+048A27E2185084,1,"['Santa Anastasia', 'Teatro Romano']",Arena,,Casa Giulietta,,False
+04ADB1F2185080,0,"['Torre Lamberti', 'Arena']",Santa Anastasia,,Duomo,,False
+045833F2185084,3,"['Casa Giulietta', 'Palazzo della Ragione', 'Torre Lamberti', 'Teatro Romano']",Santa Anastasia,"['Sighseeing', 'Museo Miniscalchi', 'Duomo', 'AMO', 'Centro Fotografia']",Arena,"queste località sono vicine alle attrazioni già visitate e sono comunemente incluse in un itinerario turistico a Verona, come suggerito dal pattern dei POI disponibili.",False
+04670CE2185084,1,"['Arena', 'Santa Anastasia', 'Torre Lamberti']",Casa Giulietta,"['Museo Storia', 'Piazza della Ragione', ""Sant'Anastasia"", 'Torre Lamberti', 'Centro Fotografia']",Castelvecchio,"Per la loro vicinanza e per l'appartenenza a pattern turistici di visita alla città, come visita alle attrazioni culturali e storiche e alle attività fotografiche",False
+04829EF2185081,0,['Santa Anastasia'],Teatro Romano,,San Zeno,,False
+04DE39F2185080,0,['Arena'],Castelvecchio,,Palazzo della Ragione,,False
+04726BE2185080,1,"['Casa Giulietta', 'Arena', 'San Zeno']",Castelvecchio,,Santa Anastasia,,False
+043878E2185081,1,['Casa Giulietta'],Arena,,Santa Anastasia,,False
+045BABE2185080,2,"['Tomba Giulietta', 'Arena', 'Museo Lapidario', 'Castelvecchio', 'San Fermo', 'Teatro Romano', 'Palazzo della Ragione', 'Casa Giulietta']",San Zeno,,Duomo,,False
+04785DF2185081,1,"['Casa Giulietta', 'Torre Lamberti', 'Palazzo della Ragione']",Teatro Romano,,Arena,,False
+04CF0EE2185084,2,"['Casa Giulietta', 'Santa Anastasia', 'Duomo', 'Teatro Romano']",Arena,,Tomba Giulietta,,False
+047429F2185084,1,"['Arena', 'Castelvecchio']",Casa Giulietta,,Duomo,,False
+04BD5DE2185080,3,"['Casa Giulietta', 'Torre Lamberti', 'Santa Anastasia', 'Teatro Romano', 'Duomo']",Castelvecchio,,Arena,,False
+045DE8E2185080,2,"['Arena', 'Castelvecchio', 'Torre Lamberti', 'Casa Giulietta', 'Duomo', 'Santa Anastasia', 'Tomba Giulietta', 'San Fermo']",San Zeno,,Teatro Romano,,False
+04C9F6E2185080,3,"['Arena', 'Torre Lamberti', 'Santa Anastasia', 'Teatro Romano']",Casa Giulietta,"['Palazzo della Ragione', 'San Fermo', 'AMO', 'Museo Miniscalchi', 'Verona Tour']",Castelvecchio,"I 5 punti di interesse più probabili sono stati selezionati in base alla loro vicinanza al cluster attuale e ai pattern di visita tipici dei turisti. Sono luoghi storici, culturali e architettonici che offrono una visione approfondita della città e delle sue tradizioni.",False

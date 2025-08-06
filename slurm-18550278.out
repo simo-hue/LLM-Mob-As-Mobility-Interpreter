@@ -121,3 +121,105 @@ Modelli disponibili:
 2025-08-06 08:49:25,457 INFO: [filter] card multi-visita: 89352 / 91554
 2025-08-06 08:49:32,271 INFO: ▶  ho fatto il clustering
 2025-08-06 08:49:32,354 INFO: ▶  Analisi pattern di movimento geografico
+2025-08-06 08:52:10,711 INFO: ▶  Distanza media tra visite consecutive: 0.58 km
+Card:   0%|          | 0/25 [00:00<?, ?card/s]Card:   4%|▍         | 1/25 [00:01<00:24,  1.03s/card]Card:   8%|▊         | 2/25 [00:01<00:21,  1.06card/s]Card:  12%|█▏        | 3/25 [00:02<00:21,  1.03card/s]Card:  16%|█▌        | 4/25 [00:03<00:17,  1.19card/s]Card:  20%|██        | 5/25 [00:04<00:16,  1.19card/s]Card:  24%|██▍       | 6/25 [00:05<00:16,  1.16card/s]Card:  28%|██▊       | 7/25 [00:06<00:16,  1.07card/s]Card:  32%|███▏      | 8/25 [00:07<00:16,  1.02card/s]Card:  36%|███▌      | 9/25 [00:08<00:14,  1.08card/s]Card:  40%|████      | 10/25 [00:08<00:12,  1.23card/s]Card:  44%|████▍     | 11/25 [00:10<00:16,  1.17s/card]Card:  48%|████▊     | 12/25 [00:11<00:14,  1.10s/card]Card:  52%|█████▏    | 13/25 [00:13<00:14,  1.22s/card]Card:  56%|█████▌    | 14/25 [00:14<00:12,  1.14s/card]Card:  60%|██████    | 15/25 [00:14<00:10,  1.03s/card]Card:  64%|██████▍   | 16/25 [00:15<00:09,  1.01s/card]Card:  68%|██████▊   | 17/25 [00:17<00:08,  1.07s/card]Card:  72%|███████▏  | 18/25 [00:18<00:07,  1.01s/card]Card:  76%|███████▌  | 19/25 [00:19<00:06,  1.03s/card]Card:  80%|████████  | 20/25 [00:20<00:05,  1.02s/card]Card:  84%|████████▍ | 21/25 [00:20<00:03,  1.03card/s]Card:  88%|████████▊ | 22/25 [00:22<00:03,  1.01s/card]Card:  92%|█████████▏| 23/25 [00:23<00:02,  1.19s/card]Card:  96%|█████████▌| 24/25 [00:24<00:01,  1.17s/card]Card: 100%|██████████| 25/25 [00:25<00:00,  1.03s/card]Card: 100%|██████████| 25/25 [00:25<00:00,  1.02s/card]
+2025-08-06 08:52:36,203 INFO: ✔  Salvato dati_2017_pred_20250806_084932.csv – Hit@5: 24.00%
+2025-08-06 08:52:36,219 INFO: 
+======================================================================
+2025-08-06 08:52:36,220 INFO: ▶  PROCESSO FILE: dati_2018.csv
+2025-08-06 08:52:36,220 INFO: ======================================================================
+2025-08-06 08:52:36,220 INFO: ▶  ho caricato e pulito i dati
+2025-08-06 08:52:36,221 INFO: [load_pois] 22 POI letti da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-06 08:52:38,603 INFO: [load_visits] 427213 timbrature da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2018.csv
+2025-08-06 08:52:38,681 INFO: [merge] visite valide dopo merge: 427213
+2025-08-06 08:52:38,886 INFO: [filter] card multi-visita: 86221 / 88627
+2025-08-06 08:52:45,437 INFO: ▶  ho fatto il clustering
+2025-08-06 08:52:45,515 INFO: ▶  Analisi pattern di movimento geografico
+2025-08-06 08:55:18,544 INFO: ▶  Distanza media tra visite consecutive: 0.58 km
+Card:   0%|          | 0/25 [00:00<?, ?card/s]Card:   4%|▍         | 1/25 [00:01<00:30,  1.29s/card]Card:   8%|▊         | 2/25 [00:02<00:27,  1.21s/card]Card:  12%|█▏        | 3/25 [00:03<00:23,  1.05s/card]Card:  16%|█▌        | 4/25 [00:04<00:21,  1.01s/card]Card:  20%|██        | 5/25 [00:05<00:19,  1.00card/s]Card:  24%|██▍       | 6/25 [00:06<00:19,  1.04s/card]Card:  28%|██▊       | 7/25 [00:07<00:21,  1.20s/card]Card:  32%|███▏      | 8/25 [00:08<00:19,  1.14s/card]Card:  36%|███▌      | 9/25 [00:10<00:18,  1.17s/card]Card:  40%|████      | 10/25 [00:10<00:15,  1.04s/card]Card:  44%|████▍     | 11/25 [00:12<00:17,  1.23s/card]Card:  48%|████▊     | 12/25 [00:14<00:18,  1.39s/card]Card:  52%|█████▏    | 13/25 [00:15<00:15,  1.29s/card]Card:  56%|█████▌    | 14/25 [00:17<00:15,  1.41s/card]Card:  60%|██████    | 15/25 [00:18<00:13,  1.33s/card]Card:  64%|██████▍   | 16/25 [00:18<00:10,  1.14s/card]Card:  68%|██████▊   | 17/25 [00:19<00:08,  1.05s/card]Card:  72%|███████▏  | 18/25 [00:20<00:07,  1.04s/card]Card:  76%|███████▌  | 19/25 [00:21<00:05,  1.01card/s]Card:  80%|████████  | 20/25 [00:22<00:04,  1.03card/s]Card:  84%|████████▍ | 21/25 [00:23<00:03,  1.07card/s]Card:  88%|████████▊ | 22/25 [00:24<00:03,  1.08s/card]Card:  92%|█████████▏| 23/25 [00:25<00:02,  1.02s/card]Card:  96%|█████████▌| 24/25 [00:26<00:00,  1.02card/s]Card: 100%|██████████| 25/25 [00:27<00:00,  1.07card/s]Card: 100%|██████████| 25/25 [00:27<00:00,  1.10s/card]
+2025-08-06 08:55:45,952 INFO: ✔  Salvato dati_2018_pred_20250806_085245.csv – Hit@5: 32.00%
+2025-08-06 08:55:45,967 INFO: 
+======================================================================
+2025-08-06 08:55:45,967 INFO: ▶  PROCESSO FILE: dati_2019.csv
+2025-08-06 08:55:45,967 INFO: ======================================================================
+2025-08-06 08:55:45,967 INFO: ▶  ho caricato e pulito i dati
+2025-08-06 08:55:45,969 INFO: [load_pois] 22 POI letti da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-06 08:55:48,297 INFO: [load_visits] 397561 timbrature da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2019.csv
+2025-08-06 08:55:48,368 INFO: [merge] visite valide dopo merge: 397561
+2025-08-06 08:55:48,553 INFO: [filter] card multi-visita: 77583 / 79825
+2025-08-06 08:55:54,858 INFO: ▶  ho fatto il clustering
+2025-08-06 08:55:54,926 INFO: ▶  Analisi pattern di movimento geografico
+2025-08-06 08:58:18,210 INFO: ▶  Distanza media tra visite consecutive: 0.58 km
+Card:   0%|          | 0/25 [00:00<?, ?card/s]Card:   4%|▍         | 1/25 [00:00<00:19,  1.25card/s]Card:   8%|▊         | 2/25 [00:01<00:21,  1.07card/s]Card:  12%|█▏        | 3/25 [00:02<00:18,  1.17card/s]Card:  16%|█▌        | 4/25 [00:04<00:27,  1.32s/card]Card:  20%|██        | 5/25 [00:05<00:23,  1.19s/card]Card:  24%|██▍       | 6/25 [00:06<00:22,  1.16s/card]Card:  28%|██▊       | 7/25 [00:07<00:18,  1.01s/card]Card:  32%|███▏      | 8/25 [00:08<00:16,  1.01card/s]Card:  36%|███▌      | 9/25 [00:09<00:15,  1.04card/s]Card:  40%|████      | 10/25 [00:10<00:15,  1.05s/card]Card:  44%|████▍     | 11/25 [00:11<00:14,  1.03s/card]Card:  48%|████▊     | 12/25 [00:12<00:14,  1.12s/card]Card:  52%|█████▏    | 13/25 [00:13<00:12,  1.03s/card]Card:  56%|█████▌    | 14/25 [00:14<00:10,  1.04card/s]Card:  60%|██████    | 15/25 [00:15<00:08,  1.12card/s]Card:  64%|██████▍   | 16/25 [00:16<00:08,  1.08card/s]Card:  68%|██████▊   | 17/25 [00:17<00:07,  1.05card/s]Card:  72%|███████▏  | 18/25 [00:18<00:07,  1.00s/card]Card:  76%|███████▌  | 19/25 [00:19<00:06,  1.03s/card]Card:  80%|████████  | 20/25 [00:20<00:05,  1.19s/card]Card:  84%|████████▍ | 21/25 [00:21<00:04,  1.07s/card]Card:  88%|████████▊ | 22/25 [00:23<00:03,  1.14s/card]Card:  92%|█████████▏| 23/25 [00:23<00:02,  1.07s/card]Card:  96%|█████████▌| 24/25 [00:24<00:01,  1.06s/card]Card: 100%|██████████| 25/25 [00:26<00:00,  1.07s/card]Card: 100%|██████████| 25/25 [00:26<00:00,  1.04s/card]
+2025-08-06 08:58:44,290 INFO: ✔  Salvato dati_2019_pred_20250806_085554.csv – Hit@5: 4.00%
+2025-08-06 08:58:44,304 INFO: 
+======================================================================
+2025-08-06 08:58:44,304 INFO: ▶  PROCESSO FILE: dati_2020.csv
+2025-08-06 08:58:44,304 INFO: ======================================================================
+2025-08-06 08:58:44,304 INFO: ▶  ho caricato e pulito i dati
+2025-08-06 08:58:44,305 INFO: [load_pois] 22 POI letti da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-06 08:58:44,452 INFO: [load_visits] 38293 timbrature da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2020.csv
+2025-08-06 08:58:44,459 INFO: [merge] visite valide dopo merge: 38293
+2025-08-06 08:58:44,475 INFO: [filter] card multi-visita: 7657 / 7914
+2025-08-06 08:58:46,339 INFO: ▶  ho fatto il clustering
+2025-08-06 08:58:46,346 INFO: ▶  Analisi pattern di movimento geografico
+2025-08-06 08:59:00,118 INFO: ▶  Distanza media tra visite consecutive: 0.60 km
+Card:   0%|          | 0/25 [00:00<?, ?card/s]Card:   4%|▍         | 1/25 [00:00<00:22,  1.05card/s]Card:   8%|▊         | 2/25 [00:01<00:21,  1.06card/s]Card:  12%|█▏        | 3/25 [00:02<00:22,  1.02s/card]Card:  16%|█▌        | 4/25 [00:03<00:20,  1.05card/s]Card:  20%|██        | 5/25 [00:04<00:18,  1.09card/s]Card:  24%|██▍       | 6/25 [00:06<00:19,  1.05s/card]Card:  28%|██▊       | 7/25 [00:06<00:18,  1.01s/card]Card:  32%|███▏      | 8/25 [00:07<00:16,  1.00card/s]Card:  36%|███▌      | 9/25 [00:08<00:15,  1.04card/s]Card:  40%|████      | 10/25 [00:09<00:14,  1.07card/s]Card:  44%|████▍     | 11/25 [00:10<00:13,  1.06card/s]Card:  48%|████▊     | 12/25 [00:11<00:13,  1.02s/card]Card:  52%|█████▏    | 13/25 [00:13<00:15,  1.30s/card]Card:  56%|█████▌    | 14/25 [00:14<00:13,  1.23s/card]Card:  60%|██████    | 15/25 [00:15<00:11,  1.13s/card]Card:  64%|██████▍   | 16/25 [00:16<00:09,  1.02s/card]Card:  68%|██████▊   | 17/25 [00:17<00:07,  1.06card/s]Card:  72%|███████▏  | 18/25 [00:18<00:06,  1.02card/s]Card:  76%|███████▌  | 19/25 [00:19<00:06,  1.02s/card]Card:  80%|████████  | 20/25 [00:20<00:05,  1.01s/card]Card:  84%|████████▍ | 21/25 [00:21<00:04,  1.09s/card]Card:  88%|████████▊ | 22/25 [00:23<00:03,  1.23s/card]Card:  92%|█████████▏| 23/25 [00:24<00:02,  1.20s/card]Card:  96%|█████████▌| 24/25 [00:25<00:01,  1.12s/card]Card: 100%|██████████| 25/25 [00:26<00:00,  1.12s/card]Card: 100%|██████████| 25/25 [00:26<00:00,  1.06s/card]
+2025-08-06 08:59:26,554 INFO: ✔  Salvato dati_2020_pred_20250806_085846.csv – Hit@5: 8.00%
+2025-08-06 08:59:26,556 INFO: 
+======================================================================
+2025-08-06 08:59:26,556 INFO: ▶  PROCESSO FILE: veronacard_2019_original.csv
+2025-08-06 08:59:26,556 INFO: ======================================================================
+2025-08-06 08:59:26,556 INFO: ▶  ho caricato e pulito i dati
+2025-08-06 08:59:26,557 INFO: [load_pois] 22 POI letti da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-06 08:59:28,945 INFO: [load_visits] 397562 timbrature da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/veronacard_2020_2023/veronacard_2019_original.csv
+2025-08-06 08:59:29,017 INFO: [merge] visite valide dopo merge: 397562
+2025-08-06 08:59:29,200 INFO: [filter] card multi-visita: 77583 / 79826
+2025-08-06 08:59:35,435 INFO: ▶  ho fatto il clustering
+2025-08-06 08:59:35,504 INFO: ▶  Analisi pattern di movimento geografico
+❌ Script Python fallito (exit code: 124)
+
+📊 STATISTICHE FINALI
+---------------------
+Durata job: 1246 secondi
+Ollama version: 0.3.14
+Ollama ready: true
+Python success: false
+
+Risultati generati:
+total 68
+drwxr-xr-x  2 smattiol interactive 4096 Aug  6 08:59 .
+drwxr-xr-x 19 smattiol interactive 4096 Aug  6 08:40 ..
+-rw-r--r--  1 smattiol interactive 8193 Aug  6 08:43 dati_2014_pred_20250806_084054.csv
+-rw-r--r--  1 smattiol interactive 5784 Aug  6 08:46 dati_2015_pred_20250806_084346.csv
+
+Memoria GPU finale:
+5560 MiB, 65536 MiB, 0 %
+
+--- STATO PROCESSO OLLAMA ---
+Server ancora attivo
+
+--- ULTIMI LOG OLLAMA ---
+time=2025-08-06T08:59:25.434+02:00 level=DEBUG source=sched.go:339 msg="runner with non-zero duration has gone idle, adding timer" modelPath=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 duration=30m0s
+time=2025-08-06T08:59:25.434+02:00 level=DEBUG source=sched.go:357 msg="after processing request finished event" modelPath=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 refCount=0
+[GIN] 2025/08/06 - 08:59:25 | 200 |    1.401466ms |       127.0.0.1 | GET      "/api/tags"
+time=2025-08-06T08:59:25.465+02:00 level=DEBUG source=sched.go:575 msg="evaluating already loaded" model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29
+DEBUG [process_single_task] slot data | n_idle_slots=1 n_processing_slots=0 task_id=20933 tid="22839440330752" timestamp=1754463565
+time=2025-08-06T08:59:25.465+02:00 level=DEBUG source=routes.go:1422 msg="chat request" images=0 prompt="<|start_header_id|>user<|end_header_id|>\n\nTurista cluster 4 a Verona.\nVisitati: Arena, Castelvecchio, Duomo\nAttuale: Teatro Romano\nDisponibili: Santa Anastasia (0.3km), AMO (0.4km), Palazzo della Ragione (0.4km), Museo Conte (0.5km), Centro Fotografia (0.5km), Museo Miniscalchi (0.6km), Torre Lamberti (0.6km), Giardino Giusti (0.6km), Sighseeing (0.6km), Casa Giulietta (0.7km)\n\nSuggerisci 5 POI più probabili come prossime visite considerando distanze e pattern turistici.\nRispondi SOLO JSON: {\"prediction\": [\"poi1\", \"poi2\", ...], \"reason\": \"breve spiegazione\"}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
+DEBUG [process_single_task] slot data | n_idle_slots=1 n_processing_slots=0 task_id=20934 tid="22839440330752" timestamp=1754463565
+DEBUG [prefix_slot] slot with common prefix found | 0=["slot_id",0,"characters",58]
+DEBUG [launch_slot_with_data] slot is processing task | slot_id=0 task_id=20935 tid="22839440330752" timestamp=1754463565
+DEBUG [update_slots] slot progression | ga_i=0 n_past=9 n_past_se=0 n_prompt_tokens_processed=200 slot_id=0 task_id=20935 tid="22839440330752" timestamp=1754463565
+DEBUG [update_slots] kv cache rm [p0, end) | p0=9 slot_id=0 task_id=20935 tid="22839440330752" timestamp=1754463565
+DEBUG [print_timings] prompt eval time     =      48.00 ms /   200 tokens (    0.24 ms per token,  4166.75 tokens per second) | n_prompt_tokens_processed=200 n_tokens_second=4166.753474030709 slot_id=0 t_prompt_processing=47.999 t_token=0.23999500000000001 task_id=20935 tid="22839440330752" timestamp=1754463566
+DEBUG [print_timings] generation eval time =     993.81 ms /   122 runs   (    8.15 ms per token,   122.76 tokens per second) | n_decoded=122 n_tokens_second=122.75951310759672 slot_id=0 t_token=8.146008196721311 t_token_generation=993.813 task_id=20935 tid="22839440330752" timestamp=1754463566
+DEBUG [print_timings]           total time =    1041.81 ms | slot_id=0 t_prompt_processing=47.999 t_token_generation=993.813 t_total=1041.812 task_id=20935 tid="22839440330752" timestamp=1754463566
+DEBUG [update_slots] slot released | n_cache_tokens=322 n_ctx=2048 n_past=321 n_system_tokens=0 slot_id=0 task_id=20935 tid="22839440330752" timestamp=1754463566 truncated=false
+DEBUG [log_server_request] request | method="POST" params={} path="/completion" remote_addr="127.0.0.1" remote_port=56474 status=200 tid="22839323185152" timestamp=1754463566
+[GIN] 2025/08/06 - 08:59:26 | 200 |  1.100815033s |       127.0.0.1 | POST     "/api/chat"
+time=2025-08-06T08:59:26.548+02:00 level=DEBUG source=sched.go:407 msg="context for request finished"
+time=2025-08-06T08:59:26.548+02:00 level=DEBUG source=sched.go:339 msg="runner with non-zero duration has gone idle, adding timer" modelPath=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 duration=30m0s
+time=2025-08-06T08:59:26.548+02:00 level=DEBUG source=sched.go:357 msg="after processing request finished event" modelPath=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 refCount=0
+
+⚠️ JOB COMPLETATO CON ERRORI
+🧹 Cleanup server...

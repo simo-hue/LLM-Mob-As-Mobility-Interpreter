@@ -1,0 +1,26 @@
+card_id,cluster,history,current_poi,prediction,ground_truth,reason,hit
+049205F2185084,1,"['Arena', 'Casa Giulietta', 'Torre Lamberti']",Santa Anastasia,,Duomo,,False
+0495BBF2185080,2,"['Arena', 'Torre Lamberti']",Palazzo della Ragione,,Santa Anastasia,,False
+049585F2185080,2,"['Arena', 'Museo Lapidario', 'Castelvecchio']",Duomo,,Teatro Romano,,False
+04F86FF2185080,1,"['Arena', 'Casa Giulietta']",Santa Anastasia,"['AMO', 'Museo Conte', 'Palazzo della Ragione', 'Duomo', 'Torre Lamberti']",Duomo,"Sono i POI più vicini all'attuale posizione del turista e sono tutti siti storici e architettonici importanti di Verona, quindi coerenti con il pattern turistico del cluster.",True
+0485B9F2185080,1,"['Arena', 'Casa Giulietta', 'Torre Lamberti']",Palazzo della Ragione,,Duomo,,False
+048938F2185080,5,"['Tomba Giulietta', 'Arena', 'Casa Giulietta']",Castelvecchio,,Museo Storia,,False
+040114E2185085,5,"['Arena', 'Teatro Romano', 'Duomo', 'Santa Anastasia', 'Palazzo della Ragione', 'Casa Giulietta', 'San Fermo', 'Museo Storia', 'Tomba Giulietta', 'Museo Lapidario']",Castelvecchio,,San Zeno,,False
+04B22DF2185080,1,['Arena'],Tomba Giulietta,,Casa Giulietta,,False
+042D71E2185081,6,"['Torre Lamberti', 'Casa Giulietta']",Arena,,Castelvecchio,,False
+046B1EF2185080,2,"['Castelvecchio', 'Museo Lapidario', 'Arena', 'Torre Lamberti', 'Santa Anastasia']",Duomo,"['AMO', 'Museo Miniscalchi', 'Palazzo della Ragione', 'Casa Giulietta', 'Sighseeing']",San Fermo,"Sono stati scelti POI vicini, facili da raggiungere e coerenti con il pattern turistico di visita alle attrazioni storiche e culturali del centro di Verona.",False
+04DDD3F2185080,0,"['Arena', 'Casa Giulietta', 'Torre Lamberti', 'Palazzo della Ragione', 'Santa Anastasia', 'Duomo', 'Teatro Romano', 'San Fermo']",San Zeno,,Castelvecchio,,False
+047D98F2185080,1,"['Arena', 'Santa Anastasia']",Casa Giulietta,"['Casa Giulietta', 'Palazzo della Ragione', 'San Fermo', 'AMO', 'Museo Miniscalchi']",Teatro Romano,"Le prime due scelte sono attrazioni già visitate, ma possono essere considerate come una conferma per le prossime visite. Le altre scelte si trovano a distanze moderate (0.2km - 0.5km) e sono di tipo museo o chiesa, rispettivamente, che rappresentano un pattern comune nelle visite turistiche.",False
+04C054F2185080,1,"['Arena', 'Casa Giulietta', 'Palazzo della Ragione']",San Fermo,,Teatro Romano,,False
+04EFFEF2185080,1,"['Casa Giulietta', 'Santa Anastasia']",Duomo,,Arena,,False
+041C06E2185085,6,['Torre Lamberti'],Casa Giulietta,"['Sighseeing', 'Museo Conte', 'Arena', 'Casa Giulietta', 'Palazzo della Ragione']",Castelvecchio,"Le tre cose più vicine al punto attuale sono Sighseeing e Museo Conte. Successivamente, l'Arena è molto visitata. Casa Giulietta è un classico per i turisti che si trovano nel cluster e Palazzo della Ragione è anche molto vicino",False
+04BC9AF2185080,4,"['San Fermo', 'Santa Anastasia', 'Duomo', 'Teatro Romano']",Casa Giulietta,,Arena,,False
+048AC0F2185080,4,"['Arena', 'Casa Giulietta', 'Torre Lamberti', 'Palazzo della Ragione']",Santa Anastasia,,Duomo,,False
+047D56F2185080,1,['Casa Giulietta'],Santa Anastasia,,Arena,,False
+048B2CE2185080,6,"['Arena', 'Casa Giulietta', 'Castelvecchio']",Tomba Giulietta,"['Sighseeing', 'Ponti Cavalli', 'Palazzo della Ragione', 'Museo Lapidario', 'Torre Lamberti']",Duomo,"Distanze ragionevoli e pattern turistici comuni: visita all'area storica di Verona con luoghi emblematici come Sighseeing, Ponti Cavalli e Palazzo della Ragione; interesse per l'architettura e la storia attraverso il Museo Lapidario; desiderio di godere del panorama da Torre Lamberti.",False
+040F39F2185081,5,"['Arena', 'Casa Giulietta', 'San Fermo']",Museo Storia,"['Museo Radio', 'Tomba Giulietta', 'Torre Lamberti', 'Sighseeing', 'Santa Anastasia']",Tomba Giulietta,"Le attuali visite sono incentrate su monumenti storici e luoghi di interesse culturale a Verona. I prossimi punti di interesse probabilmente saranno altri siti storici, musei o attrazioni turistiche che si trovano nelle vicinanze.",True
+04ACF5F2185080,4,"['Arena', 'Casa Giulietta', 'Santa Anastasia', 'Teatro Romano']",Duomo,"['Museo Miniscalchi', 'Sighseeing', 'Ponte Pietra', 'Torre Lamberti', 'Giardino Giusti']",Castelvecchio,"Sono stati selezionati per la loro vicinanza e rilevanza turistica, considerando i POI già visitati. Museo Miniscalchi è vicino a Casa Giulietta, mentre Sighseeing si trova vicino a Santa Anastasia e Teatro Romano. Ponte Pietra e Torre Lamberti sono iconiche attrazioni di Verona. Giardino Giusti è un luogo storico ma poco visitato.",False
+0420B3F2185081,1,['Arena'],Casa Giulietta,,San Fermo,,False
+0492DCF2185080,1,"['Arena', 'Casa Giulietta']",San Zeno,"['Castelvecchio', 'Museo Lapidario', 'Palazzo della Ragione', 'Duomo', 'Torre Lamberti']",Tomba Giulietta,"Le distanze e i pattern turistici indicano che il prossimo passo più probabile sia visitare attrazioni vicine come Castelvecchio, poi spostarsi verso il Museo Lapidario e infine raggiungere Palazzo della Ragione e Duomo. La Torre Lamberti è un'ottima scelta per completare la visita di questo quartiere storico.",False
+04A4E9F2185080,0,"['Duomo', 'Arena', 'San Zeno', 'Castelvecchio']",Teatro Romano,,San Fermo,,False
+04C1E6F2185080,4,"['Arena', 'Castelvecchio', 'Duomo']",Teatro Romano,,Casa Giulietta,,False
