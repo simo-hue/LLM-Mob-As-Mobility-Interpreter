@@ -208,7 +208,7 @@ source llm/bin/activate
 pip install -r requirements.txt
 ```
 
-#### Comandi Utili:
+#### Comandi Utili Per Leonardo:
 sbatch run_llm_mob.sh           # lanciare un Job
 squeue -u $USER                 # stato job
 tail -f slurm-<JOBID>.out       # log live
