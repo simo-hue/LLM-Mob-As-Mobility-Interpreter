@@ -49,7 +49,7 @@ export OLLAMA_NUM_PARALLEL=1
 # === 2. CONFIGURAZIONE ===
 MODEL_PATH="/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29"
 OLLAMA_PORT=39003  # Nuova porta
-OLLAMA_BIN="$HOME/opt/ollama/bin/ollama"
+OLLAMA_BIN="/leonardo/home/userexternal/smattiol/opt/ollama_old_backup/ollama/bin/ollama"
 
 echo $OLLAMA_PORT > $SLURM_SUBMIT_DIR/ollama_port.txt
 echo "✅ Porta: $OLLAMA_PORT"
