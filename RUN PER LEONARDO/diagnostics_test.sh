@@ -20,7 +20,7 @@ echo "Data: $(date)"
 module purge
 module load python/3.11.6--gcc--8.5.0
 module load cuda/12.3
-source $SLURM_SUBMIT_DIR/LLM/bin/activate
+source $SLURM_SUBMIT_DIR/llm/bin/activate
 
 # Debug GPU
 echo "🔍 INFO GPU:"

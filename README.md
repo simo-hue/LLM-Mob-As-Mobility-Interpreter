@@ -209,6 +209,7 @@ pip install -r requirements.txt
 ```
 
 #### Comandi Utili Per Leonardo:
+python3.11 -m venv llm          # Forzare la versione 3.11 nella creazione dell'ambiente
 sbatch run_llm_mob.sh           # lanciare un Job
 squeue -u $USER                 # stato job
 tail -f slurm-<JOBID>.out       # log live
