@@ -1,0 +1,94 @@
+🚀 LLM-MOB CON OLLAMA 0.3.14 AGGIORNATO
+========================================
+Job ID: 18550140
+Nodo: lrdn0112.leonardo.local
+Data: Wed Aug  6 08:30:49 CEST 2025
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+🔍 INFO GPU:
+name, memory.total [MiB], memory.used [MiB], utilization.gpu [%]
+NVIDIA A100-SXM-64GB, 65536 MiB, 2 MiB, 0 %
+CUDA_VISIBLE_DEVICES: 0
+📦 Versione Ollama: 0.3.14
+✅ Porta: 39003
+🚀 Avvio server Ollama 0.3.x...
+   Comando: OLLAMA_HOST=127.0.0.1:39003 /leonardo/home/userexternal/smattiol/opt/bin/ollama serve
+   PID server: 819306
+⏳ Attesa server...
+   Attesa... (10s)
+   Ultimi log:
+     time=2025-08-06T08:30:53.568+02:00 level=DEBUG source=common.go:168 msg=extracting runner=rocm_v60102 payload=linux/amd64/rocm_v60102/libggml.so.gz
+     time=2025-08-06T08:30:53.568+02:00 level=DEBUG source=common.go:168 msg=extracting runner=rocm_v60102 payload=linux/amd64/rocm_v60102/libllama.so.gz
+     time=2025-08-06T08:30:53.568+02:00 level=DEBUG source=common.go:168 msg=extracting runner=rocm_v60102 payload=linux/amd64/rocm_v60102/ollama_llama_server.gz
+✅ Server attivo dopo 12s
+📥 Verifica modello...
+Modelli disponibili:
+  - llama3.1:8b
+✅ Modello llama3.1:8b già disponibile
+🧪 Test finale inferenza...
+   Payload test: {
+    "model": "llama3.1:8b",
+    "prompt": "Hello",
+    "stream": false,
+    "options": {
+        "num_predict": 5,
+        "temperature": 0.1
+    }
+}
+✅ Test riuscito! Response: "Hello! How are you"
+🎉 OLLAMA FUNZIONA CORRETTAMENTE!
+✅ Ollama pronto per lo script Python
+🐍 Preparazione script Python...
+✅ Uso modalità normale
+🐍 Avvio script Python...
+  File "veronacard_mob_with_geom.py", line 17
+    from __future__ import annotations
+    ^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+❌ Script Python fallito (exit code: 1)
+
+📊 STATISTICHE FINALI
+---------------------
+Durata job: 46 secondi
+Ollama version: 0.3.14
+Ollama ready: true
+Python success: false
+
+Risultati generati:
+
+Memoria GPU finale:
+5548 MiB, 65536 MiB, 0 %
+
+--- STATO PROCESSO OLLAMA ---
+Server ancora attivo
+
+--- ULTIMI LOG OLLAMA ---
+DEBUG [update_slots] all slots are idle and system prompt is empty, clear the KV cache | tid="23321151459328" timestamp=1754461894
+DEBUG [process_single_task] slot data | n_idle_slots=1 n_processing_slots=0 task_id=0 tid="23321151459328" timestamp=1754461894
+time=2025-08-06T08:31:34.507+02:00 level=INFO source=server.go:626 msg="llama runner started in 5.52 seconds"
+time=2025-08-06T08:31:34.507+02:00 level=DEBUG source=sched.go:462 msg="finished setting up runner" model=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29
+time=2025-08-06T08:31:34.507+02:00 level=DEBUG source=routes.go:239 msg="generate request" prompt="<|start_header_id|>user<|end_header_id|>\n\nHello<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n" images=[]
+DEBUG [process_single_task] slot data | n_idle_slots=1 n_processing_slots=0 task_id=1 tid="23321151459328" timestamp=1754461894
+DEBUG [launch_slot_with_data] slot is processing task | slot_id=0 task_id=2 tid="23321151459328" timestamp=1754461894
+DEBUG [update_slots] slot progression | ga_i=0 n_past=0 n_past_se=0 n_prompt_tokens_processed=11 slot_id=0 task_id=2 tid="23321151459328" timestamp=1754461894
+DEBUG [update_slots] kv cache rm [p0, end) | p0=0 slot_id=0 task_id=2 tid="23321151459328" timestamp=1754461894
+DEBUG [print_timings] prompt eval time     =      21.93 ms /    11 tokens (    1.99 ms per token,   501.55 tokens per second) | n_prompt_tokens_processed=11 n_tokens_second=501.55024621557544 slot_id=0 t_prompt_processing=21.932 t_token=1.9938181818181817 task_id=2 tid="23321151459328" timestamp=1754461894
+DEBUG [print_timings] generation eval time =      44.14 ms /     5 runs   (    8.83 ms per token,   113.28 tokens per second) | n_decoded=5 n_tokens_second=113.28363957677232 slot_id=0 t_token=8.8274 t_token_generation=44.137 task_id=2 tid="23321151459328" timestamp=1754461894
+DEBUG [print_timings]           total time =      66.07 ms | slot_id=0 t_prompt_processing=21.932 t_token_generation=44.137 t_total=66.069 task_id=2 tid="23321151459328" timestamp=1754461894
+DEBUG [update_slots] slot released | n_cache_tokens=16 n_ctx=2048 n_past=15 n_system_tokens=0 slot_id=0 task_id=2 tid="23321151459328" timestamp=1754461894 truncated=false
+DEBUG [log_server_request] request | method="POST" params={} path="/completion" remote_addr="127.0.0.1" remote_port=38908 status=200 tid="23321145016320" timestamp=1754461894
+DEBUG [process_single_task] slot data | n_idle_slots=1 n_processing_slots=0 task_id=10 tid="23321151459328" timestamp=1754461894
+DEBUG [log_server_request] request | method="POST" params={} path="/tokenize" remote_addr="127.0.0.1" remote_port=38910 status=200 tid="23321068433408" timestamp=1754461894
+[GIN] 2025/08/06 - 08:31:34 | 200 |  5.869867631s |       127.0.0.1 | POST     "/api/generate"
+time=2025-08-06T08:31:34.617+02:00 level=DEBUG source=sched.go:466 msg="context for request finished"
+time=2025-08-06T08:31:34.618+02:00 level=DEBUG source=sched.go:339 msg="runner with non-zero duration has gone idle, adding timer" modelPath=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 duration=30m0s
+time=2025-08-06T08:31:34.618+02:00 level=DEBUG source=sched.go:357 msg="after processing request finished event" modelPath=/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 refCount=0
+
+⚠️ JOB COMPLETATO CON ERRORI
+🧹 Cleanup server...
