@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=llm-mob-timeout-fixed
+#SBATCH --job-name=llm-mob-fixed
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=boost_qos_dbg
@@ -10,8 +10,8 @@
 #SBATCH --mem=64G
 #SBATCH --output=slurm-%j.out
 
-echo "🚀 LLM-MOB CON CORREZIONE TIMEOUT DEFINITIVA"
-echo "=============================================="
+echo "🚀 LLM-MOB CON OLLAMA 0.3.14 AGGIORNATO"
+echo "========================================"
 echo "Job ID: $SLURM_JOB_ID"
 echo "Nodo: $(hostname)"
 echo "Data: $(date)"
@@ -27,334 +27,306 @@ echo "🔍 INFO GPU:"
 nvidia-smi --query-gpu=name,memory.total,memory.used,utilization.gpu --format=csv
 echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
 
-# CORREZIONE PRINCIPALE: Configurazioni anti-timeout
+# CORREZIONE CRITICA 1: Path Ollama aggiornato
+OLLAMA_BIN="/leonardo/home/userexternal/smattiol/opt/bin/ollama"
+
+# Verifica che la versione corretta sia disponibile
+if [ ! -f "$OLLAMA_BIN" ]; then
+    echo "❌ Ollama non trovato in $OLLAMA_BIN"
+    echo "Contenuto directory opt:"
+    ls -la /leonardo/home/userexternal/smattiol/opt/bin/
+    exit 1
+fi
+
+OLLAMA_VERSION=$($OLLAMA_BIN --version 2>&1 | grep -o "0\.[0-9]\+\.[0-9]\+" || echo "unknown")
+echo "📦 Versione Ollama: $OLLAMA_VERSION"
+
+if [[ ! "$OLLAMA_VERSION" =~ ^0\.3\.[0-9]+$ ]]; then
+    echo "⚠️ Versione Ollama non ottimale: $OLLAMA_VERSION (attesa: 0.3.x)"
+    echo "Continuo comunque..."
+fi
+
+# CORREZIONE CRITICA 2: Variabili ambiente per Ollama 0.3.x
 export CUDA_VISIBLE_DEVICES=0
-export OLLAMA_GPU_OVERHEAD=0
-export OLLAMA_HOST_GPU=1
 export OLLAMA_DEBUG=1
+export OLLAMA_HOST=127.0.0.1
+export OLLAMA_ORIGINS="*"
+export OLLAMA_MODELS="$HOME/.ollama/models"
 
-# NUOVE VARIABILI CRITICHE PER TIMEOUT
-export OLLAMA_RUNNER_TIMEOUT=600s          # 10 minuti per runner
-export OLLAMA_LOAD_TIMEOUT=300s            # 5 minuti per caricamento modello
-export OLLAMA_REQUEST_TIMEOUT=600s         # 10 minuti per singola richiesta
-export OLLAMA_COMPLETION_TIMEOUT=600s      # 10 minuti per completion
-export OLLAMA_KEEP_ALIVE=30m               # Mantieni modello in memoria 30 min
-export OLLAMA_CONTEXT_TIMEOUT=600s         # Timeout per context switching
-
-# Ottimizzazioni GPU
-export OLLAMA_FLASH_ATTENTION=0            # Disabilita flash attention (problematico su alcuni setup)
-export OLLAMA_MAX_LOADED_MODELS=1
+# CORREZIONE CRITICA 3: Configurazioni moderne per 0.3.x
 export OLLAMA_NUM_PARALLEL=1
+export OLLAMA_MAX_LOADED_MODELS=1
+export OLLAMA_FLASH_ATTENTION=0
+export OLLAMA_KEEP_ALIVE="30m"
+
+# Rimuovi vecchie variabili non supportate in 0.3.x
+unset OLLAMA_GPU_OVERHEAD
+unset OLLAMA_HOST_GPU
+unset OLLAMA_RUNNER_TIMEOUT
+unset OLLAMA_LOAD_TIMEOUT
+unset OLLAMA_REQUEST_TIMEOUT
+unset OLLAMA_COMPLETION_TIMEOUT
+unset OLLAMA_CONTEXT_TIMEOUT
 
 # === 2. CONFIGURAZIONE ===
-MODEL_PATH="/leonardo/home/userexternal/smattiol/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29"
-OLLAMA_PORT=39003  # Nuova porta
-OLLAMA_BIN="/leonardo/home/userexternal/smattiol/opt/ollama_old_backup/ollama/bin/ollama"
-
+OLLAMA_PORT=39003
 echo $OLLAMA_PORT > $SLURM_SUBMIT_DIR/ollama_port.txt
 echo "✅ Porta: $OLLAMA_PORT"
 
-export OLLAMA_HOST=127.0.0.1:$OLLAMA_PORT
-export OLLAMA_MODELS=$HOME/.ollama/models
-
-# Pulizia
+# Pulizia processi precedenti
 pkill -f "ollama serve" 2>/dev/null || true
 sleep 3
 
-# === 3. AVVIO SERVER CON CONFIGURAZIONI ANTI-TIMEOUT ===
-echo "🚀 Avvio server con timeout estesi..."
+# === 3. AVVIO SERVER ===
+echo "🚀 Avvio server Ollama 0.3.x..."
 
-# Avvia con parametri espliciti per timeout
-OLLAMA_RUNNER_TIMEOUT=600s \
-OLLAMA_LOAD_TIMEOUT=300s \
-OLLAMA_REQUEST_TIMEOUT=600s \
-OLLAMA_COMPLETION_TIMEOUT=600s \
-OLLAMA_KEEP_ALIVE=30m \
-$OLLAMA_BIN serve > ollama_server_fixed.log 2>&1 &
+# Avvio semplificato per 0.3.x (senza variabili deprecate)
+OLLAMA_HOST=127.0.0.1:$OLLAMA_PORT $OLLAMA_BIN serve > ollama_server.log 2>&1 &
 SERVER_PID=$!
 
+echo "   Comando: OLLAMA_HOST=127.0.0.1:$OLLAMA_PORT $OLLAMA_BIN serve"
 echo "   PID server: $SERVER_PID"
 
-# Cleanup potenziato
+# Cleanup function
 cleanup() {
-    echo "🧹 Cleanup con terminazione gentile..."
+    echo "🧹 Cleanup server..."
     if kill -0 $SERVER_PID 2>/dev/null; then
-        # Prima terminazione gentile
         kill -TERM $SERVER_PID 2>/dev/null
-        sleep 5
-        # Se ancora vivo, forza
+        sleep 3
         if kill -0 $SERVER_PID 2>/dev/null; then
             kill -KILL $SERVER_PID 2>/dev/null
         fi
     fi
-    # Pulizia processi orfani
-    pkill -f "ollama runner" 2>/dev/null || true
+    pkill -f "ollama" 2>/dev/null || true
 }
 trap cleanup EXIT
 
-# === 4. ATTESA SERVER ESTESA ===
-echo "⏳ Attesa server (fino a 3 minuti)..."
-MAX_WAIT=60  # 3 minuti
-WAIT_INTERVAL=3
+# === 4. ATTESA SERVER ===
+echo "⏳ Attesa server..."
+MAX_WAIT=30
+WAIT_INTERVAL=2
 
 for i in $(seq 1 $MAX_WAIT); do
     if ! kill -0 $SERVER_PID 2>/dev/null; then
-        echo "❌ Server morto!"
+        echo "❌ Server morto prematurely!"
         echo "--- LOG SERVER ---"
-        cat ollama_server_fixed.log
+        cat ollama_server.log
         exit 1
     fi
     
+    # Test connessione API
     if curl -s --connect-timeout 2 --max-time 5 "http://127.0.0.1:$OLLAMA_PORT/api/tags" >/dev/null 2>&1; then
         echo "✅ Server attivo dopo $((i * WAIT_INTERVAL))s"
         break
     fi
     
-    if [ $((i % 10)) -eq 0 ]; then
-        echo "   Attesa... ($((i * WAIT_INTERVAL))s / $((MAX_WAIT * WAIT_INTERVAL))s)"
-        tail -3 ollama_server_fixed.log 2>/dev/null || echo "   (nessun log)"
+    if [ $((i % 5)) -eq 0 ]; then
+        echo "   Attesa... ($((i * WAIT_INTERVAL))s)"
+        # Mostra ultimi log se disponibili
+        if [ -f ollama_server.log ]; then
+            echo "   Ultimi log:"
+            tail -3 ollama_server.log | sed 's/^/     /'
+        fi
     fi
     
     sleep $WAIT_INTERVAL
 done
 
-if ! curl -s "http://127.0.0.1:$OLLAMA_PORT/api/tags" >/dev/null 2>&1; then
-    echo "❌ Server non risponde"
-    echo "--- LOG COMPLETO ---"
-    cat ollama_server_fixed.log
+# Verifica finale connessione
+if ! curl -s --max-time 10 "http://127.0.0.1:$OLLAMA_PORT/api/tags" >/dev/null 2>&1; then
+    echo "❌ Server non risponde dopo $((MAX_WAIT * WAIT_INTERVAL))s"
+    echo "--- LOG COMPLETO SERVER ---"
+    cat ollama_server.log
     exit 1
 fi
 
-# === 5. SETUP MODELLO MINIMALISTA (RIMUOVE PARAMETRI PROBLEMATICI) ===
-echo "📥 Setup modello anti-timeout..."
+# === 5. VERIFICA MODELLO ===
+echo "📥 Verifica modello..."
 MODEL_NAME="llama3.1:8b"
 
-if ! curl -s "http://127.0.0.1:$OLLAMA_PORT/api/tags" | grep -q "$MODEL_NAME"; then
-    echo "🔨 Creazione modello MINIMALISTA..."
+# Lista modelli disponibili
+echo "Modelli disponibili:"
+MODELS_RESPONSE=$(curl -s "http://127.0.0.1:$OLLAMA_PORT/api/tags" || echo '{"models":[]}')
+echo "$MODELS_RESPONSE" | python3 -c "
+import json, sys
+try:
+    data = json.load(sys.stdin)
+    models = data.get('models', [])
+    if models:
+        for model in models:
+            print(f\"  - {model.get('name', 'unknown')}\")
+    else:
+        print('  Nessun modello trovato')
+except:
+    print('  Errore nel parsing modelli')
+"
+
+# Controlla se il modello esiste
+MODEL_EXISTS=$(echo "$MODELS_RESPONSE" | python3 -c "
+import json, sys
+try:
+    data = json.load(sys.stdin)
+    models = [m.get('name', '') for m in data.get('models', [])]
+    print('true' if '$MODEL_NAME' in models else 'false')
+except:
+    print('false')
+")
+
+if [ "$MODEL_EXISTS" = "false" ]; then
+    echo "❌ Modello $MODEL_NAME non trovato!"
+    echo "⚠️ Per Ollama 0.3.x, devi prima fare il pull del modello:"
+    echo "   $OLLAMA_BIN pull $MODEL_NAME"
     
-    # CORREZIONE CRITICA: Modelfile minimalista senza parametri che causano timeout
-    cat > /tmp/Modelfile_minimal << EOF
-FROM $MODEL_PATH
-
-# Solo parametri essenziali anti-timeout
-PARAMETER num_ctx 2048
-PARAMETER num_batch 128
-PARAMETER num_gpu 33
-PARAMETER num_thread 4
-PARAMETER temperature 0.7
-PARAMETER top_p 0.9
-
-# Template semplificato
-TEMPLATE """<|start_header_id|>user<|end_header_id|>
-
-{{ .Prompt }}<|eot_id|><|start_header_id|>assistant<|end_header_id|>
-
-"""
-EOF
-    
-    echo "Modelfile contenuto:"
-    cat /tmp/Modelfile_minimal
-    echo ""
-    
-    # Crea con timeout molto lungo
-    echo "Creando modello (timeout 10 min)..."
-    if curl -X POST "http://127.0.0.1:$OLLAMA_PORT/api/create" \
-           -H "Content-Type: application/json" \
-           -d "{\"name\": \"$MODEL_NAME\", \"modelfile\": \"$(cat /tmp/Modelfile_minimal | sed 's/"/\\"/g' | tr '\n' '\\n')\"}" \
-           --max-time 600 \
-           --connect-timeout 30 \
-           --retry 1; then
-        echo "✅ Modello creato"
+    # Tenta di fare il pull automaticamente
+    echo "🔄 Tentativo pull automatico..."
+    if timeout 300s $OLLAMA_BIN pull $MODEL_NAME; then
+        echo "✅ Modello scaricato con successo"
     else
-        echo "❌ Errore creazione modello"
-        tail -20 ollama_server_fixed.log
+        echo "❌ Fallito pull del modello"
+        echo "--- CONTENUTO DIRECTORY MODELLI ---"
+        ls -la $HOME/.ollama/models/manifests/registry.ollama.ai/library/ 2>/dev/null || echo "Directory manifests non trovata"
         exit 1
     fi
-    
-    rm -f /tmp/Modelfile_minimal
 else
-    echo "✅ Modello già presente"
+    echo "✅ Modello $MODEL_NAME già disponibile"
 fi
 
-# === 6. TEST PROGRESSIVO CON TIMEOUT CUSTOM ===
-echo "🧪 Test progressivo anti-timeout..."
+# === 6. TEST INFERENZA ===
+echo "🧪 Test finale inferenza..."
 
-# Test 1: Micro (1 token, timeout corto)
-echo "Test 1: Micro response"
-micro_payload='{
+# Test semplificato per 0.3.x
+TEST_PAYLOAD='{
     "model": "'$MODEL_NAME'",
-    "prompt": "Hi",
+    "prompt": "Hello",
     "stream": false,
     "options": {
-        "num_predict": 1,
+        "num_predict": 5,
         "temperature": 0.1
     }
 }'
 
-echo "   Payload: $micro_payload"
+echo "   Payload test: $TEST_PAYLOAD"
 
-if timeout 30s curl -X POST "http://127.0.0.1:$OLLAMA_PORT/api/generate" \
+# Test con timeout ragionevole
+INFERENCE_RESULT=$(timeout 60s curl -X POST "http://127.0.0.1:$OLLAMA_PORT/api/generate" \
     -H "Content-Type: application/json" \
-    -d "$micro_payload" \
-    --max-time 25 \
-    --connect-timeout 5 \
-    -s | python3 -c "
-import sys, json
+    -d "$TEST_PAYLOAD" \
+    --max-time 55 \
+    --connect-timeout 10 \
+    -s 2>&1)
+
+CURL_EXIT=$?
+
+if [ $CURL_EXIT -eq 0 ]; then
+    echo "$INFERENCE_RESULT" | python3 -c "
+import json, sys
 try:
     data = json.load(sys.stdin)
-    print(f'✅ Micro test: done={data.get(\"done\")}, response=\"{data.get(\"response\", \"\")}\"')
-    if data.get('done'):
-        sys.exit(0)
-    else:
-        sys.exit(1)
-except Exception as e:
-    print(f'❌ Micro test failed: {e}')
-    sys.exit(1)
-"; then
-    echo "✅ Micro test OK, procedo con test completo"
-    
-    # Test 2: Risposta normale (solo se micro OK)
-    echo "Test 2: Risposta normale"
-    normal_payload='{
-        "model": "'$MODEL_NAME'",
-        "prompt": "What is Rome?",
-        "stream": false,
-        "options": {
-            "num_predict": 20,
-            "temperature": 0.3
-        }
-    }'
-    
-    echo "   Timeout: 2 minuti"
-    if timeout 120s curl -X POST "http://127.0.0.1:$OLLAMA_PORT/api/generate" \
-        -H "Content-Type: application/json" \
-        -d "$normal_payload" \
-        --max-time 115 \
-        --connect-timeout 10 \
-        -s | python3 -c "
-import sys, json
-try:
-    data = json.load(sys.stdin)
-    response = data.get('response', '')
-    print(f'✅ Normal test: done={data.get(\"done\")}, response_len={len(response)}')
-    if data.get('done') and len(response) > 5:
-        print(f'   Response preview: \"{response[:50]}...\"')
+    if data.get('done', False):
+        response = data.get('response', '')
+        print(f'✅ Test riuscito! Response: \"{response}\"')
         print('🎉 OLLAMA FUNZIONA CORRETTAMENTE!')
         sys.exit(0)
     else:
-        print('❌ Risposta incompleta o vuota')
+        print('❌ Test incompleto:', data)
         sys.exit(1)
 except Exception as e:
-    print(f'❌ Normal test failed: {e}')
+    print(f'❌ Errore parsing risposta: {e}')
+    print('Raw response:', repr(sys.stdin.read()[:200]))
     sys.exit(1)
-    "; then
-        echo "✅ Test completo OK!"
+" <<< "$INFERENCE_RESULT"
+    
+    if [ $? -eq 0 ]; then
         OLLAMA_READY=true
+        echo "✅ Ollama pronto per lo script Python"
     else
-        echo "⚠️ Test normale fallito, uso modalità conservativa"
         OLLAMA_READY=false
-        echo "--- LOG RECENTE ---"
-        tail -10 ollama_server_fixed.log
+        echo "⚠️ Test fallito, uso modalità conservativa"
     fi
 else
-    echo "❌ Micro test fallito, problema grave"
+    echo "❌ Test fallito con codice $CURL_EXIT"
+    echo "Raw result: $INFERENCE_RESULT"
     OLLAMA_READY=false
-    echo "--- LOG COMPLETO ---"
-    tail -20 ollama_server_fixed.log
+    
+    echo "--- LOG RECENTE OLLAMA ---"
+    tail -10 ollama_server.log
 fi
 
-# === 7. CONFIGURAZIONE PYTHON SCRIPT ===
-echo "🐍 Configurazione per script Python..."
-cd $SLURM_SUBMIT_DIR
+# === 7. ESECUZIONE SCRIPT PYTHON ===
+echo "🐍 Preparazione script Python..."
 
-# Crea file di configurazione per il Python script con timeout custom
+# Crea configurazione per Python script
 cat > ollama_config.json << EOF
 {
-    "host": "127.0.0.1",
-    "port": $OLLAMA_PORT,
+    "endpoint": "http://127.0.0.1:$OLLAMA_PORT",
     "model": "$MODEL_NAME",
-    "timeout": 300,
-    "retry_attempts": 3,
-    "retry_delay": 10,
-    "request_params": {
-        "temperature": 0.3,
-        "num_predict": 100,
-        "top_p": 0.9
-    }
+    "timeout": 120,
+    "max_retries": 3,
+    "ollama_ready": $OLLAMA_READY
 }
 EOF
 
-echo "✅ Config salvata in ollama_config.json"
-
-# Determina parametri per Python script
+# Determina parametri in base al risultato del test
 if [ "$OLLAMA_READY" = "true" ]; then
-    echo "✅ Uso modalità normale (50 utenti)"
-    MAX_USERS_ARG="--max-users 50"
-    PYTHON_TIMEOUT="25m"
+    echo "✅ Uso modalità normale"
+    MAX_USERS="--max-users 25"
 else
-    echo "⚠️ Uso modalità ridotta (5 utenti per test)"
-    MAX_USERS_ARG="--max-users 5"
-    PYTHON_TIMEOUT="10m"
+    echo "⚠️ Uso modalità conservativa (test fallito)"
+    MAX_USERS="--max-users 3"
 fi
 
-# === 8. ESECUZIONE PYTHON SCRIPT ===
-echo "🐍 Avvio script Python con timeout $PYTHON_TIMEOUT..."
-
-# Aggiungi variabili d'ambiente per il Python script
+# Aggiungi variabili environment per Python
 export OLLAMA_ENDPOINT="http://127.0.0.1:$OLLAMA_PORT"
 export OLLAMA_MODEL="$MODEL_NAME"
-export OLLAMA_TIMEOUT=300
-export OLLAMA_RETRIES=3
 
-# Esegui con monitoring
-if timeout $PYTHON_TIMEOUT python veronacard_mob_with_geom.py $MAX_USERS_ARG --config ollama_config.json --force; then
+echo "🐍 Avvio script Python..."
+cd $SLURM_SUBMIT_DIR
+
+# Assicurati che requests sia installato
+python3 -c "import requests" 2>/dev/null || pip3 install --user requests
+
+# Esegui script con timeout
+if timeout 20m python3 veronacard_mob_with_geom.py $MAX_USERS; then
     echo "✅ Script Python completato!"
     PYTHON_SUCCESS=true
 else
     EXIT_CODE=$?
-    echo "❌ Script Python fallito (codice: $EXIT_CODE)"
+    echo "❌ Script Python fallito (exit code: $EXIT_CODE)"
     PYTHON_SUCCESS=false
-    
-    # Debug dettagliato
-    echo "--- STATO SERVER ---"
-    if kill -0 $SERVER_PID 2>/dev/null; then
-        echo "Server ancora attivo"
-        echo "Modelli caricati:"
-        curl -s "http://127.0.0.1:$OLLAMA_PORT/api/tags" | grep -o '"name":"[^"]*"' || echo "Errore nel recuperare modelli"
-    else
-        echo "Server morto durante esecuzione"
-    fi
-    
-    echo "--- ULTIMI 20 LOG OLLAMA ---"
-    tail -20 ollama_server_fixed.log
-    
-    echo "--- MEMORIA GPU ---"
-    nvidia-smi --query-gpu=memory.used,memory.total,utilization.gpu --format=csv
 fi
 
-# === 9. STATISTICHE E CLEANUP ===
+# === 8. STATISTICHE FINALI ===
 echo ""
 echo "📊 STATISTICHE FINALI"
-echo "====================="
+echo "---------------------"
 echo "Durata job: $SECONDS secondi"
+echo "Ollama version: $OLLAMA_VERSION"
 echo "Ollama ready: $OLLAMA_READY"
 echo "Python success: $PYTHON_SUCCESS"
 
 echo ""
 echo "Risultati generati:"
-ls -la results/ 2>/dev/null | tail -5 || echo "Nessun risultato trovato"
+ls -la results/ 2>/dev/null | head -5 || echo "Nessuna directory results"
 
 echo ""
 echo "Memoria GPU finale:"
 nvidia-smi --query-gpu=memory.used,memory.total,utilization.gpu --format=csv,noheader
 
 echo ""
-echo "File di config e log generati:"
-ls -la ollama_*.{json,log,txt} 2>/dev/null || echo "Nessun file di config"
+echo "--- STATO PROCESSO OLLAMA ---"
+if kill -0 $SERVER_PID 2>/dev/null; then
+    echo "Server ancora attivo"
+else
+    echo "Server terminato"
+fi
+
+echo ""
+echo "--- ULTIMI LOG OLLAMA ---"
+tail -20 ollama_server.log 2>/dev/null || echo "Nessun log disponibile"
 
 echo ""
 if [ "$PYTHON_SUCCESS" = "true" ]; then
-    echo "🎉 JOB COMPLETATO CON SUCCESSO!"
+    echo "🎉 JOB COMPLETATO CON SUCCESSO"
 else
-    echo "⚠️ JOB COMPLETATO CON ERRORI - Controllare i log"
+    echo "⚠️ JOB COMPLETATO CON ERRORI"
 fi
