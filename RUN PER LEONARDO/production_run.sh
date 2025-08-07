@@ -2,12 +2,13 @@
 #SBATCH --job-name=llm-mob-production
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
-#SBATCH --qos=boost_qos_bprod
-#SBATCH --time=24:00:00
+#SBATCH --qos=normal
+#SBATCH --time=23:00:00
 #SBATCH --nodes=1
-#SBATCH --gpus=1
-#SBATCH --cpus-per-task=32
-#SBATCH --mem=128G
+#SBATCH --gres=gpu:1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=64G
 #SBATCH --output=slurm-%j.out
 
 echo "🚀 LLM-MOB PRODUCTION RUN - TUTTI GLI UTENTI"
@@ -336,7 +337,7 @@ echo ""
 PYTHON_START=$(date +%s)
 
 # NESSUN parametro max-users = processamento completo
-if python3 veronacard_mob_with_geom.py; then
+if python3 veronacard_mob_with_geom.py --append; then
     PYTHON_END=$(date +%s)
     PYTHON_TIME=$((PYTHON_END - PYTHON_START))
     
