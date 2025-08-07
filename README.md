@@ -215,6 +215,7 @@ squeue -u $USER                 # stato job
 tail -f slurm-<JOBID>.out       # log live
 scancel <JOBID>                 # Rimozione del Job
 saldo -b IscrC_LLM-Mob          # Controllare il SALDO
+[Documentazione Tecnica di Leonardo](https://docs.hpc.cineca.it/hpc/leonardo.html#leonardo-card)
 
 ### Citation
 
