@@ -3,7 +3,7 @@
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=normal
-#SBATCH --time=23:00:00
+#SBATCH --time=24:00:00
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 #SBATCH --ntasks-per-node=1
@@ -64,7 +64,7 @@ export OLLAMA_MODELS="$HOME/.ollama/models"
 export OLLAMA_NUM_PARALLEL=2  # Aumentato per production
 export OLLAMA_MAX_LOADED_MODELS=1
 export OLLAMA_FLASH_ATTENTION=0
-export OLLAMA_KEEP_ALIVE="4h"  # Mantiene modello in memoria più a lungo
+export OLLAMA_KEEP_ALIVE="24h"  # Mantiene modello in memoria più a lungo
 
 # Pulizia variabili deprecate
 unset OLLAMA_GPU_OVERHEAD OLLAMA_HOST_GPU OLLAMA_RUNNER_TIMEOUT
