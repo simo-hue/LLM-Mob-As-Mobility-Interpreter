@@ -1,0 +1,66 @@
+2025-08-09 18:31:02,390 INFO: 🔥 Warm-up modello con parametri conservativi...
+2025-08-09 18:31:02,391 INFO: 🔄 Tentativo warm-up...
+2025-08-09 18:31:04,910 INFO: 📊 Warm-up result: done=True, response_len=8
+2025-08-09 18:31:04,910 INFO: ✓ Warm-up completato con successo
+2025-08-09 18:31:04,911 INFO: 🔍 Debug stato GPU:
+2025-08-09 18:31:04,949 INFO: 📊 GPU: NVIDIA A100-SXM-64GB, 5322, 65536, 44, 15
+2025-08-09 18:31:04,986 INFO: 📋 Processi GPU attivi:
+2025-08-09 18:31:04,987 INFO:        0     703503     C    17     0     -     -   ollama_llama_se
+2025-08-09 18:31:04,987 INFO: 🔥 Warm-up modello con parametri conservativi...
+2025-08-09 18:31:04,987 INFO: 🔄 Tentativo warm-up...
+2025-08-09 18:31:05,114 INFO: 📊 Warm-up result: done=True, response_len=8
+2025-08-09 18:31:05,114 INFO: ✓ Warm-up completato con successo
+2025-08-09 18:31:07,847 INFO: ✅ Ollama test passed - Response: 'How'
+2025-08-09 18:31:08,010 INFO: 
+======================================================================
+2025-08-09 18:31:08,010 INFO: ▶  PROCESSO FILE: dati_2014.csv
+2025-08-09 18:31:08,010 INFO: ======================================================================
+2025-08-09 18:31:08,011 INFO: ▶  ho caricato e pulito i dati
+2025-08-09 18:31:08,013 INFO: [load_pois] 22 POI letti da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-09 18:31:09,962 INFO: [load_visits] 370377 timbrature da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2014.csv
+2025-08-09 18:31:10,042 INFO: [merge] visite valide dopo merge: 370377
+2025-08-09 18:31:10,203 INFO: [filter] card multi-visita: 70236 / 71557
+2025-08-09 18:31:11,481 INFO: ▶  ho fatto il clustering
+2025-08-09 18:31:11,485 INFO: ▶  Analisi pattern di movimento geografico
+2025-08-09 18:31:13,983 INFO: ▶  Distanza media tra visite consecutive: 0.58 km
+2025-08-09 18:31:13,987 WARNING: ⚠️  Nessun risultato da salvare!
+2025-08-09 18:31:14,140 INFO: 
+======================================================================
+2025-08-09 18:31:14,141 INFO: ▶  PROCESSO FILE: dati_2015.csv
+2025-08-09 18:31:14,141 INFO: ======================================================================
+2025-08-09 18:31:14,141 INFO: ▶  ho caricato e pulito i dati
+2025-08-09 18:31:14,142 INFO: [load_pois] 22 POI letti da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-09 18:31:16,082 INFO: [load_visits] 369587 timbrature da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2015.csv
+2025-08-09 18:31:16,148 INFO: [merge] visite valide dopo merge: 369587
+2025-08-09 18:31:16,313 INFO: [filter] card multi-visita: 71759 / 73424
+2025-08-09 18:31:17,573 INFO: ▶  ho fatto il clustering
+2025-08-09 18:31:17,577 INFO: ▶  Analisi pattern di movimento geografico
+2025-08-09 18:31:20,486 INFO: ▶  Distanza media tra visite consecutive: 0.57 km
+2025-08-09 18:31:20,486 WARNING: ⚠️  Nessun risultato da salvare!
+2025-08-09 18:31:20,642 INFO: 
+======================================================================
+2025-08-09 18:31:20,642 INFO: ▶  PROCESSO FILE: dati_2016.csv
+2025-08-09 18:31:20,642 INFO: ======================================================================
+2025-08-09 18:31:20,642 INFO: ▶  ho caricato e pulito i dati
+2025-08-09 18:31:20,644 INFO: [load_pois] 22 POI letti da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-09 18:31:22,708 INFO: [load_visits] 383516 timbrature da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2016.csv
+2025-08-09 18:31:22,781 INFO: [merge] visite valide dopo merge: 383516
+2025-08-09 18:31:22,962 INFO: [filter] card multi-visita: 76451 / 78152
+2025-08-09 18:31:24,080 INFO: ▶  ho fatto il clustering
+2025-08-09 18:31:24,085 INFO: ▶  Analisi pattern di movimento geografico
+2025-08-09 18:31:27,672 INFO: ▶  Distanza media tra visite consecutive: 0.58 km
+2025-08-09 18:31:27,672 WARNING: ⚠️  Nessun risultato da salvare!
+2025-08-09 18:31:27,680 INFO: 
+======================================================================
+2025-08-09 18:31:27,680 INFO: ▶  PROCESSO FILE: dati_2017.csv
+2025-08-09 18:31:27,680 INFO: ======================================================================
+2025-08-09 18:31:27,680 INFO: ▶  ho caricato e pulito i dati
+2025-08-09 18:31:27,682 INFO: [load_pois] 22 POI letti da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-09 18:31:30,252 INFO: [load_visits] 441594 timbrature da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2017.csv
+2025-08-09 18:31:30,338 INFO: [merge] visite valide dopo merge: 441594
+2025-08-09 18:31:30,554 INFO: [filter] card multi-visita: 89352 / 91554
+2025-08-09 18:31:37,079 INFO: ▶  ho fatto il clustering
+2025-08-09 18:31:37,159 INFO: ▶  Analisi pattern di movimento geografico
+2025-08-09 18:34:16,287 INFO: ▶  Distanza media tra visite consecutive: 0.58 km
+2025-08-10 18:33:24,258 ERROR: ❌  Errore richiesta: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')) (tentativo 1/2)
+2025-08-10 18:33:24,259 INFO: ⏳ Attendo 10s prima del prossimo tentativo...
