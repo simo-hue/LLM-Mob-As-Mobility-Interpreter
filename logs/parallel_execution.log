@@ -1,0 +1,6 @@
+python3: can't open file '/leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/veronacard_parallel.py': [Errno 2] No such file or directory
+2025-08-13 12:02:01,521 [MainProcess-MainThread] INFO: 🔧 Config finale: 4 file workers, 8 LLM threads, batch size 50
+2025-08-13 12:02:01,522 [MainProcess-MainThread] INFO: 🔗 Ollama host: http://127.0.0.1:39003
+2025-08-13 12:02:01,522 [MainProcess-MainThread] ERROR: ❌ Setup Ollama fallito: name 'wait_for_ollama' is not defined
+🖥️  HPC Info: 32 cores, 502.9GB RAM
+⚙️  Config: 4 file workers, 8 LLM threads
