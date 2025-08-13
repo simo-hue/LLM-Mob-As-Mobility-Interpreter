@@ -651,7 +651,7 @@ def create_prompt_with_cluster(
     return f"""Turista cluster {cluster_id} a Verona.
 Visitati: {', '.join(history) if history else 'nessuno'}
 Attuale: {current_poi}
-Disponibili: {pois_list}
+POI Più Vicini: {pois_list}
 
 Suggerisci {top_k} POI più probabili come prossime visite considerando distanze e pattern turistici.
 Rispondi SOLO JSON: {{"prediction": ["poi1", "poi2", ...], "reason": "breve spiegazione"}}"""
