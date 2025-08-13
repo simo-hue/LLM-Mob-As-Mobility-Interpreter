@@ -1,0 +1,15 @@
+🌐 HTTP Requests (8 simultanee)
+                           ↓
+                    📥 Request Queue  
+                           ↓
+                    🧠 Llama Model (in VRAM)
+                    ├── Tokenizer
+                    ├── Embedding Layer
+                    ├── Transformer Blocks (32 layers)
+                    │   ├── Multi-Head Attention (batch parallel)
+                    │   └── Feed Forward (batch parallel)  
+                    └── Output Head
+                           ↓
+                    📤 Response Dispatcher
+                           ↓
+                    🌐 HTTP Responses (8 simultanee)
