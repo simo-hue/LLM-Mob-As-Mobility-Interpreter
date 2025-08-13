@@ -1,0 +1,34 @@
+2025-08-13 14:11:39,004 INFO: ✅ Ollama test passed - Response: 'How'
+2025-08-13 14:11:39,150 INFO: 
+======================================================================
+2025-08-13 14:11:39,150 INFO: ▶  PROCESSO FILE: dati_2014.csv
+2025-08-13 14:11:39,150 INFO: ======================================================================
+2025-08-13 14:11:39,150 INFO: ▶  ho caricato e pulito i dati
+2025-08-13 14:11:39,152 INFO: [load_pois] 22 POI letti da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-13 14:11:41,056 INFO: [load_visits] 370377 timbrature da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2014.csv
+2025-08-13 14:11:41,136 INFO: [merge] visite valide dopo merge: 370377
+2025-08-13 14:11:41,297 INFO: [filter] card multi-visita: 70236 / 71557
+2025-08-13 14:11:42,523 INFO: ▶  ho fatto il clustering
+2025-08-13 14:11:42,531 WARNING: ⚠️  Nessun risultato da salvare!
+2025-08-13 14:11:42,679 INFO: 
+======================================================================
+2025-08-13 14:11:42,679 INFO: ▶  PROCESSO FILE: dati_2015.csv
+2025-08-13 14:11:42,679 INFO: ======================================================================
+2025-08-13 14:11:42,680 INFO: ▶  ho caricato e pulito i dati
+2025-08-13 14:11:42,681 INFO: [load_pois] 22 POI letti da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-13 14:11:44,598 INFO: [load_visits] 369587 timbrature da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2015.csv
+2025-08-13 14:11:44,664 INFO: [merge] visite valide dopo merge: 369587
+2025-08-13 14:11:44,828 INFO: [filter] card multi-visita: 71759 / 73424
+2025-08-13 14:11:46,067 INFO: ▶  ho fatto il clustering
+2025-08-13 14:11:46,073 WARNING: ⚠️  Nessun risultato da salvare!
+2025-08-13 14:11:46,225 INFO: 
+======================================================================
+2025-08-13 14:11:46,225 INFO: ▶  PROCESSO FILE: dati_2016.csv
+2025-08-13 14:11:46,225 INFO: ======================================================================
+2025-08-13 14:11:46,225 INFO: ▶  ho caricato e pulito i dati
+2025-08-13 14:11:46,226 INFO: [load_pois] 22 POI letti da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-13 14:11:48,303 INFO: [load_visits] 383516 timbrature da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2016.csv
+2025-08-13 14:11:48,376 INFO: [merge] visite valide dopo merge: 383516
+2025-08-13 14:11:48,554 INFO: [filter] card multi-visita: 76451 / 78152
+2025-08-13 14:11:49,630 INFO: ▶  ho fatto il clustering
+2025-08-13 14:11:49,640 WARNING: ⚠️  Nessun risultato da salvare!
