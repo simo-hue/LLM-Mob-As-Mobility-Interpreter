@@ -836,7 +836,16 @@ def build_test_set(df: DataFrame) -> DataFrame:
     return pd.DataFrame(records)
 
 # ---------- test su un singolo file ---------------------------------------
-def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int | None = None, force: bool = False, append: bool = False, anchor_rule: str | int = DEFAULT_ANCHOR_RULE) -> None:
+def run_on_visits_file(
+    visits_path: Path, 
+    poi_path: Path, 
+    *, 
+    max_users: int | None = None, 
+    force: bool = False, 
+    append: bool = False, 
+    anchor_rule: str | int = DEFAULT_ANCHOR_RULE,
+    save_every: int = 500 # per non perdere troppo
+) -> None:
     """
     Esegue l'intera pipeline (carica, clusterizza, predice, salva) su un
     singolo file di log VeronaCard.
@@ -938,6 +947,8 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int | No
     #logger.info(f"▶  Distanza media tra visite consecutive: {avg_distance:.2f} km")
 
     results_list = []
+    processed_count = 0
+    first_save = True
     
     # ---------- 5. ciclo su utenti ----------
     for cid in tqdm(demo_cards, desc="Card", unit="card"):
@@ -980,7 +991,22 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int | No
                 pass
 
         results_list.append(rec)
-
+        processed_count += 1
+        
+        # SALVATAGGIO INTERMEDIO
+        if processed_count % save_every == 0:
+            logger.info(f"💾 Salvataggio batch: {processed_count}/{len(demo_cards)}")
+            
+            df_batch = pd.DataFrame(results_list)
+            
+            if first_save and not append:
+                df_batch.to_csv(output_file, mode="w", header=True, index=False)
+                first_save = False
+            else:
+                df_batch.to_csv(output_file, mode="a", header=False, index=False)
+            
+            results_list.clear()  # Libera memoria
+            
     # ---------- 7. Salvataggio finale ----------
     if results_list:  # Solo se abbiamo dei risultati
         df_out = pd.DataFrame(results_list)
