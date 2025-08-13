@@ -212,56 +212,6 @@ else
     echo "✅ Modello $MODEL_NAME disponibile"
 fi
 
-# Warm-up del modello
-echo ""
-echo "🔥 Warm-up modello per ottimizzazione..."
-
-WARMUP_PAYLOAD='{
-    "model": "'$MODEL_NAME'",
-    "prompt": "Test warm-up",
-    "stream": false,
-    "options": {
-        "num_predict": 10,
-        "temperature": 0.1
-    }
-}'
-
-echo "⏱️  Esecuzione warm-up..."
-WARMUP_START=$(date +%s)
-
-WARMUP_RESULT=$(timeout 120s curl -X POST "http://127.0.0.1:$OLLAMA_PORT/api/generate" \
-    -H "Content-Type: application/json" \
-    -d "$WARMUP_PAYLOAD" \
-    --max-time 100 \
-    --connect-timeout 15 \
-    -s 2>&1)
-
-WARMUP_END=$(date +%s)
-WARMUP_TIME=$((WARMUP_END - WARMUP_START))
-
-if [ $? -eq 0 ]; then
-    echo "$WARMUP_RESULT" | python3 -c "
-import json, sys
-try:
-    data = json.load(sys.stdin)
-    if data.get('done', False):
-        print('✅ Warm-up completato in ${WARMUP_TIME}s')
-        print('🎯 Modello pronto per produzione')
-    else:
-        print('⚠️ Warm-up parziale')
-except:
-    print('❌ Warm-up fallito')
-    sys.exit(1)
-" 
-    if [ $? -ne 0 ]; then
-        echo "❌ ERRORE CRITICO: Warm-up fallito"
-        exit 1
-    fi
-else
-    echo "❌ ERRORE CRITICO: Warm-up timeout/errore"
-    exit 1
-fi
-
 # === 6. ESECUZIONE PRODUZIONE ===
 echo ""
 echo "🎯 AVVIO PRODUZIONE - PROCESSAMENTO COMPLETO"

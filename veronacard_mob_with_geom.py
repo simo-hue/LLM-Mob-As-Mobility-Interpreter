@@ -932,10 +932,10 @@ def run_on_visits_file(visits_path: Path, poi_path: Path, *, max_users: int | No
         output_file = out_dir / f"{visits_path.stem}_pred_{ts}.csv"
         write_header = True
     
-    logger.info("▶  Analisi pattern di movimento geografico")
-    movement_patterns = analyze_movement_patterns(filtered, pois)
-    avg_distance = movement_patterns["distance"].mean()
-    logger.info(f"▶  Distanza media tra visite consecutive: {avg_distance:.2f} km")
+    #logger.info("▶  Analisi pattern di movimento geografico")
+    #movement_patterns = analyze_movement_patterns(filtered, pois)
+    #avg_distance = movement_patterns["distance"].mean()
+    #logger.info(f"▶  Distanza media tra visite consecutive: {avg_distance:.2f} km")
 
     results_list = []
     
@@ -1100,24 +1100,24 @@ if __name__ == "__main__":
     print("🎉 Connessione Ollama stabilita con successo!")
 
     # Warm-up del modello prima di iniziare
-    if not warmup_model():
-        logger.warning("⚠️  Warm-up fallito, ma continuo comunque...")
+    #if not warmup_model():
+    #    logger.warning("⚠️  Warm-up fallito, ma continuo comunque...")
     
-    debug_gpu_status()
+    #debug_gpu_status()
     
     # Warm-up con retry
-    warmup_success = False
-    for i in range(3):
-        if warmup_model():
-            warmup_success = True
-            break
-        else:
-            logger.warning(f"⚠️  Warm-up tentativo {i+1}/3 fallito")
-            if i < 2:
-                time.sleep(20) 
+    #warmup_success = False
+    #for i in range(3):
+    #    if warmup_model():
+    #        warmup_success = True
+    #        break
+    #    else:
+    #        logger.warning(f"⚠️  Warm-up tentativo {i+1}/3 fallito")
+    #        if i < 2:
+    #            time.sleep(20) 
     
-    if not warmup_success:
-        logger.error("❌  Warm-up completamente fallito - possibili problemi GPU gravi")
+    #if not warmup_success:
+    #    logger.error("❌  Warm-up completamente fallito - possibili problemi GPU gravi")
        
     # Controllo che OLLAMA risponda altrimenti esco 
     if not test_ollama_connection(OLLAMA_HOST, "llama3.1:8b"):
