@@ -1,8 +1,0 @@
-# Processa TUTTI gli utenti di TUTTI i file
-python veronacard_parallel.py
-
-# Con monitoring avanzato  
-python veronacard_parallel.py --parallel-files 4 --parallel-llm 8 --batch-size 100
-
-# Per resume dopo interruzione
-python veronacard_parallel.py --append

@@ -1,0 +1,51 @@
+2025-08-14 08:48:58,536 INFO: ✅ Ollama test passed - Response: 'How'
+2025-08-14 08:48:58,772 INFO: 📊 Trovate 24086 card già completate in dati_2014_pred_20250806_180856.csv
+2025-08-14 08:48:58,778 INFO: 🔄 Modalità append: 24086 card già elaborate completamente
+2025-08-14 08:48:58,778 INFO: 
+======================================================================
+2025-08-14 08:48:58,778 INFO: ▶  PROCESSO FILE: dati_2014.csv
+2025-08-14 08:48:58,778 INFO: ======================================================================
+2025-08-14 08:48:58,778 INFO: ▶  ho caricato e pulito i dati
+2025-08-14 08:48:58,780 INFO: [load_pois] 22 POI letti da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-14 08:49:00,724 INFO: [load_visits] 370377 timbrature da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2014.csv
+2025-08-14 08:49:00,806 INFO: [merge] visite valide dopo merge: 370377
+2025-08-14 08:49:00,971 INFO: [filter] card multi-visita: 70236 / 71557
+2025-08-14 08:49:05,201 INFO: ▶  ho fatto il clustering
+2025-08-14 08:58:12,076 INFO: 💾 Salvataggio batch: 500/41806
+2025-08-14 09:07:06,532 INFO: 💾 Salvataggio batch: 1000/41806
+2025-08-14 09:15:54,678 INFO: 💾 Salvataggio batch: 1500/41806
+2025-08-14 09:24:45,611 INFO: 💾 Salvataggio batch: 2000/41806
+2025-08-14 09:33:29,702 INFO: 💾 Salvataggio batch: 2500/41806
+2025-08-14 09:42:20,259 INFO: 💾 Salvataggio batch: 3000/41806
+2025-08-14 09:51:12,925 INFO: 💾 Salvataggio batch: 3500/41806
+2025-08-14 10:00:05,427 INFO: 💾 Salvataggio batch: 4000/41806
+2025-08-14 10:09:00,032 INFO: 💾 Salvataggio batch: 4500/41806
+2025-08-14 10:17:54,128 INFO: 💾 Salvataggio batch: 5000/41806
+2025-08-14 10:26:53,375 INFO: 💾 Salvataggio batch: 5500/41806
+2025-08-14 10:35:49,567 INFO: 💾 Salvataggio batch: 6000/41806
+2025-08-14 10:44:49,649 INFO: 💾 Salvataggio batch: 6500/41806
+2025-08-14 10:53:43,572 INFO: 💾 Salvataggio batch: 7000/41806
+2025-08-14 11:02:30,365 INFO: 💾 Salvataggio batch: 7500/41806
+2025-08-14 11:11:15,760 INFO: 💾 Salvataggio batch: 8000/41806
+2025-08-14 11:20:13,003 INFO: 💾 Salvataggio batch: 8500/41806
+2025-08-14 11:29:04,066 INFO: 💾 Salvataggio batch: 9000/41806
+2025-08-14 11:38:07,612 INFO: 💾 Salvataggio batch: 9500/41806
+2025-08-14 11:47:10,510 INFO: 💾 Salvataggio batch: 10000/41806
+2025-08-14 11:56:10,844 INFO: 💾 Salvataggio batch: 10500/41806
+2025-08-14 12:05:02,206 INFO: 💾 Salvataggio batch: 11000/41806
+2025-08-14 12:13:57,788 INFO: 💾 Salvataggio batch: 11500/41806
+2025-08-14 12:22:54,048 INFO: 💾 Salvataggio batch: 12000/41806
+2025-08-14 12:31:48,626 INFO: 💾 Salvataggio batch: 12500/41806
+2025-08-14 12:40:47,379 INFO: 💾 Salvataggio batch: 13000/41806
+2025-08-14 12:49:46,981 INFO: 💾 Salvataggio batch: 13500/41806
+2025-08-14 12:58:40,847 INFO: 💾 Salvataggio batch: 14000/41806
+2025-08-14 13:07:48,895 INFO: 💾 Salvataggio batch: 14500/41806
+2025-08-14 13:16:55,380 INFO: 💾 Salvataggio batch: 15000/41806
+2025-08-14 13:25:57,647 INFO: 💾 Salvataggio batch: 15500/41806
+2025-08-14 13:34:58,987 INFO: 💾 Salvataggio batch: 16000/41806
+2025-08-14 13:43:50,782 INFO: 💾 Salvataggio batch: 16500/41806
+2025-08-14 13:52:47,115 INFO: 💾 Salvataggio batch: 17000/41806
+2025-08-14 14:01:49,287 INFO: 💾 Salvataggio batch: 17500/41806
+2025-08-14 14:10:35,873 INFO: 💾 Salvataggio batch: 18000/41806
+2025-08-14 14:19:44,423 INFO: 💾 Salvataggio batch: 18500/41806
+2025-08-14 14:28:49,721 INFO: 💾 Salvataggio batch: 19000/41806

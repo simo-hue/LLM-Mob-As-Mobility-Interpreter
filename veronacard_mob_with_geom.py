@@ -869,15 +869,13 @@ def run_on_visits_file(
         raise ValueError("Non puoi usare --force e --append insieme.")
 
     if append:
-        prev_path = latest_output(visits_path, out_dir)
-        if prev_path:
-            processed_cards = get_completed_cards(prev_path)
-            logger.info(f"🔄 Modalità append: {len(processed_cards)} card già elaborate completamente")
-        else:
-            processed_cards = set()
-            logger.info("🔄 Modalità append: nessun file precedente trovato")
+        processed_cards = load_completed_cards_fast(visits_path, out_dir)
     else:
         processed_cards = set()
+        # Se non siamo in append, rimuovi eventuali checkpoint vecchi
+        checkpoint_file = get_checkpoint_file(visits_path, out_dir)
+        if checkpoint_file.exists():
+            checkpoint_file.unlink()
 
 
     if not force and not append and latest_output(visits_path, out_dir):
@@ -994,7 +992,7 @@ def run_on_visits_file(
         results_list.append(rec)
         processed_count += 1
         
-        # SALVATAGGIO INTERMEDIO
+        # SALVATAGGIO INTERMEDIO con checkpoint update
         if processed_count % save_every == 0:
             logger.info(f"💾 Salvataggio batch: {processed_count}/{len(demo_cards)}")
             
@@ -1005,6 +1003,17 @@ def run_on_visits_file(
                 first_save = False
             else:
                 df_batch.to_csv(output_file, mode="a", header=False, index=False)
+            
+            # Aggiorna checkpoint con card completate in questo batch
+            if append:
+                checkpoint_file = get_checkpoint_file(visits_path, out_dir)
+                completed_in_batch = [
+                    rec['card_id'] for rec in results_list 
+                    if rec.get('prediction') and 
+                    rec['prediction'] not in ['None', '', 'NO_RESPONSE'] and
+                    not str(rec['prediction']).startswith(('ERROR', 'PROCESSING_ERROR'))
+                ]
+                update_checkpoint_incremental(checkpoint_file, completed_in_batch)
             
             results_list.clear()  # Libera memoria
             
@@ -1025,6 +1034,17 @@ def run_on_visits_file(
         logger.info(f"✔  Salvato {output_file.name} – Hit@{TOP_K}: {hit_rate:.2%}")
     else:
         logger.warning("⚠️  Nessun risultato da salvare!")
+        
+    # Aggiornamento finale del checkpoint
+        if append and results_list:
+            checkpoint_file = get_checkpoint_file(visits_path, out_dir)
+            completed_final = [
+                rec['card_id'] for rec in results_list 
+                if rec.get('prediction') and 
+                rec['prediction'] not in ['None', '', 'NO_RESPONSE'] and
+                not str(rec['prediction']).startswith(('ERROR', 'PROCESSING_ERROR'))
+            ]
+            update_checkpoint_incremental(checkpoint_file, completed_final)
 
 # ---------- test su tutti i file ------------------------------------------
 def run_all_verona_logs(max_users: int | None = None, force=False, append=False, anchor_rule: str | int = DEFAULT_ANCHOR_RULE) -> None:
@@ -1091,6 +1111,78 @@ def get_user_cluster(user_clusters: pd.DataFrame, card_id: str) -> int:
     # Usa .iloc[0] su un DataFrame filtrato è più chiaro per il type checker
     return int(matching_rows["cluster"].iloc[0])
 
+def get_checkpoint_file(visits_path: Path, out_dir: Path) -> Path:
+    """Restituisce il path del file checkpoint per questo dataset"""
+    return out_dir / f"{visits_path.stem}_checkpoint.txt"
+
+def load_completed_cards_fast(visits_path: Path, out_dir: Path) -> set:
+    """
+    Carica velocemente le card completate dal file checkpoint.
+    Fallback su CSV solo se checkpoint non esiste.
+    """
+    checkpoint_file = get_checkpoint_file(visits_path, out_dir)
+    
+    # Prima prova: checkpoint file (velocissimo)
+    if checkpoint_file.exists():
+        try:
+            with open(checkpoint_file, 'r') as f:
+                completed_cards = {line.strip() for line in f if line.strip()}
+            logger.info(f"⚡ Checkpoint: {len(completed_cards)} card già completate (lettura veloce)")
+            return completed_cards
+        except Exception as e:
+            logger.warning(f"⚠️ Errore lettura checkpoint: {e}, fallback su CSV")
+    
+    # Fallback: scansione CSV (lento ma necessario la prima volta)
+    latest_csv = latest_output(visits_path, out_dir)
+    if latest_csv:
+        logger.info("🐌 Prima esecuzione append: scansiono CSV esistente...")
+        try:
+            # Leggi solo le colonne necessarie per velocizzare
+            df = pd.read_csv(latest_csv, usecols=['card_id', 'prediction'])
+            completed = df[
+                df['prediction'].notna() & 
+                (df['prediction'] != '') & 
+                (df['prediction'] != 'None') &
+                (df['prediction'] != 'NO_RESPONSE') &
+                (~df['prediction'].str.startswith('ERROR', na=False)) &
+                (~df['prediction'].str.startswith('PROCESSING_ERROR', na=False))
+            ]['card_id'].unique()
+            
+            completed_set = set(completed)
+            
+            # Salva il checkpoint per le prossime volte
+            save_checkpoint(checkpoint_file, completed_set)
+            logger.info(f"💾 Checkpoint salvato: {len(completed_set)} card")
+            
+            return completed_set
+        except Exception as e:
+            logger.error(f"❌ Errore lettura CSV: {e}")
+            return set()
+    
+    return set()
+
+def save_checkpoint(checkpoint_file: Path, completed_cards: set):
+    """Salva il checkpoint delle card completate"""
+    try:
+        with open(checkpoint_file, 'w') as f:
+            for card_id in sorted(completed_cards):
+                f.write(f"{card_id}\n")
+    except Exception as e:
+        logger.warning(f"⚠️ Errore salvataggio checkpoint: {e}")
+
+def update_checkpoint_incremental(checkpoint_file: Path, new_completed_cards: list):
+    """Aggiorna il checkpoint con nuove card completate (append mode)"""
+    if not new_completed_cards:
+        return
+    
+    try:
+        with open(checkpoint_file, 'a') as f:
+            for card_id in new_completed_cards:
+                f.write(f"{card_id}\n")
+        logger.debug(f"📝 Checkpoint aggiornato con {len(new_completed_cards)} nuove card")
+    except Exception as e:
+        logger.warning(f"⚠️ Errore aggiornamento checkpoint: {e}")
+        
 def debug_file_processing(visits_path: Path, poi_path: Path):
     """Funzione di debug per verificare che i dati vengano processati correttamente"""
     print(f"🔍 Debug per {visits_path.name}")
