@@ -1,0 +1,13 @@
+2025-08-14 15:54:17,189 INFO: ✅ Ollama test passed - Response: 'How'
+2025-08-14 15:54:17,199 INFO: 🐌 Prima esecuzione append: scansiono CSV esistente...
+2025-08-14 15:54:17,898 INFO: 💾 Checkpoint salvato: 30804 card
+2025-08-14 15:54:17,899 INFO: 
+======================================================================
+2025-08-14 15:54:17,899 INFO: ▶  PROCESSO FILE: dati_2014.csv
+2025-08-14 15:54:17,899 INFO: ======================================================================
+2025-08-14 15:54:17,899 INFO: ▶  ho caricato e pulito i dati
+2025-08-14 15:54:17,903 INFO: [load_pois] 22 POI letti da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-14 15:54:20,986 INFO: [load_visits] 370377 timbrature da /leonardo/home/userexternal/smattiol/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2014.csv
+2025-08-14 15:54:21,076 INFO: [merge] visite valide dopo merge: 370377
+2025-08-14 15:54:21,260 INFO: [filter] card multi-visita: 70236 / 71557
+2025-08-14 15:54:25,149 INFO: ▶  ho fatto il clustering
