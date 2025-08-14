@@ -871,10 +871,11 @@ def run_on_visits_file(
     if append:
         prev_path = latest_output(visits_path, out_dir)
         if prev_path:
-            prev_df = pd.read_csv(prev_path, usecols=['card_id'])
-            processed_cards = set(prev_df['card_id'])
+            processed_cards = get_completed_cards(prev_path)
+            logger.info(f"🔄 Modalità append: {len(processed_cards)} card già elaborate completamente")
         else:
             processed_cards = set()
+            logger.info("🔄 Modalità append: nessun file precedente trovato")
     else:
         processed_cards = set()
 
@@ -1044,6 +1045,29 @@ def run_all_verona_logs(max_users: int | None = None, force=False, append=False,
                            force=force,
                            append=append,
                            anchor_rule=anchor_rule)
+
+def get_completed_cards(file_path: Path) -> set:
+    """
+    Restituisce il set delle card_id che hanno predizioni COMPLETE 
+    (non None/vuote) nel file esistente.
+    """
+    if not file_path.exists():
+        return set()
+    
+    try:
+        df = pd.read_csv(file_path)
+        # Considera complete solo le card con prediction non nulla/vuota
+        completed = df[
+            df['prediction'].notna() & 
+            (df['prediction'] != '') & 
+            (df['prediction'] != 'None')
+        ]['card_id'].unique()
+        
+        logger.info(f"📊 Trovate {len(completed)} card già completate in {file_path.name}")
+        return set(completed)
+    except Exception as e:
+        logger.error(f"❌ Errore lettura file esistente: {e}")
+        return set()
 
 def get_user_cluster(user_clusters: pd.DataFrame, card_id: str) -> int:
     """
