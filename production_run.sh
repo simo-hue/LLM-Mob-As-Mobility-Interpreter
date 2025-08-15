@@ -24,7 +24,7 @@ echo "📦 Caricamento moduli e ambiente..."
 module purge
 module load python/3.11.6--gcc--8.5.0
 module load cuda/12.3
-source $SLURM_SUBMIT_DIR/llm/bin/activate
+source $WORK/venv/bin/activate
 
 echo "✓ Python: $(python3 --version)"
 echo "✓ Virtual env: $VIRTUAL_ENV"
@@ -40,7 +40,7 @@ echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
 echo ""
 echo "⚙️  Configurazione Ollama..."
 
-OLLAMA_BIN="/leonardo/home/userexternal/smattiol/opt/bin/ollama"
+OLLAMA_BIN="/leonardo_work/IscrC_LLM-Mob/opt/bin/ollama"
 
 # Verifica binario
 if [ ! -f "$OLLAMA_BIN" ]; then
@@ -58,7 +58,7 @@ export CUDA_VISIBLE_DEVICES=0
 export OLLAMA_DEBUG=0  # Disabilita debug per performance
 export OLLAMA_HOST=127.0.0.1
 export OLLAMA_ORIGINS="*"
-export OLLAMA_MODELS="$HOME/.ollama/models"
+export OLLAMA_MODELS="$WORK/.ollama/models"
 
 # Configurazioni performance per produzione
 export OLLAMA_NUM_PARALLEL=2  # Aumentato per production
@@ -240,7 +240,7 @@ echo "⏱️  Tempo stimato: variabile (dipende dai dati)"
 echo "🔄 Retry automatici: 5 tentativi per richiesta"
 echo ""
 
-cd $SLURM_SUBMIT_DIR
+cd /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter
 
 # Verifica dipendenze
 echo "📦 Verifica dipendenze Python..."
@@ -287,7 +287,7 @@ echo ""
 PYTHON_START=$(date +%s)
 
 # NESSUN parametro max-users = processamento completo
-if python3 veronacard_mob_with_geom.py --append; then
+if python3 $WORK/LLM-Mob-As-Mobility-Interpreter/veronacard_mob_with_geom.py --append; then
     PYTHON_END=$(date +%s)
     PYTHON_TIME=$((PYTHON_END - PYTHON_START))
     
