@@ -38,6 +38,85 @@ TOP_K  = 5          # deve coincidere con top_k del prompt
 DEFAULT_ANCHOR_RULE = "penultimate"   # "penultimate" | "first" | "middle" | int
 # -----------------------------------------------------------
 
+
+def should_skip_file(visits_path: Path, poi_path: Path, out_dir: Path, append: bool = False) -> bool:
+    """
+    Verifica se il file è già completamente processato e può essere saltato.
+    
+    Args:
+        visits_path: Path del file delle visite
+        poi_path: Path del file dei POI 
+        out_dir: Directory di output
+        append: Se siamo in modalità append
+    
+    Returns:
+        True se il file può essere saltato, False altrimenti
+    """
+    if not append:
+        return False
+    
+    try:
+        # 1. Verifica se esiste almeno un file di output
+        if not latest_output(visits_path, out_dir):
+            logger.debug(f"📄 {visits_path.stem}: Nessun output esistente")
+            return False
+        
+        # 2. Conta le card processate dal checkpoint (veloce)
+        processed_cards = load_completed_cards_fast(visits_path, out_dir)
+        if not processed_cards:
+            logger.debug(f"📄 {visits_path.stem}: Nessuna card nel checkpoint")
+            return False
+        
+        # 3. Conta le card eleggibili nel file (simula il preprocessing senza clustering)
+        logger.debug(f"🔍 {visits_path.stem}: Controllo card eleggibili...")
+        
+        # Caricamento rapido (solo colonne necessarie)
+        visits_df = pd.read_csv(
+            visits_path,
+            usecols=[0, 1, 2, 4],  # Le stesse colonne di load_visits
+            names=["data", "ora", "name_short", "card_id"],
+            header=0,
+            dtype={"card_id": str}
+        )
+        
+        # Carica POI (solo name_short per il merge)
+        pois_df = pd.read_csv(poi_path, usecols=["name_short"])
+        
+        # Simula il preprocessing senza fare il clustering
+        # Merge con POI validi
+        valid_visits = visits_df[visits_df["name_short"].isin(pois_df["name_short"])]
+        
+        # Conta visite per card e filtra quelle con 2+ POI diversi
+        card_stats = valid_visits.groupby("card_id").agg({
+            "name_short": "nunique",  # POI diversi visitati
+            "data": "count"           # Numero totale visite
+        }).rename(columns={"data": "total_visits", "name_short": "unique_pois"})
+        
+        # Card valide: almeno 2 POI diversi (per multi-visit) E almeno 3 visite totali
+        eligible_cards = card_stats[
+            (card_stats["unique_pois"] > 1) & 
+            (card_stats["total_visits"] >= 3)
+        ].index.tolist()
+        
+        total_eligible = len(eligible_cards)
+        total_processed = len(processed_cards)
+        
+        logger.info(f"📊 {visits_path.stem}: {total_processed}/{total_eligible} card processate")
+        
+        # 4. Verifica completamento
+        if total_processed >= total_eligible:
+            logger.info(f"✅ {visits_path.stem}: File completamente processato - SKIP")
+            return True
+        else:
+            remaining = total_eligible - total_processed
+            logger.info(f"🔄 {visits_path.stem}: {remaining} card rimanenti - PROCESSO")
+            return False
+            
+    except Exception as e:
+        logger.warning(f"⚠️ Errore controllo skip per {visits_path.stem}: {e}")
+        logger.warning("🔄 Procedo comunque per sicurezza...")
+        return False
+    
 # FUNZIONE HELPER per test rapido di Ollama
 def test_ollama_connection(host: str, model: str = "llama3.1:8b") -> bool:
     """
@@ -56,31 +135,56 @@ def test_ollama_connection(host: str, model: str = "llama3.1:8b") -> bool:
             logger.error(f"❌ Model '{model}' not found. Available: {models}")
             return False
             
-        # Test 3: Micro inference
-        test_resp = requests.post(
-            f"{host}/api/generate",
-            json={
-                "model": model,
-                "prompt": "Hi",
-                "stream": False,
-                "options": {"num_predict": 1, "temperature": 0}
-            },
-            timeout=30
-        )
-        
-        if test_resp.status_code == 200:
-            data = test_resp.json()
-            if data.get("done") and data.get("response"):
-                logger.info(f"✅ Ollama test passed - Response: '{data.get('response')}'")
-                return True
+        # Test 3: Micro inference con retry
+        for attempt in range(3):  # Massimo 3 tentativi
+            try:
+                timeout = 60 + (attempt * 30)  # 60s, 90s, 120s
+                logger.debug(f"🔄 Tentativo inference {attempt + 1}/3 (timeout: {timeout}s)")
                 
-        logger.error(f"❌ Micro inference failed")
+                test_resp = requests.post(
+                    f"{host}/api/generate",
+                    json={
+                        "model": model,
+                        "prompt": "Hi",
+                        "stream": False,
+                        "options": {
+                            "num_predict": 1, 
+                            "temperature": 0,
+                            "num_ctx": 512,  # Contesto ridotto per velocizzare
+                            "num_thread": 4
+                        }
+                    },
+                    timeout=timeout
+                )
+                
+                if test_resp.status_code == 200:
+                    data = test_resp.json()
+                    if data.get("done") and data.get("response"):
+                        logger.info(f"✅ Ollama test passed - Response: '{data.get('response')}'")
+                        return True
+                    elif data.get("done_reason") == "load":
+                        logger.warning(f"⚠️ Modello in caricamento, tentativo {attempt + 1}")
+                        time.sleep(10)  # Attendi caricamento
+                        continue
+                        
+            except requests.exceptions.Timeout:
+                logger.warning(f"⚠️ Timeout tentativo {attempt + 1}/3")
+                if attempt < 2:  # Non è l'ultimo tentativo
+                    time.sleep(10)
+                    continue
+            except Exception as e:
+                logger.warning(f"⚠️ Errore tentativo {attempt + 1}/3: {e}")
+                if attempt < 2:
+                    time.sleep(5)
+                    continue
+        
+        logger.error(f"❌ Tutti i tentativi di micro inference falliti")
         return False
         
     except Exception as e:
         logger.error(f"❌ Ollama connection test failed: {e}")
         return False
-
+    
 def get_chat_completion(prompt: str, model: str = "llama3.1:8b", max_retries: int = 3) -> Optional[str]:
     """
     Versione ottimizzata per HPC Leonardo con gestione timeout GPU avanzata
@@ -860,9 +964,13 @@ def run_on_visits_file(
         Quante card valutare (per ridurre tempi).
     """
     
-    # ---------- 0. check risultati già esistenti ----------
+    # ---------- 0. CHECK SKIP ANTICIPATO ----------
     out_dir = Path(__file__).resolve().parent / "results"
     out_dir.mkdir(exist_ok=True)
+    
+    # Controllo skip PRIMA di qualsiasi elaborazione pesante
+    if should_skip_file(visits_path, poi_path, out_dir, append):
+        return  # Esce immediatamente
 
     # ---------- Modalità force / append / skip ----------
     if force and append:
@@ -1048,10 +1156,12 @@ def run_on_visits_file(
 
 # ---------- test su tutti i file ------------------------------------------
 def run_all_verona_logs(max_users: int | None = None, force=False, append=False, anchor_rule: str | int = DEFAULT_ANCHOR_RULE) -> None:
-    ROOT   = Path(__file__).resolve().parent
+    """
+    Versione ottimizzata che salta file già completati
+    """
+    ROOT = Path(__file__).resolve().parent
     poi_csv = ROOT / "data" / "verona" / "vc_site.csv"
 
-    # trova tutti i CSV eccetto vc_site
     visit_csvs = [
         p for p in (ROOT / "data" / "verona").rglob("*.csv")
         if p.name != "vc_site.csv"
@@ -1059,12 +1169,42 @@ def run_all_verona_logs(max_users: int | None = None, force=False, append=False,
     if not visit_csvs:
         raise RuntimeError("Nessun CSV di visite trovato sotto data/verona/")
 
+    # Statistiche globali
+    total_files = len(visit_csvs)
+    skipped_files = 0
+    processed_files = 0
+
+    logger.info(f"🎯 Trovati {total_files} file da elaborare")
+    
     for csv in sorted(visit_csvs):
-        run_on_visits_file(csv, poi_csv,
-                           max_users=max_users,
-                           force=force,
-                           append=append,
-                           anchor_rule=anchor_rule)
+        logger.info(f"\n🔍 Controllo {csv.name}...")
+        
+        # Il controllo skip è già integrato in run_on_visits_file
+        # ma possiamo fare un pre-check per le statistiche
+        out_dir = Path(__file__).resolve().parent / "results"
+        if append and should_skip_file(csv, poi_csv, out_dir, append):
+            skipped_files += 1
+            continue
+        
+        try:
+            run_on_visits_file(csv, poi_csv,
+                             max_users=max_users,
+                             force=force,
+                             append=append,
+                             anchor_rule=anchor_rule)
+            processed_files += 1
+        except Exception as e:
+            logger.error(f"❌ Errore elaborando {csv.name}: {e}")
+            continue
+    
+    # Statistiche finali
+    logger.info("\n" + "=" * 70)
+    logger.info(f"📈 STATISTICHE FINALI:")
+    logger.info(f"   • File totali: {total_files}")
+    logger.info(f"   • File saltati: {skipped_files}")
+    logger.info(f"   • File elaborati: {processed_files}")
+    logger.info(f"   • Efficienza: {skipped_files/total_files*100:.1f}% file evitati")
+    logger.info("=" * 70)
 
 def get_completed_cards(file_path: Path) -> set:
     """
