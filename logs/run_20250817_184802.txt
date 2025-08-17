@@ -1,0 +1,29 @@
+2025-08-17 18:48:47,245 INFO: ✅ Ollama test passed - Response: 'How'
+2025-08-17 18:48:47,263 INFO: 🎯 Processamento file singolo: dati_2019.csv
+2025-08-17 18:48:47,263 INFO: 📍 Path completo: /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2019.csv
+2025-08-17 18:48:47,265 INFO: 
+======================================================================
+2025-08-17 18:48:47,265 INFO: ▶  PROCESSO FILE: dati_2019.csv
+2025-08-17 18:48:47,265 INFO: ======================================================================
+2025-08-17 18:48:47,265 INFO: ▶  ho caricato e pulito i dati
+2025-08-17 18:48:47,581 INFO: [load_pois] 22 POI letti da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-17 18:48:49,560 INFO: [load_visits] 397561 timbrature da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2019.csv
+2025-08-17 18:48:49,923 INFO: [merge] visite valide dopo merge: 397561
+2025-08-17 18:48:50,152 INFO: [filter] card multi-visita: 77583 / 79825
+2025-08-17 18:48:57,032 INFO: ▶  ho fatto il clustering
+2025-08-17 18:58:47,275 INFO: 💾 Salvataggio batch: 500/71225
+2025-08-17 19:08:28,310 INFO: 💾 Salvataggio batch: 1000/71225
+2025-08-17 19:18:01,056 INFO: 💾 Salvataggio batch: 1500/71225
+2025-08-17 19:27:48,089 INFO: 💾 Salvataggio batch: 2000/71225
+2025-08-17 19:37:24,215 INFO: 💾 Salvataggio batch: 2500/71225
+2025-08-17 19:47:02,010 INFO: 💾 Salvataggio batch: 3000/71225
+2025-08-17 19:56:41,333 INFO: 💾 Salvataggio batch: 3500/71225
+2025-08-17 20:06:25,240 INFO: 💾 Salvataggio batch: 4000/71225
+2025-08-17 20:16:03,347 INFO: 💾 Salvataggio batch: 4500/71225
+2025-08-17 20:25:46,464 INFO: 💾 Salvataggio batch: 5000/71225
+2025-08-17 20:35:24,064 INFO: 💾 Salvataggio batch: 5500/71225
+2025-08-17 20:45:25,756 INFO: 💾 Salvataggio batch: 6000/71225
+2025-08-17 20:55:15,073 INFO: 💾 Salvataggio batch: 6500/71225
+2025-08-17 21:05:02,492 INFO: 💾 Salvataggio batch: 7000/71225
+2025-08-17 21:14:36,177 INFO: 💾 Salvataggio batch: 7500/71225
+2025-08-17 21:24:19,750 INFO: 💾 Salvataggio batch: 8000/71225

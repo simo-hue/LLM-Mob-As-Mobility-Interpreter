@@ -1,101 +1,0 @@
-🚀 LLM-MOB PRODUCTION RUN - TUTTI GLI UTENTI
-=============================================
-Job ID: 19071618
-Nodo: lrdn3361.leonardo.local
-Data: Sat Aug 16 19:26:56 CEST 2025
-💡 MODALITÀ: Processamento completo senza limiti utenti
-
-📦 Caricamento moduli e ambiente...
-Loading python/3.11.6--gcc--8.5.0
-  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
-    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
-    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
-    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
-    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
-    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
-    util-linux-uuid/2.38.1-jkdi7kv
-✓ Python: Python 3.11.6
-✓ Virtual env: /leonardo_work/IscrC_LLM-Mob/venv
-✓ CUDA: Cuda compilation tools, release 12.3, V12.3.103
-
-🔍 INFO GPU:
-name, memory.total [MiB], memory.used [MiB], utilization.gpu [%], temperature.gpu
-NVIDIA A100-SXM-64GB, 65536 MiB, 2 MiB, 0 %, 43
-CUDA_VISIBLE_DEVICES: 0
-
-⚙️  Configurazione Ollama...
-✓ Versione Ollama: 0.3.14
-
-🚀 Avvio server Ollama per produzione...
-✓ Porta server: 39003
-🧹 Pulizia processi precedenti...
-✓ Server PID: 286874
-✓ Log file: ollama_production.log
-
-⏳ Attesa avvio server (max 60s)...
-   ⏱️  Attesa... (20s) - controllo log:
-     time=2025-08-16T19:27:07.848+02:00 level=INFO source=routes.go:1205 msg="Listening on 127.0.0.1:39003 (version 0.3.14)"
-     time=2025-08-16T19:27:07.932+02:00 level=INFO source=common.go:135 msg="extracting embedded files" dir=/tmp/ollama1980150012/runners
-✅ Server operativo dopo 22s
-
-🔥 Preparazione modello per produzione...
-📋 Modelli disponibili:
-  ✓ deepseek-coder:33b
-  ✓ mixtral:8x7b
-  ✓ llama3.1:8b
-✅ Modello llama3.1:8b disponibile
-
-🎯 AVVIO PRODUZIONE - PROCESSAMENTO COMPLETO
-=============================================
-✅ Configurazione produzione attiva
-📊 Nessun limite utenti - processamento completo
-⏱️  Tempo stimato: variabile (dipende dai dati)
-🔄 Retry automatici: 5 tentativi per richiesta
-
-📦 Verifica dipendenze Python...
-📁 Directory risultati: /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/results/
-🚀 AVVIO SCRIPT PRODUZIONE...
-📝 Log dettagliato disponibile in tempo reale
-
-2025-08-16 19:29:27,427 INFO: ✅ Ollama test passed - Response: 'How'
-2025-08-16 19:29:27,433 INFO: 🎯 Trovati 12 file da elaborare
-2025-08-16 19:29:27,433 INFO: 
-🔍 Controllo dati_2014.csv...
-2025-08-16 19:29:27,475 INFO: ⚡ Checkpoint: 39834 card già completate (lettura veloce)
-2025-08-16 19:29:28,449 INFO: 📊 dati_2014: 39834/65892 card processate
-2025-08-16 19:29:28,450 INFO: 🔄 dati_2014: 26058 card rimanenti - PROCESSO
-2025-08-16 19:29:28,472 INFO: ⚡ Checkpoint: 39834 card già completate (lettura veloce)
-2025-08-16 19:29:28,880 INFO: 📊 dati_2014: 39834/65892 card processate
-2025-08-16 19:29:28,882 INFO: 🔄 dati_2014: 26058 card rimanenti - PROCESSO
-2025-08-16 19:29:28,904 INFO: ⚡ Checkpoint: 39834 card già completate (lettura veloce)
-2025-08-16 19:29:28,904 INFO: 
-======================================================================
-2025-08-16 19:29:28,904 INFO: ▶  PROCESSO FILE: dati_2014.csv
-2025-08-16 19:29:28,904 INFO: ======================================================================
-2025-08-16 19:29:28,904 INFO: ▶  ho caricato e pulito i dati
-2025-08-16 19:29:28,906 INFO: [load_pois] 22 POI letti da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
-2025-08-16 19:29:30,419 INFO: [load_visits] 370377 timbrature da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2014.csv
-2025-08-16 19:29:30,666 INFO: [merge] visite valide dopo merge: 370377
-2025-08-16 19:29:30,836 INFO: [filter] card multi-visita: 70236 / 71557
-2025-08-16 19:29:34,220 INFO: ▶  ho fatto il clustering
-👉 Porta letta da ollama_port.txt: '39003'
-👉 Provo a contattare http://127.0.0.1:39003/api/tags
-📂 Working dir: /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter
-📄 Contenuto di ollama_port.txt: '39003'
-🔄 Attesa Ollama su http://127.0.0.1:39003...
-✓ Ollama risponde con status 200
-✓ Runner LLaMA completamente attivo
-🎉 Connessione Ollama stabilita con successo!
-Card:   0%|          | 0/26061 [00:00<?, ?card/s]Card:   0%|          | 1/26061 [00:03<28:23:17,  3.92s/card]Card:   0%|          | 2/26061 [00:04<15:23:39,  2.13s/card]Card:   0%|          | 3/26061 [00:05<10:27:18,  1.44s/card]Card:   0%|          | 4/26061 [00:06<9:10:12,  1.27s/card] Card:   0%|          | 5/26061 [00:07<8:16:11,  1.14s/card]Card:   0%|          | 6/26061 [00:08<7:11:17,  1.01card/s]Card:   0%|          | 7/26061 [00:09<7:29:18,  1.03s/card]Card:   0%|          | 8/26061 [00:10<7:58:36,  1.10s/card]Card:   0%|          | 9/26061 [00:11<8:02:21,  1.11s/card]Card:   0%|          | 10/26061 [00:12<8:16:51,  1.14s/card]Card:   0%|          | 11/26061 [00:14<8:47:26,  1.21s/card]Card:   0%|          | 12/26061 [00:16<10:15:13,  1.42s/card]Card:   0%|          | 13/26061 [00:16<8:31:43,  1.18s/card] Card:   0%|          | 14/26061 [00:17<7:56:13,  1.10s/card]Card:   0%|          | 15/26061 [00:18<7:21:26,  1.02s/card]Card:   0%|          | 16/26061 [00:20<9:08:26,  1.26s/card]Card:   0%|          | 17/26061 [00:21<8:11:52,  1.13s/card]Card:   0%|          | 18/26061 [00:22<7:51:41,  1.09s/card]Card:   0%|          | 19/26061 [00:22<6:41:51,  1.08card/s]slurmstepd: error: *** JOB 19071618 ON lrdn3361 CANCELLED AT 2025-08-16T19:29:57 ***
-
-🧹 CLEANUP PRODUZIONE...
-🕐 Tempo totale job: 181 secondi (0h 3m)
-📊 Stato GPU finale:
-memory.used [MiB], memory.total [MiB], utilization.gpu [%], temperature.gpu
-5854 MiB, 65536 MiB, 81 %, 53
-📁 Risultati generati: 2 files
-💾 Dimensione risultati: 34M
-🔄 Shutdown graceful Ollama...
-2025-08-16 19:29:57,313 ERROR: ❌  Errore richiesta: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')) (tentativo 1/2)
-2025-08-16 19:29:57,313 INFO: ⏳ Attendo 10s prima del prossimo tentativo...
-✓ Cleanup completato
