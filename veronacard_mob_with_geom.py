@@ -1353,6 +1353,73 @@ def debug_file_processing(visits_path: Path, poi_path: Path):
     
     return len(eligible) > 0
 
+def run_single_file(file_path: str, max_users: int | None = None, 
+                   force: bool = False, append: bool = False, 
+                   anchor_rule: str | int = DEFAULT_ANCHOR_RULE) -> None:
+    """
+    Processa un singolo file specificato dall'utente.
+    
+    Args:
+        file_path: Path del file da processare (relativo o assoluto)
+        max_users: Numero massimo di utenti da processare
+        force: Forza il ricalcolo anche se esistono output
+        append: Riprende da dove si era interrotto
+        anchor_rule: Regola per l'anchor POI
+    """
+    ROOT = Path(__file__).resolve().parent
+    poi_csv = ROOT / "data" / "verona" / "vc_site.csv"
+    
+    # Converti il path in oggetto Path
+    target_file = Path(file_path)
+    
+    # Se il path non è assoluto, prova a risolverlo relativamente alla directory base
+    if not target_file.is_absolute():
+        # Prima prova relativo alla directory corrente
+        if not target_file.exists():
+            # Poi prova relativo alla directory data/verona
+            target_file = ROOT / "data" / "verona" / file_path
+            if not target_file.exists():
+                # Infine prova come nome file diretto nella directory verona
+                target_file = ROOT / "data" / "verona" / target_file.name
+    
+    # Verifica che il file esista
+    if not target_file.exists():
+        logger.error(f"❌ File non trovato: {file_path}")
+        logger.error(f"❌ Percorsi tentati:")
+        logger.error(f"   • {Path(file_path)}")
+        logger.error(f"   • {ROOT / 'data' / 'verona' / file_path}")
+        logger.error(f"   • {ROOT / 'data' / 'verona' / Path(file_path).name}")
+        return
+    
+    # Verifica che sia un CSV
+    if not target_file.suffix.lower() == '.csv':
+        logger.error(f"❌ Il file deve essere un CSV: {target_file}")
+        return
+    
+    # Verifica che non sia il file POI
+    if target_file.name.lower() == 'vc_site.csv':
+        logger.error(f"❌ Non posso processare il file POI: {target_file}")
+        return
+    
+    # Verifica che il file POI esista
+    if not poi_csv.exists():
+        logger.error(f"❌ File POI non trovato: {poi_csv}")
+        return
+    
+    logger.info(f"🎯 Processamento file singolo: {target_file.name}")
+    logger.info(f"📍 Path completo: {target_file}")
+    
+    try:
+        run_on_visits_file(target_file, poi_csv,
+                         max_users=max_users,
+                         force=force,
+                         append=append,
+                         anchor_rule=anchor_rule)
+        logger.info(f"✅ Processamento completato per {target_file.name}")
+    except Exception as e:
+        logger.error(f"❌ Errore processando {target_file.name}: {e}")
+        raise
+
 # ---------- MAIN -----------------------------------------------------------
 
 if __name__ == "__main__":
@@ -1370,6 +1437,8 @@ if __name__ == "__main__":
     parser.add_argument("--anchor", type=str, default=DEFAULT_ANCHOR_RULE,
                         dest="anchor_rule",
                         help="Regola per scegliere il POI ancora (penultimate|first|middle|int)")
+    parser.add_argument("--file", type=str, default=None,
+                        help="Processa solo un file specifico (path relativo o assoluto)")
     args = parser.parse_args()
 
     if args.force and args.append:
@@ -1381,36 +1450,24 @@ if __name__ == "__main__":
 
     print("🎉 Connessione Ollama stabilita con successo!")
 
-    # Warm-up del modello prima di iniziare
-    #if not warmup_model():
-    #    logger.warning("⚠️  Warm-up fallito, ma continuo comunque...")
-    
-    #debug_gpu_status()
-    
-    # Warm-up con retry
-    #warmup_success = False
-    #for i in range(3):
-    #    if warmup_model():
-    #        warmup_success = True
-    #        break
-    #    else:
-    #        logger.warning(f"⚠️  Warm-up tentativo {i+1}/3 fallito")
-    #        if i < 2:
-    #            time.sleep(20) 
-    
-    #if not warmup_success:
-    #    logger.error("❌  Warm-up completamente fallito - possibili problemi GPU gravi")
-       
     # Controllo che OLLAMA risponda altrimenti esco 
     if not test_ollama_connection(OLLAMA_HOST, "llama3.1:8b"):
         logger.error("❌ Ollama non funziona, aborting")
         exit(1)
 
     try:
-        run_all_verona_logs(max_users=args.max_users,
-                            force=args.force,
-                            append=args.append,
-                            anchor_rule=args.anchor_rule)
+        # Decide se processare un singolo file o tutti i file
+        if args.file:
+            run_single_file(args.file,
+                           max_users=args.max_users,
+                           force=args.force,
+                           append=args.append,
+                           anchor_rule=args.anchor_rule)
+        else:
+            run_all_verona_logs(max_users=args.max_users,
+                              force=args.force,
+                              append=args.append,
+                              anchor_rule=args.anchor_rule)
     except KeyboardInterrupt:
         logging.info("Interruzione manuale...")
         sys.exit(1)

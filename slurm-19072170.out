@@ -1,0 +1,124 @@
+🚀 LLM-MOB PRODUCTION RUN - TUTTI GLI UTENTI
+=============================================
+Job ID: 19072170
+Nodo: lrdn1562.leonardo.local
+Data: Sat Aug 16 20:23:58 CEST 2025
+💡 MODALITÀ: Processamento completo senza limiti utenti
+
+📦 Caricamento moduli e ambiente...
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+✓ Python: Python 3.11.6
+✓ Virtual env: /leonardo_work/IscrC_LLM-Mob/venv
+✓ CUDA: Cuda compilation tools, release 12.3, V12.3.103
+
+🔍 INFO GPU:
+name, memory.total [MiB], memory.used [MiB], utilization.gpu [%], temperature.gpu
+NVIDIA A100-SXM-64GB, 65536 MiB, 2 MiB, 0 %, 43
+CUDA_VISIBLE_DEVICES: 0
+
+⚙️  Configurazione Ollama...
+✓ Versione Ollama: 0.3.14
+
+🚀 Avvio server Ollama per produzione...
+✓ Porta server: 39003
+🧹 Pulizia processi precedenti...
+✓ Server PID: 221578
+✓ Log file: ollama_production.log
+
+⏳ Attesa avvio server (max 60s)...
+✅ Server operativo dopo 18s
+
+🔥 Preparazione modello per produzione...
+📋 Modelli disponibili:
+  ✓ deepseek-coder:33b
+  ✓ mixtral:8x7b
+  ✓ llama3.1:8b
+✅ Modello llama3.1:8b disponibile
+
+🎯 AVVIO PRODUZIONE - PROCESSAMENTO COMPLETO
+=============================================
+✅ Configurazione produzione attiva
+📊 Nessun limite utenti - processamento completo
+⏱️  Tempo stimato: variabile (dipende dai dati)
+🔄 Retry automatici: 5 tentativi per richiesta
+
+📦 Verifica dipendenze Python...
+📁 Directory risultati: /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/results/
+🚀 AVVIO SCRIPT PRODUZIONE...
+📝 Log dettagliato disponibile in tempo reale
+
+usage: veronacard_mob_with_geom.py [-h] [--force] [--append]
+                                   [--max-users MAX_USERS]
+                                   [--anchor ANCHOR_RULE] [--file FILE]
+veronacard_mob_with_geom.py: error: unrecognized arguments: ----file dati_2016.csv
+👉 Porta letta da ollama_port.txt: '39003'
+👉 Provo a contattare http://127.0.0.1:39003/api/tags
+📂 Working dir: /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter
+📄 Contenuto di ollama_port.txt: '39003'
+
+❌ ERRORE IN PRODUZIONE (exit code: 2)
+⏱️  Tempo prima del fallimento: 19 secondi
+⚠️  Errore generico - controllare log
+
+📋 REPORT FINALE PRODUZIONE
+============================
+⏱️  Tempo totale job: 93 secondi (0h 1m)
+🔧 Versione Ollama: 0.3.14
+📊 Modalità: Produzione completa (tutti gli utenti)
+✅ Python success: false
+
+📁 RISULTATI GENERATI:
+/var/spool/slurmd/job19072170/slurm_script: line 337: 221878 Terminated              monitor_progress
+   📊 Total files: 2
+   💾 Total size: 34M
+
+   📋 File generati:
+     -rw-r--r-- 1 smattiol interactive  24M Aug 16 08:03 results/dati_2014_pred_20250814_161658.csv
+     -rw-r--r-- 1 smattiol interactive 8.8M Aug 16 19:14 results/dati_2015_pred_20250815_135715.csv
+
+🔧 STATO FINALE SISTEMA:
+memory.used [MiB], memory.total [MiB], utilization.gpu [%], temperature.gpu
+6 MiB, 65536 MiB, 0 %, 42
+
+📊 LOG OLLAMA (ultimi 20 righe):
+2025/08/16 20:24:08 routes.go:1158: INFO server config env="map[CUDA_VISIBLE_DEVICES:0 GPU_DEVICE_ORDINAL:0 HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_DEBUG:false OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:39003 OLLAMA_INTEL_GPU:false OLLAMA_KEEP_ALIVE:24h0m0s OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:1 OLLAMA_MAX_QUEUE:512 OLLAMA_MODELS:/leonardo_work/IscrC_LLM-Mob/.ollama/models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NUM_PARALLEL:2 OLLAMA_ORIGINS:[* http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://*] OLLAMA_SCHED_SPREAD:false OLLAMA_TMPDIR: ROCR_VISIBLE_DEVICES:0 http_proxy: https_proxy: no_proxy:]"
+time=2025-08-16T20:24:08.956+02:00 level=INFO source=images.go:754 msg="total blobs: 15"
+time=2025-08-16T20:24:09.148+02:00 level=INFO source=images.go:761 msg="total unused blobs removed: 0"
+time=2025-08-16T20:24:09.182+02:00 level=INFO source=routes.go:1205 msg="Listening on 127.0.0.1:39003 (version 0.3.14)"
+time=2025-08-16T20:24:09.200+02:00 level=INFO source=common.go:135 msg="extracting embedded files" dir=/tmp/ollama3921219890/runners
+time=2025-08-16T20:24:59.984+02:00 level=INFO source=common.go:49 msg="Dynamic LLM libraries" runners="[cpu cpu_avx cpu_avx2 cuda_v11 cuda_v12 rocm_v60102]"
+time=2025-08-16T20:25:00.004+02:00 level=INFO source=gpu.go:221 msg="looking for compatible GPUs"
+time=2025-08-16T20:25:00.193+02:00 level=INFO source=types.go:123 msg="inference compute" id=GPU-5707cc42-9398-7650-2707-bd4675e24918 library=cuda variant=v12 compute=8.0 driver=12.2 name="NVIDIA A100-SXM-64GB" total="63.4 GiB" available="63.0 GiB"
+[GIN] 2025/08/16 - 20:25:00 | 200 |   22.554822ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/16 - 20:25:00 | 200 |   22.682759ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/16 - 20:25:00 | 200 |   22.538963ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/16 - 20:25:00 | 200 |   22.826275ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/16 - 20:25:00 | 200 |   22.825583ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/16 - 20:25:00 | 200 |   22.540524ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/16 - 20:25:00 | 200 |     22.5391ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/16 - 20:25:00 | 200 |   23.724006ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/16 - 20:25:00 | 200 |     5.99296ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/16 - 20:25:00 | 200 |    6.222481ms |       127.0.0.1 | GET      "/api/tags"
+
+⚠️ JOB PRODUZIONE TERMINATO CON ERRORI
+📋 Verificare log per dettagli specifici
+
+🏁 Fine job: Sat Aug 16 20:25:31 CEST 2025
+=============================================
+
+🧹 CLEANUP PRODUZIONE...
+🕐 Tempo totale job: 93 secondi (0h 1m)
+📊 Stato GPU finale:
+memory.used [MiB], memory.total [MiB], utilization.gpu [%], temperature.gpu
+6 MiB, 65536 MiB, 0 %, 42
+📁 Risultati generati: 2 files
+💾 Dimensione risultati: 34M
+🔄 Shutdown graceful Ollama...
+✓ Cleanup completato

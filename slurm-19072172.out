@@ -1,0 +1,131 @@
+🚀 LLM-MOB PRODUCTION RUN - TUTTI GLI UTENTI
+=============================================
+Job ID: 19072172
+Nodo: lrdn1562.leonardo.local
+Data: Sat Aug 16 20:26:18 CEST 2025
+💡 MODALITÀ: Processamento completo senza limiti utenti
+
+📦 Caricamento moduli e ambiente...
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+✓ Python: Python 3.11.6
+✓ Virtual env: /leonardo_work/IscrC_LLM-Mob/venv
+✓ CUDA: Cuda compilation tools, release 12.3, V12.3.103
+
+🔍 INFO GPU:
+name, memory.total [MiB], memory.used [MiB], utilization.gpu [%], temperature.gpu
+NVIDIA A100-SXM-64GB, 65536 MiB, 2 MiB, 0 %, 42
+CUDA_VISIBLE_DEVICES: 0
+
+⚙️  Configurazione Ollama...
+✓ Versione Ollama: 0.3.14
+
+🚀 Avvio server Ollama per produzione...
+✓ Porta server: 39003
+🧹 Pulizia processi precedenti...
+✓ Server PID: 222350
+✓ Log file: ollama_production.log
+
+⏳ Attesa avvio server (max 60s)...
+✅ Server operativo dopo 18s
+
+🔥 Preparazione modello per produzione...
+📋 Modelli disponibili:
+  ✓ deepseek-coder:33b
+  ✓ mixtral:8x7b
+  ✓ llama3.1:8b
+✅ Modello llama3.1:8b disponibile
+
+🎯 AVVIO PRODUZIONE - PROCESSAMENTO COMPLETO
+=============================================
+✅ Configurazione produzione attiva
+📊 Nessun limite utenti - processamento completo
+⏱️  Tempo stimato: variabile (dipende dai dati)
+🔄 Retry automatici: 5 tentativi per richiesta
+
+📦 Verifica dipendenze Python...
+📁 Directory risultati: /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/results/
+🚀 AVVIO SCRIPT PRODUZIONE...
+📝 Log dettagliato disponibile in tempo reale
+
+2025-08-16 20:28:27,358 INFO: ✅ Ollama test passed - Response: 'How'
+2025-08-16 20:28:27,361 ERROR: ❌ File non trovato: dati_2016.csv
+2025-08-16 20:28:27,362 ERROR: ❌ Percorsi tentati:
+2025-08-16 20:28:27,362 ERROR:    • dati_2016.csv
+2025-08-16 20:28:27,362 ERROR:    • /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/dati_2016.csv
+2025-08-16 20:28:27,362 ERROR:    • /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/dati_2016.csv
+👉 Porta letta da ollama_port.txt: '39003'
+👉 Provo a contattare http://127.0.0.1:39003/api/tags
+📂 Working dir: /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter
+📄 Contenuto di ollama_port.txt: '39003'
+🔄 Attesa Ollama su http://127.0.0.1:39003...
+✓ Ollama risponde con status 200
+✓ Runner LLaMA completamente attivo
+🎉 Connessione Ollama stabilita con successo!
+
+🎉 PRODUZIONE COMPLETATA CON SUCCESSO!
+⏱️  Tempo totale Python: 50 secondi (0h 0m)
+
+📋 REPORT FINALE PRODUZIONE
+============================
+⏱️  Tempo totale job: 129 secondi (0h 2m)
+🔧 Versione Ollama: 0.3.14
+📊 Modalità: Produzione completa (tutti gli utenti)
+✅ Python success: true
+/var/spool/slurmd/job19072172/slurm_script: line 331: 222457 Terminated              monitor_progress
+
+📁 RISULTATI GENERATI:
+   📊 Total files: 2
+   💾 Total size: 34M
+
+   📋 File generati:
+     -rw-r--r-- 1 smattiol interactive  24M Aug 16 08:03 results/dati_2014_pred_20250814_161658.csv
+     -rw-r--r-- 1 smattiol interactive 8.8M Aug 16 19:14 results/dati_2015_pred_20250815_135715.csv
+
+🔧 STATO FINALE SISTEMA:
+memory.used [MiB], memory.total [MiB], utilization.gpu [%], temperature.gpu
+5344 MiB, 65536 MiB, 0 %, 43
+
+📊 LOG OLLAMA (ultimi 20 righe):
+llm_load_tensors: offloading non-repeating layers to GPU
+llm_load_tensors: offloaded 33/33 layers to GPU
+llm_load_tensors:        CPU buffer size =   281.81 MiB
+llm_load_tensors:      CUDA0 buffer size =  4403.50 MiB
+llama_new_context_with_model: n_ctx      = 1024
+llama_new_context_with_model: n_batch    = 512
+llama_new_context_with_model: n_ubatch   = 512
+llama_new_context_with_model: flash_attn = 0
+llama_new_context_with_model: freq_base  = 500000.0
+llama_new_context_with_model: freq_scale = 1
+llama_kv_cache_init:      CUDA0 KV buffer size =   128.00 MiB
+llama_new_context_with_model: KV self size  =  128.00 MiB, K (f16):   64.00 MiB, V (f16):   64.00 MiB
+llama_new_context_with_model:  CUDA_Host  output buffer size =     1.01 MiB
+llama_new_context_with_model:      CUDA0 compute buffer size =   258.50 MiB
+llama_new_context_with_model:  CUDA_Host compute buffer size =    10.01 MiB
+llama_new_context_with_model: graph nodes  = 1030
+llama_new_context_with_model: graph splits = 2
+INFO [main] model loaded | tid="22525577920512" timestamp=1755368907
+time=2025-08-16T20:28:27.240+02:00 level=INFO source=server.go:626 msg="llama runner started in 31.34 seconds"
+[GIN] 2025/08/16 - 20:28:27 | 200 | 31.780838963s |       127.0.0.1 | POST     "/api/generate"
+
+🎉 JOB PRODUZIONE COMPLETATO CON SUCCESSO!
+✅ Tutti i dataset sono stati processati senza limiti utenti
+
+🏁 Fine job: Sat Aug 16 20:28:27 CEST 2025
+=============================================
+
+🧹 CLEANUP PRODUZIONE...
+🕐 Tempo totale job: 129 secondi (0h 2m)
+📊 Stato GPU finale:
+memory.used [MiB], memory.total [MiB], utilization.gpu [%], temperature.gpu
+5344 MiB, 65536 MiB, 0 %, 43
+📁 Risultati generati: 2 files
+💾 Dimensione risultati: 34M
+🔄 Shutdown graceful Ollama...
+✓ Cleanup completato
