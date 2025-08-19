@@ -1,0 +1,141 @@
+🚀 LLM-MOB PRODUCTION RUN - TUTTI GLI UTENTI
+=============================================
+Job ID: 19099460
+Nodo: lrdn1749.leonardo.local
+Data: Mon Aug 18 19:16:11 CEST 2025
+💡 MODALITÀ: Processamento completo senza limiti utenti
+
+📦 Caricamento moduli e ambiente...
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+✓ Python: Python 3.11.6
+✓ Virtual env: /leonardo_work/IscrC_LLM-Mob/venv
+✓ CUDA: Cuda compilation tools, release 12.3, V12.3.103
+
+🔍 INFO GPU:
+name, memory.total [MiB], memory.used [MiB], utilization.gpu [%], temperature.gpu
+NVIDIA A100-SXM-64GB, 65536 MiB, 2 MiB, 0 %, 43
+CUDA_VISIBLE_DEVICES: 0
+
+⚙️  Configurazione Ollama...
+✓ Versione Ollama: 0.3.14
+
+🚀 Avvio server Ollama per produzione...
+✓ Porta server: 39003
+🧹 Pulizia processi precedenti...
+✓ Server PID: 473589
+✓ Log file: ollama_production.log
+
+⏳ Attesa avvio server (max 60s)...
+   ⏱️  Attesa... (20s) - controllo log:
+     [GIN] 2025/08/18 - 19:17:31 | 200 |  640.648301ms |       127.0.0.1 | POST     "/api/chat"
+     [GIN] 2025/08/18 - 19:17:31 | 200 |    7.101615ms |       127.0.0.1 | GET      "/api/tags"
+✅ Server operativo dopo 24s
+
+🔥 Preparazione modello per produzione...
+📋 Modelli disponibili:
+  ✓ deepseek-coder:33b
+  ✓ mixtral:8x7b
+  ✓ llama3.1:8b
+✅ Modello llama3.1:8b disponibile
+
+🎯 AVVIO PRODUZIONE - PROCESSAMENTO COMPLETO
+=============================================
+✅ Configurazione produzione attiva
+📊 Nessun limite utenti - processamento completo
+⏱️  Tempo stimato: variabile (dipende dai dati)
+🔄 Retry automatici: 5 tentativi per richiesta
+
+📦 Verifica dipendenze Python...
+📁 Directory risultati: /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/results/
+🚀 AVVIO SCRIPT PRODUZIONE...
+📝 Log dettagliato disponibile in tempo reale
+
+2025-08-18 19:18:46,953 INFO: ✅ Ollama test passed - Response: 'How'
+2025-08-18 19:18:46,955 ERROR: ❌ File non trovato: veronacard_2020_2023/veronacard_2023_original.csv
+2025-08-18 19:18:46,955 ERROR: ❌ Percorsi tentati:
+2025-08-18 19:18:46,955 ERROR:    • veronacard_2020_2023/veronacard_2023_original.csv
+2025-08-18 19:18:46,955 ERROR:    • /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/veronacard_2020_2023/veronacard_2023_original.csv
+2025-08-18 19:18:46,955 ERROR:    • /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/veronacard_2023_original.csv
+👉 Porta letta da ollama_port.txt: '39003'
+👉 Provo a contattare http://127.0.0.1:39003/api/tags
+📂 Working dir: /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter
+📄 Contenuto di ollama_port.txt: '39003'
+🔄 Attesa Ollama su http://127.0.0.1:39003...
+✓ Ollama risponde con status 200
+✓ Runner LLaMA completamente attivo
+🎉 Connessione Ollama stabilita con successo!
+
+🎉 PRODUZIONE COMPLETATA CON SUCCESSO!
+⏱️  Tempo totale Python: 53 secondi (0h 0m)
+
+📋 REPORT FINALE PRODUZIONE
+============================
+⏱️  Tempo totale job: 156 secondi (0h 2m)
+🔧 Versione Ollama: 0.3.14
+📊 Modalità: Produzione completa (tutti gli utenti)
+✅ Python success: true
+
+📁 RISULTATI GENERATI:
+/var/spool/slurmd/job19099460/slurm_script: line 337: 473668 Terminated              monitor_progress
+   📊 Total files: 9
+   💾 Total size: 75M
+
+   📋 File generati:
+     -rw-r--r-- 1 smattiol interactive  24M Aug 16 08:03 results/dati_2014_pred_20250814_161658.csv
+     -rw-r--r-- 1 smattiol interactive 8.8M Aug 16 19:14 results/dati_2015_pred_20250815_135715.csv
+     -rw-r--r-- 1 smattiol interactive  64K Aug 17 18:10 results/dati_2016_pred_20250816_203246.csv
+     -rw-r--r-- 1 smattiol interactive  17M Aug 17 20:33 results/dati_2017_pred_20250816_203807.csv
+     -rw-r--r-- 1 smattiol interactive  13M Aug 18 18:41 results/dati_2018_pred_20250817_184519.csv
+     -rw-r--r-- 1 smattiol interactive  52K Aug 18 16:50 results/dati_2019_pred_20250817_184857.csv
+     -rw-r--r-- 1 smattiol interactive 106K Aug 17 20:55 results/dati_2020_pred_20250817_184907.csv
+     -rw-r--r-- 1 smattiol interactive  12M Aug 18 18:41 results/veronacard_2019_original_pred_20250817_213655.csv
+     -rw-r--r-- 1 smattiol interactive 111K Aug 17 23:51 results/veronacard_2020_original_pred_20250817_214117.csv
+
+🔧 STATO FINALE SISTEMA:
+memory.used [MiB], memory.total [MiB], utilization.gpu [%], temperature.gpu
+5344 MiB, 65536 MiB, 0 %, 44
+
+📊 LOG OLLAMA (ultimi 20 righe):
+[GIN] 2025/08/18 - 19:18:45 | 200 |  825.587355ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/18 - 19:18:45 | 200 |    5.864965ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/18 - 19:18:45 | 200 |  721.466989ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/18 - 19:18:45 | 200 |    8.028315ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/18 - 19:18:47 | 200 |  1.227676772s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/18 - 19:18:47 | 200 |    8.702488ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/18 - 19:18:39 | 200 |  836.513782ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/18 - 19:18:39 | 200 |    5.880205ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/18 - 19:18:40 | 200 |  1.492480295s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/18 - 19:18:40 | 200 |    9.398658ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/18 - 19:18:41 | 200 |  1.022469058s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/18 - 19:18:42 | 200 |   14.826616ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/18 - 19:18:43 | 200 |  1.066452435s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/18 - 19:18:43 | 200 |    8.882944ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/18 - 19:18:44 | 200 |  1.575405399s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/18 - 19:18:44 | 200 |   10.182758ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/18 - 19:18:45 | 200 |   854.04116ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/18 - 19:18:45 | 200 |    7.141718ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/18 - 19:18:46 | 200 |  781.602518ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/18 - 19:18:46 | 200 |   10.318251ms |       127.0.0.1 | GET      "/api/tags"
+
+🎉 JOB PRODUZIONE COMPLETATO CON SUCCESSO!
+✅ Tutti i dataset sono stati processati senza limiti utenti
+
+🏁 Fine job: Mon Aug 18 19:18:47 CEST 2025
+=============================================
+
+🧹 CLEANUP PRODUZIONE...
+🕐 Tempo totale job: 156 secondi (0h 2m)
+📊 Stato GPU finale:
+memory.used [MiB], memory.total [MiB], utilization.gpu [%], temperature.gpu
+5344 MiB, 65536 MiB, 0 %, 44
+📁 Risultati generati: 9 files
+💾 Dimensione risultati: 75M
+🔄 Shutdown graceful Ollama...
+✓ Cleanup completato

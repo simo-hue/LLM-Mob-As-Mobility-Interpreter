@@ -287,7 +287,7 @@ echo ""
 PYTHON_START=$(date +%s)
 
 # NESSUN parametro max-users = processamento completo
-if python3 $WORK/LLM-Mob-As-Mobility-Interpreter/veronacard_mob_with_geom.py --file veronacard_2020_2023/veronacard_2020_original.csv; then
+if python3 $WORK/LLM-Mob-As-Mobility-Interpreter/veronacard_mob_with_geom.py --file veronacard_2020_2023/veronacard_2023_original_parziale.csv; then
     PYTHON_END=$(date +%s)
     PYTHON_TIME=$((PYTHON_END - PYTHON_START))
     
