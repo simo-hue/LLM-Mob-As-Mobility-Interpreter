@@ -1,0 +1,161 @@
+2025-08-18 19:16:57,415 INFO: ✅ Ollama test passed - Response: 'How'
+2025-08-18 19:16:57,423 INFO: 🎯 Processamento file singolo: veronacard_2022_original.csv
+2025-08-18 19:16:57,423 INFO: 📍 Path completo: /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/veronacard_2020_2023/veronacard_2022_original.csv
+2025-08-18 19:16:57,426 INFO: 
+======================================================================
+2025-08-18 19:16:57,426 INFO: ▶  PROCESSO FILE: veronacard_2022_original.csv
+2025-08-18 19:16:57,426 INFO: ======================================================================
+2025-08-18 19:16:57,426 INFO: ▶  ho caricato e pulito i dati
+2025-08-18 19:16:57,650 INFO: [load_pois] 22 POI letti da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-18 19:16:59,635 INFO: [load_visits] 382345 timbrature da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/veronacard_2020_2023/veronacard_2022_original.csv
+2025-08-18 19:16:59,990 INFO: [merge] visite valide dopo merge: 381360
+2025-08-18 19:17:00,209 INFO: [filter] card multi-visita: 84988 / 89775
+2025-08-18 19:17:06,592 INFO: ▶  ho fatto il clustering
+2025-08-18 19:17:11,193 INFO: ✅ Ollama test passed - Response: 'How'
+2025-08-18 19:17:11,203 INFO: 🎯 Processamento file singolo: veronacard_2021_original.csv
+2025-08-18 19:17:11,203 INFO: 📍 Path completo: /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/veronacard_2020_2023/veronacard_2021_original.csv
+2025-08-18 19:17:11,205 INFO: 
+======================================================================
+2025-08-18 19:17:11,205 INFO: ▶  PROCESSO FILE: veronacard_2021_original.csv
+2025-08-18 19:17:11,205 INFO: ======================================================================
+2025-08-18 19:17:11,205 INFO: ▶  ho caricato e pulito i dati
+2025-08-18 19:17:11,426 INFO: [load_pois] 22 POI letti da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-18 19:17:12,506 INFO: [load_visits] 115813 timbrature da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/veronacard_2020_2023/veronacard_2021_original.csv
+2025-08-18 19:17:12,702 INFO: [merge] visite valide dopo merge: 115813
+2025-08-18 19:17:12,753 INFO: [filter] card multi-visita: 25580 / 27032
+2025-08-18 19:17:15,575 INFO: ▶  ho fatto il clustering
+2025-08-18 19:26:05,948 INFO: 💾 Salvataggio batch: 500/21983
+2025-08-18 19:26:26,511 INFO: 💾 Salvataggio batch: 500/72904
+2025-08-18 19:34:49,614 INFO: 💾 Salvataggio batch: 1000/21983
+2025-08-18 19:35:46,920 INFO: 💾 Salvataggio batch: 1000/72904
+2025-08-18 19:43:34,550 INFO: 💾 Salvataggio batch: 1500/21983
+2025-08-18 19:44:57,809 INFO: 💾 Salvataggio batch: 1500/72904
+2025-08-18 19:52:20,288 INFO: 💾 Salvataggio batch: 2000/21983
+2025-08-18 19:54:07,551 INFO: 💾 Salvataggio batch: 2000/72904
+2025-08-18 20:01:14,511 INFO: 💾 Salvataggio batch: 2500/21983
+2025-08-18 20:03:23,645 INFO: 💾 Salvataggio batch: 2500/72904
+2025-08-18 20:09:53,187 INFO: 💾 Salvataggio batch: 3000/21983
+2025-08-18 20:12:36,424 INFO: 💾 Salvataggio batch: 3000/72904
+2025-08-18 20:18:34,094 INFO: 💾 Salvataggio batch: 3500/21983
+2025-08-18 20:21:41,059 INFO: 💾 Salvataggio batch: 3500/72904
+2025-08-18 20:27:17,918 INFO: 💾 Salvataggio batch: 4000/21983
+2025-08-18 20:30:50,205 INFO: 💾 Salvataggio batch: 4000/72904
+2025-08-18 20:36:16,051 INFO: 💾 Salvataggio batch: 4500/21983
+2025-08-18 20:40:01,837 INFO: 💾 Salvataggio batch: 4500/72904
+2025-08-18 20:45:02,441 INFO: 💾 Salvataggio batch: 5000/21983
+2025-08-18 20:49:12,791 INFO: 💾 Salvataggio batch: 5000/72904
+2025-08-18 20:53:58,267 INFO: 💾 Salvataggio batch: 5500/21983
+2025-08-18 20:58:14,668 INFO: 💾 Salvataggio batch: 5500/72904
+2025-08-18 21:02:51,436 INFO: 💾 Salvataggio batch: 6000/21983
+2025-08-18 21:07:24,559 INFO: 💾 Salvataggio batch: 6000/72904
+2025-08-18 21:11:56,245 INFO: 💾 Salvataggio batch: 6500/21983
+2025-08-18 21:16:26,384 INFO: 💾 Salvataggio batch: 6500/72904
+2025-08-18 21:20:36,994 INFO: 💾 Salvataggio batch: 7000/21983
+2025-08-18 21:25:24,990 INFO: 💾 Salvataggio batch: 7000/72904
+2025-08-18 21:29:32,222 INFO: 💾 Salvataggio batch: 7500/21983
+2025-08-18 21:34:27,055 INFO: 💾 Salvataggio batch: 7500/72904
+2025-08-18 21:38:35,283 INFO: 💾 Salvataggio batch: 8000/21983
+2025-08-18 21:43:40,685 INFO: 💾 Salvataggio batch: 8000/72904
+2025-08-18 21:47:23,321 INFO: 💾 Salvataggio batch: 8500/21983
+2025-08-18 21:52:41,977 INFO: 💾 Salvataggio batch: 8500/72904
+2025-08-18 21:56:02,125 INFO: 💾 Salvataggio batch: 9000/21983
+2025-08-18 22:01:58,714 INFO: 💾 Salvataggio batch: 9000/72904
+2025-08-18 22:04:37,305 INFO: 💾 Salvataggio batch: 9500/21983
+2025-08-18 22:10:59,960 INFO: 💾 Salvataggio batch: 9500/72904
+2025-08-18 22:13:21,401 INFO: 💾 Salvataggio batch: 10000/21983
+2025-08-18 22:20:15,267 INFO: 💾 Salvataggio batch: 10000/72904
+2025-08-18 22:22:05,081 INFO: 💾 Salvataggio batch: 10500/21983
+2025-08-18 22:29:19,033 INFO: 💾 Salvataggio batch: 10500/72904
+2025-08-18 22:30:41,283 INFO: 💾 Salvataggio batch: 11000/21983
+2025-08-18 22:38:18,151 INFO: 💾 Salvataggio batch: 11000/72904
+2025-08-18 22:39:33,266 INFO: 💾 Salvataggio batch: 11500/21983
+2025-08-18 22:47:16,630 INFO: 💾 Salvataggio batch: 11500/72904
+2025-08-18 22:48:14,040 INFO: 💾 Salvataggio batch: 12000/21983
+2025-08-18 22:56:36,279 INFO: 💾 Salvataggio batch: 12000/72904
+2025-08-18 22:57:00,800 INFO: 💾 Salvataggio batch: 12500/21983
+2025-08-18 23:05:42,183 INFO: 💾 Salvataggio batch: 12500/72904
+2025-08-18 23:05:45,288 INFO: 💾 Salvataggio batch: 13000/21983
+2025-08-18 23:14:19,704 INFO: 💾 Salvataggio batch: 13500/21983
+2025-08-18 23:15:14,010 INFO: 💾 Salvataggio batch: 13000/72904
+2025-08-18 23:23:09,033 INFO: 💾 Salvataggio batch: 14000/21983
+2025-08-18 23:24:43,894 INFO: 💾 Salvataggio batch: 13500/72904
+2025-08-18 23:32:13,098 INFO: 💾 Salvataggio batch: 14500/21983
+2025-08-18 23:33:54,000 INFO: 💾 Salvataggio batch: 14000/72904
+2025-08-18 23:41:15,376 INFO: 💾 Salvataggio batch: 15000/21983
+2025-08-18 23:43:05,172 INFO: 💾 Salvataggio batch: 14500/72904
+2025-08-18 23:50:13,388 INFO: 💾 Salvataggio batch: 15500/21983
+2025-08-18 23:52:14,088 INFO: 💾 Salvataggio batch: 15000/72904
+2025-08-18 23:59:00,939 INFO: 💾 Salvataggio batch: 16000/21983
+2025-08-19 00:01:26,061 INFO: 💾 Salvataggio batch: 15500/72904
+2025-08-19 00:07:47,455 INFO: 💾 Salvataggio batch: 16500/21983
+2025-08-19 00:10:41,660 INFO: 💾 Salvataggio batch: 16000/72904
+2025-08-19 00:16:36,268 INFO: 💾 Salvataggio batch: 17000/21983
+2025-08-19 00:19:56,323 INFO: 💾 Salvataggio batch: 16500/72904
+2025-08-19 00:25:32,468 INFO: 💾 Salvataggio batch: 17500/21983
+2025-08-19 00:28:59,636 INFO: 💾 Salvataggio batch: 17000/72904
+2025-08-19 00:34:32,800 INFO: 💾 Salvataggio batch: 18000/21983
+2025-08-19 00:38:15,533 INFO: 💾 Salvataggio batch: 17500/72904
+2025-08-19 00:43:04,203 INFO: 💾 Salvataggio batch: 18500/21983
+2025-08-19 00:47:36,719 INFO: 💾 Salvataggio batch: 18000/72904
+2025-08-19 00:51:55,549 INFO: 💾 Salvataggio batch: 19000/21983
+2025-08-19 00:56:53,881 INFO: 💾 Salvataggio batch: 18500/72904
+2025-08-19 01:00:41,317 INFO: 💾 Salvataggio batch: 19500/21983
+2025-08-19 01:06:14,403 INFO: 💾 Salvataggio batch: 19000/72904
+2025-08-19 01:09:42,540 INFO: 💾 Salvataggio batch: 20000/21983
+2025-08-19 01:15:27,034 INFO: 💾 Salvataggio batch: 19500/72904
+2025-08-19 01:18:31,084 INFO: 💾 Salvataggio batch: 20500/21983
+2025-08-19 01:24:41,455 INFO: 💾 Salvataggio batch: 20000/72904
+2025-08-19 01:27:15,596 INFO: 💾 Salvataggio batch: 21000/21983
+2025-08-19 01:33:39,205 INFO: 💾 Salvataggio batch: 20500/72904
+2025-08-19 01:36:00,152 INFO: 💾 Salvataggio batch: 21500/21983
+2025-08-19 01:43:02,701 INFO: 💾 Salvataggio batch: 21000/72904
+2025-08-19 01:44:44,377 INFO: ✔  Salvato veronacard_2021_original_pred_20250818_191715.csv – Hit@5: 18.01%
+2025-08-19 01:44:44,383 INFO: ✅ Processamento completato per veronacard_2021_original.csv
+2025-08-19 01:52:10,764 INFO: 💾 Salvataggio batch: 21500/72904
+2025-08-19 02:01:25,678 INFO: 💾 Salvataggio batch: 22000/72904
+2025-08-19 02:10:39,799 INFO: 💾 Salvataggio batch: 22500/72904
+2025-08-19 02:19:58,221 INFO: 💾 Salvataggio batch: 23000/72904
+2025-08-19 02:28:59,887 INFO: 💾 Salvataggio batch: 23500/72904
+2025-08-19 02:38:05,183 INFO: 💾 Salvataggio batch: 24000/72904
+2025-08-19 02:47:21,771 INFO: 💾 Salvataggio batch: 24500/72904
+2025-08-19 02:56:16,925 INFO: 💾 Salvataggio batch: 25000/72904
+2025-08-19 03:05:11,851 INFO: 💾 Salvataggio batch: 25500/72904
+2025-08-19 03:14:09,975 INFO: 💾 Salvataggio batch: 26000/72904
+2025-08-19 03:23:13,345 INFO: 💾 Salvataggio batch: 26500/72904
+2025-08-19 03:32:26,354 INFO: 💾 Salvataggio batch: 27000/72904
+2025-08-19 03:41:29,655 INFO: 💾 Salvataggio batch: 27500/72904
+2025-08-19 03:50:30,211 INFO: 💾 Salvataggio batch: 28000/72904
+2025-08-19 03:59:27,994 INFO: 💾 Salvataggio batch: 28500/72904
+2025-08-19 04:08:33,356 INFO: 💾 Salvataggio batch: 29000/72904
+2025-08-19 04:17:50,264 INFO: 💾 Salvataggio batch: 29500/72904
+2025-08-19 04:26:58,769 INFO: 💾 Salvataggio batch: 30000/72904
+2025-08-19 04:36:04,566 INFO: 💾 Salvataggio batch: 30500/72904
+2025-08-19 04:45:11,716 INFO: 💾 Salvataggio batch: 31000/72904
+2025-08-19 04:54:20,606 INFO: 💾 Salvataggio batch: 31500/72904
+2025-08-19 05:03:21,453 INFO: 💾 Salvataggio batch: 32000/72904
+2025-08-19 05:12:34,847 INFO: 💾 Salvataggio batch: 32500/72904
+2025-08-19 05:21:31,313 INFO: 💾 Salvataggio batch: 33000/72904
+2025-08-19 05:30:46,425 INFO: 💾 Salvataggio batch: 33500/72904
+2025-08-19 05:39:38,670 INFO: 💾 Salvataggio batch: 34000/72904
+2025-08-19 05:48:45,292 INFO: 💾 Salvataggio batch: 34500/72904
+2025-08-19 05:58:09,683 INFO: 💾 Salvataggio batch: 35000/72904
+2025-08-19 06:07:00,167 INFO: 💾 Salvataggio batch: 35500/72904
+2025-08-19 06:16:01,413 INFO: 💾 Salvataggio batch: 36000/72904
+2025-08-19 06:24:57,354 INFO: 💾 Salvataggio batch: 36500/72904
+2025-08-19 06:33:56,782 INFO: 💾 Salvataggio batch: 37000/72904
+2025-08-19 06:42:53,856 INFO: 💾 Salvataggio batch: 37500/72904
+2025-08-19 06:51:52,704 INFO: 💾 Salvataggio batch: 38000/72904
+2025-08-19 07:00:52,379 INFO: 💾 Salvataggio batch: 38500/72904
+2025-08-19 07:09:53,942 INFO: 💾 Salvataggio batch: 39000/72904
+2025-08-19 07:18:46,676 INFO: 💾 Salvataggio batch: 39500/72904
+2025-08-19 07:27:52,916 INFO: 💾 Salvataggio batch: 40000/72904
+2025-08-19 07:36:49,392 INFO: 💾 Salvataggio batch: 40500/72904
+2025-08-19 07:45:53,349 INFO: 💾 Salvataggio batch: 41000/72904
+2025-08-19 07:55:06,970 INFO: 💾 Salvataggio batch: 41500/72904
+2025-08-19 08:04:11,930 INFO: 💾 Salvataggio batch: 42000/72904
+2025-08-19 08:13:08,150 INFO: 💾 Salvataggio batch: 42500/72904
+2025-08-19 08:22:10,284 INFO: 💾 Salvataggio batch: 43000/72904
+2025-08-19 08:31:20,997 INFO: 💾 Salvataggio batch: 43500/72904
+2025-08-19 08:40:25,955 INFO: 💾 Salvataggio batch: 44000/72904
+2025-08-19 08:49:35,716 INFO: 💾 Salvataggio batch: 44500/72904
+2025-08-19 08:58:37,374 INFO: 💾 Salvataggio batch: 45000/72904

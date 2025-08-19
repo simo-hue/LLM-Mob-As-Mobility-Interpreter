@@ -1,0 +1,36 @@
+2025-08-18 19:44:45,002 INFO: ✅ Ollama test passed - Response: 'How'
+2025-08-18 19:44:45,006 INFO: 🎯 Processamento file singolo: veronacard_2023_original_parziale.csv
+2025-08-18 19:44:45,006 INFO: 📍 Path completo: /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/veronacard_2020_2023/veronacard_2023_original_parziale.csv
+2025-08-18 19:44:45,007 INFO: 
+======================================================================
+2025-08-18 19:44:45,007 INFO: ▶  PROCESSO FILE: veronacard_2023_original_parziale.csv
+2025-08-18 19:44:45,007 INFO: ======================================================================
+2025-08-18 19:44:45,008 INFO: ▶  ho caricato e pulito i dati
+2025-08-18 19:44:45,248 INFO: [load_pois] 22 POI letti da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-18 19:44:45,844 INFO: [load_visits] 58598 timbrature da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/veronacard_2020_2023/veronacard_2023_original_parziale.csv
+2025-08-18 19:44:46,196 INFO: [merge] visite valide dopo merge: 58063
+2025-08-18 19:44:46,222 INFO: [filter] card multi-visita: 12240 / 12848
+2025-08-18 19:44:48,292 INFO: ▶  ho fatto il clustering
+2025-08-18 19:53:32,699 INFO: 💾 Salvataggio batch: 500/10706
+2025-08-18 20:02:16,864 INFO: 💾 Salvataggio batch: 1000/10706
+2025-08-18 20:11:06,979 INFO: 💾 Salvataggio batch: 1500/10706
+2025-08-18 20:19:51,561 INFO: 💾 Salvataggio batch: 2000/10706
+2025-08-18 20:28:36,400 INFO: 💾 Salvataggio batch: 2500/10706
+2025-08-18 20:37:15,891 INFO: 💾 Salvataggio batch: 3000/10706
+2025-08-18 20:46:05,093 INFO: 💾 Salvataggio batch: 3500/10706
+2025-08-18 20:54:54,257 INFO: 💾 Salvataggio batch: 4000/10706
+2025-08-18 21:03:31,073 INFO: 💾 Salvataggio batch: 4500/10706
+2025-08-18 21:12:17,042 INFO: 💾 Salvataggio batch: 5000/10706
+2025-08-18 21:21:00,084 INFO: 💾 Salvataggio batch: 5500/10706
+2025-08-18 21:29:43,575 INFO: 💾 Salvataggio batch: 6000/10706
+2025-08-18 21:38:24,464 INFO: 💾 Salvataggio batch: 6500/10706
+2025-08-18 21:47:16,028 INFO: 💾 Salvataggio batch: 7000/10706
+2025-08-18 21:56:11,750 INFO: 💾 Salvataggio batch: 7500/10706
+2025-08-18 22:05:00,912 INFO: 💾 Salvataggio batch: 8000/10706
+2025-08-18 22:13:32,731 INFO: 💾 Salvataggio batch: 8500/10706
+2025-08-18 22:22:19,677 INFO: 💾 Salvataggio batch: 9000/10706
+2025-08-18 22:31:01,137 INFO: 💾 Salvataggio batch: 9500/10706
+2025-08-18 22:39:36,648 INFO: 💾 Salvataggio batch: 10000/10706
+2025-08-18 22:48:17,504 INFO: 💾 Salvataggio batch: 10500/10706
+2025-08-18 22:51:55,437 INFO: ✔  Salvato veronacard_2023_original_parziale_pred_20250818_194448.csv – Hit@5: 15.05%
+2025-08-18 22:51:55,439 INFO: ✅ Processamento completato per veronacard_2023_original_parziale.csv
