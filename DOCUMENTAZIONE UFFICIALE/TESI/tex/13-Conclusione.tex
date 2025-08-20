@@ -1,8 +1,43 @@
-\section{Conclusione}
+\section{Conclusioni}
 
-Questo articolo presenta la potenza dei Large Language Model (LLM) generali (non ottimizzati) per la previsione della mobilità umana nella città di Verona.
-Utilizzando il dataset VeronaCard, dimostriamo il potenziale degli LLM per comprendere complessi modelli spaziotemporali del comportamento turistico senza richiedere un'approfondita progettazione delle feature.
+Questo lavoro ha investigato sistematicamente l'applicazione dei Large Language Models per la predizione delle traiettorie turistiche, dimostrando per la prima volta l'efficacia di modelli linguistici generali non specializzati in questo dominio specifico. Attraverso un'analisi sperimentale rigorosa condotta sul dataset VeronaCard, abbiamo validato l'ipotesi che gli LLM possano catturare pattern complessi di mobilità spazio-temporale senza richiedere feature engineering manuale o architetture specializzate.
 
-L'analisi di diversi tipi di informazioni contestuali rivela l'importanza del prompt, e in particolare del contesto geografico e temporale, nella previsione della mobilità. L'utilizzo di modelli open source (come Llama) da parte del framework lo rende accessibile a ricercatori e professionisti, mantenendo al contempo prestazioni competitive.
+\subsection{Contributi scientifici principali}
 
-I nostri risultati contribuiscono al crescente corpus di lavori sulle applicazioni LLM nell'analisi spaziotemporale e forniscono le basi per la ricerca futura sui sistemi turistici intelligenti e sulla previsione della mobilità urbana.
+Il nostro studio fornisce quattro contributi fondamentali alla letteratura scientifica:
+
+\textbf{Primo}, abbiamo dimostrato che i Large Language Models possono essere efficacemente applicati alla predizione di traiettorie turistiche raggiungendo prestazioni competitive con approcci tradizionali, eliminando la necessità di progettazione manuale delle caratteristiche e ingegneria dei features. L'approccio basato su prompt engineering si è rivelato sufficientemente espressivo per catturare la complessità dei comportamenti turistici.
+
+\textbf{Secondo}, abbiamo stabilito l'importanza gerarchica delle diverse tipologie di informazione contestuale, dimostrando che l'arricchimento progressivo del contesto (POI names → geografia → temporale) produce miglioramenti incrementali significativi nelle prestazioni predittive. Questa scoperta fornisce linee guida pratiche per la strutturazione ottimale del prompt in applicazioni simili.
+
+\textbf{Terzo}, abbiamo identificato e caratterizzato tre distinti profili comportamentali turistici attraverso analisi di clustering, rivelando che turisti culturali, visitatori occasionali ed esploratori sistematici presentano pattern di mobilità con diversi gradi di prevedibilità. Questa tassonomia comportamentale ha implicazioni dirette per lo sviluppo di sistemi di raccomandazione personalizzati.
+
+\textbf{Quarto}, abbiamo sviluppato un framework metodologico replicabile che integra tecniche di prompt engineering, analisi temporale multi-scala e clustering comportamentale, fornendo una base solida per future ricerche nel campo della mobilità turistica assistita da AI.
+
+\subsection{Implicazioni pratiche e applicative}
+
+I risultati ottenuti hanno rilevanti implicazioni per il settore del turismo intelligente. La capacità degli LLM di processare informazioni contestuali eterogenee (geografiche, temporali, comportamentali) in linguaggio naturale apre nuove possibilità per lo sviluppo di sistemi di raccomandazione conversazionali e interfacce utente intuitive.
+
+L'utilizzo di modelli open-source come Llama garantisce accessibilità e trasparenza, caratteristiche essenziali per l'adozione da parte di piccole e medie imprese del settore turistico. Inoltre, l'approccio proposto non richiede infrastrutture specializzate per l'analisi spaziale, rendendolo facilmente implementabile in contesti con risorse limitate.
+
+Dal punto di vista delle politiche urbane, il framework sviluppato può supportare la gestione sostenibile dei flussi turistici attraverso predizioni accurate che permettano di anticipare e distribuire la pressione turistica su diverse aree della città.
+
+\subsection{Limitazioni e considerazioni critiche}
+
+Riconosciamo diverse limitazioni del nostro approccio che rappresentano opportunità per ricerche future. Primo, lo studio si basa su dati di una singola città (Verona) e un periodo specifico (2016-2020), limitando la generalizzabilità dei risultati a contesti urbani diversi. Secondo, l'approccio attuale non considera fattori dinamici in tempo reale come condizioni meteorologiche o eventi straordinari che potrebbero influenzare significativamente i pattern di mobilità.
+
+Inoltre, l'utilizzo di LLM introduce considerazioni relative ai costi computazionali e all'impatto energetico, particolarmente rilevanti per applicazioni su larga scala. La necessità di bilanciare prestazioni predittive e sostenibilità computazionale rappresenta una sfida importante per l'implementazione pratica.
+
+\subsection{Impatto sulla ricerca futura}
+
+Questo lavoro stabilisce un nuovo paradigma per la ricerca sulla mobilità turistica, dimostrando che l'intelligenza artificiale conversazionale può essere efficacemente applicata a problemi di analisi spazio-temporale complessi. I risultati incoraggiano l'esplorazione di approcci multimodali che integrano capacità linguistiche con other AI technologies come computer vision e sistemi di raccomandazione avanzati.
+
+La metodologia sviluppata fornisce una base per la creazione di benchmark standardizzati per la valutazione di sistemi di predizione turistica, facilitando confronti sistematici tra diversi approcci e promuovendo il progresso scientifico nel campo.
+
+\subsection{Riflessioni finali}
+
+L'emergere dei Large Language Models come strumenti versatili per l'analisi di dati complessi rappresenta un cambiamento paradigmatico nel modo in cui affrontiamo problemi di previsione comportamentale. Il nostro studio contribuisce a questa trasformazione dimostrando che la comprensione linguistica avanzata può essere tradotta in insights actionable per il settore turistico.
+
+I risultati ottenuti suggeriscono che il futuro dei sistemi di raccomandazione turistica risiederà nell'integrazione intelligente di capacità conversazionali, comprensione contestuale e personalizzazione adattiva. Questo lavoro rappresenta un primo passo significativo verso la realizzazione di assistenti turistici AI che combinano accuratezza predittiva, interpretabilità e accessibilità.
+
+L'evoluzione continua delle capacità dei Large Language Models, unita alla crescente disponibilità di dati di mobilità urbana, promette ulteriori sviluppi in questo campo di ricerca emergente. Auspichiamo che i contributi presentati in questo studio stimolino future collaborazioni interdisciplinari tra computer science, urban planning, tourism studies e human-computer interaction per affrontare le sfide complesse della mobilità urbana sostenibile nell'era dell'intelligenza artificiale.

@@ -1,37 +1,130 @@
 \section{Metodologia}
 
-\subsection{Formulazione Del Problema}
+\subsection{Formulazione del Problema}
 
-Formuliamo il problema di previsione della mobilità umana come segue: data la sequenza storica di POI visitati da un turista $S = \{p_1, p_2, ..., p_n\}$ ordinati in base all'orario di visita, puntiamo a prevedere il prossimo POI $p_{n+1}$ che il turista probabilmente visiterà. Ogni POI $p_i$ è caratterizzato dal suo nome, dalle coordinate geografiche (latitudine e longitudine) e dalle informazioni temporali (timestamp della visita).
+Formuliamo il problema di previsione della mobilità umana come un task di raccomandazione sequenziale spazio-temporale. Data la sequenza storica di POI visitati da un turista $S = \{p_1, p_2, ..., p_n\}$ ordinati cronologicamente, l'obiettivo è prevedere i $k$ POI più probabili che il turista visiterà successivamente, dove $k=5$ nel nostro setup sperimentale.
 
-Il compito di previsione viene affrontato come un problema di generazione del linguaggio naturale, in cui al LLM vengono fornite informazioni contestuali sul comportamento del turista e viene chiesto di generare le prossime destinazioni più probabili.
+Diversamente dagli approcci tradizionali che modellano questo problema come classificazione multi-classe, adottiamo una strategia innovativa basata su \textit{anchor-based prompting}, dove:
 
-
-\subsection{Descrizione Del Dataset}
-
-I nostri esperimenti sono condotti sul dataset VeronaCard, che contiene dati turistici reali di Verona, Italia. Il dataset comprende i registri dei visitatori dal 2014 al 2023, registrando le interazioni dei turisti con vari siti culturali e storici della città. Il dataset include:
 \begin{itemize}
-\item Registri di utilizzo della tessera turistica con timestamp e identificativi dei POI
-\item Un catalogo completo di Punti di Interesse con coordinate geografiche (a Verona)
+\item Ogni sequenza viene divisa in: storico delle visite $H = \{p_1, ..., p_{j-1}, p_{j+1}, ..., p_{n-1}\}$, POI corrente (anchor) $p_j$, e target da prevedere $p_n$
+\item La strategia di selezione dell'anchor è configurabile: penultimate (default), first, middle, o indice esplicito
+\item Il modello riceve informazioni contestuali multi-dimensionali: cluster comportamentale, cronologia delle visite, posizione geografica corrente, e POI nelle vicinanze
 \end{itemize}
 
-Il catalogo dei POI include importanti attrazioni turistiche come l'Arena di Verona, la Casa di Giulietta e il Museo di Castelvecchio, tra le altre. Ogni POI è associato a precise coordinate geografiche, consentendo l'analisi spaziale dei modelli di movimento dei turisti.
+\subsection{Architettura del Sistema}
 
-\subsection{Pre-elaborazione e clustering dei dati}
+Il nostro framework si basa su un'architettura modulare che combina clustering comportamentale, analisi geospaziale e generazione linguistica attraverso LLM. La pipeline è ottimizzata per elaborazioni massive su cluster HPC con gestione robusta di timeout e fallimenti.
 
-La nostra pipeline di pre-elaborazione si compone di diverse fasi progettate per pulire e strutturare i dati grezzi sulla mobilità:
+\subsubsection{Infrastructure e Deployment}
 
-\subsubsection{Pulizia e filtraggio dei dati}
-I log grezzi dei visitatori vengono elaborati per estrarre informazioni rilevanti, tra cui timestamp delle visite, nomi dei punti di interesse e identificativi delle tessere turistiche. Filtriamo i record incompleti e ci concentriamo sui turisti con più visite ai punti di interesse per garantire un'analisi sequenziale significativa (almeno 3 visite).
+Il sistema è progettato per operare su cluster HPC (High Performance Computing) utilizzando:
+\begin{itemize}
+\item \textbf{LLM Backend}: Ollama, configurazione ottimizzata per GPU A100 ( visto che ho eseguito i miei test sull'HPC Italiano Leonardo )
+\item \textbf{Gestione Risorse}: Sistema di checkpointing incrementale per elaborazioni interrotte
+\item \textbf{Fault Tolerance}: Retry mechanism con backoff esponenziale e health checking automatico
+\item \textbf{Scalabilità}: Processamento parallelizzabile per dataset multi-anno
+\end{itemize}
 
-\subsubsection{Clustering degli utenti}
-Per catturare i modelli comportamentali tra i turisti, utilizziamo il clustering K-means sulle matrici di interazione utente-punto di interesse. Il processo di clustering prevede:
+\subsection{Dataset e Pre-elaborazione}
+
+\subsubsection{Caratteristiche del Dataset VeronaCard}
+
+Gli esperimenti sono condotti sul dataset VeronaCard (2014-2023), contenente:
+\begin{itemize}
+\item \textbf{Registrazioni turistiche}: 10 anni di log di utilizzo con timestamp precisi
+\item \textbf{Copertura geografica}: 50+ POI distribuiti nel centro storico di Verona
+\item \textbf{Diversità comportamentale}: Turisti con pattern di visita eterogenei (culturali, storici, ricreativi)
+\item \textbf{Metadati geospaziali}: Coordinate GPS precise per ogni POI
+\end{itemize}
+
+\subsubsection{Pipeline di Pre-elaborazione}
+
+La pre-elaborazione implementa un processo multi-stage con validazioni robuste:
 
 \begin{enumerate}
-\item Costruzione di una matrice utente-punto di interesse in cui ogni riga rappresenta un turista e ogni colonna rappresenta un punto di interesse
-\item Standardizzazione della matrice utilizzando StandardScaler per garantire la stessa ponderazione delle caratteristiche
-\item Applicazione del clustering K-means con $k=7$ cluster per raggruppare i turisti con modelli di visita simili
+\item \textbf{Data Cleaning}: 
+   \begin{itemize}
+   \item Merge delle timbrature con il catalogo POI validato ( JOIN fatto su name_short )
+   \item Filtro delle sequenze con almeno 3 visite e 2+ POI distinti
+   \item Standardizzazione dei timestamp e identificativi
+   \end{itemize}
+
+\item \textbf{Behavioral Clustering}:
+   \begin{itemize}
+   \item Costruzione matrice user-POI sparsa
+   \item Standardizzazione con StandardScaler
+   \item K-means clustering ($k=7$) per identificazione profili comportamentali
+   \end{itemize}
+
+\item \textbf{Spatial Analysis}:
+   \begin{itemize}
+   \item Calcolo distanze Haversine tra POI
+   \item Identificazione POI nelle vicinanze (raggio 2km)
+   \item Analisi pattern di movimento sequenziali
+   \end{itemize}
 \end{enumerate}
 
-Questo approccio di clustering consente l'identificazione di profili turistici distinti, come visitatori interessati alla cultura, appassionati di storia o turisti occasionali, che possono influenzare il processo di previsione.
+\subsection{Prompt Engineering e Context Construction}
 
+\subsubsection{Strategia di Prompt Design}
+
+Il prompt viene costruito dinamicamente incorporando:
+
+\begin{itemize}
+\item \textbf{Profilo comportamentale}: "Turista cluster X a Verona"
+\item \textbf{Context storico}: Lista POI precedentemente visitati (escluso anchor)  
+\item \textbf{Posizione corrente}: POI anchor con coordinate
+\item \textbf{Prossimità geografica}: Top-10 POI più vicini con distanze in km
+\item \textbf{Constraint task}: Richiesta di 5 raccomandazioni ordinati per probabilità
+\end{itemize}
+
+Il formato di output è strutturato in JSON per garantire parsing deterministico:
+\begin{verbatim}
+{"prediction": ["poi1", "poi2", "poi3", "poi4", "poi5"], 
+ "reason": "spiegazione delle scelte"}
+\end{verbatim}
+
+\subsubsection{Gestione del Context Window}
+
+Per ottimizzare l'utilizzo del context window limitato (1024 tokens), il prompt viene compattato:
+\begin{itemize}
+\item Selezione dei 10 POI più vicini geograficamente (vs. tutti i POI disponibili)
+\item Formato condensato: "POI\_name (distance\_km)"
+\item Eliminazione di testo ridondante mantenendo informazioni critiche
+\end{itemize}
+
+Tutto ciò per non fornire "troppe" informazioni ai modelli LLM, che almeno per i test iniziali, sono piccoli ( qualche miliardo di parametri ). Per scoprire fino a dove riusciamo ad ottenere dei risultati accettabili. 
+
+\subsection{Strategia di Valutazione}
+
+\subsubsection{Metriche di Performance}
+
+Il sistema viene valutato attraverso metriche standard per sistemi di raccomandazione:
+
+\begin{itemize}
+\item \textbf{Top-1 Accuracy}: $\text{Acc}_{@1}=\frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\{y_i=\hat{y}_i^{(1)}\}$
+\item \textbf{Top-k Hit Rate}: $\text{HR}_{@k}=\frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\{y_i\in\{\hat{y}_i^{(1)},\dots,\hat{y}_i^{(k)}\}\}$
+\item \textbf{Mean Reciprocal Rank}: $\text{MRR}=\frac{1}{N}\sum_{i=1}^{N}\frac{1}{\operatorname{rank}_i}$
+\item \textbf{Catalogue Coverage}: $\text{Coverage}=\frac{|\bigcup_{i}\{\hat{y}_i^{(1)},\dots,\hat{y}_i^{(k)}\}|}{|\mathcal{P}|}$
+\end{itemize}
+
+\subsubsection{Test Set Construction}
+
+Per ogni turista con sequenza $\{p_1, p_2, ..., p_n\}$ (n≥3):
+\begin{itemize}
+\item \textbf{History}: $\{p_1, ..., p_{n-2}\}$ (escluso anchor)
+\item \textbf{Current POI (anchor)}: $p_{n-1}$ 
+\item \textbf{Ground truth}: $p_n$
+\end{itemize}
+
+Questa costruzione permette valutazione realistica del task di previsione "next-POI".
+
+\subsubsection{Analisi di Errore}
+
+Il framework include strumenti avanzati per interpretabilità:
+\begin{itemize}
+\item \textbf{Worst-performing pairs}: Identificazione coppie POI problematiche
+\item \textbf{Confusion matrices}: Visualizzazione errori per subset temporali/geografici  
+\item \textbf{Explainability}: Integrazione LIME per analisi features testuali nei prompt
+\end{itemize}

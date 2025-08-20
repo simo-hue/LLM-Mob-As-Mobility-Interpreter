@@ -1,18 +1,122 @@
 \section{Lavori futuri}
 
-Da questo lavoro emergono diverse direzioni per la ricerca futura:
+I risultati promettenti ottenuti dal nostro framework di predizione delle traiettorie turistiche basato su LLM aprono diverse direzioni di ricerca che potrebbero significativamente ampliare le capacità e l'applicabilità del sistema. Identifichiamo sei aree principali per lo sviluppo futuro, ciascuna con obiettivi specifici e metodologie proposte.
 
-\subsection{Integrazione multimodale}
-Lavori futuri potrebbero esplorare l'integrazione di modalità aggiuntive, come immagini di POI o descrizioni testuali di attrazioni, per fornire un contesto più ricco per le previsioni di mobilità.
+\subsection{Integrazione multimodale avanzata}
 
-\subsection{Integrazione delle informazioni meteorologiche}
-L'integrazione dei dati meteorologici nelle previsioni di mobilità potrebbe aumentare il realismo delle previsioni (poiché l'LLM ha una visione migliore della realtà per le previsioni) e migliorare l'esperienza utente.
+\subsubsection{Motivazione e obiettivi}
+L'attuale framework si basa esclusivamente su informazioni testuali e numeriche. L'integrazione di modalità aggiuntive potrebbe arricchire significativamente la comprensione del contesto turistico e migliorare l'accuratezza predittiva.
 
-\subsection{Previsione in tempo reale}
-Sviluppo di sistemi di previsione della mobilità in tempo reale in grado di adattarsi alle condizioni mutevoli e fornire raccomandazioni dinamiche ai turisti.
+\subsubsection{Direzioni di ricerca}
+\begin{itemize}
+\item \textbf{Integrazione di immagini POI}: Sviluppo di encoder vision-language per incorporare rappresentazioni visuali delle attrazioni, permettendo al modello di comprendere caratteristiche estetiche e funzionali non catturabili testualmente
+\item \textbf{Analisi del sentiment visivo}: Utilizzo di tecniche di computer vision per analizzare la "attrattività visiva" dei POI attraverso foto e recensioni visuali
+\item \textbf{Rappresentazioni audio-spaziali}: Integrazione di soundscapes urbani e caratteristiche acustiche per modellare l'esperienza sensoriale completa dei luoghi
+\item \textbf{Architetture transformer multimodali}: Adattamento di modelli come CLIP o BLIP per il dominio della mobilità turistica
+\end{itemize}
 
-\subsection{Generalizzazione interurbana}
-Studio della generalizzabilità delle previsioni di mobilità basate sull'LLM in diverse città e contesti culturali.
+\subsubsection{Sfide tecniche}
+Le principali sfide includono l'allineamento temporale tra modalità diverse, la gestione dell'overhead computazionale, e lo sviluppo di metriche di valutazione appropriate per sistemi multimodali.
 
-\subsection{Personalizzazione}
-Esplorazione di tecniche di personalizzazione in grado di adattare le previsioni alle preferenze e ai comportamenti individuali dei turisti.
+\subsection{Integrazione dinamica di fattori ambientali e contestuali}
+
+\subsubsection{Condizioni meteorologiche e stagionalità}
+\begin{itemize}
+\item \textbf{Modellazione meteorologica predittiva}: Integrazione di API meteorologiche in tempo reale per adattare le raccomandazioni basandosi su previsioni del tempo accurate
+\item \textbf{Stagionalità avanzata}: Sviluppo di modelli che catturano non solo variazioni mensili ma anche eventi stagionali specifici (festival, eventi culturali, periodi di alta/bassa stagione)
+\item \textbf{Microclima urbano}: Considerazione delle variazioni microclimatiche all'interno della città che possono influenzare le preferenze di visita
+\end{itemize}
+
+\subsubsection{Fattori socio-economici e demografici}
+\begin{itemize}
+\item \textbf{Densità turistica dinamica}: Integrazione di dati real-time sulla congestione dei POI per evitare raccomandazioni verso luoghi sovraffollati
+\item \textbf{Eventi urbani}: Incorporazione automatica di eventi cittadini, manifestazioni e chiusure temporanee
+\item \textbf{Accessibilità dinamica}: Monitoraggio delle condizioni di accessibilità in tempo reale per diverse categorie di utenti
+\end{itemize}
+
+\subsection{Sistemi di raccomandazione adattivi in tempo reale}
+
+\subsubsection{Architettura di sistema}
+Sviluppo di un'architettura distribuita capace di:
+\begin{itemize}
+\item \textbf{Inferenza a bassa latenza}: Ottimizzazione dei modelli LLM per rispondere in tempo reale (<100ms) mantenendo alta qualità predittiva
+\item \textbf{Apprendimento continuo}: Implementazione di tecniche di continual learning per adattare il modello a nuovi pattern senza catastrophic forgetting
+\item \textbf{A/B testing automatizzato}: Sistema di sperimentazione continua per testare nuove strategie di raccomandazione
+\end{itemize}
+
+\subsubsection{Interfacce conversazionali}
+\begin{itemize}
+\item \textbf{Chatbot turistici intelligenti}: Sviluppo di interfacce conversazionali che combinano predizione di traiettorie con capacità di dialogo naturale
+\item \textbf{Spiegazioni interpretabili}: Generazione automatica di spiegazioni comprensibili per le raccomandazioni fornite
+\item \textbf{Feedback loop dinamico}: Integrazione di feedback implicito ed esplicito degli utenti per miglioramento continuo
+\end{itemize}
+
+\subsection{Generalizzazione e transferibilità inter-urbana}
+
+\subsubsection{Framework di transfer learning}
+\begin{itemize}
+\item \textbf{Domain adaptation}: Sviluppo di tecniche per adattare modelli allenati su Verona ad altre città turistiche con minimal fine-tuning
+\item \textbf{Meta-learning per turismo}: Esplorazione di approcci meta-learning che permettano di apprendere rapidamente pattern di mobilità in nuove destinazioni
+\item \textbf{Knowledge distillation}: Tecniche per trasferire conoscenze da modelli complessi allenati su grandi dataset a modelli più leggeri per deployment locale
+\end{itemize}
+
+\subsubsection{Benchmark multi-città}
+\begin{itemize}
+\item \textbf{Dataset standardizzati}: Creazione di benchmark standardizzati per la valutazione di sistemi di predizione turistici across different cities
+\item \textbf{Metriche culturalmente aware}: Sviluppo di metriche che tengano conto delle specificità culturali e morfologiche delle diverse città
+\item \textbf{Analisi comparativa}: Studio sistematico delle differenze di performance tra diverse tipologie di città (storiche, moderne, costiere, montane)
+\end{itemize}
+
+\subsection{Personalizzazione avanzata e privacy-preserving}
+
+\subsubsection{Modellazione delle preferenze individuali}
+\begin{itemize}
+\item \textbf{User embeddings dinamici}: Sviluppo di rappresentazioni utente che evolvono nel tempo catturando cambiamenti nelle preferenze
+\item \textbf{Few-shot personalization}: Tecniche per personalizzare rapidamente le raccomandazioni con pochi esempi di comportamento utente
+\item \textbf{Clustering comportamentale soft}: Superamento dei cluster rigidi verso approcci di soft clustering che permettano appartenenze multiple
+\end{itemize}
+
+\subsubsection{Privacy e federated learning}
+\begin{itemize}
+\item \textbf{Federated recommender systems}: Implementazione di sistemi di raccomandazione federati che preservino la privacy degli utenti
+\item \textbf{Differential privacy}: Integrazione di tecniche di differential privacy per proteggere i dati sensibili di mobilità
+\item \textbf{Synthetic data generation}: Sviluppo di generatori di dati sintetici per training che mantengano utility statistica senza esporre dati reali
+\end{itemize}
+
+\subsection{Ottimizzazione e sostenibilità}
+
+\subsubsection{Efficienza computazionale}
+\begin{itemize}
+\item \textbf{Model compression}: Esplorazione di tecniche di quantizzazione e pruning specifiche per modelli di predizione turistica
+\item \textbf{Edge deployment}: Sviluppo di versioni edge-optimized per deployment su dispositivi mobili
+\item \textbf{Green AI}: Valutazione dell'impatto energetico e sviluppo di strategie per ridurre l'carbon footprint del sistema
+\end{itemize}
+
+\subsubsection{Sostenibilità turistica}
+\begin{itemize}
+\item \textbf{Tourism decongestioning}: Sviluppo di algoritmi che promuovano la distribuzione equilibrata dei flussi turistici
+\item \textbf{Sustainable mobility}: Integrazione di criteri di sostenibilità nelle raccomandazioni (trasporti pubblici, percorsi a piedi, riduzione delle emissioni)
+\item \textbf{Local impact optimization}: Algoritmi che considerino l'impatto delle raccomandazioni sulle comunità locali e l'economia territoriale
+\end{itemize}
+
+\subsection{Valutazione e metriche avanzate}
+
+\subsubsection{Nuove metriche di valutazione}
+\begin{itemize}
+\item \textbf{User experience metrics}: Sviluppo di metriche che catturino la soddisfazione complessiva dell'esperienza turistica oltre alla sola accuratezza
+\item \textbf{Diversity and serendipity}: Metriche per valutare la capacità del sistema di proporre scoperte inaspettate e diversificate
+\item \textbf{Long-term engagement}: Valutazione dell'impatto a lungo termine delle raccomandazioni sulla fidelizzazione turistica
+\end{itemize}
+
+\subsubsection{Valutazione offline vs online}
+\begin{itemize}
+\item \textbf{Simulation environments}: Sviluppo di ambienti simulati realistici per testare algoritmi di raccomandazione senza impatto su turisti reali
+\item \textbf{Counterfactual evaluation}: Tecniche per valutare performance di algoritmi non ancora deployati usando dati storici
+\item \textbf{Multi-stakeholder evaluation}: Framework di valutazione che consideri gli interessi di turisti, operatori locali, e amministrazioni pubbliche
+\end{itemize}
+
+\subsection{Considerazioni etiche e sociali}
+
+Parallelamente agli sviluppi tecnologici, sarà fondamentale affrontare le implicazioni etiche dell'utilizzo di sistemi AI per il turismo, includendo questioni di bias algoritmico, equità nelle raccomandazioni, impatto sulle comunità locali, e trasparenza decisionale. Questi aspetti dovranno essere integrati trasversalmente in tutte le direzioni di ricerca proposte.
+
+La realizzazione di questi lavori futuri richiederà collaborazioni interdisciplinari tra computer science, turismo, urbanistica, e scienze sociali, oltre a partnership con stakeholder del settore turistico per garantire applicabilità pratica e impatto reale.

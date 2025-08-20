@@ -2,35 +2,88 @@
 
 \subsection{Metodologia di valutazione}
 
-Valutiamo il framework LLM-Mob utilizzando un disegno sperimentale completo che cattura diversi aspetti delle prestazioni di previsione della mobilità:
+Valutiamo il framework LLM-Mob utilizzando un disegno sperimentale robusto che cattura diversi aspetti delle prestazioni di previsione della mobilità turistica, incorporando sia informazioni comportamentali che geografiche.
+
+\subsubsection{Preprocessing e costruzione del dataset}
+
+Il nostro pipeline di preprocessing comprende diverse fasi di filtraggio e normalizzazione:
+
+\begin{enumerate}
+\item \textbf{Validazione dei POI}: Manteniamo solo le visite a POI validi presenti nel database di riferimento \texttt{vc\_site.csv}
+\item \textbf{Filtraggio multi-visita}: Selezioniamo esclusivamente turisti con visite ad almeno 2 POI distinti e un minimo di 3 visite totali
+\item \textbf{Clustering comportamentale}: Applichiamo K-means clustering ($k=7$) sulla matrice utente-POI standardizzata per identificare pattern comportamentali omogenei
+\item \textbf{Arricchimento geografico}: Integriamo coordinate geografiche per il calcolo delle distanze euclidee tra POI
+\end{enumerate}
 
 \subsubsection{Costruzione del set di test}
-Per ogni turista con almeno tre visite a POI, costruiamo istanze di previsione tramite:
+
+Per ogni turista eleggibile con sequenza di visite $S = \{p_1, p_2, \ldots, p_n\}$ (con $n \geq 3$), costruiamo istanze di previsione seguendo la procedura:
+
 \begin{enumerate}
-\item Considerando la sequenza completa di visite $S = \{p_1, p_2, ..., p_n\}$
-\item Utilizzando $\{p_1, p_2, ..., p_{n-1}\}$ come contesto di input
-\item Prevedendo $p_n$ come target
+\item Dividiamo la sequenza in prefisso $P = \{p_1, p_2, \ldots, p_{n-1}\}$ e target $t = p_n$
+\item Selezioniamo un POI di ancoraggio $p_a \in P$ secondo una strategia configurabile (Sezione~\ref{sec:anchor})
+\item Definiamo la storia delle visite come $H = P \setminus \{p_a\}$
+\item Costruiamo il prompt includendo: cluster comportamentale, POI corrente $p_a$, storia $H$, e POI geograficamente prossimi con distanze
 \end{enumerate}
 
-\subsubsection{Selezione del punto di ancoraggio}
-Implementiamo strategie flessibili di selezione del punto di ancoraggio per studiare l'impatto di diversi punti di riferimento:
+\subsubsection{Selezione del punto di ancoraggio}\label{sec:anchor}
+
+Implementiamo strategie flessibili di selezione del punto di ancoraggio per studiare l'impatto di diversi riferimenti spaziali nella previsione:
+
 \begin{itemize}
-\item \textbf{Penultimo}: Utilizza il penultimo POI visitato come posizione corrente
-\item \textbf{Primo}: Utilizza il primo POI visitato come posizione corrente
-\item \textbf{Medio}: Utilizza il POI centrale nella sequenza come posizione corrente
-\item \textbf{Indice personalizzato}: Consente di specificare punti di ancoraggio arbitrari
+\item \textbf{Penultimate} (default): $a = n-2$, utilizza il penultimo POI come posizione corrente
+\item \textbf{First}: $a = 0$, parte dal primo POI visitato 
+\item \textbf{Middle}: $a = \lfloor (n-1)/2 \rfloor$, usa il POI centrale nella sequenza
+\item \textbf{Custom index}: Consente specificazione di indici arbitrari o negativi
 \end{itemize}
 
-\subsubsection{Metriche di prestazione}
-Valutiamo le prestazioni di previsione utilizzando l'accuratezza Hit@K, dove una previsione è considerata corretta se il POI di base compare nelle prime K posizioni previste. Il nostro obiettivo principale è l'accuratezza Hit@5 per valutare l'utilità pratica del sistema.
+La strategia \textit{penultimate} è motivata dall'assunzione che la penultima posizione rappresenti il contesto geografico più informativo per prevedere la destinazione finale.
 
-\subsection{Configurazioni sperimentali}
+\subsubsection{Integrazione di informazioni geografiche}
 
-I nostri esperimenti sono progettati per indagare i seguenti quesiti di ricerca:
+Per ogni istanza di previsione, calcoliamo le distanze haversine dal POI di ancoraggio a tutti gli altri POI non visitati, selezionando i 10 più vicini entro 2km (appropriato per il centro storico di Verona). Questo approccio bilancia informativitá geografica e compattezza del prompt.
+
+\subsection{Metriche di prestazione}
+
+Adottiamo un set completo di metriche standard per la valutazione dei sistemi di raccomandazione:
+
+\begin{itemize}
+\item \textbf{Top-1 Accuracy}: $\text{Acc}_{@1} = \frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\{y_i = \hat{y}_i^{(1)}\}$
+\item \textbf{Hit Rate@K}: $\text{HR}_{@k} = \frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\{y_i \in \{\hat{y}_i^{(1)}, \ldots, \hat{y}_i^{(k)}\}\}$
+\item \textbf{Mean Reciprocal Rank}: $\text{MRR} = \frac{1}{N}\sum_{i=1}^{N}\frac{1}{\text{rank}_i}$
+\item \textbf{Catalogue Coverage}: $\text{Cov} = \frac{|\bigcup_i \{\hat{y}_i^{(1)}, \ldots, \hat{y}_i^{(k)}\}|}{|\mathcal{P}|}$
+\end{itemize}
+
+dove $y_i$ è il POI target, $\hat{y}_i^{(j)}$ è la $j$-esima raccomandazione, $\text{rank}_i$ è la posizione del target nella lista ordinata, e $\mathcal{P}$ è l'insieme completo dei POI.
+
+Il nostro obiettivo principale è Hit@5, rilevante per applicazioni pratiche di sistemi di raccomandazione turistici.
+
+\subsection{Configurazione tecnica}
+
+\subsubsection{Setup del modello LLM}
+Utilizziamo Llama 3.1 8B tramite Ollama con i seguenti parametri ottimizzati:
+\begin{itemize}
+\item \textbf{Temperatura}: 0.1 (per previsioni deterministiche)
+\item \textbf{Contesto}: 1024 token (bilanciamento memoria-prestazioni)
+\item \textbf{Lunghezza output}: 100 token (sufficiente per liste JSON di 5 POI)
+\item \textbf{Stop tokens}: Configurati per prevenire generazioni infinite
+\end{itemize}
+
+\subsubsection{Gestione degli errori e robustezza}
+Implementiamo un sistema di retry con backoff esponenziale (3 tentativi, timeout crescenti 60-90-120s) e checkpoint incrementali per ripresa da interruzioni. Il parsing delle risposte JSON include fallback per formati malformati.
+
+\subsection{Domande di ricerca}
+
+I nostri esperimenti sono progettati per investigare i seguenti quesiti:
 
 \begin{enumerate}
-\item In che modo l'inclusione di informazioni geografiche influisce sull'accuratezza della previsione?
-\item Qual è l'impatto del contesto temporale sulle prestazioni di previsione della mobilità?
-\item In che modo diversi cluster comportamentali turistici influenzano i risultati della previsione? \item Quale ruolo gioca la prossimità geografica nei modelli di spostamento turistico?
+\item \textbf{RQ1}: In che misura l'inclusione esplicita di distanze geografiche migliora l'accuratezza predittiva rispetto a approcci puramente sequenziali?
+\item \textbf{RQ2}: Quale strategia di selezione del punto di ancoraggio produce le prestazioni ottimali per la previsione del prossimo POI?
+\item \textbf{RQ3}: Come varia l'efficacia predittiva tra diversi cluster comportamentali turistici identificati tramite K-means?
+\item \textbf{RQ4}: Quali pattern geografici emergono dall'analisi delle predizioni errate e come possono informare il miglioramento del modello?
+\item \textbf{RQ5}: Come si comporta il modello su diversi anni del dataset (2014-2020) e quali trend temporali sono osservabili?
 \end{enumerate}
 
+\subsection{Implementazione e riproducibilità}
+
+Il framework è implementato in Python con logging completo e checkpoint automatici. Ogni esperimento genera file CSV con predizioni complete, metriche per card, e metadati per analysis post-hoc. Il codice supporta esecuzione parallela e modalità append per esperimenti incrementali su dataset di grandi dimensioni.
