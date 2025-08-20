@@ -93,27 +93,52 @@ Il sistema calcola dinamicamente le distanze dal POI corrente e filtra automatic
 \centering
 \textbf{Confusion Matrix - Geospatial Strategy}\par
 \vspace{0.5em}
-\includegraphics[width=0.8\textwidth]{../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg}
+\includegraphics[width=0.8\textwidth]{../../img/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png}
 \caption{Matrice di confusione che mostra le prestazioni di previsione quando sono incluse le coordinate spaziali.}
 \label{fig:geospatial_confusion}
 \end{figure}
 
-\item \textbf{Comprehensive Context Strategy (Nome + Geolocalizzazione + Contesto Temporale):} La strategia più sofisticata incorpora informazioni temporali complete, inclusi timestamp delle visite e pattern stagionali. Questa implementazione cattura la complessità completa dei modelli spatio-temporali di mobilità turistica.
+\begin{figure}[H]
+\centering
+\textbf{MRR Distribution - Baseline Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../../img/SPACE-GEO_n-1_come_current_POI/MRR.png}
+\caption{Il grafico mostra la performance del Mean Reciprocal Rank (MRR) per anno, mostrando quanto bene il modello classifica il POI corretto. I valori oscillano tra l'22\% e il 27\%, con un picco evidente nel 2021 e un calo nel 2021-2022, probabilmente a causa delle anomalie nel comportamento turistico legate alla pandemia. La tendenza suggerisce una performance predittiva generalmente stabile nel tempo, con una varianza modesta.}
+\label{fig:baseline_mrr}
+\end{figure}
 
 \begin{figure}[H]
 \centering
-\textbf{Confusion Matrix - Comprehensive Strategy}\par
+\textbf{Top-1 Accuracy - Baseline Strategy}\par
 \vspace{0.5em}
-\includegraphics[width=0.8\textwidth]{../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg}
-\caption{Confusion matrix using both spatial and temporal information for POI prediction.}
-\label{fig:comprehensive_confusion}
+\includegraphics[width=0.8\textwidth]{../../img/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png}
+\caption{Punteggio di accuratezza Top-1 che indica la percentuale di volte in cui il POI corretto è stato la previsione migliore. I valori oscillano tra il 14\% e l'17.5\%, con la massima accuratezza osservata nel 2021. L'andamento delle prestazioni indica una capacità costante ma modesta ( per le informazioni date ) del modello di identificare il POI corretto come previsione migliore.}
+\label{fig:baseline_top1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\textbf{Top-5 Hit Rate - Baseline Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../../img/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png}
+\caption{Percentuale di previsioni in cui il POI corretto compare tra i primi 5 POI suggeriti. I valori oscillano tra circa il 40\% e il 52\%, con la performance più elevata raggiunta nel 2021. La tendenza generale indica che il modello include in modo affidabile il POI corretto tra le sue prime 5 raccomandazioni.}
+\label{fig:baseline_top5}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\textbf{Worst Performing POI Pairs - Baseline Strategy}\par
+\vspace{0.5em}
+\includegraphics[width=0.8\textwidth]{../../img/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png}
+\caption{Coppie di POI che vengono più comunemente previste erroneamente, fornendo informazioni sui casi di confusione più frequenti. Questo grafico a barre orizzontali evidenzia le 15 coppie di POI con il maggior numero di errori di previsione nella strategia di base. La transizione più frequentemente confusa è quella da "Castelvecchio" a "Casa Giulietta", seguita da altri percorsi turistici simili.}
+\label{fig:baseline_worst_pairs}
 \end{figure}
 
 \end{enumerate}
 
 \subsection{Protocollo sperimentale e meccanismi di ancoraggio}
 
-La nostra valutazione adotta un approccio sistematico utilizzando il dataset VeronaCard, che fornisce tracciati completi della mobilità turistica su più anni (2014-2020). Il protocollo sperimentale incorpora i seguenti componenti innovativi:
+La nostra valutazione adotta un approccio sistematico utilizzando il dataset VeronaCard, che fornisce tracciati completi della mobilità turistica su più anni (2014-2023). Il protocollo sperimentale incorpora i seguenti componenti innovativi:
 
 \begin{itemize}
 \item \textbf{Segmentazione degli utenti basata sul clustering:} I comportamenti dei turisti vengono segmentati utilizzando il clustering K-means (k=7) applicato alle matrici di interazione utente-POI, consentendo strategie di prompting specifiche per cluster.
@@ -192,7 +217,7 @@ Il progressivo miglioramento delle strategie di prompting dimostra chiari enhanc
 \textbf{Strategy} & \textbf{Top-1 Accuracy} & \textbf{Top-5 Hit Rate} & \textbf{MRR} \\
 \midrule
 POI Name Only & 9.5\%±1.2\% & 15.8\%±2.1\% & 12.3\%±1.5\% \\
-Name + Geolocation & [In elaborazione] & [In elaborazione] & [In elaborazione] \\
+Name + Geolocation & 15.50\%±1.0\% & 45.50\%±3.1\% & 25.50\%±1.5\% \\
 Name + Geo + Temporal & [In elaborazione] & [In elaborazione] & [In elaborazione] \\
 \bottomrule
 \end{tabular}
@@ -206,8 +231,8 @@ L'analisi sistematica degli errori rivela che:
 
 \begin{itemize}
 \item \textbf{Bias geografici:} Il modello mostra forte preferenza per POI centrali e iconici, indipendentemente dalla sequenza di visita
-\item \textbf{Pattern di confusione ricorrenti:} Castelvecchio e Ponte Pietra emergono frequentemente nelle predizioni errate, suggerendo sovra-rappresentazione nel training culturale del modello
-\item \textbf{Effetti temporali:} Le performance variano significativamente per anno, con picchi nel 2019-2020 e crolli nel 2021
+\item \textbf{Pattern di confusione ricorrenti:} Castelvecchio, Ponte Pietra e la casa di Giulietta emergono frequentemente nelle predizioni errate
+\item \textbf{Effetti temporali:} Le performance variano significativamente per anno nel periodo che coincide a quello degli anni della pandemia COVID-19 ed i primi anni a seguire
 \item \textbf{Sensibilità ai cluster:} Diversi profili turistici mostrano pattern di errore distinti, validando l'approccio di segmentazione
 \end{itemize}
 

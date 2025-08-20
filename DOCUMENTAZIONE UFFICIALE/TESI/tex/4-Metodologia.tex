@@ -45,7 +45,7 @@ La pre-elaborazione implementa un processo multi-stage con validazioni robuste:
 \begin{enumerate}
 \item \textbf{Data Cleaning}: 
    \begin{itemize}
-   \item Merge delle timbrature con il catalogo POI validato ( JOIN fatto su name_short )
+   \item Merge delle timbrature con il catalogo POI validato ( JOIN fatto su name short )
    \item Filtro delle sequenze con almeno 3 visite e 2+ POI distinti
    \item Standardizzazione dei timestamp e identificativi
    \end{itemize}
@@ -111,7 +111,7 @@ Il sistema viene valutato attraverso metriche standard per sistemi di raccomanda
 
 \subsubsection{Test Set Construction}
 
-Per ogni turista con sequenza $\{p_1, p_2, ..., p_n\}$ (n≥3):
+Per ogni turista con sequenza $\{p_1, p_2, ..., p_n\}$ (n >= 3):
 \begin{itemize}
 \item \textbf{History}: $\{p_1, ..., p_{n-2}\}$ (escluso anchor)
 \item \textbf{Current POI (anchor)}: $p_{n-1}$ 
@@ -125,6 +125,5 @@ Questa costruzione permette valutazione realistica del task di previsione "next-
 Il framework include strumenti avanzati per interpretabilità:
 \begin{itemize}
 \item \textbf{Worst-performing pairs}: Identificazione coppie POI problematiche
-\item \textbf{Confusion matrices}: Visualizzazione errori per subset temporali/geografici  
-\item \textbf{Explainability}: Integrazione LIME per analisi features testuali nei prompt
+\item \textbf{Confusion matrix}: Visualizzazione errori per subset temporali/geografici  
 \end{itemize}

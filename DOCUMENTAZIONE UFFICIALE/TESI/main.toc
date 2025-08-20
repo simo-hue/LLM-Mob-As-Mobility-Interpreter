@@ -3,61 +3,102 @@
 \contentsline {section}{\numberline {1}Introduzione}{2}{section.1}%
 \contentsline {section}{\numberline {2}Lavori correlati}{3}{section.2}%
 \contentsline {section}{\numberline {3}Metodologia}{4}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Formulazione Del Problema}{4}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Descrizione Del Dataset}{4}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Pre-elaborazione e clustering dei dati}{4}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Pulizia e filtraggio dei dati}{4}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Clustering degli utenti}{5}{subsubsection.3.3.2}%
-\contentsline {section}{\numberline {4}Strategie di prompt e risultati sperimentali}{6}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Tassonomia delle strategie di prompt}{6}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Protocollo sperimentale}{16}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Metriche di valutazione}{17}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Risultati sperimentali}{17}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Confronto delle prestazioni tra strategie}{18}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Temporal Performance Analysis}{18}{subsubsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.2}Geographical Context Impact}{18}{subsubsection.4.5.2}%
-\contentsline {subsubsection}{\numberline {4.5.3}Cluster-Specific Performance}{18}{subsubsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.6}Detailed Performance Analysis by Prompting Strategy}{19}{subsection.4.6}%
-\contentsline {subsubsection}{\numberline {4.6.1}Baseline Strategy Performance Analysis (POI Name Only)}{19}{subsubsection.4.6.1}%
-\contentsline {subsubsection}{\numberline {4.6.2}Geospatial-Enhanced Strategy Performance Analysis (Name + Geolocation)}{20}{subsubsection.4.6.2}%
-\contentsline {subsubsection}{\numberline {4.6.3}Comprehensive Context Strategy Performance Analysis (Name + Geolocation + Temporal)}{20}{subsubsection.4.6.3}%
-\contentsline {subsubsection}{\numberline {4.6.4}Analisi comparativa tra strategie}{21}{subsubsection.4.6.4}%
-\contentsline {subsection}{\numberline {4.7}Analisi degli errori e interpretabilità del modello}{21}{subsection.4.7}%
-\contentsline {subsection}{\numberline {4.8}Discussione}{22}{subsection.4.8}%
-\contentsline {section}{\numberline {5}Configurazione sperimentale}{23}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Metodologia di valutazione}{23}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Costruzione del set di test}{23}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Selezione del punto di ancoraggio}{23}{subsubsection.5.1.2}%
-\contentsline {subsubsection}{\numberline {5.1.3}Metriche di prestazione}{23}{subsubsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.2}Configurazioni sperimentali}{23}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Risultati e analisi}{25}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Confronto delle prestazioni tra i diversi tipi di contesto}{25}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Impatto delle informazioni geografiche}{25}{subsection.6.2}%
-\contentsline {subsubsection}{\numberline {6.2.1}Previsioni basate sulla distanza}{25}{subsubsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.2}Analisi del clustering spaziale}{25}{subsubsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.3}Analisi dei pattern temporali}{25}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Effetti dell'ora del giorno}{26}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Variazioni stagionali}{26}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}Analisi del comportamento basata sui cluster}{26}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}Turisti culturali}{26}{subsection.6.7}%
-\contentsline {subsection}{\numberline {6.8}Visitatori occasionali}{26}{subsection.6.8}%
-\contentsline {subsection}{\numberline {6.9}Esploratori sistematici}{26}{subsection.6.9}%
-\contentsline {section}{\numberline {7}Discussione}{27}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Vantaggi dell'approccio basato su LLM}{27}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Ingegneria delle feature ridotta}{27}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Comprensione contestuale}{27}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Interpretabilità}{27}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Limitazioni e sfide}{27}{subsection.7.5}%
-\contentsline {subsection}{\numberline {7.6}Requisiti computazionali}{27}{subsection.7.6}%
-\contentsline {subsubsection}{\numberline {7.6.1}Sensibilità dei prompt}{27}{subsubsection.7.6.1}%
-\contentsline {subsubsection}{\numberline {7.6.2}Problemi di scalabilità}{28}{subsubsection.7.6.2}%
-\contentsline {section}{\numberline {8}Lavori futuri}{29}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Integrazione multimodale}{29}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Integrazione delle informazioni meteorologiche}{29}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Previsione in tempo reale}{29}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Generalizzazione interurbana}{29}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Personalizzazione}{29}{subsection.8.5}%
-\contentsline {section}{\numberline {9}Dettagli Implementativi}{30}{section.9}%
-\contentsline {section}{\numberline {10}Ringraziamenti}{31}{section.10}%
-\contentsline {section}{\numberline {11}Conclusione}{32}{section.11}%
-\contentsline {section}{\numberline {12}Ringraziamenti}{34}{section.12}%
+\contentsline {subsection}{\numberline {3.1}Formulazione del Problema}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Architettura del Sistema}{4}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Infrastructure e Deployment}{4}{subsubsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.3}Dataset e Pre-elaborazione}{5}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Caratteristiche del Dataset VeronaCard}{5}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Pipeline di Pre-elaborazione}{5}{subsubsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.4}Prompt Engineering e Context Construction}{5}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Strategia di Prompt Design}{5}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Gestione del Context Window}{6}{subsubsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.5}Strategia di Valutazione}{6}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Metriche di Performance}{6}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Test Set Construction}{7}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}Analisi di Errore}{7}{subsubsection.3.5.3}%
+\contentsline {section}{\numberline {4}Strategie di prompt e risultati sperimentali}{8}{section.4}%
+\contentsline {subsubsection}{\numberline {4.0.1}Configurazione sperimentale per analisi multi-modello}{8}{subsubsection.4.0.1}%
+\contentsline {subsection}{\numberline {4.1}Architettura del sistema e configurazione sperimentale}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Tassonomia delle strategie di prompt}{9}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Protocollo sperimentale e meccanismi di ancoraggio}{19}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Metriche di valutazione e gestione della qualità}{20}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Implementazione e ottimizzazioni tecniche}{20}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Risultati sperimentali preliminari}{21}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Confronto delle prestazioni tra strategie}{21}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}Analisi degli errori e interpretabilità del modello}{22}{subsection.4.8}%
+\contentsline {subsection}{\numberline {4.9}Discussione e implicazioni}{22}{subsection.4.9}%
+\contentsline {section}{\numberline {5}Configurazione sperimentale}{24}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Metodologia di valutazione}{24}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Preprocessing e costruzione del dataset}{24}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Costruzione del set di test}{24}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}Selezione del punto di ancoraggio}{25}{subsubsection.5.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.4}Integrazione di informazioni geografiche}{25}{subsubsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.2}Metriche di prestazione}{25}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Configurazione tecnica}{26}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Setup del modello LLM}{26}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Gestione degli errori e robustezza}{26}{subsubsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.4}Domande di ricerca}{26}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Implementazione e riproducibilità}{27}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Risultati e analisi}{28}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Metriche di valutazione}{28}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Prestazioni complessive del sistema}{28}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Confronto delle prestazioni tra diversi tipi di contesto}{28}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Variazioni temporali delle prestazioni}{29}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Impatto delle informazioni geografiche}{29}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}Predizioni basate sulla prossimità spaziale}{29}{subsubsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.2}Clustering spaziale nel comportamento turistico}{30}{subsubsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.6}Analisi dei pattern temporali}{30}{subsection.6.6}%
+\contentsline {subsubsection}{\numberline {6.6.1}Effetti dell'ora del giorno}{30}{subsubsection.6.6.1}%
+\contentsline {subsubsection}{\numberline {6.6.2}Variazioni stagionali}{30}{subsubsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.7}Analisi degli errori e limitazioni del modello}{31}{subsection.6.7}%
+\contentsline {subsubsection}{\numberline {6.7.1}Coppie POI problematiche}{31}{subsubsection.6.7.1}%
+\contentsline {subsubsection}{\numberline {6.7.2}Matrice di confusione per POI frequenti}{31}{subsubsection.6.7.2}%
+\contentsline {subsubsection}{\numberline {6.7.3}Analisi di explainability}{31}{subsubsection.6.7.3}%
+\contentsline {subsection}{\numberline {6.8}Analisi del comportamento basata sui cluster}{31}{subsection.6.8}%
+\contentsline {subsubsection}{\numberline {6.8.1}Cluster 1: Turisti culturali}{32}{subsubsection.6.8.1}%
+\contentsline {subsubsection}{\numberline {6.8.2}Cluster 2: Visitatori occasionali}{32}{subsubsection.6.8.2}%
+\contentsline {subsubsection}{\numberline {6.8.3}Cluster 3: Esploratori sistematici}{32}{subsubsection.6.8.3}%
+\contentsline {subsection}{\numberline {6.9}Copertura del catalogo e diversità delle raccomandazioni}{32}{subsection.6.9}%
+\contentsline {subsection}{\numberline {6.10}Discussione e implicazioni}{33}{subsection.6.10}%
+\contentsline {section}{\numberline {7}Discussione}{34}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Vantaggi dell'approccio basato su LLM}{34}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Ingegneria delle feature ridotta}{34}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Comprensione contestuale}{34}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Interpretabilità}{34}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Limitazioni e sfide}{34}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Requisiti computazionali}{34}{subsection.7.6}%
+\contentsline {subsubsection}{\numberline {7.6.1}Sensibilità dei prompt}{35}{subsubsection.7.6.1}%
+\contentsline {subsubsection}{\numberline {7.6.2}Problemi di scalabilità}{35}{subsubsection.7.6.2}%
+\contentsline {section}{\numberline {8}Lavori futuri}{36}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Integrazione multimodale avanzata}{36}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Motivazione e obiettivi}{36}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}Direzioni di ricerca}{36}{subsubsection.8.1.2}%
+\contentsline {subsubsection}{\numberline {8.1.3}Sfide tecniche}{36}{subsubsection.8.1.3}%
+\contentsline {subsection}{\numberline {8.2}Integrazione dinamica di fattori ambientali e contestuali}{37}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Condizioni meteorologiche e stagionalità}{37}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Fattori socio-economici e demografici}{37}{subsubsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.3}Sistemi di raccomandazione adattivi in tempo reale}{37}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}Architettura di sistema}{37}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}Interfacce conversazionali}{38}{subsubsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.4}Generalizzazione e transferibilità inter-urbana}{38}{subsection.8.4}%
+\contentsline {subsubsection}{\numberline {8.4.1}Framework di transfer learning}{38}{subsubsection.8.4.1}%
+\contentsline {subsubsection}{\numberline {8.4.2}Benchmark multi-città}{38}{subsubsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.5}Personalizzazione avanzata e privacy-preserving}{39}{subsection.8.5}%
+\contentsline {subsubsection}{\numberline {8.5.1}Modellazione delle preferenze individuali}{39}{subsubsection.8.5.1}%
+\contentsline {subsubsection}{\numberline {8.5.2}Privacy e federated learning}{39}{subsubsection.8.5.2}%
+\contentsline {subsection}{\numberline {8.6}Ottimizzazione e sostenibilità}{39}{subsection.8.6}%
+\contentsline {subsubsection}{\numberline {8.6.1}Efficienza computazionale}{39}{subsubsection.8.6.1}%
+\contentsline {subsubsection}{\numberline {8.6.2}Sostenibilità turistica}{39}{subsubsection.8.6.2}%
+\contentsline {subsection}{\numberline {8.7}Valutazione e metriche avanzate}{40}{subsection.8.7}%
+\contentsline {subsubsection}{\numberline {8.7.1}Nuove metriche di valutazione}{40}{subsubsection.8.7.1}%
+\contentsline {subsubsection}{\numberline {8.7.2}Valutazione offline vs online}{40}{subsubsection.8.7.2}%
+\contentsline {subsection}{\numberline {8.8}Considerazioni etiche e sociali}{40}{subsection.8.8}%
+\contentsline {section}{\numberline {9}Dettagli Implementativi}{42}{section.9}%
+\contentsline {section}{\numberline {10}Ringraziamenti}{43}{section.10}%
+\contentsline {section}{\numberline {11}Conclusioni}{45}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Contributi scientifici principali}{45}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Implicazioni pratiche e applicative}{46}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Limitazioni e considerazioni critiche}{46}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Impatto sulla ricerca futura}{47}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}Riflessioni finali}{47}{subsection.11.5}%
+\contentsline {section}{\numberline {12}Ringraziamenti}{49}{section.12}%
