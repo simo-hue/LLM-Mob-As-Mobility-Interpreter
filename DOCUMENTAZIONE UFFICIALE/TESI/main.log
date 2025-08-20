@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.7.16)  20 JUL 2025 19:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.7.16)  20 AUG 2025 09:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE UFFICIALE/TESI/main.tex"
-(/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE UFFICIALE/TESI/main.tex
+**"/Users/simo/Desktop/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE UFFICIALE/TESI/main.tex"
+(/Users/simo/Desktop/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE UFFICIALE/TESI/main.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -844,8 +844,21 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
                    \relax 
 l.85 \newpage
               [1] (./tex/2-Introduzione.tex
-LaTeX Font Info:    Trying to load font information for TS1+qcs on input line 14.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/tex-gyre/ts1qcs.fd
+
+./tex/2-Introduzione.tex:12: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.12 I
+       principali contributi di questo lavoro includono:
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+LaTeX Font Info:    Trying to load font information for TS1+qcs on input line 15.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tex-gyre/ts1qcs.fd
 File: ts1qcs.fd 2009/09/25 v1.2 font definition file for TS1/qcs
 ))
 
@@ -857,127 +870,139 @@ l.87 \newpage
               [2{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}] (./tex/3-Lavori Correlati.tex)
 
 [3] (./tex/4-Metodologia.tex
+Overfull \hbox (44.75441pt too wide) in paragraph at lines 10--11
+[]\T1/qcs/m/n/10.95 Ogni se-quen-za vie-ne di-vi-sa in: sto-ri-co del-le vi-si-te $\OML/cmm/m/it/10.95 H \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 p[]; :::; p[]; p[]; :::; p[]\OMS/cmsy/m/n/10.95 g$\T1/qcs/m/n/10.95 ,
+ []
 
-[4])
 
-[5] (./tex/5-Strategie di prompt e risultati sperimentali.tex
+
+[4]
+
+[5]
+LaTeX Font Info:    Trying to load font information for T1+AnonymousPro on input line 83.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/anonymouspro/t1anonymouspro.fd
+File: t1anonymouspro.fd 2019/07/12 Fontinst v1.933 font definitions for T1/AnonymousPro.
+)
+LaTeX Font Info:    Font shape `T1/AnonymousPro/m/n' will be
+(Font)              scaled to size 10.95pt on input line 83.
+
+Overfull \hbox (3.46404pt too wide) in paragraph at lines 90--91
+\T1/qcs/m/n/10.95 Per ot-ti-miz-za-re l'u-ti-liz-zo del con-text win-dow li-mi-ta-to (1024 to-kens), il prompt
+ []
+
+
+
+[6{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/anonymouspro/AnonymousPro-01.enc}])
+
+[7] (./tex/5-Strategie di prompt e risultati sperimentali.tex
 Overfull \hbox (6.91061pt too wide) in paragraph at lines 1--1
 []\T1/qcs/b/n/17.28 Strategie di prompt e ri-sul-ta-ti spe-ri-men-
  []
 
-<../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png, id=59, 570.33075pt x 425.79076pt>
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:3: LaTeX Error: \begin{abstract} on input line 1 ended by \end{itemize}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 ... di mobilità spazio-temporale\end{itemize}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 5.
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[8]
+<../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png, id=90, 570.33075pt x 425.79076pt>
 File: ../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png Graphic file (type png)
 <use ../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png>
-Package pdftex.def Info: ../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png  used on input line 16.
+Package pdftex.def Info: ../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png  used on input line 34.
 (pdftex.def)             Requested size: 341.43437pt x 254.91118pt.
 
 
-[6]
-<../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png, id=67, 384.83775pt x 269.808pt>
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[9]
+<../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png, id=97, 384.83775pt x 269.808pt>
 File: ../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png Graphic file (type png)
 <use ../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png>
-Package pdftex.def Info: ../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png  used on input line 26.
+Package pdftex.def Info: ../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png  used on input line 43.
 (pdftex.def)             Requested size: 341.43437pt x 239.39143pt.
 
 
-[7 <../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png>]
-<../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png, id=74, 384.83775pt x 269.808pt>
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[10 <../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png>]
+<../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png, id=104, 384.83775pt x 269.808pt>
 File: ../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png Graphic file (type png)
 <use ../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png>
-Package pdftex.def Info: ../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png  used on input line 36.
+Package pdftex.def Info: ../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png  used on input line 52.
 (pdftex.def)             Requested size: 341.43437pt x 239.39143pt.
-<../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png, id=75, 394.47375pt x 269.808pt>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[11 <../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png>]
+<../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png, id=112, 394.47375pt x 269.808pt>
 File: ../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png Graphic file (type png)
 <use ../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png>
-Package pdftex.def Info: ../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png  used on input line 46.
+Package pdftex.def Info: ../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png  used on input line 61.
 (pdftex.def)             Requested size: 341.43437pt x 233.53304pt.
 
 
-[8 <../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png> <../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png>]
-<../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png, id=84, 634.16925pt x 284.262pt>
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[12 <../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png>]
+<../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png, id=119, 634.16925pt x 284.262pt>
 File: ../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png Graphic file (type png)
 <use ../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png>
-Package pdftex.def Info: ../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png  used on input line 56.
+Package pdftex.def Info: ../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png  used on input line 70.
 (pdftex.def)             Requested size: 341.43437pt x 153.04808pt.
 
 
-[9 <../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png>]
-Overfull \hbox (1.76755pt too wide) in paragraph at lines 62--63
-[]\T1/qcs/b/n/10.95 Strategia geo-spa-zia-le avan-za-ta (no-me + geo-lo-ca-liz-za-zio-ne): \T1/qcs/m/n/10.95 Que-
- []
 
-<../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg, id=91, 4015.0pt x 3011.25pt>
-File: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 68.
-(pdftex.def)             Requested size: 341.43437pt x 256.06773pt.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-
-[10 <../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png>]
-File: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 77.
-(pdftex.def)             Requested size: 341.43437pt x 256.06773pt.
-File: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 86.
-(pdftex.def)             Requested size: 341.43437pt x 256.06773pt.
-
-
-[11 <../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>]
-File: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 95.
-(pdftex.def)             Requested size: 341.43437pt x 256.06773pt.
-File: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 104.
-(pdftex.def)             Requested size: 341.43437pt x 256.06773pt.
-
-
-[12]
-File: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 115.
-(pdftex.def)             Requested size: 341.43437pt x 256.06773pt.
-
-
-[13]
-File: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 124.
-(pdftex.def)             Requested size: 341.43437pt x 256.06773pt.
-File: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 133.
-(pdftex.def)             Requested size: 341.43437pt x 256.06773pt.
-
-
-[14]
-File: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 142.
-(pdftex.def)             Requested size: 341.43437pt x 256.06773pt.
-File: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg Graphic file (type jpg)
-<use ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg>
-Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/tmp.jpg  used on input line 151.
-(pdftex.def)             Requested size: 341.43437pt x 256.06773pt.
-
-
-[15]
-Overfull \hbox (2.4955pt too wide) in paragraph at lines 163--164
-\T1/qcs/m/n/10.95 (k=7) ap-pli-ca-to al-le ma-tri-ci di in-te-ra-zio-ne utente-POI, con-sen-ten-do stra-
- []
-
-LaTeX Font Info:    Trying to load font information for T1+AnonymousPro on input line 164.
-(/usr/local/texlive/2025/texmf-dist/tex/latex/anonymouspro/t1anonymouspro.fd
-File: t1anonymouspro.fd 2019/07/12 Fontinst v1.933 font definitions for T1/AnonymousPro.
-)
-LaTeX Font Info:    Font shape `T1/AnonymousPro/m/n' will be
-(Font)              scaled to size 10.95pt on input line 164.
-
-Overfull \hbox (14.62825pt too wide) in paragraph at lines 164--164
-\T1/qcs/m/n/10.95 mec-ca-ni-smo di se-le-zio-ne del-le an-co-re con-fi-gu-ra-bi-le (\T1/AnonymousPro/m/n/10.95 DEFAULT_ANCHOR_RULE
+[13 <../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png>]
+Overfull \hbox (10.95833pt too wide) in paragraph at lines 75--76
+[]\T1/qcs/b/n/12 Strategia geo-spa-zia-le avan-za-ta (no-me + geo-lo-ca-liz-za-zio-ne): \T1/qcs/m/n/12 Que-
  []
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -988,157 +1013,338 @@ File: lstlang2.sty 2024/09/23 1.10c listings language file
 File: lstlang3.sty 2024/09/23 1.10c listings language file
 )
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:169: Package Listings Error: Couldn't load requested language.
+./tex/5-Strategie di prompt e risultati sperimentali.tex:77: Package Listings Error: Couldn't load requested language.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.169 ...on=Comprehensive Context Prompt Template]
+l.77 ...xt, caption=Esempio di Prompt Geospaziale]
                                                   
 The following languages weren't loadable:
     ,text$
 This may cause errors in the sequel.
 
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:169: Package Listings Error: language text undefined.
+./tex/5-Strategie di prompt e risultati sperimentali.tex:77: Package Listings Error: language text undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.169 ...on=Comprehensive Context Prompt Template]
+l.77 ...xt, caption=Esempio di Prompt Geospaziale]
+                                                  
+The language is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 77.
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:81: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81 POI Più 
+              Vicini: Ponte Pietra (0.8km), Duomo (1.2km),
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:81: LaTeX Error: Invalid UTF-8 byte "B9.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81 POI Più 
+              Vicini: Ponte Pietra (0.8km), Duomo (1.2km),
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+Overfull \hbox (1.81256pt too wide) in paragraph at lines 81--82
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.013pt too wide) in paragraph at lines 82--84
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:84: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.84 Suggerisci 5 POI più 
+                           probabili come prossime visite
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:84: LaTeX Error: Invalid UTF-8 byte "B9.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.84 Suggerisci 5 POI più 
+                           probabili come prossime visite
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+Overfull \hbox (30.61285pt too wide) in paragraph at lines 86--87
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[14 <../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png>]
+<../../img/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png, id=144, 570.33075pt x 425.79076pt>
+File: ../../img/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png Graphic file (type png)
+<use ../../img/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png>
+Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png  used on input line 96.
+(pdftex.def)             Requested size: 341.43437pt x 254.91118pt.
+<../../img/SPACE-GEO_n-1_come_current_POI/MRR.png, id=145, 384.83775pt x 269.808pt>
+File: ../../img/SPACE-GEO_n-1_come_current_POI/MRR.png Graphic file (type png)
+<use ../../img/SPACE-GEO_n-1_come_current_POI/MRR.png>
+Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/MRR.png  used on input line 105.
+(pdftex.def)             Requested size: 341.43437pt x 239.39143pt.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[15 <../../img/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png>]
+<../../img/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png, id=152, 394.47375pt x 269.808pt>
+File: ../../img/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png Graphic file (type png)
+<use ../../img/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png>
+Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png  used on input line 114.
+(pdftex.def)             Requested size: 341.43437pt x 233.53304pt.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[16 <../../img/SPACE-GEO_n-1_come_current_POI/MRR.png>]
+<../../img/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png, id=159, 384.83775pt x 269.808pt>
+File: ../../img/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png Graphic file (type png)
+<use ../../img/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png>
+Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png  used on input line 123.
+(pdftex.def)             Requested size: 341.43437pt x 239.39143pt.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[17 <../../img/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png>]
+<../../img/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png, id=168, 672.71326pt x 284.262pt>
+File: ../../img/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png Graphic file (type png)
+<use ../../img/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png>
+Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png  used on input line 132.
+(pdftex.def)             Requested size: 341.43437pt x 144.2777pt.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[18 <../../img/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png> <../../img/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png>] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2024/09/23 1.10c listings language file
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang3.sty
+File: lstlang3.sty 2024/09/23 1.10c listings language file
+)
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:155: Package Listings Error: Couldn't load requested language.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.155 ..., caption=Template di Prompt Comprensivo]
+                                                  
+The following languages weren't loadable:
+    ,text$
+This may cause errors in the sequel.
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:155: Package Listings Error: language text undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.155 ..., caption=Template di Prompt Comprensivo]
                                                   
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
+./tex/5-Strategie di prompt e risultati sperimentali.tex:159: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
-[16{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/anonymouspro/AnonymousPro-01.enc}]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 169.
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.159 POI Più 
+               Vicini: {pois_with_distance_text}
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
 
-Overfull \hbox (25.00003pt too wide) in paragraph at lines 169--169
-[] []
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:159: LaTeX Error: Invalid UTF-8 byte "B9.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.159 POI Più 
+               Vicini: {pois_with_distance_text}
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:161: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.161 Suggerisci {top_k} POI più 
+                                  probabili che l'utente visiterà
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:161: LaTeX Error: Invalid UTF-8 byte "B9.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.161 Suggerisci {top_k} POI più 
+                                  probabili che l'utente visiterà
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:161: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.161 ...POI più probabili che l'utente visiterà
+                                                  
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:161: LaTeX Error: Invalid UTF-8 byte "A0.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.161 ...POI più probabili che l'utente visiterà
+                                                  
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+Overfull \hbox (30.21307pt too wide) in paragraph at lines 161--162
+[][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--169
-
- []
 
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:170: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.170 ...dettagliata della geografia della città.
-                                                  
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:170: LaTeX Error: Invalid UTF-8 byte "A0.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.170 ...dettagliata della geografia della città.
-                                                  
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-Overfull \hbox (293.35413pt too wide) in paragraph at lines 170--172
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:179: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.179 Obiettivo: suggerisci i {top_k} POI più 
-                                               probabili che
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:179: LaTeX Error: Invalid UTF-8 byte "B9.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.179 Obiettivo: suggerisci i {top_k} POI più 
-                                               probabili che
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:180: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.180 l'utente visiterà 
-                         dopo, considerando:
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:180: LaTeX Error: Invalid UTF-8 byte "A0.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.180 l'utente visiterà 
-                         dopo, considerando:
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-Overfull \hbox (37.12206pt too wide) in paragraph at lines 183--184
+[19]
+Overfull \hbox (51.8133pt too wide) in paragraph at lines 165--167
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:212: Undefined control sequence.
-l.212 \toprule
-              
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:214: Undefined control sequence.
-<recently read> \midrule 
-                         
-l.214 \midrule
+Overfull \hbox (8.61285pt too wide) in paragraph at lines 167--168
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[20]
+./tex/5-Strategie di prompt e risultati sperimentali.tex:216: Undefined control sequence.
+l.216 \toprule
               
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1147,9 +1353,20 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ./tex/5-Strategie di prompt e risultati sperimentali.tex:218: Undefined control sequence.
+<recently read> \midrule 
+                         
+l.218 \midrule
+              
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:222: Undefined control sequence.
 <recently read> \bottomrule 
                             
-l.218 \bottomrule
+l.222 \bottomrule
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1158,632 +1375,95 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (17.96432pt too wide) in paragraph at lines 211--220
+Overfull \hbox (39.00041pt too wide) in paragraph at lines 215--224
  [][] 
  []
 
 
-
-[17]
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[18]
-Overfull \hbox (2.80325pt too wide) in paragraph at lines 259--259
-[]\T1/qcs/b/n/12 Baseline Stra-te-gy Per-for-man-ce Ana-ly-sis (POI Na-me On-
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[21]
+Overfull \hbox (11.24063pt too wide) in paragraph at lines 235--236
+\T1/qcs/m/n/12 an-no nel pe-rio-do che coin-ci-de a quel-lo de-gli an-ni del-la pan-de-mia COVID-
+ []
+
+)
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[22]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[23] (./tex/6-Configurazione Sperimentale.tex
+LaTeX Font Info:    Font shape `T1/AnonymousPro/m/n' will be
+(Font)              scaled to size 12.0pt on input line 12.
+
+Overfull \hbox (9.5084pt too wide) in paragraph at lines 14--15
+[]\T1/qcs/b/n/12 Clustering com-por-ta-men-ta-le\T1/qcs/m/n/12 : Ap-pli-chia-mo K-means clu-ste-ring ($\OML/cmm/m/it/12 k \OT1/cmr/m/n/12 =
  []
 
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:265: LaTeX Error: Environment subfigure undefined.
+LaTeX Warning: Reference `sec:anchor' on page 24 undefined on input line 24.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.265 \begin{subfigure}
-                       {0.48\textwidth}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:265: Missing number, treated as zero.
-<to be read again> 
-                   }
-l.265 \begin{subfigure}{0.48\textwidth}
-                                       
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:265: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.265 \begin{subfigure}{0.48\textwidth}
-                                       
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:270: LaTeX Error: \begin{figure} on input line 263 ended by \end{subfigure}.
+[24]
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.270 \end{subfigure}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:272: LaTeX Error: Environment subfigure undefined.
+[25])
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.272 \begin{subfigure}
-                       {0.48\textwidth}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:272: Missing number, treated as zero.
-<to be read again> 
-                   }
-l.272 \begin{subfigure}{0.48\textwidth}
-                                       
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:272: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.272 \begin{subfigure}{0.48\textwidth}
-                                       
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
+[26]
 
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:277: LaTeX Error: \begin{figure} on input line 263 ended by \end{subfigure}.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.277 \end{subfigure}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:282: LaTeX Error: Environment subfigure undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.282 \begin{subfigure}
-                       {0.48\textwidth}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:282: Missing number, treated as zero.
-<to be read again> 
-                   }
-l.282 \begin{subfigure}{0.48\textwidth}
-                                       
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:282: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.282 \begin{subfigure}{0.48\textwidth}
-                                       
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:287: LaTeX Error: \begin{figure} on input line 280 ended by \end{subfigure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.287 \end{subfigure}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:289: LaTeX Error: Environment subfigure undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.289 \begin{subfigure}
-                       {0.48\textwidth}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:289: Missing number, treated as zero.
-<to be read again> 
-                   }
-l.289 \begin{subfigure}{0.48\textwidth}
-                                       
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:289: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.289 \begin{subfigure}{0.48\textwidth}
-                                       
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:294: LaTeX Error: \begin{figure} on input line 280 ended by \end{subfigure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.294 \end{subfigure}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (17.48044pt too wide) in paragraph at lines 306--306
-[]\T1/qcs/b/n/12 Geospatial-Enhanced Stra-te-gy Per-for-man-ce Ana-ly-sis (Na-
- []
-
-
-
-[19]
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:312: LaTeX Error: Environment subfigure undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.312 \begin{subfigure}
-                       {0.48\textwidth}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:312: Missing number, treated as zero.
-<to be read again> 
-                   }
-l.312 \begin{subfigure}{0.48\textwidth}
-                                       
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:312: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.312 \begin{subfigure}{0.48\textwidth}
-                                       
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:317: LaTeX Error: \begin{figure} on input line 310 ended by \end{subfigure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.317 \end{subfigure}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:319: LaTeX Error: Environment subfigure undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.319 \begin{subfigure}
-                       {0.48\textwidth}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:319: Missing number, treated as zero.
-<to be read again> 
-                   }
-l.319 \begin{subfigure}{0.48\textwidth}
-                                       
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:319: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.319 \begin{subfigure}{0.48\textwidth}
-                                       
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:324: LaTeX Error: \begin{figure} on input line 310 ended by \end{subfigure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.324 \end{subfigure}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:329: LaTeX Error: Environment subfigure undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.329 \begin{subfigure}
-                       {0.48\textwidth}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:329: Missing number, treated as zero.
-<to be read again> 
-                   }
-l.329 \begin{subfigure}{0.48\textwidth}
-                                       
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:329: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.329 \begin{subfigure}{0.48\textwidth}
-                                       
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:334: LaTeX Error: \begin{figure} on input line 327 ended by \end{subfigure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.334 \end{subfigure}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:336: LaTeX Error: Environment subfigure undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.336 \begin{subfigure}
-                       {0.48\textwidth}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:336: Missing number, treated as zero.
-<to be read again> 
-                   }
-l.336 \begin{subfigure}{0.48\textwidth}
-                                       
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:336: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.336 \begin{subfigure}{0.48\textwidth}
-                                       
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:341: LaTeX Error: \begin{figure} on input line 327 ended by \end{subfigure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.341 \end{subfigure}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:359: LaTeX Error: Environment subfigure undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.359 \begin{subfigure}
-                       {0.48\textwidth}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:359: Missing number, treated as zero.
-<to be read again> 
-                   }
-l.359 \begin{subfigure}{0.48\textwidth}
-                                       
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:359: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.359 \begin{subfigure}{0.48\textwidth}
-                                       
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:364: LaTeX Error: \begin{figure} on input line 357 ended by \end{subfigure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.364 \end{subfigure}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:366: LaTeX Error: Environment subfigure undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.366 \begin{subfigure}
-                       {0.48\textwidth}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:366: Missing number, treated as zero.
-<to be read again> 
-                   }
-l.366 \begin{subfigure}{0.48\textwidth}
-                                       
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:366: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.366 \begin{subfigure}{0.48\textwidth}
-                                       
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:371: LaTeX Error: \begin{figure} on input line 357 ended by \end{subfigure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.371 \end{subfigure}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:376: LaTeX Error: Environment subfigure undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.376 \begin{subfigure}
-                       {0.48\textwidth}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:376: Missing number, treated as zero.
-<to be read again> 
-                   }
-l.376 \begin{subfigure}{0.48\textwidth}
-                                       
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:376: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.376 \begin{subfigure}{0.48\textwidth}
-                                       
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:381: LaTeX Error: \begin{figure} on input line 374 ended by \end{subfigure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.381 \end{subfigure}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:383: LaTeX Error: Environment subfigure undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.383 \begin{subfigure}
-                       {0.48\textwidth}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:383: Missing number, treated as zero.
-<to be read again> 
-                   }
-l.383 \begin{subfigure}{0.48\textwidth}
-                                       
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:383: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.383 \begin{subfigure}{0.48\textwidth}
-                                       
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:388: LaTeX Error: \begin{figure} on input line 374 ended by \end{subfigure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.388 \end{subfigure}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[20]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[21])
-
-[22] (./tex/6-Configurazione Sperimentale.tex
-Overfull \hbox (1.50854pt too wide) in paragraph at lines 5--6
-\T1/qcs/m/n/10.95 Valutiamo il fra-mework LLM-Mob uti-liz-zan-do un di-se-gno spe-ri-men-ta-le com-
- []
-
-
-
-[23])
-
-[24] (./tex/7-Risultati e analisi.tex
-./tex/7-Risultati e analisi.tex:11: Undefined control sequence.
-l.11 \toprule
+[27] (./tex/7-Risultati e analisi.tex
+./tex/7-Risultati e analisi.tex:25: Undefined control sequence.
+l.25 \toprule
              
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1791,10 +1471,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./tex/7-Risultati e analisi.tex:13: Undefined control sequence.
+./tex/7-Risultati e analisi.tex:27: Undefined control sequence.
 <recently read> \midrule 
                          
-l.13 \midrule
+l.27 \midrule
              
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1802,10 +1482,41 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./tex/7-Risultati e analisi.tex:17: Undefined control sequence.
+./tex/7-Risultati e analisi.tex:32: Undefined control sequence.
 <recently read> \bottomrule 
                             
-l.17 \bottomrule
+l.32 \bottomrule
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./tex/7-Risultati e analisi.tex:45: Undefined control sequence.
+l.45 \toprule
+             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./tex/7-Risultati e analisi.tex:47: Undefined control sequence.
+<recently read> \midrule 
+                         
+l.47 \midrule
+             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./tex/7-Risultati e analisi.tex:51: Undefined control sequence.
+<recently read> \bottomrule 
+                            
+l.51 \bottomrule
                 
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1815,26 +1526,230 @@ and I'll forget about whatever was undefined.
 
 
 
-[25])
 
-[26] (./tex/8-Discussione.tex
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[27])
+[28]
+Overfull \hbox (2.20674pt too wide) in paragraph at lines 78--79
+\T1/qcs/m/n/12 tu-ri-sti, con al-cu-ne com-bi-na-zio-ni di POI che mo-stra-no tas-si di co-occorrenza
+ []
 
-[28] (./tex/9-Lavori Futuri.tex)
 
-[29] (./tex/10-Dettagli Implementativi.tex
-Overfull \hbox (6.25038pt too wide) in paragraph at lines 8--9
-[]\T1/qcs/m/n/10.95 Implementazione com-ple-ta in Py-thon con in-fe-ren-za LLM lo-ca-le (ad esem-
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[29]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[30]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[31]
+Overfull \hbox (3.35196pt too wide) in paragraph at lines 157--157
+[]\T1/qcs/b/n/14.4 Copertura del ca-ta-lo-go e di-ver-si-t� del-le rac-co-man-
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[32])
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[33] (./tex/8-Discussione.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[34])
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[35] (./tex/9-Lavori Futuri.tex
+Overfull \hbox (5.39641pt too wide) in paragraph at lines 12--13
+[]\T1/qcs/b/n/12 Integrazione di im-ma-gi-ni POI\T1/qcs/m/n/12 : Svi-lup-po di en-co-der vision-language
+ []
+
+
+Overfull \hbox (1.29848pt too wide) in paragraph at lines 14--15
+[]\T1/qcs/b/n/12 Rappresentazioni audio-spaziali\T1/qcs/m/n/12 : In-te-gra-zio-ne di sound-sca-pes ur-
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[36]
+Overfull \hbox (2.07037pt too wide) in paragraph at lines 37--37
+[]\T1/qcs/b/n/14.4 Sistemi di rac-co-man-da-zio-ne adat-ti-vi in tem-po rea-
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[37]
+Overfull \hbox (4.17845pt too wide) in paragraph at lines 59--60
+[]\T1/qcs/b/n/12 Meta-learning per tu-ri-smo\T1/qcs/m/n/12 : Esplo-ra-zio-ne di ap-proc-ci meta-learning
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[38]
+Overfull \hbox (1.63452pt too wide) in paragraph at lines 75--76
+[]\T1/qcs/b/n/12 Few-shot per-so-na-li-za-tion\T1/qcs/m/n/12 : Tec-ni-che per per-so-na-liz-za-re ra-pi-da-men-
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[39])
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[40]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[41] (./tex/10-Dettagli Implementativi.tex
+Overfull \hbox (3.0685pt too wide) in paragraph at lines 11--12
+[]\T1/qcs/m/n/12 Istruzioni per la con-fi-gu-ra-zio-ne del-l'am-bien-te e l'e-se-cu-zio-ne de-gli espe-
+ []
+
+
+Overfull \hbox (4.13655pt too wide) in paragraph at lines 12--13
+[]\T1/qcs/m/n/12 Documentazione e istru-zio-ni di con-fi-gu-ra-zio-ne (in ag-giun-ta al fi-le read-
  []
 
 )
 
-[30] (./tex/11-Ringraziamenti.tex)
 
-[31] (./tex/13-conclusione.tex)
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[32] (./tex/12-Bibliography.tex)
+[42] (./tex/11-Ringraziamenti.tex)
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[43]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[44] (./tex/13-conclusione.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[45]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[46])
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[47] (./tex/12-Bibliography.tex)
 No file main.lof.
 \tf@lof=\write7
 \openout7 = `main.lof'.
@@ -1852,7 +1767,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[33] (./tex/12-Bibliography.tex) (./tex/11-Ringraziamenti.tex)
+[48] (./tex/12-Bibliography.tex) (./tex/11-Ringraziamenti.tex)
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1861,9 +1776,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[34]
+[49]
 
-/Users/simo/Downloads/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE UFFICIALE/TESI/main.tex:132: LaTeX Error: \begin{abstract} on input line 1 ended by \end{document}.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[50]
+
+/Users/simo/Desktop/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE UFFICIALE/TESI/main.tex:132: LaTeX Error: \begin{itemize} on input line 15 ended by \end{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -1882,6 +1806,9 @@ L3 programming layer <2025-01-18>
  ***********
 
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 
@@ -1891,25 +1818,25 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `main.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  B270B0CB35268416BFF84200E57A812B;12739.
+(rerunfilecheck)             After:  8229D3F417A142296FFFB5D84CB2F4B1;22558.
  )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 1 (\begingroup)
+### semi simple group (level 1) entered at line 15 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 34356 strings out of 473190
- 709719 string characters out of 5715800
- 1517463 words of memory out of 5000000
- 56871 multiletter control sequences out of 15000+600000
- 604507 words of font info for 75 fonts, out of 8000000 for 9000
+ 34447 strings out of 473190
+ 712690 string characters out of 5715800
+ 1511350 words of memory out of 5000000
+ 56895 multiletter control sequences out of 15000+600000
+ 612012 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,11n,107p,1273b,1237s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/anonymouspro/AnonymousPro-Regular.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qcsb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qcsr.pfb>
-Output written on main.pdf (36 pages, 1611409 bytes).
+ 108i,12n,107p,1354b,2055s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/anonymouspro/AnonymousPro-Regular.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qcsb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qcsr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qcsri.pfb>
+Output written on main.pdf (52 pages, 1291769 bytes).
 PDF statistics:
- 412 PDF objects out of 1000 (max. 8388607)
- 328 compressed objects within 4 object streams
- 161 named destinations out of 1000 (max. 500000)
- 48 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 566 PDF objects out of 1000 (max. 8388607)
+ 448 compressed objects within 5 object streams
+ 218 named destinations out of 1000 (max. 500000)
+ 68 words of extra memory for PDF output out of 10000 (max. 10000000)
 
