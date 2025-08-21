@@ -1,0 +1,748 @@
+2025/08/21 19:45:30 routes.go:1158: INFO server config env="map[CUDA_VISIBLE_DEVICES:0 GPU_DEVICE_ORDINAL:0,1 HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_DEBUG:false OLLAMA_FLASH_ATTENTION:true OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:39003 OLLAMA_INTEL_GPU:false OLLAMA_KEEP_ALIVE:4h0m0s OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:10m0s OLLAMA_MAX_LOADED_MODELS:1 OLLAMA_MAX_QUEUE:10 OLLAMA_MODELS:/leonardo_work/IscrC_LLM-Mob/.ollama/models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NUM_PARALLEL:4 OLLAMA_ORIGINS:[* http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://*] OLLAMA_SCHED_SPREAD:false OLLAMA_TMPDIR: ROCR_VISIBLE_DEVICES:0,1 http_proxy: https_proxy: no_proxy:]"
+time=2025-08-21T19:45:30.392+02:00 level=INFO source=images.go:754 msg="total blobs: 15"
+time=2025-08-21T19:45:30.681+02:00 level=INFO source=images.go:761 msg="total unused blobs removed: 0"
+time=2025-08-21T19:45:30.781+02:00 level=INFO source=routes.go:1205 msg="Listening on 127.0.0.1:39003 (version 0.3.14)"
+time=2025-08-21T19:45:30.888+02:00 level=INFO source=common.go:135 msg="extracting embedded files" dir=/tmp/ollama2277111551/runners
+time=2025-08-21T19:46:35.078+02:00 level=INFO source=common.go:49 msg="Dynamic LLM libraries" runners="[cuda_v11 cuda_v12 rocm_v60102 cpu cpu_avx cpu_avx2]"
+time=2025-08-21T19:46:35.085+02:00 level=INFO source=gpu.go:221 msg="looking for compatible GPUs"
+time=2025-08-21T19:46:35.396+02:00 level=INFO source=types.go:123 msg="inference compute" id=GPU-464a6bea-9eaa-3478-5147-a4a53775190b library=cuda variant=v12 compute=8.0 driver=12.2 name="NVIDIA A100-SXM-64GB" total="63.4 GiB" available="63.0 GiB"
+[GIN] 2025/08/21 - 19:46:35 | 200 |   68.703913ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:46:35 | 200 |    4.964171ms |       127.0.0.1 | GET      "/api/tags"
+time=2025-08-21T19:46:36.633+02:00 level=INFO source=sched.go:714 msg="new model will fit in available VRAM in single GPU, loading" model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 gpu=GPU-464a6bea-9eaa-3478-5147-a4a53775190b parallel=4 available=67593371648 required="6.5 GiB"
+time=2025-08-21T19:46:36.721+02:00 level=INFO source=server.go:105 msg="system memory" total="502.9 GiB" free="482.2 GiB" free_swap="0 B"
+time=2025-08-21T19:46:36.721+02:00 level=INFO source=memory.go:326 msg="offload to cuda" layers.requested=-1 layers.model=33 layers.offload=33 layers.split="" memory.available="[63.0 GiB]" memory.gpu_overhead="0 B" memory.required.full="6.5 GiB" memory.required.partial="6.5 GiB" memory.required.kv="1.0 GiB" memory.required.allocations="[6.5 GiB]" memory.weights.total="4.9 GiB" memory.weights.repeating="4.5 GiB" memory.weights.nonrepeating="411.0 MiB" memory.graph.full="560.0 MiB" memory.graph.partial="677.5 MiB"
+time=2025-08-21T19:46:36.745+02:00 level=INFO source=server.go:388 msg="starting llama server" cmd="/tmp/ollama2277111551/runners/cuda_v12/ollama_llama_server --model /leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 --ctx-size 8192 --batch-size 512 --embedding --n-gpu-layers 33 --threads 32 --flash-attn --parallel 4 --port 44061"
+time=2025-08-21T19:46:36.772+02:00 level=INFO source=sched.go:449 msg="loaded runners" count=1
+time=2025-08-21T19:46:36.773+02:00 level=INFO source=server.go:587 msg="waiting for llama runner to start responding"
+time=2025-08-21T19:46:36.774+02:00 level=INFO source=server.go:621 msg="waiting for server to become available" status="llm server error"
+INFO [main] starting c++ runner | tid="23421613019136" timestamp=1755798409
+INFO [main] build info | build=10 commit="3a8c75e" tid="23421613019136" timestamp=1755798409
+INFO [main] system info | n_threads=32 n_threads_batch=32 system_info="AVX = 1 | AVX_VNNI = 0 | AVX2 = 0 | AVX512 = 0 | AVX512_VBMI = 0 | AVX512_VNNI = 0 | AVX512_BF16 = 0 | FMA = 0 | NEON = 0 | SVE = 0 | ARM_FMA = 0 | F16C = 0 | FP16_VA = 0 | RISCV_VECT = 0 | WASM_SIMD = 0 | BLAS = 1 | SSE3 = 1 | SSSE3 = 1 | VSX = 0 | MATMUL_INT8 = 0 | LLAMAFILE = 1 | " tid="23421613019136" timestamp=1755798409 total_threads=32
+INFO [main] HTTP server listening | hostname="127.0.0.1" n_threads_http="31" port="44061" tid="23421613019136" timestamp=1755798409
+time=2025-08-21T19:46:49.553+02:00 level=INFO source=server.go:621 msg="waiting for server to become available" status="llm server loading model"
+llama_model_loader: loaded meta data with 29 key-value pairs and 292 tensors from /leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = llama
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Meta Llama 3.1 8B Instruct
+llama_model_loader: - kv   3:                           general.finetune str              = Instruct
+llama_model_loader: - kv   4:                           general.basename str              = Meta-Llama-3.1
+llama_model_loader: - kv   5:                         general.size_label str              = 8B
+llama_model_loader: - kv   6:                            general.license str              = llama3.1
+llama_model_loader: - kv   7:                               general.tags arr[str,6]       = ["facebook", "meta", "pytorch", "llam...
+llama_model_loader: - kv   8:                          general.languages arr[str,8]       = ["en", "de", "fr", "it", "pt", "hi", ...
+llama_model_loader: - kv   9:                          llama.block_count u32              = 32
+llama_model_loader: - kv  10:                       llama.context_length u32              = 131072
+llama_model_loader: - kv  11:                     llama.embedding_length u32              = 4096
+llama_model_loader: - kv  12:                  llama.feed_forward_length u32              = 14336
+llama_model_loader: - kv  13:                 llama.attention.head_count u32              = 32
+llama_model_loader: - kv  14:              llama.attention.head_count_kv u32              = 8
+llama_model_loader: - kv  15:                       llama.rope.freq_base f32              = 500000.000000
+llama_model_loader: - kv  16:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+llama_model_loader: - kv  17:                          general.file_type u32              = 15
+llama_model_loader: - kv  18:                           llama.vocab_size u32              = 128256
+llama_model_loader: - kv  19:                 llama.rope.dimension_count u32              = 128
+llama_model_loader: - kv  20:                       tokenizer.ggml.model str              = gpt2
+llama_model_loader: - kv  21:                         tokenizer.ggml.pre str              = llama-bpe
+llama_model_loader: - kv  22:                      tokenizer.ggml.tokens arr[str,128256]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+llama_model_loader: - kv  23:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+llama_model_loader: - kv  24:                      tokenizer.ggml.merges arr[str,280147]  = ["Ġ Ġ", "Ġ ĠĠĠ", "ĠĠ ĠĠ", "...
+llama_model_loader: - kv  25:                tokenizer.ggml.bos_token_id u32              = 128000
+llama_model_loader: - kv  26:                tokenizer.ggml.eos_token_id u32              = 128009
+llama_model_loader: - kv  27:                    tokenizer.chat_template str              = {{- bos_token }}\n{%- if custom_tools ...
+llama_model_loader: - kv  28:               general.quantization_version u32              = 2
+llama_model_loader: - type  f32:   66 tensors
+llama_model_loader: - type q4_K:  193 tensors
+llama_model_loader: - type q6_K:   33 tensors
+llm_load_vocab: special tokens cache size = 256
+llm_load_vocab: token to piece cache size = 0.7999 MB
+llm_load_print_meta: format           = GGUF V3 (latest)
+llm_load_print_meta: arch             = llama
+llm_load_print_meta: vocab type       = BPE
+llm_load_print_meta: n_vocab          = 128256
+llm_load_print_meta: n_merges         = 280147
+llm_load_print_meta: vocab_only       = 0
+llm_load_print_meta: n_ctx_train      = 131072
+llm_load_print_meta: n_embd           = 4096
+llm_load_print_meta: n_layer          = 32
+llm_load_print_meta: n_head           = 32
+llm_load_print_meta: n_head_kv        = 8
+llm_load_print_meta: n_rot            = 128
+llm_load_print_meta: n_swa            = 0
+llm_load_print_meta: n_embd_head_k    = 128
+llm_load_print_meta: n_embd_head_v    = 128
+llm_load_print_meta: n_gqa            = 4
+llm_load_print_meta: n_embd_k_gqa     = 1024
+llm_load_print_meta: n_embd_v_gqa     = 1024
+llm_load_print_meta: f_norm_eps       = 0.0e+00
+llm_load_print_meta: f_norm_rms_eps   = 1.0e-05
+llm_load_print_meta: f_clamp_kqv      = 0.0e+00
+llm_load_print_meta: f_max_alibi_bias = 0.0e+00
+llm_load_print_meta: f_logit_scale    = 0.0e+00
+llm_load_print_meta: n_ff             = 14336
+llm_load_print_meta: n_expert         = 0
+llm_load_print_meta: n_expert_used    = 0
+llm_load_print_meta: causal attn      = 1
+llm_load_print_meta: pooling type     = 0
+llm_load_print_meta: rope type        = 0
+llm_load_print_meta: rope scaling     = linear
+llm_load_print_meta: freq_base_train  = 500000.0
+llm_load_print_meta: freq_scale_train = 1
+llm_load_print_meta: n_ctx_orig_yarn  = 131072
+llm_load_print_meta: rope_finetuned   = unknown
+llm_load_print_meta: ssm_d_conv       = 0
+llm_load_print_meta: ssm_d_inner      = 0
+llm_load_print_meta: ssm_d_state      = 0
+llm_load_print_meta: ssm_dt_rank      = 0
+llm_load_print_meta: ssm_dt_b_c_rms   = 0
+llm_load_print_meta: model type       = 8B
+llm_load_print_meta: model ftype      = Q4_K - Medium
+llm_load_print_meta: model params     = 8.03 B
+llm_load_print_meta: model size       = 4.58 GiB (4.89 BPW) 
+llm_load_print_meta: general.name     = Meta Llama 3.1 8B Instruct
+llm_load_print_meta: BOS token        = 128000 '<|begin_of_text|>'
+llm_load_print_meta: EOS token        = 128009 '<|eot_id|>'
+llm_load_print_meta: LF token         = 128 'Ä'
+llm_load_print_meta: EOT token        = 128009 '<|eot_id|>'
+llm_load_print_meta: EOM token        = 128008 '<|eom_id|>'
+llm_load_print_meta: EOG token        = 128008 '<|eom_id|>'
+llm_load_print_meta: EOG token        = 128009 '<|eot_id|>'
+llm_load_print_meta: max token length = 256
+ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no
+ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no
+ggml_cuda_init: found 1 CUDA devices:
+  Device 0: NVIDIA A100-SXM-64GB, compute capability 8.0, VMM: yes
+llm_load_tensors: ggml ctx size =    0.27 MiB
+time=2025-08-21T19:48:36.101+02:00 level=WARN source=server.go:594 msg="client connection closed before server finished loading, aborting load"
+time=2025-08-21T19:48:36.101+02:00 level=ERROR source=sched.go:455 msg="error loading llama server" error="timed out waiting for llama runner to start: context canceled"
+[GIN] 2025/08/21 - 19:48:36 | 499 |          2m0s |       127.0.0.1 | POST     "/api/generate"
+time=2025-08-21T19:48:41.237+02:00 level=WARN source=sched.go:646 msg="gpu VRAM usage didn't recover within timeout" seconds=5.135383139 model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29
+time=2025-08-21T19:48:41.487+02:00 level=WARN source=sched.go:646 msg="gpu VRAM usage didn't recover within timeout" seconds=5.385826788 model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29
+time=2025-08-21T19:48:41.738+02:00 level=WARN source=sched.go:646 msg="gpu VRAM usage didn't recover within timeout" seconds=5.636264126 model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29
+[GIN] 2025/08/21 - 19:49:48 | 200 |    5.980413ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:49:48 | 200 |      39.751µs |       127.0.0.1 | GET      "/api/version"
+[GIN] 2025/08/21 - 19:49:48 | 200 |    6.854835ms |       127.0.0.1 | GET      "/api/tags"
+time=2025-08-21T19:49:48.727+02:00 level=INFO source=sched.go:714 msg="new model will fit in available VRAM in single GPU, loading" model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 gpu=GPU-464a6bea-9eaa-3478-5147-a4a53775190b parallel=4 available=67593371648 required="6.5 GiB"
+time=2025-08-21T19:49:48.810+02:00 level=INFO source=server.go:105 msg="system memory" total="502.9 GiB" free="480.8 GiB" free_swap="0 B"
+time=2025-08-21T19:49:48.810+02:00 level=INFO source=memory.go:326 msg="offload to cuda" layers.requested=-1 layers.model=33 layers.offload=33 layers.split="" memory.available="[63.0 GiB]" memory.gpu_overhead="0 B" memory.required.full="6.5 GiB" memory.required.partial="6.5 GiB" memory.required.kv="1.0 GiB" memory.required.allocations="[6.5 GiB]" memory.weights.total="4.9 GiB" memory.weights.repeating="4.5 GiB" memory.weights.nonrepeating="411.0 MiB" memory.graph.full="560.0 MiB" memory.graph.partial="677.5 MiB"
+time=2025-08-21T19:49:48.811+02:00 level=INFO source=server.go:388 msg="starting llama server" cmd="/tmp/ollama2277111551/runners/cuda_v12/ollama_llama_server --model /leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 --ctx-size 8192 --batch-size 512 --embedding --n-gpu-layers 33 --threads 32 --flash-attn --parallel 4 --port 46701"
+time=2025-08-21T19:49:48.811+02:00 level=INFO source=sched.go:449 msg="loaded runners" count=1
+time=2025-08-21T19:49:48.811+02:00 level=INFO source=server.go:587 msg="waiting for llama runner to start responding"
+time=2025-08-21T19:49:48.811+02:00 level=INFO source=server.go:621 msg="waiting for server to become available" status="llm server error"
+INFO [main] starting c++ runner | tid="22843739815936" timestamp=1755798588
+INFO [main] build info | build=10 commit="3a8c75e" tid="22843739815936" timestamp=1755798588
+INFO [main] system info | n_threads=32 n_threads_batch=32 system_info="AVX = 1 | AVX_VNNI = 0 | AVX2 = 0 | AVX512 = 0 | AVX512_VBMI = 0 | AVX512_VNNI = 0 | AVX512_BF16 = 0 | FMA = 0 | NEON = 0 | SVE = 0 | ARM_FMA = 0 | F16C = 0 | FP16_VA = 0 | RISCV_VECT = 0 | WASM_SIMD = 0 | BLAS = 1 | SSE3 = 1 | SSSE3 = 1 | VSX = 0 | MATMUL_INT8 = 0 | LLAMAFILE = 1 | " tid="22843739815936" timestamp=1755798588 total_threads=32
+INFO [main] HTTP server listening | hostname="127.0.0.1" n_threads_http="31" port="46701" tid="22843739815936" timestamp=1755798588
+llama_model_loader: loaded meta data with 29 key-value pairs and 292 tensors from /leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29 (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = llama
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Meta Llama 3.1 8B Instruct
+llama_model_loader: - kv   3:                           general.finetune str              = Instruct
+llama_model_loader: - kv   4:                           general.basename str              = Meta-Llama-3.1
+llama_model_loader: - kv   5:                         general.size_label str              = 8B
+llama_model_loader: - kv   6:                            general.license str              = llama3.1
+llama_model_loader: - kv   7:                               general.tags arr[str,6]       = ["facebook", "meta", "pytorch", "llam...
+llama_model_loader: - kv   8:                          general.languages arr[str,8]       = ["en", "de", "fr", "it", "pt", "hi", ...
+llama_model_loader: - kv   9:                          llama.block_count u32              = 32
+llama_model_loader: - kv  10:                       llama.context_length u32              = 131072
+llama_model_loader: - kv  11:                     llama.embedding_length u32              = 4096
+llama_model_loader: - kv  12:                  llama.feed_forward_length u32              = 14336
+llama_model_loader: - kv  13:                 llama.attention.head_count u32              = 32
+llama_model_loader: - kv  14:              llama.attention.head_count_kv u32              = 8
+llama_model_loader: - kv  15:                       llama.rope.freq_base f32              = 500000.000000
+llama_model_loader: - kv  16:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+llama_model_loader: - kv  17:                          general.file_type u32              = 15
+llama_model_loader: - kv  18:                           llama.vocab_size u32              = 128256
+llama_model_loader: - kv  19:                 llama.rope.dimension_count u32              = 128
+llama_model_loader: - kv  20:                       tokenizer.ggml.model str              = gpt2
+llama_model_loader: - kv  21:                         tokenizer.ggml.pre str              = llama-bpe
+llama_model_loader: - kv  22:                      tokenizer.ggml.tokens arr[str,128256]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+llama_model_loader: - kv  23:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+llama_model_loader: - kv  24:                      tokenizer.ggml.merges arr[str,280147]  = ["Ġ Ġ", "Ġ ĠĠĠ", "ĠĠ ĠĠ", "...
+llama_model_loader: - kv  25:                tokenizer.ggml.bos_token_id u32              = 128000
+llama_model_loader: - kv  26:                tokenizer.ggml.eos_token_id u32              = 128009
+llama_model_loader: - kv  27:                    tokenizer.chat_template str              = {{- bos_token }}\n{%- if custom_tools ...
+llama_model_loader: - kv  28:               general.quantization_version u32              = 2
+llama_model_loader: - type  f32:   66 tensors
+llama_model_loader: - type q4_K:  193 tensors
+llama_model_loader: - type q6_K:   33 tensors
+time=2025-08-21T19:49:49.063+02:00 level=INFO source=server.go:621 msg="waiting for server to become available" status="llm server loading model"
+llm_load_vocab: special tokens cache size = 256
+llm_load_vocab: token to piece cache size = 0.7999 MB
+llm_load_print_meta: format           = GGUF V3 (latest)
+llm_load_print_meta: arch             = llama
+llm_load_print_meta: vocab type       = BPE
+llm_load_print_meta: n_vocab          = 128256
+llm_load_print_meta: n_merges         = 280147
+llm_load_print_meta: vocab_only       = 0
+llm_load_print_meta: n_ctx_train      = 131072
+llm_load_print_meta: n_embd           = 4096
+llm_load_print_meta: n_layer          = 32
+llm_load_print_meta: n_head           = 32
+llm_load_print_meta: n_head_kv        = 8
+llm_load_print_meta: n_rot            = 128
+llm_load_print_meta: n_swa            = 0
+llm_load_print_meta: n_embd_head_k    = 128
+llm_load_print_meta: n_embd_head_v    = 128
+llm_load_print_meta: n_gqa            = 4
+llm_load_print_meta: n_embd_k_gqa     = 1024
+llm_load_print_meta: n_embd_v_gqa     = 1024
+llm_load_print_meta: f_norm_eps       = 0.0e+00
+llm_load_print_meta: f_norm_rms_eps   = 1.0e-05
+llm_load_print_meta: f_clamp_kqv      = 0.0e+00
+llm_load_print_meta: f_max_alibi_bias = 0.0e+00
+llm_load_print_meta: f_logit_scale    = 0.0e+00
+llm_load_print_meta: n_ff             = 14336
+llm_load_print_meta: n_expert         = 0
+llm_load_print_meta: n_expert_used    = 0
+llm_load_print_meta: causal attn      = 1
+llm_load_print_meta: pooling type     = 0
+llm_load_print_meta: rope type        = 0
+llm_load_print_meta: rope scaling     = linear
+llm_load_print_meta: freq_base_train  = 500000.0
+llm_load_print_meta: freq_scale_train = 1
+llm_load_print_meta: n_ctx_orig_yarn  = 131072
+llm_load_print_meta: rope_finetuned   = unknown
+llm_load_print_meta: ssm_d_conv       = 0
+llm_load_print_meta: ssm_d_inner      = 0
+llm_load_print_meta: ssm_d_state      = 0
+llm_load_print_meta: ssm_dt_rank      = 0
+llm_load_print_meta: ssm_dt_b_c_rms   = 0
+llm_load_print_meta: model type       = 8B
+llm_load_print_meta: model ftype      = Q4_K - Medium
+llm_load_print_meta: model params     = 8.03 B
+llm_load_print_meta: model size       = 4.58 GiB (4.89 BPW) 
+llm_load_print_meta: general.name     = Meta Llama 3.1 8B Instruct
+llm_load_print_meta: BOS token        = 128000 '<|begin_of_text|>'
+llm_load_print_meta: EOS token        = 128009 '<|eot_id|>'
+llm_load_print_meta: LF token         = 128 'Ä'
+llm_load_print_meta: EOT token        = 128009 '<|eot_id|>'
+llm_load_print_meta: EOM token        = 128008 '<|eom_id|>'
+llm_load_print_meta: EOG token        = 128008 '<|eom_id|>'
+llm_load_print_meta: EOG token        = 128009 '<|eot_id|>'
+llm_load_print_meta: max token length = 256
+ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no
+ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no
+ggml_cuda_init: found 1 CUDA devices:
+  Device 0: NVIDIA A100-SXM-64GB, compute capability 8.0, VMM: yes
+llm_load_tensors: ggml ctx size =    0.27 MiB
+llm_load_tensors: offloading 32 repeating layers to GPU
+llm_load_tensors: offloading non-repeating layers to GPU
+llm_load_tensors: offloaded 33/33 layers to GPU
+llm_load_tensors:        CPU buffer size =   281.81 MiB
+llm_load_tensors:      CUDA0 buffer size =  4403.50 MiB
+llama_new_context_with_model: n_ctx      = 8192
+llama_new_context_with_model: n_batch    = 512
+llama_new_context_with_model: n_ubatch   = 512
+llama_new_context_with_model: flash_attn = 1
+llama_new_context_with_model: freq_base  = 500000.0
+llama_new_context_with_model: freq_scale = 1
+llama_kv_cache_init:      CUDA0 KV buffer size =  1024.00 MiB
+llama_new_context_with_model: KV self size  = 1024.00 MiB, K (f16):  512.00 MiB, V (f16):  512.00 MiB
+llama_new_context_with_model:  CUDA_Host  output buffer size =     2.02 MiB
+llama_new_context_with_model:      CUDA0 compute buffer size =   258.50 MiB
+llama_new_context_with_model:  CUDA_Host compute buffer size =    24.01 MiB
+llama_new_context_with_model: graph nodes  = 903
+llama_new_context_with_model: graph splits = 2
+INFO [main] model loaded | tid="22843739815936" timestamp=1755798590
+time=2025-08-21T19:49:50.566+02:00 level=INFO source=server.go:626 msg="llama runner started in 1.76 seconds"
+[GIN] 2025/08/21 - 19:49:50 | 200 |  2.061415664s |       127.0.0.1 | POST     "/api/generate"
+[GIN] 2025/08/21 - 19:50:01 | 200 |    6.140536ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:01 | 200 |    5.279937ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:01 | 200 |     5.49327ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:01 | 200 |    7.527339ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:02 | 200 |  1.161734664s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:02 | 200 |    5.391688ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:02 | 200 |  1.619960936s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:02 | 200 |  1.718678681s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:02 | 200 |    4.672028ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:03 | 200 |   14.081597ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:03 | 200 |   30.967594ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:03 | 200 |  2.665665204s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:04 | 200 |   1.62466205s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:04 | 200 |   12.045748ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:04 | 200 |  1.601962617s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:05 | 200 |  1.794628727s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:05 | 200 |   12.736905ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:05 | 200 |  1.380295512s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:05 | 200 |   12.079547ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:06 | 200 |  2.182897575s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:06 | 200 |   19.176302ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:06 | 200 |  1.330010946s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:06 | 200 |  1.305328307s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:06 | 200 |   23.874621ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:07 | 200 |   27.987362ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:07 | 200 |  1.054171728s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:07 | 200 |   12.071286ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:08 | 200 |  1.355962086s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:08 | 200 |   17.110938ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:08 | 200 |    5.875723ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:08 | 200 |   1.68521089s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:09 | 200 |    7.124116ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:10 | 200 |  1.884316439s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:10 | 200 |   31.960058ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:10 | 200 |    2.6077302s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:10 | 200 |  1.607169038s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:10 | 200 |   13.258586ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:10 | 200 |    7.875112ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:10 | 200 |  1.571142483s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:11 | 200 |    8.726704ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:12 | 200 |  1.306989628s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:12 | 200 |    6.016522ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:12 | 200 |  1.958135601s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:12 | 200 |    5.968982ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:12 | 200 |  1.850511239s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:12 | 200 |  1.229951808s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:12 | 200 |    6.657767ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:13 | 200 |  1.172732507s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:13 | 200 |    16.49211ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:13 | 200 |    6.575352ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:13 | 200 |   1.55539639s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:14 | 200 |   1.57505359s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:14 | 200 |    7.546549ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:14 | 200 |    6.406813ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:14 | 200 |  1.520507029s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:15 | 200 |    7.527004ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:15 | 200 |  1.810353814s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:16 | 200 |    7.590299ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:16 | 200 |  2.416570977s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:16 | 200 |  2.035104664s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:16 | 200 |     6.59719ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:17 | 200 |    6.911069ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:17 | 200 |  2.410065701s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:17 | 200 |     4.93884ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:18 | 200 |  1.708926645s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:18 | 200 |    7.913747ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:18 | 200 |    4.985613ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:18 | 200 |  1.689402738s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:18 | 200 |  2.401680815s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:19 | 200 |    3.952034ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:19 | 200 |  1.901876594s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:19 | 200 |    7.070117ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:20 | 200 |  1.689698197s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:20 | 200 |     4.89383ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:20 | 200 |   11.280995ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:21 | 200 |  2.280120312s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:21 | 200 |    6.761405ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:21 | 200 |  2.452736187s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:21 | 200 |  1.910476307s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:21 | 200 |     8.49322ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:22 | 200 |    5.550178ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:22 | 200 |  1.716080279s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:23 | 200 |  2.111818121s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:23 | 200 |  1.334921359s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:23 | 200 |    7.749676ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:23 | 200 |    6.234924ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:23 | 200 |    6.765378ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:25 | 200 |    4.903054ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:25 | 200 |  4.607954853s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:25 | 200 |    5.367012ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:25 | 200 |  2.726930628s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:25 | 200 |    9.766126ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:26 | 200 |  2.956379177s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:26 | 200 |    7.494873ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:26 | 200 |  3.076043274s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:27 | 200 |  2.428283977s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:27 | 200 |    5.177278ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:27 | 200 |    6.537718ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:28 | 200 |  6.054227066s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:28 | 200 |    4.676856ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:28 | 200 |  2.775301832s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:29 | 200 |  2.874304297s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:29 | 200 |    5.780663ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:29 | 200 |  4.126390422s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:29 | 200 |    6.361795ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:29 | 200 |  2.064401082s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:30 | 200 |    5.707454ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:30 | 200 |  2.424394728s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:30 | 200 |     7.96975ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:31 | 200 |  1.797538312s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:31 | 200 |  2.652209008s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:31 | 200 |    13.12659ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:31 | 200 |  1.930810399s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:32 | 200 |    5.103742ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:32 | 200 |  2.583052297s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:32 | 200 |    7.125253ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:32 | 200 |  1.563254632s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:32 | 200 |  2.643325214s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:32 | 200 |     4.66635ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:33 | 200 |    5.081925ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:33 | 200 |   1.57803135s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:33 | 200 |    4.832215ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:33 | 200 |  1.752737427s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:34 | 200 |  1.245766772s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:34 | 200 |   11.428777ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:35 | 200 |    6.073854ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:35 | 200 |  1.310310301s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:35 | 200 |  2.753752714s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:35 | 200 |    7.408102ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:36 | 200 |  1.292087697s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:36 | 200 |    10.79783ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:36 | 200 |      8.2348ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:37 | 200 |  2.482047672s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:37 | 200 |   13.413645ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:38 | 200 |  1.689357911s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:38 | 200 |  2.493608354s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:38 | 200 |    5.711764ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:38 | 200 |  1.865820097s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:38 | 200 |  1.511418208s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:38 | 200 |    4.835037ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:39 | 200 |    5.396124ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:40 | 200 |    5.625506ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:40 | 200 |  2.292487961s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:40 | 200 |     6.23663ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:41 | 200 |    2.1391748s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:41 | 200 |    6.352664ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:42 | 200 |  1.925411271s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:42 | 200 |   12.489721ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:42 | 200 |  3.221301668s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:42 | 200 |  1.724373296s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:42 | 200 |  1.416899977s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:42 | 200 |    6.146243ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:42 | 200 |   11.308242ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:43 | 200 |  1.234708425s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:43 | 200 |    8.646444ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:43 | 200 |    5.068258ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:44 | 200 |  1.689701907s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:44 | 200 |    6.074911ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:45 | 200 |   17.024286ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:45 | 200 |  2.715395464s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:45 | 200 |  1.906200226s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:45 | 200 |   45.330772ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:45 | 200 |   12.858569ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:45 | 200 |  1.978055109s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:46 | 200 |     8.85755ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:46 | 200 |  1.885729385s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:47 | 200 |    6.488812ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:47 | 200 |   1.93152163s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:47 | 200 |    6.014764ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:47 | 200 |   1.69275381s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:48 | 200 |  3.103845628s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:48 | 200 |    4.030348ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:48 | 200 |  3.127511613s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:48 | 200 |     9.37647ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:49 | 200 |   10.348263ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:49 | 200 |  1.866857946s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:49 | 200 |  1.410723735s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:49 | 200 |   11.603622ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:49 | 200 |  2.004246498s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:49 | 200 |   10.748562ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:50 | 200 |   20.650937ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:50 | 200 |  1.050420185s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:51 | 200 |   1.86183674s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:51 | 200 |    6.919948ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:51 | 200 |  1.725818121s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:51 | 200 |    4.590719ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:52 | 200 |   28.747263ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:52 | 200 |  1.720672967s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:52 | 200 |    9.774154ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:52 | 200 |  3.857251836s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:53 | 200 |    5.458971ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:53 | 200 |  1.967117412s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:53 | 200 |  1.542205755s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:53 | 200 |   29.111887ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:54 | 200 |    7.691168ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:54 | 200 |    8.035582ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:55 | 200 |  1.975360363s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:55 | 200 |  3.107105107s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:55 | 200 |     7.28259ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:55 | 200 |   3.99095164s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:55 | 200 |    8.210106ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:55 | 200 |   1.87511593s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:56 | 200 |    9.531913ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:56 | 200 |  1.963823827s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:56 | 200 |     5.45416ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:57 | 200 |  2.222620584s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:57 | 200 |  3.251927226s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:57 | 200 |    5.872625ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:58 | 200 |    6.506429ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:58 | 200 |  2.954410085s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:58 | 200 |    4.801281ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:58 | 200 |  2.464235369s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:59 | 200 |   16.214255ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:50:59 | 200 |  2.451491312s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:59 | 200 |  1.823798295s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:50:59 | 200 |   16.273749ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:00 | 200 |    6.408718ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:00 | 200 |  1.784702908s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:00 | 200 |    6.951231ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:00 | 200 |  1.853731812s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:01 | 200 |    6.793812ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:01 | 200 |   1.19817919s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:01 | 200 |    5.325586ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:02 | 200 |   1.04459956s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:02 | 200 |  2.583749853s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:02 | 200 |    3.642826ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:02 | 200 |  3.493722056s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:02 | 200 |    4.133693ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:02 | 200 |  1.717538615s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:02 | 200 |    4.817437ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:03 | 200 |    4.377884ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:04 | 200 |    1.8971379s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:04 | 200 |  2.176628766s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:04 | 200 |     6.13906ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:05 | 200 |    6.841922ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:05 | 200 |  4.372950168s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:06 | 200 |  1.629607839s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:06 | 200 |    7.458607ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:06 | 200 |  2.542207923s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:06 | 200 |    7.875461ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:07 | 200 |    9.128321ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:07 | 200 |  1.963512219s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:07 | 200 |  4.832721951s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:07 | 200 |    7.790658ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:08 | 200 |   17.140435ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:09 | 200 |  2.906289099s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:09 | 200 |    9.004867ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:09 | 200 |  2.585807568s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:09 | 200 |    6.945787ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:09 | 200 |  2.534201965s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:09 | 200 |    4.473827ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:10 | 200 |  2.730191266s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:10 | 200 |   15.469639ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:10 | 200 |  2.453000459s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:10 | 200 |  1.694650012s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:10 | 200 |   11.619151ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:12 | 200 |  2.358249094s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:12 | 200 |    18.86381ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:12 | 200 |  1.598693062s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:12 | 200 |     9.26874ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:12 | 200 |  1.984643989s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:12 | 200 |  2.989997313s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:12 | 200 |    6.125434ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:12 | 200 |    6.511347ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:14 | 200 |   11.814091ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:14 | 200 |  1.444199602s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:14 | 200 |  1.772406975s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:14 | 200 |    13.00345ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:14 | 200 |  1.696140031s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:14 | 200 |   10.091732ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:15 | 200 |   11.095068ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:15 | 200 |  1.432670732s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:15 | 200 |    8.114835ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:16 | 200 |  3.664554157s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:16 | 200 |  1.627563735s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:16 | 200 |    6.092223ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:16 | 200 |    7.051268ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:17 | 200 |  2.079194707s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:17 | 200 |  2.369307935s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:17 | 200 |    6.796458ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:17 | 200 |  1.869977208s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:17 | 200 |    6.122452ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:18 | 200 |   11.797801ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:18 | 200 |  1.483347542s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:18 | 200 |  2.097005906s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:18 | 200 |   13.643836ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:19 | 200 |  3.025519426s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:19 | 200 |   11.674282ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:19 | 200 |  1.740237874s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:20 | 200 |   20.658425ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:20 | 200 |  1.478409389s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:20 | 200 |    7.066019ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:21 | 200 |    13.44348ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:21 | 200 |  2.480135649s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:21 | 200 |  1.373259282s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:21 | 200 |    4.738685ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:22 | 200 |  3.114226572s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:22 | 200 |   16.342237ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:22 | 200 |    6.691375ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:22 | 200 |  1.859162517s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:22 | 200 |  1.779568241s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:22 | 200 |   15.237541ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:23 | 200 |  1.654251695s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:23 | 200 |   10.195463ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:24 | 200 |  1.750707671s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:24 | 200 |    7.594605ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:24 | 200 |  2.380821836s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:24 | 200 |    8.677937ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:25 | 200 |  2.528235674s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:25 | 200 |    6.268295ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:25 | 200 |  2.029291327s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:25 | 200 |     4.79272ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:26 | 200 |  1.606388019s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:26 | 200 |    7.591043ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:26 | 200 |  2.234955724s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:26 | 200 |    5.748204ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:27 | 200 |    9.784376ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:27 | 200 |  1.846909819s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:27 | 200 |    6.505439ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:27 | 200 |  1.403812829s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:28 | 200 |   11.034555ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:28 | 200 |  2.284051745s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:28 | 200 |    5.786223ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:28 | 200 |  1.742502209s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:28 | 200 |  1.738924618s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:29 | 200 |   10.268467ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:29 | 200 |  1.302348139s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:29 | 200 |      6.2124ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:29 | 200 |  1.531416884s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:30 | 200 |    6.367376ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:30 | 200 |   10.128285ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:30 | 200 |  3.118548408s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:30 | 200 |   15.782905ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:30 | 200 |  1.853603646s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:31 | 200 |    7.359463ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:31 | 200 |  2.325596758s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:32 | 200 |    6.940542ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:32 | 200 |  2.060254051s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:32 | 200 |  1.767732879s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:32 | 200 |    11.99102ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:32 | 200 |  2.437467394s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:33 | 200 |    6.623512ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:33 | 200 |  1.647298792s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:33 | 200 |    7.146245ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:34 | 200 |  1.626281037s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:34 | 200 |   16.082042ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:34 | 200 |  2.346174469s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:34 | 200 |    6.554451ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:34 | 200 |  1.617646326s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:35 | 200 |  1.524215336s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:35 | 200 |   11.515631ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:35 | 200 |   10.854085ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:36 | 200 |  1.776704218s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:36 | 200 |     7.60877ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:36 | 200 |  2.610557223s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:36 | 200 |  1.569761035s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:36 | 200 |    7.033759ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:36 | 200 |    4.927656ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:37 | 200 |  1.622454567s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:37 | 200 |  1.490719247s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:37 | 200 |    8.986024ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:38 | 200 |    8.124119ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:39 | 200 |   2.14526135s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:39 | 200 |    5.106264ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:39 | 200 |  2.483039805s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:39 | 200 |    5.465983ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:40 | 200 |    9.525814ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:40 | 200 |  1.775542788s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:40 | 200 |   10.131532ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:41 | 200 |  1.573916076s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:41 | 200 |  3.397420283s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:41 | 200 |   25.329507ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:41 | 200 |  1.778517158s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:41 | 200 |    15.85976ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:42 | 200 |  1.188874651s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:42 | 200 |    18.17755ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:42 | 200 |  1.896261002s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:43 | 200 |   13.740355ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:43 | 200 |   2.97277364s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:43 | 200 |    11.29091ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:44 | 200 |  1.434927688s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:44 | 200 |   15.015567ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:44 | 200 |    3.1848451s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:44 | 200 |  1.853188654s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:45 | 200 |   18.083912ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:45 | 200 |    7.396855ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:45 | 200 |    22.13124ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:45 | 200 |  1.685892153s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:46 | 200 |   11.225736ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:46 | 200 |  1.254564351s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:46 | 200 |  1.300463635s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:46 | 200 |    5.212109ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:46 | 200 |  3.095998688s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:46 | 200 |    8.369415ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:47 | 200 |  1.498446696s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:47 | 200 |   16.262144ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:48 | 200 |  1.611631934s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:48 | 200 |    6.203854ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:48 | 200 |   1.63098552s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:48 | 200 |    9.505835ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:48 | 200 |    6.779251ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:49 | 200 |  2.982085557s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:49 | 200 |  1.945554806s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:49 | 200 |   14.517204ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:50 | 200 |  1.963887079s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:50 | 200 |   13.632933ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:50 | 200 |  2.461937472s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:50 | 200 |    8.087704ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:51 | 200 |   12.072688ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:51 | 200 |  2.471714561s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:52 | 200 |    9.019927ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:52 | 200 |  1.730165597s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:52 | 200 |  2.123575318s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:52 | 200 |   22.042927ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:53 | 200 |  4.502088374s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:53 | 200 |    9.121719ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:53 | 200 |  2.585786898s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:53 | 200 |   10.590174ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:54 | 200 |  1.593152622s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:54 | 200 |   12.233272ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:54 | 200 |  2.623899838s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:54 | 200 |    7.370307ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:55 | 200 |  1.760397233s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:55 | 200 |    11.70258ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:55 | 200 |  1.830207513s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:55 | 200 |   10.247119ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:56 | 200 |  1.868789343s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:56 | 200 |   11.919067ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:56 | 200 |  1.962109153s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:56 | 200 |    7.807683ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:57 | 200 |  1.143955226s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:57 | 200 |    9.165087ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:57 | 200 |  1.864882898s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:58 | 200 |   1.48028074s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:58 | 200 |   12.573697ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:58 | 200 |   14.309067ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:58 | 200 |  1.838616889s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:58 | 200 |    7.479301ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:51:59 | 200 |  2.042105407s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:51:59 | 200 |    8.434118ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:00 | 200 |    9.941216ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:00 | 200 |  1.803286888s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:00 | 200 |    8.014296ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:01 | 200 |  1.822162508s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:01 | 200 |   2.45169363s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:01 | 200 |    6.717296ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:01 | 200 |  3.131511854s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:01 | 200 |   15.506457ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:02 | 200 |   11.923659ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:02 | 200 |  1.876504127s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:02 | 200 |  1.601697708s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:02 | 200 |  1.749031222s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:03 | 200 |    7.861317ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:03 | 200 |    9.630809ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:03 | 200 |  1.511040092s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:03 | 200 |   12.346377ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:04 | 200 |   14.959355ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:04 | 200 |  1.664296606s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:05 | 200 |   10.001551ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:05 | 200 |  4.530725186s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:05 | 200 |     8.56103ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:06 | 200 |  2.257431097s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:06 | 200 |   1.58121089s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:06 | 200 |  3.116132703s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:06 | 200 |   16.210719ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:06 | 200 |    8.997162ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:07 | 200 |  1.921319311s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:07 | 200 |    8.950689ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:07 | 200 |   2.19208575s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:07 | 200 |   13.352574ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:08 | 200 |  1.826867686s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:08 | 200 |   11.932351ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:08 | 200 |   1.77660091s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:09 | 200 |   11.956583ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:09 | 200 |  2.863989502s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:09 | 200 |   14.308094ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:10 | 200 |  2.276805633s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:10 | 200 |    6.056057ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:10 | 200 |    6.930137ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:10 | 200 |   2.73383736s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:11 | 200 |   10.968866ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:11 | 200 |  2.158003653s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:12 | 200 |  1.693344425s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:12 | 200 |   11.837792ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:12 | 200 |   10.853201ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:12 | 200 |    4.563115ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:12 | 200 |   2.14540647s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:13 | 200 |  3.391349797s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:13 | 200 |    7.455117ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:13 | 200 |    7.817961ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:14 | 200 |  3.025498787s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:14 | 200 |   15.270343ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:14 | 200 |  2.211390235s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:15 | 200 |  2.913018275s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:15 | 200 |    6.000207ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:15 | 200 |  2.516740025s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 19:52:15 | 200 |    6.001602ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 19:52:15 | 200 |  3.868103342s |       127.0.0.1 | POST     "/api/chat"
