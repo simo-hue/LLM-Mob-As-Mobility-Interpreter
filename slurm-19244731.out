@@ -1,0 +1,134 @@
+🚀 LLM-MOB PRODUCTION RUN - TUTTI GLI UTENTI
+=============================================
+Job ID: 19244731
+Nodo: lrdn3447.leonardo.local
+Data: Thu Aug 21 15:15:53 CEST 2025
+💡 MODALITÀ: Processamento completo senza limiti utenti
+
+📦 Caricamento moduli e ambiente...
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+✓ Python: Python 3.11.6
+✓ Virtual env: /leonardo_work/IscrC_LLM-Mob/venv
+✓ CUDA: Cuda compilation tools, release 12.3, V12.3.103
+
+🔍 INFO GPU:
+name, memory.total [MiB], memory.used [MiB], utilization.gpu [%], temperature.gpu
+NVIDIA A100-SXM-64GB, 65536 MiB, 2 MiB, 0 %, 43
+CUDA_VISIBLE_DEVICES: 0
+
+⚙️  Configurazione Ollama...
+✓ Versione Ollama: 0.3.14
+
+🚀 Avvio server Ollama per produzione...
+✓ Porta server: 39003
+🧹 Pulizia processi precedenti...
+✓ Server PID: 1313192
+✓ Log file: ollama_production.log
+
+⏳ Attesa avvio server (max 60s)...
+   ⏱️  Attesa... (20s) - controllo log:
+     llm_load_tensors: ggml ctx size =    0.29 MiB
+     time=2025-08-21T15:16:59.966+02:00 level=INFO source=server.go:621 msg="waiting for server to become available" status="llm server loading model"
+✅ Server operativo dopo 30s
+
+🔥 Preparazione modello per produzione...
+📋 Modelli disponibili:
+  ✓ deepseek-coder:33b
+  ✓ mixtral:8x7b
+  ✓ llama3.1:8b
+✅ Modello mixtral:8x7b disponibile
+
+🎯 AVVIO PRODUZIONE - PROCESSAMENTO COMPLETO
+=============================================
+✅ Configurazione produzione attiva
+📊 Nessun limite utenti - processamento completo
+⏱️  Tempo stimato: variabile (dipende dai dati)
+🔄 Retry automatici: 5 tentativi per richiesta
+
+📦 Verifica dipendenze Python...
+📁 Directory risultati: /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/results/
+🚀 AVVIO SCRIPT PRODUZIONE...
+📝 Log dettagliato disponibile in tempo reale
+
+2025-08-21 15:19:08,598 WARNING: ⚠️ Timeout tentativo 1/3
+2025-08-21 15:20:48,634 WARNING: ⚠️ Timeout tentativo 2/3
+📊 [15:22:48] Progresso: 0 files, 4.0K
+🔧 [15:22:49] GPU: 25630MB mem, 1% util
+2025-08-21 15:22:58,740 WARNING: ⚠️ Timeout tentativo 3/3
+2025-08-21 15:22:58,747 ERROR: ❌ Tutti i tentativi di micro inference falliti
+2025-08-21 15:22:58,747 ERROR: ❌ Ollama non funziona, aborting
+👉 Porta letta da ollama_port.txt: '39003'
+👉 Provo a contattare http://127.0.0.1:39003/api/tags
+📂 Working dir: /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter
+📄 Contenuto di ollama_port.txt: '39003'
+🔄 Attesa Ollama su http://127.0.0.1:39003...
+✓ Ollama risponde con status 200
+✓ Runner LLaMA completamente attivo
+🎉 Connessione Ollama stabilita con successo!
+
+❌ ERRORE IN PRODUZIONE (exit code: 1)
+⏱️  Tempo prima del fallimento: 311 secondi
+⚠️  Errore generico - controllare log
+
+📋 REPORT FINALE PRODUZIONE
+============================
+⏱️  Tempo totale job: 426 secondi (0h 7m)
+🔧 Versione Ollama: 0.3.14
+📊 Modalità: Produzione completa (tutti gli utenti)
+✅ Python success: false
+/var/spool/slurmd/job19244731/slurm_script: line 331: 1313286 Terminated              monitor_progress
+
+📁 RISULTATI GENERATI:
+   📊 Total files: 0
+   💾 Total size: 4.0K
+
+   📋 File generati:
+
+🔧 STATO FINALE SISTEMA:
+memory.used [MiB], memory.total [MiB], utilization.gpu [%], temperature.gpu
+25630 MiB, 65536 MiB, 10 %, 44
+
+📊 LOG OLLAMA (ultimi 20 righe):
+[GIN] 2025/08/21 - 15:22:39 | 200 |  1.466477928s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 15:22:39 | 200 |    4.937082ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 15:22:42 | 200 |  2.660197753s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 15:22:42 | 200 |    6.642129ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 15:22:44 | 200 |  1.640534495s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 15:22:44 | 200 |    9.777157ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 15:22:46 | 200 |  1.845205301s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 15:22:46 | 200 |    4.987605ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 15:22:47 | 200 |  1.518604374s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 15:22:47 | 200 |     6.04496ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 15:22:49 | 200 |  1.276575786s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 15:22:49 | 200 |   83.973471ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 15:22:51 | 200 |  2.393990707s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 15:22:51 | 200 |    6.258718ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 15:22:53 | 200 |  1.206591253s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 15:22:53 | 200 |    8.856629ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 15:22:54 | 200 |   1.42829189s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 15:22:54 | 200 |    9.586355ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/08/21 - 15:22:57 | 200 |  2.531430645s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/08/21 - 15:22:57 | 200 |    7.807778ms |       127.0.0.1 | GET      "/api/tags"
+
+⚠️ JOB PRODUZIONE TERMINATO CON ERRORI
+📋 Verificare log per dettagli specifici
+
+🏁 Fine job: Thu Aug 21 15:22:59 CEST 2025
+=============================================
+
+🧹 CLEANUP PRODUZIONE...
+🕐 Tempo totale job: 426 secondi (0h 7m)
+📊 Stato GPU finale:
+memory.used [MiB], memory.total [MiB], utilization.gpu [%], temperature.gpu
+25630 MiB, 65536 MiB, 10 %, 44
+📁 Risultati generati: 0 files
+💾 Dimensione risultati: 4.0K
+🔄 Shutdown graceful Ollama...
+✓ Cleanup completato

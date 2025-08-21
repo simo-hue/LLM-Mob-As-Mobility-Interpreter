@@ -1,0 +1,22 @@
+2025-08-21 15:19:08,598 WARNING: ⚠️ Timeout tentativo 1/3
+2025-08-21 15:19:08,610 WARNING: ⚠️ Timeout tentativo 1/3
+2025-08-21 15:19:59,270 INFO: ✅ Ollama test passed - Response: 'Hello'
+2025-08-21 15:19:59,276 INFO: 🎯 Processamento file singolo: veronacard_2022_original.csv
+2025-08-21 15:19:59,276 INFO: 📍 Path completo: /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/veronacard_2020_2023/veronacard_2022_original.csv
+2025-08-21 15:19:59,278 INFO: 
+======================================================================
+2025-08-21 15:19:59,278 INFO: ▶  PROCESSO FILE: veronacard_2022_original.csv
+2025-08-21 15:19:59,278 INFO: ======================================================================
+2025-08-21 15:19:59,278 INFO: ▶  ho caricato e pulito i dati
+2025-08-21 15:19:59,535 INFO: [load_pois] 22 POI letti da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-21 15:20:01,309 INFO: [load_visits] 382345 timbrature da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/veronacard_2020_2023/veronacard_2022_original.csv
+2025-08-21 15:20:01,660 INFO: [merge] visite valide dopo merge: 381360
+2025-08-21 15:20:01,876 INFO: [filter] card multi-visita: 84988 / 89775
+2025-08-21 15:20:08,125 INFO: ▶  ho fatto il clustering
+2025-08-21 15:20:48,634 WARNING: ⚠️ Timeout tentativo 2/3
+2025-08-21 15:22:58,740 WARNING: ⚠️ Timeout tentativo 3/3
+2025-08-21 15:22:58,747 ERROR: ❌ Tutti i tentativi di micro inference falliti
+2025-08-21 15:22:58,747 ERROR: ❌ Ollama non funziona, aborting
+2025-08-21 15:36:15,264 INFO: 💾 Salvataggio batch: 500/72904
+2025-08-21 15:49:08,085 ERROR: ❌  Errore richiesta: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')) (tentativo 1/2)
+2025-08-21 15:49:08,085 INFO: ⏳ Attendo 10s prima del prossimo tentativo...

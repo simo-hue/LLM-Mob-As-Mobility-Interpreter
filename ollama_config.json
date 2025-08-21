@@ -1,8 +1,11 @@
 {
     "endpoint": "http://127.0.0.1:39003",
     "model": "llama3.1:8b",
-    "timeout": 180,
+    "timeout": 300,
     "max_retries": 5,
     "production_mode": true,
+    "parallel_mode": true,
+    "num_workers": 8,
+    "gpu_count": 4,
     "ollama_ready": true
 }

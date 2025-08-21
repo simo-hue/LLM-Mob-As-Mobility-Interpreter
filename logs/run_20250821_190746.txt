@@ -1,0 +1,16 @@
+2025-08-21 19:07:49,544 INFO: ✅ Ollama test passed - Response: 'How'
+2025-08-21 19:07:49,553 INFO: 🎯 Trovati 12 file da elaborare
+2025-08-21 19:07:49,553 INFO: 
+🔍 Controllo dati_2014.csv...
+2025-08-21 19:07:49,555 INFO: 
+======================================================================
+2025-08-21 19:07:49,556 INFO: ▶  PROCESSO FILE: dati_2014.csv
+2025-08-21 19:07:49,556 INFO: ======================================================================
+2025-08-21 19:07:49,556 INFO: ▶  ho caricato e pulito i dati
+2025-08-21 19:07:49,829 INFO: [load_pois] 22 POI letti da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-21 19:07:51,611 INFO: [load_visits] 370377 timbrature da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2014.csv
+2025-08-21 19:07:51,917 INFO: [merge] visite valide dopo merge: 370377
+2025-08-21 19:07:52,079 INFO: [filter] card multi-visita: 70236 / 71557
+2025-08-21 19:07:58,176 INFO: ▶  ho fatto il clustering
+2025-08-21 19:07:58,242 INFO: 🚀 Avvio elaborazione parallela con 8 worker
+2025-08-21 19:12:11,993 INFO: 💾 Salvataggio batch: 500/65892

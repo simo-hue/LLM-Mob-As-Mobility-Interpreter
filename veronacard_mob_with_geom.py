@@ -118,7 +118,7 @@ def should_skip_file(visits_path: Path, poi_path: Path, out_dir: Path, append: b
         return False
     
 # FUNZIONE HELPER per test rapido di Ollama
-def test_ollama_connection(host: str, model: str = "llama3.1:8b") -> bool:
+def test_ollama_connection(host: str, model: str = "mixtral:8x7b") -> bool:
     """
     Test rapido di connettività e funzionalità Ollama
     """
@@ -222,7 +222,7 @@ def debug_gpu_status():
     except Exception as e:
         logger.warning(f"⚠️  Debug GPU fallito: {e}")
 
-def warmup_model(model: str = "llama3.1:8b") -> bool:
+def warmup_model(model: str = "mixtral:8x7b") -> bool:
     """
     Warm-up ottimizzato per problemi GPU
     """
@@ -628,7 +628,7 @@ def analyze_movement_patterns(df: pd.DataFrame, pois_df: pd.DataFrame) -> pd.Dat
     return pd.DataFrame(movement_data)
 
 # ---------- chiamata LLaMA / Ollama ---------------------------------------
-def get_chat_completion(prompt: str, model: str = "llama3.1:8b", max_retries: int = 2) -> str | None:
+def get_chat_completion(prompt: str, model: str = "mixtral:8x7b", max_retries: int = 2) -> str | None:
     """
     Ottiene una completion dal modello LLaMA tramite Ollama con timeout ottimizzati.
     """
@@ -1234,7 +1234,7 @@ if __name__ == "__main__":
     print("🎉 Connessione Ollama stabilita con successo!")
 
     # Controllo che OLLAMA risponda altrimenti esco 
-    if not test_ollama_connection(OLLAMA_HOST, "llama3.1:8b"):
+    if not test_ollama_connection(OLLAMA_HOST, "mixtral:8x7b"):
         logger.error("❌ Ollama non funziona, aborting")
         exit(1)
 

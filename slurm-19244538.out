@@ -1,0 +1,134 @@
+🚀 LLM-MOB PRODUCTION RUN - TUTTI GLI UTENTI
+=============================================
+Job ID: 19244538
+Nodo: lrdn0018.leonardo.local
+Data: Thu Aug 21 15:11:50 CEST 2025
+💡 MODALITÀ: Processamento completo senza limiti utenti
+
+📦 Caricamento moduli e ambiente...
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+✓ Python: Python 3.11.6
+✓ Virtual env: /leonardo_work/IscrC_LLM-Mob/venv
+✓ CUDA: Cuda compilation tools, release 12.3, V12.3.103
+
+🔍 INFO GPU:
+name, memory.total [MiB], memory.used [MiB], utilization.gpu [%], temperature.gpu
+NVIDIA A100-SXM-64GB, 65536 MiB, 2 MiB, 0 %, 43
+CUDA_VISIBLE_DEVICES: 0
+
+⚙️  Configurazione Ollama...
+✓ Versione Ollama: 0.3.14
+
+🚀 Avvio server Ollama per produzione...
+✓ Porta server: 39003
+🧹 Pulizia processi precedenti...
+✓ Server PID: 800166
+✓ Log file: ollama_production.log
+
+⏳ Attesa avvio server (max 60s)...
+   ⏱️  Attesa... (20s) - controllo log:
+     time=2025-08-21T15:12:03.761+02:00 level=INFO source=routes.go:1205 msg="Listening on 127.0.0.1:39003 (version 0.3.14)"
+     time=2025-08-21T15:12:04.071+02:00 level=INFO source=common.go:135 msg="extracting embedded files" dir=/tmp/ollama3869690118/runners
+✅ Server operativo dopo 28s
+
+🔥 Preparazione modello per produzione...
+📋 Modelli disponibili:
+  ✓ deepseek-coder:33b
+  ✓ mixtral:8x7b
+  ✓ llama3.1:8b
+✅ Modello mixtral:8x7b disponibile
+
+🎯 AVVIO PRODUZIONE - PROCESSAMENTO COMPLETO
+=============================================
+✅ Configurazione produzione attiva
+📊 Nessun limite utenti - processamento completo
+⏱️  Tempo stimato: variabile (dipende dai dati)
+🔄 Retry automatici: 5 tentativi per richiesta
+
+📦 Verifica dipendenze Python...
+📁 Directory risultati: /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/results/
+🚀 AVVIO SCRIPT PRODUZIONE...
+📝 Log dettagliato disponibile in tempo reale
+
+2025-08-21 15:15:09,268 WARNING: ⚠️ Timeout tentativo 1/3
+2025-08-21 15:16:49,369 WARNING: ⚠️ Timeout tentativo 2/3
+📊 [15:18:47] Progresso: 0 files, 4.0K
+🔧 [15:18:48] GPU: 25630MB mem, 1% util
+2025-08-21 15:18:59,480 WARNING: ⚠️ Timeout tentativo 3/3
+2025-08-21 15:18:59,482 ERROR: ❌ Tutti i tentativi di micro inference falliti
+2025-08-21 15:18:59,483 ERROR: ❌ Ollama non funziona, aborting
+👉 Porta letta da ollama_port.txt: '39003'
+👉 Provo a contattare http://127.0.0.1:39003/api/tags
+📂 Working dir: /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter
+📄 Contenuto di ollama_port.txt: '39003'
+🔄 Attesa Ollama su http://127.0.0.1:39003...
+✓ Ollama risponde con status 200
+✓ Runner LLaMA completamente attivo
+🎉 Connessione Ollama stabilita con successo!
+
+❌ ERRORE IN PRODUZIONE (exit code: 1)
+⏱️  Tempo prima del fallimento: 313 secondi
+⚠️  Errore generico - controllare log
+
+📋 REPORT FINALE PRODUZIONE
+============================
+⏱️  Tempo totale job: 430 secondi (0h 7m)
+🔧 Versione Ollama: 0.3.14
+📊 Modalità: Produzione completa (tutti gli utenti)
+✅ Python success: false
+/var/spool/slurmd/job19244538/slurm_script: line 331: 800411 Terminated              monitor_progress
+
+📁 RISULTATI GENERATI:
+   📊 Total files: 0
+   💾 Total size: 4.0K
+
+   📋 File generati:
+
+🔧 STATO FINALE SISTEMA:
+memory.used [MiB], memory.total [MiB], utilization.gpu [%], temperature.gpu
+25630 MiB, 65536 MiB, 10 %, 44
+
+📊 LOG OLLAMA (ultimi 20 righe):
+llm_load_print_meta: BOS token        = 1 '<s>'
+llm_load_print_meta: EOS token        = 2 '</s>'
+llm_load_print_meta: UNK token        = 0 '<unk>'
+llm_load_print_meta: LF token         = 13 '<0x0A>'
+llm_load_print_meta: EOG token        = 2 '</s>'
+llm_load_print_meta: max token length = 48
+ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no
+ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no
+ggml_cuda_init: found 1 CUDA devices:
+  Device 0: NVIDIA A100-SXM-64GB, compute capability 8.0, VMM: yes
+llm_load_tensors: ggml ctx size =    0.29 MiB
+time=2025-08-21T15:16:59.966+02:00 level=INFO source=server.go:621 msg="waiting for server to become available" status="llm server loading model"
+llm_load_tensors: offloading 32 repeating layers to GPU
+llm_load_tensors: offloading non-repeating layers to GPU
+llm_load_tensors: offloaded 33/33 layers to GPU
+llm_load_tensors:        CPU buffer size =    70.31 MiB
+llm_load_tensors:      CUDA0 buffer size = 25147.55 MiB
+time=2025-08-21T15:18:59.580+02:00 level=WARN source=server.go:594 msg="client connection closed before server finished loading, aborting load"
+time=2025-08-21T15:18:59.582+02:00 level=ERROR source=sched.go:455 msg="error loading llama server" error="timed out waiting for llama runner to start: context canceled"
+[GIN] 2025/08/21 - 15:18:59 | 499 |          2m0s |       127.0.0.1 | POST     "/api/generate"
+
+⚠️ JOB PRODUZIONE TERMINATO CON ERRORI
+📋 Verificare log per dettagli specifici
+
+🏁 Fine job: Thu Aug 21 15:19:00 CEST 2025
+=============================================
+
+🧹 CLEANUP PRODUZIONE...
+🕐 Tempo totale job: 430 secondi (0h 7m)
+📊 Stato GPU finale:
+memory.used [MiB], memory.total [MiB], utilization.gpu [%], temperature.gpu
+25630 MiB, 65536 MiB, 10 %, 44
+📁 Risultati generati: 0 files
+💾 Dimensione risultati: 4.0K
+🔄 Shutdown graceful Ollama...
+✓ Cleanup completato
