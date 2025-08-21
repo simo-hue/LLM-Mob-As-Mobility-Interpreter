@@ -17,7 +17,19 @@ import math
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from threading import Lock
 import multiprocessing as mp
+import itertools
+from typing import List
 
+
+# Lock globale per scrittura thread-safe sui file CSV
+write_lock = Lock()
+
+# -----------------------------------------------------------
+TOP_K  = 5          # deve coincidere con top_k del prompt
+MODEL_NAME = "llama3.1:8b"
+# -----------------------------------------------------------
+# -----------------------------------------------------------
+DEFAULT_ANCHOR_RULE = "penultimate"   # "penultimate" | "first" | "middle" | int
 
 # ---------------- logging setup ----------------
 LOG_DIR = Path(__file__).resolve().parent / "logs"
@@ -34,16 +46,6 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
-
-# Lock globale per scrittura thread-safe sui file CSV
-write_lock = Lock()
-
-# -----------------------------------------------------------
-TOP_K  = 5          # deve coincidere con top_k del prompt
-# -----------------------------------------------------------
-# -----------------------------------------------------------
-DEFAULT_ANCHOR_RULE = "penultimate"   # "penultimate" | "first" | "middle" | int
-# -----------------------------------------------------------
 
 def should_skip_file(visits_path: Path, poi_path: Path, out_dir: Path, append: bool = False) -> bool:
     """
@@ -122,100 +124,76 @@ def should_skip_file(visits_path: Path, poi_path: Path, out_dir: Path, append: b
         logger.warning(f"⚠️ Errore controllo skip per {visits_path.stem}: {e}")
         logger.warning("🔄 Procedo comunque per sicurezza...")
         return False
+
+def test_ollama_connection_multi(hosts: List[str], model: str = MODEL_NAME) -> bool:
+    """Test di tutti gli host configurati"""
+    working_hosts = []
     
-# FUNZIONE HELPER per test rapido di Ollama
-def test_ollama_connection(host: str, model: str = "llama3.1:8b") -> bool:
-    """
-    Test rapido di connettività e funzionalità Ollama
-    """
+    for host in hosts:
+        logger.info(f"Test {host}...")
+        if test_single_host(host, model):
+            working_hosts.append(host)
+            logger.info(f"{host} operativo")
+        else:
+            logger.error(f"{host} non funziona")
+    
+    if working_hosts:
+        logger.info(f"{len(working_hosts)}/{len(hosts)} host operativi")
+        return True
+    else:
+        logger.error("Nessun host funzionante")
+        return False
+
+def test_single_host(host: str, model: str) -> bool:
+    """Test singolo host"""
     try:
-        # Test 1: Health check
+        # Test tags
         resp = requests.get(f"{host}/api/tags", timeout=10)
         if resp.status_code != 200:
-            logger.error(f"❌ Health check failed: {resp.status_code}")
             return False
             
-        # Test 2: Verifica modello
         models = [m.get('name', '') for m in resp.json().get('models', [])]
         if model not in models:
-            logger.error(f"❌ Model '{model}' not found. Available: {models}")
             return False
             
-        # Test 3: Micro inference con retry
-        for attempt in range(3):  # Massimo 3 tentativi
-            try:
-                timeout = 60 + (attempt * 30)  # 60s, 90s, 120s
-                logger.debug(f"🔄 Tentativo inference {attempt + 1}/3 (timeout: {timeout}s)")
-                
-                test_resp = requests.post(
-                    f"{host}/api/generate",
-                    json={
-                        "model": model,
-                        "prompt": "Hi",
-                        "stream": False,
-                        "options": {
-                            "num_predict": 1, 
-                            "temperature": 0,
-                            "num_ctx": 512,  # Contesto ridotto per velocizzare
-                            "num_thread": 4
-                        }
-                    },
-                    timeout=timeout
-                )
-                
-                if test_resp.status_code == 200:
-                    data = test_resp.json()
-                    if data.get("done") and data.get("response"):
-                        logger.info(f"✅ Ollama test passed - Response: '{data.get('response')}'")
-                        return True
-                    elif data.get("done_reason") == "load":
-                        logger.warning(f"⚠️ Modello in caricamento, tentativo {attempt + 1}")
-                        time.sleep(10)  # Attendi caricamento
-                        continue
-                        
-            except requests.exceptions.Timeout:
-                logger.warning(f"⚠️ Timeout tentativo {attempt + 1}/3")
-                if attempt < 2:  # Non è l'ultimo tentativo
-                    time.sleep(10)
-                    continue
-            except Exception as e:
-                logger.warning(f"⚠️ Errore tentativo {attempt + 1}/3: {e}")
-                if attempt < 2:
-                    time.sleep(5)
-                    continue
+        # Test micro inference
+        test_resp = requests.post(
+            f"{host}/api/generate",
+            json={
+                "model": model,
+                "prompt": "Hi",
+                "stream": False,
+                "options": {"num_predict": 1, "temperature": 0}
+            },
+            timeout=60
+        )
         
-        logger.error(f"❌ Tutti i tentativi di micro inference falliti")
-        return False
-        
-    except Exception as e:
-        logger.error(f"❌ Ollama connection test failed: {e}")
-        return False
+        if test_resp.status_code == 200:
+            data = test_resp.json()
+            return data.get("done") and data.get("response")
+                
+    except Exception:
+        pass
+    return False
 
 # ---------- chiamata LLaMA / Ollama ---------------------------------------
-def get_chat_completion(prompt: str, model: str = "llama3.1:8b", max_retries: int = 2) -> str | None:
-    """
-    Ottiene una completion dal modello LLaMA tramite Ollama con timeout ottimizzati.
-    """
+def get_chat_completion(prompt: str, model: str = MODEL_NAME, max_retries: int = 2) -> str | None:
+    """Versione load-balanced della chiamata"""
     
     for attempt in range(1, max_retries + 1):
+        # QUESTA È LA PARTE NUOVA: round-robin tra gli host
+        current_host = next(host_cycle)
+        
         try:
-            # Health check veloce
-            health_check = requests.get(f"{OLLAMA_HOST}/api/tags", timeout=3)
+            # Health check veloce (sostituisci OLLAMA_HOST con current_host)
+            health_check = requests.get(f"{current_host}/api/tags", timeout=3)
             if health_check.status_code != 200:
-                logger.warning(f"⚠️  Ollama non risponde (tentativo {attempt}/{max_retries})")
-                if attempt < max_retries:
-                    time.sleep(5)
-                    continue
-                else:
-                    return None
-
-        except requests.exceptions.RequestException as exc:
-            logger.error(f"❌  Health check fallito (tentativo {attempt}/{max_retries}): {exc}")
-            if attempt < max_retries:
-                time.sleep(5)
+                logger.warning(f"Host {current_host} non risponde (tentativo {attempt}/{max_retries})")
                 continue
-            else:
-                return None
+
+        except requests.exceptions.RequestException:
+            logger.warning(f"Health check fallito per {current_host}")
+            continue
 
         payload = {
             "model": model,
@@ -224,13 +202,13 @@ def get_chat_completion(prompt: str, model: str = "llama3.1:8b", max_retries: in
         }
         
         try:
-            logger.debug(f"🔄 Richiesta Ollama (tentativo {attempt}/{max_retries})")
+            logger.debug(f"Richiesta a {current_host} (tentativo {attempt}/{max_retries})")
             
-            # Timeout progressivo: primo tentativo più lungo per warm-up
             timeout = 300 if attempt == 1 else 180
             
+            # SOSTITUISCI OLLAMA_HOST con current_host
             resp = requests.post(
-                f"{OLLAMA_HOST}/api/chat", 
+                f"{current_host}/api/chat", 
                 json=payload, 
                 timeout=timeout,
                 headers={'Content-Type': 'application/json'}
@@ -239,40 +217,25 @@ def get_chat_completion(prompt: str, model: str = "llama3.1:8b", max_retries: in
             resp.raise_for_status()
             response_data = resp.json()
             
-            # Verifica che la risposta sia completa
             if not response_data.get("done", False):
-                logger.warning(f"⚠️  Risposta incompleta (tentativo {attempt}/{max_retries})")
+                logger.warning(f"Risposta incompleta da {current_host}")
                 continue
             
-            message = response_data.get("message", {})
-            content = message.get("content", "")
+            content = response_data.get("message", {}).get("content", "")
             if content:
-                logger.debug(f"✓ Risposta ricevuta (lunghezza: {len(content)} caratteri)")
+                logger.debug(f"Risposta da {current_host} ({len(content)} caratteri)")
                 return content
-            else:
-                logger.warning(f"⚠️  Risposta vuota (tentativo {attempt}/{max_retries})")
                 
         except requests.exceptions.Timeout:
-            logger.error(f"❌  Timeout {timeout}s (tentativo {attempt}/{max_retries})")
-        except requests.exceptions.HTTPError as exc:
-            logger.error(f"❌  HTTP {resp.status_code}: {exc} (tentativo {attempt}/{max_retries})")
-            try:
-                error_detail = resp.json()
-                logger.error(f"❌  Dettaglio: {error_detail}")
-            except:
-                logger.error(f"❌  Risposta raw: {resp.text[:500]}")
-        except requests.exceptions.RequestException as exc:
-            logger.error(f"❌  Errore richiesta: {exc} (tentativo {attempt}/{max_retries})")
+            logger.error(f"Timeout {timeout}s su {current_host}")
         except Exception as exc:
-            logger.error(f"❌  Errore inaspettato: {exc} (tentativo {attempt}/{max_retries})")
+            logger.error(f"Errore su {current_host}: {exc}")
         
-        # Backoff progressivo tra tentativi
         if attempt < max_retries:
-            wait_time = min(attempt * 10, 30)  # Max 30s di attesa
-            logger.info(f"⏳ Attendo {wait_time}s prima del prossimo tentativo...")
+            wait_time = min(attempt * 5, 15)
             time.sleep(wait_time)
     
-    logger.error(f"❌  Tutti i {max_retries} tentativi falliti")
+    logger.error("Tutti i tentativi falliti su tutti gli host")
     return None
 
 def debug_gpu_status():
@@ -312,7 +275,7 @@ def debug_gpu_status():
     except Exception as e:
         logger.warning(f"⚠️  Debug GPU fallito: {e}")
 
-def warmup_model(model: str = "llama3.1:8b") -> bool:
+def warmup_model(model: str = MODEL_NAME) -> bool:
     """
     Warm-up ottimizzato per problemi GPU
     """
@@ -376,23 +339,31 @@ def warmup_model(model: str = "llama3.1:8b") -> bool:
 # --- CONFIGURAZIONE OLLAMA: leggi porta dal file ---
 OLLAMA_PORT_FILE = "ollama_port.txt"
 
-def setup_ollama_connection():
-    """Setup della connessione Ollama con retry robusto"""
+def setup_ollama_connections() -> List[str]:
+    """Setup connessioni multiple Ollama con fallback"""
     try:
-        with open(OLLAMA_PORT_FILE, "r") as f:
-            port = f.read().strip()
-        print(f"👉 Porta letta da ollama_port.txt: '{port}'")
+        with open("ollama_ports.txt", "r") as f:
+            ports_str = f.read().strip()
         
-        ollama_host = f"http://127.0.0.1:{port}"
-        print(f"👉 Provo a contattare {ollama_host}/api/tags")
-        
-        # PRINT DI DEBUG
-        print(f"📂 Working dir: {os.getcwd()}")
-        print(f"📄 Contenuto di ollama_port.txt: '{port}'")
-        
-        return ollama_host, port
+        if "," in ports_str:
+            # Multi-istanza
+            ports = ports_str.split(",")
+            hosts = [f"http://127.0.0.1:{port.strip()}" for port in ports]
+            logger.info(f"🔥 Configurazione multi-GPU: {len(hosts)} istanze")
+            for i, host in enumerate(hosts):
+                logger.info(f"   GPU {i}: {host}")
+            return hosts
+        else:
+            # Singola istanza (fallback)
+            host = f"http://127.0.0.1:{ports_str}"
+            logger.info(f"⚠️  Fallback singola GPU: {host}")
+            return [host]
+            
     except FileNotFoundError:
-        raise RuntimeError(f"❌ File {OLLAMA_PORT_FILE} non trovato. Il job SLURM deve generarlo.")
+        raise RuntimeError("❌ File ollama_ports.txt non trovato")
+    except Exception as e:
+        logger.error(f"❌ Errore setup connessioni: {e}")
+        raise
 
 def wait_for_ollama(ollama_host, max_attempts=30, wait_interval=3):
     """Attende che Ollama sia pronto con retry più robusto"""
@@ -436,11 +407,6 @@ def wait_for_ollama(ollama_host, max_attempts=30, wait_interval=3):
     
     return False
 
-# Setup della connessione
-OLLAMA_HOST, OLLAMA_PORT = setup_ollama_connection()
-
-# --------------------------------------------------------------
-
 def calculate_distance(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     """
     Calcola la distanza in chilometri tra due punti geografici
@@ -457,7 +423,6 @@ def calculate_distance(lat1: float, lon1: float, lat2: float, lon2: float) -> fl
     
     return R * c
 
-# --------------------------------------------------------------
 def list_outputs(visits_path: Path, out_dir: Path) -> list[Path]:
     """Tutti i CSV già calcolati per quel file di visite."""
     pattern = f"{visits_path.stem}_pred_*.csv"
@@ -467,7 +432,6 @@ def latest_output(visits_path: Path, out_dir: Path) -> Path | None:
     """L'output più recente (None se non esiste)."""
     outputs = list_outputs(visits_path, out_dir)
     return max(outputs, key=os.path.getmtime) if outputs else None
-# --------------------------------------------------------------
 
 def anchor_index(seq_len: int, rule: str | int) -> int:
     """
@@ -1270,6 +1234,50 @@ def run_single_file(file_path: str, max_users: int | None = None,
         logger.error(f"❌ Errore processando {target_file.name}: {e}")
         raise
 
+def wait_for_ollama_single(host: str, max_attempts=30, wait_interval=3):
+    """Attende che un singolo host Ollama sia pronto"""
+    print(f"Attesa Ollama su {host}...")
+    
+    for attempt in range(1, max_attempts + 1):
+        try:
+            response = requests.get(f"{host}/api/tags", 
+                                  timeout=10,
+                                  headers={'Accept': 'application/json'})
+            
+            if response.status_code == 200:
+                print(f"✓ {host} risponde con status {response.status_code}")
+                
+                try:
+                    version_resp = requests.get(f"{host}/api/version", timeout=5)
+                    if version_resp.status_code == 200:
+                        print(f"✓ {host} completamente attivo")
+                        return True
+                except:
+                    pass
+                
+                print(f"✓ {host} attivo (solo /api/tags)")
+                return True
+            else:
+                print(f"Tentativo {attempt}/{max_attempts}: HTTP {response.status_code} su {host}")
+                
+        except requests.exceptions.ConnectionError:
+            print(f"Tentativo {attempt}/{max_attempts}: Connessione rifiutata su {host}")
+        except requests.exceptions.Timeout:
+            print(f"Tentativo {attempt}/{max_attempts}: Timeout su {host}")
+        except requests.exceptions.RequestException as e:
+            print(f"Tentativo {attempt}/{max_attempts}: Errore {e} su {host}")
+        
+        if attempt < max_attempts:
+            print(f"Attendo {wait_interval}s prima del prossimo tentativo...")
+            time.sleep(wait_interval)
+    
+    return False
+
+# -----------------------------------------------------------
+# Setup globale
+OLLAMA_HOSTS = setup_ollama_connections()
+host_cycle = itertools.cycle(OLLAMA_HOSTS)
+
 # ---------- MAIN -----------------------------------------------------------
 if "CUDA_VISIBLE_DEVICES" not in os.environ:
     os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"  # Usa tutte e 4 le A100
@@ -1295,16 +1303,22 @@ if __name__ == "__main__":
     if args.force and args.append:
         parser.error("Non puoi usare insieme --force e --append.")
 
-    # Attendi che Ollama sia pronto
-    if not wait_for_ollama(OLLAMA_HOST):
-        raise RuntimeError("❌ Ollama non ha risposto dopo tutti i tentativi")
+    # Attendi che tutti gli host Ollama siano pronti
+    for i, host in enumerate(OLLAMA_HOSTS):
+        print(f"Controllo host {i+1}/{len(OLLAMA_HOSTS)}: {host}")
+        if not wait_for_ollama_single(host):
+            raise RuntimeError(f"Host {host} non ha risposto dopo tutti i tentativi")
+
+    print(f"Tutti gli {len(OLLAMA_HOSTS)} host Ollama sono pronti!")
 
     print("🎉 Connessione Ollama stabilita con successo!")
 
     # Controllo che OLLAMA risponda altrimenti esco 
-    if not test_ollama_connection(OLLAMA_HOST, "llama3.1:8b"):
-        logger.error("❌ Ollama non funziona, aborting")
+    if not test_ollama_connection_multi(OLLAMA_HOSTS, MODEL_NAME):
+        logger.error("Sistema multi-GPU non funziona, aborting")
         exit(1)
+
+    logger.info("Sistema multi-GPU configurato correttamente!")
 
     try:
         # Decide se processare un singolo file o tutti i file

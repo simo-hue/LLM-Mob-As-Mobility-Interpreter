@@ -16,7 +16,7 @@ echo "=================================="
 echo "Job ID: $SLURM_JOB_ID"
 echo "Nodo: $(hostname)"
 echo "Data: $(date)"
-echo "🔥 MODALITÀ: Elaborazione parallela su 4x A100"
+echo "🚀 Modalità: Produzione parallela (2x A100, 8 workers)"
 echo ""
 
 # === 1. AMBIENTE ===
@@ -81,128 +81,93 @@ export OLLAMA_MAX_QUEUE=10            # Limita la coda per evitare OOM
 unset OLLAMA_GPU_OVERHEAD OLLAMA_HOST_GPU OLLAMA_RUNNER_TIMEOUT
 unset OLLAMA_COMPLETION_TIMEOUT OLLAMA_CONTEXT_TIMEOUT
 
-# === 3. AVVIO SERVER PARALLELO ===
+# === 3. AVVIO SERVER PARALLELO MULTI-ISTANZA ===
 echo ""
-echo "🚀 Avvio server Ollama per elaborazione parallela..."
+echo "🚀 Avvio server Ollama multi-istanza (2 GPU)..."
 
-OLLAMA_PORT=39003
-echo $OLLAMA_PORT > $SLURM_SUBMIT_DIR/ollama_port.txt
-echo "✅ Porta server: $OLLAMA_PORT"
+OLLAMA_PORT1=39003
+OLLAMA_PORT2=39004
 
-# Cleanup processi precedenti più aggressivo
-echo "🧹 Pulizia processi precedenti..."
+# Cleanup più aggressivo
 pkill -f "ollama serve" 2>/dev/null || true
 pkill -f "ollama" 2>/dev/null || true
 sleep 10
 
-# Avvio server con configurazione multi-GPU
-echo "🔥 Avvio con supporto 4x A100..."
-OLLAMA_HOST=127.0.0.1:$OLLAMA_PORT $OLLAMA_BIN serve > ollama_parallel.log 2>&1 &
-SERVER_PID=$!
+# Istanza 1: GPU 0
+echo "🔥 Avvio istanza 1 su GPU 0 (porta $OLLAMA_PORT1)..."
+CUDA_VISIBLE_DEVICES=0 OLLAMA_HOST=127.0.0.1:$OLLAMA_PORT1 \
+    $OLLAMA_BIN serve > ollama_gpu0.log 2>&1 &
+SERVER_PID1=$!
 
-echo "✅ Server PID: $SERVER_PID"
-echo "✅ Log file: ollama_parallel.log"
+# Attesa breve per evitare conflitti di startup
+sleep 5
 
-# Cleanup function ottimizzata per ambiente parallelo
+# Istanza 2: GPU 1  
+echo "🔥 Avvio istanza 2 su GPU 1 (porta $OLLAMA_PORT2)..."
+CUDA_VISIBLE_DEVICES=1 OLLAMA_HOST=127.0.0.1:$OLLAMA_PORT2 \
+    $OLLAMA_BIN serve > ollama_gpu1.log 2>&1 &
+SERVER_PID2=$!
+
+echo "✅ Server PID1: $SERVER_PID1 (GPU 0)"
+echo "✅ Server PID2: $SERVER_PID2 (GPU 1)"
+
+# Salva configurazione per Python
+echo "$OLLAMA_PORT1,$OLLAMA_PORT2" > $SLURM_SUBMIT_DIR/ollama_ports.txt
+
+# Cleanup function aggiornata
 cleanup() {
-    echo ""
-    echo "🧹 CLEANUP PRODUZIONE PARALLELA..."
-    echo "⏱️ Tempo totale job: $SECONDS secondi ($(($SECONDS / 3600))h $(($SECONDS % 3600 / 60))m)"
+    echo "🧹 CLEANUP MULTI-ISTANZA..."
     
-    # Statistiche dettagliate GPU
-    echo "📊 Stato finale tutte le GPU:" 
-    nvidia-smi --query-gpu=index,memory.used,memory.total,utilization.gpu,temperature.gpu,power.draw --format=csv
-    
-    # Conta risultati con più dettagli
-    if [ -d "results/" ]; then
-        TOTAL_RESULTS=$(ls -1 results/*.csv 2>/dev/null | wc -l)
-        echo "📁 Risultati generati: $TOTAL_RESULTS files"
-        echo "💾 Dimensione risultati: $(du -sh results/ 2>/dev/null | cut -f1)"
-        
-        # Conta record totali nei CSV
-        if [ $TOTAL_RESULTS -gt 0 ]; then
-            TOTAL_RECORDS=$(wc -l results/*.csv 2>/dev/null | tail -1 | awk '{print $1}')
-            echo "📋 Record totali elaborati: $TOTAL_RECORDS"
+    # Shutdown graceful di entrambe le istanze
+    for pid in $SERVER_PID1 $SERVER_PID2; do
+        if kill -0 $pid 2>/dev/null; then
+            echo "🔄 Shutdown graceful PID $pid..."
+            kill -TERM $pid 2>/dev/null
+            sleep 5
+            if kill -0 $pid 2>/dev/null; then
+                kill -KILL $pid 2>/dev/null
+            fi
         fi
-    fi
+    done
     
-    # Graceful shutdown Ollama con timeout più generoso per multi-GPU
-    if kill -0 $SERVER_PID 2>/dev/null; then
-        echo "🔄 Shutdown graceful Ollama multi-GPU..."
-        kill -TERM $SERVER_PID 2>/dev/null
-        for i in {1..20}; do  # Timeout più lungo per 4 GPU
-            if ! kill -0 $SERVER_PID 2>/dev/null; then break; fi
-            sleep 1
-        done
-        if kill -0 $SERVER_PID 2>/dev/null; then
-            echo "⚡ Force kill Ollama..."
-            kill -KILL $SERVER_PID 2>/dev/null
-        fi
-    fi
-    
-    # Cleanup più completo per ambiente multi-GPU
+    # Cleanup globale
     pkill -f "ollama" 2>/dev/null || true
-    pkill -f "llama" 2>/dev/null || true
-    
-    # Libera memoria GPU
-    nvidia-smi --gpu-reset -i 0,1,2,3 2>/dev/null || true
-    
-    echo "✅ Cleanup completato"
+    nvidia-smi --gpu-reset -i 0,1 2>/dev/null || true
 }
 trap cleanup EXIT
 
-# === 4. ATTESA E VERIFICA SERVER MULTI-GPU ===
-echo ""
-echo "⏳ Attesa avvio server multi-GPU (max 120s)..."
+# === 4. ATTESA E VERIFICA MULTI-ISTANZA ===
+echo "⏳ Attesa avvio server multi-istanza..."
 
-MAX_WAIT=60
-WAIT_INTERVAL=2
-
-for i in $(seq 1 $MAX_WAIT); do
-    if ! kill -0 $SERVER_PID 2>/dev/null; then
-        echo "❌ ERRORE: Server terminato prematuramente!"
-        echo "--- LOG SERVER ---"
-        cat ollama_parallel.log
-        exit 1
-    fi
-    
-    # Test connessione
-    if curl -s --connect-timeout 5 --max-time 10 "http://127.0.0.1:$OLLAMA_PORT/api/tags" >/dev/null 2>&1; then
-        echo "✅ Server multi-GPU operativo dopo $((i * WAIT_INTERVAL))s"
+# Verifica istanza 1
+for i in $(seq 1 30); do
+    if curl -s --connect-timeout 5 "http://127.0.0.1:$OLLAMA_PORT1/api/tags" >/dev/null 2>&1; then
+        echo "✅ Istanza 1 (GPU 0) operativa"
         break
     fi
-    
-    if [ $((i % 15)) -eq 0 ]; then
-        echo "   ⏱️ Attesa... ($((i * WAIT_INTERVAL))s) - controllo log:"
-        if [ -f ollama_parallel.log ]; then
-            tail -3 ollama_parallel.log | sed 's/^/     /'
-        fi
-        # Stato GPU durante startup
-        echo "   🔍 GPU status:"
-        nvidia-smi --query-gpu=utilization.gpu,memory.used --format=csv,noheader,nounits | head -4
-    fi
-    
-    sleep $WAIT_INTERVAL
+    sleep 2
 done
 
-# Verifica finale più rigorosa
-if ! curl -s --max-time 20 "http://127.0.0.1:$OLLAMA_PORT/api/tags" >/dev/null 2>&1; then
-    echo "❌ ERRORE CRITICO: Server non risponde dopo $((MAX_WAIT * WAIT_INTERVAL))s"
-    echo "--- LOG COMPLETO ---"
-    cat ollama_parallel.log
-    exit 1
-fi
+# Verifica istanza 2
+for i in $(seq 1 30); do
+    if curl -s --connect-timeout 5 "http://127.0.0.1:$OLLAMA_PORT2/api/tags" >/dev/null 2>&1; then
+        echo "✅ Istanza 2 (GPU 1) operativa"
+        break
+    fi
+    sleep 2
+done
 
-# === 5. PREPARAZIONE MODELLO SU TUTTE LE GPU ===
+# === 5. PREPARAZIONE MODELLO SU ENTRAMBE LE GPU ===
 echo ""
 echo "🔥 Preparazione modello per elaborazione parallela..."
 
 MODEL_NAME="llama3.1:8b"
 
-# Lista modelli
-echo "📋 Modelli disponibili:"
-MODELS_RESPONSE=$(curl -s "http://127.0.0.1:$OLLAMA_PORT/api/tags" || echo '{"models":[]}')
-echo "$MODELS_RESPONSE" | python3 -c "
+# Verifica modelli su ENTRAMBE le istanze
+for PORT in $OLLAMA_PORT1 $OLLAMA_PORT2; do
+    echo "📋 Modelli disponibili su porta $PORT:"
+    MODELS_RESPONSE=$(curl -s "http://127.0.0.1:$PORT/api/tags" || echo '{"models":[]}')
+    echo "$MODELS_RESPONSE" | python3 -c "
 import json, sys
 try:
     data = json.load(sys.stdin)
@@ -216,8 +181,8 @@ except:
     print('  ❌ Errore parsing modelli')
 "
 
-# Verifica modello target
-MODEL_EXISTS=$(echo "$MODELS_RESPONSE" | python3 -c "
+    # Verifica modello target
+    MODEL_EXISTS=$(echo "$MODELS_RESPONSE" | python3 -c "
 import json, sys
 try:
     data = json.load(sys.stdin)
@@ -227,37 +192,43 @@ except:
     print('false')
 ")
 
-if [ "$MODEL_EXISTS" = "false" ]; then
-    echo "❌ ERRORE CRITICO: Modello $MODEL_NAME non trovato!"
-    echo "📥 Tentativo download automatico..."
-    if timeout 900s $OLLAMA_BIN pull $MODEL_NAME; then  # Timeout più lungo
-        echo "✅ Modello scaricato"
+    if [ "$MODEL_EXISTS" = "false" ]; then
+        echo "❌ ERRORE CRITICO: Modello $MODEL_NAME non trovato su porta $PORT!"
+        echo "📥 Tentativo download automatico..."
+        # Usa la prima istanza per il download
+        if timeout 900s CUDA_VISIBLE_DEVICES=0 $OLLAMA_BIN pull $MODEL_NAME; then
+            echo "✅ Modello scaricato"
+        else
+            echo "❌ Download fallito"
+            exit 1
+        fi
     else
-        echo "❌ Download fallito"
-        exit 1
+        echo "✅ Modello $MODEL_NAME disponibile su porta $PORT"
     fi
-else
-    echo "✅ Modello $MODEL_NAME disponibile"
-fi
+done
 
-# Pre-caricamento sequenziale per evitare deadlock
-echo "🔥 Pre-caricamento modello (sequenziale per evitare blocchi)..."
-echo "📡 Warm-up iniziale..."
-timeout 120s curl -s -X POST "http://127.0.0.1:$OLLAMA_PORT/api/generate" \
-    -H "Content-Type: application/json" \
-    -d "{\"model\":\"$MODEL_NAME\",\"prompt\":\"Hi\",\"stream\":false,\"options\":{\"num_predict\":1,\"temperature\":0}}" \
-    > /tmp/warmup_result.json 2>&1
+# Pre-caricamento su ENTRAMBE le istanze
+echo "🔥 Pre-caricamento modello su entrambe le GPU..."
 
-if [ $? -eq 0 ] && [ -s /tmp/warmup_result.json ]; then
-    echo "✅ Pre-caricamento completato con successo"
-    cat /tmp/warmup_result.json | head -1
-else
-    echo "⚠️ Pre-caricamento con timeout/errore - procedo comunque"
-    echo "Log warm-up:"
-    tail -5 ollama_parallel.log || echo "Nessun log disponibile"
-fi
+for i in 1 2; do
+    PORT_VAR="OLLAMA_PORT$i"
+    PORT=${!PORT_VAR}
+    
+    echo "📡 Warm-up GPU $((i-1)) (porta $PORT)..."
+    timeout 120s curl -s -X POST "http://127.0.0.1:$PORT/api/generate" \
+        -H "Content-Type: application/json" \
+        -d "{\"model\":\"$MODEL_NAME\",\"prompt\":\"Hi\",\"stream\":false,\"options\":{\"num_predict\":1,\"temperature\":0}}" \
+        > /tmp/warmup_gpu$((i-1)).json 2>&1
 
-rm -f /tmp/warmup_result.json
+    if [ $? -eq 0 ] && [ -s /tmp/warmup_gpu$((i-1)).json ]; then
+        echo "✅ Pre-caricamento GPU $((i-1)) completato"
+        head -1 /tmp/warmup_gpu$((i-1)).json
+    else
+        echo "⚠️ Pre-caricamento GPU $((i-1)) con problemi - procedo comunque"
+    fi
+    
+    rm -f /tmp/warmup_gpu$((i-1)).json
+done
 
 # === 6. ESECUZIONE PRODUZIONE PARALLELA ===
 echo ""
@@ -267,27 +238,26 @@ echo "============================="
 # Configurazione per Python ottimizzata per parallelo
 cat > ollama_config.json << EOF
 {
-    "endpoint": "http://127.0.0.1:$OLLAMA_PORT",
+    "endpoints": ["http://127.0.0.1:$OLLAMA_PORT1", "http://127.0.0.1:$OLLAMA_PORT2"],
     "model": "$MODEL_NAME",
     "timeout": 300,
     "max_retries": 5,
     "production_mode": true,
     "parallel_mode": true,
     "num_workers": 8,
-    "gpu_count": 4,
+    "gpu_count": 2,
     "ollama_ready": true
 }
 EOF
 
-# Variabili ambiente per Python parallelo
-export OLLAMA_ENDPOINT="http://127.0.0.1:$OLLAMA_PORT"
+# Variabili ambiente per Python parallelo (CORRETTE)
 export OLLAMA_MODEL="$MODEL_NAME"
 export PRODUCTION_MODE=1
 export PARALLEL_MODE=1
-export GPU_COUNT=4
+export GPU_COUNT=2  # NON 4!
 
 echo "✅ Configurazione produzione parallela attiva"
-echo "🔥 4x A100 GPU disponibili per elaborazione"
+echo "🔥 2x A100 GPU disponibili per elaborazione"  # CORRETTO
 echo "🔧 8 worker paralleli configurati"
 echo "📊 Nessun limite utenti - processamento completo"
 echo "⏱️ Tempo stimato: ridotto grazie al parallelismo"
@@ -323,9 +293,9 @@ monitor_parallel() {
             CURRENT_SIZE=$(du -sh results/ 2>/dev/null | cut -f1 || echo "0")
             echo "📊 [$(date '+%H:%M:%S')] Progresso: $CURRENT_FILES files, $CURRENT_SIZE"
             
-            # Monitor tutte e 4 le GPU
+            # Monitor tutte le GPU
             echo "🔧 [$(date '+%H:%M:%S')] GPU Status:"
-            nvidia-smi --query-gpu=index,memory.used,utilization.gpu,temperature.gpu --format=csv,noheader,nounits | \
+            nvidia-smi --query-gpu=index,memory.used,utilization.gpu,temperature.gpu --format=csv,noheader,nounits | head -2 | \
                 while IFS=',' read idx mem util temp; do
                     echo "   GPU$idx: ${mem}MB mem, ${util}% util, ${temp}°C"
                 done
@@ -344,7 +314,7 @@ MONITOR_PID=$!
 
 # Avvio script parallelo SENZA limiti utenti
 echo "🚀 AVVIO SCRIPT PARALLELO..."
-echo "📡 Elaborazione distribuita su 4 GPU A100"
+echo "📡 Elaborazione distribuita su 2 GPU A100"
 echo "🔄 Log dettagliato disponibile in tempo reale"
 echo ""
 
@@ -443,7 +413,7 @@ if [ "$PYTHON_SUCCESS" = "true" ]; then
     
     # Calcola efficienza teorica
     if [ $PYTHON_TIME -gt 0 ]; then
-        ESTIMATED_SEQUENTIAL=$((PYTHON_TIME * 4))  # Stima tempo sequenziale
+        ESTIMATED_SEQUENTIAL=$((PYTHON_TIME * 2))
         EFFICIENCY=$(echo "scale=1; ($ESTIMATED_SEQUENTIAL - $PYTHON_TIME) * 100 / $ESTIMATED_SEQUENTIAL" | bc -l 2>/dev/null || echo "N/A")
         echo "⚡ Efficienza parallelismo stimata: $EFFICIENCY% riduzione tempo"
     fi
