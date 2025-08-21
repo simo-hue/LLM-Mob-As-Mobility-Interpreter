@@ -1,6 +1,6 @@
 {
     "endpoints": ["http://127.0.0.1:39003", "http://127.0.0.1:39004"],
-    "model": "llama3.1:8b",
+    "model": "mixtral:8x7b",
     "timeout": 300,
     "max_retries": 5,
     "production_mode": true,
