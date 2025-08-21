@@ -1,0 +1,17 @@
+2025-08-21 18:59:42,009 WARNING: ⚠️ Timeout tentativo 1/3
+2025-08-21 19:00:23,756 INFO: ✅ Ollama test passed - Response: 'Hello'
+2025-08-21 19:00:23,765 INFO: 🎯 Trovati 12 file da elaborare
+2025-08-21 19:00:23,765 INFO: 
+🔍 Controllo dati_2014.csv...
+2025-08-21 19:00:23,769 INFO: 
+======================================================================
+2025-08-21 19:00:23,769 INFO: ▶  PROCESSO FILE: dati_2014.csv
+2025-08-21 19:00:23,769 INFO: ======================================================================
+2025-08-21 19:00:23,769 INFO: ▶  ho caricato e pulito i dati
+2025-08-21 19:00:23,966 INFO: [load_pois] 22 POI letti da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-21 19:00:25,688 INFO: [load_visits] 370377 timbrature da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2014.csv
+2025-08-21 19:00:26,004 INFO: [merge] visite valide dopo merge: 370377
+2025-08-21 19:00:26,168 INFO: [filter] card multi-visita: 70236 / 71557
+2025-08-21 19:00:32,293 INFO: ▶  ho fatto il clustering
+2025-08-21 19:05:50,781 ERROR: ❌  Errore richiesta: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')) (tentativo 1/2)
+2025-08-21 19:05:50,781 INFO: ⏳ Attendo 10s prima del prossimo tentativo...
