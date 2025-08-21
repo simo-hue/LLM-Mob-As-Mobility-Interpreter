@@ -25,7 +25,7 @@ write_lock = Lock()
 
 # -----------------------------------------------------------
 TOP_K  = 5          # deve coincidere con top_k del prompt
-MODEL_NAME = "mixtral:8x7b"
+MODEL_NAME = "llama3.1:8b"
 # -----------------------------------------------------------
 # -----------------------------------------------------------
 DEFAULT_ANCHOR_RULE = "penultimate"   # "penultimate" | "first" | "middle" | int

@@ -3,7 +3,7 @@
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=normal
-#SBATCH --time=01:00:00
+#SBATCH --time=07:00:00
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:2
 #SBATCH --ntasks-per-node=1
@@ -161,7 +161,7 @@ done
 echo ""
 echo "🔥 Preparazione modello per elaborazione parallela..."
 
-MODEL_NAME="llama3.1:8b"
+MODEL_NAME="mixtral:8x7b" #llama3.1:8b | deepseek-coder:33b
 
 # Verifica modelli su ENTRAMBE le istanze
 for PORT in $OLLAMA_PORT1 $OLLAMA_PORT2; do
@@ -321,7 +321,7 @@ echo ""
 PYTHON_START=$(date +%s)
 
 # Esecuzione con gestione errori ottimizzata
-if timeout 7000s python3 $WORK/LLM-Mob-As-Mobility-Interpreter/veronacard_mob_with_geom_parrallel.py --append; then
+if timeout 7000s python3 $WORK/LLM-Mob-As-Mobility-Interpreter/veronacard_mob_with_geom_parrallel.py --file veronacard_2020_2023/veronacard_2021_original.csv; then
     PYTHON_END=$(date +%s)
     PYTHON_TIME=$((PYTHON_END - PYTHON_START))
     
