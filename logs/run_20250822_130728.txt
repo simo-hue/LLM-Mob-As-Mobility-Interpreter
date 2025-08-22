@@ -1,0 +1,50 @@
+2025-08-22 13:07:28,215 INFO: 🔥 Configurazione multi-GPU: 2 istanze
+2025-08-22 13:07:28,217 INFO:    GPU 0: http://127.0.0.1:39003
+2025-08-22 13:07:28,217 INFO:    GPU 1: http://127.0.0.1:39004
+2025-08-22 13:07:28,264 INFO: Test http://127.0.0.1:39003...
+2025-08-22 13:07:28,404 INFO: http://127.0.0.1:39003 operativo
+2025-08-22 13:07:28,404 INFO: Test http://127.0.0.1:39004...
+2025-08-22 13:07:28,543 INFO: http://127.0.0.1:39004 operativo
+2025-08-22 13:07:28,543 INFO: 2/2 host operativi
+2025-08-22 13:07:28,543 INFO: Sistema multi-GPU configurato correttamente!
+2025-08-22 13:07:28,547 INFO: 🎯 Trovati 12 file da elaborare
+2025-08-22 13:07:28,547 INFO: 
+🔍 Controllo dati_2014.csv...
+2025-08-22 13:07:28,582 INFO: ⚡ Checkpoint: 10408 card già completate (lettura veloce)
+2025-08-22 13:07:29,626 INFO: 📊 dati_2014: 10408/65892 card processate
+2025-08-22 13:07:29,627 INFO: 🔄 dati_2014: 55484 card rimanenti - PROCESSO
+2025-08-22 13:07:29,644 INFO: ⚡ Checkpoint: 10408 card già completate (lettura veloce)
+2025-08-22 13:07:30,073 INFO: 📊 dati_2014: 10408/65892 card processate
+2025-08-22 13:07:30,075 INFO: 🔄 dati_2014: 55484 card rimanenti - PROCESSO
+2025-08-22 13:07:30,091 INFO: ⚡ Checkpoint: 10408 card già completate (lettura veloce)
+2025-08-22 13:07:30,092 INFO: 
+======================================================================
+2025-08-22 13:07:30,092 INFO: ▶  PROCESSO FILE: dati_2014.csv
+2025-08-22 13:07:30,092 INFO: ======================================================================
+2025-08-22 13:07:30,092 INFO: ▶  ho caricato e pulito i dati
+2025-08-22 13:07:30,095 INFO: [load_pois] 22 POI letti da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-22 13:07:31,557 INFO: [load_visits] 370377 timbrature da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2014.csv
+2025-08-22 13:07:31,744 INFO: [merge] visite valide dopo merge: 370377
+2025-08-22 13:07:31,924 INFO: [filter] card multi-visita: 70236 / 71557
+2025-08-22 13:07:37,907 INFO: ▶  ho fatto il clustering
+2025-08-22 13:07:37,969 INFO: 🚀 Avvio elaborazione parallela con 8 worker
+2025-08-22 13:13:17,384 INFO: 💾 Salvataggio batch: 500/55484
+2025-08-22 13:18:44,021 INFO: 💾 Salvataggio batch: 1000/55484
+2025-08-22 13:24:23,956 INFO: 💾 Salvataggio batch: 1500/55484
+2025-08-22 13:29:54,350 INFO: 💾 Salvataggio batch: 2000/55484
+2025-08-22 13:35:32,332 INFO: 💾 Salvataggio batch: 2500/55484
+2025-08-22 13:41:03,761 INFO: 💾 Salvataggio batch: 3000/55484
+2025-08-22 13:46:32,184 INFO: 💾 Salvataggio batch: 3500/55484
+2025-08-22 13:52:10,613 INFO: 💾 Salvataggio batch: 4000/55484
+2025-08-22 13:57:31,765 INFO: 💾 Salvataggio batch: 4500/55484
+2025-08-22 14:02:57,179 INFO: 💾 Salvataggio batch: 5000/55484
+2025-08-22 14:08:52,657 INFO: 💾 Salvataggio batch: 5500/55484
+2025-08-22 14:14:15,343 INFO: 💾 Salvataggio batch: 6000/55484
+2025-08-22 14:19:48,400 INFO: 💾 Salvataggio batch: 6500/55484
+2025-08-22 14:25:18,197 INFO: 💾 Salvataggio batch: 7000/55484
+2025-08-22 14:30:48,097 INFO: 💾 Salvataggio batch: 7500/55484
+2025-08-22 14:36:16,301 INFO: 💾 Salvataggio batch: 8000/55484
+2025-08-22 14:41:55,217 INFO: 💾 Salvataggio batch: 8500/55484
+2025-08-22 14:47:23,052 INFO: 💾 Salvataggio batch: 9000/55484
+2025-08-22 14:52:50,650 INFO: 💾 Salvataggio batch: 9500/55484
+2025-08-22 14:58:24,303 INFO: 💾 Salvataggio batch: 10000/55484
