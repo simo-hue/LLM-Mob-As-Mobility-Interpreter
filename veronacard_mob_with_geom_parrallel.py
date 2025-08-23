@@ -1,1850 +1,1539 @@
+import argparse
 import json
-import random
-import time
-from typing import Optional, Dict, Any
-import os, sys, argparse, logging
-import pandas as pd
-import requests
-from pandas import DataFrame
-from sklearn.cluster import KMeans
-from sklearn.preprocessing import StandardScaler
-from tqdm import tqdm
-import numpy as np
-from pathlib import Path
 import logging
-from datetime import datetime
 import math
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from threading import Lock
-import multiprocessing as mp
-import itertools
-from typing import List
-from typing import Optional, Dict, Any, List, Tuple
-import os, sys, argparse, logging
-import pandas as pd
-import requests
-from pandas import DataFrame
-from sklearn.cluster import KMeans
-from sklearn.preprocessing import StandardScaler
-from tqdm import tqdm
-import numpy as np
-from pathlib import Path
-import logging
-from datetime import datetime
-import math
-from concurrent.futures import ThreadPoolExecutor, as_completed, TimeoutError
-from threading import Lock, Semaphore
-import multiprocessing as mp
-import itertools
+import os
 import queue
+import random
+import sys
 import threading
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed, TimeoutError
 from contextlib import contextmanager
+from datetime import datetime
+from pathlib import Path
+from threading import Lock, Semaphore
+from typing import Dict, Any, List, Optional, Tuple, Set
 
-# ============= CONFIGURAZIONI HPC OTTIMIZZATE =============
+# Third-party imports
+import numpy as np
+import pandas as pd
+import requests
+from pandas import DataFrame
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+from tqdm import tqdm
 
-# Rate limiting per evitare sovraccarico
-RATE_LIMIT_SEMAPHORE = None  # Inizializzato dinamicamente
-N_GPUS = 4
-MAX_CONCURRENT_REQUESTS = N_GPUS * 2  # 4 GPU × 2 richieste per GPU
 
-PER_GPU_RATE_LIMIT = 4  # Richieste max per singola GPU
-gpu_semaphores = {}  #  Semaforo per ogni GPU
+# ============= CONFIGURATION =============
 
-# Configurazioni timeout ottimizzate
-REQUEST_TIMEOUT = 240 # Per inferenze complesse su dataset grandi
-BATCH_SAVE_INTERVAL = 500     
-HEALTH_CHECK_INTERVAL = 300 
-MAX_CONSECUTIVE_FAILURES = 20  # Max fallimenti consecutivi prima di pausa
+class Config:
+    """Centralized configuration to avoid global variables"""
+    
+    # Model configuration
+    MODEL_NAME = "mixtral:8x7b"
+    TOP_K = 5  # Number of POI predictions
+    
+    # HPC optimization parameters
+    MAX_CONCURRENT_REQUESTS = 16  # 4 GPUs × 4 requests per GPU
+    REQUEST_TIMEOUT = 120  # Seconds for complex inference
+    BATCH_SAVE_INTERVAL = 500  # Save results every N cards
+    HEALTH_CHECK_INTERVAL = 300  # Check host health every N seconds
+    
+    # Retry and failure handling
+    MAX_RETRIES_PER_REQUEST = 3
+    MAX_CONSECUTIVE_FAILURES = 20
+    BACKOFF_BASE = 2
+    BACKOFF_MAX = 30
+    CIRCUIT_BREAKER_THRESHOLD = 50
+    
+    # Anchor rule for POI selection
+    DEFAULT_ANCHOR_RULE = "penultimate"
+    
+    # File paths
+    OLLAMA_PORT_FILE = "ollama_ports.txt"
+    LOG_DIR = Path(__file__).resolve().parent / "logs"
+    RESULTS_DIR = Path(__file__).resolve().parent / "results"
+    DATA_DIR = Path(__file__).resolve().parent / "data" / "verona"
+    POI_FILE = DATA_DIR / "vc_site.csv"
 
-# Configurazioni retry intelligenti
-MAX_RETRIES_PER_REQUEST = 3
-BACKOFF_BASE = 2
-BACKOFF_MAX = 30
-CIRCUIT_BREAKER_THRESHOLD = 50  # Fallimenti prima di circuit breaker
 
-# Lock globali thread-safe
-write_lock = Lock()
-stats_lock = Lock()
-health_lock = Lock()
+# ============= LOGGING SETUP =============
 
-# Statistiche globali per monitoraggio
-global_stats = {
-    'total_processed': 0,
-    'total_errors': 0,
-    'consecutive_failures': 0,
-    'last_success_time': time.time(),
-    'host_failures': {},
-    'circuit_breaker_active': False
-}
-# -----------------------------------------------------------
+def setup_logging() -> logging.Logger:
+    """Configure logging with file and console output"""
+    Config.LOG_DIR.mkdir(exist_ok=True)
+    log_file = Config.LOG_DIR / f"run_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+    
+    # Create formatter without special characters
+    formatter = logging.Formatter(
+        fmt='%(asctime)s [%(levelname)s] %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
+    
+    # File handler
+    file_handler = logging.FileHandler(log_file, encoding='utf-8')
+    file_handler.setFormatter(formatter)
+    
+    # Console handler
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(formatter)
+    
+    # Configure logger
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.INFO)
+    logger.handlers.clear()  # Remove any existing handlers
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+    
+    return logger
 
-# Funzione per inizializzare semafori per GPU
-def setup_gpu_rate_limiting(hosts: List[str]):
-    """Setup semafori individuali per ogni GPU"""
-    global gpu_semaphores
-    for host in hosts:
-        gpu_semaphores[host] = Semaphore(PER_GPU_RATE_LIMIT)
-    logger.info(f"Rate limiting: {PER_GPU_RATE_LIMIT} req/GPU, {len(hosts)} GPU")
 
-# ============= CLASSI DI SUPPORTO =============
+# Initialize logger
+logger = setup_logging()
+
+
+# ============= THREAD-SAFE STATISTICS =============
+
+class Statistics:
+    """Thread-safe statistics tracking"""
+    
+    def __init__(self):
+        self._lock = Lock()
+        self._data = {
+            'total_processed': 0,
+            'total_errors': 0,
+            'consecutive_failures': 0,
+            'last_success_time': time.time(),
+            'host_failures': {},
+            'circuit_breaker_active': False
+        }
+    
+    def increment_processed(self):
+        with self._lock:
+            self._data['total_processed'] += 1
+            self._data['consecutive_failures'] = 0
+            self._data['last_success_time'] = time.time()
+    
+    def increment_errors(self):
+        with self._lock:
+            self._data['total_errors'] += 1
+            self._data['consecutive_failures'] += 1
+    
+    def get_stats(self) -> dict:
+        with self._lock:
+            return self._data.copy()
+    
+    def get_success_rate(self) -> float:
+        with self._lock:
+            total = self._data['total_processed'] + self._data['total_errors']
+            if total == 0:
+                return 0.0
+            return (self._data['total_processed'] / total) * 100
+    
+    @property
+    def consecutive_failures(self) -> int:
+        with self._lock:
+            return self._data['consecutive_failures']
+    
+    @property
+    def circuit_breaker_active(self) -> bool:
+        with self._lock:
+            return self._data['circuit_breaker_active']
+    
+    def set_circuit_breaker(self, active: bool):
+        with self._lock:
+            self._data['circuit_breaker_active'] = active
+
+
+# Global instances
+stats = Statistics()
+write_lock = Lock()  # Global lock for file writing
+
+
+# ============= CIRCUIT BREAKER =============
 
 class CircuitBreaker:
-    """Circuit Breaker pattern per gestire fallimenti a cascata"""
+    """
+    Circuit Breaker pattern implementation for handling cascading failures.
+    
+    States:
+    - CLOSED: Normal operation
+    - OPEN: Failures exceeded threshold, rejecting requests
+    - HALF_OPEN: Testing if service recovered
+    """
     
     def __init__(self, failure_threshold: int = 10, timeout: int = 300):
         self.failure_threshold = failure_threshold
         self.timeout = timeout
         self.failures = 0
         self.last_failure = None
-        self.state = "CLOSED"  # CLOSED, OPEN, HALF_OPEN
+        self.state = "CLOSED"
+        self._lock = Lock()
     
     @contextmanager
     def call(self):
-        if self.state == "OPEN":
-            if time.time() - self.last_failure > self.timeout:
-                self.state = "HALF_OPEN"
-                logger.info("🔄 Circuit breaker: tentativo HALF_OPEN")
-            else:
-                raise Exception("Circuit breaker OPEN - sistema in pausa")
+        """Context manager for circuit breaker protected calls"""
+        with self._lock:
+            if self.state == "OPEN":
+                if time.time() - self.last_failure > self.timeout:
+                    self.state = "HALF_OPEN"
+                    logger.info("Circuit breaker: Attempting HALF_OPEN state")
+                else:
+                    raise Exception("Circuit breaker OPEN - system paused")
         
         try:
             yield
-            if self.state == "HALF_OPEN":
-                self.reset()
+            with self._lock:
+                if self.state == "HALF_OPEN":
+                    self.reset()
         except Exception as e:
             self.record_failure()
             raise e
     
     def record_failure(self):
-        self.failures += 1
-        self.last_failure = time.time()
-        
-        if self.failures >= self.failure_threshold:
-            self.state = "OPEN"
-            logger.error(f"⚠️ Circuit breaker APERTO dopo {self.failures} fallimenti")
-            global_stats['circuit_breaker_active'] = True
+        """Record a failure and potentially open the circuit"""
+        with self._lock:
+            self.failures += 1
+            self.last_failure = time.time()
+            
+            if self.failures >= self.failure_threshold:
+                self.state = "OPEN"
+                logger.error(f"Circuit breaker OPEN after {self.failures} failures")
+                stats.set_circuit_breaker(True)
     
     def reset(self):
-        self.failures = 0
-        self.state = "CLOSED"
-        global_stats['circuit_breaker_active'] = False
-        logger.info("✅ Circuit breaker RESET")
+        """Reset circuit breaker to closed state"""
+        with self._lock:
+            self.failures = 0
+            self.state = "CLOSED"
+            stats.set_circuit_breaker(False)
+            logger.info("Circuit breaker RESET to CLOSED state")
+
+
+# ============= HOST HEALTH MONITORING =============
 
 class HostHealthMonitor:
-    """Monitora la salute degli host Ollama con ROUND-ROBIN"""
+    """
+    Monitors health status of Ollama hosts and provides load balancing.
+    
+    Features:
+    - Health checks with configurable intervals
+    - Response time tracking
+    - Load-based host selection
+    - Automatic failover
+    """
     
     def __init__(self, hosts: List[str]):
         self.hosts = hosts
         self.health_status = {host: True for host in hosts}
         self.last_check = {host: 0 for host in hosts}
         self.response_times = {host: [] for host in hosts}
-        self.request_counts = {host: 0 for host in hosts}  # NUOVO: conta richieste per host
-        self.current_host_index = 0  # NUOVO: per round-robin
         self._lock = Lock()
+        self._max_response_history = 5
     
     def is_healthy(self, host: str) -> bool:
+        """Check if a specific host is healthy"""
         with self._lock:
             return self.health_status.get(host, False)
     
     def get_healthy_hosts(self) -> List[str]:
+        """Get list of all healthy hosts"""
         with self._lock:
             return [host for host, healthy in self.health_status.items() if healthy]
     
     def check_health(self, host: str) -> bool:
-        """Verifica ottimizzata per HPC"""
+        """
+        Perform health check on a specific host.
+        Uses lightweight endpoint to minimize overhead.
+        """
         try:
             start_time = time.time()
-            resp = requests.get(f"{host}/api/tags", timeout=3, stream=False)
+            resp = requests.get(
+                f"{host}/api/tags", 
+                timeout=3,
+                headers={'Accept': 'application/json'}
+            )
             response_time = time.time() - start_time
             
             with self._lock:
+                # Track response times (keep only recent ones)
                 self.response_times[host].append(response_time)
-                self.response_times[host] = self.response_times[host][-5:]
+                if len(self.response_times[host]) > self._max_response_history:
+                    self.response_times[host].pop(0)
                 
                 is_healthy = resp.status_code == 200
                 self.health_status[host] = is_healthy
                 self.last_check[host] = time.time()
                 
+                if is_healthy:
+                    logger.debug(f"Host {host} healthy (response time: {response_time:.2f}s)")
+                else:
+                    logger.warning(f"Host {host} unhealthy (status: {resp.status_code})")
+                
                 return is_healthy
-        except Exception:
+                
+        except Exception as e:
+            logger.warning(f"Health check failed for {host}: {e}")
             with self._lock:
                 self.health_status[host] = False
             return False
     
-    def get_next_host_round_robin(self) -> str:
-        """NUOVO: Selezione round-robin per distribuzione equa"""
+    def get_best_host(self) -> Optional[str]:
+        """
+        Select the best performing host based on response times and health.
+        Uses sophisticated scoring algorithm.
+        """
         healthy_hosts = self.get_healthy_hosts()
         if not healthy_hosts:
             return None
         
         with self._lock:
-            # Prova a selezionare il prossimo host sano
-            attempts = 0
-            while attempts < len(healthy_hosts):
-                host = self.hosts[self.current_host_index % len(self.hosts)]
-                self.current_host_index += 1
+            host_scores = []
+            
+            for host in healthy_hosts:
+                recent_times = self.response_times.get(host, [1.0])
+                if not recent_times:
+                    recent_times = [1.0]
                 
-                if host in healthy_hosts:
-                    self.request_counts[host] += 1
-                    logger.debug(f"🔄 Selezionato {host} (requests: {self.request_counts[host]})")
-                    return host
+                # Calculate average response time
+                avg_time = sum(recent_times) / len(recent_times)
                 
-                attempts += 1
-            
-            # Fallback al primo host sano se round-robin fallisce
-            return healthy_hosts[0]
-    
-    def get_least_loaded_host(self) -> str:
-        """Seleziona l'host con meno richieste elaborate"""
-        healthy_hosts = self.get_healthy_hosts()
-        if not healthy_hosts:
-            return None
-        
-        with self._lock:
-            # Trova l'host con meno richieste
-            host_loads = [(host, self.request_counts.get(host, 0)) for host in healthy_hosts]
-            return min(host_loads, key=lambda x: x[1])[0]
-
-    def get_best_host(self) -> str:
-        """MODIFICATO: Usa strategia mista per bilanciamento"""
-        healthy_hosts = self.get_healthy_hosts()
-        if not healthy_hosts:
-            return None
-        
-        # STRATEGIA: 70% round-robin, 30% least-loaded per ottimizzazione
-        import random
-        if random.random() < 0.7:
-            return self.get_next_host_round_robin()
-        else:
-            return self.get_least_loaded_host()
-    
-    def get_load_stats(self) -> dict:
-        """NUOVO: Statistiche di carico per debugging"""
-        with self._lock:
-            return dict(self.request_counts)
-
-# Istanze globali
-circuit_breaker = CircuitBreaker()
-health_monitor = None  # Inizializzato dopo setup hosts
-
-# Lock globale per scrittura thread-safe sui file CSV
-write_lock = Lock()
-
-# -----------------------------------------------------------
-TOP_K  = 5          # deve coincidere con top_k del prompt
-MODEL_NAME = "mixtral:8x7b"
-# -----------------------------------------------------------
-# -----------------------------------------------------------
-DEFAULT_ANCHOR_RULE = "penultimate"   # "penultimate" | "first" | "middle" | int
-
-# ---------------- logging setup ----------------
-LOG_DIR = Path(__file__).resolve().parent / "logs"
-LOG_DIR.mkdir(exist_ok=True)
-LOG_FILE = LOG_DIR / f"run_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s %(levelname)s: %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, encoding="utf-8"),
-        logging.StreamHandler()
-    ]
-)
-
-logger = logging.getLogger(__name__)
-
-def should_skip_file(visits_path: Path, poi_path: Path, out_dir: Path, append: bool = False) -> bool:
-    """
-    Verifica se il file è già completamente processato e può essere saltato.
-    
-    Args:
-        visits_path: Path del file delle visite
-        poi_path: Path del file dei POI 
-        out_dir: Directory di output
-        append: Se siamo in modalità append
-    
-    Returns:
-        True se il file può essere saltato, False altrimenti
-    """
-    if not append:
-        return False
-    
-    try:
-        # 1. Verifica se esiste almeno un file di output
-        if not latest_output(visits_path, out_dir):
-            logger.debug(f"📄 {visits_path.stem}: Nessun output esistente")
-            return False
-        
-        # 2. Conta le card processate dal checkpoint (veloce)
-        processed_cards = load_completed_cards_fast(visits_path, out_dir)
-        if not processed_cards:
-            logger.debug(f"📄 {visits_path.stem}: Nessuna card nel checkpoint")
-            return False
-        
-        # 3. Conta le card eleggibili nel file (simula il preprocessing senza clustering)
-        logger.debug(f"🔍 {visits_path.stem}: Controllo card eleggibili...")
-        
-        # Caricamento rapido (solo colonne necessarie)
-        visits_df = pd.read_csv(
-            visits_path,
-            usecols=[0, 1, 2, 4],  # Le stesse colonne di load_visits
-            names=["data", "ora", "name_short", "card_id"],
-            header=0,
-            dtype={"card_id": str}
-        )
-        
-        # Carica POI (solo name_short per il merge)
-        pois_df = pd.read_csv(poi_path, usecols=["name_short"])
-        
-        # Simula il preprocessing senza fare il clustering
-        # Merge con POI validi
-        valid_visits = visits_df[visits_df["name_short"].isin(pois_df["name_short"])]
-        
-        # Conta visite per card e filtra quelle con 2+ POI diversi
-        card_stats = valid_visits.groupby("card_id").agg({
-            "name_short": "nunique",  # POI diversi visitati
-            "data": "count"           # Numero totale visite
-        }).rename(columns={"data": "total_visits", "name_short": "unique_pois"})
-        
-        # Card valide: almeno 2 POI diversi (per multi-visit) E almeno 3 visite totali
-        eligible_cards = card_stats[
-            (card_stats["unique_pois"] > 1) & 
-            (card_stats["total_visits"] >= 3)
-        ].index.tolist()
-        
-        total_eligible = len(eligible_cards)
-        total_processed = len(processed_cards)
-        
-        logger.info(f"📊 {visits_path.stem}: {total_processed}/{total_eligible} card processate")
-        
-        # 4. Verifica completamento
-        if total_processed >= total_eligible:
-            logger.info(f"✅ {visits_path.stem}: File completamente processato - SKIP")
-            return True
-        else:
-            remaining = total_eligible - total_processed
-            logger.info(f"🔄 {visits_path.stem}: {remaining} card rimanenti - PROCESSO")
-            return False
-            
-    except Exception as e:
-        logger.warning(f"⚠️ Errore controllo skip per {visits_path.stem}: {e}")
-        logger.warning("🔄 Procedo comunque per sicurezza...")
-        return False
-
-def test_ollama_connection_multi(hosts: List[str], model: str = MODEL_NAME) -> bool:
-    """Test di tutti gli host configurati"""
-    working_hosts = []
-    
-    for host in hosts:
-        logger.info(f"Test {host}...")
-        if test_single_host(host, model):
-            working_hosts.append(host)
-            logger.info(f"{host} operativo")
-        else:
-            logger.error(f"{host} non funziona")
-    
-    if working_hosts:
-        logger.info(f"{len(working_hosts)}/{len(hosts)} host operativi")
-        return True
-    else:
-        logger.error("Nessun host funzionante")
-        return False
-
-def test_single_host(host: str, model: str) -> bool:
-    """Test singolo host"""
-    try:
-        # Test tags
-        resp = requests.get(f"{host}/api/tags", timeout=10)
-        if resp.status_code != 200:
-            return False
-            
-        models = [m.get('name', '') for m in resp.json().get('models', [])]
-        if model not in models:
-            return False
-            
-        # Test micro inference
-        test_resp = requests.post(
-            f"{host}/api/generate",
-            json={
-                "model": model,
-                "prompt": "Hi",
-                "stream": False,
-                "options": {"num_predict": 1, "temperature": 0}
-            },
-            timeout=60
-        )
-        
-        if test_resp.status_code == 200:
-            data = test_resp.json()
-            return data.get("done") and data.get("response")
-                
-    except Exception:
-        pass
-    return False
-
-# ---------- chiamata LLaMA / Ollama ---------------------------------------
-def get_chat_completion(prompt: str, model: str = MODEL_NAME, max_retries: int = 3) -> str | None:
-    """Versione robusta con circuit breaker e backoff intelligente"""
-    
-    # Prova tutti gli host disponibili prima di fare retry
-    available_hosts = [h for h in OLLAMA_HOSTS if is_host_healthy(h)]
-    
-    if not available_hosts:
-        logger.error("❌ Nessun host disponibile")
-        return None
-    
-    for attempt in range(1, max_retries + 1):
-        # Seleziona host con round-robin tra quelli sani
-        current_host = available_hosts[attempt % len(available_hosts)]
-        
-        payload = {
-            "model": model,
-            "messages": [{"role": "user", "content": prompt}], 
-            "stream": False,
-            "options": {
-                "num_ctx": 4096,
-                "temperature": 0.1,
-                "num_thread": 8,  # Riduci thread per GPU
-                "num_predict": 256
-            }
-        }
-        
-        try:
-            logger.debug(f"🔄 Richiesta a {current_host} (tentativo {attempt}/{max_retries})")
-            
-            # Timeout progressivo
-            timeout = 60 + (attempt * 30)  # 60s, 90s, 120s
-            
-            resp = requests.post(
-                f"{current_host}/api/chat", 
-                json=payload, 
-                timeout=timeout,
-                headers={'Content-Type': 'application/json'}
-            )
-            
-            # Gestione specifica per errore 503
-            if resp.status_code == 503:
-                logger.warning(f"⚠️ Servizio non disponibile su {host} (503)")
-                mark_host_unhealthy(host, duration=30)
-                continue
-            
-            if resp.status_code == 500:
-                logger.warning(f"⚠️ Server error 500 su {current_host}, provo altro host...")
-                mark_host_unhealthy(current_host, duration=60)  # Marca come non sano per 1min
-                continue
-            
-            resp.raise_for_status()
-            response_data = resp.json()
-            
-            if not response_data.get("done", False):
-                logger.warning(f"⚠️ Risposta incompleta da {current_host}")
-                continue
-            
-            content = response_data.get("message", {}).get("content", "")
-            if content:
-                mark_host_healthy(current_host)  # Ripristina salute
-                return content
-                
-        except requests.exceptions.Timeout:
-            logger.error(f"⏰ Timeout {timeout}s su {current_host}")
-            mark_host_unhealthy(current_host, duration=30)
-        except Exception as exc:
-            logger.error(f"❌ Errore su {current_host}: {exc}")
-            mark_host_unhealthy(current_host, duration=30)
-        
-        if attempt < max_retries:
-            wait_time = min(2 ** attempt, 30)  # Exponential backoff: 2s, 4s, 8s...
-            logger.info(f"⏳ Aspetto {wait_time}s prima del prossimo tentativo...")
-            time.sleep(wait_time)
-    
-    logger.error("❌ Tutti i tentativi falliti su tutti gli host")
-    return None
-
-
-
-def is_host_healthy(host: str) -> bool:
-    health_info = HOST_HEALTH.get(host, {"healthy": True, "unhealthy_until": 0})
-    if not health_info["healthy"] and time.time() < health_info["unhealthy_until"]:
-        return False
-    health_info["healthy"] = True
-    return True
-
-def mark_host_unhealthy(host: str, duration: int = 60):
-    HOST_HEALTH[host] = {
-        "healthy": False, 
-        "unhealthy_until": time.time() + duration
-    }
-
-def mark_host_healthy(host: str):
-    HOST_HEALTH[host] = {"healthy": True, "unhealthy_until": 0}
-
-def _make_request_with_retry(prompt: str, model: str, max_retries: int) -> str | None:
-    """Logica retry con backoff esponenziale"""
-    
-    for attempt in range(1, max_retries + 1):
-        # Seleziona host più performante
-        host = health_monitor.get_next_host_round_robin()
-        if not host:
-            logger.error("❌ Nessun host sano disponibile")
-            healthy_hosts = health_monitor.get_healthy_hosts()
-            if not healthy_hosts:
-                # Re-check tutti gli host
-                for h in OLLAMA_HOSTS:
-                    health_monitor.check_health(h)
-                host = health_monitor.get_best_host()
-                if not host:
-                    raise Exception("Tutti gli host non funzionanti")
-        
-        try:
-            # Health check rapido se necessario
-            if time.time() - health_monitor.last_check.get(host, 0) > HEALTH_CHECK_INTERVAL:
-                if not health_monitor.check_health(host):
-                    logger.warning(f"⚠️ Host {host} non sano - retry")
-                    continue
-            
-            payload = {
-                "model": model,
-                "messages": [{"role": "user", "content": prompt}], 
-                "stream": False,
-                "options": {
-                    "num_ctx": 8192,      # Sfrutta i 64GB di VRAM
-                    "num_predict": 300,
-                    "temperature": 0.1,
-                    "top_p": 0.9,
-                    "num_thread": 16,     # Meglio per 56 cores per socket
-                    "num_batch": 1024,    # Batch più grandi per A100
-                    "repeat_penalty": 1.1 # Evita ripetizioni
-                }
-            }
-            
-            start_time = time.time()
-            resp = requests.post(
-                f"{host}/api/chat", 
-                json=payload, 
-                timeout=REQUEST_TIMEOUT,
-                headers={'Content-Type': 'application/json'}
-            )
-            response_time = time.time() - start_time
-            
-            resp.raise_for_status()
-            response_data = resp.json()
-            
-            if not response_data.get("done", False):
-                logger.warning(f"⚠️ Risposta incompleta da {host}")
-                continue
-            
-            content = response_data.get("message", {}).get("content", "")
-            if content:
-                # Aggiorna statistiche successo
-                with stats_lock:
-                    global_stats['total_processed'] += 1
-                    global_stats['consecutive_failures'] = 0
-                    global_stats['last_success_time'] = time.time()
-                
-                logger.debug(f"✅ Risposta da {host} in {response_time:.2f}s")
-                return content
-                
-        except requests.exceptions.Timeout:
-            logger.warning(f"⚠️ Timeout {REQUEST_TIMEOUT}s su {host} (tentativo {attempt})")
-            health_monitor.health_status[host] = False
-        except Exception as exc:
-            logger.error(f"❌ Errore su {host}: {exc}")
-            health_monitor.health_status[host] = False
-            
-            # Aggiorna statistiche errore
-            with stats_lock:
-                global_stats['total_errors'] += 1
-                global_stats['consecutive_failures'] += 1
-        
-        # Backoff esponenziale tra retry
-        if attempt < max_retries:
-            backoff_time = min(BACKOFF_BASE ** attempt, BACKOFF_MAX)
-            time.sleep(backoff_time)
-    
-    # Tutti i tentativi falliti
-    logger.error(f"❌ Tutti i {max_retries} tentativi falliti")
-    return None
-
-def _make_request_with_retry_targeted(prompt: str, model: str, max_retries: int, target_host: str) -> str | None:
-    """Versione che usa un host specifico invece di selezionarlo dinamicamente"""
-    
-    for attempt in range(1, max_retries + 1):
-        # Verifica che l'host target sia ancora sano
-        if not health_monitor.is_healthy(target_host):
-            logger.warning(f"⚠️ Host target {target_host} non sano - verifico...")
-            if not health_monitor.check_health(target_host):
-                logger.error(f"❌ Host {target_host} confermato non funzionante")
-                return None
-        
-        try:
-            payload = {
-                "model": model,
-                "messages": [{"role": "user", "content": prompt}], 
-                "stream": False,
-                "options": {
-                    "num_ctx": 8192,
-                    "num_predict": 300,
-                    "temperature": 0.1,
-                    "top_p": 0.9,
-                    "num_thread": 16,
-                    "num_batch": 1024,
-                    "repeat_penalty": 1.1
-                }
-            }
-            
-            start_time = time.time()
-            resp = requests.post(
-                f"{target_host}/api/chat", 
-                json=payload, 
-                timeout=REQUEST_TIMEOUT,
-                headers={'Content-Type': 'application/json'}
-            )
-            response_time = time.time() - start_time
-            
-            resp.raise_for_status()
-            response_data = resp.json()
-            
-            if not response_data.get("done", False):
-                logger.warning(f"⚠️ Risposta incompleta da {target_host}")
-                continue
-            
-            content = response_data.get("message", {}).get("content", "")
-            if content:
-                # Aggiorna statistiche successo
-                with stats_lock:
-                    global_stats['total_processed'] += 1
-                    global_stats['consecutive_failures'] = 0
-                    global_stats['last_success_time'] = time.time()
-                
-                logger.debug(f"✅ Risposta da {target_host} in {response_time:.2f}s")
-                return content
-                
-        except requests.exceptions.Timeout:
-            logger.warning(f"⚠️ Timeout {REQUEST_TIMEOUT}s su {target_host} (tentativo {attempt})")
-            health_monitor.health_status[target_host] = False
-        except Exception as exc:
-            logger.error(f"❌ Errore su {target_host}: {exc}")
-            health_monitor.health_status[target_host] = False
-            
-            # Aggiorna statistiche errore
-            with stats_lock:
-                global_stats['total_errors'] += 1
-                global_stats['consecutive_failures'] += 1
-        
-        # Backoff esponenziale tra retry
-        if attempt < max_retries:
-            backoff_time = min(BACKOFF_BASE ** attempt, BACKOFF_MAX)
-            time.sleep(backoff_time)
-    
-    logger.error(f"❌ Tutti i {max_retries} tentativi falliti per {target_host}")
-    return None
-
-def debug_gpu_status():
-    """Debug dello stato GPU prima di iniziare"""
-    logger.info("🔍 Debug stato GPU:")
-    
-    try:
-        import subprocess
-        
-        # Stato GPU
-        gpu_info = subprocess.run(
-            ["nvidia-smi", "--query-gpu=name,memory.used,memory.total,temperature.gpu,utilization.gpu", "--format=csv,noheader,nounits"],
-            capture_output=True, text=True, timeout=10
-        )
-        
-        if gpu_info.returncode == 0:
-            logger.info(f"📊 GPU: {gpu_info.stdout.strip()}")
-        else:
-            logger.warning("⚠️  nvidia-smi non disponibile")
-            
-        # Processi GPU
-        gpu_procs = subprocess.run(
-            ["nvidia-smi", "pmon", "-c", "1"],
-            capture_output=True, text=True, timeout=10
-        )
-        
-        if gpu_procs.returncode == 0:
-            lines = gpu_procs.stdout.strip().split('\n')
-            if len(lines) > 2:  # Header + data
-                logger.info("📋 Processi GPU attivi:")
-                for line in lines[2:]:  # Skip headers
-                    if line.strip():
-                        logger.info(f"   {line}")
-            else:
-                logger.info("✓ Nessun processo GPU concorrente")
-                
-    except Exception as e:
-        logger.warning(f"⚠️  Debug GPU fallito: {e}")
-
-def monitor_gpu_utilization():
-    """Monitora utilizzo GPU durante l'esecuzione"""
-    try:
-        import subprocess
-        result = subprocess.run(
-            ["nvidia-smi", "--query-gpu=utilization.gpu,memory.used", 
-             "--format=csv,noheader,nounits"],
-            capture_output=True, text=True, timeout=5
-        )
-        if result.returncode == 0:
-            lines = result.stdout.strip().split('\n')
-            avg_util = sum(int(line.split(',')[0]) for line in lines) / len(lines)
-            return avg_util
-    except:
-        pass
-    return 0
-
-def warmup_all_hosts(model: str = MODEL_NAME) -> bool:
-    """Warm-up parallelo di tutti gli host"""
-    logger.info("🔥 Warm-up parallelo di tutti i host...")
-    
-    def warmup_single_host(host):
-        payload = {
-            "model": model,
-            "prompt": "Test",
-            "stream": False,
-            "options": {
-                "num_ctx": 1024,
-                "num_predict": 5,
-                "temperature": 0.1
-            }
-        }
-        try:
-            resp = requests.post(f"{host}/api/generate", json=payload, timeout=60)
-            return resp.status_code == 200
-        except:
-            return False
-    
-    with ThreadPoolExecutor(max_workers=len(OLLAMA_HOSTS)) as executor:
-        futures = [executor.submit(warmup_single_host, host) for host in OLLAMA_HOSTS]
-        results = [f.result() for f in futures]
-    
-    success_count = sum(results)
-    logger.info(f"✅ Warm-up completato: {success_count}/{len(OLLAMA_HOSTS)} host")
-    return success_count > 0
-
-def warmup_model(model: str = MODEL_NAME) -> bool:
-    """
-    Warm-up ottimizzato per problemi GPU
-    """
-    logger.info("🔥 Warm-up modello con parametri conservativi...")
-    
-    # Payload minimalista per warm-up
-    payload = {
-        "model": model,
-        "prompt": "Hi",  # Prompt più corto possibile
-        "stream": False,
-        "options": {
-            "num_ctx": 1024,      # Contesto minimo
-            "num_predict": 3,     # Solo 3 token
-            "temperature": 0.1,
-            "num_thread": 4,      # Thread ridotti
-            "num_batch": 64       # Batch piccolo
-        }
-    }
-    
-    try:
-        logger.info("🔄 Tentativo warm-up...")
-        resp = requests.post(
-            f"{OLLAMA_HOSTS[0]}/api/generate",
-            json=payload,
-            timeout=120,  # 2 minuti per warm-up
-            headers={'Content-Type': 'application/json'}
-        )
-        
-        if resp.status_code == 200 and resp.content:
-            try:
-                result = resp.json()
-                done = result.get("done", False)
-                response_text = result.get("response", "")
-                
-                logger.info(f"📊 Warm-up result: done={done}, response_len={len(response_text)}")
-                
-                if done and response_text.strip():
-                    logger.info("✓ Warm-up completato con successo")
-                    return True
-                elif result.get("done_reason") == "load":
-                    logger.warning("⚠️  Modello non completamente caricato durante warm-up")
-                    return False
+                # Calculate trend (positive = getting slower)
+                if len(recent_times) > 1:
+                    trend = recent_times[-1] - recent_times[0]
                 else:
-                    logger.warning("⚠️  Warm-up parziale - potrebbe funzionare comunque")
-                    return True  # Ritorna True per tentare comunque
-                    
-            except json.JSONDecodeError:
-                logger.error(f"❌ Warm-up JSON malformato: {resp.text[:200]}")
-                return False
-        else:
-            logger.warning(f"⚠️  Warm-up HTTP error: {resp.status_code}")
-            return False
-        
-    except requests.exceptions.Timeout:
-        logger.error("❌  Warm-up timeout - GPU molto lenta o bloccata")
-        return False
-    except Exception as exc:
-        logger.error(f"❌  Warm-up errore: {exc}")
-        return False
+                    trend = 0
+                
+                # Score calculation (lower is better)
+                # Penalize hosts with increasing response times
+                score = avg_time + (trend * 2)
+                host_scores.append((host, score))
+            
+            # Return host with lowest score
+            best_host = min(host_scores, key=lambda x: x[1])[0]
+            logger.debug(f"Selected host: {best_host}")
+            return best_host
 
-# --- CONFIGURAZIONE OLLAMA: leggi porta dal file ---
-OLLAMA_PORT_FILE = "ollama_port.txt"
 
-def setup_ollama_connections() -> List[str]:
-    """Setup connessioni ottimizzato per HPC"""
-    try:
-        with open("ollama_ports.txt", "r") as f:
-            ports_str = f.read().strip()
-        
-        if "," in ports_str:
-            ports = ports_str.split(",")
-            hosts = [f"http://127.0.0.1:{port.strip()}" for port in ports]
-            logger.info(f"🔥 Configurazione multi-GPU: {len(hosts)} istanze")
-            
-            # Inizializza rate limiting basato sugli host reali
-            global RATE_LIMIT_SEMAPHORE, MAX_CONCURRENT_REQUESTS
-            MAX_CONCURRENT_REQUESTS = len(hosts) * 4  # 4 richieste per GPU/host
-            RATE_LIMIT_SEMAPHORE = Semaphore(MAX_CONCURRENT_REQUESTS)
-            
-            setup_gpu_rate_limiting(hosts)  # Inizializza semafori per GPU
-            return hosts
-        else:
-            host = f"http://127.0.0.1:{ports_str}"
-            logger.info(f"⚠️ Fallback singola GPU: {host}")
-            RATE_LIMIT_SEMAPHORE = Semaphore(1)
-            MAX_CONCURRENT_REQUESTS = 1
-            
-            setup_gpu_rate_limiting(hosts)  # Inizializza semafori per GPU
-            return [host]
-            
-    except FileNotFoundError:
-        raise RuntimeError("❌ File ollama_ports.txt non trovato")
+# ============= OLLAMA CONNECTION MANAGEMENT =============
 
-def wait_for_ollama(ollama_host, max_attempts=30, wait_interval=3):
-    """Attende che Ollama sia pronto con retry più robusto"""
-    print(f"🔄 Attesa Ollama su {ollama_host}...")
+class OllamaConnectionManager:
+    """Manages Ollama connections and API interactions"""
     
-    for attempt in range(1, max_attempts + 1):
+    def __init__(self):
+        self.hosts: List[str] = []
+        self.rate_limiter: Optional[Semaphore] = None
+        self.circuit_breaker = CircuitBreaker(
+            failure_threshold=Config.CIRCUIT_BREAKER_THRESHOLD,
+            timeout=300
+        )
+        self.health_monitor: Optional[HostHealthMonitor] = None
+        
+    def setup_connections(self) -> List[str]:
+        """Setup Ollama connections from port configuration file"""
         try:
-            # Prima prova un endpoint semplice
-            response = requests.get(f"{ollama_host}/api/tags", 
-                                  timeout=10,
-                                  headers={'Accept': 'application/json'})
+            with open(Config.OLLAMA_PORT_FILE, "r") as f:
+                ports_str = f.read().strip()
             
-            if response.status_code == 200:
-                print(f"✓ Ollama risponde con status {response.status_code}")
+            if "," in ports_str:
+                # Multi-GPU configuration
+                ports = [p.strip() for p in ports_str.split(",")]
+                self.hosts = [f"http://127.0.0.1:{port}" for port in ports]
+                logger.info(f"Multi-GPU configuration: {len(self.hosts)} instances")
                 
-                # Test aggiuntivo: prova anche /api/version
-                try:
-                    version_resp = requests.get(f"{ollama_host}/api/version", timeout=5)
-                    if version_resp.status_code == 200:
-                        print("✓ Runner LLaMA completamente attivo")
-                        return True
-                except:
-                    pass  # Non critico se version non risponde
+                # Initialize rate limiting based on number of hosts
+                max_concurrent = len(self.hosts) * 4  # 4 requests per GPU/host
+                self.rate_limiter = Semaphore(max_concurrent)
                 
-                # Anche se version non risponde, tags OK è sufficiente
-                print("✓ Runner LLaMA attivo (solo /api/tags)")
-                return True
             else:
-                print(f"🔄 Tentativo {attempt}/{max_attempts}: HTTP {response.status_code}")
-                
-        except requests.exceptions.ConnectionError:
-            print(f"🔄 Tentativo {attempt}/{max_attempts}: Connessione rifiutata")
-        except requests.exceptions.Timeout:
-            print(f"🔄 Tentativo {attempt}/{max_attempts}: Timeout")
-        except requests.exceptions.RequestException as e:
-            print(f"🔄 Tentativo {attempt}/{max_attempts}: Errore {e}")
-        
-        if attempt < max_attempts:
-            print(f"⏳ Attendo {wait_interval}s prima del prossimo tentativo...")
-            time.sleep(wait_interval)
+                # Single GPU fallback
+                self.hosts = [f"http://127.0.0.1:{ports_str}"]
+                logger.info(f"Single GPU configuration: {self.hosts[0]}")
+                self.rate_limiter = Semaphore(1)
+            
+            # Initialize health monitor
+            self.health_monitor = HostHealthMonitor(self.hosts)
+            
+            return self.hosts
+            
+        except FileNotFoundError:
+            raise RuntimeError(f"Configuration file {Config.OLLAMA_PORT_FILE} not found")
+        except Exception as e:
+            raise RuntimeError(f"Failed to setup Ollama connections: {e}")
     
-    return False
+    def wait_for_services(self, max_attempts: int = 30, wait_interval: int = 3) -> bool:
+        """Wait for all Ollama services to be ready"""
+        logger.info("Waiting for Ollama services to start...")
+        
+        for i, host in enumerate(self.hosts):
+            logger.info(f"Checking host {i+1}/{len(self.hosts)}: {host}")
+            
+            for attempt in range(1, max_attempts + 1):
+                try:
+                    response = requests.get(
+                        f"{host}/api/tags",
+                        timeout=10,
+                        headers={'Accept': 'application/json'}
+                    )
+                    
+                    if response.status_code == 200:
+                        logger.info(f"Host {host} is ready")
+                        break
+                        
+                except requests.exceptions.RequestException as e:
+                    logger.debug(f"Attempt {attempt}/{max_attempts} failed: {e}")
+                    
+                if attempt < max_attempts:
+                    time.sleep(wait_interval)
+                else:
+                    logger.error(f"Host {host} failed to respond after {max_attempts} attempts")
+                    return False
+        
+        logger.info("All Ollama services are ready!")
+        return True
+    
+    def test_model_availability(self, model: str = Config.MODEL_NAME) -> bool:
+        """Test if the specified model is available on all hosts"""
+        working_hosts = 0
+        
+        for host in self.hosts:
+            try:
+                # Check available models
+                resp = requests.get(f"{host}/api/tags", timeout=10)
+                if resp.status_code != 200:
+                    logger.error(f"Failed to get models from {host}")
+                    continue
+                
+                models = [m.get('name', '') for m in resp.json().get('models', [])]
+                if model not in models:
+                    logger.error(f"Model {model} not found on {host}")
+                    continue
+                
+                # Test inference capability
+                test_payload = {
+                    "model": model,
+                    "prompt": "Hi",
+                    "stream": False,
+                    "options": {
+                        "num_predict": 1,
+                        "temperature": 0
+                    }
+                }
+                
+                test_resp = requests.post(
+                    f"{host}/api/generate",
+                    json=test_payload,
+                    timeout=60
+                )
+                
+                if test_resp.status_code == 200:
+                    data = test_resp.json()
+                    if data.get("done") and data.get("response"):
+                        working_hosts += 1
+                        logger.info(f"Model {model} working on {host}")
+                    else:
+                        logger.error(f"Model test failed on {host}: incomplete response")
+                else:
+                    logger.error(f"Model test failed on {host}: HTTP {test_resp.status_code}")
+                    
+            except Exception as e:
+                logger.error(f"Error testing {host}: {e}")
+        
+        logger.info(f"{working_hosts}/{len(self.hosts)} hosts have working model")
+        return working_hosts > 0
+    
+    def get_chat_completion(self, prompt: str, model: str = Config.MODEL_NAME) -> Optional[str]:
+        """Get chat completion with load balancing and error handling"""
+        
+        # Check circuit breaker
+        if stats.circuit_breaker_active:
+            logger.warning("Circuit breaker active - skipping request")
+            return None
+        
+        # Acquire rate limiting semaphore
+        if not self.rate_limiter.acquire(blocking=True, timeout=30):
+            logger.warning("Rate limit timeout - system overloaded")
+            return None
+        
+        try:
+            with self.circuit_breaker.call():
+                return self._make_request_with_retry(prompt, model)
+        except Exception as e:
+            logger.error(f"Request failed completely: {e}")
+            return None
+        finally:
+            self.rate_limiter.release()
+    
+    def _make_request_with_retry(self, prompt: str, model: str) -> Optional[str]:
+        """Make request with exponential backoff retry logic"""
+        
+        for attempt in range(1, Config.MAX_RETRIES_PER_REQUEST + 1):
+            # Select best performing host
+            host = self.health_monitor.get_best_host()
+            if not host:
+                logger.error("No healthy hosts available")
+                # Try to re-check all hosts
+                for h in self.hosts:
+                    self.health_monitor.check_health(h)
+                host = self.health_monitor.get_best_host()
+                if not host:
+                    raise Exception("All hosts are down")
+            
+            try:
+                # Health check if needed
+                if (time.time() - self.health_monitor.last_check.get(host, 0) 
+                    > Config.HEALTH_CHECK_INTERVAL):
+                    if not self.health_monitor.check_health(host):
+                        logger.warning(f"Host {host} failed health check - retrying")
+                        continue
+                
+                # Prepare optimized payload for A100 GPUs
+                payload = {
+                    "model": model,
+                    "messages": [{"role": "user", "content": prompt}],
+                    "stream": False,
+                    "options": {
+                        "num_ctx": 8192,      # Leverage 64GB VRAM
+                        "num_predict": 300,
+                        "temperature": 0.1,
+                        "top_p": 0.9,
+                        "num_thread": 16,     # Optimal for 56 cores per socket
+                        "num_batch": 1024,    # Larger batches for A100
+                        "repeat_penalty": 1.1
+                    }
+                }
+                
+                start_time = time.time()
+                resp = requests.post(
+                    f"{host}/api/chat",
+                    json=payload,
+                    timeout=Config.REQUEST_TIMEOUT,
+                    headers={'Content-Type': 'application/json'}
+                )
+                response_time = time.time() - start_time
+                
+                resp.raise_for_status()
+                response_data = resp.json()
+                
+                if not response_data.get("done", False):
+                    logger.warning(f"Incomplete response from {host}")
+                    continue
+                
+                content = response_data.get("message", {}).get("content", "")
+                if content:
+                    # Update success statistics
+                    stats.increment_processed()
+                    logger.debug(f"Got response from {host} in {response_time:.2f}s")
+                    return content
+                    
+            except requests.exceptions.Timeout:
+                logger.warning(f"Timeout on {host} (attempt {attempt})")
+                self.health_monitor.health_status[host] = False
+            except Exception as exc:
+                logger.error(f"Error on {host}: {exc}")
+                self.health_monitor.health_status[host] = False
+                stats.increment_errors()
+            
+            # Exponential backoff between retries
+            if attempt < Config.MAX_RETRIES_PER_REQUEST:
+                backoff_time = min(Config.BACKOFF_BASE ** attempt, Config.BACKOFF_MAX)
+                time.sleep(backoff_time)
+        
+        logger.error(f"All {Config.MAX_RETRIES_PER_REQUEST} attempts failed")
+        return None
+
+
+# ============= GEOGRAPHIC UTILITIES =============
 
 def calculate_distance(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     """
-    Calcola la distanza in chilometri tra due punti geografici
-    usando la formula dell'haversine.
-    """
-    R = 6371  # Raggio della Terra in km
+    Calculate distance in kilometers between two geographic points using Haversine formula.
     
+    The Haversine formula determines the great-circle distance between two points
+    on a sphere given their longitudes and latitudes.
+    
+    Args:
+        lat1, lon1: Latitude and longitude of first point
+        lat2, lon2: Latitude and longitude of second point
+        
+    Returns:
+        Distance in kilometers
+    """
+    R = 6371  # Earth's radius in kilometers
+    
+    # Convert degrees to radians
     lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
+    
+    # Calculate differences
     dlat = lat2 - lat1
     dlon = lon2 - lon1
     
+    # Haversine formula
     a = math.sin(dlat/2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon/2)**2
     c = 2 * math.asin(math.sqrt(a))
     
     return R * c
 
-def list_outputs(visits_path: Path, out_dir: Path) -> list[Path]:
-    """Tutti i CSV già calcolati per quel file di visite."""
-    pattern = f"{visits_path.stem}_pred_*.csv"
-    return sorted(out_dir.glob(pattern))
 
-def latest_output(visits_path: Path, out_dir: Path) -> Path | None:
-    """L'output più recente (None se non esiste)."""
-    outputs = list_outputs(visits_path, out_dir)
-    return max(outputs, key=os.path.getmtime) if outputs else None
+# ============= DATA LOADING FUNCTIONS =============
 
-def anchor_index(seq_len: int, rule: str | int) -> int:
-    """
-    Restituisce l'indice (0‑based) del POI da usare come 'ancora'
-    nella sequenza **senza** il target finale.
-
-    Parameters
-    ----------
-    seq_len : int
-        Lunghezza della sequenza considerata (escluso il target).
-    rule : str | int
-        Strategia di selezione:
-        • "penultimate" → ultimo elemento del prefisso  
-        • "first"       → indice 0  
-        • "middle"      → seq_len // 2  
-        • int           → indice esplicito (negativo ammesso)
-
-    Raises
-    ------
-    ValueError se la regola è sconosciuta o l'indice è fuori range.
-    """
-    if rule == "penultimate":
-        idx = seq_len - 1
-    elif rule == "first":
-        idx = 0
-    elif rule == "middle":
-        idx = seq_len // 2
-    elif isinstance(rule, int):
-        idx = rule if rule >= 0 else seq_len + rule
-    else:
-        raise ValueError(f"anchor_rule '{rule}' non valido")
-
-    if not (0 <= idx < seq_len):
-        raise ValueError("anchor index fuori range")
-    return idx
-
-# ---------- helper di caricamento -----------------------------------------
-def already_processed(visits_path: Path, out_dir: Path) -> bool:
-    """
-    Ritorna True se esiste almeno un CSV di output per il file di visite.
-    Esempio: dati_2014.csv  →  results/dati_2014_pred_*.csv
-    """
-    pattern = f"{visits_path.stem}_pred_*.csv"
-    return any(out_dir.glob(pattern))
-
-def load_pois(filepath: str | Path) -> DataFrame:
-    df = pd.read_csv(filepath, usecols=["name_short", "latitude", "longitude"])
+class DataLoader:
+    """Handles loading and preprocessing of tourist visit data"""
     
-    logger.info(f"[load_pois] {len(df)} POI letti da {filepath}")
-    return df
-
-def list_visits_csv(base_dir="data/verona"):
-    """
-    Ritorna la lista dei CSV di visite (esclude vc_site.csv e qualsiasi file
-    che contenga 'vc_site' nel nome).
-    Cerca in tutte le sottocartelle di *base_dir*.
-    """
-    all_csv = Path(base_dir).rglob("*.csv")
-    return [
-        str(p) for p in all_csv
-        if "vc_site.csv" not in p.name.lower()
-        and "backup" not in str(p).lower()
-    ]
-
-def load_visits(filepath: str | Path) -> DataFrame:
-    df = pd.read_csv(
-        filepath,
-        usecols=[0, 1, 2, 4],
-        names=["data", "ora", "name_short", "card_id"],
-        header=0,
-        dtype={"card_id": "category", "name_short": "category"},
-    )
-    df["timestamp"] = pd.to_datetime(df["data"] + " " + df["ora"], format="%d-%m-%y %H:%M:%S")
-    
-    logger.info(f"[load_visits] {len(df)} timbrature da {filepath}")
-
-    return df[["timestamp", "card_id", "name_short"]].sort_values("timestamp").reset_index(drop=True)
-
-def merge_visits_pois(visits_df: DataFrame, pois_df: DataFrame) -> DataFrame:
-    merged = visits_df.merge(pois_df[["name_short"]], on="name_short", how="inner")
-    
-    logger.info(f"[merge] visite valide dopo merge: {len(merged)}")
-
-    return merged.sort_values("timestamp").reset_index(drop=True)
-
-def filter_multi_visit_cards(df: DataFrame) -> DataFrame:
-    valid_cards = df.groupby("card_id")["name_short"].nunique().loc[lambda s: s > 1].index
-    logger.info(f"[filter] card multi-visita: {len(valid_cards)} / {df.card_id.nunique()}")
-    return df[df["card_id"].isin(valid_cards)].reset_index(drop=True)
-
-def create_user_poi_matrix(df: DataFrame) -> DataFrame:
-    return pd.crosstab(df["card_id"], df["name_short"])
-
-# ---------- prompt builder -------------------------------------------------
-def create_prompt_with_cluster(
-    df: pd.DataFrame,
-    user_clusters: pd.DataFrame,
-    pois_df: pd.DataFrame,
-    card_id: str,
-    *,
-    top_k: int = 5,
-    anchor_rule: str | int = DEFAULT_ANCHOR_RULE,
-) -> str:
-    visits = df[df["card_id"] == card_id].sort_values("timestamp")
-    seq = visits["name_short"].tolist()
-
-    if len(seq) < 3:
-        raise ValueError("Sequenza troppo corta (minimo 3 tappe)")
-
-    target = seq[-1]
-    prefix = seq[:-1]
-    idx = anchor_index(len(prefix), anchor_rule)
-    current_poi = prefix[idx]
-    history = [p for i, p in enumerate(prefix) if i != idx]
-
-    cluster_id = user_clusters.loc[
-        user_clusters["card_id"] == card_id, "cluster"
-    ].values[0]
-
-    # Ottieni coordinate del POI attuale
-    current_poi_row = pois_df[pois_df["name_short"] == current_poi]
-    if current_poi_row.empty:
-        raise ValueError(f"POI {current_poi} non trovato nel database")
-    
-    current_lat = current_poi_row["latitude"].iloc[0]
-    current_lon = current_poi_row["longitude"].iloc[0]
-
-    # Calcola distanze e prendi solo i più vicini (max 10 per ridurre il prompt)
-    nearby_pois = []
-    for _, row in pois_df.iterrows():
-        poi_name = row["name_short"]
+    @staticmethod
+    def load_pois(filepath: Path) -> DataFrame:
+        """
+        Load Points of Interest (POI) data with coordinates.
         
-        # Salta se già visitato o è il POI attuale
-        if poi_name in history or poi_name == current_poi:
-            continue
+        Args:
+            filepath: Path to POI CSV file
             
-        distance = calculate_distance(
-            current_lat, current_lon,
-            row["latitude"], row["longitude"]
+        Returns:
+            DataFrame with columns: name_short, latitude, longitude
+        """
+        df = pd.read_csv(
+            filepath, 
+            usecols=["name_short", "latitude", "longitude"],
+            dtype={
+                "name_short": "category",
+                "latitude": np.float32,
+                "longitude": np.float32
+            }
+        )
+        logger.info(f"Loaded {len(df)} POIs from {filepath.name}")
+        return df
+    
+    @staticmethod
+    def load_visits(filepath: Path) -> DataFrame:
+        """
+        Load tourist visit data and convert to standardized format.
+        
+        Args:
+            filepath: Path to visits CSV file
+            
+        Returns:
+            DataFrame with columns: timestamp, card_id, name_short
+        """
+        df = pd.read_csv(
+            filepath,
+            usecols=[0, 1, 2, 4],  # Select specific columns by position
+            names=["data", "ora", "name_short", "card_id"],
+            header=0,
+            dtype={"card_id": "category", "name_short": "category"}
         )
         
-        nearby_pois.append({
-            "name": poi_name,
-            "distance": distance
-        })
-
-    # Ordina per distanza e prendi solo i primi 10
-    nearby_pois.sort(key=lambda x: x["distance"])
-    nearby_pois = nearby_pois[:10]
-
-    # Crea lista compatta
-    pois_list = ", ".join([
-        f"{poi['name']} ({poi['distance']:.1f}km)"
-        for poi in nearby_pois
-    ])
-
-    # Prompt molto più conciso
-    return f"""Turista cluster {cluster_id} a Verona.
-Visitati: {', '.join(history) if history else 'nessuno'}
-Attuale: {current_poi}
-POI Più Vicini: {pois_list}
-
-Suggerisci {top_k} POI più probabili come prossime visite considerando distanze e pattern turistici.
-Rispondi SOLO JSON: {{"prediction": ["poi1", "poi2", ...], "reason": "breve spiegazione"}}"""
-    
-def get_nearby_pois(current_poi: str, pois_df: pd.DataFrame, 
-                   visited_pois: list, max_distance: float = 2.0) -> list:
-    """
-    Restituisce i POI entro una certa distanza dal POI attuale,
-    escludendo quelli già visitati.
-    
-    Args:
-        current_poi: Nome del POI attuale
-        pois_df: DataFrame con tutti i POI e le loro coordinate
-        visited_pois: Lista dei POI già visitati
-        max_distance: Distanza massima in km (default 2km per il centro di Verona)
-    
-    Returns:
-        Lista di dizionari con informazioni sui POI vicini
-    """
-    current_poi_row = pois_df[pois_df["name_short"] == current_poi]
-    if current_poi_row.empty:
-        return []
-    
-    current_lat = current_poi_row["latitude"].iloc[0]
-    current_lon = current_poi_row["longitude"].iloc[0]
-    
-    nearby_pois = []
-    for _, row in pois_df.iterrows():
-        poi_name = row["name_short"]
-        
-        # Salta se già visitato o è il POI attuale
-        if poi_name in visited_pois or poi_name == current_poi:
-            continue
-            
-        distance = calculate_distance(
-            current_lat, current_lon,
-            row["latitude"], row["longitude"]
+        # Combine date and time into single timestamp
+        df["timestamp"] = pd.to_datetime(
+            df["data"] + " " + df["ora"], 
+            format="%d-%m-%y %H:%M:%S"
         )
         
-        # Include solo se entro la distanza massima
-        if distance <= max_distance:
-            nearby_pois.append({
-                "name": poi_name,
-                "distance": distance,
-                "lat": row["latitude"],
-                "lon": row["longitude"]
-            })
-    
-    return sorted(nearby_pois, key=lambda x: x["distance"])    
-
-def analyze_movement_patterns(df: pd.DataFrame, pois_df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Analizza i pattern di movimento calcolando le distanze tra visite consecutive.
-    Questo può aiutare a capire i comportamenti tipici dei turisti.
-    """
-    movement_data = []
-    
-    for card_id, group in df.groupby("card_id"):
-        visits = group.sort_values("timestamp")
-        poi_sequence = visits["name_short"].tolist()
+        logger.info(f"Loaded {len(df)} visits from {filepath.name}")
         
-        # Calcola distanze tra visite consecutive
-        for i in range(len(poi_sequence) - 1):
-            current_poi = poi_sequence[i]
-            next_poi = poi_sequence[i + 1]
+        # Return only needed columns, sorted by timestamp
+        return (df[["timestamp", "card_id", "name_short"]]
+                .sort_values("timestamp")
+                .reset_index(drop=True))
+    
+    @staticmethod
+    def merge_visits_pois(visits_df: DataFrame, pois_df: DataFrame) -> DataFrame:
+        """
+        Merge visits with POI data to filter out invalid visits.
+        
+        Args:
+            visits_df: DataFrame with visit records
+            pois_df: DataFrame with POI information
             
-            # Trova coordinate dei due POI
-            current_coords = pois_df[pois_df["name_short"] == current_poi]
-            next_coords = pois_df[pois_df["name_short"] == next_poi]
+        Returns:
+            DataFrame with only valid visits (matching POIs)
+        """
+        # Inner join keeps only visits to valid POIs
+        merged = visits_df.merge(
+            pois_df[["name_short"]], 
+            on="name_short", 
+            how="inner"
+        )
+        
+        logger.info(f"Valid visits after merge: {len(merged)}")
+        return merged.sort_values("timestamp").reset_index(drop=True)
+    
+    @staticmethod
+    def filter_multi_visit_cards(df: DataFrame) -> DataFrame:
+        """
+        Filter to keep only cards that visited multiple distinct POIs.
+        
+        This ensures we have meaningful sequences for prediction.
+        
+        Args:
+            df: DataFrame with visit records
             
-            if not current_coords.empty and not next_coords.empty:
-                distance = calculate_distance(
-                    current_coords["latitude"].iloc[0],
-                    current_coords["longitude"].iloc[0],
-                    next_coords["latitude"].iloc[0],
-                    next_coords["longitude"].iloc[0]
-                )
+        Returns:
+            DataFrame with only multi-visit cards
+        """
+        # Count unique POIs per card
+        unique_pois_per_card = df.groupby("card_id")["name_short"].nunique()
+        
+        # Keep cards with more than one unique POI
+        valid_cards = unique_pois_per_card[unique_pois_per_card > 1].index
+        
+        logger.info(f"Multi-visit cards: {len(valid_cards)} / {df.card_id.nunique()}")
+        
+        return df[df["card_id"].isin(valid_cards)].reset_index(drop=True)
+    
+    @staticmethod
+    def create_user_poi_matrix(df: DataFrame) -> DataFrame:
+        """
+        Create user-POI interaction matrix for clustering.
+        
+        Args:
+            df: DataFrame with visit records
+            
+        Returns:
+            Crosstab matrix of card_id x POI visits
+        """
+        return pd.crosstab(df["card_id"], df["name_short"])
+
+
+# ============= PROMPT GENERATION =============
+
+class PromptBuilder:
+    """Handles prompt generation for LLM predictions"""
+    
+    @staticmethod
+    def get_anchor_index(seq_len: int, rule: str | int) -> int:
+        """
+        Determine anchor POI index based on specified rule.
+        
+        The anchor POI is used as the "current location" in the prompt.
+        
+        Args:
+            seq_len: Length of sequence (excluding target)
+            rule: Selection strategy:
+                - "penultimate": Last element of prefix
+                - "first": Index 0
+                - "middle": seq_len // 2
+                - int: Explicit index (negative allowed)
                 
-                movement_data.append({
-                    "card_id": card_id,
-                    "from_poi": current_poi,
-                    "to_poi": next_poi,
-                    "distance": distance,
-                    "visit_order": i + 1
-                })
+        Returns:
+            0-based index of anchor POI
+            
+        Raises:
+            ValueError: If rule is invalid or index out of range
+        """
+        if rule == "penultimate":
+            idx = seq_len - 1
+        elif rule == "first":
+            idx = 0
+        elif rule == "middle":
+            idx = seq_len // 2
+        elif isinstance(rule, int):
+            idx = rule if rule >= 0 else seq_len + rule
+        else:
+            raise ValueError(f"Invalid anchor_rule: '{rule}'")
+        
+        if not (0 <= idx < seq_len):
+            raise ValueError(f"Anchor index {idx} out of range for sequence length {seq_len}")
+            
+        return idx
     
-    return pd.DataFrame(movement_data)
-
-# ---------- test-set builder ----------------------------------------------
-def build_test_set(df: DataFrame) -> DataFrame:
-    records = []
-    for cid, grp in df.groupby("card_id"):
-        seq = grp.sort_values("timestamp")["name_short"].tolist()
-        if len(seq) >= 3:
-            records.append(
-                {"card_id": cid, "history": seq[:-2], "current": seq[-2], "target": seq[-1]}
+    @staticmethod
+    def get_nearby_pois(
+        current_poi: str, 
+        pois_df: pd.DataFrame,
+        visited_pois: List[str],
+        max_pois: int = 10,
+        max_distance: float = 5.0
+    ) -> List[Dict[str, Any]]:
+        """
+        Find POIs near the current location.
+        
+        Args:
+            current_poi: Name of current POI
+            pois_df: DataFrame with all POIs
+            visited_pois: List of already visited POIs to exclude
+            max_pois: Maximum number of POIs to return
+            max_distance: Maximum distance in km
+            
+        Returns:
+            List of nearby POIs with distances
+        """
+        current_poi_row = pois_df[pois_df["name_short"] == current_poi]
+        if current_poi_row.empty:
+            return []
+        
+        current_lat = current_poi_row["latitude"].iloc[0]
+        current_lon = current_poi_row["longitude"].iloc[0]
+        
+        nearby_pois = []
+        
+        for _, row in pois_df.iterrows():
+            poi_name = row["name_short"]
+            
+            # Skip if already visited or is current POI
+            if poi_name in visited_pois or poi_name == current_poi:
+                continue
+            
+            distance = calculate_distance(
+                current_lat, current_lon,
+                row["latitude"], row["longitude"]
             )
-    return pd.DataFrame(records)
-
-# ---------- Funzione WORKER ---------------------------------------
-def process_single_card(args):
-    """
-    Worker function per processare una singola card.
-    Ritorna un dizionario con i risultati o None se errore.
-    """
-    cid, filtered, user_clusters, pois, anchor_rule, top_k = args
+            
+            # Only include if within max distance
+            if distance <= max_distance:
+                nearby_pois.append({
+                    "name": poi_name,
+                    "distance": distance
+                })
+        
+        # Sort by distance and limit results
+        nearby_pois.sort(key=lambda x: x["distance"])
+        return nearby_pois[:max_pois]
     
-    start_time = time.time()
-    
-    try:
-        # Validazione preliminare
-        seq = (
-            filtered.loc[filtered.card_id == cid]
-            .sort_values("timestamp")["name_short"].tolist()
-        )
+    @staticmethod
+    def create_prompt(
+        df: pd.DataFrame,
+        user_clusters: pd.DataFrame,
+        pois_df: pd.DataFrame,
+        card_id: str,
+        top_k: int = Config.TOP_K,
+        anchor_rule: str | int = Config.DEFAULT_ANCHOR_RULE
+    ) -> str:
+        """
+        Create optimized prompt for POI prediction.
+        
+        This method generates a concise prompt that includes:
+        - User's cluster (tourist type)
+        - Visit history
+        - Current location
+        - Nearby POIs with distances
+        
+        Args:
+            df: Visit data
+            user_clusters: Cluster assignments
+            pois_df: POI information
+            card_id: Card to predict for
+            top_k: Number of predictions requested
+            anchor_rule: Rule for selecting current POI
+            
+        Returns:
+            Formatted prompt string
+            
+        Raises:
+            ValueError: If sequence too short or POI not found
+        """
+        # Get visit sequence for this card
+        visits = df[df["card_id"] == card_id].sort_values("timestamp")
+        seq = visits["name_short"].tolist()
         
         if len(seq) < 3:
-            return None
-            
-        target = seq[-1]
-        idx_anchor = anchor_index(len(seq) - 1, anchor_rule)
-        history_list = [p for i, p in enumerate(seq[:-1]) if i != idx_anchor]
-        current_poi = seq[:-1][idx_anchor]
-
-        # Creazione prompt ottimizzato
-        prompt = create_prompt_with_cluster(
-            filtered, user_clusters, pois, cid,  
-            top_k=top_k, anchor_rule=anchor_rule
+            raise ValueError("Sequence too short (minimum 3 visits required)")
+        
+        # Split into history, current, and target
+        target = seq[-1]  # Last visit (to predict)
+        prefix = seq[:-1]  # All except last
+        
+        # Determine current POI using anchor rule
+        idx = PromptBuilder.get_anchor_index(len(prefix), anchor_rule)
+        current_poi = prefix[idx]
+        history = [p for i, p in enumerate(prefix) if i != idx]
+        
+        # Get user's cluster
+        cluster_id = user_clusters.loc[
+            user_clusters["card_id"] == card_id, "cluster"
+        ].values[0]
+        
+        # Get nearby POIs
+        nearby_pois = PromptBuilder.get_nearby_pois(
+            current_poi, pois_df, history, max_pois=10
         )
         
-        # Chiamata LLM con retry intelligente
-        ans = get_chat_completion(prompt)
+        # Format POI list with distances
+        pois_list = ", ".join([
+            f"{poi['name']} ({poi['distance']:.1f}km)"
+            for poi in nearby_pois
+        ])
+        
+        # Create concise prompt
+        return f"""Tourist cluster {cluster_id} in Verona.
+Visited: {', '.join(history) if history else 'none'}
+Current: {current_poi}
+Nearby POIs: {pois_list}
 
-        # Preparazione record risultato
-        rec = {
-            "card_id": cid,
-            "cluster": get_user_cluster(user_clusters, cid),
-            "history": str(history_list),
-            "current_poi": current_poi,
-            "prediction": None,
-            "ground_truth": target,
-            "reason": None,
-            "hit": False,
-            "processing_time": time.time() - start_time,
-            "status": "success" if ans else "failed"
-        }
+Suggest {top_k} most likely next POIs considering distances and tourist patterns.
+Reply ONLY JSON: {{"prediction": ["poi1", "poi2", ...], "reason": "brief explanation"}}"""
 
-        if ans:
+
+# ============= CHECKPOINT MANAGEMENT =============
+
+class CheckpointManager:
+    """Manages checkpoint files for resumable processing"""
+    
+    def __init__(self, visits_path: Path, out_dir: Path):
+        self.visits_path = visits_path
+        self.out_dir = out_dir
+        self.checkpoint_file = out_dir / f"{visits_path.stem}_checkpoint.txt"
+        self._completed_cards: Set[str] = set()
+        self._load_checkpoint()
+    
+    def _load_checkpoint(self):
+        """Load completed cards from checkpoint file"""
+        if self.checkpoint_file.exists():
             try:
-                obj = json.loads(ans)
-                pred = obj["prediction"]
-                pred_lst = pred if isinstance(pred, list) else [pred]
-                rec["prediction"] = str(pred_lst)
-                rec["reason"] = obj.get("reason", "")[:200]  # Limita lunghezza
-                rec["hit"] = target in pred_lst
-            except json.JSONDecodeError:
-                logger.warning(f"⚠️ JSON malformato per card {cid}: {ans[:100]}...")
-                rec["prediction"] = "PARSE_ERROR"
+                with open(self.checkpoint_file, 'r') as f:
+                    self._completed_cards = {line.strip() for line in f if line.strip()}
+                logger.info(f"Loaded {len(self._completed_cards)} completed cards from checkpoint")
             except Exception as e:
-                logger.warning(f"⚠️ Errore parsing per card {cid}: {e}")
-                rec["prediction"] = "PROCESSING_ERROR"
-                
-        return rec
-        
-    except Exception as e:
-        logger.error(f"❌ Errore grave processando card {cid}: {e}")
-        return {
-            "card_id": cid,
-            "cluster": None,
-            "history": None,
-            "current_poi": None,
-            "prediction": "FATAL_ERROR",
-            "ground_truth": None,
-            "reason": str(e)[:200],
-            "hit": False,
-            "processing_time": time.time() - start_time,
-            "status": "fatal_error"
-        }
-
-def log_gpu_metrics():
-    """Log periodico dello stato GPU"""
-    try:
-        import subprocess
-        result = subprocess.run([
-            "nvidia-smi", "--query-gpu=index,memory.used,memory.total,utilization.gpu,temperature.gpu",
-            "--format=csv,noheader,nounits"
-        ], capture_output=True, text=True, timeout=5)
-        
-        if result.returncode == 0:
-            for i, line in enumerate(result.stdout.strip().split('\n')):
-                mem_used, mem_total, util, temp = line.split(',')[1:]
-                logger.info(f"GPU{i}: {mem_used}/{mem_total}MB ({util}% util, {temp}°C)")
-    except:
-        pass
+                logger.warning(f"Error loading checkpoint: {e}")
+                self._completed_cards = set()
     
-# ---------- test su un singolo file ---------------------------------------
-def run_on_visits_file(
-    visits_path: Path, 
-    poi_path: Path, 
-    *, 
-    max_users: int | None = None, 
-    force: bool = False, 
-    append: bool = False, 
-    anchor_rule: str | int = "penultimate"
-) -> None:
-    """Versione ottimizzata per HPC con gestione avanzata degli errori"""
+    def is_completed(self, card_id: str) -> bool:
+        """Check if a card has been processed"""
+        return card_id in self._completed_cards
     
-    global health_monitor
-    
-    # Inizializza monitor salute
-    health_monitor = HostHealthMonitor(OLLAMA_HOSTS)
-    
-    def log_load_balancing_stats():
-        """Log periodico delle statistiche di load balancing"""
-        while True:
-            time.sleep(300)  # Log ogni 5 minuti
-            if health_monitor:
-                stats = health_monitor.get_load_stats()
-                healthy = health_monitor.get_healthy_hosts()
-                total_requests = sum(stats.values())
-                
-                logger.info("📊 LOAD BALANCING STATS:")
-                for host in OLLAMA_HOSTS:
-                    requests = stats.get(host, 0)
-                    percentage = (requests / max(total_requests, 1)) * 100
-                    status = "✅" if host in healthy else "❌"
-                    logger.info(f"   {host}: {requests} req ({percentage:.1f}%) {status}")
-                
-                # Check squilibrio
-                if len(healthy) > 1 and total_requests > 50:
-                    req_counts = [stats.get(host, 0) for host in healthy]
-                    max_req = max(req_counts)
-                    min_req = min(req_counts)
-                    imbalance = (max_req - min_req) / max(max_req, 1) * 100
-                    
-                    if imbalance > 30:  # Soglia 30% di squilibrio
-                        logger.warning(f"⚠️ Load imbalance: {imbalance:.1f}% tra GPU")
-
-
-    load_monitor_thread = threading.Thread(target=log_load_balancing_stats, daemon=True)
-    load_monitor_thread.start()
-    
-    # Setup output directory
-    out_dir = Path(__file__).resolve().parent / "results"
-    out_dir.mkdir(exist_ok=True)
-    
-    # Check skip logica (come originale)
-    if should_skip_file(visits_path, poi_path, out_dir, append):
-        return
-    
-    # Load e preprocessing (invariato)
-    logger.info("📊 Caricamento e preprocessing dati...")
-    pois = load_pois(poi_path)
-    visits = load_visits(visits_path)
-    merged = merge_visits_pois(visits, pois)
-    filtered = filter_multi_visit_cards(merged)
-    
-    # Clustering (invariato)
-    matrix = create_user_poi_matrix(filtered)
-    clusters = KMeans(n_clusters=7, random_state=42, n_init=10)\
-              .fit_predict(StandardScaler().fit_transform(matrix))
-    user_clusters = pd.DataFrame({"card_id": matrix.index, "cluster": clusters})
-    
-    # Selezione utenti
-    eligible = (
-        filtered.groupby("card_id").size()
-        .loc[lambda s: s >= 3].index.tolist()
-    )
-    
-    if max_users is None:
-        demo_cards = eligible
-    else:
-        demo_cards = random.sample(eligible, k=min(max_users, len(eligible)))
-    
-    logger.info(f"🎯 Processamento {len(demo_cards)} carte")
-    
-    # Setup file output
-    if append:
-        output_file = latest_output(visits_path, out_dir)
-        if output_file is None:
-            ts = time.strftime("%Y%m%d_%H%M%S")
-            output_file = out_dir / f"{visits_path.stem}_pred_{ts}.csv"
-            write_header = True
-        else:
-            write_header = False
-    else:
-        ts = time.strftime("%Y%m%d_%H%M%S")
-        output_file = out_dir / f"{visits_path.stem}_pred_{ts}.csv"
-        write_header = True
-    
-    # Calcola workers ottimali
-    optimal_workers = min(MAX_CONCURRENT_REQUESTS * 2, 64)  # 2x per I/O overlap
-    
-    logger.info(f"🚀 Avvio elaborazione con {optimal_workers} worker ottimizzati")
-    logger.info(f"⚡ Rate limit: {MAX_CONCURRENT_REQUESTS} richieste concurrent")
-    logger.info(f"🔄 Timeout richiesta: {REQUEST_TIMEOUT}s")
-    logger.info(f"💾 Salvataggio ogni: {BATCH_SAVE_INTERVAL} carte")
-    
-    # Prepara argomenti
-    card_args = [
-        (cid, filtered, user_clusters, pois, anchor_rule, 5) 
-        for cid in demo_cards
-    ]
-    
-    batch_buffer = []
-    processed_count = 0
-    start_time = time.time()
-    last_health_check = time.time()
-    
-    # Elaborazione parallela ottimizzata
-    with ThreadPoolExecutor(max_workers=optimal_workers, thread_name_prefix="Worker") as executor:
-        
-        # Sottometti tutti i job
-        future_to_card = {
-            executor.submit(process_single_card, args): args[0] 
-            for args in card_args
-        }
-        
-        with tqdm(total=len(demo_cards), desc="🔄 Processamento", unit="card") as pbar:
-            for future in as_completed(future_to_card, timeout=None):
-                cid = future_to_card[future]
-                
-                try:
-                    # Timeout per singola carta (più permissivo)
-                    rec = future.result(timeout=REQUEST_TIMEOUT + 60)
-                    
-                    if rec and rec.get('status') != 'fatal_error':
-                        batch_buffer.append(rec)
-                        processed_count += 1
-                        
-                        # Health check periodico
-                        if time.time() - last_health_check > HEALTH_CHECK_INTERVAL:
-                            for host in OLLAMA_HOSTS:
-                                health_monitor.check_health(host)
-                            last_health_check = time.time()
-                        
-                        # Salvataggio batch
-                        if len(batch_buffer) >= BATCH_SAVE_INTERVAL:
-                            save_batch(batch_buffer, output_file, write_header, append)
-                            batch_buffer.clear()
-                            write_header = False
-                            
-                            # Log progresso con statistiche
-                            elapsed = time.time() - start_time
-                            rate = processed_count / elapsed * 3600 if elapsed > 0 else 0
-                            
-                            with stats_lock:
-                                success_rate = (global_stats['total_processed'] / 
-                                              max(global_stats['total_processed'] + global_stats['total_errors'], 1) * 100)
-                            
-                            logger.info(f"📊 Progresso: {processed_count}/{len(demo_cards)} "
-                                      f"({rate:.1f} cards/h, success: {success_rate:.1f}%)")
-                    
-                    elif rec:
-                        logger.warning(f"⚠️ Card {cid} con errore: {rec.get('status')}")
-                    
-                except TimeoutError:
-                    logger.error(f"⏰ Timeout processing card {cid}")
-                except Exception as e:
-                    logger.error(f"❌ Errore future per card {cid}: {e}")
-                
-                pbar.update(1)
-                
-                # Gestione circuit breaker
-                with stats_lock:
-                    if global_stats['consecutive_failures'] >= CIRCUIT_BREAKER_THRESHOLD:
-                        logger.error("🚨 Troppi fallimenti consecutivi - pausa sistema")
-                        time.sleep(60)  # Pausa di 1 minuto
-                        global_stats['consecutive_failures'] = 0
-    
-    # Salvataggio finale
-    if batch_buffer:
-        save_batch(batch_buffer, output_file, write_header, append)
-    
-    # Report finale
-    elapsed_total = time.time() - start_time
-    final_rate = processed_count / elapsed_total * 3600 if elapsed_total > 0 else 0
-    
-    with stats_lock:
-        total_requests = global_stats['total_processed'] + global_stats['total_errors']
-        success_rate = (global_stats['total_processed'] / max(total_requests, 1) * 100)
-    
-    logger.info(f"✅ Completato: {processed_count} carte in {elapsed_total:.1f}s")
-    logger.info(f"⚡ Rate finale: {final_rate:.1f} cards/h")
-    logger.info(f"📊 Success rate: {success_rate:.1f}%")
-
-def save_batch(batch_buffer: list, output_file: Path, write_header: bool, append: bool):
-    """Salvataggio batch ottimizzato e thread-safe"""
-    if not batch_buffer:
-        return
-    
-    try:
-        with write_lock:
-            df_batch = pd.DataFrame(batch_buffer)
-            
-            # Ottimizzazioni per performance I/O
-            if write_header and not append:
-                df_batch.to_csv(output_file, mode="w", header=True, index=False, 
-                               encoding='utf-8', compression=None)
-            else:
-                df_batch.to_csv(output_file, mode="a", header=False, index=False,
-                               encoding='utf-8', compression=None)
-            
-            logger.debug(f"💾 Salvato batch di {len(batch_buffer)} risultati")
-            
-    except Exception as e:
-        logger.error(f"❌ Errore salvataggio batch: {e}")
-        # Backup dei dati in caso di errore
-        backup_file = output_file.parent / f"backup_{output_file.stem}_{int(time.time())}.json"
+    def mark_completed(self, card_id: str):
+        """Mark a card as completed and update checkpoint file"""
+        self._completed_cards.add(card_id)
         try:
+            with open(self.checkpoint_file, 'a') as f:
+                f.write(f"{card_id}\n")
+        except Exception as e:
+            logger.warning(f"Error updating checkpoint: {e}")
+    
+    def get_completed_count(self) -> int:
+        """Get number of completed cards"""
+        return len(self._completed_cards)
+    
+    @staticmethod
+    def should_skip_file(visits_path: Path, out_dir: Path, append: bool = False) -> bool:
+        """
+        Check if a file should be skipped (already fully processed).
+        
+        Args:
+            visits_path: Path to visits file
+            out_dir: Output directory
+            append: Whether in append mode
+            
+        Returns:
+            True if file should be skipped
+        """
+        if not append:
+            return False
+        
+        checkpoint = CheckpointManager(visits_path, out_dir)
+        completed_count = checkpoint.get_completed_count()
+        
+        if completed_count == 0:
+            return False
+        
+        # Quick check - if we have many completed cards, it's likely done
+        # For exact check, would need to load and process the file
+        logger.info(f"File {visits_path.stem} has {completed_count} completed cards")
+        
+        # Conservative approach - don't skip unless explicitly verified
+        return False
+
+
+# ============= RESULTS MANAGEMENT =============
+
+class ResultsManager:
+    """Handles saving and managing prediction results"""
+    
+    def __init__(self, visits_path: Path, out_dir: Path, append: bool = False):
+        self.visits_path = visits_path
+        self.out_dir = out_dir
+        self.append = append
+        self.output_file = self._get_output_file()
+        self.write_header = not (append and self.output_file.exists())
+        self._buffer: List[Dict] = []
+        self._write_lock = Lock()
+    
+    def _get_output_file(self) -> Path:
+        """Determine output file path"""
+        if self.append:
+            # Look for existing output files
+            pattern = f"{self.visits_path.stem}_pred_*.csv"
+            existing_files = list(self.out_dir.glob(pattern))
+            
+            if existing_files:
+                # Use the most recent file
+                return max(existing_files, key=lambda p: p.stat().st_mtime)
+        
+        # Create new file with timestamp
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        return self.out_dir / f"{self.visits_path.stem}_pred_{timestamp}.csv"
+    
+    def add_result(self, result: Dict):
+        """Add a result to the buffer"""
+        self._buffer.append(result)
+        
+        # Save if buffer is full
+        if len(self._buffer) >= Config.BATCH_SAVE_INTERVAL:
+            self.save_batch()
+    
+    def save_batch(self):
+        """Save buffered results to file"""
+        if not self._buffer:
+            return
+        
+        with self._write_lock:
+            try:
+                df_batch = pd.DataFrame(self._buffer)
+                
+                mode = 'w' if self.write_header else 'a'
+                df_batch.to_csv(
+                    self.output_file,
+                    mode=mode,
+                    header=self.write_header,
+                    index=False,
+                    encoding='utf-8'
+                )
+                
+                logger.debug(f"Saved batch of {len(self._buffer)} results")
+                self.write_header = False
+                self._buffer.clear()
+                
+            except Exception as e:
+                logger.error(f"Error saving batch: {e}")
+                # Create backup
+                self._save_backup()
+    
+    def _save_backup(self):
+        """Save backup of current buffer"""
+        try:
+            backup_file = (self.out_dir / 
+                          f"backup_{self.visits_path.stem}_{int(time.time())}.json")
             with open(backup_file, 'w') as f:
-                json.dump(batch_buffer, f)
-            logger.info(f"💾 Backup salvato in {backup_file}")
-        except:
-            logger.error("❌ Impossibile salvare anche il backup!")
-
-# ---------- test su tutti i file ------------------------------------------
-def run_all_verona_logs(max_users: int | None = None, force=False, append=False, anchor_rule: str | int = DEFAULT_ANCHOR_RULE) -> None:
-    """
-    Versione ottimizzata che salta file già completati
-    """
-    ROOT = Path(__file__).resolve().parent
-    poi_csv = ROOT / "data" / "verona" / "vc_site.csv"
-
-    visit_csvs = [
-        p for p in (ROOT / "data" / "verona").rglob("*.csv")
-        if p.name != "vc_site.csv"
-    ]
-    if not visit_csvs:
-        raise RuntimeError("Nessun CSV di visite trovato sotto data/verona/")
-
-    # Statistiche globali
-    total_files = len(visit_csvs)
-    skipped_files = 0
-    processed_files = 0
-
-    logger.info(f"🎯 Trovati {total_files} file da elaborare")
-    
-    for csv in sorted(visit_csvs):
-        logger.info(f"\n🔍 Controllo {csv.name}...")
-        
-        # Il controllo skip è già integrato in run_on_visits_file
-        # ma possiamo fare un pre-check per le statistiche
-        out_dir = Path(__file__).resolve().parent / "results"
-        if append and should_skip_file(csv, poi_csv, out_dir, append):
-            skipped_files += 1
-            continue
-        
-        try:
-            run_on_visits_file(csv, poi_csv,
-                             max_users=max_users,
-                             force=force,
-                             append=append,
-                             anchor_rule=anchor_rule)
-            processed_files += 1
+                json.dump(self._buffer, f)
+            logger.info(f"Backup saved to {backup_file}")
         except Exception as e:
-            logger.error(f"❌ Errore elaborando {csv.name}: {e}")
-            continue
+            logger.error(f"Failed to save backup: {e}")
     
-    # Statistiche finali
-    logger.info("\n" + "=" * 70)
-    logger.info(f"📈 STATISTICHE FINALI:")
-    logger.info(f"   • File totali: {total_files}")
-    logger.info(f"   • File saltati: {skipped_files}")
-    logger.info(f"   • File elaborati: {processed_files}")
-    logger.info(f"   • Efficienza: {skipped_files/total_files*100:.1f}% file evitati")
-    logger.info("=" * 70)
+    def finalize(self):
+        """Save any remaining results"""
+        if self._buffer:
+            self.save_batch()
 
-def get_completed_cards(file_path: Path) -> set:
-    """
-    Restituisce il set delle card_id che hanno predizioni COMPLETE 
-    (non None/vuote) nel file esistente.
-    """
-    if not file_path.exists():
-        return set()
+
+# ============= CARD PROCESSING =============
+
+class CardProcessor:
+    """Processes individual tourist cards for POI prediction"""
     
-    try:
-        df = pd.read_csv(file_path)
-        # Considera complete solo le card con prediction non nulla/vuota
-        completed = df[
-            df['prediction'].notna() & 
-            (df['prediction'] != '') & 
-            (df['prediction'] != 'None')
-        ]['card_id'].unique()
+    def __init__(
+        self,
+        filtered_df: DataFrame,
+        user_clusters: DataFrame,
+        pois_df: DataFrame,
+        ollama_manager: OllamaConnectionManager,
+        checkpoint_manager: CheckpointManager,
+        results_manager: ResultsManager
+    ):
+        self.filtered_df = filtered_df
+        self.user_clusters = user_clusters
+        self.pois_df = pois_df
+        self.ollama_manager = ollama_manager
+        self.checkpoint_manager = checkpoint_manager
+        self.results_manager = results_manager
+    
+    def process_card(self, card_id: str) -> Optional[Dict]:
+        """
+        Process a single card to predict next POI visit.
         
-        logger.info(f"📊 Trovate {len(completed)} card già completate in {file_path.name}")
-        return set(completed)
-    except Exception as e:
-        logger.error(f"❌ Errore lettura file esistente: {e}")
-        return set()
-
-def get_user_cluster(user_clusters: pd.DataFrame, card_id: str) -> int:
-    """
-    Restituisce il cluster ID per un determinato card_id.
-    
-    Args:
-        user_clusters: DataFrame con le colonne 'card_id' e 'cluster'
-        card_id: ID della card di cui cercare il cluster
+        Args:
+            card_id: Card identifier to process
+            
+        Returns:
+            Dictionary with prediction results or None if error
+        """
+        start_time = time.time()
         
-    Returns:
-        int: ID del cluster
-        
-    Raises:
-        ValueError: Se la card_id non viene trovata
-    """
-    matching_rows = user_clusters[user_clusters.card_id == card_id]
-    
-    if matching_rows.empty:
-        raise ValueError(f"Card ID {card_id} non trovata nei cluster")
-    
-    # Usa .iloc[0] su un DataFrame filtrato è più chiaro per il type checker
-    return int(matching_rows["cluster"].iloc[0])
-
-def get_checkpoint_file(visits_path: Path, out_dir: Path) -> Path:
-    """Restituisce il path del file checkpoint per questo dataset"""
-    return out_dir / f"{visits_path.stem}_checkpoint.txt"
-
-def load_completed_cards_fast(visits_path: Path, out_dir: Path) -> set:
-    """
-    Carica velocemente le card completate dal file checkpoint.
-    Fallback su CSV solo se checkpoint non esiste.
-    """
-    checkpoint_file = get_checkpoint_file(visits_path, out_dir)
-    
-    if checkpoint_file.exists():
         try:
-            with open(checkpoint_file, 'r') as f:
-                completed_cards = {line.strip() for line in f if line.strip()}
-            logger.info(f"⚡ Checkpoint: {len(completed_cards)} card già completate (lettura veloce)")
-            return completed_cards
-        except Exception as e:
-            logger.warning(f"⚠️ Errore lettura checkpoint: {e}, fallback su CSV")
-    
-    # Fallback: scansione CSV con controllo robusto
-    latest_csv = latest_output(visits_path, out_dir)
-    if latest_csv:
-        logger.info("🐌 Prima esecuzione append: scansiono CSV esistente...")
-        try:
-            # PRIMA leggi solo l'header per verificare le colonne
-            df_sample = pd.read_csv(latest_csv, nrows=0)  # Solo header
-            available_columns = df_sample.columns.tolist()
+            # Skip if already processed
+            if self.checkpoint_manager.is_completed(card_id):
+                logger.debug(f"Card {card_id} already processed - skipping")
+                return None
             
-            # Verifica che le colonne necessarie esistano
-            required_columns = ['card_id', 'prediction']
-            missing_columns = [col for col in required_columns if col not in available_columns]
+            # Get visit sequence
+            seq = (self.filtered_df[self.filtered_df.card_id == card_id]
+                   .sort_values("timestamp")["name_short"]
+                   .tolist())
             
-            if missing_columns:
-                logger.warning(f"⚠️ Colonne mancanti nel CSV: {missing_columns}")
-                logger.warning(f"📋 Colonne disponibili: {available_columns}")
-                return set()
+            if len(seq) < 3:
+                logger.debug(f"Card {card_id} has insufficient visits ({len(seq)})")
+                return None
             
-            # Se le colonne ci sono, procedi con la lettura completa
-            df = pd.read_csv(latest_csv, usecols=required_columns)
-            completed = df[
-                df['prediction'].notna() & 
-                (df['prediction'] != '') & 
-                (df['prediction'] != 'None') &
-                (df['prediction'] != 'NO_RESPONSE') &
-                (~df['prediction'].str.startswith('ERROR', na=False)) &
-                (~df['prediction'].str.startswith('PROCESSING_ERROR', na=False))
-            ]['card_id'].unique()
+            # Extract sequence components
+            target = seq[-1]
+            prefix = seq[:-1]
             
-            completed_set = set(completed)
-            save_checkpoint(checkpoint_file, completed_set)
-            logger.info(f"💾 Checkpoint salvato: {len(completed_set)} card")
+            # Create prompt
+            try:
+                prompt = PromptBuilder.create_prompt(
+                    self.filtered_df,
+                    self.user_clusters,
+                    self.pois_df,
+                    card_id,
+                    top_k=Config.TOP_K,
+                    anchor_rule=Config.DEFAULT_ANCHOR_RULE
+                )
+            except Exception as e:
+                logger.warning(f"Error creating prompt for {card_id}: {e}")
+                return None
             
-            return completed_set
-        except Exception as e:
-            logger.error(f"❌ Errore lettura CSV: {e}")
-            return set()
-    
-    return set()
-
-def save_checkpoint(checkpoint_file: Path, completed_cards: set):
-    """Salva il checkpoint delle card completate"""
-    try:
-        with open(checkpoint_file, 'w') as f:
-            for card_id in sorted(completed_cards):
-                f.write(f"{card_id}\n")
-    except Exception as e:
-        logger.warning(f"⚠️ Errore salvataggio checkpoint: {e}")
-
-def update_checkpoint_incremental(checkpoint_file: Path, new_completed_cards: list):
-    """Aggiorna il checkpoint con nuove card completate (append mode)"""
-    if not new_completed_cards:
-        return
-    
-    try:
-        with open(checkpoint_file, 'a') as f:
-            for card_id in new_completed_cards:
-                f.write(f"{card_id}\n")
-        logger.debug(f"📝 Checkpoint aggiornato con {len(new_completed_cards)} nuove card")
-    except Exception as e:
-        logger.warning(f"⚠️ Errore aggiornamento checkpoint: {e}")
-        
-def debug_file_processing(visits_path: Path, poi_path: Path):
-    """Funzione di debug per verificare che i dati vengano processati correttamente"""
-    print(f"🔍 Debug per {visits_path.name}")
-    
-    # Verifica i dati base
-    pois = load_pois(poi_path)
-    visits = load_visits(visits_path)
-    merged = merge_visits_pois(visits, pois)
-    filtered = filter_multi_visit_cards(merged)
-    
-    print(f"📊 POI: {len(pois)}, Visite: {len(visits)}, Filtrate: {len(filtered)}")
-    
-    # Verifica utenti idonei
-    eligible = (
-        filtered.groupby("card_id").size()
-        .loc[lambda s: s >= 3].index.tolist()
-    )
-    print(f"👥 Utenti idonei (≥3 visite): {len(eligible)}")
-    
-    # Mostra esempio di sequenza
-    if eligible:
-        sample_card = eligible[0]
-        seq = (
-            filtered.loc[filtered.card_id == sample_card]
-            .sort_values("timestamp")["name_short"].tolist()
-        )
-        print(f"📝 Esempio sequenza per {sample_card}: {seq}")
-    
-    return len(eligible) > 0
-
-def run_single_file(file_path: str, max_users: int | None = None, 
-                   force: bool = False, append: bool = False, 
-                   anchor_rule: str | int = DEFAULT_ANCHOR_RULE) -> None:
-    """
-    Processa un singolo file specificato dall'utente.
-    
-    Args:
-        file_path: Path del file da processare (relativo o assoluto)
-        max_users: Numero massimo di utenti da processare
-        force: Forza il ricalcolo anche se esistono output
-        append: Riprende da dove si era interrotto
-        anchor_rule: Regola per l'anchor POI
-    """
-    ROOT = Path(__file__).resolve().parent
-    poi_csv = ROOT / "data" / "verona" / "vc_site.csv"
-    
-    # Converti il path in oggetto Path
-    target_file = Path(file_path)
-    
-    # Se il path non è assoluto, prova a risolverlo relativamente alla directory base
-    if not target_file.is_absolute():
-        # Prima prova relativo alla directory corrente
-        if not target_file.exists():
-            # Poi prova relativo alla directory data/verona
-            target_file = ROOT / "data" / "verona" / file_path
-            if not target_file.exists():
-                # Infine prova come nome file diretto nella directory verona
-                target_file = ROOT / "data" / "verona" / target_file.name
-    
-    # Verifica che il file esista
-    if not target_file.exists():
-        logger.error(f"❌ File non trovato: {file_path}")
-        logger.error(f"❌ Percorsi tentati:")
-        logger.error(f"   • {Path(file_path)}")
-        logger.error(f"   • {ROOT / 'data' / 'verona' / file_path}")
-        logger.error(f"   • {ROOT / 'data' / 'verona' / Path(file_path).name}")
-        return
-    
-    # Verifica che sia un CSV
-    if not target_file.suffix.lower() == '.csv':
-        logger.error(f"❌ Il file deve essere un CSV: {target_file}")
-        return
-    
-    # Verifica che non sia il file POI
-    if target_file.name.lower() == 'vc_site.csv':
-        logger.error(f"❌ Non posso processare il file POI: {target_file}")
-        return
-    
-    # Verifica che il file POI esista
-    if not poi_csv.exists():
-        logger.error(f"❌ File POI non trovato: {poi_csv}")
-        return
-    
-    logger.info(f"🎯 Processamento file singolo: {target_file.name}")
-    logger.info(f"📍 Path completo: {target_file}")
-    
-    try:
-        run_on_visits_file(target_file, poi_csv,
-                         max_users=max_users,
-                         force=force,
-                         append=append,
-                         anchor_rule=anchor_rule)
-        logger.info(f"✅ Processamento completato per {target_file.name}")
-    except Exception as e:
-        logger.error(f"❌ Errore processando {target_file.name}: {e}")
-        raise
-
-def wait_for_ollama_single(host: str, max_attempts=30, wait_interval=3):
-    """Attende che un singolo host Ollama sia pronto"""
-    print(f"Attesa Ollama su {host}...")
-    
-    for attempt in range(1, max_attempts + 1):
-        try:
-            response = requests.get(f"{host}/api/tags", 
-                                  timeout=10,
-                                  headers={'Accept': 'application/json'})
+            # Get LLM prediction
+            response = self.ollama_manager.get_chat_completion(prompt)
             
-            if response.status_code == 200:
-                print(f"✓ {host} risponde con status {response.status_code}")
-                
+            # Prepare result record
+            idx_anchor = PromptBuilder.get_anchor_index(
+                len(prefix), Config.DEFAULT_ANCHOR_RULE
+            )
+            history_list = [p for i, p in enumerate(prefix) if i != idx_anchor]
+            current_poi = prefix[idx_anchor]
+            
+            result = {
+                "card_id": card_id,
+                "cluster": self._get_user_cluster(card_id),
+                "history": str(history_list),
+                "current_poi": current_poi,
+                "prediction": None,
+                "ground_truth": target,
+                "reason": None,
+                "hit": False,
+                "processing_time": time.time() - start_time,
+                "status": "success" if response else "failed"
+            }
+            
+            # Parse response if available
+            if response:
                 try:
-                    version_resp = requests.get(f"{host}/api/version", timeout=5)
-                    if version_resp.status_code == 200:
-                        print(f"✓ {host} completamente attivo")
-                        return True
-                except:
-                    pass
-                
-                print(f"✓ {host} attivo (solo /api/tags)")
-                return True
-            else:
-                print(f"Tentativo {attempt}/{max_attempts}: HTTP {response.status_code} su {host}")
-                
-        except requests.exceptions.ConnectionError:
-            print(f"Tentativo {attempt}/{max_attempts}: Connessione rifiutata su {host}")
-        except requests.exceptions.Timeout:
-            print(f"Tentativo {attempt}/{max_attempts}: Timeout su {host}")
-        except requests.exceptions.RequestException as e:
-            print(f"Tentativo {attempt}/{max_attempts}: Errore {e} su {host}")
-        
-        if attempt < max_attempts:
-            print(f"Attendo {wait_interval}s prima del prossimo tentativo...")
-            time.sleep(wait_interval)
+                    parsed = json.loads(response)
+                    predictions = parsed.get("prediction", [])
+                    if not isinstance(predictions, list):
+                        predictions = [predictions]
+                    
+                    result["prediction"] = str(predictions)
+                    result["reason"] = parsed.get("reason", "")[:200]  # Limit length
+                    result["hit"] = target in predictions
+                    
+                except json.JSONDecodeError:
+                    logger.warning(f"Invalid JSON response for {card_id}")
+                    result["prediction"] = "PARSE_ERROR"
+                    result["status"] = "parse_error"
+                except Exception as e:
+                    logger.warning(f"Error parsing response for {card_id}: {e}")
+                    result["prediction"] = "PROCESSING_ERROR"
+                    result["status"] = "processing_error"
+            
+            # Mark as completed and save result
+            self.checkpoint_manager.mark_completed(card_id)
+            self.results_manager.add_result(result)
+            
+            return result
+            
+        except Exception as e:
+            logger.error(f"Fatal error processing card {card_id}: {e}")
+            return {
+                "card_id": card_id,
+                "cluster": None,
+                "history": None,
+                "current_poi": None,
+                "prediction": "FATAL_ERROR",
+                "ground_truth": None,
+                "reason": str(e)[:200],
+                "hit": False,
+                "processing_time": time.time() - start_time,
+                "status": "fatal_error"
+            }
     
-    return False
+    def _get_user_cluster(self, card_id: str) -> Optional[int]:
+        """Get cluster ID for a card"""
+        try:
+            return int(self.user_clusters[
+                self.user_clusters.card_id == card_id
+            ]["cluster"].iloc[0])
+        except Exception:
+            return None
 
-# -----------------------------------------------------------
-# Setup globale
-try:
-    OLLAMA_HOSTS = setup_ollama_connections()
-    host_cycle = itertools.cycle(OLLAMA_HOSTS)
-    HOST_HEALTH = {host: {"healthy": True, "unhealthy_until": 0} for host in OLLAMA_HOSTS}
-    logger.info(f"🎯 Configurazione caricata: {len(OLLAMA_HOSTS)} host")
-except Exception as e:
-    logger.error(f"❌ Errore setup Ollama: {e}")
-    sys.exit(1)
 
-# ---------- MAIN -----------------------------------------------------------
-if "CUDA_VISIBLE_DEVICES" not in os.environ:
-    os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"  # Usa tutte e 4 le A100
+# ============= MAIN PROCESSING PIPELINE =============
 
-if __name__ == "__main__":
+class VisitFileProcessor:
+    """Orchestrates the complete processing pipeline for a visits file"""
+    
+    def __init__(self, ollama_manager: OllamaConnectionManager):
+        self.ollama_manager = ollama_manager
+        Config.RESULTS_DIR.mkdir(exist_ok=True)
+    
+    def process_file(
+        self,
+        visits_path: Path,
+        poi_path: Path,
+        max_users: Optional[int] = None,
+        force: bool = False,
+        append: bool = False
+    ) -> None:
+        """
+        Process a single visits file to generate POI predictions.
         
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s [%(levelname)s] %(message)s",
-        handlers=[
-            logging.FileHandler("hpc_verona_optimized.log"),
-            logging.StreamHandler()
-        ]
+        This method orchestrates the complete pipeline:
+        1. Load and preprocess data
+        2. Perform clustering
+        3. Process cards in parallel
+        4. Save results with checkpointing
+        
+        Args:
+            visits_path: Path to visits CSV file
+            poi_path: Path to POI CSV file
+            max_users: Maximum number of users to process (None for all)
+            force: Force reprocessing even if output exists
+            append: Resume from previous run
+        """
+        # Check if file should be skipped
+        if not force and CheckpointManager.should_skip_file(
+            visits_path, Config.RESULTS_DIR, append
+        ):
+            logger.info(f"Skipping {visits_path.name} - already processed")
+            return
+        
+        logger.info(f"Processing {visits_path.name}")
+        
+        # Initialize managers
+        checkpoint_manager = CheckpointManager(visits_path, Config.RESULTS_DIR)
+        results_manager = ResultsManager(visits_path, Config.RESULTS_DIR, append)
+        
+        try:
+            # Load and preprocess data
+            logger.info("Loading and preprocessing data...")
+            pois_df = DataLoader.load_pois(poi_path)
+            visits_df = DataLoader.load_visits(visits_path)
+            merged_df = DataLoader.merge_visits_pois(visits_df, pois_df)
+            filtered_df = DataLoader.filter_multi_visit_cards(merged_df)
+            
+            # Perform clustering
+            logger.info("Performing user clustering...")
+            user_poi_matrix = DataLoader.create_user_poi_matrix(filtered_df)
+            
+            # K-means clustering with standardization
+            scaler = StandardScaler()
+            scaled_matrix = scaler.fit_transform(user_poi_matrix)
+            
+            clusters = KMeans(
+                n_clusters=7,
+                random_state=42,
+                n_init=10
+            ).fit_predict(scaled_matrix)
+            
+            user_clusters = pd.DataFrame({
+                "card_id": user_poi_matrix.index,
+                "cluster": clusters
+            })
+            
+            # Select cards to process
+            eligible_cards = self._get_eligible_cards(filtered_df)
+            
+            if max_users is not None:
+                cards_to_process = random.sample(
+                    eligible_cards, 
+                    min(max_users, len(eligible_cards))
+                )
+            else:
+                cards_to_process = eligible_cards
+            
+            # Filter out already processed cards if in append mode
+            if append:
+                cards_to_process = [
+                    card for card in cards_to_process 
+                    if not checkpoint_manager.is_completed(card)
+                ]
+            
+            logger.info(f"Processing {len(cards_to_process)} cards")
+            
+            if not cards_to_process:
+                logger.info("No cards to process")
+                return
+            
+            # Create card processor
+            card_processor = CardProcessor(
+                filtered_df,
+                user_clusters,
+                pois_df,
+                self.ollama_manager,
+                checkpoint_manager,
+                results_manager
+            )
+            
+            # Process cards in parallel
+            self._process_cards_parallel(card_processor, cards_to_process)
+            
+            # Finalize results
+            results_manager.finalize()
+            
+            # Log summary statistics
+            success_rate = stats.get_success_rate()
+            logger.info(f"Completed processing {visits_path.name}")
+            logger.info(f"Success rate: {success_rate:.1f}%")
+            
+        except Exception as e:
+            logger.error(f"Error processing {visits_path.name}: {e}")
+            raise
+    
+    def _get_eligible_cards(self, filtered_df: DataFrame) -> List[str]:
+        """Get cards with sufficient visits for prediction"""
+        card_visit_counts = filtered_df.groupby("card_id").size()
+        eligible = card_visit_counts[card_visit_counts >= 3].index.tolist()
+        return eligible
+    
+    def _process_cards_parallel(
+        self, 
+        card_processor: CardProcessor, 
+        cards_to_process: List[str]
+    ) -> None:
+        """Process cards in parallel with progress tracking"""
+        
+        # Calculate optimal number of workers
+        n_healthy_hosts = len(self.ollama_manager.health_monitor.get_healthy_hosts())
+        optimal_workers = min(
+            len(self.ollama_manager.hosts) * 8,  # 8 workers per host
+            64  # Maximum cap
+        )
+        
+        logger.info(f"Using {optimal_workers} parallel workers")
+        
+        # Process cards with thread pool
+        with ThreadPoolExecutor(
+            max_workers=optimal_workers,
+            thread_name_prefix="CardWorker"
+        ) as executor:
+            
+            # Submit all tasks
+            futures = {
+                executor.submit(card_processor.process_card, card_id): card_id
+                for card_id in cards_to_process
+            }
+            
+            # Process results with progress bar
+            with tqdm(
+                total=len(cards_to_process),
+                desc="Processing cards",
+                unit="card"
+            ) as pbar:
+                
+                for future in as_completed(futures):
+                    card_id = futures[future]
+                    
+                    try:
+                        result = future.result(timeout=Config.REQUEST_TIMEOUT + 60)
+                        
+                        if result and result.get('status') == 'fatal_error':
+                            logger.warning(f"Fatal error for card {card_id}")
+                        
+                        # Check circuit breaker
+                        if stats.consecutive_failures >= Config.CIRCUIT_BREAKER_THRESHOLD:
+                            logger.error("Too many consecutive failures - pausing")
+                            time.sleep(60)  # Pause for 1 minute
+                            stats._data['consecutive_failures'] = 0
+                    
+                    except TimeoutError:
+                        logger.error(f"Timeout processing card {card_id}")
+                    except Exception as e:
+                        logger.error(f"Error processing card {card_id}: {e}")
+                    
+                    pbar.update(1)
+    
+    def process_all_files(
+        self,
+        max_users: Optional[int] = None,
+        force: bool = False,
+        append: bool = False,
+        single_file: Optional[str] = None
+    ) -> None:
+        """
+        Process all visit files or a single specified file.
+        
+        Args:
+            max_users: Maximum users per file
+            force: Force reprocessing
+            append: Resume from previous runs
+            single_file: Process only this file (if specified)
+        """
+        poi_path = Config.POI_FILE
+        
+        if not poi_path.exists():
+            raise RuntimeError(f"POI file not found: {poi_path}")
+        
+        if single_file:
+            # Process single file
+            target_path = self._resolve_file_path(single_file)
+            self.process_file(target_path, poi_path, max_users, force, append)
+        else:
+            # Process all visit files
+            visit_files = self._find_visit_files()
+            
+            if not visit_files:
+                raise RuntimeError("No visit files found")
+            
+            logger.info(f"Found {len(visit_files)} files to process")
+            
+            processed = 0
+            skipped = 0
+            
+            for visit_file in sorted(visit_files):
+                try:
+                    if not force and CheckpointManager.should_skip_file(
+                        visit_file, Config.RESULTS_DIR, append
+                    ):
+                        skipped += 1
+                        continue
+                    
+                    self.process_file(visit_file, poi_path, max_users, force, append)
+                    processed += 1
+                    
+                except Exception as e:
+                    logger.error(f"Error processing {visit_file.name}: {e}")
+                    continue
+            
+            # Summary statistics
+            logger.info("\n" + "=" * 70)
+            logger.info("PROCESSING SUMMARY:")
+            logger.info(f"  Total files: {len(visit_files)}")
+            logger.info(f"  Processed: {processed}")
+            logger.info(f"  Skipped: {skipped}")
+            logger.info(f"  Efficiency: {skipped/len(visit_files)*100:.1f}% files avoided")
+            logger.info("=" * 70)
+    
+    def _find_visit_files(self) -> List[Path]:
+        """Find all visit CSV files (excluding POI file)"""
+        visit_files = []
+        
+        for csv_path in Config.DATA_DIR.rglob("*.csv"):
+            # Skip POI file and backup files
+            if (csv_path.name.lower() != "vc_site.csv" and 
+                "backup" not in str(csv_path).lower()):
+                visit_files.append(csv_path)
+        
+        return visit_files
+    
+    def _resolve_file_path(self, file_path: str) -> Path:
+        """Resolve file path from string input"""
+        target = Path(file_path)
+        
+        # Try different path resolutions
+        if not target.is_absolute():
+            if not target.exists():
+                # Try relative to data directory
+                target = Config.DATA_DIR / file_path
+                if not target.exists():
+                    # Try just filename in data directory
+                    target = Config.DATA_DIR / Path(file_path).name
+        
+        if not target.exists():
+            raise FileNotFoundError(f"File not found: {file_path}")
+        
+        if target.suffix.lower() != '.csv':
+            raise ValueError(f"File must be CSV: {target}")
+        
+        if target.name.lower() == 'vc_site.csv':
+            raise ValueError("Cannot process POI file")
+        
+        return target
+
+
+# ============= MAIN ENTRY POINT =============
+
+def main():
+    """Main entry point for the application"""
+    
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(
+        description="VeronaCard Tourist Behavior Prediction System",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  Process all files:
+    python %(prog)s
+    
+  Process with max 100 users per file:
+    python %(prog)s --max-users 100
+    
+  Process single file:
+    python %(prog)s --file data/verona/visits_2014.csv
+    
+  Resume from previous run:
+    python %(prog)s --append
+    
+  Force reprocessing:
+    python %(prog)s --force
+        """
     )
     
-    logger = logging.getLogger(__name__)
-    
-    # Parser argomenti (semplificato)
-    parser = argparse.ArgumentParser(description="VeronaCard HPC Ottimizzato")
-    parser.add_argument("--file", type=str, help="File specifico da processare")
-    parser.add_argument("--max-users", type=int, default=None)
-    parser.add_argument("--force", action="store_true")
-    parser.add_argument("--append", action="store_true")
+    parser.add_argument(
+        "--file",
+        type=str,
+        help="Process only this specific file"
+    )
+    parser.add_argument(
+        "--max-users",
+        type=int,
+        default=None,
+        help="Maximum number of users to process per file"
+    )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Force reprocessing even if output exists"
+    )
+    parser.add_argument(
+        "--append",
+        action="store_true",
+        help="Resume from previous run (append mode)"
+    )
     
     args = parser.parse_args()
-
+    
+    # Validate arguments
     if args.force and args.append:
-        parser.error("Non puoi usare insieme --force e --append.")
-
-    # Attendi che tutti gli host Ollama siano pronti
-    for i, host in enumerate(OLLAMA_HOSTS):
-        print(f"Controllo host {i+1}/{len(OLLAMA_HOSTS)}: {host}")
-        if not wait_for_ollama_single(host):
-            raise RuntimeError(f"Host {host} non ha risposto dopo tutti i tentativi")
-
-    print(f"Tutti gli {len(OLLAMA_HOSTS)} host Ollama sono pronti!")
-
-    print("🎉 Connessione Ollama stabilita con successo!")
-
-    # Controllo che OLLAMA risponda altrimenti esco 
-    if not test_ollama_connection_multi(OLLAMA_HOSTS, MODEL_NAME):
-        logger.error("Sistema multi-GPU non funziona, aborting")
-        exit(1)
-
-    logger.info("Sistema multi-GPU configurato correttamente!")
-
+        parser.error("Cannot use both --force and --append")
+    
+    # Setup GPU environment if not already set
+    if "CUDA_VISIBLE_DEVICES" not in os.environ:
+        os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"  # Use all 4 A100 GPUs
+    
     try:
-        # Decide se processare un singolo file o tutti i file
-        if args.file:
-            run_single_file(args.file,
-                           max_users=args.max_users,
-                           force=args.force,
-                           append=args.append,
-                           anchor_rule=DEFAULT_ANCHOR_RULE)
-        else:
-            run_all_verona_logs(max_users=args.max_users,
-                              force=args.force,
-                              append=args.append,
-                              anchor_rule=DEFAULT_ANCHOR_RULE)
+        # Initialize Ollama connection manager
+        logger.info("Initializing Ollama connection manager...")
+        ollama_manager = OllamaConnectionManager()
+        
+        # Setup connections
+        ollama_manager.setup_connections()
+        
+        # Wait for services to be ready
+        if not ollama_manager.wait_for_services():
+            raise RuntimeError("Ollama services failed to start")
+        
+        # Test model availability
+        if not ollama_manager.test_model_availability():
+            raise RuntimeError(f"Model {Config.MODEL_NAME} not available")
+        
+        logger.info("System initialized successfully!")
+        
+        # Create and run processor
+        processor = VisitFileProcessor(ollama_manager)
+        
+        processor.process_all_files(
+            max_users=args.max_users,
+            force=args.force,
+            append=args.append,
+            single_file=args.file
+        )
+        
     except KeyboardInterrupt:
-        logging.info("Interruzione manuale...")
+        logger.info("\nInterrupted by user")
         sys.exit(1)
+    except Exception as e:
+        logger.error(f"Fatal error: {e}")
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
