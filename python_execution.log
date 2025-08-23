@@ -1,0 +1,25 @@
+2025-08-23 08:01:08,284 INFO: 🔥 Configurazione multi-GPU: 4 istanze
+2025-08-23 08:01:08,284 INFO: 🎯 Configurazione caricata: 4 host
+Controllo host 1/4: http://127.0.0.1:39001
+Attesa Ollama su http://127.0.0.1:39001...
+✓ http://127.0.0.1:39001 risponde con status 200
+✓ http://127.0.0.1:39001 completamente attivo
+Controllo host 2/4: http://127.0.0.1:39002
+Attesa Ollama su http://127.0.0.1:39002...
+✓ http://127.0.0.1:39002 risponde con status 200
+✓ http://127.0.0.1:39002 completamente attivo
+Controllo host 3/4: http://127.0.0.1:39003
+Attesa Ollama su http://127.0.0.1:39003...
+✓ http://127.0.0.1:39003 risponde con status 200
+✓ http://127.0.0.1:39003 completamente attivo
+Controllo host 4/4: http://127.0.0.1:39004
+Attesa Ollama su http://127.0.0.1:39004...
+✓ http://127.0.0.1:39004 risponde con status 200
+✓ http://127.0.0.1:39004 completamente attivo
+Tutti gli 4 host Ollama sono pronti!
+🎉 Connessione Ollama stabilita con successo!
+2025-08-23 08:01:08,388 INFO: Test http://127.0.0.1:39001...
+2025-08-23 08:02:08,475 ERROR: http://127.0.0.1:39001 non funziona
+2025-08-23 08:02:08,475 INFO: Test http://127.0.0.1:39002...
+2025-08-23 08:03:08,564 ERROR: http://127.0.0.1:39002 non funziona
+2025-08-23 08:03:08,564 INFO: Test http://127.0.0.1:39003...

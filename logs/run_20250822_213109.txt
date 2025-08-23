@@ -1,0 +1,61 @@
+2025-08-22 21:32:09,806 WARNING: ⚠️ Timeout tentativo 1/3
+2025-08-22 21:32:27,327 INFO: ✅ Ollama test passed - Response: 'Hello'
+2025-08-22 21:32:27,335 INFO: 🎯 Trovati 12 file da elaborare
+2025-08-22 21:32:27,335 INFO: 
+🔍 Controllo dati_2014.csv...
+2025-08-22 21:32:27,374 INFO: ⚡ Checkpoint: 30730 card già completate (lettura veloce)
+2025-08-22 21:32:28,412 INFO: 📊 dati_2014: 30730/65892 card processate
+2025-08-22 21:32:28,413 INFO: 🔄 dati_2014: 35162 card rimanenti - PROCESSO
+2025-08-22 21:32:28,433 INFO: ⚡ Checkpoint: 30730 card già completate (lettura veloce)
+2025-08-22 21:32:28,857 INFO: 📊 dati_2014: 30730/65892 card processate
+2025-08-22 21:32:28,857 INFO: 🔄 dati_2014: 35162 card rimanenti - PROCESSO
+2025-08-22 21:32:28,879 INFO: ⚡ Checkpoint: 30730 card già completate (lettura veloce)
+2025-08-22 21:32:28,879 INFO: 
+======================================================================
+2025-08-22 21:32:28,879 INFO: ▶  PROCESSO FILE: dati_2014.csv
+2025-08-22 21:32:28,879 INFO: ======================================================================
+2025-08-22 21:32:28,879 INFO: ▶  ho caricato e pulito i dati
+2025-08-22 21:32:28,881 INFO: [load_pois] 22 POI letti da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-22 21:32:30,357 INFO: [load_visits] 370377 timbrature da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/dataset_veronacard_2014_2020/dati_2014.csv
+2025-08-22 21:32:30,591 INFO: [merge] visite valide dopo merge: 370377
+2025-08-22 21:32:30,766 INFO: [filter] card multi-visita: 70236 / 71557
+2025-08-22 21:32:34,982 INFO: ▶  ho fatto il clustering
+2025-08-22 21:48:57,039 INFO: 💾 Salvataggio batch: 500/35162
+2025-08-22 22:04:53,552 INFO: 💾 Salvataggio batch: 1000/35162
+2025-08-22 22:20:53,791 INFO: 💾 Salvataggio batch: 1500/35162
+2025-08-22 22:36:57,241 INFO: 💾 Salvataggio batch: 2000/35162
+2025-08-22 22:53:01,625 INFO: 💾 Salvataggio batch: 2500/35162
+2025-08-22 23:09:17,826 INFO: 💾 Salvataggio batch: 3000/35162
+2025-08-22 23:25:08,904 INFO: 💾 Salvataggio batch: 3500/35162
+2025-08-22 23:41:32,034 INFO: 💾 Salvataggio batch: 4000/35162
+2025-08-22 23:57:43,196 INFO: 💾 Salvataggio batch: 4500/35162
+2025-08-23 00:13:51,907 INFO: 💾 Salvataggio batch: 5000/35162
+2025-08-23 00:30:20,617 INFO: 💾 Salvataggio batch: 5500/35162
+2025-08-23 00:46:45,170 INFO: 💾 Salvataggio batch: 6000/35162
+2025-08-23 01:02:58,516 INFO: 💾 Salvataggio batch: 6500/35162
+2025-08-23 01:19:10,485 INFO: 💾 Salvataggio batch: 7000/35162
+2025-08-23 01:34:59,450 INFO: 💾 Salvataggio batch: 7500/35162
+2025-08-23 01:51:23,898 INFO: 💾 Salvataggio batch: 8000/35162
+2025-08-23 02:07:25,643 INFO: 💾 Salvataggio batch: 8500/35162
+2025-08-23 02:23:29,324 INFO: 💾 Salvataggio batch: 9000/35162
+2025-08-23 02:38:42,064 INFO: 💾 Salvataggio batch: 9500/35162
+2025-08-23 02:54:24,274 INFO: 💾 Salvataggio batch: 10000/35162
+2025-08-23 03:10:08,688 INFO: 💾 Salvataggio batch: 10500/35162
+2025-08-23 03:26:36,589 INFO: 💾 Salvataggio batch: 11000/35162
+2025-08-23 03:42:42,557 INFO: 💾 Salvataggio batch: 11500/35162
+2025-08-23 03:58:55,176 INFO: 💾 Salvataggio batch: 12000/35162
+2025-08-23 04:15:10,359 INFO: 💾 Salvataggio batch: 12500/35162
+2025-08-23 04:30:58,927 INFO: 💾 Salvataggio batch: 13000/35162
+2025-08-23 04:46:37,069 INFO: 💾 Salvataggio batch: 13500/35162
+2025-08-23 05:02:15,402 INFO: 💾 Salvataggio batch: 14000/35162
+2025-08-23 05:18:16,123 INFO: 💾 Salvataggio batch: 14500/35162
+2025-08-23 05:34:00,759 INFO: 💾 Salvataggio batch: 15000/35162
+2025-08-23 05:49:40,649 INFO: 💾 Salvataggio batch: 15500/35162
+2025-08-23 06:05:37,277 INFO: 💾 Salvataggio batch: 16000/35162
+2025-08-23 06:21:30,784 INFO: 💾 Salvataggio batch: 16500/35162
+2025-08-23 06:37:17,870 INFO: 💾 Salvataggio batch: 17000/35162
+2025-08-23 06:52:49,289 INFO: 💾 Salvataggio batch: 17500/35162
+2025-08-23 07:08:15,464 INFO: 💾 Salvataggio batch: 18000/35162
+2025-08-23 07:23:43,811 INFO: 💾 Salvataggio batch: 18500/35162
+2025-08-23 07:39:19,877 INFO: 💾 Salvataggio batch: 19000/35162
+2025-08-23 07:54:59,052 INFO: 💾 Salvataggio batch: 19500/35162
