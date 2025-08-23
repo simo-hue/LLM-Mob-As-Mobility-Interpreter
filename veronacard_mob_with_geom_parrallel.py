@@ -44,10 +44,14 @@ from contextlib import contextmanager
 
 # Rate limiting per evitare sovraccarico
 RATE_LIMIT_SEMAPHORE = None  # Inizializzato dinamicamente
-MAX_CONCURRENT_REQUESTS = 16  # 4 GPU × 4 richieste per GPU
+N_GPUS = 4
+MAX_CONCURRENT_REQUESTS = N_GPUS * 2  # 4 GPU × 2 richieste per GPU
+
+PER_GPU_RATE_LIMIT = 4  # Richieste max per singola GPU
+gpu_semaphores = {}  #  Semaforo per ogni GPU
 
 # Configurazioni timeout ottimizzate
-REQUEST_TIMEOUT = 120          # Per inferenze complesse su dataset grandi
+REQUEST_TIMEOUT = 240 # Per inferenze complesse su dataset grandi
 BATCH_SAVE_INTERVAL = 500     
 HEALTH_CHECK_INTERVAL = 300 
 MAX_CONSECUTIVE_FAILURES = 20  # Max fallimenti consecutivi prima di pausa
@@ -73,6 +77,14 @@ global_stats = {
     'circuit_breaker_active': False
 }
 # -----------------------------------------------------------
+
+# Funzione per inizializzare semafori per GPU
+def setup_gpu_rate_limiting(hosts: List[str]):
+    """Setup semafori individuali per ogni GPU"""
+    global gpu_semaphores
+    for host in hosts:
+        gpu_semaphores[host] = Semaphore(PER_GPU_RATE_LIMIT)
+    logger.info(f"Rate limiting: {PER_GPU_RATE_LIMIT} req/GPU, {len(hosts)} GPU")
 
 # ============= CLASSI DI SUPPORTO =============
 
@@ -119,13 +131,15 @@ class CircuitBreaker:
         logger.info("✅ Circuit breaker RESET")
 
 class HostHealthMonitor:
-    """Monitora la salute degli host Ollama"""
+    """Monitora la salute degli host Ollama con ROUND-ROBIN"""
     
     def __init__(self, hosts: List[str]):
         self.hosts = hosts
         self.health_status = {host: True for host in hosts}
         self.last_check = {host: 0 for host in hosts}
         self.response_times = {host: [] for host in hosts}
+        self.request_counts = {host: 0 for host in hosts}  # NUOVO: conta richieste per host
+        self.current_host_index = 0  # NUOVO: per round-robin
         self._lock = Lock()
     
     def is_healthy(self, host: str) -> bool:
@@ -140,13 +154,12 @@ class HostHealthMonitor:
         """Verifica ottimizzata per HPC"""
         try:
             start_time = time.time()
-            # Test più leggero - solo availability, non performance
             resp = requests.get(f"{host}/api/tags", timeout=3, stream=False)
             response_time = time.time() - start_time
             
             with self._lock:
                 self.response_times[host].append(response_time)
-                self.response_times[host] = self.response_times[host][-5:]  # Solo ultime 5
+                self.response_times[host] = self.response_times[host][-5:]
                 
                 is_healthy = resp.status_code == 200
                 self.health_status[host] = is_healthy
@@ -158,44 +171,57 @@ class HostHealthMonitor:
                 self.health_status[host] = False
             return False
     
-    def get_least_loaded_host(self) -> str:
-        """Seleziona l'host con meno carico attuale"""
+    def get_next_host_round_robin(self) -> str:
+        """NUOVO: Selezione round-robin per distribuzione equa"""
         healthy_hosts = self.get_healthy_hosts()
         if not healthy_hosts:
             return None
         
-        # Logica più sofisticata basata su response times recenti
         with self._lock:
-            host_scores = []
-            for host in healthy_hosts:
-                recent_times = self.response_times.get(host, [1.0])[-3:]
-                avg_time = sum(recent_times) / len(recent_times)
-                # Peso basato su trend (tempi crescenti = carico maggiore)
-                if len(recent_times) > 1:
-                    trend = recent_times[-1] - recent_times[0]
-                else:
-                    trend = 0
-                score = avg_time + (trend * 2)  # Penalizza trend crescenti
-                host_scores.append((host, score))
+            # Prova a selezionare il prossimo host sano
+            attempts = 0
+            while attempts < len(healthy_hosts):
+                host = self.hosts[self.current_host_index % len(self.hosts)]
+                self.current_host_index += 1
+                
+                if host in healthy_hosts:
+                    self.request_counts[host] += 1
+                    logger.debug(f"🔄 Selezionato {host} (requests: {self.request_counts[host]})")
+                    return host
+                
+                attempts += 1
+            
+            # Fallback al primo host sano se round-robin fallisce
+            return healthy_hosts[0]
     
-        return min(host_scores, key=lambda x: x[1])[0]
+    def get_least_loaded_host(self) -> str:
+        """Seleziona l'host con meno richieste elaborate"""
+        healthy_hosts = self.get_healthy_hosts()
+        if not healthy_hosts:
+            return None
+        
+        with self._lock:
+            # Trova l'host con meno richieste
+            host_loads = [(host, self.request_counts.get(host, 0)) for host in healthy_hosts]
+            return min(host_loads, key=lambda x: x[1])[0]
 
     def get_best_host(self) -> str:
-        """Restituisce l'host più performante disponibile"""
+        """MODIFICATO: Usa strategia mista per bilanciamento"""
         healthy_hosts = self.get_healthy_hosts()
         if not healthy_hosts:
             return None
         
-        # Ordina per tempo di risposta medio
+        # STRATEGIA: 70% round-robin, 30% least-loaded per ottimizzazione
+        import random
+        if random.random() < 0.7:
+            return self.get_next_host_round_robin()
+        else:
+            return self.get_least_loaded_host()
+    
+    def get_load_stats(self) -> dict:
+        """NUOVO: Statistiche di carico per debugging"""
         with self._lock:
-            host_scores = []
-            for host in healthy_hosts:
-                times = self.response_times.get(host, [1.0])
-                avg_time = sum(times) / len(times) if times else 1.0
-                host_scores.append((host, avg_time))
-        
-        # Restituisce l'host con tempo di risposta minore
-        return min(host_scores, key=lambda x: x[1])[0]
+            return dict(self.request_counts)
 
 # Istanze globali
 circuit_breaker = CircuitBreaker()
@@ -357,34 +383,107 @@ def test_single_host(host: str, model: str) -> bool:
     return False
 
 # ---------- chiamata LLaMA / Ollama ---------------------------------------
-def get_chat_completion(prompt: str, model: str = MODEL_NAME, max_retries: int = 2) -> str | None:
-    """Versione load-balanced della chiamata"""
+def get_chat_completion(prompt: str, model: str = MODEL_NAME, max_retries: int = 3) -> str | None:
+    """Versione robusta con circuit breaker e backoff intelligente"""
     
-    # Check circuit breaker
-    if global_stats['circuit_breaker_active']:
-        logger.warning("⚠️ Circuit breaker attivo - skip richiesta")
+    # Prova tutti gli host disponibili prima di fare retry
+    available_hosts = [h for h in OLLAMA_HOSTS if is_host_healthy(h)]
+    
+    if not available_hosts:
+        logger.error("❌ Nessun host disponibile")
         return None
     
-    # Acquire rate limiting semaphore
-    if not RATE_LIMIT_SEMAPHORE.acquire(blocking=True, timeout=30):
-        logger.warning("⚠️ Rate limit timeout - troppo carico")
-        return None
+    for attempt in range(1, max_retries + 1):
+        # Seleziona host con round-robin tra quelli sani
+        current_host = available_hosts[attempt % len(available_hosts)]
+        
+        payload = {
+            "model": model,
+            "messages": [{"role": "user", "content": prompt}], 
+            "stream": False,
+            "options": {
+                "num_ctx": 4096,
+                "temperature": 0.1,
+                "num_thread": 8,  # Riduci thread per GPU
+                "num_predict": 256
+            }
+        }
+        
+        try:
+            logger.debug(f"🔄 Richiesta a {current_host} (tentativo {attempt}/{max_retries})")
+            
+            # Timeout progressivo
+            timeout = 60 + (attempt * 30)  # 60s, 90s, 120s
+            
+            resp = requests.post(
+                f"{current_host}/api/chat", 
+                json=payload, 
+                timeout=timeout,
+                headers={'Content-Type': 'application/json'}
+            )
+            
+            # Gestione specifica per errore 503
+            if resp.status_code == 503:
+                logger.warning(f"⚠️ Servizio non disponibile su {host} (503)")
+                mark_host_unhealthy(host, duration=30)
+                continue
+            
+            if resp.status_code == 500:
+                logger.warning(f"⚠️ Server error 500 su {current_host}, provo altro host...")
+                mark_host_unhealthy(current_host, duration=60)  # Marca come non sano per 1min
+                continue
+            
+            resp.raise_for_status()
+            response_data = resp.json()
+            
+            if not response_data.get("done", False):
+                logger.warning(f"⚠️ Risposta incompleta da {current_host}")
+                continue
+            
+            content = response_data.get("message", {}).get("content", "")
+            if content:
+                mark_host_healthy(current_host)  # Ripristina salute
+                return content
+                
+        except requests.exceptions.Timeout:
+            logger.error(f"⏰ Timeout {timeout}s su {current_host}")
+            mark_host_unhealthy(current_host, duration=30)
+        except Exception as exc:
+            logger.error(f"❌ Errore su {current_host}: {exc}")
+            mark_host_unhealthy(current_host, duration=30)
+        
+        if attempt < max_retries:
+            wait_time = min(2 ** attempt, 30)  # Exponential backoff: 2s, 4s, 8s...
+            logger.info(f"⏳ Aspetto {wait_time}s prima del prossimo tentativo...")
+            time.sleep(wait_time)
     
-    try:
-        with circuit_breaker.call():
-            return _make_request_with_retry(prompt, model, max_retries)
-    except Exception as e:
-        logger.error(f"❌ Richiesta fallita completamente: {e}")
-        return None
-    finally:
-        RATE_LIMIT_SEMAPHORE.release()
+    logger.error("❌ Tutti i tentativi falliti su tutti gli host")
+    return None
+
+
+
+def is_host_healthy(host: str) -> bool:
+    health_info = HOST_HEALTH.get(host, {"healthy": True, "unhealthy_until": 0})
+    if not health_info["healthy"] and time.time() < health_info["unhealthy_until"]:
+        return False
+    health_info["healthy"] = True
+    return True
+
+def mark_host_unhealthy(host: str, duration: int = 60):
+    HOST_HEALTH[host] = {
+        "healthy": False, 
+        "unhealthy_until": time.time() + duration
+    }
+
+def mark_host_healthy(host: str):
+    HOST_HEALTH[host] = {"healthy": True, "unhealthy_until": 0}
 
 def _make_request_with_retry(prompt: str, model: str, max_retries: int) -> str | None:
     """Logica retry con backoff esponenziale"""
     
     for attempt in range(1, max_retries + 1):
         # Seleziona host più performante
-        host = health_monitor.get_best_host()
+        host = health_monitor.get_next_host_round_robin()
         if not host:
             logger.error("❌ Nessun host sano disponibile")
             healthy_hosts = health_monitor.get_healthy_hosts()
@@ -464,6 +563,80 @@ def _make_request_with_retry(prompt: str, model: str, max_retries: int) -> str |
     
     # Tutti i tentativi falliti
     logger.error(f"❌ Tutti i {max_retries} tentativi falliti")
+    return None
+
+def _make_request_with_retry_targeted(prompt: str, model: str, max_retries: int, target_host: str) -> str | None:
+    """Versione che usa un host specifico invece di selezionarlo dinamicamente"""
+    
+    for attempt in range(1, max_retries + 1):
+        # Verifica che l'host target sia ancora sano
+        if not health_monitor.is_healthy(target_host):
+            logger.warning(f"⚠️ Host target {target_host} non sano - verifico...")
+            if not health_monitor.check_health(target_host):
+                logger.error(f"❌ Host {target_host} confermato non funzionante")
+                return None
+        
+        try:
+            payload = {
+                "model": model,
+                "messages": [{"role": "user", "content": prompt}], 
+                "stream": False,
+                "options": {
+                    "num_ctx": 8192,
+                    "num_predict": 300,
+                    "temperature": 0.1,
+                    "top_p": 0.9,
+                    "num_thread": 16,
+                    "num_batch": 1024,
+                    "repeat_penalty": 1.1
+                }
+            }
+            
+            start_time = time.time()
+            resp = requests.post(
+                f"{target_host}/api/chat", 
+                json=payload, 
+                timeout=REQUEST_TIMEOUT,
+                headers={'Content-Type': 'application/json'}
+            )
+            response_time = time.time() - start_time
+            
+            resp.raise_for_status()
+            response_data = resp.json()
+            
+            if not response_data.get("done", False):
+                logger.warning(f"⚠️ Risposta incompleta da {target_host}")
+                continue
+            
+            content = response_data.get("message", {}).get("content", "")
+            if content:
+                # Aggiorna statistiche successo
+                with stats_lock:
+                    global_stats['total_processed'] += 1
+                    global_stats['consecutive_failures'] = 0
+                    global_stats['last_success_time'] = time.time()
+                
+                logger.debug(f"✅ Risposta da {target_host} in {response_time:.2f}s")
+                return content
+                
+        except requests.exceptions.Timeout:
+            logger.warning(f"⚠️ Timeout {REQUEST_TIMEOUT}s su {target_host} (tentativo {attempt})")
+            health_monitor.health_status[target_host] = False
+        except Exception as exc:
+            logger.error(f"❌ Errore su {target_host}: {exc}")
+            health_monitor.health_status[target_host] = False
+            
+            # Aggiorna statistiche errore
+            with stats_lock:
+                global_stats['total_errors'] += 1
+                global_stats['consecutive_failures'] += 1
+        
+        # Backoff esponenziale tra retry
+        if attempt < max_retries:
+            backoff_time = min(BACKOFF_BASE ** attempt, BACKOFF_MAX)
+            time.sleep(backoff_time)
+    
+    logger.error(f"❌ Tutti i {max_retries} tentativi falliti per {target_host}")
     return None
 
 def debug_gpu_status():
@@ -629,12 +802,15 @@ def setup_ollama_connections() -> List[str]:
             MAX_CONCURRENT_REQUESTS = len(hosts) * 4  # 4 richieste per GPU/host
             RATE_LIMIT_SEMAPHORE = Semaphore(MAX_CONCURRENT_REQUESTS)
             
+            setup_gpu_rate_limiting(hosts)  # Inizializza semafori per GPU
             return hosts
         else:
             host = f"http://127.0.0.1:{ports_str}"
             logger.info(f"⚠️ Fallback singola GPU: {host}")
             RATE_LIMIT_SEMAPHORE = Semaphore(1)
             MAX_CONCURRENT_REQUESTS = 1
+            
+            setup_gpu_rate_limiting(hosts)  # Inizializza semafori per GPU
             return [host]
             
     except FileNotFoundError:
@@ -1080,20 +1256,35 @@ def run_on_visits_file(
     # Inizializza monitor salute
     health_monitor = HostHealthMonitor(OLLAMA_HOSTS)
     
-    # Check preliminare hosts
-    logger.info("🔍 Verifica iniziale hosts...")
-    healthy_count = 0
-    for host in OLLAMA_HOSTS:
-        if health_monitor.check_health(host):
-            healthy_count += 1
-            logger.info(f"✅ {host} operativo")
-        else:
-            logger.error(f"❌ {host} non risponde")
-    
-    if healthy_count == 0:
-        raise RuntimeError("❌ Nessun host Ollama operativo")
-    
-    logger.info(f"🎯 {healthy_count}/{len(OLLAMA_HOSTS)} host operativi")
+    def log_load_balancing_stats():
+        """Log periodico delle statistiche di load balancing"""
+        while True:
+            time.sleep(300)  # Log ogni 5 minuti
+            if health_monitor:
+                stats = health_monitor.get_load_stats()
+                healthy = health_monitor.get_healthy_hosts()
+                total_requests = sum(stats.values())
+                
+                logger.info("📊 LOAD BALANCING STATS:")
+                for host in OLLAMA_HOSTS:
+                    requests = stats.get(host, 0)
+                    percentage = (requests / max(total_requests, 1)) * 100
+                    status = "✅" if host in healthy else "❌"
+                    logger.info(f"   {host}: {requests} req ({percentage:.1f}%) {status}")
+                
+                # Check squilibrio
+                if len(healthy) > 1 and total_requests > 50:
+                    req_counts = [stats.get(host, 0) for host in healthy]
+                    max_req = max(req_counts)
+                    min_req = min(req_counts)
+                    imbalance = (max_req - min_req) / max(max_req, 1) * 100
+                    
+                    if imbalance > 30:  # Soglia 30% di squilibrio
+                        logger.warning(f"⚠️ Load imbalance: {imbalance:.1f}% tra GPU")
+
+
+    load_monitor_thread = threading.Thread(target=log_load_balancing_stats, daemon=True)
+    load_monitor_thread.start()
     
     # Setup output directory
     out_dir = Path(__file__).resolve().parent / "results"
@@ -1144,7 +1335,6 @@ def run_on_visits_file(
         write_header = True
     
     # Calcola workers ottimali
-    n_healthy_hosts = healthy_count
     optimal_workers = min(MAX_CONCURRENT_REQUESTS * 2, 64)  # 2x per I/O overlap
     
     logger.info(f"🚀 Avvio elaborazione con {optimal_workers} worker ottimizzati")
@@ -1378,7 +1568,6 @@ def load_completed_cards_fast(visits_path: Path, out_dir: Path) -> set:
     """
     checkpoint_file = get_checkpoint_file(visits_path, out_dir)
     
-    # Prima prova: checkpoint file (velocissimo)
     if checkpoint_file.exists():
         try:
             with open(checkpoint_file, 'r') as f:
@@ -1388,13 +1577,26 @@ def load_completed_cards_fast(visits_path: Path, out_dir: Path) -> set:
         except Exception as e:
             logger.warning(f"⚠️ Errore lettura checkpoint: {e}, fallback su CSV")
     
-    # Fallback: scansione CSV (lento ma necessario la prima volta)
+    # Fallback: scansione CSV con controllo robusto
     latest_csv = latest_output(visits_path, out_dir)
     if latest_csv:
         logger.info("🐌 Prima esecuzione append: scansiono CSV esistente...")
         try:
-            # Leggi solo le colonne necessarie per velocizzare
-            df = pd.read_csv(latest_csv, usecols=['card_id', 'prediction'])
+            # PRIMA leggi solo l'header per verificare le colonne
+            df_sample = pd.read_csv(latest_csv, nrows=0)  # Solo header
+            available_columns = df_sample.columns.tolist()
+            
+            # Verifica che le colonne necessarie esistano
+            required_columns = ['card_id', 'prediction']
+            missing_columns = [col for col in required_columns if col not in available_columns]
+            
+            if missing_columns:
+                logger.warning(f"⚠️ Colonne mancanti nel CSV: {missing_columns}")
+                logger.warning(f"📋 Colonne disponibili: {available_columns}")
+                return set()
+            
+            # Se le colonne ci sono, procedi con la lettura completa
+            df = pd.read_csv(latest_csv, usecols=required_columns)
             completed = df[
                 df['prediction'].notna() & 
                 (df['prediction'] != '') & 
@@ -1405,8 +1607,6 @@ def load_completed_cards_fast(visits_path: Path, out_dir: Path) -> set:
             ]['card_id'].unique()
             
             completed_set = set(completed)
-            
-            # Salva il checkpoint per le prossime volte
             save_checkpoint(checkpoint_file, completed_set)
             logger.info(f"💾 Checkpoint salvato: {len(completed_set)} card")
             
@@ -1579,6 +1779,8 @@ def wait_for_ollama_single(host: str, max_attempts=30, wait_interval=3):
 # Setup globale
 try:
     OLLAMA_HOSTS = setup_ollama_connections()
+    host_cycle = itertools.cycle(OLLAMA_HOSTS)
+    HOST_HEALTH = {host: {"healthy": True, "unhealthy_until": 0} for host in OLLAMA_HOSTS}
     logger.info(f"🎯 Configurazione caricata: {len(OLLAMA_HOSTS)} host")
 except Exception as e:
     logger.error(f"❌ Errore setup Ollama: {e}")
