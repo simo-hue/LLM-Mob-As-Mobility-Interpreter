@@ -13,7 +13,7 @@ from contextlib import contextmanager
 from datetime import datetime
 from pathlib import Path
 from threading import Lock, Semaphore
-from typing import Dict, Any, List, Optional, Tuple, Set
+from typing import Dict, Any, List, Optional, Tuple, Set, Union
 
 # Third-party imports
 import numpy as np
@@ -131,6 +131,10 @@ class Statistics:
                 return 0.0
             return (self._data['total_processed'] / total) * 100
     
+    def reset_consecutive_failures(self):
+        with self._lock:
+            self._data['consecutive_failures'] = 0
+            
     @property
     def consecutive_failures(self) -> int:
         with self._lock:
@@ -482,8 +486,7 @@ class OllamaConnectionManager:
             
             try:
                 # Health check if needed
-                if (time.time() - self.health_monitor.last_check.get(host, 0) 
-                    > Config.HEALTH_CHECK_INTERVAL):
+                if (time.time() - self.health_monitor.last_check.get(host, 0) > Config.HEALTH_CHECK_INTERVAL):
                     if not self.health_monitor.check_health(host):
                         logger.warning(f"Host {host} failed health check - retrying")
                         continue
@@ -797,7 +800,7 @@ class PromptBuilder:
         pois_df: pd.DataFrame,
         card_id: str,
         top_k: int = Config.TOP_K,
-        anchor_rule: str | int = Config.DEFAULT_ANCHOR_RULE
+        anchor_rule: Union[str, int] = Config.DEFAULT_ANCHOR_RULE
     ) -> str:
         """
         Create optimized prompt for POI prediction.
@@ -1332,7 +1335,7 @@ class VisitFileProcessor:
                         if stats.consecutive_failures >= Config.CIRCUIT_BREAKER_THRESHOLD:
                             logger.error("Too many consecutive failures - pausing")
                             time.sleep(60)  # Pause for 1 minute
-                            stats._data['consecutive_failures'] = 0
+                            stats.reset_consecutive_failures()
                     
                     except TimeoutError:
                         logger.error(f"Timeout processing card {card_id}")
