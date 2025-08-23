@@ -1,0 +1,38 @@
+2025-08-23 16:45:29,396 WARNING: ⚠️ Timeout tentativo 1/3
+2025-08-23 16:47:09,450 WARNING: ⚠️ Timeout tentativo 2/3
+2025-08-23 16:47:30,126 INFO: ✅ Ollama test passed - Response: 'Hello'
+2025-08-23 16:47:30,133 INFO: 🎯 Trovati 12 file da elaborare
+2025-08-23 16:47:30,134 INFO: 
+🔍 Controllo dati_2014.csv...
+2025-08-23 16:47:30,209 INFO: ⚡ Checkpoint: 65439 card già completate (lettura veloce)
+2025-08-23 16:47:31,715 INFO: 📊 dati_2014: 65439/65892 card processate
+2025-08-23 16:47:31,717 INFO: 🔄 dati_2014: 453 card rimanenti - PROCESSO
+2025-08-23 16:47:31,747 INFO: ⚡ Checkpoint: 65439 card già completate (lettura veloce)
+2025-08-23 16:47:32,179 INFO: 📊 dati_2014: 65439/65892 card processate
+2025-08-23 16:47:32,179 INFO: 🔄 dati_2014: 453 card rimanenti - PROCESSO
+2025-08-23 16:47:32,211 INFO: ⚡ Checkpoint: 65439 card già completate (lettura veloce)
+2025-08-23 16:47:32,211 INFO: 
+======================================================================
+2025-08-23 16:47:32,211 INFO: ▶  PROCESSO FILE: dati_2014.csv
+2025-08-23 16:47:32,211 INFO: ======================================================================
+2025-08-23 16:47:32,211 INFO: ▶  ho caricato e pulito i dati
+2025-08-23 16:47:32,213 INFO: [load_pois] 22 POI letti da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-23 16:47:33,736 INFO: [load_visits] 370377 timbrature da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/dati_2014.csv
+2025-08-23 16:47:34,009 INFO: [merge] visite valide dopo merge: 370377
+2025-08-23 16:47:34,193 INFO: [filter] card multi-visita: 70236 / 71557
+2025-08-23 16:47:35,739 INFO: ▶  ho fatto il clustering
+2025-08-23 17:02:47,378 INFO: ✔  Salvato dati_2014_pred_20250822_090359.csv – Hit@5: 45.92%
+2025-08-23 17:02:47,386 INFO: 
+🔍 Controllo dati_2015.csv...
+2025-08-23 17:02:47,389 INFO: 
+======================================================================
+2025-08-23 17:02:47,389 INFO: ▶  PROCESSO FILE: dati_2015.csv
+2025-08-23 17:02:47,389 INFO: ======================================================================
+2025-08-23 17:02:47,389 INFO: ▶  ho caricato e pulito i dati
+2025-08-23 17:02:47,391 INFO: [load_pois] 22 POI letti da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/vc_site.csv
+2025-08-23 17:02:48,915 INFO: [load_visits] 369588 timbrature da /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/data/verona/dati_2015.csv
+2025-08-23 17:02:48,992 INFO: [merge] visite valide dopo merge: 369588
+2025-08-23 17:02:49,179 INFO: [filter] card multi-visita: 71759 / 73424
+2025-08-23 17:02:55,330 INFO: ▶  ho fatto il clustering
+2025-08-23 17:18:45,016 INFO: 💾 Salvataggio batch: 500/66677
+2025-08-23 17:34:48,898 INFO: 💾 Salvataggio batch: 1000/66677

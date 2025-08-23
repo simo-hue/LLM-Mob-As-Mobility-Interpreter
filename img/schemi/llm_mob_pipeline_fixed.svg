@@ -1,0 +1,171 @@
+<svg viewBox="0 0 1000 1200" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 850 350 L 680 350 L 680 490 L 650 490" stroke="#333" stroke-width="3" marker-end="url(#arrow)" fill="none"/><defs>
+    <linearGradient id="flowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- Titolo -->
+  <text x="500" y="40" font-family="Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="middle" fill="#333">
+    Pipeline di Elaborazione LLM-Mob
+  </text>
+  
+  <!-- Start -->
+  <ellipse cx="500" cy="100" rx="80" ry="40" fill="#28a745" filter="url(#shadow)"/>
+  <text x="500" y="105" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">
+    START
+  </text>
+  
+  <!-- Freccia -->
+  <path d="M 500 140 L 500 180" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- 1. Input Files -->
+  <rect x="350" y="180" width="300" height="80" rx="10" fill="#17a2b8" filter="url(#shadow)"/>
+  <text x="500" y="210" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">
+    1. Lettura File Input
+  </text>
+  <text x="500" y="235" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">
+    • dati_YYYY.csv (visite)
+  </text>
+  <text x="500" y="250" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">
+    • vc_site.csv (POI)
+  </text>
+  
+  <path d="M 500 260 L 500 300" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- 2. Check Skip -->
+  <path d="M 500 300 L 600 350 L 500 400 L 400 350 Z" fill="#ffc107" stroke="#333" stroke-width="2" filter="url(#shadow)"/>
+  <text x="500" y="345" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">
+    File già
+  </text>
+  <text x="500" y="360" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">
+    processato?
+  </text>
+  
+  <!-- Skip path -->
+  <path d="M 600 350 L 850 350" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="725" y="340" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Sì (append)</text>
+  
+  <rect x="850" y="320" width="120" height="60" rx="5" fill="#6c757d" filter="url(#shadow)"/>
+  <text x="910" y="345" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+    Carica
+  </text>
+  <text x="910" y="365" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+    Checkpoint
+  </text>
+  
+
+  
+  <!-- Continue path -->
+  <path d="M 500 400 L 500 440" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="470" y="420" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">No</text>
+  
+  <!-- 3. Preprocessing -->
+  <rect x="350" y="440" width="300" height="100" rx="10" fill="#6f42c1" filter="url(#shadow)"/>
+  <text x="500" y="470" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">
+    2. Preprocessing Dati
+  </text>
+  <text x="500" y="495" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">
+    • Merge visite-POI
+  </text>
+  <text x="500" y="510" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">
+    • Filtro multi-visit cards
+  </text>
+  <text x="500" y="525" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">
+    • Creazione timestamp
+  </text>
+  
+  <path d="M 500 540 L 500 580" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- 4. Clustering -->
+  <rect x="350" y="580" width="300" height="100" rx="10" fill="#e83e8c" filter="url(#shadow)"/>
+  <text x="500" y="610" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">
+    3. Clustering K-Means
+  </text>
+  <text x="500" y="635" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">
+    • Matrice user-POI
+  </text>
+  <text x="500" y="650" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">
+    • StandardScaler
+  </text>
+  <text x="500" y="665" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">
+    • 7 cluster turistici
+  </text>
+  
+  <path d="M 500 680 L 500 720" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- 5. Parallel Processing -->
+  <rect x="200" y="720" width="600" height="140" rx="10" fill="url(#flowGradient)" filter="url(#shadow)"/>
+  <text x="500" y="750" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">
+    4. Elaborazione Parallela Card
+  </text>
+  
+  <!-- Mini boxes per workers -->
+  <rect x="240" y="770" width="100" height="60" rx="5" fill="rgba(255,255,255,0.3)"/>
+  <text x="290" y="795" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">Worker 1</text>
+  <text x="290" y="815" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">GPU 0</text>
+  
+  <rect x="360" y="770" width="100" height="60" rx="5" fill="rgba(255,255,255,0.3)"/>
+  <text x="410" y="795" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">Worker 2</text>
+  <text x="410" y="815" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">GPU 1</text>
+  
+  <rect x="480" y="770" width="100" height="60" rx="5" fill="rgba(255,255,255,0.3)"/>
+  <text x="530" y="795" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">Worker 3</text>
+  <text x="530" y="815" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">GPU 2</text>
+  
+  <rect x="600" y="770" width="100" height="60" rx="5" fill="rgba(255,255,255,0.3)"/>
+  <text x="650" y="795" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">Worker N</text>
+  <text x="650" y="815" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">GPU 3</text>
+  
+  <path d="M 500 860 L 500 900" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- 6. Per ogni card -->
+  <rect x="100" y="900" width="800" height="200" rx="10" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2" filter="url(#shadow)"/>
+  <text x="500" y="925" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">
+    Per Ogni Card:
+  </text>
+  
+  <!-- Sub-steps -->
+  <rect x="120" y="940" width="180" height="50" rx="5" fill="#007bff"/>
+  <text x="210" y="960" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">a. Genera Prompt</text>
+  <text x="210" y="975" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">con POI vicini</text>
+  
+  <rect x="320" y="940" width="180" height="50" rx="5" fill="#28a745"/>
+  <text x="410" y="960" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">b. Chiamata LLM</text>
+  <text x="410" y="975" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">con retry</text>
+  
+  <rect x="520" y="940" width="180" height="50" rx="5" fill="#dc3545"/>
+  <text x="610" y="960" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">c. Parse JSON</text>
+  <text x="610" y="975" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">e validazione</text>
+  
+  <rect x="720" y="940" width="160" height="50" rx="5" fill="#6c757d"/>
+  <text x="800" y="960" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">d. Salva Result</text>
+  <text x="800" y="975" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">+ checkpoint</text>
+  
+  <!-- Circuit breaker check -->
+  <rect x="300" y="1010" width="400" height="70" rx="5" fill="#ffc107" filter="url(#shadow)"/>
+  <text x="500" y="1035" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">
+    Health Check &amp; Circuit Breaker
+  </text>
+  <text x="500" y="1055" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">
+    • Monitoraggio errori consecutivi
+  </text>
+  <text x="500" y="1070" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">
+    • Pausa sistema se necessario
+  </text>
+  
+  <path d="M 500 1100 L 500 1140" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- End -->
+  <ellipse cx="500" cy="1170" rx="80" ry="40" fill="#dc3545" filter="url(#shadow)"/>
+  <text x="500" y="1175" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">
+    END
+  </text>
+</svg>
