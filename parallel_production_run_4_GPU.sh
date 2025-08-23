@@ -226,7 +226,6 @@ start_ollama_instance() {
     GPU_CACHE_DIR="$OLLAMA_CACHE_DIR/gpu${gpu_id}"
     mkdir -p "$GPU_CACHE_DIR"
     
-    # Avvio con tutte le variabili personalizzate
     CUDA_VISIBLE_DEVICES=$gpu_id \
     OLLAMA_HOST=127.0.0.1:$port \
     OLLAMA_MAX_LOADED_MODELS=1 \
@@ -242,24 +241,28 @@ start_ollama_instance() {
     echo "   📁 Cache dedicata: $GPU_CACHE_DIR"
     echo "   📁 Temp directory: $CUSTOM_TMP"
     
+    # ✅ IMPORTANTE: Salva il PID in una variabile globale
+    eval "SERVER_PID$((gpu_id+1))=$pid"
+
     return $pid
 }
 
 # Avvio sequenziale con attese lunghe per evitare race conditions
 echo "📡 Avvio istanza 1/4..."
-start_ollama_instance 0 $OLLAMA_PORT1; SERVER_PID1=$?
-sleep 40
+start_ollama_instance 0 $OLLAMA_PORT1
+echo "⏳ Attesa caricamento modello su GPU 0 (90s)..."
+sleep 90
 
 echo "📡 Avvio istanza 2/4..."
-start_ollama_instance 1 $OLLAMA_PORT2; SERVER_PID2=$?
+start_ollama_instance 1 $OLLAMA_PORT2
 sleep 40
 
 echo "📡 Avvio istanza 3/4..."
-start_ollama_instance 2 $OLLAMA_PORT3; SERVER_PID3=$?
+start_ollama_instance 2 $OLLAMA_PORT3
 sleep 40
 
 echo "📡 Avvio istanza 4/4..."  
-start_ollama_instance 3 $OLLAMA_PORT4; SERVER_PID4=$?
+start_ollama_instance 3 $OLLAMA_PORT4
 sleep 40
 
 echo "✅ Tutte le istanze avviate:"
@@ -267,6 +270,21 @@ echo "   GPU 0: PID $SERVER_PID1 (porta $OLLAMA_PORT1)"
 echo "   GPU 1: PID $SERVER_PID2 (porta $OLLAMA_PORT2)" 
 echo "   GPU 2: PID $SERVER_PID3 (porta $OLLAMA_PORT3)"
 echo "   GPU 3: PID $SERVER_PID4 (porta $OLLAMA_PORT4)"
+
+echo "⏳ Attesa stabilizzazione sistema (60s)..."
+sleep 60
+
+# Poi riprova il health check per GPU che hanno fallito
+if [ $HEALTHY_COUNT -lt 4 ]; then
+    echo "🔄 Retry health check per GPU non pronte..."
+    
+    # Riprova solo quelle fallite
+    if ! check_instance_health $OLLAMA_PORT1 0; then
+        echo "⏳ Retry GPU 0 con timeout esteso..."
+        sleep 30
+        check_instance_health $OLLAMA_PORT1 0 && ((HEALTHY_COUNT++))
+    fi
+fi
 
 # Salva configurazione per Python
 echo "$OLLAMA_PORT1,$OLLAMA_PORT2,$OLLAMA_PORT3,$OLLAMA_PORT4" > ollama_ports.txt
@@ -307,6 +325,15 @@ check_instance_health() {
     echo "🔍 Check approfondito GPU $gpu_id (porta $port)..."
     
     for i in $(seq 1 $max_attempts); do
+
+        # ✅ Più tempo per la prima GPU che carica il modello
+        if [ $gpu_id -eq 0 ]; then
+            max_attempts=25
+            echo "🔍 Check GPU $gpu_id (prima istanza, timeout esteso)..."
+        else
+            echo "🔍 Check approfondito GPU $gpu_id (porta $port)..."
+        fi
+
         # Test 1: endpoint tags con timeout lungo
         if ! timeout 20s curl -s "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
             echo "   Tentativo $i/$max_attempts: endpoint non risponde"
@@ -441,7 +468,7 @@ echo "📂 Verifica file di input..."
 
 cd /leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter
 
-TARGET_FILE="data/verona/veronacard_2020_2023/veronacard_2022_original.csv"
+TARGET_FILE="data/verona/veronacard_2022_original.csv"
 if [ ! -f "$TARGET_FILE" ]; then
     echo "❌ ERRORE CRITICO: File non trovato: $TARGET_FILE"
     echo "📁 Contenuto directory corrente:"
