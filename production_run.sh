@@ -3,7 +3,7 @@
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=normal
-#SBATCH --time=00:30:00
+#SBATCH --time=24:00:00
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 #SBATCH --ntasks-per-node=1
@@ -287,7 +287,7 @@ echo ""
 PYTHON_START=$(date +%s)
 
 # NESSUN parametro max-users = processamento completo
-if python3 $WORK/LLM-Mob-As-Mobility-Interpreter/veronacard_mob_with_geom.py --file veronacard_2020_2023/veronacard_2022_original.csv ; then
+if python3 $WORK/LLM-Mob-As-Mobility-Interpreter/veronacard_mob_with_geom.py --append ; then
     PYTHON_END=$(date +%s)
     PYTHON_TIME=$((PYTHON_END - PYTHON_START))
     

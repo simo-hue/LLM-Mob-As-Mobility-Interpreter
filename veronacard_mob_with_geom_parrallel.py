@@ -19,6 +19,187 @@ from threading import Lock
 import multiprocessing as mp
 import itertools
 from typing import List
+from typing import Optional, Dict, Any, List, Tuple
+import os, sys, argparse, logging
+import pandas as pd
+import requests
+from pandas import DataFrame
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+from tqdm import tqdm
+import numpy as np
+from pathlib import Path
+import logging
+from datetime import datetime
+import math
+from concurrent.futures import ThreadPoolExecutor, as_completed, TimeoutError
+from threading import Lock, Semaphore
+import multiprocessing as mp
+import itertools
+import queue
+import threading
+from contextlib import contextmanager
+
+# ============= CONFIGURAZIONI HPC OTTIMIZZATE =============
+
+# Rate limiting per evitare sovraccarico
+RATE_LIMIT_SEMAPHORE = None  # Inizializzato dinamicamente
+MAX_CONCURRENT_REQUESTS = 16  # 4 GPU × 4 richieste per GPU
+
+# Configurazioni timeout ottimizzate
+REQUEST_TIMEOUT = 120          # Per inferenze complesse su dataset grandi
+BATCH_SAVE_INTERVAL = 500     
+HEALTH_CHECK_INTERVAL = 300 
+MAX_CONSECUTIVE_FAILURES = 20  # Max fallimenti consecutivi prima di pausa
+
+# Configurazioni retry intelligenti
+MAX_RETRIES_PER_REQUEST = 3
+BACKOFF_BASE = 2
+BACKOFF_MAX = 30
+CIRCUIT_BREAKER_THRESHOLD = 50  # Fallimenti prima di circuit breaker
+
+# Lock globali thread-safe
+write_lock = Lock()
+stats_lock = Lock()
+health_lock = Lock()
+
+# Statistiche globali per monitoraggio
+global_stats = {
+    'total_processed': 0,
+    'total_errors': 0,
+    'consecutive_failures': 0,
+    'last_success_time': time.time(),
+    'host_failures': {},
+    'circuit_breaker_active': False
+}
+# -----------------------------------------------------------
+
+# ============= CLASSI DI SUPPORTO =============
+
+class CircuitBreaker:
+    """Circuit Breaker pattern per gestire fallimenti a cascata"""
+    
+    def __init__(self, failure_threshold: int = 10, timeout: int = 300):
+        self.failure_threshold = failure_threshold
+        self.timeout = timeout
+        self.failures = 0
+        self.last_failure = None
+        self.state = "CLOSED"  # CLOSED, OPEN, HALF_OPEN
+    
+    @contextmanager
+    def call(self):
+        if self.state == "OPEN":
+            if time.time() - self.last_failure > self.timeout:
+                self.state = "HALF_OPEN"
+                logger.info("🔄 Circuit breaker: tentativo HALF_OPEN")
+            else:
+                raise Exception("Circuit breaker OPEN - sistema in pausa")
+        
+        try:
+            yield
+            if self.state == "HALF_OPEN":
+                self.reset()
+        except Exception as e:
+            self.record_failure()
+            raise e
+    
+    def record_failure(self):
+        self.failures += 1
+        self.last_failure = time.time()
+        
+        if self.failures >= self.failure_threshold:
+            self.state = "OPEN"
+            logger.error(f"⚠️ Circuit breaker APERTO dopo {self.failures} fallimenti")
+            global_stats['circuit_breaker_active'] = True
+    
+    def reset(self):
+        self.failures = 0
+        self.state = "CLOSED"
+        global_stats['circuit_breaker_active'] = False
+        logger.info("✅ Circuit breaker RESET")
+
+class HostHealthMonitor:
+    """Monitora la salute degli host Ollama"""
+    
+    def __init__(self, hosts: List[str]):
+        self.hosts = hosts
+        self.health_status = {host: True for host in hosts}
+        self.last_check = {host: 0 for host in hosts}
+        self.response_times = {host: [] for host in hosts}
+        self._lock = Lock()
+    
+    def is_healthy(self, host: str) -> bool:
+        with self._lock:
+            return self.health_status.get(host, False)
+    
+    def get_healthy_hosts(self) -> List[str]:
+        with self._lock:
+            return [host for host, healthy in self.health_status.items() if healthy]
+    
+    def check_health(self, host: str) -> bool:
+        """Verifica ottimizzata per HPC"""
+        try:
+            start_time = time.time()
+            # Test più leggero - solo availability, non performance
+            resp = requests.get(f"{host}/api/tags", timeout=3, stream=False)
+            response_time = time.time() - start_time
+            
+            with self._lock:
+                self.response_times[host].append(response_time)
+                self.response_times[host] = self.response_times[host][-5:]  # Solo ultime 5
+                
+                is_healthy = resp.status_code == 200
+                self.health_status[host] = is_healthy
+                self.last_check[host] = time.time()
+                
+                return is_healthy
+        except Exception:
+            with self._lock:
+                self.health_status[host] = False
+            return False
+    
+    def get_least_loaded_host(self) -> str:
+        """Seleziona l'host con meno carico attuale"""
+        healthy_hosts = self.get_healthy_hosts()
+        if not healthy_hosts:
+            return None
+        
+        # Logica più sofisticata basata su response times recenti
+        with self._lock:
+            host_scores = []
+            for host in healthy_hosts:
+                recent_times = self.response_times.get(host, [1.0])[-3:]
+                avg_time = sum(recent_times) / len(recent_times)
+                # Peso basato su trend (tempi crescenti = carico maggiore)
+                if len(recent_times) > 1:
+                    trend = recent_times[-1] - recent_times[0]
+                else:
+                    trend = 0
+                score = avg_time + (trend * 2)  # Penalizza trend crescenti
+                host_scores.append((host, score))
+    
+        return min(host_scores, key=lambda x: x[1])[0]
+
+    def get_best_host(self) -> str:
+        """Restituisce l'host più performante disponibile"""
+        healthy_hosts = self.get_healthy_hosts()
+        if not healthy_hosts:
+            return None
+        
+        # Ordina per tempo di risposta medio
+        with self._lock:
+            host_scores = []
+            for host in healthy_hosts:
+                times = self.response_times.get(host, [1.0])
+                avg_time = sum(times) / len(times) if times else 1.0
+                host_scores.append((host, avg_time))
+        
+        # Restituisce l'host con tempo di risposta minore
+        return min(host_scores, key=lambda x: x[1])[0]
+
+# Istanze globali
+circuit_breaker = CircuitBreaker()
+health_monitor = None  # Inizializzato dopo setup hosts
 
 # Lock globale per scrittura thread-safe sui file CSV
 write_lock = Lock()
@@ -179,62 +360,110 @@ def test_single_host(host: str, model: str) -> bool:
 def get_chat_completion(prompt: str, model: str = MODEL_NAME, max_retries: int = 2) -> str | None:
     """Versione load-balanced della chiamata"""
     
+    # Check circuit breaker
+    if global_stats['circuit_breaker_active']:
+        logger.warning("⚠️ Circuit breaker attivo - skip richiesta")
+        return None
+    
+    # Acquire rate limiting semaphore
+    if not RATE_LIMIT_SEMAPHORE.acquire(blocking=True, timeout=30):
+        logger.warning("⚠️ Rate limit timeout - troppo carico")
+        return None
+    
+    try:
+        with circuit_breaker.call():
+            return _make_request_with_retry(prompt, model, max_retries)
+    except Exception as e:
+        logger.error(f"❌ Richiesta fallita completamente: {e}")
+        return None
+    finally:
+        RATE_LIMIT_SEMAPHORE.release()
+
+def _make_request_with_retry(prompt: str, model: str, max_retries: int) -> str | None:
+    """Logica retry con backoff esponenziale"""
+    
     for attempt in range(1, max_retries + 1):
-        # QUESTA È LA PARTE NUOVA: round-robin tra gli host
-        current_host = next(host_cycle)
+        # Seleziona host più performante
+        host = health_monitor.get_best_host()
+        if not host:
+            logger.error("❌ Nessun host sano disponibile")
+            healthy_hosts = health_monitor.get_healthy_hosts()
+            if not healthy_hosts:
+                # Re-check tutti gli host
+                for h in OLLAMA_HOSTS:
+                    health_monitor.check_health(h)
+                host = health_monitor.get_best_host()
+                if not host:
+                    raise Exception("Tutti gli host non funzionanti")
         
         try:
-            # Health check veloce (sostituisci OLLAMA_HOST con current_host)
-            health_check = requests.get(f"{current_host}/api/tags", timeout=3)
-            if health_check.status_code != 200:
-                logger.warning(f"Host {current_host} non risponde (tentativo {attempt}/{max_retries})")
-                continue
-
-        except requests.exceptions.RequestException:
-            logger.warning(f"Health check fallito per {current_host}")
-            continue
-
-        payload = {
-            "model": model,
-            "messages": [{"role": "user", "content": prompt}], 
-            "stream": False
-        }
-        
-        try:
-            logger.debug(f"Richiesta a {current_host} (tentativo {attempt}/{max_retries})")
+            # Health check rapido se necessario
+            if time.time() - health_monitor.last_check.get(host, 0) > HEALTH_CHECK_INTERVAL:
+                if not health_monitor.check_health(host):
+                    logger.warning(f"⚠️ Host {host} non sano - retry")
+                    continue
             
-            timeout = 300 if attempt == 1 else 180
+            payload = {
+                "model": model,
+                "messages": [{"role": "user", "content": prompt}], 
+                "stream": False,
+                "options": {
+                    "num_ctx": 8192,      # Sfrutta i 64GB di VRAM
+                    "num_predict": 300,
+                    "temperature": 0.1,
+                    "top_p": 0.9,
+                    "num_thread": 16,     # Meglio per 56 cores per socket
+                    "num_batch": 1024,    # Batch più grandi per A100
+                    "repeat_penalty": 1.1 # Evita ripetizioni
+                }
+            }
             
-            # SOSTITUISCI OLLAMA_HOST con current_host
+            start_time = time.time()
             resp = requests.post(
-                f"{current_host}/api/chat", 
+                f"{host}/api/chat", 
                 json=payload, 
-                timeout=timeout,
+                timeout=REQUEST_TIMEOUT,
                 headers={'Content-Type': 'application/json'}
             )
+            response_time = time.time() - start_time
             
             resp.raise_for_status()
             response_data = resp.json()
             
             if not response_data.get("done", False):
-                logger.warning(f"Risposta incompleta da {current_host}")
+                logger.warning(f"⚠️ Risposta incompleta da {host}")
                 continue
             
             content = response_data.get("message", {}).get("content", "")
             if content:
-                logger.debug(f"Risposta da {current_host} ({len(content)} caratteri)")
+                # Aggiorna statistiche successo
+                with stats_lock:
+                    global_stats['total_processed'] += 1
+                    global_stats['consecutive_failures'] = 0
+                    global_stats['last_success_time'] = time.time()
+                
+                logger.debug(f"✅ Risposta da {host} in {response_time:.2f}s")
                 return content
                 
         except requests.exceptions.Timeout:
-            logger.error(f"Timeout {timeout}s su {current_host}")
+            logger.warning(f"⚠️ Timeout {REQUEST_TIMEOUT}s su {host} (tentativo {attempt})")
+            health_monitor.health_status[host] = False
         except Exception as exc:
-            logger.error(f"Errore su {current_host}: {exc}")
+            logger.error(f"❌ Errore su {host}: {exc}")
+            health_monitor.health_status[host] = False
+            
+            # Aggiorna statistiche errore
+            with stats_lock:
+                global_stats['total_errors'] += 1
+                global_stats['consecutive_failures'] += 1
         
+        # Backoff esponenziale tra retry
         if attempt < max_retries:
-            wait_time = min(attempt * 5, 15)
-            time.sleep(wait_time)
+            backoff_time = min(BACKOFF_BASE ** attempt, BACKOFF_MAX)
+            time.sleep(backoff_time)
     
-    logger.error("Tutti i tentativi falliti su tutti gli host")
+    # Tutti i tentativi falliti
+    logger.error(f"❌ Tutti i {max_retries} tentativi falliti")
     return None
 
 def debug_gpu_status():
@@ -274,6 +503,52 @@ def debug_gpu_status():
     except Exception as e:
         logger.warning(f"⚠️  Debug GPU fallito: {e}")
 
+def monitor_gpu_utilization():
+    """Monitora utilizzo GPU durante l'esecuzione"""
+    try:
+        import subprocess
+        result = subprocess.run(
+            ["nvidia-smi", "--query-gpu=utilization.gpu,memory.used", 
+             "--format=csv,noheader,nounits"],
+            capture_output=True, text=True, timeout=5
+        )
+        if result.returncode == 0:
+            lines = result.stdout.strip().split('\n')
+            avg_util = sum(int(line.split(',')[0]) for line in lines) / len(lines)
+            return avg_util
+    except:
+        pass
+    return 0
+
+def warmup_all_hosts(model: str = MODEL_NAME) -> bool:
+    """Warm-up parallelo di tutti gli host"""
+    logger.info("🔥 Warm-up parallelo di tutti i host...")
+    
+    def warmup_single_host(host):
+        payload = {
+            "model": model,
+            "prompt": "Test",
+            "stream": False,
+            "options": {
+                "num_ctx": 1024,
+                "num_predict": 5,
+                "temperature": 0.1
+            }
+        }
+        try:
+            resp = requests.post(f"{host}/api/generate", json=payload, timeout=60)
+            return resp.status_code == 200
+        except:
+            return False
+    
+    with ThreadPoolExecutor(max_workers=len(OLLAMA_HOSTS)) as executor:
+        futures = [executor.submit(warmup_single_host, host) for host in OLLAMA_HOSTS]
+        results = [f.result() for f in futures]
+    
+    success_count = sum(results)
+    logger.info(f"✅ Warm-up completato: {success_count}/{len(OLLAMA_HOSTS)} host")
+    return success_count > 0
+
 def warmup_model(model: str = MODEL_NAME) -> bool:
     """
     Warm-up ottimizzato per problemi GPU
@@ -297,7 +572,7 @@ def warmup_model(model: str = MODEL_NAME) -> bool:
     try:
         logger.info("🔄 Tentativo warm-up...")
         resp = requests.post(
-            f"{OLLAMA_HOST}/api/generate",
+            f"{OLLAMA_HOSTS[0]}/api/generate",
             json=payload,
             timeout=120,  # 2 minuti per warm-up
             headers={'Content-Type': 'application/json'}
@@ -339,30 +614,31 @@ def warmup_model(model: str = MODEL_NAME) -> bool:
 OLLAMA_PORT_FILE = "ollama_port.txt"
 
 def setup_ollama_connections() -> List[str]:
-    """Setup connessioni multiple Ollama con fallback"""
+    """Setup connessioni ottimizzato per HPC"""
     try:
         with open("ollama_ports.txt", "r") as f:
             ports_str = f.read().strip()
         
         if "," in ports_str:
-            # Multi-istanza
             ports = ports_str.split(",")
             hosts = [f"http://127.0.0.1:{port.strip()}" for port in ports]
             logger.info(f"🔥 Configurazione multi-GPU: {len(hosts)} istanze")
-            for i, host in enumerate(hosts):
-                logger.info(f"   GPU {i}: {host}")
+            
+            # Inizializza rate limiting basato sugli host reali
+            global RATE_LIMIT_SEMAPHORE, MAX_CONCURRENT_REQUESTS
+            MAX_CONCURRENT_REQUESTS = len(hosts) * 4  # 4 richieste per GPU/host
+            RATE_LIMIT_SEMAPHORE = Semaphore(MAX_CONCURRENT_REQUESTS)
+            
             return hosts
         else:
-            # Singola istanza (fallback)
             host = f"http://127.0.0.1:{ports_str}"
-            logger.info(f"⚠️  Fallback singola GPU: {host}")
+            logger.info(f"⚠️ Fallback singola GPU: {host}")
+            RATE_LIMIT_SEMAPHORE = Semaphore(1)
+            MAX_CONCURRENT_REQUESTS = 1
             return [host]
             
     except FileNotFoundError:
         raise RuntimeError("❌ File ollama_ports.txt non trovato")
-    except Exception as e:
-        logger.error(f"❌ Errore setup connessioni: {e}")
-        raise
 
 def wait_for_ollama(ollama_host, max_attempts=30, wait_interval=3):
     """Attende che Ollama sia pronto con retry più robusto"""
@@ -501,7 +777,7 @@ def load_visits(filepath: str | Path) -> DataFrame:
         usecols=[0, 1, 2, 4],
         names=["data", "ora", "name_short", "card_id"],
         header=0,
-        dtype={"card_id": str},
+        dtype={"card_id": "category", "name_short": "category"},
     )
     df["timestamp"] = pd.to_datetime(df["data"] + " " + df["ora"], format="%d-%m-%y %H:%M:%S")
     
@@ -699,7 +975,10 @@ def process_single_card(args):
     """
     cid, filtered, user_clusters, pois, anchor_rule, top_k = args
     
+    start_time = time.time()
+    
     try:
+        # Validazione preliminare
         seq = (
             filtered.loc[filtered.card_id == cid]
             .sort_values("timestamp")["name_short"].tolist()
@@ -713,13 +992,16 @@ def process_single_card(args):
         history_list = [p for i, p in enumerate(seq[:-1]) if i != idx_anchor]
         current_poi = seq[:-1][idx_anchor]
 
+        # Creazione prompt ottimizzato
         prompt = create_prompt_with_cluster(
             filtered, user_clusters, pois, cid,  
             top_k=top_k, anchor_rule=anchor_rule
         )
         
+        # Chiamata LLM con retry intelligente
         ans = get_chat_completion(prompt)
 
+        # Preparazione record risultato
         rec = {
             "card_id": cid,
             "cluster": get_user_cluster(user_clusters, cid),
@@ -728,7 +1010,9 @@ def process_single_card(args):
             "prediction": None,
             "ground_truth": target,
             "reason": None,
-            "hit": False
+            "hit": False,
+            "processing_time": time.time() - start_time,
+            "status": "success" if ans else "failed"
         }
 
         if ans:
@@ -737,17 +1021,48 @@ def process_single_card(args):
                 pred = obj["prediction"]
                 pred_lst = pred if isinstance(pred, list) else [pred]
                 rec["prediction"] = str(pred_lst)
-                rec["reason"] = obj.get("reason")
+                rec["reason"] = obj.get("reason", "")[:200]  # Limita lunghezza
                 rec["hit"] = target in pred_lst
-            except Exception:
-                pass
+            except json.JSONDecodeError:
+                logger.warning(f"⚠️ JSON malformato per card {cid}: {ans[:100]}...")
+                rec["prediction"] = "PARSE_ERROR"
+            except Exception as e:
+                logger.warning(f"⚠️ Errore parsing per card {cid}: {e}")
+                rec["prediction"] = "PROCESSING_ERROR"
                 
         return rec
         
     except Exception as e:
-        logger.error(f"Errore processando card {cid}: {e}")
-        return None
+        logger.error(f"❌ Errore grave processando card {cid}: {e}")
+        return {
+            "card_id": cid,
+            "cluster": None,
+            "history": None,
+            "current_poi": None,
+            "prediction": "FATAL_ERROR",
+            "ground_truth": None,
+            "reason": str(e)[:200],
+            "hit": False,
+            "processing_time": time.time() - start_time,
+            "status": "fatal_error"
+        }
 
+def log_gpu_metrics():
+    """Log periodico dello stato GPU"""
+    try:
+        import subprocess
+        result = subprocess.run([
+            "nvidia-smi", "--query-gpu=index,memory.used,memory.total,utilization.gpu,temperature.gpu",
+            "--format=csv,noheader,nounits"
+        ], capture_output=True, text=True, timeout=5)
+        
+        if result.returncode == 0:
+            for i, line in enumerate(result.stdout.strip().split('\n')):
+                mem_used, mem_total, util, temp = line.split(',')[1:]
+                logger.info(f"GPU{i}: {mem_used}/{mem_total}MB ({util}% util, {temp}°C)")
+    except:
+        pass
+    
 # ---------- test su un singolo file ---------------------------------------
 def run_on_visits_file(
     visits_path: Path, 
@@ -756,216 +1071,204 @@ def run_on_visits_file(
     max_users: int | None = None, 
     force: bool = False, 
     append: bool = False, 
-    anchor_rule: str | int = DEFAULT_ANCHOR_RULE,
-    save_every: int = 500 # per non perdere troppo
+    anchor_rule: str | int = "penultimate"
 ) -> None:
-    """
-    Esegue l'intera pipeline (carica, clusterizza, predice, salva) su un
-    singolo file di log VeronaCard.
-
-    Parameters
-    ----------
-    visits_path : Path
-        CSV con le timbrature (es. dati_2014.csv).
-    poi_path : Path
-        CSV vc_site.csv (reference POI).
-    max_users : int
-        Quante card valutare (per ridurre tempi).
-    """
+    """Versione ottimizzata per HPC con gestione avanzata degli errori"""
     
-    # ---------- 0. CHECK SKIP ANTICIPATO ----------
+    global health_monitor
+    
+    # Inizializza monitor salute
+    health_monitor = HostHealthMonitor(OLLAMA_HOSTS)
+    
+    # Check preliminare hosts
+    logger.info("🔍 Verifica iniziale hosts...")
+    healthy_count = 0
+    for host in OLLAMA_HOSTS:
+        if health_monitor.check_health(host):
+            healthy_count += 1
+            logger.info(f"✅ {host} operativo")
+        else:
+            logger.error(f"❌ {host} non risponde")
+    
+    if healthy_count == 0:
+        raise RuntimeError("❌ Nessun host Ollama operativo")
+    
+    logger.info(f"🎯 {healthy_count}/{len(OLLAMA_HOSTS)} host operativi")
+    
+    # Setup output directory
     out_dir = Path(__file__).resolve().parent / "results"
     out_dir.mkdir(exist_ok=True)
     
-    # Controllo skip PRIMA di qualsiasi elaborazione pesante
+    # Check skip logica (come originale)
     if should_skip_file(visits_path, poi_path, out_dir, append):
-        return  # Esce immediatamente
-
-    # ---------- Modalità force / append / skip ----------
-    if force and append:
-        raise ValueError("Non puoi usare --force e --append insieme.")
-
-    if append:
-        processed_cards = load_completed_cards_fast(visits_path, out_dir)
-    else:
-        processed_cards = set()
-        # Se non siamo in append, rimuovi eventuali checkpoint vecchi
-        checkpoint_file = get_checkpoint_file(visits_path, out_dir)
-        if checkpoint_file.exists():
-            checkpoint_file.unlink()
-
-
-    if not force and not append and latest_output(visits_path, out_dir):
-        logger.info(f" Output esistente per {visits_path.stem}. Usa --force o --append.")
         return
     
-    # ---------- 0.5 Scrivo su LOG ----------
-    logger.info("\n" + "=" * 70)
-    logger.info(f"▶  PROCESSO FILE: {visits_path.name}")
-    logger.info("=" * 70)
-
-    logger.info(f"▶  ho caricato e pulito i dati")
-    # ---------- 1. load & clean ----------
-    pois     = load_pois(poi_path)
-    visits   = load_visits(visits_path)
-    merged   = merge_visits_pois(visits, pois)
+    # Load e preprocessing (invariato)
+    logger.info("📊 Caricamento e preprocessing dati...")
+    pois = load_pois(poi_path)
+    visits = load_visits(visits_path)
+    merged = merge_visits_pois(visits, pois)
     filtered = filter_multi_visit_cards(merged)
     
-    # Se siamo in modalità --append, togliamo le card già processate
-    if processed_cards:
-        filtered = filtered[~filtered['card_id'].isin(processed_cards)]
-        if filtered.empty:
-            logger.info(f"Tutte le card di {visits_path.stem} erano già elaborate. Skip.")
-            return
-
-    # ---------- 2. clustering ----------
-    matrix   = create_user_poi_matrix(filtered)
+    # Clustering (invariato)
+    matrix = create_user_poi_matrix(filtered)
     clusters = KMeans(n_clusters=7, random_state=42, n_init=10)\
               .fit_predict(StandardScaler().fit_transform(matrix))
     user_clusters = pd.DataFrame({"card_id": matrix.index, "cluster": clusters})
     
-    logger.info(f"▶  ho fatto il clustering")
-
-    # ---------- 3. utenti idonei ----------
+    # Selezione utenti
     eligible = (
         filtered.groupby("card_id").size()
         .loc[lambda s: s >= 3].index.tolist()
     )
-    if max_users is None:          # process *all* eligible users
-        demo_cards = eligible
-    else:                          # random sub‑sample for quick runs
-        demo_cards = random.sample(eligible, k=min(max_users, len(eligible)))
-
-    # ---------- 4. Gestione file di output ----------
-    out_dir = Path(__file__).resolve().parent / "results"
-    out_dir.mkdir(exist_ok=True)
     
-    # Determina il file di output in base alla modalità
+    if max_users is None:
+        demo_cards = eligible
+    else:
+        demo_cards = random.sample(eligible, k=min(max_users, len(eligible)))
+    
+    logger.info(f"🎯 Processamento {len(demo_cards)} carte")
+    
+    # Setup file output
     if append:
-        # In modalità append, usa il file più recente esistente
         output_file = latest_output(visits_path, out_dir)
         if output_file is None:
-            # Se non esiste un file precedente, crea un nuovo file
             ts = time.strftime("%Y%m%d_%H%M%S")
             output_file = out_dir / f"{visits_path.stem}_pred_{ts}.csv"
             write_header = True
         else:
             write_header = False
     else:
-        # In modalità normale, crea sempre un nuovo file
         ts = time.strftime("%Y%m%d_%H%M%S")
         output_file = out_dir / f"{visits_path.stem}_pred_{ts}.csv"
         write_header = True
     
-    #logger.info("▶  Analisi pattern di movimento geografico")
-    #movement_patterns = analyze_movement_patterns(filtered, pois)
-    #avg_distance = movement_patterns["distance"].mean()
-    #logger.info(f"▶  Distanza media tra visite consecutive: {avg_distance:.2f} km")
-
-    results_list = []
-    processed_count = 0
-    first_save = True
+    # Calcola workers ottimali
+    n_healthy_hosts = healthy_count
+    optimal_workers = min(MAX_CONCURRENT_REQUESTS * 2, 64)  # 2x per I/O overlap
     
-    # ---------- 5. ciclo parallelo su utenti ----------
-    n_gpus = 4  # A100 disponibili su Leonardo
-    n_workers = min(n_gpus * 2, 8)  # Max 2 richieste concurrent per GPU ( per non saturare OLLAMA )
+    logger.info(f"🚀 Avvio elaborazione con {optimal_workers} worker ottimizzati")
+    logger.info(f"⚡ Rate limit: {MAX_CONCURRENT_REQUESTS} richieste concurrent")
+    logger.info(f"🔄 Timeout richiesta: {REQUEST_TIMEOUT}s")
+    logger.info(f"💾 Salvataggio ogni: {BATCH_SAVE_INTERVAL} carte")
     
-    logger.info(f"🚀 Avvio elaborazione parallela con {n_workers} worker")
-    
-    results_list = []
-    processed_count = 0
-    first_save = True
-    
-    # Prepara argomenti per i worker
+    # Prepara argomenti
     card_args = [
-        (cid, filtered, user_clusters, pois, anchor_rule, TOP_K) 
+        (cid, filtered, user_clusters, pois, anchor_rule, 5) 
         for cid in demo_cards
     ]
     
-    # Buffer per batch di risultati
     batch_buffer = []
+    processed_count = 0
+    start_time = time.time()
+    last_health_check = time.time()
     
-    with ThreadPoolExecutor(max_workers=n_workers) as executor:
+    # Elaborazione parallela ottimizzata
+    with ThreadPoolExecutor(max_workers=optimal_workers, thread_name_prefix="Worker") as executor:
+        
         # Sottometti tutti i job
         future_to_card = {
             executor.submit(process_single_card, args): args[0] 
             for args in card_args
         }
         
-        # Processa risultati man mano che completano
-        with tqdm(total=len(demo_cards), desc="Card", unit="card") as pbar:
-            for future in as_completed(future_to_card):
+        with tqdm(total=len(demo_cards), desc="🔄 Processamento", unit="card") as pbar:
+            for future in as_completed(future_to_card, timeout=None):
                 cid = future_to_card[future]
                 
                 try:
-                    rec = future.result(timeout=300)  # Timeout per card
+                    # Timeout per singola carta (più permissivo)
+                    rec = future.result(timeout=REQUEST_TIMEOUT + 60)
                     
-                    if rec:
+                    if rec and rec.get('status') != 'fatal_error':
                         batch_buffer.append(rec)
                         processed_count += 1
                         
-                        # Salvataggio intermedio thread-safe
-                        if len(batch_buffer) >= save_every:
-                            with write_lock:
-                                logger.info(f"💾 Salvataggio batch: {processed_count}/{len(demo_cards)}")
-                                
-                                df_batch = pd.DataFrame(batch_buffer)
-                                
-                                if first_save and not append:
-                                    df_batch.to_csv(output_file, mode="w", header=True, index=False)
-                                    first_save = False
-                                else:
-                                    df_batch.to_csv(output_file, mode="a", header=False, index=False)
-                                
-                                # Aggiorna checkpoint
-                                if append:
-                                    checkpoint_file = get_checkpoint_file(visits_path, out_dir)
-                                    completed_in_batch = [
-                                        r['card_id'] for r in batch_buffer 
-                                        if r.get('prediction') and 
-                                        r['prediction'] not in ['None', '', 'NO_RESPONSE']
-                                    ]
-                                    update_checkpoint_incremental(checkpoint_file, completed_in_batch)
-                                
-                                batch_buffer.clear()
-                                
+                        # Health check periodico
+                        if time.time() - last_health_check > HEALTH_CHECK_INTERVAL:
+                            for host in OLLAMA_HOSTS:
+                                health_monitor.check_health(host)
+                            last_health_check = time.time()
+                        
+                        # Salvataggio batch
+                        if len(batch_buffer) >= BATCH_SAVE_INTERVAL:
+                            save_batch(batch_buffer, output_file, write_header, append)
+                            batch_buffer.clear()
+                            write_header = False
+                            
+                            # Log progresso con statistiche
+                            elapsed = time.time() - start_time
+                            rate = processed_count / elapsed * 3600 if elapsed > 0 else 0
+                            
+                            with stats_lock:
+                                success_rate = (global_stats['total_processed'] / 
+                                              max(global_stats['total_processed'] + global_stats['total_errors'], 1) * 100)
+                            
+                            logger.info(f"📊 Progresso: {processed_count}/{len(demo_cards)} "
+                                      f"({rate:.1f} cards/h, success: {success_rate:.1f}%)")
+                    
+                    elif rec:
+                        logger.warning(f"⚠️ Card {cid} con errore: {rec.get('status')}")
+                    
+                except TimeoutError:
+                    logger.error(f"⏰ Timeout processing card {cid}")
                 except Exception as e:
-                    logger.error(f"Errore futuro per card {cid}: {e}")
+                    logger.error(f"❌ Errore future per card {cid}: {e}")
                 
                 pbar.update(1)
+                
+                # Gestione circuit breaker
+                with stats_lock:
+                    if global_stats['consecutive_failures'] >= CIRCUIT_BREAKER_THRESHOLD:
+                        logger.error("🚨 Troppi fallimenti consecutivi - pausa sistema")
+                        time.sleep(60)  # Pausa di 1 minuto
+                        global_stats['consecutive_failures'] = 0
     
-    # Salva eventuali risultati rimanenti nel buffer
+    # Salvataggio finale
     if batch_buffer:
-        results_list.extend(batch_buffer)
+        save_batch(batch_buffer, output_file, write_header, append)
+    
+    # Report finale
+    elapsed_total = time.time() - start_time
+    final_rate = processed_count / elapsed_total * 3600 if elapsed_total > 0 else 0
+    
+    with stats_lock:
+        total_requests = global_stats['total_processed'] + global_stats['total_errors']
+        success_rate = (global_stats['total_processed'] / max(total_requests, 1) * 100)
+    
+    logger.info(f"✅ Completato: {processed_count} carte in {elapsed_total:.1f}s")
+    logger.info(f"⚡ Rate finale: {final_rate:.1f} cards/h")
+    logger.info(f"📊 Success rate: {success_rate:.1f}%")
+
+def save_batch(batch_buffer: list, output_file: Path, write_header: bool, append: bool):
+    """Salvataggio batch ottimizzato e thread-safe"""
+    if not batch_buffer:
+        return
+    
+    try:
+        with write_lock:
+            df_batch = pd.DataFrame(batch_buffer)
             
-    # ---------- 7. Salvataggio finale ----------
-    if results_list:  # Solo se abbiamo dei risultati
-        df_out = pd.DataFrame(results_list)
-    
-        # Salva il file in base alla modalità
-        if append and not write_header:
-            # Append ai dati esistenti senza header
-            df_out.to_csv(output_file, mode="a", header=False, index=False)
-        else:
-            # Scrivi normalmente (nuovo file o primo append)
-            df_out.to_csv(output_file, index=False)
-    
-        # Calcola e mostra statistiche
-        hit_rate = df_out["hit"].mean()
-        logger.info(f"✔  Salvato {output_file.name} – Hit@{TOP_K}: {hit_rate:.2%}")
-    else:
-        logger.warning("⚠️  Nessun risultato da salvare!")
-        
-    # Aggiornamento finale del checkpoint
-        if append and results_list:
-            checkpoint_file = get_checkpoint_file(visits_path, out_dir)
-            completed_final = [
-                rec['card_id'] for rec in results_list 
-                if rec.get('prediction') and 
-                rec['prediction'] not in ['None', '', 'NO_RESPONSE'] and
-                not str(rec['prediction']).startswith(('ERROR', 'PROCESSING_ERROR'))
-            ]
-            update_checkpoint_incremental(checkpoint_file, completed_final)
+            # Ottimizzazioni per performance I/O
+            if write_header and not append:
+                df_batch.to_csv(output_file, mode="w", header=True, index=False, 
+                               encoding='utf-8', compression=None)
+            else:
+                df_batch.to_csv(output_file, mode="a", header=False, index=False,
+                               encoding='utf-8', compression=None)
+            
+            logger.debug(f"💾 Salvato batch di {len(batch_buffer)} risultati")
+            
+    except Exception as e:
+        logger.error(f"❌ Errore salvataggio batch: {e}")
+        # Backup dei dati in caso di errore
+        backup_file = output_file.parent / f"backup_{output_file.stem}_{int(time.time())}.json"
+        try:
+            with open(backup_file, 'w') as f:
+                json.dump(batch_buffer, f)
+            logger.info(f"💾 Backup salvato in {backup_file}")
+        except:
+            logger.error("❌ Impossibile salvare anche il backup!")
 
 # ---------- test su tutti i file ------------------------------------------
 def run_all_verona_logs(max_users: int | None = None, force=False, append=False, anchor_rule: str | int = DEFAULT_ANCHOR_RULE) -> None:
@@ -1274,8 +1577,12 @@ def wait_for_ollama_single(host: str, max_attempts=30, wait_interval=3):
 
 # -----------------------------------------------------------
 # Setup globale
-OLLAMA_HOSTS = setup_ollama_connections()
-host_cycle = itertools.cycle(OLLAMA_HOSTS)
+try:
+    OLLAMA_HOSTS = setup_ollama_connections()
+    logger.info(f"🎯 Configurazione caricata: {len(OLLAMA_HOSTS)} host")
+except Exception as e:
+    logger.error(f"❌ Errore setup Ollama: {e}")
+    sys.exit(1)
 
 # ---------- MAIN -----------------------------------------------------------
 if "CUDA_VISIBLE_DEVICES" not in os.environ:
@@ -1283,20 +1590,24 @@ if "CUDA_VISIBLE_DEVICES" not in os.environ:
 
 if __name__ == "__main__":
         
-    parser = argparse.ArgumentParser(
-        description="Calcola raccomandazioni su tutti i log VeronaCard."
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(message)s",
+        handlers=[
+            logging.FileHandler("hpc_verona_optimized.log"),
+            logging.StreamHandler()
+        ]
     )
-    parser.add_argument("--force", action="store_true",
-                        help="ricalcola e sovrascrive anche se gli output esistono")
-    parser.add_argument("--append", action="store_true",
-                        help="riprende da dove si era interrotto (non ricalcola card già presenti)")
-    parser.add_argument("--max-users", type=int, default=None,
-                        help="numero massimo di utenti da processare per file (default 50)")
-    parser.add_argument("--anchor", type=str, default=DEFAULT_ANCHOR_RULE,
-                        dest="anchor_rule",
-                        help="Regola per scegliere il POI ancora (penultimate|first|middle|int)")
-    parser.add_argument("--file", type=str, default=None,
-                        help="Processa solo un file specifico (path relativo o assoluto)")
+    
+    logger = logging.getLogger(__name__)
+    
+    # Parser argomenti (semplificato)
+    parser = argparse.ArgumentParser(description="VeronaCard HPC Ottimizzato")
+    parser.add_argument("--file", type=str, help="File specifico da processare")
+    parser.add_argument("--max-users", type=int, default=None)
+    parser.add_argument("--force", action="store_true")
+    parser.add_argument("--append", action="store_true")
+    
     args = parser.parse_args()
 
     if args.force and args.append:
@@ -1326,12 +1637,12 @@ if __name__ == "__main__":
                            max_users=args.max_users,
                            force=args.force,
                            append=args.append,
-                           anchor_rule=args.anchor_rule)
+                           anchor_rule=DEFAULT_ANCHOR_RULE)
         else:
             run_all_verona_logs(max_users=args.max_users,
                               force=args.force,
                               append=args.append,
-                              anchor_rule=args.anchor_rule)
+                              anchor_rule=DEFAULT_ANCHOR_RULE)
     except KeyboardInterrupt:
         logging.info("Interruzione manuale...")
         sys.exit(1)
