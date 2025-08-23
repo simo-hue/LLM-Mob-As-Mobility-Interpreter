@@ -38,7 +38,7 @@
 2025-08-23 20:13:52 [ERROR] Error on http://127.0.0.1:39001: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39001/api/chat
 2025-08-23 20:13:52 [ERROR] Error on http://127.0.0.1:39001: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39001/api/chat
 2025-08-23 20:13:52 [ERROR] Error on http://127.0.0.1:39001: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39001/api/chat
-Processing cards:   0%|          | 0/72904 [00:00<?, ?card/s]2025-08-23 20:13:54 [ERROR] Error on http://127.0.0.1:39002: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39002/api/chat
+2025-08-23 20:13:54 [ERROR] Error on http://127.0.0.1:39002: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39002/api/chat
 2025-08-23 20:13:54 [ERROR] Error on http://127.0.0.1:39002: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39002/api/chat
 2025-08-23 20:13:54 [ERROR] Error on http://127.0.0.1:39002: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39002/api/chat
 2025-08-23 20:13:54 [ERROR] Error on http://127.0.0.1:39002: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39002/api/chat
@@ -49,13 +49,10 @@
 2025-08-23 20:13:58 [ERROR] Error on http://127.0.0.1:39004: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39004/api/chat
 2025-08-23 20:13:58 [ERROR] All 3 attempts failed
 2025-08-23 20:13:58 [ERROR] No healthy hosts available
-Processing cards:   0%|          | 1/72904 [00:05<102:43:36,  5.07s/card]2025-08-23 20:13:58 [ERROR] Error on http://127.0.0.1:39003: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39003/api/chat
+2025-08-23 20:13:58 [ERROR] Error on http://127.0.0.1:39003: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39003/api/chat
 2025-08-23 20:13:58 [ERROR] Error on http://127.0.0.1:39004: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39004/api/chat
 2025-08-23 20:13:58 [ERROR] All 3 attempts failed
-Processing cards:   0%|          | 3/72904 [00:05<27:58:56,  1.38s/card] 2025-08-23 20:14:00 [ERROR] Error on http://127.0.0.1:39002: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39002/api/chat
-2025-08-23 20:14:22 [WARNING] Rate limit timeout - system overloaded
-2025-08-23 20:14:22 [WARNING] Rate limit timeout - system overloaded
-Processing cards:   0%|          | 4/72904 [00:29<184:49:32,  9.13s/card]2025-08-23 20:14:22 [WARNING] Rate limit timeout - system overloaded
+2025-08-23 20:14:00 [ERROR] Error on http://127.0.0.1:39002: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39002/api/chat
 2025-08-23 20:14:22 [WARNING] Rate limit timeout - system overloaded
 2025-08-23 20:14:22 [WARNING] Rate limit timeout - system overloaded
 2025-08-23 20:14:22 [WARNING] Rate limit timeout - system overloaded
@@ -63,13 +60,16 @@
 2025-08-23 20:14:22 [WARNING] Rate limit timeout - system overloaded
 2025-08-23 20:14:22 [WARNING] Rate limit timeout - system overloaded
 2025-08-23 20:14:22 [WARNING] Rate limit timeout - system overloaded
-Processing cards:   0%|          | 13/72904 [00:29<34:11:16,  1.69s/card]2025-08-23 20:14:22 [WARNING] Rate limit timeout - system overloaded
+2025-08-23 20:14:22 [WARNING] Rate limit timeout - system overloaded
+2025-08-23 20:14:22 [WARNING] Rate limit timeout - system overloaded
+2025-08-23 20:14:22 [WARNING] Rate limit timeout - system overloaded
+2025-08-23 20:14:22 [WARNING] Rate limit timeout - system overloaded
 2025-08-23 20:14:22 [WARNING] Rate limit timeout - system overloaded
 2025-08-23 20:14:22 [WARNING] Rate limit timeout - system overloaded
 2025-08-23 20:14:28 [WARNING] Rate limit timeout - system overloaded
-Processing cards:   0%|          | 17/72904 [00:35<32:43:52,  1.62s/card]2025-08-23 20:14:28 [WARNING] Rate limit timeout - system overloaded
 2025-08-23 20:14:28 [WARNING] Rate limit timeout - system overloaded
-Processing cards:   0%|          | 19/72904 [00:35<26:40:01,  1.32s/card]Processing cards:   0%|          | 19/72904 [00:49<26:40:01,  1.32s/card]2025-08-23 20:14:51 [ERROR] Error on http://127.0.0.1:39001: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-08-23 20:14:28 [WARNING] Rate limit timeout - system overloaded
+2025-08-23 20:14:51 [ERROR] Error on http://127.0.0.1:39001: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
 2025-08-23 20:14:51 [ERROR] Error on http://127.0.0.1:39004: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
 2025-08-23 20:14:51 [ERROR] Error on http://127.0.0.1:39002: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
 2025-08-23 20:14:51 [ERROR] Error on http://127.0.0.1:39001: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
@@ -92,7 +92,7 @@
 2025-08-23 20:14:51 [ERROR] No healthy hosts available
 2025-08-23 20:14:51 [ERROR] No healthy hosts available
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fbc21418d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
-Processing cards:   0%|          | 20/72904 [00:57<79:16:39,  3.92s/card]2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c748090>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c748090>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39002: HTTPConnectionPool(host='127.0.0.1', port=39002): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c749d10>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c748e10>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39003: HTTPConnectionPool(host='127.0.0.1', port=39003): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fbc1cd7350>: Failed to establish a new connection: [Errno 111] Connection refused'))
@@ -164,7 +164,7 @@
 2025-08-23 20:14:51 [ERROR] No healthy hosts available
 2025-08-23 20:14:51 [ERROR] No healthy hosts available
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c7336d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
-Processing cards:   0%|          | 32/72904 [00:57<25:38:48,  1.27s/card]2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fbc1f69490>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fbc1f69490>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7ceb6d50>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39002: HTTPConnectionPool(host='127.0.0.1', port=39002): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fbc2424510>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39002: HTTPConnectionPool(host='127.0.0.1', port=39002): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c731c90>: Failed to establish a new connection: [Errno 111] Connection refused'))
@@ -218,7 +218,7 @@
 2025-08-23 20:14:51 [ERROR] Request failed completely: All hosts are down
 2025-08-23 20:14:51 [ERROR] No healthy hosts available
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c730450>: Failed to establish a new connection: [Errno 111] Connection refused'))
-Processing cards:   0%|          | 42/72904 [00:57<14:16:50,  1.42card/s]2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fbc1933d50>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fbc1933d50>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fbc60dd950>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39002: HTTPConnectionPool(host='127.0.0.1', port=39002): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c702350>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39002: HTTPConnectionPool(host='127.0.0.1', port=39002): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7ceb6850>: Failed to establish a new connection: [Errno 111] Connection refused'))
@@ -285,7 +285,7 @@
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39004: HTTPConnectionPool(host='127.0.0.1', port=39004): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c6f8550>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fbc4c1fa50>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:51 [ERROR] Request failed completely: All hosts are down
-Processing cards:   0%|          | 53/72904 [00:58<8:28:12,  2.39card/s] 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39003: HTTPConnectionPool(host='127.0.0.1', port=39003): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fbc2653490>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39003: HTTPConnectionPool(host='127.0.0.1', port=39003): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fbc2653490>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:51 [ERROR] No healthy hosts available
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39004: HTTPConnectionPool(host='127.0.0.1', port=39004): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c708350>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:51 [ERROR] Request failed completely: All hosts are down
@@ -350,7 +350,7 @@
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39004: HTTPConnectionPool(host='127.0.0.1', port=39004): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c732e50>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:51 [ERROR] Request failed completely: All hosts are down
 2025-08-23 20:14:51 [ERROR] No healthy hosts available
-Processing cards:   0%|          | 64/72904 [00:58<5:23:53,  3.75card/s]2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39002: HTTPConnectionPool(host='127.0.0.1', port=39002): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7ceb6790>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39002: HTTPConnectionPool(host='127.0.0.1', port=39002): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7ceb6790>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c700310>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fbc4c48150>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:51 [WARNING] Health check failed for http://127.0.0.1:39003: HTTPConnectionPool(host='127.0.0.1', port=39003): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c715110>: Failed to establish a new connection: [Errno 111] Connection refused'))
@@ -416,7 +416,7 @@
 2025-08-23 20:14:51 [ERROR] Request failed completely: Circuit breaker OPEN - system paused
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:51 [ERROR] Request failed completely: Circuit breaker OPEN - system paused
-Processing cards:   0%|          | 81/72904 [00:58<3:01:22,  6.69card/s]2025-08-23 20:14:51 [ERROR] Request failed completely: Circuit breaker OPEN - system paused
+2025-08-23 20:14:51 [ERROR] Request failed completely: Circuit breaker OPEN - system paused
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:51 [ERROR] Request failed completely: Circuit breaker OPEN - system paused
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
@@ -445,7 +445,6 @@
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
-Processing cards:   0%|          | 113/72904 [00:58<1:24:09, 14.42card/s]2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
@@ -476,7 +475,6 @@
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
-Processing cards:   0%|          | 141/72904 [00:58<51:42, 23.45card/s]  2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
@@ -502,9 +500,11 @@
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
-Processing cards:   0%|          | 169/72904 [00:58<34:19, 35.32card/s]2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:51 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
@@ -534,7 +534,6 @@
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
-Processing cards:   0%|          | 201/72904 [00:58<22:54, 52.91card/s]2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
@@ -564,7 +563,6 @@
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
-Processing cards:   0%|          | 229/72904 [00:58<17:02, 71.10card/s]2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
@@ -594,7 +592,6 @@
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
-Processing cards:   0%|          | 261/72904 [00:58<12:32, 96.58card/s]2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
@@ -624,7 +621,6 @@
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
-Processing cards:   0%|          | 290/72904 [00:58<10:02, 120.43card/s]2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
@@ -653,7 +649,6 @@
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
-Processing cards:   0%|          | 321/72904 [00:59<08:07, 148.92card/s]2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
@@ -684,7 +679,6 @@
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
-Processing cards:   0%|          | 352/72904 [00:59<06:51, 176.47card/s]2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
@@ -714,7 +708,6 @@
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|          | 381/72904 [00:59<06:05, 198.43card/s]2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
@@ -743,7 +736,6 @@
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|          | 411/72904 [00:59<05:31, 218.47card/s]2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
@@ -774,7 +766,15 @@
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|          | 440/72904 [00:59<05:08, 234.84card/s]2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:52 [WARNING] Circuit breaker active - skipping request
@@ -805,7 +805,7 @@
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|          | 472/72904 [00:59<04:51, 248.54card/s]2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
@@ -882,7 +882,6 @@
 2025-08-23 20:14:53 [ERROR] Request failed completely: All hosts are down
 2025-08-23 20:14:53 [ERROR] Circuit breaker OPEN after 57 failures
 2025-08-23 20:14:53 [ERROR] Request failed completely: All hosts are down
-Processing cards:   1%|          | 501/72904 [00:59<05:36, 215.39card/s]2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
@@ -908,7 +907,6 @@
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|          | 532/72904 [00:59<05:06, 236.05card/s]2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
@@ -931,7 +929,6 @@
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|          | 563/72904 [00:59<04:45, 253.29card/s]2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
@@ -955,7 +952,6 @@
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|          | 592/72904 [01:00<04:37, 261.03card/s]2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
@@ -985,7 +981,6 @@
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|          | 622/72904 [01:00<04:26, 271.12card/s]2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
@@ -1017,7 +1012,6 @@
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|          | 651/72904 [01:00<04:27, 270.26card/s]2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
@@ -1042,7 +1036,6 @@
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|          | 681/72904 [01:00<04:19, 278.59card/s]2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
@@ -1073,7 +1066,6 @@
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|          | 710/72904 [01:00<04:17, 280.79card/s]2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
@@ -1096,6 +1088,24 @@
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:53 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
@@ -1105,7 +1115,6 @@
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|          | 739/72904 [01:00<04:16, 281.34card/s]2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
@@ -1134,7 +1143,6 @@
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|          | 770/72904 [01:00<04:10, 287.94card/s]2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
@@ -1163,7 +1171,6 @@
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|          | 800/72904 [01:00<04:12, 286.08card/s]2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
@@ -1192,7 +1199,6 @@
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|          | 829/72904 [01:00<04:11, 286.43card/s]2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
@@ -1222,7 +1228,6 @@
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|          | 858/72904 [01:01<04:12, 285.02card/s]2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
@@ -1252,7 +1257,6 @@
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|          | 889/72904 [01:01<04:10, 287.43card/s]2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
@@ -1281,7 +1285,6 @@
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|▏         | 918/72904 [01:01<04:11, 286.59card/s]2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
@@ -1311,7 +1314,6 @@
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|▏         | 949/72904 [01:01<04:08, 289.49card/s]2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
@@ -1342,7 +1344,6 @@
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|▏         | 978/72904 [01:01<04:12, 285.37card/s]2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
@@ -1370,7 +1371,6 @@
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|▏         | 1007/72904 [01:01<04:13, 283.19card/s]2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:54 [WARNING] Circuit breaker active - skipping request
@@ -1402,7 +1402,6 @@
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|▏         | 1039/72904 [01:01<04:04, 293.45card/s]2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
@@ -1432,7 +1431,8 @@
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
-Processing cards:   1%|▏         | 1069/72904 [01:01<04:04, 293.92card/s]2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
@@ -1476,7 +1476,7 @@
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fbc273add0>: Failed to establish a new connection: [Errno 111] Connection refused'))
-Processing cards:   2%|▏         | 1099/72904 [01:01<04:19, 276.38card/s]2025-08-23 20:14:55 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fbc1f3b450>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-23 20:14:55 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fbc1f3b450>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:55 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c7177d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:55 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fbc26f6050>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:55 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c761410>: Failed to establish a new connection: [Errno 111] Connection refused'))
@@ -1515,7 +1515,7 @@
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1127/72904 [01:01<04:35, 260.15card/s]2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Health check failed for http://127.0.0.1:39003: HTTPConnectionPool(host='127.0.0.1', port=39003): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c7190d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
@@ -1552,7 +1552,7 @@
 2025-08-23 20:14:55 [WARNING] Health check failed for http://127.0.0.1:39004: HTTPConnectionPool(host='127.0.0.1', port=39004): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c60dcd0>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:55 [WARNING] Health check failed for http://127.0.0.1:39004: HTTPConnectionPool(host='127.0.0.1', port=39004): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14fa7c60c210>: Failed to establish a new connection: [Errno 111] Connection refused'))
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1154/72904 [01:02<04:35, 260.69card/s]2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
@@ -1588,7 +1588,7 @@
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1183/72904 [01:02<04:31, 263.75card/s]2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
@@ -1620,7 +1620,7 @@
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1214/72904 [01:02<04:20, 275.38card/s]2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [ERROR] Circuit breaker OPEN after 61 failures
 2025-08-23 20:14:55 [ERROR] Request failed completely: All hosts are down
@@ -1649,7 +1649,7 @@
 2025-08-23 20:14:55 [ERROR] Circuit breaker OPEN after 62 failures
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1243/72904 [01:02<04:16, 279.18card/s]2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
@@ -1682,7 +1682,7 @@
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1274/72904 [01:02<04:12, 283.80card/s]2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
@@ -1713,7 +1713,7 @@
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:55 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1304/72904 [01:02<04:10, 285.38card/s]2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
@@ -1746,7 +1746,6 @@
 2025-08-23 20:14:56 [ERROR] Request failed completely: All hosts are down
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1335/72904 [01:02<04:10, 285.83card/s]2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
@@ -1776,7 +1775,6 @@
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1364/72904 [01:02<04:10, 285.98card/s]2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
@@ -1805,7 +1803,6 @@
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1395/72904 [01:02<04:04, 292.73card/s]2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
@@ -1837,7 +1834,6 @@
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1425/72904 [01:03<04:06, 289.81card/s]2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
@@ -1866,7 +1862,6 @@
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1455/72904 [01:03<04:05, 291.42card/s]2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
@@ -1897,7 +1892,6 @@
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1485/72904 [01:03<04:07, 289.08card/s]2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
@@ -1927,7 +1921,6 @@
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1517/72904 [01:03<04:00, 297.27card/s]2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
@@ -1960,7 +1953,6 @@
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1547/72904 [01:03<04:11, 283.56card/s]2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
@@ -1991,7 +1983,6 @@
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1579/72904 [01:03<04:09, 285.52card/s]2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
@@ -2006,6 +1997,18 @@
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:56 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
@@ -2023,7 +2026,6 @@
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1610/72904 [01:03<04:11, 283.21card/s]2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
@@ -2053,7 +2055,6 @@
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1642/72904 [01:03<04:03, 292.33card/s]2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
@@ -2082,7 +2083,6 @@
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1672/72904 [01:03<04:03, 293.05card/s]2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
@@ -2112,7 +2112,6 @@
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1703/72904 [01:03<03:59, 296.91card/s]2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
@@ -2144,7 +2143,6 @@
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1733/72904 [01:04<04:03, 291.97card/s]2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
@@ -2173,7 +2171,6 @@
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1763/72904 [01:04<04:01, 294.26card/s]2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
@@ -2204,7 +2201,6 @@
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
-Processing cards:   2%|▏         | 1793/72904 [01:04<04:04, 291.33card/s]2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
@@ -2233,7 +2229,6 @@
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 1823/72904 [01:04<04:06, 287.98card/s]2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
@@ -2263,7 +2258,6 @@
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 1853/72904 [01:04<04:04, 290.62card/s]2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
@@ -2294,7 +2288,18 @@
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 1883/72904 [01:04<04:07, 286.88card/s]2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:57 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
@@ -2326,7 +2331,6 @@
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 1914/72904 [01:04<04:07, 287.16card/s]2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
@@ -2358,7 +2362,6 @@
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 1947/72904 [01:04<04:01, 294.13card/s]2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
@@ -2389,7 +2392,6 @@
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 1977/72904 [01:04<04:07, 286.99card/s]2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
@@ -2418,7 +2420,6 @@
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2006/72904 [01:05<04:08, 285.73card/s]2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
@@ -2449,7 +2450,6 @@
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2037/72904 [01:05<04:04, 289.77card/s]2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
@@ -2478,7 +2478,6 @@
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2067/72904 [01:05<04:04, 290.27card/s]2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
@@ -2507,7 +2506,6 @@
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2097/72904 [01:05<04:01, 292.92card/s]2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
@@ -2542,7 +2540,6 @@
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2127/72904 [01:05<04:08, 284.80card/s]2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
@@ -2568,7 +2565,6 @@
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2157/72904 [01:05<04:06, 287.16card/s]2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
@@ -2584,6 +2580,18 @@
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:58 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
@@ -2598,7 +2606,6 @@
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2188/72904 [01:05<04:03, 290.58card/s]2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
@@ -2629,7 +2636,6 @@
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2218/72904 [01:05<04:05, 288.24card/s]2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
@@ -2660,7 +2666,6 @@
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2248/72904 [01:05<04:04, 288.89card/s]2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
@@ -2692,7 +2697,6 @@
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2278/72904 [01:05<04:04, 288.52card/s]2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
@@ -2722,7 +2726,6 @@
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2310/72904 [01:06<03:59, 294.67card/s]2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
@@ -2751,7 +2754,6 @@
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2340/72904 [01:06<04:06, 286.44card/s]2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
@@ -2781,7 +2783,6 @@
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2371/72904 [01:06<04:00, 292.74card/s]2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
@@ -2812,7 +2813,6 @@
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2401/72904 [01:06<04:03, 289.33card/s]2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
@@ -2842,7 +2842,6 @@
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2432/72904 [01:06<04:01, 292.27card/s]2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
@@ -2871,10 +2870,15 @@
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2462/72904 [01:06<04:02, 289.96card/s]2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:14:59 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
@@ -2902,7 +2906,6 @@
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2492/72904 [01:06<04:00, 292.60card/s]2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
@@ -2932,7 +2935,6 @@
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
-Processing cards:   3%|▎         | 2522/72904 [01:06<04:00, 292.76card/s]2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
@@ -2963,7 +2965,6 @@
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▎         | 2552/72904 [01:06<04:01, 291.80card/s]2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
@@ -2993,7 +2994,6 @@
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▎         | 2582/72904 [01:07<04:01, 290.87card/s]2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
@@ -3022,7 +3022,6 @@
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▎         | 2612/72904 [01:07<03:59, 293.09card/s]2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
@@ -3057,7 +3056,6 @@
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▎         | 2642/72904 [01:07<04:06, 284.70card/s]2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
@@ -3082,7 +3080,6 @@
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▎         | 2672/72904 [01:07<04:06, 285.26card/s]2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
@@ -3113,7 +3110,6 @@
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▎         | 2702/72904 [01:07<04:03, 288.57card/s]2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
@@ -3144,7 +3140,6 @@
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▎         | 2731/72904 [01:07<04:06, 284.81card/s]2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
@@ -3164,6 +3159,12 @@
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:00 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
@@ -3175,7 +3176,6 @@
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 2763/72904 [01:07<03:59, 292.86card/s]2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
@@ -3203,7 +3203,6 @@
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 2793/72904 [01:07<04:03, 288.46card/s]2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
@@ -3234,7 +3233,6 @@
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 2824/72904 [01:07<04:01, 290.31card/s]2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
@@ -3265,7 +3263,6 @@
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 2854/72904 [01:07<04:01, 290.60card/s]2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
@@ -3298,7 +3295,6 @@
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 2884/72904 [01:08<03:59, 292.69card/s]2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
@@ -3325,7 +3321,6 @@
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 2914/72904 [01:08<04:01, 289.65card/s]2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
@@ -3354,7 +3349,6 @@
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 2943/72904 [01:08<04:04, 286.63card/s]2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
@@ -3385,7 +3379,6 @@
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 2974/72904 [01:08<04:00, 290.88card/s]2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
@@ -3414,7 +3407,6 @@
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 3004/72904 [01:08<04:00, 291.03card/s]2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
@@ -3447,7 +3439,6 @@
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 3036/72904 [01:08<03:57, 294.42card/s]2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
@@ -3455,6 +3446,18 @@
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:01 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
@@ -3475,7 +3478,6 @@
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 3066/72904 [01:08<04:02, 288.38card/s]2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
@@ -3506,7 +3508,6 @@
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 3095/72904 [01:08<04:01, 288.63card/s]2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
@@ -3537,7 +3538,6 @@
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 3124/72904 [01:08<04:04, 285.54card/s]2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
@@ -3565,7 +3565,6 @@
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 3155/72904 [01:08<04:01, 288.92card/s]2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
@@ -3596,7 +3595,6 @@
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 3184/72904 [01:09<04:07, 281.65card/s]2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
@@ -3625,7 +3623,6 @@
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 3216/72904 [01:09<03:58, 292.33card/s]2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
@@ -3655,7 +3652,6 @@
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 3246/72904 [01:09<04:00, 289.57card/s]2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
@@ -3687,7 +3683,6 @@
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
-Processing cards:   4%|▍         | 3276/72904 [01:09<04:01, 288.62card/s]2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
@@ -3717,7 +3712,6 @@
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▍         | 3307/72904 [01:09<04:00, 289.35card/s]2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
@@ -3743,12 +3737,23 @@
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:02 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▍         | 3336/72904 [01:09<04:01, 288.64card/s]2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
@@ -3780,7 +3785,6 @@
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▍         | 3366/72904 [01:09<04:06, 282.14card/s]2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
@@ -3811,7 +3815,6 @@
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▍         | 3399/72904 [01:09<04:03, 285.08card/s]2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
@@ -3842,7 +3845,6 @@
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▍         | 3433/72904 [01:09<03:53, 297.13card/s]2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
@@ -3875,7 +3877,6 @@
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▍         | 3463/72904 [01:10<04:01, 287.90card/s]2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
@@ -3904,7 +3905,6 @@
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▍         | 3494/72904 [01:10<03:56, 293.29card/s]2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
@@ -3935,7 +3935,6 @@
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▍         | 3526/72904 [01:10<03:56, 293.51card/s]2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
@@ -3965,7 +3964,6 @@
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▍         | 3556/72904 [01:10<03:54, 295.28card/s]2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
@@ -3996,7 +3994,6 @@
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▍         | 3586/72904 [01:10<03:56, 293.13card/s]2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
@@ -4027,12 +4024,23 @@
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▍         | 3616/72904 [01:10<03:57, 292.12card/s]2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:03 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
@@ -4056,7 +4064,6 @@
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▌         | 3646/72904 [01:10<03:57, 291.20card/s]2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
@@ -4088,7 +4095,6 @@
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▌         | 3677/72904 [01:10<03:57, 290.88card/s]2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
@@ -4119,7 +4125,6 @@
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▌         | 3707/72904 [01:10<04:04, 283.17card/s]2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
@@ -4147,7 +4152,6 @@
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▌         | 3737/72904 [01:11<04:03, 283.94card/s]2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
@@ -4180,7 +4184,6 @@
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▌         | 3769/72904 [01:11<04:02, 285.33card/s]2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
@@ -4211,7 +4214,6 @@
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▌         | 3799/72904 [01:11<03:59, 288.05card/s]2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
@@ -4239,7 +4241,6 @@
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▌         | 3828/72904 [01:11<04:01, 286.51card/s]2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
@@ -4270,7 +4271,6 @@
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▌         | 3860/72904 [01:11<03:54, 294.61card/s]2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
@@ -4303,7 +4303,6 @@
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▌         | 3890/72904 [01:11<03:57, 290.13card/s]2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
@@ -4323,6 +4322,12 @@
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:04 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
@@ -4333,7 +4338,6 @@
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▌         | 3920/72904 [01:11<03:57, 290.63card/s]2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
@@ -4361,7 +4365,6 @@
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▌         | 3951/72904 [01:11<03:55, 292.49card/s]2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
@@ -4392,7 +4395,6 @@
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
-Processing cards:   5%|▌         | 3981/72904 [01:11<03:56, 291.84card/s]2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
@@ -4424,7 +4426,6 @@
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
-Processing cards:   6%|▌         | 4013/72904 [01:11<03:51, 297.21card/s]2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
@@ -4453,7 +4454,6 @@
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
-Processing cards:   6%|▌         | 4043/72904 [01:12<03:53, 295.23card/s]2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
@@ -4483,7 +4483,6 @@
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
-Processing cards:   6%|▌         | 4073/72904 [01:12<03:54, 293.90card/s]2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
@@ -4515,7 +4514,6 @@
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
-Processing cards:   6%|▌         | 4104/72904 [01:12<03:52, 295.84card/s]2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
@@ -4544,7 +4542,6 @@
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
-Processing cards:   6%|▌         | 4134/72904 [01:12<03:53, 294.11card/s]2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
@@ -4574,7 +4571,6 @@
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
-Processing cards:   6%|▌         | 4164/72904 [01:12<03:58, 288.45card/s]2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
@@ -4602,7 +4598,6 @@
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
-Processing cards:   6%|▌         | 4193/72904 [01:12<03:58, 288.69card/s]2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
@@ -4614,6 +4609,110 @@
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:05 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
@@ -4635,7 +4734,6 @@
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
-Processing cards:   6%|▌         | 4222/72904 [01:12<04:02, 283.06card/s]2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
@@ -4662,7 +4760,6 @@
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
-Processing cards:   6%|▌         | 4252/72904 [01:12<03:58, 287.81card/s]2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
@@ -4691,7 +4788,6 @@
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
-Processing cards:   6%|▌         | 4281/72904 [01:12<03:59, 286.20card/s]2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request

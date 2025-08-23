@@ -1,3 +1,213 @@
+🚀 VERONA CARD HPC OTTIMIZZATO - VERSIONE STABILE
+================================================
+Job ID: 19288460
+Nodo: lrdn1155.leonardo.local
+Data: Sat Aug 23 19:48:14 CEST 2025
+🎯 Modalità: Produzione stabile (4x A100, anti-contention)
+
+📦 Setup ambiente HPC...
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+✅ Python: Python 3.11.6
+✅ CUDA: Cuda compilation tools, release 12.3, V12.3.103
+
+🔍 GPU DETECTION:
+0, NVIDIA A100-SXM-64GB, 65536 MiB, 43
+1, NVIDIA A100-SXM-64GB, 65536 MiB, 43
+2, NVIDIA A100-SXM-64GB, 65536 MiB, 43
+3, NVIDIA A100-SXM-64GB, 65536 MiB, 43
+SLURM GPUs: 4
+
+💾 LEONARDO BOOSTER: Setup spazio temporaneo ottimizzato...
+📊 Spazio /tmp Leonardo Booster: 10GB disponibili su ~10GB totali
+✅ Configurazione Leonardo Booster:
+   📁 /tmp originale: 10GB (TROPPO PICCOLO per Mixtral)
+   📁 Directory custom: /leonardo_work/IscrC_LLM-Mob/tmp_ollama_19288460
+   💾 Spazio $WORK disponibile: 941GB
+   🎯 Mixtral richiede ~26GB temporanei - OK con $WORK
+📋 Variabili temporanee configurate:
+   TMPDIR=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19288460
+   OLLAMA_TMPDIR=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19288460
+   OLLAMA_CACHE_DIR=/leonardo_work/IscrC_LLM-Mob/.ollama/cache
+
+🧹 Cleanup preventivo Leonardo Booster...
+🔍 Stato spazio post-cleanup:
+💾 /tmp: 10G disponibili
+💾 $WORK: 952G disponibili
+📂 Directory temporanea: total 8.0K
+drwx------ 2 smattiol interactive   4.0K Aug 23 19:48 .
+drwxrwx--- 9 smattiol IscrC_LLM-Mob 4.0K Aug 23 19:48 ..
+
+🧹 Cleanup preventivo...
+🔍 Controllo stato GPU post-cleanup...
+0, NVIDIA A100-SXM-64GB, 2 MiB, 43
+1, NVIDIA A100-SXM-64GB, 2 MiB, 43
+2, NVIDIA A100-SXM-64GB, 2 MiB, 43
+3, NVIDIA A100-SXM-64GB, 2 MiB, 43
+# gpu         pid  type    sm    mem    enc    dec    command
+# Idx           #   C/G     %      %      %      %    name
+    0          -     -     -     -     -     -   -              
+    1          -     -     -     -     -     -   -              
+    2          -     -     -     -     -     -   -              
+    3          -     -     -     -     -     -   -              
+
+🚀 Avvio server Ollama con anti-contention...
+📡 Avvio istanza 1/4...
+🔥 Avvio istanza GPU 0 su porta 39001 (Leonardo Booster)...
+✅ GPU 0: spazio $WORK OK (951GB disponibili)
+✅ GPU 0 PID: 903209
+   📁 Cache dedicata: /leonardo_work/IscrC_LLM-Mob/.ollama/cache/gpu0
+   📁 Temp directory: /leonardo_work/IscrC_LLM-Mob/tmp_ollama_19288460
+⏳ Attesa caricamento modello su GPU 0 (90s)...
+📡 Avvio istanza 2/4...
+🔥 Avvio istanza GPU 1 su porta 39002 (Leonardo Booster)...
+✅ GPU 1: spazio $WORK OK (948GB disponibili)
+✅ GPU 1 PID: 903504
+   📁 Cache dedicata: /leonardo_work/IscrC_LLM-Mob/.ollama/cache/gpu1
+   📁 Temp directory: /leonardo_work/IscrC_LLM-Mob/tmp_ollama_19288460
+📡 Avvio istanza 3/4...
+🔥 Avvio istanza GPU 2 su porta 39003 (Leonardo Booster)...
+✅ GPU 2: spazio $WORK OK (946GB disponibili)
+✅ GPU 2 PID: 903548
+   📁 Cache dedicata: /leonardo_work/IscrC_LLM-Mob/.ollama/cache/gpu2
+   📁 Temp directory: /leonardo_work/IscrC_LLM-Mob/tmp_ollama_19288460
+📡 Avvio istanza 4/4...
+🔥 Avvio istanza GPU 3 su porta 39004 (Leonardo Booster)...
+✅ GPU 3: spazio $WORK OK (943GB disponibili)
+✅ GPU 3 PID: 903590
+   📁 Cache dedicata: /leonardo_work/IscrC_LLM-Mob/.ollama/cache/gpu3
+   📁 Temp directory: /leonardo_work/IscrC_LLM-Mob/tmp_ollama_19288460
+✅ Tutte le istanze avviate:
+   GPU 0: PID 903209 (porta 39001)
+   GPU 1: PID 903504 (porta 39002)
+   GPU 2: PID 903548 (porta 39003)
+   GPU 3: PID 903590 (porta 39004)
+⏳ Attesa stabilizzazione sistema (60s)...
+/var/spool/slurmd/job19288460/slurm_script: line 278: [: -lt: unary operator expected
+
+⏳ Health check approfondito multi-istanza...
+🔍 Check approfondito GPU 0 (porta 39001)...
+🔍 Check GPU 0 (prima istanza, timeout esteso)...
+   Tentativo 1/25: inference test fallito
+🔍 Check GPU 0 (prima istanza, timeout esteso)...
+   Tentativo 2/25: inference test fallito
+🔍 Check GPU 0 (prima istanza, timeout esteso)...
+   Tentativo 3/25: inference test fallito
+🔍 Check GPU 0 (prima istanza, timeout esteso)...
+   Tentativo 4/25: inference test fallito
+🔍 Check GPU 0 (prima istanza, timeout esteso)...
+   Tentativo 5/25: inference test fallito
+🔍 Check GPU 0 (prima istanza, timeout esteso)...
+   Tentativo 6/25: inference test fallito
+🔍 Check GPU 0 (prima istanza, timeout esteso)...
+   Tentativo 7/25: inference test fallito
+🔍 Check GPU 0 (prima istanza, timeout esteso)...
+   Tentativo 8/25: inference test fallito
+🔍 Check GPU 0 (prima istanza, timeout esteso)...
+   Tentativo 9/25: inference test fallito
+🔍 Check GPU 0 (prima istanza, timeout esteso)...
+   Tentativo 10/25: inference test fallito
+🔍 Check GPU 0 (prima istanza, timeout esteso)...
+   Tentativo 11/25: inference test fallito
+🔍 Check GPU 0 (prima istanza, timeout esteso)...
+   Tentativo 12/25: inference test fallito
+🔍 Check GPU 0 (prima istanza, timeout esteso)...
+   Tentativo 13/25: inference test fallito
+🔍 Check GPU 0 (prima istanza, timeout esteso)...
+   Tentativo 14/25: inference test fallito
+🔍 Check GPU 0 (prima istanza, timeout esteso)...
+   Tentativo 15/25: inference test fallito
+🔍 Check approfondito GPU 1 (porta 39002)...
+🔍 Check approfondito GPU 1 (porta 39002)...
+   Tentativo 1/15: inference test fallito
+🔍 Check approfondito GPU 1 (porta 39002)...
+   Tentativo 2/15: inference test fallito
+🔍 Check approfondito GPU 1 (porta 39002)...
+✅ GPU 1 completamente operativa
+🔍 Check approfondito GPU 2 (porta 39003)...
+🔍 Check approfondito GPU 2 (porta 39003)...
+✅ GPU 2 completamente operativa
+🔍 Check approfondito GPU 3 (porta 39004)...
+🔍 Check approfondito GPU 3 (porta 39004)...
+✅ GPU 3 completamente operativa
+📊 Health check: 4/4 istanze operative
+
+📥 Preparazione modello con prevenzione contention...
+🔍 Verifica modello mixtral:8x7b...
+✅ Modello già presente
+🔥 Pre-caricamento sequenziale anti-contention...
+🎯 Warm-up GPU 0...
+⚡ Warm-up GPU 0 (sequenziale)...
+✅ GPU 0 pronta
+⏸️ Pausa anti-contention (15s)...
+🎯 Warm-up GPU 1...
+⚡ Warm-up GPU 1 (sequenziale)...
+✅ GPU 1 pronta
+⏸️ Pausa anti-contention (15s)...
+🎯 Warm-up GPU 2...
+⚡ Warm-up GPU 2 (sequenziale)...
+✅ GPU 2 pronta
+⏸️ Pausa anti-contention (15s)...
+🎯 Warm-up GPU 3...
+⚡ Warm-up GPU 3 (sequenziale)...
+✅ GPU 3 pronta
+✅ GPU pronte per produzione: 4/4
+
+📂 Verifica file di input...
+✅ File input verificato: data/verona/veronacard_2022_original.csv
+   📊 Dimensione: 29M
+   📊 Righe: 382346
+
+🐍 Verifica ambiente Python...
+Python: /leonardo_work/IscrC_LLM-Mob/venv/bin/python3
+✅ Dipendenze principali OK
+📂 Directory results: drwxr-xr-x 2 smattiol interactive 4096 Aug 23 18:40 results/
+
+🔍 DEBUG: Stato sistema pre-esecuzione
+Timestamp: 2025-08-23 20:13:26
+Uptime job: 1512 secondi
+Memoria disponibile: 487Gi
+Spazio disco: 942G
+🔍 Processi Ollama attivi:
+✅ PID 903209 attivo
+✅ PID 903504 attivo
+✅ PID 903548 attivo
+✅ PID 903590 attivo
+🌐 Test connettività finale:
+✅ Porta 39001 operativa
+✅ Porta 39002 operativa
+✅ Porta 39003 operativa
+✅ Porta 39004 operativa
+📊 Porte operative: 4/4
+smattiol  903209  3.6  0.2 9329828 1280580 ?     Sl   19:48   0:53 /leonardo_work/IscrC_LLM-Mob/opt/bin/ollama serve
+smattiol  903504  2.1  0.2 8787588 1115856 ?     Sl   19:50   0:29 /leonardo_work/IscrC_LLM-Mob/opt/bin/ollama serve
+smattiol  903548  1.5  0.2 8720000 1068748 ?     Sl   19:51   0:21 /leonardo_work/IscrC_LLM-Mob/opt/bin/ollama serve
+smattiol  903590  1.6  0.2 8786820 1069900 ?     Sl   19:51   0:21 /leonardo_work/IscrC_LLM-Mob/opt/bin/ollama serve
+smattiol  905535  4.4  0.0 69299160 366592 ?     Sl   20:09   0:11 /leonardo_work/IscrC_LLM-Mob/tmp_ollama_19288460/ollama3704571518/runners/cuda_v12/ollama_llama_server --model /leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-f2dc41fa964b42bfe34e9fb09c0acdcfbfd6e52f1332930b4eacc9d6ad1c6cd2 --ctx-size 2048 --batch-size 512 --embedding --n-gpu-layers 33 --threads 32 --flash-attn --parallel 1 --port 44449
+smattiol  905586  5.0  0.0 69037016 355472 ?     Sl   20:09   0:11 /leonardo_work/IscrC_LLM-Mob/tmp_ollama_19288460/ollama3685580795/runners/cuda_v12/ollama_llama_server --model /leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-f2dc41fa964b42bfe34e9fb09c0acdcfbfd6e52f1332930b4eacc9d6ad1c6cd2 --ctx-size 2048 --batch-size 512 --embedding --n-gpu-layers 33 --threads 32 --flash-attn --parallel 1 --port 39009
+smattiol  905870  5.9  0.0 69037016 366484 ?     Sl   20:10   0:11 /leonardo_work/IscrC_LLM-Mob/tmp_ollama_19288460/ollama4261776063/runners/cuda_v12/ollama_llama_server --model /leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-f2dc41fa964b42bfe34e9fb09c0acdcfbfd6e52f1332930b4eacc9d6ad1c6cd2 --ctx-size 2048 --batch-size 512 --embedding --n-gpu-layers 33 --threads 32 --flash-attn --parallel 1 --port 37145
+smattiol  905921  7.0  0.0 69364300 366436 ?     Sl   20:10   0:11 /leonardo_work/IscrC_LLM-Mob/tmp_ollama_19288460/ollama502460066/runners/cuda_v12/ollama_llama_server --model /leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-f2dc41fa964b42bfe34e9fb09c0acdcfbfd6e52f1332930b4eacc9d6ad1c6cd2 --ctx-size 2048 --batch-size 512 --embedding --n-gpu-layers 33 --threads 32 --flash-attn --parallel 1 --port 33727
+smattiol  906071  0.0  0.0 221992  1232 ?        S    20:13   0:00 grep ollama
+{"models":[{"name":"deepseek-coder:33b","model":"deepseek-coder:33b","modified_at":"2025-08-13T13:13:21+02:00","size":18819456424,"digest":"acec7c0b0fd9ad4c9e82620b32dcb794120d40623ab53d5e1453a948d7d204d8","details":{"parent_model":"","format":"gguf","family":"llama","families":["llama"],"parameter_size":"33B","quantization_level":"Q4_0"}},{"name":"mixtral:8x7b","model":"mixtral:8x7b","modified_at":"2025-08-13T13:04:36+02:00","size":26443602516,"digest":"a3b6bef0f836ff29ddb576a80eeb1b7def43ec9b809466f62e96adb871fe8498","details":{"parent_model":"","format":"gguf","family":"llama","families":["llama"],"parameter_size":"46.7B","quantization_level":"Q4_0"}},{"name":"llama3.1:8b","model":"llama3.1:8b","modified_at":"2025-06-30T11:21:36+02:00","size":4920753328,"digest":"46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e","details":{"parent_model":"","format":"gguf","family":"llama","families":["llama"],"parameter_size":"8.0B","quantization_level":"Q4_K_M"}}]}{"models":[{"name":"deepseek-coder:33b","model":"deepseek-coder:33b","modified_at":"2025-08-13T13:13:21+02:00","size":18819456424,"digest":"acec7c0b0fd9ad4c9e82620b32dcb794120d40623ab53d5e1453a948d7d204d8","details":{"parent_model":"","format":"gguf","family":"llama","families":["llama"],"parameter_size":"33B","quantization_level":"Q4_0"}},{"name":"mixtral:8x7b","model":"mixtral:8x7b","modified_at":"2025-08-13T13:04:36+02:00","size":26443602516,"digest":"a3b6bef0f836ff29ddb576a80eeb1b7def43ec9b809466f62e96adb871fe8498","details":{"parent_model":"","format":"gguf","family":"llama","families":["llama"],"parameter_size":"46.7B","quantization_level":"Q4_0"}},{"name":"llama3.1:8b","model":"llama3.1:8b","modified_at":"2025-06-30T11:21:36+02:00","size":4920753328,"digest":"46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e","details":{"parent_model":"","format":"gguf","family":"llama","families":["llama"],"parameter_size":"8.0B","quantization_level":"Q4_K_M"}}]}{"models":[{"name":"deepseek-coder:33b","model":"deepseek-coder:33b","modified_at":"2025-08-13T13:13:21+02:00","size":18819456424,"digest":"acec7c0b0fd9ad4c9e82620b32dcb794120d40623ab53d5e1453a948d7d204d8","details":{"parent_model":"","format":"gguf","family":"llama","families":["llama"],"parameter_size":"33B","quantization_level":"Q4_0"}},{"name":"mixtral:8x7b","model":"mixtral:8x7b","modified_at":"2025-08-13T13:04:36+02:00","size":26443602516,"digest":"a3b6bef0f836ff29ddb576a80eeb1b7def43ec9b809466f62e96adb871fe8498","details":{"parent_model":"","format":"gguf","family":"llama","families":["llama"],"parameter_size":"46.7B","quantization_level":"Q4_0"}},{"name":"llama3.1:8b","model":"llama3.1:8b","modified_at":"2025-06-30T11:21:36+02:00","size":4920753328,"digest":"46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e","details":{"parent_model":"","format":"gguf","family":"llama","families":["llama"],"parameter_size":"8.0B","quantization_level":"Q4_K_M"}}]}{"models":[{"name":"deepseek-coder:33b","model":"deepseek-coder:33b","modified_at":"2025-08-13T13:13:21+02:00","size":18819456424,"digest":"acec7c0b0fd9ad4c9e82620b32dcb794120d40623ab53d5e1453a948d7d204d8","details":{"parent_model":"","format":"gguf","family":"llama","families":["llama"],"parameter_size":"33B","quantization_level":"Q4_0"}},{"name":"mixtral:8x7b","model":"mixtral:8x7b","modified_at":"2025-08-13T13:04:36+02:00","size":26443602516,"digest":"a3b6bef0f836ff29ddb576a80eeb1b7def43ec9b809466f62e96adb871fe8498","details":{"parent_model":"","format":"gguf","family":"llama","families":["llama"],"parameter_size":"46.7B","quantization_level":"Q4_0"}},{"name":"llama3.1:8b","model":"llama3.1:8b","modified_at":"2025-06-30T11:21:36+02:00","size":4920753328,"digest":"46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e","details":{"parent_model":"","format":"gguf","family":"llama","families":["llama"],"parameter_size":"8.0B","quantization_level":"Q4_K_M"}}]}
+🎯 AVVIO ELABORAZIONE STABILIZZATA
+=================================
+📊 Configurazione finale:
+   🎯 GPU operative: 4/4
+   ⚡ Rate limit: 4 richieste concurrent
+   💾 Salvataggio: ogni 500 carte
+   🔄 Timeout richiesta: 300s
+   🛡️ Modalità stabile: attiva
+
+🚀 Avvio script Python stabilizzato...
+📄 Target: data/verona/veronacard_2022_original.csv
+⏰ Inizio: 2025-08-23 20:13:26
+
 2025-08-23 20:13:37 [INFO] Initializing Ollama connection manager...
 2025-08-23 20:13:37 [INFO] Multi-GPU configuration: 4 instances
 2025-08-23 20:13:37 [INFO] Waiting for Ollama services to start...
@@ -69,7 +279,14 @@
 2025-08-23 20:14:28 [WARNING] Rate limit timeout - system overloaded
 Processing cards:   0%|          | 17/72904 [00:35<32:43:52,  1.62s/card]2025-08-23 20:14:28 [WARNING] Rate limit timeout - system overloaded
 2025-08-23 20:14:28 [WARNING] Rate limit timeout - system overloaded
-Processing cards:   0%|          | 19/72904 [00:35<26:40:01,  1.32s/card]Processing cards:   0%|          | 19/72904 [00:49<26:40:01,  1.32s/card]2025-08-23 20:14:51 [ERROR] Error on http://127.0.0.1:39001: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Processing cards:   0%|          | 19/72904 [00:35<26:40:01,  1.32s/card]Processing cards:   0%|          | 19/72904 [00:49<26:40:01,  1.32s/card]slurmstepd: error: *** JOB 19288460 ON lrdn1155 CANCELLED AT 2025-08-23T20:14:51 ***
+🧹 CLEANUP STABILIZZATO...
+🔄 Shutdown graceful PID 903209...
+🔄 Shutdown graceful PID 903504...
+🔄 Shutdown graceful PID 903548...
+🔄 Shutdown graceful PID 903590...
+⏳ Attesa shutdown (30s)...
+2025-08-23 20:14:51 [ERROR] Error on http://127.0.0.1:39001: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
 2025-08-23 20:14:51 [ERROR] Error on http://127.0.0.1:39004: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
 2025-08-23 20:14:51 [ERROR] Error on http://127.0.0.1:39002: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
 2025-08-23 20:14:51 [ERROR] Error on http://127.0.0.1:39001: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
@@ -4694,6 +4911,155 @@
 Processing cards:   6%|▌         | 4281/72904 [01:12<03:59, 286.20card/s]2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+Processing cards:   6%|▌         | 4310/72904 [01:12<04:00, 284.69card/s]2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+Processing cards:   6%|▌         | 4342/72904 [01:13<03:52, 294.66card/s]2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+Processing cards:   6%|▌         | 4373/72904 [01:13<03:50, 297.41card/s]2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+Processing cards:   6%|▌         | 4403/72904 [01:13<04:04, 279.75card/s]2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
+Processing cards:   6%|▌         | 4432/72904 [01:13<04:20, 262.36card/s]2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
 2025-08-23 20:15:06 [WARNING] Circuit breaker active - skipping request
