@@ -52,6 +52,11 @@ class Config:
     # Anchor rule for POI selection
     DEFAULT_ANCHOR_RULE = "penultimate"
     
+    # Parallelism
+    ENABLE_ROUND_ROBIN = True  # Abilita round-robin
+    HOST_SELECTION_STRATEGY = "balanced"  # "round_robin", "performance", "balanced"
+    MAX_CONCURRENT_PER_GPU = 2  # Richieste simultanee per GPU
+    
     # File paths
     OLLAMA_PORT_FILE = "ollama_ports.txt"
     LOG_DIR = Path(__file__).resolve().parent / "logs"
@@ -214,7 +219,8 @@ class HostHealthMonitor:
     Features:
     - Health checks with configurable intervals
     - Response time tracking
-    - Load-based host selection
+    - Round-robin load balancing
+    - Performance-based host selection
     - Automatic failover
     """
     
@@ -225,6 +231,7 @@ class HostHealthMonitor:
         self.response_times = {host: [] for host in self.hosts}
         self._lock = Lock()
         self._max_response_history = 5
+        self._round_robin_index = 0  # ✅ NUOVO: Indice per round-robin
         
         # Log di warning per inizializzazione vuota
         if not hosts:
@@ -242,7 +249,24 @@ class HostHealthMonitor:
             return []
         
         with self._lock:
-            return [host for host, healthy in self.health_status.items() if healthy]
+            healthy = [host for host, healthy in self.health_status.items() if healthy]
+            if not healthy:
+                # Tentativo di recovery: ricontrolla tutti gli host
+                logger.warning("No healthy hosts found, attempting recovery...")
+                for host in self.hosts:
+                    if self._quick_health_check(host):
+                        self.health_status[host] = True
+                        healthy.append(host)
+                        
+            return healthy
+    
+    def _quick_health_check(self, host: str) -> bool:
+        """Quick health check without updating response times"""
+        try:
+            resp = requests.get(f"{host}/api/tags", timeout=2)
+            return resp.status_code == 200
+        except:
+            return False
     
     def check_health(self, host: str) -> bool:
         """
@@ -281,25 +305,29 @@ class HostHealthMonitor:
                 self.health_status[host] = False
             return False
     
+    def get_round_robin_host(self) -> Optional[str]:
+        """
+        Select host using round-robin algorithm to ensure even distribution
+        """
+        healthy_hosts = self.get_healthy_hosts()
+        if not healthy_hosts:
+            return None
+        
+        with self._lock:
+            # Use modulo to cycle through healthy hosts
+            host = healthy_hosts[self._round_robin_index % len(healthy_hosts)]
+            self._round_robin_index += 1
+            logger.debug(f"Round-robin selected: {host} (index: {self._round_robin_index})")
+            return host
+    
     def get_best_host(self) -> Optional[str]:
         """
         Select the best performing host based on response times and health.
         Uses sophisticated scoring algorithm.
         """
         healthy_hosts = self.get_healthy_hosts()
-        # 🔴 FIX: Se non ci sono host healthy, riprova il check su tutti
         if not healthy_hosts:
-            logger.warning("Non ci sono healthy hosts, provo il recovery...")
-            # Prova a riabilitare tutti gli host
-            for host in self.hosts:
-                # Re-check degli host "morti"
-                if self.check_health(host):
-                    logger.info(f"Host {host} recovered!")
-            
-            healthy_hosts = self.get_healthy_hosts()
-            if not healthy_hosts:
-                logger.error("No hosts could be recovered")
-                return None
+            return None
         
         if len(healthy_hosts) == 1:
             return healthy_hosts[0]
@@ -328,8 +356,50 @@ class HostHealthMonitor:
             
             # Return host with lowest score
             best_host = min(host_scores, key=lambda x: x[1])[0]
-            logger.debug(f"Selected host: {best_host}")
+            logger.debug(f"Performance-based selected: {best_host}")
             return best_host
+    
+    def get_balanced_host(self) -> Optional[str]:
+        """
+        Balanced host selection: 70% round-robin, 30% performance-based
+        This ensures good distribution while still considering performance
+        """
+        import random
+        
+        healthy_hosts = self.get_healthy_hosts()
+        if not healthy_hosts:
+            return None
+        
+        # 70% delle volte usa round-robin per distribuzione uniforme
+        # 30% usa performance-based per ottimizzazione
+        if random.random() < 0.7:
+            host = self.get_round_robin_host()
+            logger.debug("Using round-robin selection")
+            return host
+        else:
+            host = self.get_best_host()
+            logger.debug("Using performance-based selection")
+            return host
+    
+    def get_host_stats(self) -> Dict[str, Dict]:
+        """Get statistics for all hosts"""
+        with self._lock:
+            stats = {}
+            for host in self.hosts:
+                recent_times = self.response_times.get(host, [])
+                stats[host] = {
+                    'healthy': self.health_status.get(host, False),
+                    'last_check': self.last_check.get(host, 0),
+                    'avg_response_time': sum(recent_times) / len(recent_times) if recent_times else 0,
+                    'recent_requests': len(recent_times)
+                }
+            return stats
+    
+    def reset_round_robin(self):
+        """Reset round-robin counter (useful for testing)"""
+        with self._lock:
+            self._round_robin_index = 0
+            logger.debug("Round-robin index reset to 0")
 
 # ============= OLLAMA CONNECTION MANAGEMENT =============
 class OllamaConnectionManager:
@@ -356,7 +426,7 @@ class OllamaConnectionManager:
                 self.hosts = [f"http://127.0.0.1:{port}" for port in ports]
                 logger.info(f"Multi-GPU configuration: {len(self.hosts)} instances")
                 
-                self.rate_limiter = Semaphore(len(self.hosts))  # 1 richiesta per GPU contemporaneamente
+                self.rate_limiter = Semaphore(len(self.hosts) * Config.MAX_CONCURRENT_PER_GPU)  # 2 richieste per GPU contemporaneamente
                 
             else:
                 # Single GPU fallback
@@ -485,43 +555,80 @@ class OllamaConnectionManager:
                 self.rate_limiter.release()
     
     def _make_request_with_retry(self, prompt: str, model: str) -> Optional[str]:
-        """Make request with exponential backoff retry logic and 503 handling"""
+        """Make request with exponential backoff retry logic and improved load balancing"""
         
         if self.health_monitor is None:
             logger.error("Health monitor not initialized")
             return None
         
-        service_unavailable_count = 0  # ✅ NUOVO: counter per 503
+        service_unavailable_count = 0  # Counter per 503
+        host_usage_count = {}  # Track usage per host for this request
         
         for attempt in range(1, Config.MAX_RETRIES_PER_REQUEST + 1):
-            # Select best performing host
-            host = self.health_monitor.get_best_host()
-            if not host:
+            # Select host using round-robin for better load distribution
+            healthy_hosts = self.health_monitor.get_healthy_hosts()
+            
+            if not healthy_hosts:
                 logger.error("No healthy hosts available")
+                # Try to recover all hosts
                 for h in self.hosts:
                     self.health_monitor.check_health(h)
-                host = self.health_monitor.get_best_host()
-                if not host:
-                    # ✅ NUOVO: Se tutti gli host sono down, attendi e riprova
+                
+                healthy_hosts = self.health_monitor.get_healthy_hosts()
+                if not healthy_hosts:
+                    # If all hosts are down, wait and retry
                     if service_unavailable_count > 0:
                         logger.warning(f"All hosts down after {service_unavailable_count} 503 errors, waiting 2 minutes...")
                         time.sleep(120)
                         continue
                     raise Exception("All hosts are down")
             
+            # Improved host selection: round-robin with fallback to performance-based
+            host = None
+            if hasattr(self.health_monitor, '_round_robin_index'):
+                # Use round-robin if available
+                with self.health_monitor._lock:
+                    idx = self.health_monitor._round_robin_index % len(healthy_hosts)
+                    host = healthy_hosts[idx]
+                    self.health_monitor._round_robin_index += 1
+            else:
+                # Fallback to least used host in this request
+                if host_usage_count:
+                    # Find host with minimum usage in this request
+                    min_usage = min(host_usage_count.values())
+                    least_used_hosts = [h for h, count in host_usage_count.items() 
+                                    if count == min_usage and h in healthy_hosts]
+                    if least_used_hosts:
+                        host = random.choice(least_used_hosts)
+                
+                # If still no host selected, use best performing one
+                if not host:
+                    host = self.health_monitor.get_best_host()
+            
+            if not host:
+                logger.error("Failed to select any host")
+                continue
+                
+            # Track host usage for this request
+            host_usage_count[host] = host_usage_count.get(host, 0) + 1
+            
+            # Log host selection for debugging
+            logger.debug(f"Attempt {attempt}: Selected host {host} (usage: {host_usage_count[host]})")
+            
             try:
                 # Prepare optimized payload
                 payload = {
                     "model": model,
                     "messages": [
-                                {
-                                    "role": "system", 
-                                    "content": "You are a JSON-only responder. Always output valid JSON."
-                                },
-                                {
-                                    "role": "user", 
-                                    "content": prompt
-                                }],
+                        {
+                            "role": "system", 
+                            "content": "You are a JSON-only responder. Always output valid JSON."
+                        },
+                        {
+                            "role": "user", 
+                            "content": prompt
+                        }
+                    ],
                     "stream": False,
                     "format": "json",
                     "options": {
@@ -544,19 +651,20 @@ class OllamaConnectionManager:
                 )
                 response_time = time.time() - start_time
                 
-                # ✅ NUOVO: Gestione specifica per 503
+                # Handle 503 Service Unavailable specifically
                 if resp.status_code == 503:
                     service_unavailable_count += 1
                     logger.warning(f"503 Service Unavailable from {host} (count: {service_unavailable_count})")
                     
                     if service_unavailable_count <= Config.MAX_503_RETRIES:
                         wait_time = Config.RETRY_ON_503_WAIT * min(service_unavailable_count, 5)
-                        logger.info(f"Waiting {wait_time}s for model to load...")
+                        logger.info(f"Waiting {wait_time}s for model to load on {host}...")
                         time.sleep(wait_time)
                         continue
                     else:
-                        logger.error(f"Too many 503 errors ({service_unavailable_count})")
-                        self.health_monitor.health_status[host] = False
+                        logger.error(f"Too many 503 errors ({service_unavailable_count}) from {host}")
+                        with self.health_monitor._lock:
+                            self.health_monitor.health_status[host] = False
                         continue
                 
                 resp.raise_for_status()
@@ -569,26 +677,44 @@ class OllamaConnectionManager:
                 content = response_data.get("message", {}).get("content", "")
                 if content:
                     stats.increment_processed()
-                    logger.debug(f"Got response from {host} in {response_time:.2f}s")
+                    logger.debug(f"SUCCESS: Got response from {host} in {response_time:.2f}s")
+                    
+                    # Update response time tracking for this host
+                    with self.health_monitor._lock:
+                        if host not in self.health_monitor.response_times:
+                            self.health_monitor.response_times[host] = []
+                        self.health_monitor.response_times[host].append(response_time)
+                        if len(self.health_monitor.response_times[host]) > self.health_monitor._max_response_history:
+                            self.health_monitor.response_times[host].pop(0)
+                    
                     service_unavailable_count = 0  # Reset 503 counter on success
                     return content
                     
             except requests.exceptions.Timeout:
                 logger.warning(f"Timeout on {host} (attempt {attempt})")
-                self.health_monitor.health_status[host] = False
+                with self.health_monitor._lock:
+                    self.health_monitor.health_status[host] = False
             except requests.exceptions.HTTPError as e:
-                if "503" not in str(e):  # Se non è 503, logga l'errore
+                if "503" not in str(e):  # Log non-503 HTTP errors
                     logger.error(f"HTTP Error on {host}: {e}")
-                self.health_monitor.health_status[host] = False
+                with self.health_monitor._lock:
+                    self.health_monitor.health_status[host] = False
                 stats.increment_errors()
             except Exception as exc:
-                logger.error(f"Error on {host}: {exc}")
-                self.health_monitor.health_status[host] = False
+                logger.error(f"Unexpected error on {host}: {exc}")
+                with self.health_monitor._lock:
+                    self.health_monitor.health_status[host] = False
                 stats.increment_errors()
             
-            # Exponential backoff between retries
+            # Exponential backoff between retries, but shorter for 503 errors
             if attempt < Config.MAX_RETRIES_PER_REQUEST:
-                backoff_time = min(Config.BACKOFF_BASE ** attempt, Config.BACKOFF_MAX)
+                if service_unavailable_count > 0:
+                    # Shorter backoff for 503 errors since we already waited above
+                    backoff_time = min(5, Config.BACKOFF_BASE ** (attempt - service_unavailable_count))
+                else:
+                    backoff_time = min(Config.BACKOFF_BASE ** attempt, Config.BACKOFF_MAX)
+                
+                logger.debug(f"Backing off for {backoff_time}s before retry {attempt + 1}")
                 time.sleep(backoff_time)
         
         logger.error(f"All {Config.MAX_RETRIES_PER_REQUEST} attempts failed")
@@ -1375,7 +1501,7 @@ class VisitFileProcessor:
         n_healthy_hosts = len(self.ollama_manager.health_monitor.get_healthy_hosts())
     
         # Imposta workers = numero di GPU healthy
-        optimal_workers = max(1, n_healthy_hosts)
+        optimal_workers = min(n_healthy_hosts * Config.MAX_CONCURRENT_PER_GPU, len(cards_to_process))  # Max 2 thread per GPU
         
         logger.info(f"Using {optimal_workers} workers for {n_healthy_hosts} healthy hosts")
         
