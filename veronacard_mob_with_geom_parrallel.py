@@ -34,15 +34,15 @@ class Config:
     
     # HPC optimization parameters
     MAX_CONCURRENT_REQUESTS = 4  # 4 GPUs × 1 requests per GPU
-    REQUEST_TIMEOUT = 120  # Seconds for complex inference
+    REQUEST_TIMEOUT = 180  # Seconds for complex inference
     BATCH_SAVE_INTERVAL = 500  # Save results every N cards
-    HEALTH_CHECK_INTERVAL = 300  # Check host health every N seconds
+    HEALTH_CHECK_INTERVAL = 600  # Check host health every N seconds
     
     # Retry and failure handling
-    MAX_RETRIES_PER_REQUEST = 3
+    MAX_RETRIES_PER_REQUEST = 5
     MAX_CONSECUTIVE_FAILURES = 20
     BACKOFF_BASE = 2
-    BACKOFF_MAX = 30
+    BACKOFF_MAX = 60
     CIRCUIT_BREAKER_THRESHOLD = 50
     
     # Anchor rule for POI selection
@@ -1332,7 +1332,20 @@ class VisitFileProcessor:
         
         # Calculate optimal number of workers
         n_healthy_hosts = len(self.ollama_manager.health_monitor.get_healthy_hosts())
-        optimal_workers = min(len(self.ollama_manager.hosts) * 2, 8)  # Max 2 workers per GPU
+        if n_healthy_hosts >= 4:
+            optimal_workers = 6    # Era 8, ora 6
+        elif n_healthy_hosts >= 3:
+            optimal_workers = 4    # Era 6, ora 4  
+        elif n_healthy_hosts >= 2:
+            optimal_workers = 3    # Era 4, ora 3
+        else:
+            optimal_workers = 1    # GPU singola
+        
+        logger.info(f"Using {optimal_workers} workers for {n_healthy_hosts} healthy hosts")
+        
+        # ATTESA ESTESA per stabilizzazione
+        logger.info("Waiting 60s for models to FULLY stabilize...")  # Era 10s
+        time.sleep(60)  # CRITICO: Da 10s a 60s
         
         logger.info(f"Using {optimal_workers} parallel workers")
         
@@ -1477,9 +1490,7 @@ class VisitFileProcessor:
         
         return target
 
-
 # ============= MAIN ENTRY POINT =============
-
 def main():
     """Main entry point for the application"""
     
