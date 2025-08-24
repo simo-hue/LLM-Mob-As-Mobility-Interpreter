@@ -1,41 +1,9 @@
-2025-08-23 20:40:45 [INFO] Initializing Ollama connection manager...
-2025-08-23 20:40:45 [INFO] Multi-GPU configuration: 4 instances
-2025-08-23 20:40:45 [INFO] Waiting for Ollama services to start...
-2025-08-23 20:40:45 [INFO] Checking host 1/4: http://127.0.0.1:39001
-2025-08-23 20:40:45 [INFO] Host http://127.0.0.1:39001 is ready
-2025-08-23 20:40:45 [INFO] Checking host 2/4: http://127.0.0.1:39002
-2025-08-23 20:40:45 [INFO] Host http://127.0.0.1:39002 is ready
-2025-08-23 20:40:45 [INFO] Checking host 3/4: http://127.0.0.1:39003
-2025-08-23 20:40:45 [INFO] Host http://127.0.0.1:39003 is ready
-2025-08-23 20:40:45 [INFO] Checking host 4/4: http://127.0.0.1:39004
-2025-08-23 20:40:45 [INFO] Host http://127.0.0.1:39004 is ready
-2025-08-23 20:40:45 [INFO] All Ollama services are ready!
-2025-08-23 20:40:45 [INFO] Model mixtral:8x7b working on http://127.0.0.1:39001
-2025-08-23 20:40:45 [INFO] Model mixtral:8x7b working on http://127.0.0.1:39002
-2025-08-23 20:40:45 [INFO] Model mixtral:8x7b working on http://127.0.0.1:39003
-2025-08-23 20:40:45 [INFO] Model mixtral:8x7b working on http://127.0.0.1:39004
-2025-08-23 20:40:45 [INFO] 4/4 hosts have working model
-2025-08-23 20:40:45 [INFO] System initialized successfully!
-2025-08-23 20:40:45 [INFO] Processing veronacard_2022_original.csv
-2025-08-23 20:40:45 [INFO] Loading and preprocessing data...
-2025-08-23 20:40:46 [INFO] Loaded 22 POIs from vc_site.csv
-2025-08-23 20:40:48 [INFO] Loaded 382346 visits from veronacard_2022_original.csv
-2025-08-23 20:40:48 [INFO] Valid visits after merge: 381361
-2025-08-23 20:40:48 [INFO] Multi-visit cards: 84988 / 89775
-2025-08-23 20:40:48 [INFO] Performing user clustering...
-2025-08-23 20:40:55 [INFO] Processing 72904 cards
-2025-08-23 20:40:55 [INFO] Using 8 parallel workers
-2025-08-23 20:40:55 [INFO] Waiting 10s for models to stabilize...
-2025-08-23 20:41:05 [ERROR] Error on http://127.0.0.1:39001: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39001/api/chat
-2025-08-23 20:41:05 [ERROR] Error on http://127.0.0.1:39001: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39001/api/chat
-2025-08-23 20:41:05 [ERROR] Error on http://127.0.0.1:39001: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39001/api/chat
-2025-08-23 20:41:05 [ERROR] Error on http://127.0.0.1:39001: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39001/api/chat
-2025-08-23 20:41:05 [ERROR] Error on http://127.0.0.1:39001: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39001/api/chat
-
-Processing cards:   0%|          | 0/72904 [00:00<?, ?card/s]2025-08-23 20:41:07 [ERROR] Error on http://127.0.0.1:39002: 503 Server Error: Service Unavailable for url: http://127.0.0.1:39002/api/chat
-2025-08-23 20:42:59 [ERROR] Error on http://127.0.0.1:39001: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Processing cards:   0%|          | 1/72904 [01:53<2295:00:48, 113.33s/card]2025-08-23 20:42:59 [WARNING] Health check failed for http://127.0.0.1:39004: HTTPConnectionPool(host='127.0.0.1', port=39004): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x146a33602c90>: Failed to establish a new connection: [Errno 111] Connection refused'))
-2025-08-23 20:42:59 [WARNING] Host http://127.0.0.1:39004 failed health check - retrying
-2025-08-23 20:42:59 [ERROR] No healthy hosts available
-2025-08-23 20:42:59 [ERROR] Request failed completely: All hosts are down
-2025-08-23 20:43:29 [WARNING] Circuit breaker active - skipping request
+2025-08-24 14:56:55 [INFO] Initializing Ollama connection manager...
+2025-08-24 14:56:55 [WARNING] HostHealthMonitor initialized with empty host list
+2025-08-24 14:56:55 [INFO] Setting up connections...
+2025-08-24 14:56:55 [INFO] Multi-GPU configuration: 4 instances
+2025-08-24 14:56:55 [INFO] Initialized with 4 hosts
+2025-08-24 14:56:55 [INFO] Waiting for Ollama services to start...
+2025-08-24 14:56:55 [INFO] Checking host 1/4: http://127.0.0.1:39001
+2025-08-24 14:58:22 [ERROR] Host http://127.0.0.1:39001 failed to respond after 30 attempts
+2025-08-24 14:58:22 [ERROR] Fatal error: Ollama services failed to start
