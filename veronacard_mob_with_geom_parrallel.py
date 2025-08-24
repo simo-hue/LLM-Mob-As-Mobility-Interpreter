@@ -35,7 +35,7 @@ class Config:
     TOP_K = 5  # Number of POI predictions
     
     # HPC optimization parameters
-    MAX_CONCURRENT_REQUESTS = 16  # 4 GPUs × 4 requests per GPU
+    MAX_CONCURRENT_REQUESTS = 4  # 4 GPUs × 1 requests per GPU
     REQUEST_TIMEOUT = 120  # Seconds for complex inference
     BATCH_SAVE_INTERVAL = 500  # Save results every N cards
     HEALTH_CHECK_INTERVAL = 300  # Check host health every N seconds
@@ -497,12 +497,12 @@ class OllamaConnectionManager:
                     "messages": [{"role": "user", "content": prompt}],
                     "stream": False,
                     "options": {
-                        "num_ctx": 8192,      # Leverage 64GB VRAM
+                        "num_ctx": 2048,      # ✅ Uguale al warm-up
                         "num_predict": 300,
                         "temperature": 0.1,
                         "top_p": 0.9,
-                        "num_thread": 16,     # Optimal for 56 cores per socket
-                        "num_batch": 1024,    # Larger batches for A100
+                        "num_thread": 32,     # ✅ Usa tutti i thread disponibili
+                        "num_batch": 512,     # ✅ Uguale al warm-up
                         "repeat_penalty": 1.1
                     }
                 }
@@ -1296,12 +1296,12 @@ class VisitFileProcessor:
         
         # Calculate optimal number of workers
         n_healthy_hosts = len(self.ollama_manager.health_monitor.get_healthy_hosts())
-        optimal_workers = min(
-            len(self.ollama_manager.hosts) * 8,  # 8 workers per host
-            64  # Maximum cap
-        )
+        optimal_workers = min(len(self.ollama_manager.hosts) * 2, 8)  # Max 2 workers per GPU
         
         logger.info(f"Using {optimal_workers} parallel workers")
+        
+        logger.info("Waiting 10s for models to stabilize...")
+        time.sleep(10)
         
         # Process cards with thread pool
         with ThreadPoolExecutor(

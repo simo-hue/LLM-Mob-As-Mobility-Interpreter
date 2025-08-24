@@ -174,7 +174,7 @@ export OLLAMA_NUM_PARALLEL=1              # UNA richiesta per volta per GPU
 export OLLAMA_MAX_LOADED_MODELS=1         # Un modello per volta
 export OLLAMA_FLASH_ATTENTION=1        
 export OLLAMA_KEEP_ALIVE="2h"             # Riduci per liberare memoria
-export OLLAMA_LOAD_TIMEOUT=600            # 10 minuti per caricamento
+export OLLAMA_LOAD_TIMEOUT=1200            # 20 minuti per caricamento
 export OLLAMA_REQUEST_TIMEOUT=300         # 5 minuti per richiesta
 export OLLAMA_MAX_QUEUE=2                 # Coda ridotta
 export OLLAMA_MAX_VRAM_USAGE=0.8          # Limita VRAM al 80%
@@ -429,10 +429,19 @@ preload_gpu_sequential() {
     local gpu_id=$2
     
     echo "⚡ Warm-up GPU $gpu_id (sequenziale)..."
-    timeout 180s curl -s -X POST "http://127.0.0.1:$port/api/generate" \
+    timeout 180s curl -s -X POST "http://127.0.0.1:$port/api/chat" \
         -H "Content-Type: application/json" \
-        -d '{"model":"'$MODEL_NAME'","prompt":"warmup","stream":false,"options":{"num_predict":1,"temperature":0}}' \
-        >/dev/null 2>&1
+        -d '{
+            "model":"'$MODEL_NAME'",
+            "messages":[{"role":"user","content":"warmup"}],
+            "stream":false,
+            "options":{
+                "num_ctx":2048,
+                "num_predict":1,
+                "num_batch":512,
+                "temperature":0
+            }
+        }' >/dev/null 2>&1
     
     if [ $? -eq 0 ]; then
         echo "✅ GPU $gpu_id pronta"
