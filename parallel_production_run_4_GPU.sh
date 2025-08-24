@@ -378,23 +378,43 @@ fi
 
 echo "📊 Health check finale: $HEALTHY_COUNT/4 istanze operative"
 
-# ✅ Soglia di accettazione più permissiva
+# ============= GESTIONE RISULTATO HEALTH CHECK =============
 if [ $HEALTHY_COUNT -eq 0 ]; then
     echo "❌ ERRORE CRITICO: Nessuna istanza funzionante"
-    echo "🔍 Debug completo:"
+    echo ""
+    echo "🔍 DIAGNOSI DETTAGLIATA:"
+    echo "Tutti i processi Ollama sono avviati ma non rispondono alle richieste."
+    echo "Cause possibili:"
+    echo "1. Modello Mixtral:8x7b non scaricato/non trovato"
+    echo "2. GPU memory insufficiente per caricare il modello"
+    echo "3. Timeout durante caricamento modello (26GB)"
+    echo ""
+    echo "🛠️ DEBUG NECESSARIO:"
     for i in 0 1 2 3; do
-        echo "--- GPU $i diagnostica completa ---"
-        echo "PID: $(eval echo \$SERVER_PID$((i+1)))"
-        echo "Processo attivo: $(kill -0 $(eval echo \$SERVER_PID$((i+1))) 2>/dev/null && echo 'SI' || echo 'NO')"
-        echo "Log (ultime 15 righe):"
-        tail -15 "ollama_gpu${i}.log" 2>/dev/null | sed 's/^/  /' || echo "  Log non disponibile"
+        echo "--- GPU $i DIAGNOSI ---"
+        local pid_var="SERVER_PID$((i+1))"
+        local pid=$(eval echo \$$pid_var)
+        echo "PID: $pid"
+        echo "Processo attivo: $(kill -0 $pid 2>/dev/null && echo 'SI' || echo 'NO')"
+        echo "Log (ultime 10 righe):"
+        tail -10 "ollama_gpu${i}.log" 2>/dev/null | sed 's/^/  /' || echo "  Log non disponibile"
         echo ""
     done
     exit 1
+
 elif [ $HEALTHY_COUNT -eq 1 ]; then
-    echo "⚠️ WARNING: Solo 1 GPU operativa - continuiamo ma performance limitate"
+    echo "⚠️ WARNING: Solo 1 GPU operativa - continuiamo con performance ridotte"
+    echo "🎯 Sistema degradato ma funzionale"
+    
+elif [ $HEALTHY_COUNT -eq 2 ]; then
+    echo "⚠️ WARNING: Solo 2 GPU operative - performance parziali"
+    echo "🎯 Sistema accettabile per testing"
+elif [ $HEALTHY_COUNT -eq 3 ]; then
+    echo "⚠️ WARNING: Solo 3 GPU operative - performance parziali"
+    echo "🎯 Sistema quasi PRODUCTION"
+    
 else
-    echo "✅ Sistema accettabile: $HEALTHY_COUNT GPU operative"
+    echo "✅ Sistema OTTIMO: $HEALTHY_COUNT GPU operative"
 fi
 
 # Salva configurazione per Python
@@ -428,15 +448,15 @@ trap cleanup EXIT
 check_instance_health() {
     local port=$1
     local gpu_id=$2
-    local max_attempts=30      # ✅ AUMENTATO: da 15 a 30 tentativi
-    local wait_time=15         # ✅ AUMENTATO: da 8s a 15s tra tentativi
+    local max_attempts=20      # Ridotto per primo test
+    local wait_time=10         # 10 secondi tra tentativi
     
-    echo "🔍 Health check SUPER-ROBUSTO GPU $gpu_id (porta $port)..."
+    echo "🔍 Health check GPU $gpu_id (porta $port)..."
     
-    # ✅ GPU 0 ha timeout ancora più esteso
+    # GPU 0 ha timeout esteso (è la master)
     if [ $gpu_id -eq 0 ]; then
-        max_attempts=50        # 50 tentativi per GPU master
-        echo "👑 GPU $gpu_id MASTER - timeout esteso (50 tentativi)"
+        max_attempts=30
+        echo "👑 GPU $gpu_id MASTER - timeout esteso (30 tentativi)"
     fi
     
     for i in $(seq 1 $max_attempts); do
@@ -452,61 +472,54 @@ check_instance_health() {
             return 1
         fi
         
-        # Test 2: Connection test con timeout lungo
+        # Test 2: Connection test con timeout
         echo "   🌐 Test connessione..."
-        if ! timeout 30s curl -s --connect-timeout 10 --max-time 30 \
+        if timeout 20s curl -s --connect-timeout 5 --max-time 20 \
              "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
+            echo "   ✅ Connessione OK, test funzionalità..."
+            
+            # Test 3: Mini-inference test
+            local test_response=$(timeout 60s curl -s --connect-timeout 10 --max-time 60 \
+                -X POST "http://127.0.0.1:$port/api/generate" \
+                -H "Content-Type: application/json" \
+                -d '{
+                    "model":"mixtral:8x7b",
+                    "prompt":"Test",
+                    "stream":false,
+                    "options":{
+                        "num_predict":1,
+                        "temperature":0,
+                        "num_ctx":512
+                    }
+                }' 2>/dev/null)
+            
+            # Verifica risposta valida
+            if echo "$test_response" | grep -q '"done":true' && \
+               echo "$test_response" | grep -q '"response"'; then
+                echo "   ✅ GPU $gpu_id COMPLETAMENTE OPERATIVA dopo $i tentativi"
+                return 0
+            fi
+            
+            echo "   ⚠️ Test inference fallito, risposta parziale: $(echo "$test_response" | head -c 100)..."
+        else
             echo "   ⏳ Connessione non pronta, attesa ${wait_time}s..."
-            sleep $wait_time
-            continue
         fi
         
-        echo "   ✅ Connessione OK, test funzionalità..."
-        
-        # Test 3: Mini-inference con timeout molto lungo
-        local test_response=$(timeout 120s curl -s --connect-timeout 15 --max-time 120 \
-            -X POST "http://127.0.0.1:$port/api/generate" \
-            -H "Content-Type: application/json" \
-            -d '{
-                "model":"mixtral:8x7b",
-                "prompt":"Test",
-                "stream":false,
-                "options":{
-                    "num_predict":1,
-                    "temperature":0,
-                    "num_ctx":512
-                }
-            }' 2>/dev/null)
-        
-        # Verifica risposta valida
-        if echo "$test_response" | grep -q '"done":true' && \
-           echo "$test_response" | grep -q '"response"'; then
-            echo "   ✅ GPU $gpu_id COMPLETAMENTE OPERATIVA dopo $i tentativi"
-            return 0
-        fi
-        
-        echo "   ⚠️ Test inference fallito, risposta: $(echo "$test_response" | head -c 100)..."
-        
-        # Log diagnostico ogni 10 tentativi
-        if [ $((i % 10)) -eq 0 ]; then
+        # Log diagnostico ogni 5 tentativi
+        if [ $((i % 5)) -eq 0 ]; then
             echo "   📊 Diagnostica tentativo $i:"
-            echo "   🔍 Processo attivo: $(kill -0 $pid 2>/dev/null && echo 'SI' || echo 'NO')"
-            echo "   🔍 Porta in ascolto: $(netstat -tuln 2>/dev/null | grep ":$port " | head -1 || echo 'NO')"
-            echo "   🔍 Ultime 3 righe log:"
-            tail -3 "ollama_gpu${gpu_id}.log" 2>/dev/null | sed 's/^/        /' || echo "        Log non disponibile"
+            echo "   🔍 Processo: $(kill -0 $pid 2>/dev/null && echo 'ATTIVO' || echo 'MORTO')"
+            echo "   🔍 Porta: $(netstat -tuln 2>/dev/null | grep ":$port " | wc -l) listener(s)"
+            echo "   🔍 Log recenti:"
+            tail -2 "ollama_gpu${gpu_id}.log" 2>/dev/null | sed 's/^/        /' || echo "        Log non disponibile"
         fi
         
         sleep $wait_time
     done
     
     echo "   ❌ GPU $gpu_id FALLITA dopo $max_attempts tentativi"
-    echo "   🔍 Diagnostica finale:"
-    echo "   📄 Log completo GPU $gpu_id (ultime 20 righe):"
-    tail -20 "ollama_gpu${gpu_id}.log" 2>/dev/null | sed 's/^/     /' || echo "     Log non disponibile"
-    
     return 1
 }
-
 
 # === PREPARAZIONE MODELLO SEQUENZIALE ===
 echo ""
@@ -514,34 +527,67 @@ echo "📥 Preparazione modello con prevenzione contention..."
 
 MODEL_NAME="mixtral:8x7b"
 
-# Verifica modello disponibile
+# ⚠️ PUNTO CRITICO: Verifica che il modello esista
 echo "🔍 Verifica modello $MODEL_NAME..."
-MODELS_RESPONSE=$(timeout 45s curl -s "http://127.0.0.1:$OLLAMA_PORT1/api/tags" || echo '{"models":[]}')
 
+# Usa GPU 0 (master) per check modello
+MODELS_RESPONSE=""
+MODEL_CHECK_SUCCESS=false
+
+# Prova con tutte le porte finché una non risponde
+for port in $OLLAMA_PORT1 $OLLAMA_PORT2 $OLLAMA_PORT3 $OLLAMA_PORT4; do
+    echo "🔍 Tentativo check modello su porta $port..."
+    MODELS_RESPONSE=$(timeout 30s curl -s "http://127.0.0.1:$port/api/tags" 2>/dev/null || echo '{"models":[]}')
+    
+    if echo "$MODELS_RESPONSE" | grep -q '"models"'; then
+        MODEL_CHECK_SUCCESS=true
+        echo "✅ Connessione modello OK su porta $port"
+        break
+    else
+        echo "⚠️ Porta $port non risponde per check modello"
+    fi
+done
+
+if [ "$MODEL_CHECK_SUCCESS" = "false" ]; then
+    echo "❌ ERRORE: Impossibile verificare modelli su nessuna porta"
+    echo "🔍 Response sample: $MODELS_RESPONSE"
+    echo "Probabilmente Ollama non è ancora pronto per servire richieste"
+    exit 1
+fi
+
+# Parse del JSON per verificare presenza modello
 MODEL_EXISTS=$(echo "$MODELS_RESPONSE" | python3 -c "
 import json, sys
 try:
     data = json.load(sys.stdin)
     models = [m.get('name', '') for m in data.get('models', [])]
     print('true' if '$MODEL_NAME' in models else 'false')
-except:
+except Exception as e:
     print('false')
 " 2>/dev/null)
 
+echo "🔍 Risultato check modello: MODEL_EXISTS='$MODEL_EXISTS'"
+
 if [ "$MODEL_EXISTS" != "true" ]; then
-    echo "📥 Download modello $MODEL_NAME..."
-    if timeout 2400s CUDA_VISIBLE_DEVICES=0 $OLLAMA_BIN pull $MODEL_NAME; then
-        echo "✅ Modello scaricato"
+    echo "🔥 DOWNLOAD modello $MODEL_NAME (questo può richiedere 20-40 minuti)..."
+    echo "📊 Modello Mixtral:8x7b = ~26GB download"
+    
+    # Usa solo GPU 0 per download per evitare conflitti
+    if timeout 3600s CUDA_VISIBLE_DEVICES=0 \
+       OLLAMA_MODELS="$WORK/.ollama/models" \
+       $OLLAMA_BIN pull $MODEL_NAME; then
+        echo "✅ Modello scaricato con successo"
     else
-        echo "❌ Download fallito - abort"
+        echo "❌ Download fallito dopo 60 minuti - abort"
+        echo "🔍 Possibili cause:"
+        echo "  • Connessione internet instabile"
+        echo "  • Spazio disco insufficiente su $WORK"
+        echo "  • Timeout download (modello molto grande)"
         exit 1
     fi
 else
-    echo "✅ Modello già presente"
+    echo "✅ Modello $MODEL_NAME già presente"
 fi
-
-# Pre-caricamento SEQUENZIALE per evitare contention
-echo "🔥 Pre-caricamento sequenziale anti-contention..."
 
 preload_gpu_sequential() {
     local port=$1
