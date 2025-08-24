@@ -34,16 +34,20 @@ class Config:
     
     # HPC optimization parameters
     MAX_CONCURRENT_REQUESTS = 4  # 4 GPUs × 1 requests per GPU
-    REQUEST_TIMEOUT = 180  # Seconds for complex inference
+    REQUEST_TIMEOUT = 300  # Seconds for complex inference
     BATCH_SAVE_INTERVAL = 500  # Save results every N cards
     HEALTH_CHECK_INTERVAL = 600  # Check host health every N seconds
     
     # Retry and failure handling
-    MAX_RETRIES_PER_REQUEST = 5
-    MAX_CONSECUTIVE_FAILURES = 20
+    MAX_RETRIES_PER_REQUEST = 10
+    MAX_CONSECUTIVE_FAILURES = 50
     BACKOFF_BASE = 2
-    BACKOFF_MAX = 60
-    CIRCUIT_BREAKER_THRESHOLD = 50
+    BACKOFF_MAX = 120
+    CIRCUIT_BREAKER_THRESHOLD = 100
+    
+    # 503 specific handling
+    RETRY_ON_503_WAIT = 60  # ✅ NUOVO: attesa specifica per 503
+    MAX_503_RETRIES = 20    # ✅ NUOVO: retry dedicati per 503
     
     # Anchor rule for POI selection
     DEFAULT_ANCHOR_RULE = "penultimate"
@@ -473,23 +477,28 @@ class OllamaConnectionManager:
                 self.rate_limiter.release()
     
     def _make_request_with_retry(self, prompt: str, model: str) -> Optional[str]:
-        """Make request with exponential backoff retry logic"""
+        """Make request with exponential backoff retry logic and 503 handling"""
         
-        # Controllo health_monitor
         if self.health_monitor is None:
             logger.error("Health monitor not initialized")
             return None
+        
+        service_unavailable_count = 0  # ✅ NUOVO: counter per 503
         
         for attempt in range(1, Config.MAX_RETRIES_PER_REQUEST + 1):
             # Select best performing host
             host = self.health_monitor.get_best_host()
             if not host:
                 logger.error("No healthy hosts available")
-                # Try to re-check all hosts
                 for h in self.hosts:
                     self.health_monitor.check_health(h)
                 host = self.health_monitor.get_best_host()
                 if not host:
+                    # ✅ NUOVO: Se tutti gli host sono down, attendi e riprova
+                    if service_unavailable_count > 0:
+                        logger.warning(f"All hosts down after {service_unavailable_count} 503 errors, waiting 2 minutes...")
+                        time.sleep(120)
+                        continue
                     raise Exception("All hosts are down")
             
             try:
@@ -499,7 +508,7 @@ class OllamaConnectionManager:
                         logger.warning(f"Host {host} failed health check - retrying")
                         continue
                 
-                # Prepare optimized payload for A100 GPUs
+                # Prepare optimized payload
                 payload = {
                     "model": model,
                     "messages": [{"role": "user", "content": prompt}],
@@ -511,7 +520,8 @@ class OllamaConnectionManager:
                         "top_p": 0.9,
                         "num_thread": 32,     
                         "num_batch": 512,     
-                        "repeat_penalty": 1.1
+                        "repeat_penalty": 1.1,
+                        "seed": 42  # ✅ NUOVO: seed fisso per consistenza
                     }
                 }
                 
@@ -524,6 +534,21 @@ class OllamaConnectionManager:
                 )
                 response_time = time.time() - start_time
                 
+                # ✅ NUOVO: Gestione specifica per 503
+                if resp.status_code == 503:
+                    service_unavailable_count += 1
+                    logger.warning(f"503 Service Unavailable from {host} (count: {service_unavailable_count})")
+                    
+                    if service_unavailable_count <= Config.MAX_503_RETRIES:
+                        wait_time = Config.RETRY_ON_503_WAIT * min(service_unavailable_count, 5)
+                        logger.info(f"Waiting {wait_time}s for model to load...")
+                        time.sleep(wait_time)
+                        continue
+                    else:
+                        logger.error(f"Too many 503 errors ({service_unavailable_count})")
+                        self.health_monitor.health_status[host] = False
+                        continue
+                
                 resp.raise_for_status()
                 response_data = resp.json()
                 
@@ -533,14 +558,19 @@ class OllamaConnectionManager:
                 
                 content = response_data.get("message", {}).get("content", "")
                 if content:
-                    # Update success statistics
                     stats.increment_processed()
                     logger.debug(f"Got response from {host} in {response_time:.2f}s")
+                    service_unavailable_count = 0  # Reset 503 counter on success
                     return content
                     
             except requests.exceptions.Timeout:
                 logger.warning(f"Timeout on {host} (attempt {attempt})")
                 self.health_monitor.health_status[host] = False
+            except requests.exceptions.HTTPError as e:
+                if "503" not in str(e):  # Se non è 503, logga l'errore
+                    logger.error(f"HTTP Error on {host}: {e}")
+                self.health_monitor.health_status[host] = False
+                stats.increment_errors()
             except Exception as exc:
                 logger.error(f"Error on {host}: {exc}")
                 self.health_monitor.health_status[host] = False
@@ -1333,24 +1363,40 @@ class VisitFileProcessor:
         # Calculate optimal number of workers
         n_healthy_hosts = len(self.ollama_manager.health_monitor.get_healthy_hosts())
         if n_healthy_hosts >= 4:
-            optimal_workers = 6    # Era 8, ora 6
+            optimal_workers = 4    # ✅ Era 6, ora 4 (1 per GPU)
         elif n_healthy_hosts >= 3:
-            optimal_workers = 4    # Era 6, ora 4  
+            optimal_workers = 3    # ✅ Era 4, ora 3  
         elif n_healthy_hosts >= 2:
-            optimal_workers = 3    # Era 4, ora 3
+            optimal_workers = 2    # ✅ Era 3, ora 2
         else:
-            optimal_workers = 1    # GPU singola
+            optimal_workers = 1    
         
         logger.info(f"Using {optimal_workers} workers for {n_healthy_hosts} healthy hosts")
         
-        # ATTESA ESTESA per stabilizzazione
-        logger.info("Waiting 60s for models to FULLY stabilize...")  # Era 10s
-        time.sleep(60)  # CRITICO: Da 10s a 60s
+        # ✅ NUOVO: Attesa estesa per stabilizzazione completa
+        logger.info("Waiting 120s for models to FULLY stabilize...")
+        time.sleep(120)  # ✅ MODIFICATO: da 60s a 120s
         
-        logger.info(f"Using {optimal_workers} parallel workers")
-        
-        logger.info("Waiting 10s for models to stabilize...")
-        time.sleep(10)
+        # ✅ NUOVO: Test pre-processing per verificare che tutto sia OK
+        logger.info("Running pre-flight check on all hosts...")
+        for host in self.ollama_manager.hosts:
+            try:
+                test_resp = requests.post(
+                    f"{host}/api/chat",
+                    json={
+                        "model": Config.MODEL_NAME,
+                        "messages": [{"role": "user", "content": "test"}],
+                        "stream": False,
+                        "options": {"num_predict": 1, "temperature": 0}
+                    },
+                    timeout=60
+                )
+                if test_resp.status_code == 200:
+                    logger.info(f"✅ Pre-flight check passed for {host}")
+                else:
+                    logger.warning(f"⚠️ Pre-flight check failed for {host}: {test_resp.status_code}")
+            except Exception as e:
+                logger.warning(f"Pre-flight check error for {host}: {e}")
         
         # Process cards with thread pool
         with ThreadPoolExecutor(

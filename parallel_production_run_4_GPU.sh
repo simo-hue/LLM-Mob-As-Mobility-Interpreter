@@ -147,9 +147,10 @@ export OLLAMA_CACHE_DIR="$WORK/.ollama/cache"
 export OLLAMA_NUM_PARALLEL=1              # Confermato: 1 richiesta per volta
 export OLLAMA_MAX_LOADED_MODELS=1         # Confermato: 1 modello per volta
 export OLLAMA_KEEP_ALIVE="4h"             # ✅ AUMENTATO: da 1h a 4h
-export OLLAMA_LOAD_TIMEOUT=3600           # ✅ AUMENTATO: da 20min a 60min !!!
-export OLLAMA_REQUEST_TIMEOUT=600         # ✅ AUMENTATO: da 5min a 10min
+export OLLAMA_LOAD_TIMEOUT=7200           # ✅ AUMENTATO: 2 ore !!!
+export OLLAMA_REQUEST_TIMEOUT=1200         # ✅ AUMENTATO: da 5min a 20min
 export OLLAMA_MAX_QUEUE=1                 # ✅ RIDOTTO: da 2 a 1 (più conservativo)
+export OLLAMA_SERVER_TIMEOUT=7200         # ✅ NUOVO: timeout server 2 ore
 
 # 🎯 CONFIGURAZIONI A100-SPECIFIC POTENZIATE
 export OLLAMA_MAX_VRAM_USAGE=0.85         # ✅ AUMENTATO: da 75% a 85%
@@ -562,55 +563,69 @@ echo "⏳ Può richiedere 3-10 minuti ma è ESSENZIALE per evitare errori 503"
 real_warmup_test() {
     local port=$1
     local gpu_id=$2
-    local max_attempts=8  # 8 tentativi × 45s = 6 minuti max
+    local max_attempts=15  # AUMENTATO da 8 a 15
     
     echo "🎯 TEST REALE GPU $gpu_id (porta $port)..."
     
+    # PRIMA: Test leggero per verificare che il servizio risponda
+    echo "   📡 Pre-test connettività..."
+    for i in {1..10}; do
+        if timeout 5s curl -s "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
+            echo "   ✅ Servizio risponde, procedo con test inferenza"
+            break
+        fi
+        echo "   ⏳ Servizio non pronto, attesa 10s (tentativo $i/10)..."
+        sleep 10
+    done
+    
+    # POI: Test inferenza reale progressivo
     for attempt in $(seq 1 $max_attempts); do
         echo "   🔄 Tentativo $attempt/$max_attempts (test reale inferenza)..."
         
-        # Test REALE con inferenza significativa
-        local test_response=$(timeout 150s curl -s -X POST \
+        # CRITICO: Timeout MOLTO più lungo per prima inferenza
+        local timeout_val=300  # 5 minuti per la prima inferenza
+        if [ $attempt -gt 1 ]; then
+            timeout_val=180  # 3 minuti per tentativi successivi
+        fi
+        
+        local test_response=$(timeout ${timeout_val}s curl -s -X POST \
             "http://127.0.0.1:$port/api/chat" \
             -H "Content-Type: application/json" \
             -d '{
                 "model":"'$MODEL_NAME'",
-                "messages":[{"role":"user","content":"Generate a short travel recommendation for Verona, Italy. Be concise."}],
+                "messages":[{"role":"user","content":"Hi, respond with one word"}],
                 "stream":false,
                 "options":{
-                    "num_ctx":2048,
-                    "num_predict":15,
+                    "num_ctx":512,
+                    "num_predict":1,
                     "temperature":0.1,
-                    "top_p":0.9
+                    "seed":42
                 }
             }' 2>&1)
         
-        # Verifica risposta REALE e significativa
-        if echo "$test_response" | grep -q '"done":true' && \
-           echo "$test_response" | grep -q '"response"'; then
-            
-            local response_text=$(echo "$test_response" | jq -r '.response' 2>/dev/null || echo "")
-            local response_length=${#response_text}
-            
-            if [ $response_length -gt 10 ]; then
-                echo "   ✅ GPU $gpu_id REALMENTE OPERATIVA!"
-                echo "   📝 Risposta sample (${response_length} chars): ${response_text:0:80}..."
-                return 0
-            else
-                echo "   ⚠️ Risposta troppo breve ($response_length chars), modello non completamente caricato"
-            fi
-        else
-            echo "   ❌ Test fallito o risposta invalida"
-            if [ $attempt -eq 1 ]; then
-                echo "   📊 Prima risposta: $(echo "$test_response" | head -c 200)..."
-            fi
+        # Controlla se c'è un errore 503
+        if echo "$test_response" | grep -q "503 Service Unavailable"; then
+            echo "   ⚠️ Modello ancora in caricamento (503), attesa 60s..."
+            sleep 60
+            continue
         fi
         
-        echo "   ⏳ Attesa 45s (caricamento modello in corso)..."
-        sleep 45
+        # Verifica risposta valida
+        if echo "$test_response" | grep -q '"done":true' && \
+           echo "$test_response" | grep -q '"content"'; then
+            echo "   ✅ GPU $gpu_id REALMENTE OPERATIVA!"
+            return 0
+        else
+            echo "   ❌ Test fallito, risposta: ${test_response:0:100}..."
+        fi
+        
+        # Attesa progressiva
+        local wait_time=$((30 + attempt * 10))  # 40s, 50s, 60s...
+        echo "   ⏳ Attesa ${wait_time}s prima del prossimo tentativo..."
+        sleep $wait_time
     done
     
-    echo "   ❌ GPU $gpu_id: Fallita dopo $max_attempts tentativi ($(($max_attempts * 45))s)"
+    echo "   ❌ GPU $gpu_id: Fallita dopo $max_attempts tentativi"
     return 1
 }
 
