@@ -1,0 +1,94 @@
+2025-08-24 21:15:27 [INFO] Initializing Ollama connection manager...
+2025-08-24 21:15:27 [WARNING] HostHealthMonitor initialized with empty host list
+2025-08-24 21:15:27 [INFO] Setting up connections...
+2025-08-24 21:15:27 [INFO] Multi-GPU configuration: 4 instances
+2025-08-24 21:15:27 [INFO] Initialized with 4 hosts
+2025-08-24 21:15:27 [INFO] Waiting for Ollama services to start...
+2025-08-24 21:15:27 [INFO] Checking host 1/4: http://127.0.0.1:39001
+2025-08-24 21:15:27 [INFO] Host http://127.0.0.1:39001 is ready
+2025-08-24 21:15:27 [INFO] Checking host 2/4: http://127.0.0.1:39002
+2025-08-24 21:15:27 [INFO] Host http://127.0.0.1:39002 is ready
+2025-08-24 21:15:27 [INFO] Checking host 3/4: http://127.0.0.1:39003
+2025-08-24 21:15:27 [INFO] Host http://127.0.0.1:39003 is ready
+2025-08-24 21:15:27 [INFO] Checking host 4/4: http://127.0.0.1:39004
+2025-08-24 21:15:27 [INFO] Host http://127.0.0.1:39004 is ready
+2025-08-24 21:15:27 [INFO] All Ollama services are ready!
+2025-08-24 21:15:27 [INFO] Loaded 5150 completed cards from checkpoint
+2025-08-24 21:15:27 [INFO] File veronacard_2022_original has 5150 completed cards
+2025-08-24 21:15:27 [INFO] Processing veronacard_2022_original.csv
+2025-08-24 21:15:27 [INFO] Loaded 5150 completed cards from checkpoint
+2025-08-24 21:15:27 [INFO] Loading and preprocessing data...
+2025-08-24 21:15:27 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-24 21:15:29 [INFO] Loaded 382346 visits from veronacard_2022_original.csv
+2025-08-24 21:15:29 [INFO] Valid visits after merge: 381361
+2025-08-24 21:15:29 [INFO] Multi-visit cards: 84988 / 89775
+2025-08-24 21:15:29 [INFO] Performing user clustering...
+2025-08-24 21:15:36 [INFO] Processing 67754 cards
+2025-08-24 21:15:36 [INFO] Using 4 workers for 4 healthy hosts
+2025-08-24 21:15:36 [INFO] Waiting 120s for models to FULLY stabilize...
+2025-08-24 21:17:36 [INFO] Running pre-flight check on all hosts...
+2025-08-24 21:17:49 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39001
+2025-08-24 21:17:52 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39002
+2025-08-24 21:17:59 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39003
+2025-08-24 21:18:03 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39004
+2025-08-24 21:18:37 [WARNING] Invalid JSON response for 0461C34A216281
+2025-08-24 21:25:12 [WARNING] Invalid JSON response for 046A38121B6780
+2025-08-24 21:25:29 [WARNING] Invalid JSON response for 046AC34A216281
+2025-08-24 21:25:53 [ERROR] Error on http://127.0.0.1:39001: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-08-24 21:25:53 [ERROR] Error on http://127.0.0.1:39001: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-08-24 21:25:53 [ERROR] Error on http://127.0.0.1:39001: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-08-24 21:25:53 [ERROR] Error on http://127.0.0.1:39001: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39002: HTTPConnectionPool(host='127.0.0.1', port=39002): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e5c04e2790>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39002: HTTPConnectionPool(host='127.0.0.1', port=39002): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e52099bcd0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Host http://127.0.0.1:39002 failed health check - retrying
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39002: HTTPConnectionPool(host='127.0.0.1', port=39002): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e5c2a6b190>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39002: HTTPConnectionPool(host='127.0.0.1', port=39002): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e52099b250>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Host http://127.0.0.1:39002 failed health check - retrying
+2025-08-24 21:25:55 [WARNING] Host http://127.0.0.1:39002 failed health check - retrying
+2025-08-24 21:25:55 [WARNING] Host http://127.0.0.1:39002 failed health check - retrying
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39003: HTTPConnectionPool(host='127.0.0.1', port=39003): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e5c050b110>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Host http://127.0.0.1:39003 failed health check - retrying
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39003: HTTPConnectionPool(host='127.0.0.1', port=39003): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e5c04f7d10>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Host http://127.0.0.1:39003 failed health check - retrying
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39003: HTTPConnectionPool(host='127.0.0.1', port=39003): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e52099b310>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39003: HTTPConnectionPool(host='127.0.0.1', port=39003): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e520705450>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Host http://127.0.0.1:39003 failed health check - retrying
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39004: HTTPConnectionPool(host='127.0.0.1', port=39004): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e520705e90>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Host http://127.0.0.1:39003 failed health check - retrying
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39004: HTTPConnectionPool(host='127.0.0.1', port=39004): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e5b8bb6ad0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Host http://127.0.0.1:39004 failed health check - retrying
+2025-08-24 21:25:55 [WARNING] Non ci sono healthy hosts, provo il recovery...
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39004: HTTPConnectionPool(host='127.0.0.1', port=39004): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e5c04e9310>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Host http://127.0.0.1:39004 failed health check - retrying
+2025-08-24 21:25:55 [WARNING] Non ci sono healthy hosts, provo il recovery...
+2025-08-24 21:25:55 [WARNING] Host http://127.0.0.1:39004 failed health check - retrying
+2025-08-24 21:25:55 [WARNING] Non ci sono healthy hosts, provo il recovery...
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e5c04f1310>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Non ci sono healthy hosts, provo il recovery...
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e5c04e0890>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e5209890d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39002: HTTPConnectionPool(host='127.0.0.1', port=39002): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e52099bdd0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39002: HTTPConnectionPool(host='127.0.0.1', port=39002): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e520999f10>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e5c04f1050>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39002: HTTPConnectionPool(host='127.0.0.1', port=39002): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e520959e50>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39003: HTTPConnectionPool(host='127.0.0.1', port=39003): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e520706090>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39002: HTTPConnectionPool(host='127.0.0.1', port=39002): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e52070dcd0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39003: HTTPConnectionPool(host='127.0.0.1', port=39003): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e52070cbd0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39004: HTTPConnectionPool(host='127.0.0.1', port=39004): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e529217a90>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39003: HTTPConnectionPool(host='127.0.0.1', port=39003): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e5bf9a0690>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39003: HTTPConnectionPool(host='127.0.0.1', port=39003): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e520998690>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [ERROR] No hosts could be recovered
+2025-08-24 21:25:55 [ERROR] No healthy hosts available
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39004: HTTPConnectionPool(host='127.0.0.1', port=39004): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e520977b50>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39004: HTTPConnectionPool(host='127.0.0.1', port=39004): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e52070f5d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [ERROR] No hosts could be recovered
+2025-08-24 21:25:55 [ERROR] No hosts could be recovered
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39004: HTTPConnectionPool(host='127.0.0.1', port=39004): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e52071a5d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [ERROR] No healthy hosts available
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e520989190>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [ERROR] No healthy hosts available
+2025-08-24 21:25:55 [ERROR] No hosts could be recovered
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e520707690>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [ERROR] No healthy hosts available
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39002: HTTPConnectionPool(host='127.0.0.1', port=39002): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e52099aed0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-08-24 21:25:55 [WARNING] Health check failed for http://127.0.0.1:39001: HTTPConnectionPool(host='127.0.0.1', port=39001): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14e52070e4d0>: Failed to establish a new connection: [Errno 111] Connection refused'))

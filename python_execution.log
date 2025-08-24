@@ -1,0 +1,37 @@
+2025-08-24 21:15:27 [INFO] Initializing Ollama connection manager...
+2025-08-24 21:15:27 [WARNING] HostHealthMonitor initialized with empty host list
+2025-08-24 21:15:27 [INFO] Setting up connections...
+2025-08-24 21:15:27 [INFO] Multi-GPU configuration: 4 instances
+2025-08-24 21:15:27 [INFO] Initialized with 4 hosts
+2025-08-24 21:15:27 [INFO] Waiting for Ollama services to start...
+2025-08-24 21:15:27 [INFO] Checking host 1/4: http://127.0.0.1:39001
+2025-08-24 21:15:27 [INFO] Host http://127.0.0.1:39001 is ready
+2025-08-24 21:15:27 [INFO] Checking host 2/4: http://127.0.0.1:39002
+2025-08-24 21:15:27 [INFO] Host http://127.0.0.1:39002 is ready
+2025-08-24 21:15:27 [INFO] Checking host 3/4: http://127.0.0.1:39003
+2025-08-24 21:15:27 [INFO] Host http://127.0.0.1:39003 is ready
+2025-08-24 21:15:27 [INFO] Checking host 4/4: http://127.0.0.1:39004
+2025-08-24 21:15:27 [INFO] Host http://127.0.0.1:39004 is ready
+2025-08-24 21:15:27 [INFO] All Ollama services are ready!
+2025-08-24 21:15:27 [INFO] Loaded 5150 completed cards from checkpoint
+2025-08-24 21:15:27 [INFO] File veronacard_2022_original has 5150 completed cards
+2025-08-24 21:15:27 [INFO] Processing veronacard_2022_original.csv
+2025-08-24 21:15:27 [INFO] Loaded 5150 completed cards from checkpoint
+2025-08-24 21:15:27 [INFO] Loading and preprocessing data...
+2025-08-24 21:15:27 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-24 21:15:29 [INFO] Loaded 382346 visits from veronacard_2022_original.csv
+2025-08-24 21:15:29 [INFO] Valid visits after merge: 381361
+2025-08-24 21:15:29 [INFO] Multi-visit cards: 84988 / 89775
+2025-08-24 21:15:29 [INFO] Performing user clustering...
+2025-08-24 21:15:36 [INFO] Processing 67754 cards
+2025-08-24 21:15:36 [INFO] Using 4 workers for 4 healthy hosts
+2025-08-24 21:15:36 [INFO] Waiting 120s for models to FULLY stabilize...
+2025-08-24 21:17:36 [INFO] Running pre-flight check on all hosts...
+2025-08-24 21:17:49 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39001
+2025-08-24 21:17:52 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39002
+2025-08-24 21:17:59 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39003
+2025-08-24 21:18:03 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39004
+
+Processing cards:   0%|          | 0/67754 [00:00<?, ?card/s]
+Processing cards:   0%|          | 1/67754 [00:02<56:19:44,  2.99s/card]
+Processing cards:   0%|          | 33/67754 [00:31<16:49:55,  1.12card/s]2025-08-24 21:18:37 [WARNING] Invalid JSON response for 0461C34A216281
