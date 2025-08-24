@@ -1,6 +1,6 @@
-\section{Risultati e analisi}
+\chapter{Risultati e analisi}
 
-\subsection{Metriche di valutazione}
+\section{Metriche di valutazione}
 
 Per valutare le prestazioni del nostro framework di predizione basato su LLM, utilizziamo quattro metriche standard nel campo della raccomandazione sequenziale:
 
@@ -13,7 +13,7 @@ Per valutare le prestazioni del nostro framework di predizione basato su LLM, ut
 
 dove $y_i$ è il vero next-POI, $\hat{y}_i^{(j)}$ sono le predizioni ordinate per ranking, e $\mathcal{P}$ è l'insieme completo dei POI nel ground-truth.
 
-\subsection{Prestazioni complessive del sistema}
+\section{Prestazioni complessive del sistema}
 
 L'analisi delle prestazioni su tutto il dataset (2014-2023) rivela risultati promettenti per l'applicazione di LLM nella predizione di traiettorie turistiche:
 
@@ -33,7 +33,7 @@ Catalogue Coverage & XX.X\% \\
 \end{tabular}
 \end{table}
 
-\subsection{Confronto delle prestazioni tra diversi tipi di contesto}
+\section{Confronto delle prestazioni tra diversi tipi di contesto}
 
 L'analisi comparativa dei diversi tipi di informazione contestuale dimostra l'importanza dell'arricchimento progressivo del contesto fornito al modello linguistico:
 
@@ -52,6 +52,8 @@ Nomi POI + Geografia + Temporale & XX.X\% & XX.X\% & XX.X\% \\
 \end{tabular}
 \end{table}
 
+\section{Analisi Contestuale}
+
 \subsection{Variazioni temporali delle prestazioni}
 
 L'analisi delle prestazioni per anno (2016-2020) rivela interessanti pattern di stabilità e variazione nel comportamento del modello:
@@ -59,8 +61,8 @@ L'analisi delle prestazioni per anno (2016-2020) rivela interessanti pattern di 
 \begin{figure}[H]
 \centering
 % \includegraphics[width=0.8\textwidth]{performance_by_year.png}
-\caption{Evoluzione delle metriche di performance per anno (2016-2020)}
-\label{fig:performance_by_year}
+%\caption{Evoluzione delle metriche di performance per anno (2016-2020)}
+%\label{fig:performance_by_year}
 \end{figure}
 
 Le variazioni annuali possono essere attribuite a diversi fattori, inclusi cambiamenti nei pattern di visita turistica, variazioni nella composizione demografica dei visitatori, e possibili eventi esterni che influenzano il comportamento turistico.
@@ -69,11 +71,11 @@ Le variazioni annuali possono essere attribuite a diversi fattori, inclusi cambi
 
 L'integrazione delle informazioni geografiche rappresenta un contributo significativo alle prestazioni del framework. L'analisi rivela diverse intuizioni chiave:
 
-\subsubsection{Predizioni basate sulla prossimità spaziale}
+\subsection{Predizioni basate sulla prossimità spaziale}
 
 L'inclusione di coordinate geografiche e calcoli delle distanze consente al LLM di effettuare predizioni più accurate basate sulla prossimità spaziale. I turisti mostrano tipicamente una preferenza per le attrazioni vicine, e il nostro contesto geografico permette al modello di catturare efficacemente questi pattern comportamentali.
 
-\subsubsection{Clustering spaziale nel comportamento turistico}
+\subsection{Clustering spaziale nel comportamento turistico}
 
 Osserviamo distinti pattern di clustering spaziale nel comportamento dei turisti, con alcune combinazioni di POI che mostrano tassi di co-occorrenza più elevati. Il contesto geografico aiuta il LLM a identificare questi pattern e a formulare predizioni in linea con i tipici comportamenti di mobilità turistica a Verona.
 
@@ -88,11 +90,11 @@ Osserviamo distinti pattern di clustering spaziale nel comportamento dei turisti
 
 L'integrazione di informazioni temporali fornisce un contesto aggiuntivo che migliora significativamente l'accuratezza delle predizioni:
 
-\subsubsection{Effetti dell'ora del giorno}
+\subsection{Effetti dell'ora del giorno}
 
 La nostra analisi rivela che i pattern di visita variano significativamente in base all'ora del giorno, con alcuni POI più popolari in periodi specifici. Il contesto temporale consente all'LLM di catturare questi pattern sfumati e di adattare le predizioni di conseguenza.
 
-\subsubsection{Variazioni stagionali}
+\subsection{Variazioni stagionali}
 
 Il dataset pluriennale ci permette di analizzare gli effetti stagionali sul comportamento dei turisti, rivelando preferenze per determinate attrazioni durante diversi periodi dell'anno. Questi pattern stagionali sono particolarmente evidenti per POI outdoor versus indoor e per attrazioni culturali versus ricreative.
 
@@ -103,15 +105,15 @@ Il dataset pluriennale ci permette di analizzare gli effetti stagionali sul comp
 \label{fig:temporal_analysis}
 \end{figure}
 
-\subsection{Analisi degli errori e limitazioni del modello}
+\section{Analisi degli errori e limitazioni del modello}
 
 Per comprendere meglio le limitazioni del nostro approccio, conduciamo un'analisi dettagliata degli errori di predizione:
 
-\subsubsection{Coppie POI problematiche}
+\subsection{Coppie POI problematiche}
 
 L'analisi delle coppie ground-truth → predizione che generano il maggior numero di errori rivela pattern sistematici di confusione tra POI simili o geograficamente vicini. Questo suggerisce aree di miglioramento nella codifica del contesto semantico e spaziale.
 
-\subsubsection{Matrice di confusione per POI frequenti}
+\subsection{Matrice di confusione per POI frequenti}
 
 L'analisi della matrice di confusione per i 20 POI più visitati mostra che il modello tende a predire correttamente le destinazioni più popolari, ma ha difficoltà con POI meno frequenti o di nicchia.
 
@@ -122,7 +124,7 @@ L'analisi della matrice di confusione per i 20 POI più visitati mostra che il m
 \label{fig:confusion_matrix}
 \end{figure}
 
-\subsubsection{Analisi di explainability}
+\subsection{Analisi di explainability}
 
 Utilizzando tecniche di interpretabilità come LIME, analizziamo quali elementi testuali nella storia dei visitatori influenzano maggiormente le predizioni del modello. Questa analisi rivela che il modello si basa principalmente su:
 \begin{itemize}
@@ -131,35 +133,7 @@ Utilizzando tecniche di interpretabilità come LIME, analizziamo quali elementi 
 \item Riferimenti geografici e di prossimità spaziale
 \end{itemize}
 
-\subsection{Analisi del comportamento basata sui cluster}
-
-L'approccio di clustering K-means applicato ai dati di mobilità rivela profili turistici distinti che influenzano significativamente i modelli di spostamento:
-
-\subsubsection{Cluster 1: Turisti culturali}
-
-Questo cluster (XX\% del campione) mostra forti preferenze per siti culturali e storici, con pattern di spostamento altamente prevedibili tra attrazioni correlate come musei, chiese storiche e monumenti. L'accuratezza di predizione per questo cluster è significativamente superiore alla media (XX.X\% vs XX.X\%).
-
-\subsubsection{Cluster 2: Visitatori occasionali}
-
-Il secondo cluster (XX\% del campione) presenta pattern di visita più diversificati, suggerendo turisti con interessi vari e comportamento esplorativo. Questi visitatori mostrano una minore prevedibilità nei movimenti, risultando in un'accuratezza di predizione inferiore.
-
-\subsubsection{Cluster 3: Esploratori sistematici}
-
-Il terzo cluster (XX\% del campione) dimostra pattern di esplorazione sistematica, visitando attrazioni in prossimità geografica seguendo percorsi ottimizzati. Questo comportamento razionale facilita le predizioni accurate da parte del modello.
-
-\begin{figure}[H]
-\centering
-% \includegraphics[width=0.8\textwidth]{cluster_analysis.png}
-\caption{Caratteristiche dei cluster turistici e loro impatto sulla predizione di mobilità}
-\label{fig:cluster_analysis}
-\end{figure}
-
-\subsection{Copertura del catalogo e diversità delle raccomandazioni}
-
-L'analisi della copertura del catalogo mostra che il nostro sistema riesce a raccomandare XX POI distinti sui YY totali presenti nel ground-truth, raggiungendo una copertura del XX.X\%. Questo risultato indica una buona capacità del modello di diversificare le raccomandazioni evitando il bias verso le sole destinazioni più popolari.
-
-\subsection{Discussione e implicazioni}
+\section{Discussione e implicazioni}
 
 I risultati ottenuti dimostrano l'efficacia dell'utilizzo di Large Language Models per la predizione di traiettorie turistiche. L'approccio basato su contesto progressivo (POI names → Geografia → Temporale) mostra miglioramenti incrementali nelle prestazioni, validando l'importanza dell'arricchimento informativo.
-
 Le differenze di performance tra i diversi cluster di turisti suggeriscono la necessità di approcci personalizzati, mentre l'analisi degli errori identifica aree specifiche per futuri miglioramenti del sistema.
