@@ -1,14 +1,16 @@
-\section{Strategie di prompt e risultati sperimentali}
+\usepackage{subcaption}
+
+\chapter{Strategie di prompt e risultati sperimentali}
 
 L'efficacia dei Large Language Model (LLM) nella previsione del prossimo POI dipende fondamentalmente dalla progettazione di strategie di prompt consapevoli del contesto che codifichino efficacemente i modelli di mobilità spazio-temporale\end{itemize}
 
-\subsubsection{Configurazione sperimentale per analisi multi-modello}
+\subsection{Configurazione sperimentale per analisi multi-modello}
 
 La fase attuale di sviluppo utilizza LLaMA 3.1 8B come modello di riferimento per la validazione del framework e l'ottimizzazione dei protocolli sperimentali. Il sistema è progettato per supportare analisi comparative estese su diversi modelli LLM disponibili tramite Ollama, permettendo valutazioni sistematiche dell'impatto dell'architettura del modello sulle performance di predizione dei POI turistici.
 
 Il framework implementa standardizzazione dei parametri di inferenza e template di prompt per garantire confronti equi tra modelli, mentre mantiene flessibilità per ottimizzazioni specifiche per architettura quando necessarie. Il nostro framework sperimentale valuta sistematicamente tre distinti paradigmi di prompt, ognuno dei quali incorpora progressivamente ulteriori dimensioni contestuali per valutarne l'impatto sull'accuratezza della raccomandazione.
 
-\subsection{Architettura del sistema e configurazione sperimentale}
+\section{Architettura del sistema e configurazione sperimentale}
 
 Il sistema è implementato utilizzando l'infrastruttura Ollama per l'accesso a diversi modelli LLM, con configurazione iniziale su LLaMA 3.1 8B per la fase di sviluppo e test. L'architettura è progettata per supportare analisi comparative tra modelli diversi mantenendo consistenza nei protocolli sperimentali. Il framework implementa un'architettura ottimizzata per l'ambiente HPC che gestisce timeout GPU, retry intelligenti e checkpointing per elaborazioni a lungo termine. La pipeline implementa le seguenti componenti chiave:
 
@@ -19,58 +21,13 @@ Il sistema è implementato utilizzando l'infrastruttura Ollama per l'accesso a d
 \item \textbf{Ottimizzazioni per HPC:} Configurazione adattiva per GPU A100 con gestione della memoria VRAM e parametri di inferenza ottimizzati per diversi modelli
 \item \textbf{Validazione robusta delle risposte:} Parser JSON con gestione degli errori e validazione del contenuto delle predizioni, standardizzato per garantire comparabilità tra modelli diversi
 
-\subsection{Tassonomia delle strategie di prompt}
+\section{Tassonomia delle strategie di prompt}
 
 Definiamo tre strategie di prompt gerarchiche, ciascuna basata sulla precedente per valutare il contributo incrementale di diverse caratteristiche contestuali:
 
 \begin{enumerate}
 
 \item \textbf{Strategia di base (solo nome del POI):} L'approccio fondamentale fornisce al modello una sequenza ordinata cronologicamente di POI visitati in precedenza, rappresentati esclusivamente dai loro nomi canonici. Questa strategia funge da baseline, concentrandosi esclusivamente su pattern sequenziali senza ulteriori informazioni contestuali.
-
-\begin{figure}[H]
-\centering
-\textbf{Matrice di confusione - Strategia di base}\par
-\vspace{0.5em}
-\includegraphics[width=0.8\textwidth]{../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png}
-\caption{La matrice di confusione illustra i tassi di classificazione errata tra i 20 POI più visitati a Verona con la strategia di base. I colori più brillanti indicano una maggiore confusione. In particolare, Castelvecchio viene spesso erroneamente previsto come prossimo POI, a causa di forti bias sequenziali o di modelli di preferenze degli utenti.}
-\label{fig:baseline_confusion}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\textbf{MRR Distribution - Baseline Strategy}\par
-\vspace{0.5em}
-\includegraphics[width=0.8\textwidth]{../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png}
-\caption{Il grafico mostra la performance del Mean Reciprocal Rank (MRR) per anno, mostrando quanto bene il modello classifica il POI corretto. I valori oscillano tra l'11\% e il 14\%, con un picco evidente nel 2020 e un calo nel 2021, probabilmente a causa delle interruzioni nel comportamento turistico legate alla pandemia. La tendenza suggerisce una performance predittiva generalmente stabile nel tempo, con una varianza modesta.}
-\label{fig:baseline_mrr}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\textbf{Top-1 Accuracy - Baseline Strategy}\par
-\vspace{0.5em}
-\includegraphics[width=0.8\textwidth]{../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png}
-\caption{Punteggio di accuratezza Top-1 che indica la percentuale di volte in cui il POI corretto è stato la previsione migliore. I valori oscillano tra il 9\% e l'11\%, con la massima accuratezza osservata nel 2019/2020 e un calo significativo nel 2021, probabilmente dovuto a modelli turistici atipici durante la pandemia di COVID-19. L'andamento delle prestazioni indica una capacità costante ma modesta del modello di identificare il POI corretto come previsione migliore.}
-\label{fig:baseline_top1}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\textbf{Top-5 Hit Rate - Baseline Strategy}\par
-\vspace{0.5em}
-\includegraphics[width=0.8\textwidth]{../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png}
-\caption{Percentuale di previsioni in cui il POI corretto compare tra i primi 5 POI suggeriti. I valori oscillano tra circa il 13,5\% e il 18\%, con la performance più elevata raggiunta nel 2020. Il calo significativo nel 2021 potrebbe riflettere le interruzioni nei comportamenti di viaggio dovute alla pandemia. Nonostante questa anomalia, la tendenza generale indica che il modello include in modo affidabile il POI corretto tra le sue prime 5 raccomandazioni.}
-\label{fig:baseline_top5}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\textbf{Worst Performing POI Pairs - Baseline Strategy}\par
-\vspace{0.5em}
-\includegraphics[width=0.8\textwidth]{../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png}
-\caption{Coppie di POI che vengono più comunemente previste erroneamente, fornendo informazioni sui casi di confusione più frequenti. Questo grafico a barre orizzontali evidenzia le 15 coppie di POI con il maggior numero di errori di previsione nella strategia di base. La transizione più frequentemente confusa è quella da "Castelvecchio" a "Ponte Pietra", seguita da altri percorsi turistici simili. Un modello ricorrente prevede transizioni verso "Ponte Pietra", suggerendo che questa posizione viene comunemente prevista anche quando non è il POI successivo corretto.}
-\label{fig:baseline_worst_pairs}
-\end{figure}
 
 \item \textbf{Strategia geospaziale avanzata (nome + geolocalizzazione):} Questa strategia arricchisce ogni POI con coordinate geografiche precise e implementa un sistema di ranking basato sulla distanza di Haversine. Il prompt include una lista dei POI più vicini ordinata per distanza, limitata ai primi 10 risultati per ottimizzare la lunghezza del prompt e migliorare la qualità delle risposte.
 
@@ -89,54 +46,133 @@ Rispondi SOLO JSON: {"prediction": ["poi1", "poi2", ...],
 
 Il sistema calcola dinamicamente le distanze dal POI corrente e filtra automaticamente i POI già visitati, implementando vincoli di mobilità realistici con un raggio massimo di 2km per il centro storico di Verona.
 
-\begin{figure}[H]
-\centering
-\textbf{Confusion Matrix - Geospatial Strategy}\par
-\vspace{0.5em}
-\includegraphics[width=0.8\textwidth]{../../img/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png}
-\caption{Matrice di confusione che mostra le prestazioni di previsione quando sono incluse le coordinate spaziali.}
-\label{fig:geospatial_confusion}
-\end{figure}
+\item \textbf{Strategia spatio-temporale completa (nome + geolocalizzazione + tempo):} La strategia più avanzata integra informazioni temporali al contesto geospaziale, incorporando orari di visita, durata delle permanenze e pattern temporali dei cluster turistici. Questa strategia permette di catturare dinamiche comportamentali più sottili legate ai ritmi di visita e alle preferenze temporali specifiche per tipologia di turista.
 
-\begin{figure}[H]
-\centering
-\textbf{MRR Distribution - Baseline Strategy}\par
-\vspace{0.5em}
-\includegraphics[width=0.8\textwidth]{../../img/SPACE-GEO_n-1_come_current_POI/MRR.png}
-\caption{Il grafico mostra la performance del Mean Reciprocal Rank (MRR) per anno, mostrando quanto bene il modello classifica il POI corretto. I valori oscillano tra l'22\% e il 27\%, con un picco evidente nel 2021 e un calo nel 2021-2022, probabilmente a causa delle anomalie nel comportamento turistico legate alla pandemia. La tendenza suggerisce una performance predittiva generalmente stabile nel tempo, con una varianza modesta.}
-\label{fig:baseline_mrr}
-\end{figure}
+\begin{lstlisting}[language=text, caption=Esempio di Prompt Spatio-temporale]
+Turista cluster 3 a Verona.
+Visitati: Arena di Verona (09:30, 45min), Casa di Giulietta (10:45, 20min)
+Attuale: Castelvecchio (11:15)
+Ora corrente: 11:45
+POI Più Vicini: Ponte Pietra (0.8km), Duomo (1.2km), 
+Chiesa di Sant'Anastasia (1.4km), Piazza delle Erbe (1.1km)
 
-\begin{figure}[H]
-\centering
-\textbf{Top-1 Accuracy - Baseline Strategy}\par
-\vspace{0.5em}
-\includegraphics[width=0.8\textwidth]{../../img/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png}
-\caption{Punteggio di accuratezza Top-1 che indica la percentuale di volte in cui il POI corretto è stato la previsione migliore. I valori oscillano tra il 14\% e l'17.5\%, con la massima accuratezza osservata nel 2021. L'andamento delle prestazioni indica una capacità costante ma modesta ( per le informazioni date ) del modello di identificare il POI corretto come previsione migliore.}
-\label{fig:baseline_top1}
-\end{figure}
+Considerando l'orario (pre-pranzo), la durata tipica delle visite 
+del cluster 3, e i pattern temporali turistici a Verona, 
+suggerisci 5 POI più probabili per la prossima visita.
 
-\begin{figure}[H]
-\centering
-\textbf{Top-5 Hit Rate - Baseline Strategy}\par
-\vspace{0.5em}
-\includegraphics[width=0.8\textwidth]{../../img/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png}
-\caption{Percentuale di previsioni in cui il POI corretto compare tra i primi 5 POI suggeriti. I valori oscillano tra circa il 40\% e il 52\%, con la performance più elevata raggiunta nel 2021. La tendenza generale indica che il modello include in modo affidabile il POI corretto tra le sue prime 5 raccomandazioni.}
-\label{fig:baseline_top5}
-\end{figure}
+Rispondi SOLO JSON: {"prediction": ["poi1", "poi2", ...], 
+"reason": "breve spiegazione considerando fattori temporali"}
+\end{lstlisting}
 
-\begin{figure}[H]
-\centering
-\textbf{Worst Performing POI Pairs - Baseline Strategy}\par
-\vspace{0.5em}
-\includegraphics[width=0.8\textwidth]{../../img/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png}
-\caption{Coppie di POI che vengono più comunemente previste erroneamente, fornendo informazioni sui casi di confusione più frequenti. Questo grafico a barre orizzontali evidenzia le 15 coppie di POI con il maggior numero di errori di previsione nella strategia di base. La transizione più frequentemente confusa è quella da "Castelvecchio" a "Casa Giulietta", seguita da altri percorsi turistici simili.}
-\label{fig:baseline_worst_pairs}
-\end{figure}
+Questa strategia incorpora informazioni su orari di apertura/chiusura, picchi di affluenza, e preferenze temporali specifiche per cluster, permettendo raccomandazioni context-aware che considerano sia vincoli spaziali che temporali.
 
 \end{enumerate}
 
-\subsection{Protocollo sperimentale e meccanismi di ancoraggio}
+\subsection{Confronto dei risultati sperimentali}
+
+I risultati sperimentali mostrano un miglioramento progressivo delle performance quando si incorporano informazioni geospaziali e temporali. Di seguito vengono presentati i confronti diretti tra le tre strategie per evidenziare l'impatto incrementale dell'arricchimento contestuale:
+
+% CONFRONTO MATRICI DI CONFUSIONE
+\begin{figure}[htbp]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\textbf{Strategia di Base}\par
+\vspace{0.3em}
+\includegraphics[width=\textwidth]{../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\textbf{Strategia Geospaziale}\par
+\vspace{0.3em}
+\includegraphics[width=\textwidth]{../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png}
+\end{minipage}
+\caption{Confronto delle matrici di confusione. La strategia geospaziale (destra) mostra una migliore distribuzione delle predizioni rispetto alla strategia di base (sinistra), con minore concentrazione su singoli POI.}
+\label{fig:confusion_comparison}
+\end{figure}
+
+% CONFRONTO MRR
+\begin{figure}[htbp]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\textbf{MRR - Strategia di Base}\par
+\vspace{0.3em}
+\includegraphics[width=\textwidth]{../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\textbf{MRR - Strategia Geospaziale}\par
+\vspace{0.3em}
+\includegraphics[width=\textwidth]{../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/MRR.png}
+\end{minipage}
+\caption{Confronto del Mean Reciprocal Rank. La strategia geospaziale raggiunge valori MRR del 22-27\% rispetto all'11-14\% della strategia di base, indicando un miglioramento sostanziale nella qualità del ranking.}
+\label{fig:mrr_comparison}
+\end{figure}
+
+% CONFRONTO TOP-1 ACCURACY
+\begin{figure}[htbp]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\textbf{Top-1 Accuracy - Strategia di Base}\par
+\vspace{0.3em}
+\includegraphics[width=\textwidth]{../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\textbf{Top-1 Accuracy - Strategia Geospaziale}\par
+\vspace{0.3em}
+\includegraphics[width=\textwidth]{../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png}
+\end{minipage}
+\caption{Confronto dell'accuratezza Top-1. L'inclusione delle informazioni geospaziali migliora l'accuratezza dal 9-11\% al 14-17,5\%, con un incremento relativo di oltre il 50\%.}
+\label{fig:top1_comparison}
+\end{figure}
+
+% CONFRONTO TOP-5 HIT RATE
+\begin{figure}[htbp]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\textbf{Top-5 Hit Rate - Strategia di Base}\par
+\vspace{0.3em}
+\includegraphics[width=\textwidth]{../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\textbf{Top-5 Hit Rate - Strategia Geospaziale}\par
+\vspace{0.3em}
+\includegraphics[width=\textwidth]{../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png}
+\end{minipage}
+\caption{Confronto del Top-5 Hit Rate. La strategia geospaziale raggiunge il 40-52\% rispetto al 13,5-18\% della strategia di base, triplicando la probabilità di includere il POI corretto tra i primi 5 suggerimenti.}
+\label{fig:top5_comparison}
+\end{figure}
+
+% CONFRONTO WORST PERFORMING PAIRS
+\begin{figure}[htbp]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\textbf{Errori Frequenti - Strategia di Base}\par
+\vspace{0.3em}
+\includegraphics[width=\textwidth]{../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\textbf{Errori Frequenti - Strategia Geospaziale}\par
+\vspace{0.3em}
+\includegraphics[width=\textwidth]{../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png}
+\end{minipage}
+\caption{Confronto degli errori più frequenti. La strategia geospaziale modifica i pattern di confusione, passando dalla coppia Castelvecchio→Ponte Pietra (strategia di base) a Castelvecchio→Casa Giulietta, riflettendo una considerazione più sofisticata delle distanze geografiche.}
+\label{fig:errors_comparison}
+\end{figure}
+
+\section{Protocollo sperimentale e meccanismi di ancoraggio}
 
 La nostra valutazione adotta un approccio sistematico utilizzando il dataset VeronaCard, che fornisce tracciati completi della mobilità turistica su più anni (2014-2023). Il protocollo sperimentale incorpora i seguenti componenti innovativi:
 
@@ -168,7 +204,7 @@ Rispondi SOLO JSON: {"prediction": ["poi1", "poi2", ...],
 "reason": "breve spiegazione"}
 \end{lstlisting}
 
-\subsection{Metriche di valutazione e gestione della qualità}
+\section{Metriche di valutazione e gestione della qualità}
 
 Il nostro framework utilizza un quadro di valutazione completo che comprende molteplici parametri di qualità delle raccomandazioni, implementati con validazione robusta delle risposte LLM:
 
@@ -183,20 +219,8 @@ dove $y_i$ rappresenta il POI successivo basato sulla verità di base, $\hat{y}_
 
 Il sistema implementa inoltre validazione avanzata delle risposte JSON, gestendo casi edge come risposte malformate, timeout, e errori di parsing, garantendo robustezza nell'elaborazione di dataset su larga scala.
 
-\subsection{Implementazione e ottimizzazioni tecniche}
 
-L'architettura del sistema è progettata per gestire elaborazioni intensive su cluster HPC con supporto multi-modello, implementando le seguenti ottimizzazioni chiave:
-
-\begin{itemize}
-\item \textbf{Gestione intelligente dei timeout:} Timeout dinamici basati sulla lunghezza del prompt e caratteristiche del modello, con range adattivo 60-300 secondi
-\item \textbf{Configurazione GPU ottimizzata:} Parametri base per A100 GPU (num\_ctx=1024, num\_predict=100, num\_gpu=33) con possibilità di tuning specifico per modello
-\item \textbf{Retry progressivo:} Backoff esponenziale con massimo 3 tentativi per richiesta, calibrato per stabilità multi-modello
-\item \textbf{Modalità append intelligente:} Sistema di ripresa che evita ricalcoli su card già processate, con efficienza fino al 90\% di file evitati durante test estesi
-\item \textbf{Debug e monitoring:} Logging dettagliato con statistiche di performance comparative (token/secondo, utilizzo GPU, tempi di risposta) per analisi inter-modello
-\item \textbf{Standardizzazione protocolli:} Template di prompt e parametri di valutazione uniformi per garantire confrontabilità tra diverse architetture LLM
-\end{itemize}
-
-\subsection{Risultati sperimentali preliminari}
+\section{Risultati sperimentali preliminari}
 
 La nostra valutazione sperimentale con LLaMA 3.1 8B come modello di riferimento rivela pattern consistenti nelle prestazioni tra le tre strategie di prompting. L'analisi temporale (2014-2020) mostra stabilità generale delle metriche con anomalie significative nel 2021 attribuibili agli effetti della pandemia COVID-19 sui comportamenti turistici.
 
@@ -204,7 +228,7 @@ La strategia baseline raggiunge performance moderate ma consistenti (Top-1 Accur
 
 L'analisi degli errori più frequenti evidenzia pattern sistematici, con transizioni Castelvecchio→Ponte Pietra che rappresentano il caso di confusione più comune, suggerendo bias verso attrazioni iconiche indipendentemente dalla sequenza di visita effettiva. Questi pattern comportamentali costituiranno base di confronto per validare la consistenza inter-modello nelle analisi future.
 
-\subsection{Confronto delle prestazioni tra strategie}
+\section{Confronto delle prestazioni tra strategie}
 
 Il progressivo miglioramento delle strategie di prompting dimostra chiari enhancement nelle performance quando si incorporano informazioni contestuali geospaziali e temporali:
 
@@ -225,7 +249,7 @@ Name + Geo + Temporal & [In elaborazione] & [In elaborazione] & [In elaborazione
 
 \textit{Nota: I risultati presentati sono relativi al modello LLaMA 3.1 8B utilizzato per la fase di sviluppo e validazione del framework. Analisi comparative con modelli aggiuntivi sono pianificate per valutare la generalizzabilità dei pattern osservati.}
 
-\subsection{Analisi degli errori e interpretabilità del modello}
+\section{Analisi degli errori e interpretabilità del modello}
 
 L'analisi sistematica degli errori rivela che:
 
@@ -236,7 +260,7 @@ L'analisi sistematica degli errori rivela che:
 \item \textbf{Sensibilità ai cluster:} Diversi profili turistici mostrano pattern di errore distinti, validando l'approccio di segmentazione
 \end{itemize}
 
-\subsection{Discussione e implicazioni}
+\section{Discussione e implicazioni}
 
 I risultati preliminari dimostrano che gli LLM possono catturare efficacemente pattern di mobilità turistica quando forniti di prompting strutturato e context-aware. La strategia geospaziale emerge come il miglioramento più impattante, mentre il contesto temporale offre benefici incrementali.
 

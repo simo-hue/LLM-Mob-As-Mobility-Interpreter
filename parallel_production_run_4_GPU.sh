@@ -164,20 +164,37 @@ if [ ! -f "$OLLAMA_BIN" ]; then
     exit 1
 fi
 
-# Variabili ottimizzate per stabilità massima
-export OLLAMA_DEBUG=0
+export OLLAMA_DEBUG=1                      # ✅ ABILITA debug per diagnostica
+export OLLAMA_VERBOSE=1                    # ✅ Log verbosi temporanei
 export OLLAMA_ORIGINS="*"
 export OLLAMA_MODELS="$WORK/.ollama/models"
+export OLLAMA_CACHE_DIR="$WORK/.ollama/cache"
 
-# CONFIGURAZIONI ANTI-CONTENTION
-export OLLAMA_NUM_PARALLEL=1              # UNA richiesta per volta per GPU
-export OLLAMA_MAX_LOADED_MODELS=1         # Un modello per volta
-export OLLAMA_FLASH_ATTENTION=1        
-export OLLAMA_KEEP_ALIVE="2h"             # Riduci per liberare memoria
-export OLLAMA_LOAD_TIMEOUT=1200            # 20 minuti per caricamento
-export OLLAMA_REQUEST_TIMEOUT=300         # 5 minuti per richiesta
-export OLLAMA_MAX_QUEUE=2                 # Coda ridotta
-export OLLAMA_MAX_VRAM_USAGE=0.8          # Limita VRAM al 80%
+# 🚨 CONFIGURAZIONI CRITICHE POTENZIATE
+export OLLAMA_NUM_PARALLEL=1              # Confermato: 1 richiesta per volta
+export OLLAMA_MAX_LOADED_MODELS=1         # Confermato: 1 modello per volta
+export OLLAMA_KEEP_ALIVE="4h"             # ✅ AUMENTATO: da 1h a 4h
+export OLLAMA_LOAD_TIMEOUT=3600           # ✅ AUMENTATO: da 20min a 60min !!!
+export OLLAMA_REQUEST_TIMEOUT=600         # ✅ AUMENTATO: da 5min a 10min
+export OLLAMA_MAX_QUEUE=1                 # ✅ RIDOTTO: da 2 a 1 (più conservativo)
+
+# 🎯 CONFIGURAZIONI A100-SPECIFIC POTENZIATE
+export OLLAMA_MAX_VRAM_USAGE=0.85         # ✅ AUMENTATO: da 75% a 85%
+export OLLAMA_RUNNER_CACHE_SIZE="8GB"     # ✅ AUMENTATO: da 3GB a 8GB
+export OLLAMA_MAX_CONCURRENT_DOWNLOADS=1  # Confermato
+export OLLAMA_FLASH_ATTENTION=1           # Confermato
+
+# 🔥 NUOVE CONFIGURAZIONI CRITICHE
+export OLLAMA_LLM_LIBRARY="cuda_v12"      # ✅ NUOVO: Forza CUDA 12
+export OLLAMA_CUDA_MEMORY_FRACTION=0.85   # ✅ NUOVO: Controlla allocazione CUDA
+export OLLAMA_GPU_LAYERS=-1               # ✅ NUOVO: Tutte le layer su GPU
+export OLLAMA_BATCH_SIZE=1024              # ✅ NUOVO: Batch size ottimizzato A100
+export OLLAMA_CONTEXT_SIZE=4096           # ✅ NUOVO: Context size maggiore
+export OLLAMA_PREDICTION_TOKENS=512       # ✅ NUOVO: Token predizione maggiore
+
+# 📊 LOG delle configurazioni per debug
+echo "🔍 Configurazioni Ollama attive:"
+env | grep OLLAMA_ | sort
 
 # === CLEANUP PREVENTIVO AGGRESSIVO ===
 echo ""
@@ -204,90 +221,185 @@ start_ollama_instance() {
     local gpu_id=$1
     local port=$2
     local log_file="ollama_gpu${gpu_id}.log"
+    local startup_timeout=900  # 15 minuti per startup !!!
     
-    echo "🔥 Avvio istanza GPU $gpu_id su porta $port (Leonardo Booster)..."
+    echo "🔥 Avvio ROBUSTO istanza GPU $gpu_id su porta $port..."
     
-    # Cleanup specifico per questa GPU
+    # 🧹 Cleanup specifico porta
+    echo "🧹 Cleanup specifico porta $port..."
     pkill -f "OLLAMA_HOST=127.0.0.1:$port" 2>/dev/null || true
-    sleep 2
+    sleep 5
     
-    # Verifica spazio $WORK (non /tmp che è troppo piccolo)
+    # 🔍 Verifica porta libera
+    if netstat -tuln 2>/dev/null | grep -q ":$port "; then
+        echo "⚠️ Porta $port ancora occupata, cleanup forzato..."
+        fuser -k $port/tcp 2>/dev/null || true
+        sleep 10
+    fi
+    
+    # 💾 Verifica spazio WORK con margine maggiore
     WORK_SPACE=$(df "$WORK" | tail -1 | awk '{print $4}')
     WORK_SPACE_GB=$((WORK_SPACE / 1024 / 1024))
     
-    if [ $WORK_SPACE_GB -lt 25 ]; then
-        echo "❌ GPU $gpu_id: spazio \$WORK insufficiente (${WORK_SPACE_GB}GB < 25GB)"
+    if [ $WORK_SPACE_GB -lt 35 ]; then  # ✅ AUMENTATO: da 25GB a 35GB
+        echo "❌ GPU $gpu_id: spazio $WORK insufficiente (${WORK_SPACE_GB}GB < 35GB)"
         return 1
     fi
     
-    echo "✅ GPU $gpu_id: spazio \$WORK OK (${WORK_SPACE_GB}GB disponibili)"
-    
-    # Crea directory cache dedicata per questa GPU
+    # 📁 Cache dedicata con cleanup preventivo
     GPU_CACHE_DIR="$OLLAMA_CACHE_DIR/gpu${gpu_id}"
+    rm -rf "$GPU_CACHE_DIR" 2>/dev/null || true  # ✅ NUOVO: cleanup cache
     mkdir -p "$GPU_CACHE_DIR"
+    chmod 755 "$GPU_CACHE_DIR"
     
+    echo "✅ GPU $gpu_id: spazio OK (${WORK_SPACE_GB}GB), cache: $GPU_CACHE_DIR"
+    
+    # 🚀 Lancio con configurazioni potenziate
+    echo "🚀 Avvio Ollama GPU $gpu_id con timeout esteso..."
     CUDA_VISIBLE_DEVICES=$gpu_id \
     OLLAMA_HOST=127.0.0.1:$port \
     OLLAMA_MAX_LOADED_MODELS=1 \
+    OLLAMA_LOAD_TIMEOUT=3600 \
+    OLLAMA_REQUEST_TIMEOUT=600 \
     OLLAMA_TMPDIR="$CUSTOM_TMP" \
     OLLAMA_CACHE_DIR="$GPU_CACHE_DIR" \
     TMPDIR="$CUSTOM_TMP" \
     TMP="$CUSTOM_TMP" \
     TEMP="$CUSTOM_TMP" \
-    $OLLAMA_BIN serve > $log_file 2>&1 &
+    timeout $startup_timeout $OLLAMA_BIN serve > $log_file 2>&1 &
     
     local pid=$!
-    echo "✅ GPU $gpu_id PID: $pid"
-    echo "   📁 Cache dedicata: $GPU_CACHE_DIR"
-    echo "   📁 Temp directory: $CUSTOM_TMP"
-    
-    # ✅ IMPORTANTE: Salva il PID in una variabile globale
     eval "SERVER_PID$((gpu_id+1))=$pid"
-
-    return $pid
+    
+    echo "✅ GPU $gpu_id PID: $pid (timeout startup: ${startup_timeout}s)"
+    echo "   📁 Cache: $GPU_CACHE_DIR"
+    echo "   📄 Log: $log_file"
+    
+    # 🔍 Verifica immediata che il processo sia avviato
+    sleep 5
+    if ! kill -0 $pid 2>/dev/null; then
+        echo "❌ GPU $gpu_id: processo terminato immediatamente"
+        echo "🔍 Ultimi 10 righe log:"
+        tail -10 $log_file 2>/dev/null || echo "Log non disponibile"
+        return 1
+    fi
+    
+    echo "✅ GPU $gpu_id: processo avviato correttamente"
+    return 0
 }
 
 # Avvio sequenziale con attese lunghe per evitare race conditions
-echo "📡 Avvio istanza 1/4..."
-start_ollama_instance 0 $OLLAMA_PORT1
-echo "⏳ Attesa caricamento modello su GPU 0 (90s)..."
+echo ""
+echo "🚀 Avvio server Ollama con anti-contention POTENZIATO..."
+
+# 🎯 ATTESE DRASTICAMENTE AUMENTATE
+echo "🔡 Avvio istanza 1/4 (MASTER)..."
+if ! start_ollama_instance 0 $OLLAMA_PORT1; then
+    echo "❌ Fallito avvio GPU 0 - abort"
+    exit 1
+fi
+
+echo "⏳ Attesa caricamento modello su GPU 0 MASTER (180s)..."  # ✅ AUMENTATO: da 90s a 180s
+sleep 180
+
+echo "🔡 Avvio istanza 2/4..."
+start_ollama_instance 1 $OLLAMA_PORT2
+echo "⏳ Attesa stabilizzazione GPU 1 (90s)..."  # ✅ AUMENTATO: da 40s a 90s
 sleep 90
 
-echo "📡 Avvio istanza 2/4..."
-start_ollama_instance 1 $OLLAMA_PORT2
-sleep 40
+echo "🔡 Avvio istanza 3/4..."
+start_ollama_instance 2 $OLLAMA_PORT3  
+echo "⏳ Attesa stabilizzazione GPU 2 (90s)..."  # ✅ AUMENTATO: da 40s a 90s
+sleep 90
 
-echo "📡 Avvio istanza 3/4..."
-start_ollama_instance 2 $OLLAMA_PORT3
-sleep 40
-
-echo "📡 Avvio istanza 4/4..."  
+echo "🔡 Avvio istanza 4/4..."
 start_ollama_instance 3 $OLLAMA_PORT4
-sleep 40
+echo "⏳ Attesa stabilizzazione GPU 3 (90s)..."  # ✅ AUMENTATO: da 40s a 90s
+sleep 90
 
-echo "✅ Tutte le istanze avviate:"
-echo "   GPU 0: PID $SERVER_PID1 (porta $OLLAMA_PORT1)"
-echo "   GPU 1: PID $SERVER_PID2 (porta $OLLAMA_PORT2)" 
-echo "   GPU 2: PID $SERVER_PID3 (porta $OLLAMA_PORT3)"
-echo "   GPU 3: PID $SERVER_PID4 (porta $OLLAMA_PORT4)"
+echo "⏳ Attesa stabilizzazione COMPLETA sistema (120s)..."  # ✅ AUMENTATO: da 60s a 120s
+sleep 120
 
-echo "⏳ Attesa stabilizzazione sistema (60s)..."
-sleep 60
-
-# Poi riprova il health check per GPU che hanno fallito
-if [ $HEALTHY_COUNT -lt 4 ]; then
-    echo "🔄 Retry health check per GPU non pronte..."
-    
-    # Riprova solo quelle fallite
-    if ! check_instance_health $OLLAMA_PORT1 0; then
-        echo "⏳ Retry GPU 0 con timeout esteso..."
-        sleep 30
-        check_instance_health $OLLAMA_PORT1 0 && ((HEALTHY_COUNT++))
+# 📊 Verifica processi attivi prima di health check
+echo "🔍 Verifica processi Ollama attivi:"
+ACTIVE_PROCESSES=0
+for i in 1 2 3 4; do
+    eval "pid=\$SERVER_PID$i"
+    if [ -n "$pid" ] && kill -0 $pid 2>/dev/null; then
+        echo "✅ GPU $((i-1)): PID $pid attivo"
+        ((ACTIVE_PROCESSES++))
+    else
+        echo "❌ GPU $((i-1)): PID $pid NON attivo"
+        echo "🔍 Log GPU $((i-1)):"
+        tail -5 "ollama_gpu$((i-1)).log" 2>/dev/null || echo "Log non disponibile"
     fi
+done
+
+if [ $ACTIVE_PROCESSES -lt 2 ]; then
+    echo "❌ ERRORE: Troppo pochi processi attivi ($ACTIVE_PROCESSES/4)"
+    exit 1
+fi
+
+# === HEALTH CHECK APPROFONDITO ===
+echo ""
+echo "🔍 Health check SUPER-ROBUSTO multi-istanza..."
+
+HEALTHY_COUNT=0
+RETRY_COUNT=0
+MAX_RETRIES=2
+
+# Prima passata health check
+echo "📋 Prima passata health check..."
+check_instance_health $OLLAMA_PORT1 0 && ((HEALTHY_COUNT++)) || echo "GPU 0 fallita prima passata"
+check_instance_health $OLLAMA_PORT2 1 && ((HEALTHY_COUNT++)) || echo "GPU 1 fallita prima passata"  
+check_instance_health $OLLAMA_PORT3 2 && ((HEALTHY_COUNT++)) || echo "GPU 2 fallita prima passata"
+check_instance_health $OLLAMA_PORT4 3 && ((HEALTHY_COUNT++)) || echo "GPU 3 fallita prima passata"
+
+echo "📊 Prima passata: $HEALTHY_COUNT/4 istanze operative"
+
+# 🔄 RETRY per GPU fallite
+if [ $HEALTHY_COUNT -lt 4 ] && [ $HEALTHY_COUNT -ge 1 ]; then
+    echo "🔄 Retry health check per GPU fallite..."
+    sleep 60  # Attesa aggiuntiva
+    
+    # Retry solo GPU fallite
+    [ $HEALTHY_COUNT -lt 4 ] && ! check_instance_health $OLLAMA_PORT1 0 >/dev/null 2>&1 && \
+        check_instance_health $OLLAMA_PORT1 0 && ((HEALTHY_COUNT++))
+        
+    [ $HEALTHY_COUNT -lt 4 ] && ! check_instance_health $OLLAMA_PORT2 1 >/dev/null 2>&1 && \
+        check_instance_health $OLLAMA_PORT2 1 && ((HEALTHY_COUNT++))
+        
+    [ $HEALTHY_COUNT -lt 4 ] && ! check_instance_health $OLLAMA_PORT3 2 >/dev/null 2>&1 && \
+        check_instance_health $OLLAMA_PORT3 2 && ((HEALTHY_COUNT++))
+        
+    [ $HEALTHY_COUNT -lt 4 ] && ! check_instance_health $OLLAMA_PORT4 3 >/dev/null 2>&1 && \
+        check_instance_health $OLLAMA_PORT4 3 && ((HEALTHY_COUNT++))
+fi
+
+echo "📊 Health check finale: $HEALTHY_COUNT/4 istanze operative"
+
+# ✅ Soglia di accettazione più permissiva
+if [ $HEALTHY_COUNT -eq 0 ]; then
+    echo "❌ ERRORE CRITICO: Nessuna istanza funzionante"
+    echo "🔍 Debug completo:"
+    for i in 0 1 2 3; do
+        echo "--- GPU $i diagnostica completa ---"
+        echo "PID: $(eval echo \$SERVER_PID$((i+1)))"
+        echo "Processo attivo: $(kill -0 $(eval echo \$SERVER_PID$((i+1))) 2>/dev/null && echo 'SI' || echo 'NO')"
+        echo "Log (ultime 15 righe):"
+        tail -15 "ollama_gpu${i}.log" 2>/dev/null | sed 's/^/  /' || echo "  Log non disponibile"
+        echo ""
+    done
+    exit 1
+elif [ $HEALTHY_COUNT -eq 1 ]; then
+    echo "⚠️ WARNING: Solo 1 GPU operativa - continuiamo ma performance limitate"
+else
+    echo "✅ Sistema accettabile: $HEALTHY_COUNT GPU operative"
 fi
 
 # Salva configurazione per Python
 echo "$OLLAMA_PORT1,$OLLAMA_PORT2,$OLLAMA_PORT3,$OLLAMA_PORT4" > ollama_ports.txt
+
 
 # Funzione di cleanup migliorata
 cleanup() {
@@ -313,81 +425,88 @@ cleanup() {
 }
 trap cleanup EXIT
 
-# === HEALTH CHECK APPROFONDITO ===
-echo ""
-echo "⏳ Health check approfondito multi-istanza..."
-
 check_instance_health() {
     local port=$1
     local gpu_id=$2
-    local max_attempts=15  # Ridotto ma con timeout maggiori
+    local max_attempts=30      # ✅ AUMENTATO: da 15 a 30 tentativi
+    local wait_time=15         # ✅ AUMENTATO: da 8s a 15s tra tentativi
     
-    echo "🔍 Check approfondito GPU $gpu_id (porta $port)..."
+    echo "🔍 Health check SUPER-ROBUSTO GPU $gpu_id (porta $port)..."
+    
+    # ✅ GPU 0 ha timeout ancora più esteso
+    if [ $gpu_id -eq 0 ]; then
+        max_attempts=50        # 50 tentativi per GPU master
+        echo "👑 GPU $gpu_id MASTER - timeout esteso (50 tentativi)"
+    fi
     
     for i in $(seq 1 $max_attempts); do
-
-        # ✅ Più tempo per la prima GPU che carica il modello
-        if [ $gpu_id -eq 0 ]; then
-            max_attempts=25
-            echo "🔍 Check GPU $gpu_id (prima istanza, timeout esteso)..."
-        else
-            echo "🔍 Check approfondito GPU $gpu_id (porta $port)..."
-        fi
-
-        # Test 1: endpoint tags con timeout lungo
-        if ! timeout 20s curl -s "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
-            echo "   Tentativo $i/$max_attempts: endpoint non risponde"
-            sleep 8
-            continue
-        fi
+        echo "   🔄 Tentativo $i/$max_attempts..."
         
-        # Test 2: mini-inference per verificare funzionalità reale
-        local test_response=$(timeout 45s curl -s -X POST "http://127.0.0.1:$port/api/generate" \
-            -H "Content-Type: application/json" \
-            -d '{"model":"mixtral:8x7b","prompt":"Test","stream":false,"options":{"num_predict":1,"temperature":0}}' 2>/dev/null)
-        
-        if echo "$test_response" | grep -q '"done":true' && echo "$test_response" | grep -q '"response"'; then
-            echo "✅ GPU $gpu_id completamente operativa"
-            return 0
-        fi
-        
-        echo "   Tentativo $i/$max_attempts: inference test fallito"
-        
-        if [ $i -eq $max_attempts ]; then
-            echo "❌ GPU $gpu_id FALLITA dopo test approfonditi"
-            echo "🔍 Log GPU $gpu_id (ultime 5 righe):"
-            tail -5 ollama_gpu${gpu_id}.log 2>/dev/null || echo "Log non disponibile"
+        # Test 1: Verifica processo ancora attivo
+        local pid_var="SERVER_PID$((gpu_id+1))"
+        local pid=$(eval echo \$$pid_var)
+        if [ -n "$pid" ] && ! kill -0 $pid 2>/dev/null; then
+            echo "   ❌ Processo GPU $gpu_id (PID $pid) terminato"
+            echo "   🔍 Ultime righe log:"
+            tail -5 "ollama_gpu${gpu_id}.log" 2>/dev/null || echo "Log non disponibile"
             return 1
         fi
         
-        sleep 10
-    done
-}
-
-# Health check di tutte le istanze
-HEALTHY_COUNT=0
-check_instance_health $OLLAMA_PORT1 0 && ((HEALTHY_COUNT++))
-check_instance_health $OLLAMA_PORT2 1 && ((HEALTHY_COUNT++))
-check_instance_health $OLLAMA_PORT3 2 && ((HEALTHY_COUNT++))
-check_instance_health $OLLAMA_PORT4 3 && ((HEALTHY_COUNT++))
-
-echo "📊 Health check: $HEALTHY_COUNT/4 istanze operative"
-
-if [ $HEALTHY_COUNT -lt 2 ]; then
-    echo "❌ ERRORE CRITICO: Troppe poche istanze funzionanti ($HEALTHY_COUNT/4)"
-    echo "🔍 Debug completo logs:"
-    for i in 0 1 2 3; do
-        echo "--- GPU $i log (ultime 10 righe) ---"
-        tail -10 ollama_gpu${i}.log 2>/dev/null || echo "Log non disponibile"
-        echo ""
+        # Test 2: Connection test con timeout lungo
+        echo "   🌐 Test connessione..."
+        if ! timeout 30s curl -s --connect-timeout 10 --max-time 30 \
+             "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
+            echo "   ⏳ Connessione non pronta, attesa ${wait_time}s..."
+            sleep $wait_time
+            continue
+        fi
+        
+        echo "   ✅ Connessione OK, test funzionalità..."
+        
+        # Test 3: Mini-inference con timeout molto lungo
+        local test_response=$(timeout 120s curl -s --connect-timeout 15 --max-time 120 \
+            -X POST "http://127.0.0.1:$port/api/generate" \
+            -H "Content-Type: application/json" \
+            -d '{
+                "model":"mixtral:8x7b",
+                "prompt":"Test",
+                "stream":false,
+                "options":{
+                    "num_predict":1,
+                    "temperature":0,
+                    "num_ctx":512
+                }
+            }' 2>/dev/null)
+        
+        # Verifica risposta valida
+        if echo "$test_response" | grep -q '"done":true' && \
+           echo "$test_response" | grep -q '"response"'; then
+            echo "   ✅ GPU $gpu_id COMPLETAMENTE OPERATIVA dopo $i tentativi"
+            return 0
+        fi
+        
+        echo "   ⚠️ Test inference fallito, risposta: $(echo "$test_response" | head -c 100)..."
+        
+        # Log diagnostico ogni 10 tentativi
+        if [ $((i % 10)) -eq 0 ]; then
+            echo "   📊 Diagnostica tentativo $i:"
+            echo "   🔍 Processo attivo: $(kill -0 $pid 2>/dev/null && echo 'SI' || echo 'NO')"
+            echo "   🔍 Porta in ascolto: $(netstat -tuln 2>/dev/null | grep ":$port " | head -1 || echo 'NO')"
+            echo "   🔍 Ultime 3 righe log:"
+            tail -3 "ollama_gpu${gpu_id}.log" 2>/dev/null | sed 's/^/        /' || echo "        Log non disponibile"
+        fi
+        
+        sleep $wait_time
     done
     
-    # Tentativo recovery
-    echo "🔄 Tentativo recovery rapido..."
-    cleanup
-    sleep 30
-    exit 1
-fi
+    echo "   ❌ GPU $gpu_id FALLITA dopo $max_attempts tentativi"
+    echo "   🔍 Diagnostica finale:"
+    echo "   📄 Log completo GPU $gpu_id (ultime 20 righe):"
+    tail -20 "ollama_gpu${gpu_id}.log" 2>/dev/null | sed 's/^/     /' || echo "     Log non disponibile"
+    
+    return 1
+}
+
 
 # === PREPARAZIONE MODELLO SEQUENZIALE ===
 echo ""
@@ -427,44 +546,68 @@ echo "🔥 Pre-caricamento sequenziale anti-contention..."
 preload_gpu_sequential() {
     local port=$1
     local gpu_id=$2
+    local max_attempts=3
     
-    echo "⚡ Warm-up GPU $gpu_id (sequenziale)..."
-    timeout 180s curl -s -X POST "http://127.0.0.1:$port/api/chat" \
-        -H "Content-Type: application/json" \
-        -d '{
-            "model":"'$MODEL_NAME'",
-            "messages":[{"role":"user","content":"warmup"}],
-            "stream":false,
-            "options":{
-                "num_ctx":2048,
-                "num_predict":1,
-                "num_batch":512,
-                "temperature":0
-            }
-        }' >/dev/null 2>&1
+    echo "⚡ Warm-up ROBUSTO GPU $gpu_id..."
     
-    if [ $? -eq 0 ]; then
-        echo "✅ GPU $gpu_id pronta"
-        return 0
-    else
-        echo "⚠️ GPU $gpu_id warm-up parziale"
-        return 1
-    fi
+    for attempt in $(seq 1 $max_attempts); do
+        echo "   🔄 Tentativo warm-up $attempt/$max_attempts..."
+        
+        local warmup_response=$(timeout 300s curl -s -X POST \
+            "http://127.0.0.1:$port/api/chat" \
+            -H "Content-Type: application/json" \
+            -d '{
+                "model":"mixtral:8x7b",
+                "messages":[{"role":"user","content":"warmup test"}],
+                "stream":false,
+                "options":{
+                    "num_ctx":2048,
+                    "num_predict":2,
+                    "num_batch":512,
+                    "temperature":0,
+                    "num_thread":32
+                }
+            }' 2>&1)
+        
+        if echo "$warmup_response" | grep -q '"done":true'; then
+            echo "   ✅ GPU $gpu_id warm-up SUCCESSO tentativo $attempt"
+            return 0
+        else
+            echo "   ⚠️ GPU $gpu_id warm-up fallito tentativo $attempt"
+            echo "   📄 Risposta: $(echo "$warmup_response" | head -c 200)"
+            if [ $attempt -lt $max_attempts ]; then
+                echo "   ⏳ Attesa 30s prima retry..."
+                sleep 30
+            fi
+        fi
+    done
+    
+    echo "   ⚠️ GPU $gpu_id warm-up parziale (falliti $max_attempts tentativi)"
+    return 1
 }
 
-# Preload sequenziale con pausa anti-contention
+# Warm-up con attese estese
+echo ""
+echo "🔥 Pre-caricamento sequenziale ROBUSTO..."
 READY_GPUS=0
+
 for i in 0 1 2 3; do
     eval "port=\$OLLAMA_PORT$((i+1))"
-    echo "🎯 Warm-up GPU $i..."
-    if preload_gpu_sequential $port $i; then
-        ((READY_GPUS++))
+    
+    # Solo se GPU ha passato health check
+    if check_instance_health $port $i >/dev/null 2>&1; then
+        echo "🎯 Warm-up GPU $i..."
+        if preload_gpu_sequential $port $i; then
+            ((READY_GPUS++))
+        fi
+    else
+        echo "⏭️ Skip warm-up GPU $i (health check fallito)"
     fi
     
-    # Pausa critica per evitare contention memoria GPU
+    # Pause anti-contention estese
     if [ $i -lt 3 ]; then
-        echo "⏸️ Pausa anti-contention (15s)..."
-        sleep 15
+        echo "⏸️ Pausa anti-contention estesa (30s)..."  # ✅ AUMENTATO: da 15s a 30s
+        sleep 30
     fi
 done
 
@@ -555,28 +698,67 @@ fi
 
 # === MONITORING OTTIMIZZATO ===
 monitor_system() {
+    local check_interval=300
+    local error_threshold=10
+    local consecutive_errors=0
+    
+    echo "🔍 Monitor sistema POTENZIATO avviato (intervallo: ${check_interval}s)"
+    
     while true; do
-        sleep 300  # Ogni 5 minuti
+        sleep $check_interval
         
-        # Statistiche essenziali
+        local timestamp=$(date '+%Y-%m-%d %H:%M:%S')
+        
+        # 📊 Statistiche risultati
         if [ -d "results/" ]; then
-            TOTAL_FILES=$(ls -1 results/*.csv 2>/dev/null | wc -l) 
-            LATEST_SIZE=$(du -sh results/ 2>/dev/null | cut -f1 || echo "0B")
-            echo "📊 [$(date '+%H:%M:%S')] Files: $TOTAL_FILES, Size: $LATEST_SIZE"
+            local total_files=$(ls -1 results/*.csv 2>/dev/null | wc -l)
+            local latest_size=$(du -sh results/ 2>/dev/null | cut -f1 || echo "0B")
+            echo "📊 [$timestamp] Files: $total_files, Size: $latest_size"
         fi
         
-        # Check processo Python
+        # 🔍 Check processo Python
         if ! pgrep -f "veronacard_mob_with_geom" >/dev/null; then
-            echo "ℹ️ [$(date '+%H:%M:%S')] Processo Python terminato"
+            echo "ℹ️ [$timestamp] Processo Python terminato - stopping monitor"
             break
         fi
         
-        # GPU health compatto (solo temperature critiche)
-        HOT_GPUS=$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits | awk '$1 > 85 {print NR-1}')
-        if [ -n "$HOT_GPUS" ]; then
-            echo "🌡️ [$(date '+%H:%M:%S')] GPU calde: $HOT_GPUS"
+        # 🌡️ Monitoring GPU avanzato
+        local hot_gpus=$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits | \
+                        awk '$1 > 85 {print NR-1}')
+        if [ -n "$hot_gpus" ]; then
+            echo "🌡️ [$timestamp] GPU calde (>85°C): $hot_gpus"
+        fi
+        
+        # 🚨 Controllo health Ollama periodico
+        local unhealthy_ports=""
+        for i in 0 1 2 3; do
+            eval "port=\$OLLAMA_PORT$((i+1))"
+            if ! timeout 10s curl -s "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
+                unhealthy_ports="$unhealthy_ports $port"
+                ((consecutive_errors++))
+            fi
+        done
+        
+        if [ -n "$unhealthy_ports" ]; then
+            echo "🚨 [$timestamp] Porte Ollama non responsive:$unhealthy_ports"
+            
+            # Se troppe porte non rispondono, alert critico
+            local unhealthy_count=$(echo $unhealthy_ports | wc -w)
+            if [ $unhealthy_count -ge 3 ]; then
+                echo "❌ [$timestamp] ALERT: $unhealthy_count/4 porte non responsive - possibile system failure"
+            fi
+        else
+            consecutive_errors=0  # Reset error counter
+        fi
+        
+        # 🚨 Alert per troppi errori consecutivi
+        if [ $consecutive_errors -ge $error_threshold ]; then
+            echo "🚨 [$timestamp] ALERT: $consecutive_errors errori consecutivi - sistema potenzialmente instabile"
+            consecutive_errors=0  # Reset per evitare spam
         fi
     done
+    
+    echo "🔍 Monitor sistema terminato: $timestamp"
 }
 
 # Controlla se i processi Ollama sono in esecuzione
@@ -594,19 +776,34 @@ echo "🎯 AVVIO ELABORAZIONE STABILIZZATA"
 echo "================================="
 
 # Configurazione finale per Python
-export OLLAMA_MODEL="$MODEL_NAME"
+export OLLAMA_MODEL="mixtral:8x7b"
 export PRODUCTION_MODE=1
-export GPU_COUNT=4
-export MAX_CONCURRENT_REQUESTS=$WORKING_PORTS
+export GPU_COUNT=$HEALTHY_COUNT              # Usa GPU effettivamente operative
+export MAX_CONCURRENT_REQUESTS=$HEALTHY_COUNT  # Non più del numero GPU attive
+export OLLAMA_TIMEOUT=600                    # Timeout per richieste Python
+export BATCH_SIZE=100                        # Batch size ridotto per stabilità
 
-echo "📊 Configurazione finale:"
-echo "   🎯 GPU operative: $WORKING_PORTS/4"
-echo "   ⚡ Rate limit: $WORKING_PORTS richieste concurrent"
-echo "   💾 Salvataggio: ogni 500 carte"
-echo "   🔄 Timeout richiesta: 300s"
-echo "   🛡️ Modalità stabile: attiva"
-echo ""
+# Salva configurazione con solo porte funzionanti
+WORKING_PORTS=""
+for i in 0 1 2 3; do
+    eval "port=\$OLLAMA_PORT$((i+1))"
+    if check_instance_health $port $i >/dev/null 2>&1; then
+        if [ -z "$WORKING_PORTS" ]; then
+            WORKING_PORTS="$port"
+        else
+            WORKING_PORTS="$WORKING_PORTS,$port"
+        fi
+    fi
+done
 
+echo "$WORKING_PORTS" > ollama_ports.txt
+echo "✅ Porte operative salvate: $WORKING_PORTS"
+
+echo "📊 Configurazione Python finale:"
+echo "   🎯 GPU effettive: $HEALTHY_COUNT"
+echo "   ⚡ Concurrent requests: $MAX_CONCURRENT_REQUESTS"
+echo "   ⏱️ Timeout richiesta: $OLLAMA_TIMEOUT"
+echo "   📦 Batch size: $BATCH_SIZE"
 # Avvio monitoring in background
 monitor_system &
 MONITOR_PID=$!

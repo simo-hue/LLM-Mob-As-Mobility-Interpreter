@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.7.16)  20 AUG 2025 09:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.7.16)  23 AUG 2025 15:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -7,19 +7,20 @@ entering extended mode
 (/Users/simo/Desktop/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE UFFICIALE/TESI/main.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
-(/usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
-(/usr/local/texlive/2025/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2024/06/29 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count196
-\c@section=\count197
-\c@subsection=\count198
-\c@subsubsection=\count199
-\c@paragraph=\count266
-\c@subparagraph=\count267
-\c@figure=\count268
-\c@table=\count269
+\c@chapter=\count197
+\c@section=\count198
+\c@subsection=\count199
+\c@subsubsection=\count266
+\c@paragraph=\count267
+\c@subparagraph=\count268
+\c@figure=\count269
+\c@table=\count270
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen141
@@ -31,12 +32,12 @@ Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@posthook=\toks18
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2025/02/14 v25.4 The multilingual framework for pdfLaTeX, LuaLaTeX and XeLaTeX
-\babel@savecnt=\count270
+\babel@savecnt=\count271
 \U@D=\dimen142
 \l@unhyphenated=\language90
  (/usr/local/texlive/2025/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count271
+\bbl@dirlevel=\count272
  (/usr/local/texlive/2025/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
@@ -47,9 +48,9 @@ Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
 (babel)             (\language22). Reported on input line 108.
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/babel-italian/italian.ldf
 Language: italian 2024/10/10 v.1.5.01 Italian support for the babel system
-\it@lettering=\count272
-\it@doublequoteactive=\count273
-\it@ISOcompliance=\count274
+\it@lettering=\count273
+\it@doublequoteactive=\count274
+\it@ISOcompliance=\count275
 )) (/usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/it/babel-italian.tex
 Package babel Info: Importing font and identification data for italian
 (babel)             from babel-it.ini. Reported on input line 11.
@@ -58,76 +59,31 @@ Package babel Info: Importing font and identification data for english
 (babel)             from babel-en.ini. Reported on input line 11.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count275
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+\etb@tempcnta=\count276
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
  (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks19
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 106.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
-))
-\Gin@req@height=\dimen143
-\Gin@req@width=\dimen144
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/lipsum/lipsum.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2025-01-18 L3 programming layer (loader) 
- (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count276
-\l__pdf_internal_box=\box52
-))
-Package: l3keys2e 2024-08-16 LaTeX2e option processing using LaTeX3 keys
-)
-Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count277
-\l__lipsum_a_int=\count278
-\l__lipsum_b_int=\count279
- (/usr/local/texlive/2025/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2020/01/02 v5.9 Page Geometry
- (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
  (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
-\Gm@cnth=\count280
-\Gm@cntv=\count281
-\c@Gm@tempcnt=\count282
-\Gm@bindingoffset=\dimen145
-\Gm@wd@mp=\dimen146
-\Gm@odd@mp=\dimen147
-\Gm@even@mp=\dimen148
-\Gm@layoutwidth=\dimen149
-\Gm@layoutheight=\dimen150
-\Gm@layouthoffset=\dimen151
-\Gm@layoutvoffset=\dimen152
+\Gm@cnth=\count277
+\Gm@cntv=\count278
+\c@Gm@tempcnt=\count279
+\Gm@bindingoffset=\dimen143
+\Gm@wd@mp=\dimen144
+\Gm@odd@mp=\dimen145
+\Gm@even@mp=\dimen146
+\Gm@layoutwidth=\dimen147
+\Gm@layoutheight=\dimen148
+\Gm@layouthoffset=\dimen149
+\Gm@layoutvoffset=\dimen150
 \Gm@dimlist=\toks20
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrextend.sty
-Package: scrextend 2024/10/24 v3.43 KOMA-Script package (extend other classes with features of KOMA-Script classes)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrkbase.sty
-Package: scrkbase 2024/10/24 v3.43 KOMA-Script package (KOMA-Script-dependent basics and keyval usage)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrbase.sty
-Package: scrbase 2024/10/24 v3.43 KOMA-Script package (KOMA-Script-independent basics and keyval usage)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlfile.sty
-Package: scrlfile 2024/10/24 v3.43 KOMA-Script package (file load hooks)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlfile-hook.sty
-Package: scrlfile-hook 2024/10/24 v3.43 KOMA-Script package (using LaTeX hooks)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlogo.sty
-Package: scrlogo 2024/10/24 v3.43 KOMA-Script package (logo)
-)))
-Applying: [2021/05/01] Usage of raw or classic option list on input line 254.
-Already applied: [0000/00/00] Usage of raw or classic option list on input line 370.
-)))
-Package scrextend Info: File `scrsize12pt.clo' used to setup font sizes on input line 10.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrsize12pt.clo
-File: scrsize12pt.clo 2024/10/24 v3.43 KOMA-Script font size class option (12pt)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@headwidth=\skip51
@@ -145,7 +101,15 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@widthC=\skip63
 \f@nch@widthR=\skip64
 \@temptokenb=\toks21
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/tex-gyre/tgschola.sty
+Package: tgschola 2009/09/27 v1.2 TeX Gyre Schola as default roman family
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2024/11/05 v2.17t AMS math features
 \@mathmargin=\skip65
 
@@ -155,103 +119,254 @@ Package: amstext 2021/08/26 v2.01 AMS text
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks22
-\ex@=\dimen153
+\ex@=\dimen151
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen154
+\pmbraise@=\dimen152
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count283
+\inf@bad=\count280
 LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count284
-\leftroot@=\count285
+\uproot@=\count281
+\leftroot@=\count282
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count286
-\DOTSCASE@=\count287
+\classnum@=\count283
+\DOTSCASE@=\count284
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box53
-\strutbox@=\box54
+\Mathstrutbox@=\box52
+\strutbox@=\box53
 LaTeX Info: Redefining \big on input line 721.
 LaTeX Info: Redefining \Big on input line 722.
 LaTeX Info: Redefining \bigg on input line 723.
 LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen155
+\big@size=\dimen153
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count288
+\macc@depth=\count285
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count289
+\c@MaxMatrixCols=\count286
 \dotsspace@=\muskip17
-\c@parentequation=\count290
-\dspbrk@lvl=\count291
+\c@parentequation=\count287
+\dspbrk@lvl=\count288
 \tag@help=\toks23
-\row@=\count292
-\column@=\count293
-\maxfields@=\count294
+\row@=\count289
+\column@=\count290
+\maxfields@=\count291
 \andhelp@=\toks24
-\eqnshift@=\dimen156
-\alignsep@=\dimen157
-\tagshift@=\dimen158
-\tagwidth@=\dimen159
-\totwidth@=\dimen160
-\lineht@=\dimen161
+\eqnshift@=\dimen154
+\alignsep@=\dimen155
+\tagshift@=\dimen156
+\tagwidth@=\dimen157
+\totwidth@=\dimen158
+\lineht@=\dimen159
 \@envbody=\toks25
 \multlinegap=\skip66
 \multlinetaggap=\skip67
 \mathdisplay@stack=\toks26
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/subfig/subfig.sty
-Package: subfig 2005/06/28 ver: 1.3 subfig package
- (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2023/08/05 v3.6o Customizing captions (AR)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen162
-\captionmargin=\dimen163
-\caption@leftmargin=\dimen164
-\caption@rightmargin=\dimen165
-\caption@width=\dimen166
-\caption@indent=\dimen167
-\caption@parindent=\dimen168
-\caption@hangindent=\dimen169
-Package caption Info: Standard document class detected.
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count292
+\lst@gtempboxa=\box54
+\lst@token=\toks27
+\lst@length=\count293
+\lst@currlwidth=\dimen160
+\lst@column=\count294
+\lst@pos=\count295
+\lst@lostspace=\dimen161
+\lst@width=\dimen162
+\lst@newlines=\count296
+\lst@lineno=\count297
+\lst@maxwidth=\dimen163
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstpatch.sty
+File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+\c@lstnumber=\count298
+\lst@skipnumbers=\count299
+\lst@framebox=\box55
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2024/09/23 1.10c listings configuration
+))
+Package: listings 2024/09/23 1.10c (Carsten Heinz)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/minted/minted.sty
+Package: minted 2025/03/06 v3.6.0 Yet another Pygments shim for LaTeX
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/catchfile/catchfile.sty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/fvextra/fvextra.sty
+Package: fvextra 2025/03/04 v1.12.0 fvextra - extensions and patches for fancyvrb
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
+\FV@CodeLineNo=\count300
+\FV@InFile=\read3
+\FV@TabBox=\box56
+\c@FancyVerbLine=\count301
+\FV@StepNumber=\count302
+\FV@OutFile=\write3
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2025/01/29 line numbers on paragraphs v5.4
+\linenopenalty=\count303
+\output=\toks28
+\linenoprevgraf=\count304
+\linenumbersep=\dimen164
+\linenumberwidth=\dimen165
+\c@linenumber=\count305
+\c@pagewiselinenumber=\count306
+\c@LN@truepage=\count307
+\c@internallinenumber=\count308
+\c@internallinenumbers=\count309
+\quotelinenumbersep=\dimen166
+\bframerule=\dimen167
+\bframesep=\dimen168
+\bframebox=\box57
+\@LN@amsmath@ams@eqpen=\count310
+LaTeX Info: Redefining \\ on input line 3187.
 )
-\c@caption@flags=\count295
-\c@continuedfloat=\count296
-Package caption Info: scrextend package is loaded.
-\caption@addmargin@hsize=\dimen170
-\caption@addmargin@linewidth=\dimen171
-)
-\c@KVtest=\count297
-\sf@farskip=\skip68
-\sf@captopadj=\dimen172
-\sf@capskip=\skip69
-\sf@nearskip=\skip70
-\c@subfigure=\count298
-\c@subfigure@save=\count299
-\c@lofdepth=\count300
-\c@subtable=\count301
-\c@subtable@save=\count302
-\c@lotdepth=\count303
-\sf@top=\skip71
-\sf@bottom=\skip72
+\c@FancyVerbWriteLine=\count311
+\c@FancyVerbBufferLine=\count312
+\c@FV@TrueTabGroupLevel=\count313
+\c@FV@TrueTabCounter=\count314
+\FV@TabBox@Group=\box58
+\FV@bgcolorstructbox=\box59
+\FV@TmpLength=\skip68
+\c@FV@HighlightLinesStart=\count315
+\c@FV@HighlightLinesStop=\count316
+\FV@LoopCount=\count317
+\FV@NCharsBox=\box60
+\FV@BreakIndent=\dimen169
+\FV@BreakIndentNChars=\count318
+\FV@BreakSymbolSepLeft=\dimen170
+\FV@BreakSymbolSepLeftNChars=\count319
+\FV@BreakSymbolSepRight=\dimen171
+\FV@BreakSymbolSepRightNChars=\count320
+\FV@BreakSymbolIndentLeft=\dimen172
+\FV@BreakSymbolIndentLeftNChars=\count321
+\FV@BreakSymbolIndentRight=\dimen173
+\FV@BreakSymbolIndentRightNChars=\count322
+\c@FancyVerbLineBreakLast=\count323
+\FV@LineBox=\box61
+\FV@LineIndentBox=\box62
+\c@FV@BreakBufferDepth=\count324
+\FV@LineWidth=\dimen174
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/latex2pydata/latex2pydata.sty
+Package: latex2pydata 2025/03/03 v0.5.0 latex2pydata - write data to file in Python literal format
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks29
+\pgfkeys@temptoks=\toks30
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks31
+))) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgfopts/pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks32
+\pgfopts@list@add@b@toks=\toks33
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count304
-\float@exts=\toks27
-\float@box=\box55
-\@float@everytoks=\toks28
-\@floatcapt=\box56
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
+\c@float@type=\count325
+\float@exts=\toks34
+\float@box=\box63
+\@float@everytoks=\toks35
+\@floatcapt=\box64
+)
+\c@minted@FancyVerbLineTemp=\count326
+\@float@every@listing=\toks36
+\c@listing=\count327
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+Package: tcolorbox 2024/10/22 version 6.4.1 text color boxes
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks37
+\pgfutil@tempdima=\dimen175
+\pgfutil@tempdimb=\dimen176
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box65
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen177
+\Gin@req@width=\dimen178
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+\pgf@x=\dimen179
+\pgf@y=\dimen180
+\pgf@xa=\dimen181
+\pgf@ya=\dimen182
+\pgf@xb=\dimen183
+\pgf@yb=\dimen184
+\pgf@xc=\dimen185
+\pgf@yc=\dimen186
+\pgf@xd=\dimen187
+\pgf@yd=\dimen188
+\w@pgf@writea=\write4
+\r@pgf@reada=\read4
+\c@pgf@counta=\count328
+\c@pgf@countb=\count329
+\c@pgf@countc=\count330
+\c@pgf@countd=\count331
+\t@pgf@toka=\toks38
+\t@pgf@tokb=\toks39
+\t@pgf@tokc=\toks40
+\pgf@sys@id@count=\count332
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-pdftex.def
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+))) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count333
+\pgfsyssoftpath@bigbuffer@items=\count334
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -267,323 +382,58 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
- (/usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
-Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty
-Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-)
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty
-Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
- (/usr/local/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty
-Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
-Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
-))
-\c@section@level=\count305
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
-)
-\@linkdim=\dimen173
-\Hy@linkcounter=\count306
-\Hy@pagecounter=\count307
- (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
-Now handling font encoding PD1 ...
-... no UTF-8 mapping file for font encoding PD1
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty
-Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
-)
-\Hy@SavedSpaceFactor=\count308
- (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
-Now handling font encoding PU ...
-... no UTF-8 mapping file for font encoding PU
-)
-Package hyperref Info: Option `colorlinks' set `true' on input line 4040.
-Package hyperref Info: Hyper figures OFF on input line 4157.
-Package hyperref Info: Link nesting OFF on input line 4162.
-Package hyperref Info: Hyper index ON on input line 4165.
-Package hyperref Info: Plain pages OFF on input line 4172.
-Package hyperref Info: Backreferencing OFF on input line 4177.
-Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4424.
-\c@Hy@tempcnt=\count309
- (/usr/local/texlive/2025/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip18
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
-LaTeX Info: Redefining \url on input line 4763.
-\XeTeXLinkMargin=\dimen174
- (/usr/local/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
-Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
-Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
-))
-\Fld@menulength=\count310
-\Field@Width=\dimen175
-\Fld@charsize=\dimen176
-Package hyperref Info: Hyper figures OFF on input line 6042.
-Package hyperref Info: Link nesting OFF on input line 6047.
-Package hyperref Info: Hyper index ON on input line 6050.
-Package hyperref Info: backreferencing OFF on input line 6057.
-Package hyperref Info: Link coloring ON on input line 6060.
-Package hyperref Info: Link coloring with OCG OFF on input line 6067.
-Package hyperref Info: PDF/A mode OFF on input line 6072.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/base/atbegshi-ltx.sty
-Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
-package with kernel methods
-)
-\Hy@abspage=\count311
-\c@Item=\count312
-\c@Hfootnote=\count313
-)
-Package hyperref Info: Driver (autodetected): hpdftex.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2024-11-05 v7.01l Hyperref driver for pdfTeX
- (/usr/local/texlive/2025/texmf-dist/tex/latex/base/atveryend-ltx.sty
-Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
-with kernel methods
-)
-\Fld@listcount=\count314
-\c@bookmark@seq@number=\count315
- (/usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
-Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
-Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
-)
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
-)
-\Hy@SectionHShift=\skip73
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/tex-gyre/tgschola.sty
-Package: tgschola 2009/09/27 v1.2 TeX Gyre Schola as default roman family
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-LaTeX Font Info:    Trying to load font information for T1+qcs on input line 116.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/tex-gyre/t1qcs.fd
-File: t1qcs.fd 2009/09/25 v1.2 font definition file for T1/qcs
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/anonymouspro/AnonymousPro.sty
-Package: AnonymousPro 2019/07/07 v2.2 Support for AnonymousPro Fonts (AE)
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count316
-\lst@gtempboxa=\box57
-\lst@token=\toks29
-\lst@length=\count317
-\lst@currlwidth=\dimen177
-\lst@column=\count318
-\lst@pos=\count319
-\lst@lostspace=\dimen178
-\lst@width=\dimen179
-\lst@newlines=\count320
-\lst@lineno=\count321
-\lst@maxwidth=\dimen180
- (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstpatch.sty
-File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
-\c@lstnumber=\count322
-\lst@skipnumbers=\count323
-\lst@framebox=\box58
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2024/09/23 1.10c listings configuration
-))
-Package: listings 2024/09/23 1.10c (Carsten Heinz)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/minted/minted.sty
-Package: minted 2025/03/06 v3.6.0 Yet another Pygments shim for LaTeX
- (/usr/local/texlive/2025/texmf-dist/tex/generic/catchfile/catchfile.sty
-Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/etexcmds/etexcmds.sty
-Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/fvextra/fvextra.sty
-Package: fvextra 2025/03/04 v1.12.0 fvextra - extensions and patches for fancyvrb
- (/usr/local/texlive/2025/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
-Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
-\FV@CodeLineNo=\count324
-\FV@InFile=\read3
-\FV@TabBox=\box59
-\c@FancyVerbLine=\count325
-\FV@StepNumber=\count326
-\FV@OutFile=\write3
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/upquote/upquote.sty
-Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
- (/usr/local/texlive/2025/texmf-dist/tex/latex/base/textcomp.sty
-Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/lineno/lineno.sty
-Package: lineno 2025/01/29 line numbers on paragraphs v5.4
-\linenopenalty=\count327
-\output=\toks30
-\linenoprevgraf=\count328
-\linenumbersep=\dimen181
-\linenumberwidth=\dimen182
-\c@linenumber=\count329
-\c@pagewiselinenumber=\count330
-\c@LN@truepage=\count331
-\c@internallinenumber=\count332
-\c@internallinenumbers=\count333
-\quotelinenumbersep=\dimen183
-\bframerule=\dimen184
-\bframesep=\dimen185
-\bframebox=\box60
-\@LN@amsmath@ams@eqpen=\count334
-LaTeX Info: Redefining \\ on input line 3187.
-)
-\c@FancyVerbWriteLine=\count335
-\c@FancyVerbBufferLine=\count336
-\c@FV@TrueTabGroupLevel=\count337
-\c@FV@TrueTabCounter=\count338
-\FV@TabBox@Group=\box61
-\FV@bgcolorstructbox=\box62
-\FV@TmpLength=\skip74
-\c@FV@HighlightLinesStart=\count339
-\c@FV@HighlightLinesStop=\count340
-\FV@LoopCount=\count341
-\FV@NCharsBox=\box63
-\FV@BreakIndent=\dimen186
-\FV@BreakIndentNChars=\count342
-\FV@BreakSymbolSepLeft=\dimen187
-\FV@BreakSymbolSepLeftNChars=\count343
-\FV@BreakSymbolSepRight=\dimen188
-\FV@BreakSymbolSepRightNChars=\count344
-\FV@BreakSymbolIndentLeft=\dimen189
-\FV@BreakSymbolIndentLeftNChars=\count345
-\FV@BreakSymbolIndentRight=\dimen190
-\FV@BreakSymbolIndentRightNChars=\count346
-\c@FancyVerbLineBreakLast=\count347
-\FV@LineBox=\box64
-\FV@LineIndentBox=\box65
-\c@FV@BreakBufferDepth=\count348
-\FV@LineWidth=\dimen191
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/latex2pydata/latex2pydata.sty
-Package: latex2pydata 2025/03/03 v0.5.0 latex2pydata - write data to file in Python literal format
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks31
-\pgfkeys@temptoks=\toks32
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks33
-))) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgfopts/pgfopts.sty
-Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
-\pgfopts@list@add@a@toks=\toks34
-\pgfopts@list@add@b@toks=\toks35
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/shellesc.sty
-Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
-Package shellesc Info: Restricted shell escape enabled on input line 77.
-)
-\c@minted@FancyVerbLineTemp=\count349
-\@float@every@listing=\toks36
-\c@listing=\count350
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
-Package: tcolorbox 2024/10/22 version 6.4.1 text color boxes
- (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks37
-\pgfutil@tempdima=\dimen192
-\pgfutil@tempdimb=\dimen193
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box66
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex)
-Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
-))
-Package: pgf 2023-01-15 v3.1.10 (3.1.10)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
-Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
-\pgf@x=\dimen194
-\pgf@y=\dimen195
-\pgf@xa=\dimen196
-\pgf@ya=\dimen197
-\pgf@xb=\dimen198
-\pgf@yb=\dimen199
-\pgf@xc=\dimen256
-\pgf@yc=\dimen257
-\pgf@xd=\dimen258
-\pgf@yd=\dimen259
-\w@pgf@writea=\write4
-\r@pgf@reada=\read4
-\c@pgf@counta=\count351
-\c@pgf@countb=\count352
-\c@pgf@countc=\count353
-\c@pgf@countd=\count354
-\t@pgf@toka=\toks38
-\t@pgf@tokb=\toks39
-\t@pgf@tokc=\toks40
-\pgf@sys@id@count=\count355
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
-File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
-)
-Driver file for pgf: pgfsys-pdftex.def
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
-File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
-File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
-))) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
-File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count356
-\pgfsyssoftpath@bigbuffer@items=\count357
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
-File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen260
-\pgfmath@count=\count358
-\pgfmath@box=\box67
+\pgfmath@dimen=\dimen189
+\pgfmath@count=\count335
+\pgfmath@box=\box66
 \pgfmath@toks=\toks41
 \pgfmath@stack@operand=\toks42
 \pgfmath@stack@operation=\toks43
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count359
+\c@pgfmathroundto@lastzeros=\count336
 )) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen261
-\pgf@picmaxx=\dimen262
-\pgf@picminy=\dimen263
-\pgf@picmaxy=\dimen264
-\pgf@pathminx=\dimen265
-\pgf@pathmaxx=\dimen266
-\pgf@pathminy=\dimen267
-\pgf@pathmaxy=\dimen268
-\pgf@xx=\dimen269
-\pgf@xy=\dimen270
-\pgf@yx=\dimen271
-\pgf@yy=\dimen272
-\pgf@zx=\dimen273
-\pgf@zy=\dimen274
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+\pgf@picminx=\dimen190
+\pgf@picmaxx=\dimen191
+\pgf@picminy=\dimen192
+\pgf@picmaxy=\dimen193
+\pgf@pathminx=\dimen194
+\pgf@pathmaxx=\dimen195
+\pgf@pathminy=\dimen196
+\pgf@pathmaxy=\dimen197
+\pgf@xx=\dimen198
+\pgf@xy=\dimen199
+\pgf@yx=\dimen256
+\pgf@yy=\dimen257
+\pgf@zx=\dimen258
+\pgf@zy=\dimen259
+LaTeX Font Info:    Trying to load font information for T1+qcs on input line 926.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/tex-gyre/t1qcs.fd
+File: t1qcs.fd 2009/09/25 v1.2 font definition file for T1/qcs
+)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen275
-\pgf@path@lasty=\dimen276
+\pgf@path@lastx=\dimen260
+\pgf@path@lasty=\dimen261
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen277
-\pgf@shorten@start@additional=\dimen278
+\pgf@shorten@end@additional=\dimen262
+\pgf@shorten@start@additional=\dimen263
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfpic=\box68
-\pgf@hbox=\box69
-\pgf@layerbox@main=\box70
-\pgf@picture@serial@count=\count360
+\pgfpic=\box67
+\pgf@hbox=\box68
+\pgf@layerbox@main=\box69
+\pgf@picture@serial@count=\count337
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen279
+\pgflinewidth=\dimen264
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen280
-\pgf@pt@y=\dimen281
-\pgf@pt@temp=\dimen282
+\pgf@pt@x=\dimen265
+\pgf@pt@y=\dimen266
+\pgf@pt@temp=\dimen267
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
@@ -592,17 +442,17 @@ File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen283
+\pgfarrowsep=\dimen268
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen284
-\pgf@sys@shading@range@num=\count361
-\pgf@shadingcount=\count362
+\pgf@max=\dimen269
+\pgf@sys@shading@range@num=\count338
+\pgf@shadingcount=\count339
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfexternal@startupbox=\box71
+\pgfexternal@startupbox=\box70
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
@@ -613,51 +463,51 @@ File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box72
+\pgfnodeparttextbox=\box71
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen285
-\pgf@nodesepend=\dimen286
+\pgf@nodesepstart=\dimen270
+\pgf@nodesepend=\dimen271
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen287
-\pgffor@skip=\dimen288
+\pgffor@iter=\dimen272
+\pgffor@skip=\dimen273
 \pgffor@stack=\toks44
 \pgffor@toks=\toks45
 )) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count363
-\pgfplotmarksize=\dimen289
+\pgf@plot@mark@count=\count340
+\pgfplotmarksize=\dimen274
 )
-\tikz@lastx=\dimen290
-\tikz@lasty=\dimen291
-\tikz@lastxsaved=\dimen292
-\tikz@lastysaved=\dimen293
-\tikz@lastmovetox=\dimen294
-\tikz@lastmovetoy=\dimen295
-\tikzleveldistance=\dimen296
-\tikzsiblingdistance=\dimen297
-\tikz@figbox=\box73
-\tikz@figbox@bg=\box74
-\tikz@tempbox=\box75
-\tikz@tempbox@bg=\box76
-\tikztreelevel=\count364
-\tikznumberofchildren=\count365
-\tikznumberofcurrentchild=\count366
-\tikz@fig@count=\count367
+\tikz@lastx=\dimen275
+\tikz@lasty=\dimen276
+\tikz@lastxsaved=\dimen277
+\tikz@lastysaved=\dimen278
+\tikz@lastmovetox=\dimen279
+\tikz@lastmovetoy=\dimen280
+\tikzleveldistance=\dimen281
+\tikzsiblingdistance=\dimen282
+\tikz@figbox=\box72
+\tikz@figbox@bg=\box73
+\tikz@tempbox=\box74
+\tikz@tempbox@bg=\box75
+\tikztreelevel=\count341
+\tikznumberofchildren=\count342
+\tikznumberofcurrentchild=\count343
+\tikz@fig@count=\count344
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count368
-\pgfmatrixcurrentcolumn=\count369
-\pgf@matrix@numberofcolumns=\count370
+\pgfmatrixcurrentrow=\count345
+\pgfmatrixcurrentcolumn=\count346
+\pgf@matrix@numberofcolumns=\count347
 )
-\tikz@expandcount=\count371
+\tikz@expandcount=\count348
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/verbatim.sty
@@ -670,19 +520,19 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
  (/usr/local/texlive/2025/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\tcb@titlebox=\box77
-\tcb@upperbox=\box78
-\tcb@lowerbox=\box79
-\tcb@phantombox=\box80
-\c@tcbbreakpart=\count372
-\c@tcblayer=\count373
-\c@tcolorbox@number=\count374
-\l__tcobox_tmpa_box=\box81
-\l__tcobox_tmpa_dim=\dimen298
+\tcb@titlebox=\box76
+\tcb@upperbox=\box77
+\tcb@lowerbox=\box78
+\tcb@phantombox=\box79
+\c@tcbbreakpart=\count349
+\c@tcblayer=\count350
+\c@tcolorbox@number=\count351
+\l__tcobox_tmpa_box=\box80
+\l__tcobox_tmpa_dim=\dimen283
+\tcb@temp=\box81
 \tcb@temp=\box82
 \tcb@temp=\box83
 \tcb@temp=\box84
-\tcb@temp=\box85
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcblistings.code.tex
 Library (tcolorbox): 'tcblistings.code.tex' version '6.4.1'
 (/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcblistingscore.code.tex
@@ -690,17 +540,8 @@ Library (tcolorbox): 'tcblistingscore.code.tex' version '6.4.1'
 (/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcbprocessing.code.tex
 Library (tcolorbox): 'tcbprocessing.code.tex' version '6.4.1'
 )
-\c@tcblisting=\count375
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
-Library (tcolorbox): 'tcbbreakable.code.tex' version '6.4.1'
-(/usr/local/texlive/2025/texmf-dist/tex/latex/pdfcol/pdfcol.sty
-Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
-)
-Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
-\tcb@testbox=\box86
-\tcb@totalupperbox=\box87
-\tcb@totallowerbox=\box88
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcbminted.code.tex
+\c@tcblisting=\count352
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcbminted.code.tex
 Library (tcolorbox): 'tcbminted.code.tex' version '6.4.1'
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '6.4.1'
@@ -710,56 +551,101 @@ Package: tikzfill.image 2023/08/08 v1.0.1 Image filling library for TikZ
 Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
 File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
-\l__tikzfill_img_box=\box89
+\l__tikzfill_img_box=\box85
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.4.1'
-))
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen284
+\captionmargin=\dimen285
+\caption@leftmargin=\dimen286
+\caption@rightmargin=\dimen287
+\caption@width=\dimen288
+\caption@indent=\dimen289
+\caption@parindent=\dimen290
+\caption@hangindent=\dimen291
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count353
+\c@continuedfloat=\count354
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
+)
+\c@KVtest=\count355
+\sf@farskip=\skip69
+\sf@captopadj=\dimen292
+\sf@capskip=\skip70
+\sf@nearskip=\skip71
+\c@subfigure=\count356
+\c@subfigure@save=\count357
+\c@lofdepth=\count358
+\c@subtable=\count359
+\c@subtable@save=\count360
+\c@lotdepth=\count361
+\sf@top=\skip72
+\sf@bottom=\skip73
+)
+/Users/simo/Desktop/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE UFFICIALE/TESI/main.tex:38: Undefined control sequence.
+l.38 \hypersetup
+                {colorlinks=true, linkcolor=linkColor, citecolor=linkColor, ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-LaTeX Warning: Unused global option(s):
-    [openright].
 
+/Users/simo/Desktop/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE UFFICIALE/TESI/main.tex:38: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.38 \hypersetup{c
+                  olorlinks=true, linkcolor=linkColor, citecolor=linkColor, ...
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.04378pt too wide) in paragraph at lines 38--39
+[]\T1/cmr/m/n/12 colorlinks=true, lin-k-co-lor=linkColor, ci-te-co-lor=linkColor, url-co-lor=linkColor 
+ []
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+Package: tocbibind 2010/10/13 v1.5k extra ToC listings
+Package tocbibind Info: The document has chapter divisions on input line 50.
+
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count362
+\l__pdf_internal_box=\box86
+)
 No file main.aux.
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Info: Redefining \it@ocap on input line 66.
-LaTeX Info: Redefining \it@ccap on input line 66.
-(/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count376
-\scratchdimen=\dimen299
-\scratchbox=\box90
-\nofMPsegments=\count377
-\nofMParguments=\count378
-\everyMPshowfont=\toks48
-\MPscratchCnt=\count379
-\MPscratchDim=\dimen300
-\MPnumerator=\count380
-\makeMPintoPDFobject=\count381
-\everyMPtoPDFconversion=\toks49
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-))
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Info: Redefining \it@ocap on input line 44.
+LaTeX Info: Redefining \it@ccap on input line 44.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -779,10 +665,10 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \topmargin=-23.91173pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=10.0pt
+* \topskip=12.0pt
 * \footskip=30.0pt
-* \marginparwidth=111.0pt
-* \marginparsep=11.0pt
+* \marginparwidth=85.0pt
+* \marginparsep=10.0pt
 * \columnsep=10.0pt
 * \skip\footins=10.8pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
@@ -794,127 +680,169 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+\c@lstlisting=\count363
+(/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count364
+\scratchdimen=\dimen293
+\scratchbox=\box87
+\nofMPsegments=\count365
+\nofMParguments=\count366
+\everyMPshowfont=\toks48
+\MPscratchCnt=\count367
+\MPscratchDim=\dimen294
+\MPnumerator=\count368
+\makeMPintoPDFobject=\count369
+\everyMPtoPDFconversion=\toks49
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/grfext/grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
-Package caption Info: float package is loaded.
-Package caption Info: hyperref package is loaded.
-Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 66.
-\@outlinefile=\write5
-\openout5 = `main.out'.
+ (./tex/0-titlepage.tex
 
-\c@lstlisting=\count382
-(./tex/0-titlepage.tex
-<images/univr.png, id=7, 2055.68pt x 2083.785pt>
-File: images/univr.png Graphic file (type png)
-<use images/univr.png>
-Package pdftex.def Info: images/univr.png  used on input line 4.
-(pdftex.def)             Requested size: 199.16928pt x 201.87253pt.
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [1
 
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc} <./images/univr.png>])
-No file main.toc.
-\tf@toc=\write6
-\openout6 = `main.toc'.
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}]
+<images/univr.png, id=11, 2055.68pt x 2083.785pt>
+File: images/univr.png Graphic file (type png)
+<use images/univr.png>
+Package pdftex.def Info: images/univr.png  used on input line 5.
+(pdftex.def)             Requested size: 199.16928pt x 201.87253pt.
 
 
+[1 <./images/univr.png>]) (./tex/1-Abstract.tex
 
+[1
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+]
 
-[2] (./tex/1-Abstract.tex)
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.85 \newpage
-              [1] (./tex/2-Introduzione.tex
-
-./tex/2-Introduzione.tex:12: LaTeX Error: There's no line here to end.
+./tex/1-Abstract.tex:4: LaTeX Error: \begin{document} ended by \end{abstract}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 I
-       principali contributi di questo lavoro includono:
+l.4 \end{abstract}
+                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-LaTeX Font Info:    Trying to load font information for TS1+qcs on input line 15.
+./tex/1-Abstract.tex:4: Extra \endgroup.
+\end  ...end#1\endcsname \@checkend {#1}\endgroup 
+                                                  \UseHook {env/#1/after}\if...
+l.4 \end{abstract}
+                  
+Things are pretty mixed up, but I think the worst is over.
+
+) (./tex/2-Introduzione.tex
+Capitolo 1.
+LaTeX Font Info:    Trying to load font information for TS1+qcs on input line 33.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/tex-gyre/ts1qcs.fd
 File: ts1qcs.fd 2009/09/25 v1.2 font definition file for TS1/qcs
-))
+)
+
+[1
 
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.87 \newpage
-              [2{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}] (./tex/3-Lavori Correlati.tex)
-
-[3] (./tex/4-Metodologia.tex
-Overfull \hbox (44.75441pt too wide) in paragraph at lines 10--11
-[]\T1/qcs/m/n/10.95 Ogni se-quen-za vie-ne di-vi-sa in: sto-ri-co del-le vi-si-te $\OML/cmm/m/it/10.95 H \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 p[]; :::; p[]; p[]; :::; p[]\OMS/cmsy/m/n/10.95 g$\T1/qcs/m/n/10.95 ,
- []
+{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}]) (./tex/3-Lavori Correlati.tex
 
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[2]
+Capitolo 2.
+) (./tex/4-Metodologia.tex
+
+[3
+
+]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [4]
-
-[5]
-LaTeX Font Info:    Trying to load font information for T1+AnonymousPro on input line 83.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/anonymouspro/t1anonymouspro.fd
-File: t1anonymouspro.fd 2019/07/12 Fontinst v1.933 font definitions for T1/AnonymousPro.
+Capitolo 3.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Font shape `T1/AnonymousPro/m/n' will be
-(Font)              scaled to size 10.95pt on input line 83.
-
-Overfull \hbox (3.46404pt too wide) in paragraph at lines 90--91
-\T1/qcs/m/n/10.95 Per ot-ti-miz-za-re l'u-ti-liz-zo del con-text win-dow li-mi-ta-to (1024 to-kens), il prompt
+LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Overfull \hbox (45.66829pt too wide) in paragraph at lines 10--11
+[]\T1/qcs/m/n/12 Ogni se-quen-za vie-ne di-vi-sa in: sto-ri-co del-le vi-si-te $\OML/cmm/m/it/12 H \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 p[]; [] ; p[]; p[]; [] ; p[]\OMS/cmsy/m/n/12 g$\T1/qcs/m/n/12 ,
  []
 
 
 
-[6{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/anonymouspro/AnonymousPro-01.enc}])
+[5
 
-[7] (./tex/5-Strategie di prompt e risultati sperimentali.tex
-Overfull \hbox (6.91061pt too wide) in paragraph at lines 1--1
-[]\T1/qcs/b/n/17.28 Strategie di prompt e ri-sul-ta-ti spe-ri-men-
+]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[6]
+Overfull \hbox (1.5794pt too wide) in paragraph at lines 68--68
+[]\T1/qcs/b/n/17.28 Prompt En-gi-nee-ring e Co-stru-zio-ne Del Con-
  []
 
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:3: LaTeX Error: \begin{abstract} on input line 1 ended by \end{itemize}.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[7]) (./tex/5-Strategie di prompt e risultati sperimentali.tex
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:1: LaTeX Error: Can be used only in preamble.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3 ... di mobilità spazio-temporale\end{itemize}
-                                                  
+l.1 \usepackage
+               {subcaption}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
-
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 5.
 
 
 
@@ -926,57 +854,45 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [8]
-<../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png, id=90, 570.33075pt x 425.79076pt>
-File: ../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png Graphic file (type png)
-<use ../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png>
-Package pdftex.def Info: ../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png  used on input line 34.
-(pdftex.def)             Requested size: 341.43437pt x 254.91118pt.
+Capitolo 4.
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:5: LaTeX Error: \begin{document} ended by \end{itemize}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ... di mobilità spazio-temporale\end{itemize}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:5: Extra \endgroup.
+\end  ...end#1\endcsname \@checkend {#1}\endgroup 
+                                                  \UseHook {env/#1/after}\if...
+l.5 ... di mobilità spazio-temporale\end{itemize}
+                                                  
+Things are pretty mixed up, but I think the worst is over.
+
+
+Overfull \hbox (24.2448pt too wide) in paragraph at lines 7--7
+[]\T1/qcs/b/n/14.4 Configurazione spe-ri-men-ta-le per ana-li-si multi-modello 
+ []
+
+
+Overfull \hbox (19.06673pt too wide) in paragraph at lines 13--13
+[]\T1/qcs/b/n/17.28 Architettura del si-ste-ma e con-fi-gu-ra-zio-ne spe-
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+[9
 
-[9]
-<../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png, id=97, 384.83775pt x 269.808pt>
-File: ../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png Graphic file (type png)
-<use ../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png>
-Package pdftex.def Info: ../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png  used on input line 43.
-(pdftex.def)             Requested size: 341.43437pt x 239.39143pt.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[10 <../../img/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png>]
-<../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png, id=104, 384.83775pt x 269.808pt>
-File: ../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png Graphic file (type png)
-<use ../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png>
-Package pdftex.def Info: ../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png  used on input line 52.
-(pdftex.def)             Requested size: 341.43437pt x 239.39143pt.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[11 <../../img/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png>]
-<../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png, id=112, 394.47375pt x 269.808pt>
-File: ../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png Graphic file (type png)
-<use ../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png>
-Package pdftex.def Info: ../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png  used on input line 61.
-(pdftex.def)             Requested size: 341.43437pt x 233.53304pt.
-
+]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -985,24 +901,116 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[12 <../../img/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png>]
-<../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png, id=119, 634.16925pt x 284.262pt>
-File: ../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png Graphic file (type png)
-<use ../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png>
-Package pdftex.def Info: ../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png  used on input line 70.
-(pdftex.def)             Requested size: 341.43437pt x 153.04808pt.
+[10] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2024/09/23 1.10c listings language file
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang3.sty
+File: lstlang3.sty 2024/09/23 1.10c listings language file
+)
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:34: Package Listings Error: Couldn't load requested language.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.34 ...xt, caption=Esempio di Prompt Geospaziale]
+                                                  
+The following languages weren't loadable:
+    ,text$
+This may cause errors in the sequel.
 
 
+./tex/5-Strategie di prompt e risultati sperimentali.tex:34: Package Listings Error: language text undefined.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.34 ...xt, caption=Esempio di Prompt Geospaziale]
+                                                  
+The language is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
-[13 <../../img/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png>]
-Overfull \hbox (10.95833pt too wide) in paragraph at lines 75--76
-[]\T1/qcs/b/n/12 Strategia geo-spa-zia-le avan-za-ta (no-me + geo-lo-ca-liz-za-zio-ne): \T1/qcs/m/n/12 Que-
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:38: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.38 POI Più 
+              Vicini: Ponte Pietra (0.8km), Duomo (1.2km),
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:38: LaTeX Error: Invalid UTF-8 byte "B9.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.38 POI Più 
+              Vicini: Ponte Pietra (0.8km), Duomo (1.2km),
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+Overfull \hbox (13.56192pt too wide) in paragraph at lines 38--39
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (56.76236pt too wide) in paragraph at lines 39--41
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:41: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 Suggerisci 5 POI più 
+                           probabili come prossime visite
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:41: LaTeX Error: Invalid UTF-8 byte "B9.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 Suggerisci 5 POI più 
+                           probabili come prossime visite
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+Overfull \hbox (6.36185pt too wide) in paragraph at lines 41--42
+[][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (42.36221pt too wide) in paragraph at lines 43--44
+[][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -1013,39 +1021,43 @@ File: lstlang2.sty 2024/09/23 1.10c listings language file
 File: lstlang3.sty 2024/09/23 1.10c listings language file
 )
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:77: Package Listings Error: Couldn't load requested language.
+./tex/5-Strategie di prompt e risultati sperimentali.tex:51: Package Listings Error: Couldn't load requested language.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.77 ...xt, caption=Esempio di Prompt Geospaziale]
+l.51 ...aption=Esempio di Prompt Spatio-temporale]
                                                   
 The following languages weren't loadable:
     ,text$
 This may cause errors in the sequel.
 
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:77: Package Listings Error: language text undefined.
+./tex/5-Strategie di prompt e risultati sperimentali.tex:51: Package Listings Error: language text undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.77 ...xt, caption=Esempio di Prompt Geospaziale]
+l.51 ...aption=Esempio di Prompt Spatio-temporale]
                                                   
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 77.
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:81: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+Overfull \hbox (164.76346pt too wide) in paragraph at lines 53--54
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:56: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.81 POI Più 
+l.56 POI Più 
               Vicini: Ponte Pietra (0.8km), Duomo (1.2km),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1054,13 +1066,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-./tex/5-Strategie di prompt e risultati sperimentali.tex:81: LaTeX Error: Invalid UTF-8 byte "B9.
+./tex/5-Strategie di prompt e risultati sperimentali.tex:56: LaTeX Error: Invalid UTF-8 byte "B9.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.81 POI Più 
+l.56 POI Più 
               Vicini: Ponte Pietra (0.8km), Duomo (1.2km),
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1069,248 +1081,7 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-Overfull \hbox (1.81256pt too wide) in paragraph at lines 81--82
-[][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (45.013pt too wide) in paragraph at lines 82--84
-[][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:84: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.84 Suggerisci 5 POI più 
-                           probabili come prossime visite
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:84: LaTeX Error: Invalid UTF-8 byte "B9.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.84 Suggerisci 5 POI più 
-                           probabili come prossime visite
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-Overfull \hbox (30.61285pt too wide) in paragraph at lines 86--87
-[][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[14 <../../img/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png>]
-<../../img/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png, id=144, 570.33075pt x 425.79076pt>
-File: ../../img/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png Graphic file (type png)
-<use ../../img/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png>
-Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png  used on input line 96.
-(pdftex.def)             Requested size: 341.43437pt x 254.91118pt.
-<../../img/SPACE-GEO_n-1_come_current_POI/MRR.png, id=145, 384.83775pt x 269.808pt>
-File: ../../img/SPACE-GEO_n-1_come_current_POI/MRR.png Graphic file (type png)
-<use ../../img/SPACE-GEO_n-1_come_current_POI/MRR.png>
-Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/MRR.png  used on input line 105.
-(pdftex.def)             Requested size: 341.43437pt x 239.39143pt.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[15 <../../img/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png>]
-<../../img/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png, id=152, 394.47375pt x 269.808pt>
-File: ../../img/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png Graphic file (type png)
-<use ../../img/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png>
-Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png  used on input line 114.
-(pdftex.def)             Requested size: 341.43437pt x 233.53304pt.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[16 <../../img/SPACE-GEO_n-1_come_current_POI/MRR.png>]
-<../../img/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png, id=159, 384.83775pt x 269.808pt>
-File: ../../img/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png Graphic file (type png)
-<use ../../img/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png>
-Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png  used on input line 123.
-(pdftex.def)             Requested size: 341.43437pt x 239.39143pt.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[17 <../../img/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png>]
-<../../img/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png, id=168, 672.71326pt x 284.262pt>
-File: ../../img/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png Graphic file (type png)
-<use ../../img/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png>
-Package pdftex.def Info: ../../img/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png  used on input line 132.
-(pdftex.def)             Requested size: 341.43437pt x 144.2777pt.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[18 <../../img/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png> <../../img/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png>] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2024/09/23 1.10c listings language file
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang2.sty
-File: lstlang2.sty 2024/09/23 1.10c listings language file
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang3.sty
-File: lstlang3.sty 2024/09/23 1.10c listings language file
-)
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:155: Package Listings Error: Couldn't load requested language.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.155 ..., caption=Template di Prompt Comprensivo]
-                                                  
-The following languages weren't loadable:
-    ,text$
-This may cause errors in the sequel.
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:155: Package Listings Error: language text undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.155 ..., caption=Template di Prompt Comprensivo]
-                                                  
-The language is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:159: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.159 POI Più 
-               Vicini: {pois_with_distance_text}
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:159: LaTeX Error: Invalid UTF-8 byte "B9.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.159 POI Più 
-               Vicini: {pois_with_distance_text}
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:161: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.161 Suggerisci {top_k} POI più 
-                                  probabili che l'utente visiterà
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:161: LaTeX Error: Invalid UTF-8 byte "B9.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.161 Suggerisci {top_k} POI più 
-                                  probabili che l'utente visiterà
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:161: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.161 ...POI più probabili che l'utente visiterà
-                                                  
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:161: LaTeX Error: Invalid UTF-8 byte "A0.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.161 ...POI più probabili che l'utente visiterà
-                                                  
-The document does not appear to be in UTF-8 encoding.
-Try adding \UseRawInputEncoding as the first line of the file
-or specify an encoding such as \usepackage [latin1]{inputenc}
-in the document preamble.
-Alternatively, save the file in UTF-8 using your editor or another tool
-
-
-Overfull \hbox (30.21307pt too wide) in paragraph at lines 161--162
+Overfull \hbox (13.56192pt too wide) in paragraph at lines 56--57
 [][][][][][][][][][][][][][][][][][][][][][] 
  []
 
@@ -1323,15 +1094,394 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[19]
-Overfull \hbox (51.8133pt too wide) in paragraph at lines 165--167
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (8.61285pt too wide) in paragraph at lines 167--168
+[11]
+Overfull \hbox (56.76236pt too wide) in paragraph at lines 57--59
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
+
+
+Overfull \hbox (99.9628pt too wide) in paragraph at lines 59--60
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (35.16214pt too wide) in paragraph at lines 60--61
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:61: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.61 suggerisci 5 POI più 
+                           probabili per la prossima visita.
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:61: LaTeX Error: Invalid UTF-8 byte "B9.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.61 suggerisci 5 POI più 
+                           probabili per la prossima visita.
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+Overfull \hbox (27.96207pt too wide) in paragraph at lines 61--63
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (42.36221pt too wide) in paragraph at lines 63--64
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (71.1625pt too wide) in paragraph at lines 64--65
+[][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (0.63405pt too wide) in paragraph at lines 73--74
+\T1/qcs/m/n/12 I ri-sul-ta-ti spe-ri-men-ta-li mo-stra-no un mi-glio-ra-men-to pro-gres-si-vo del-le per-
+ []
+
+<../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png, id=70, 570.33075pt x 425.79076pt>
+File: ../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png Graphic file (type png)
+<use ../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png>
+Package pdftex.def Info: ../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png  used on input line 82.
+(pdftex.def)             Requested size: 204.85802pt x 152.9402pt.
+<../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png, id=71, 570.33075pt x 425.79076pt>
+File: ../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png Graphic file (type png)
+<use ../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png>
+Package pdftex.def Info: ../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png  used on input line 89.
+(pdftex.def)             Requested size: 204.85802pt x 152.9402pt.
+<../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png, id=72, 384.83775pt x 269.808pt>
+File: ../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png Graphic file (type png)
+<use ../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png>
+Package pdftex.def Info: ../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png  used on input line 102.
+(pdftex.def)             Requested size: 204.85802pt x 143.62744pt.
+<../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/MRR.png, id=73, 384.83775pt x 269.808pt>
+File: ../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/MRR.png Graphic file (type png)
+<use ../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/MRR.png>
+Package pdftex.def Info: ../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/MRR.png  used on input line 109.
+(pdftex.def)             Requested size: 204.85802pt x 143.62744pt.
+<../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png, id=74, 384.83775pt x 269.808pt>
+File: ../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png Graphic file (type png)
+<use ../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png>
+Package pdftex.def Info: ../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png  used on input line 122.
+(pdftex.def)             Requested size: 204.85802pt x 143.62744pt.
+<../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png, id=75, 394.47375pt x 269.808pt>
+File: ../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png Graphic file (type png)
+<use ../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png>
+Package pdftex.def Info: ../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png  used on input line 129.
+(pdftex.def)             Requested size: 204.85802pt x 140.1157pt.
+<../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png, id=76, 394.47375pt x 269.808pt>
+File: ../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png Graphic file (type png)
+<use ../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png>
+Package pdftex.def Info: ../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png  used on input line 142.
+(pdftex.def)             Requested size: 204.85802pt x 140.1157pt.
+<../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png, id=77, 384.83775pt x 269.808pt>
+File: ../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png Graphic file (type png)
+<use ../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png>
+Package pdftex.def Info: ../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png  used on input line 149.
+(pdftex.def)             Requested size: 204.85802pt x 143.62744pt.
+<../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png, id=78, 634.16925pt x 284.262pt>
+File: ../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png Graphic file (type png)
+<use ../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png>
+Package pdftex.def Info: ../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png  used on input line 162.
+(pdftex.def)             Requested size: 204.85802pt x 91.82451pt.
+<../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png, id=79, 672.71326pt x 284.262pt>
+File: ../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png Graphic file (type png)
+<use ../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png>
+Package pdftex.def Info: ../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png  used on input line 169.
+(pdftex.def)             Requested size: 204.85802pt x 86.56314pt.
+
+Overfull \hbox (3.0815pt too wide) in paragraph at lines 175--175
+[]\T1/qcs/b/n/17.28 Protocollo spe-ri-men-ta-le e mec-ca-ni-smi di
+ []
+
+
+Underfull \vbox (badness 2932) has occurred while \output is active []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[12 <../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/confusion_matrix.png> <../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/confusion_matrix.png>]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[13 <../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/mrr_distribution.png> <../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/MRR.png> <../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/top1_accuracy.png> <../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/top_1_accuracy.png>]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[14 <../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/top5_hit_rate.png> <../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/top_5_hit_rate.png> <../../img/llama3.1_8b/no_SPACE-GEO_n-1_come_current_POI/worst_performing_pairs.png> <../../img/llama3.1_8b/SPACE-GEO_n-1_come_current_POI/Worst_performing_POI_pairs.png>] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2024/09/23 1.10c listings language file
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang3.sty
+File: lstlang3.sty 2024/09/23 1.10c listings language file
+)
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:191: Package Listings Error: Couldn't load requested language.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.191 ..., caption=Template di Prompt Comprensivo]
+                                                  
+The following languages weren't loadable:
+    ,text$
+This may cause errors in the sequel.
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:191: Package Listings Error: language text undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.191 ..., caption=Template di Prompt Comprensivo]
+                                                  
+The language is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:195: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.195 POI Più 
+               Vicini: {pois_with_distance_text}
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:195: LaTeX Error: Invalid UTF-8 byte "B9.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.195 POI Più 
+               Vicini: {pois_with_distance_text}
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:197: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.197 Suggerisci {top_k} POI più 
+                                  probabili che l'utente visiterà
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:197: LaTeX Error: Invalid UTF-8 byte "B9.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.197 Suggerisci {top_k} POI più 
+                                  probabili che l'utente visiterà
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:197: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.197 ...POI più probabili che l'utente visiterà
+                                                  
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:197: LaTeX Error: Invalid UTF-8 byte "A0.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.197 ...POI più probabili che l'utente visiterà
+                                                  
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+Overfull \hbox (34.58774pt too wide) in paragraph at lines 197--198
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[15]
+Overfull \hbox (56.18796pt too wide) in paragraph at lines 201--203
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (12.98752pt too wide) in paragraph at lines 203--204
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[16]
+Overfull \hbox (2.58635pt too wide) in paragraph at lines 229--230
+[]\T1/qcs/m/n/12 L'analisi de-gli er-ro-ri pi� fre-quen-ti evi-den-zia pat-tern si-ste-ma-ti-ci, con tran-
+ []
+
+
+Overfull \hbox (0.90417pt too wide) in paragraph at lines 231--231
+[]\T1/qcs/b/n/17.28 Confronto del-le pre-sta-zio-ni tra stra-te-gie 
+ []
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:240: Undefined control sequence.
+l.240 \toprule
+              
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:242: Undefined control sequence.
+<recently read> \midrule 
+                         
+l.242 \midrule
+              
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./tex/5-Strategie di prompt e risultati sperimentali.tex:246: Undefined control sequence.
+<recently read> \bottomrule 
+                            
+l.246 \bottomrule
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (39.00041pt too wide) in paragraph at lines 239--248
+ [][] 
+ []
+
+
+Overfull \hbox (1.2151pt too wide) in paragraph at lines 252--252
+[]\T1/qcs/b/n/17.28 Analisi de-gli er-ro-ri e in-ter-pre-ta-bi-li-t� del
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[17]) (./tex/6-Configurazione Sperimentale.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[18]
+Capitolo 5.
+
+Overfull \hbox (5.57185pt too wide) in paragraph at lines 15--16
+[]\T1/qcs/b/n/12 Arricchimento geo-gra-fi-co\T1/qcs/m/n/12 : In-te-gria-mo coor-di-na-te geo-gra-fi-che per
+ []
+
+
+
+[19
+
+]
+
+LaTeX Warning: Reference `sec:anchor' on page 20 undefined on input line 24.
 
 
 
@@ -1343,46 +1493,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [20]
-./tex/5-Strategie di prompt e risultati sperimentali.tex:216: Undefined control sequence.
-l.216 \toprule
-              
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:218: Undefined control sequence.
-<recently read> \midrule 
-                         
-l.218 \midrule
-              
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./tex/5-Strategie di prompt e risultati sperimentali.tex:222: Undefined control sequence.
-<recently read> \bottomrule 
-                            
-l.222 \bottomrule
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Overfull \hbox (39.00041pt too wide) in paragraph at lines 215--224
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1391,12 +1501,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[21]
-Overfull \hbox (11.24063pt too wide) in paragraph at lines 235--236
-\T1/qcs/m/n/12 an-no nel pe-rio-do che coin-ci-de a quel-lo de-gli an-ni del-la pan-de-mia COVID-
- []
-
-)
+[21]) (./tex/7-Risultati e Analisi.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1406,63 +1511,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [22]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[23] (./tex/6-Configurazione Sperimentale.tex
-LaTeX Font Info:    Font shape `T1/AnonymousPro/m/n' will be
-(Font)              scaled to size 12.0pt on input line 12.
-
-Overfull \hbox (9.5084pt too wide) in paragraph at lines 14--15
-[]\T1/qcs/b/n/12 Clustering com-por-ta-men-ta-le\T1/qcs/m/n/12 : Ap-pli-chia-mo K-means clu-ste-ring ($\OML/cmm/m/it/12 k \OT1/cmr/m/n/12 =
- []
-
-
-LaTeX Warning: Reference `sec:anchor' on page 24 undefined on input line 24.
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[24]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[25])
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[26]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[27] (./tex/7-Risultati e analisi.tex
-./tex/7-Risultati e analisi.tex:25: Undefined control sequence.
+Capitolo 6.
+./tex/7-Risultati e Analisi.tex:25: Undefined control sequence.
 l.25 \toprule
              
 The control sequence at the end of the top line
@@ -1471,7 +1521,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./tex/7-Risultati e analisi.tex:27: Undefined control sequence.
+./tex/7-Risultati e Analisi.tex:27: Undefined control sequence.
 <recently read> \midrule 
                          
 l.27 \midrule
@@ -1482,7 +1532,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./tex/7-Risultati e analisi.tex:32: Undefined control sequence.
+./tex/7-Risultati e Analisi.tex:32: Undefined control sequence.
 <recently read> \bottomrule 
                             
 l.32 \bottomrule
@@ -1493,7 +1543,12 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./tex/7-Risultati e analisi.tex:45: Undefined control sequence.
+
+
+[23
+
+]
+./tex/7-Risultati e Analisi.tex:45: Undefined control sequence.
 l.45 \toprule
              
 The control sequence at the end of the top line
@@ -1502,7 +1557,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./tex/7-Risultati e analisi.tex:47: Undefined control sequence.
+./tex/7-Risultati e Analisi.tex:47: Undefined control sequence.
 <recently read> \midrule 
                          
 l.47 \midrule
@@ -1513,7 +1568,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./tex/7-Risultati e analisi.tex:51: Undefined control sequence.
+./tex/7-Risultati e Analisi.tex:51: Undefined control sequence.
 <recently read> \bottomrule 
                             
 l.51 \bottomrule
@@ -1533,12 +1588,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[28]
-Overfull \hbox (2.20674pt too wide) in paragraph at lines 78--79
-\T1/qcs/m/n/12 tu-ri-sti, con al-cu-ne com-bi-na-zio-ni di POI che mo-stra-no tas-si di co-occorrenza
- []
-
-
+[24]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1547,7 +1597,40 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[29]
+[25]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[26]) (./tex/8-Discussione.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[27]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[28
+
+]
+Capitolo 7.
+
+
+[29]) (./tex/9-Lavori Futuri.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1557,66 +1640,76 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [30]
+Capitolo 8.
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[31]
-Overfull \hbox (3.35196pt too wide) in paragraph at lines 157--157
-[]\T1/qcs/b/n/14.4 Copertura del ca-ta-lo-go e di-ver-si-t� del-le rac-co-man-
- []
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[32])
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[33] (./tex/8-Discussione.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[34])
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[35] (./tex/9-Lavori Futuri.tex
-Overfull \hbox (5.39641pt too wide) in paragraph at lines 12--13
+Overfull \hbox (17.14577pt too wide) in paragraph at lines 12--13
 []\T1/qcs/b/n/12 Integrazione di im-ma-gi-ni POI\T1/qcs/m/n/12 : Svi-lup-po di en-co-der vision-language
  []
 
 
-Overfull \hbox (1.29848pt too wide) in paragraph at lines 14--15
-[]\T1/qcs/b/n/12 Rappresentazioni audio-spaziali\T1/qcs/m/n/12 : In-te-gra-zio-ne di sound-sca-pes ur-
+
+[31
+
+]
+Overfull \hbox (5.08594pt too wide) in paragraph at lines 21--21
+[]\T1/qcs/b/n/17.28 Integrazione di-na-mi-ca di fat-to-ri am-bien-
  []
 
 
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[32]
+Underfull \vbox (badness 1215) has occurred while \output is active []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[33]
+Overfull \hbox (15.92781pt too wide) in paragraph at lines 59--60
+[]\T1/qcs/b/n/12 Meta-learning per tu-ri-smo\T1/qcs/m/n/12 : Esplo-ra-zio-ne di ap-proc-ci meta-learning
+ []
+
+
+Overfull \hbox (78.85416pt too wide) in paragraph at lines 70--70
+[]\T1/qcs/b/n/17.28 Personalizzazione avan-za-ta e privacy-preserving 
+ []
+
+
+Overfull \hbox (0.33401pt too wide) in paragraph at lines 75--76
+\T1/qcs/m/n/12 men-te le rac-co-man-da-zio-ni con po-chi esem-pi di com-por-ta-men-to uten-
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[34]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[35]) (./tex/10-Dettagli Implementativi.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1626,25 +1719,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [36]
-Overfull \hbox (2.07037pt too wide) in paragraph at lines 37--37
-[]\T1/qcs/b/n/14.4 Sistemi di rac-co-man-da-zio-ne adat-ti-vi in tem-po rea-
- []
+Capitolo 9.
+./tex/10-Dettagli Implementativi.tex:3: Undefined control sequence.
+l.3 ...ponibile come software open source su \href
+                                                  {https://github.com/simo-h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
+) (./tex/13-Conclusione.tex
 
+[37
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[37]
-Overfull \hbox (4.17845pt too wide) in paragraph at lines 59--60
-[]\T1/qcs/b/n/12 Meta-learning per tu-ri-smo\T1/qcs/m/n/12 : Esplo-ra-zio-ne di ap-proc-ci meta-learning
- []
-
-
+]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1653,21 +1742,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[38]
-Overfull \hbox (1.63452pt too wide) in paragraph at lines 75--76
-[]\T1/qcs/b/n/12 Few-shot per-so-na-li-za-tion\T1/qcs/m/n/12 : Tec-ni-che per per-so-na-liz-za-re ra-pi-da-men-
- []
+[38
+
+]
+Capitolo 10.
 
 
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[39])
+[39]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1685,17 +1766,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[41] (./tex/10-Dettagli Implementativi.tex
-Overfull \hbox (3.0685pt too wide) in paragraph at lines 11--12
-[]\T1/qcs/m/n/12 Istruzioni per la con-fi-gu-ra-zio-ne del-l'am-bien-te e l'e-se-cu-zio-ne de-gli espe-
- []
-
-
-Overfull \hbox (4.13655pt too wide) in paragraph at lines 12--13
-[]\T1/qcs/m/n/12 Documentazione e istru-zio-ni di con-fi-gu-ra-zio-ne (in ag-giun-ta al fi-le read-
- []
-
-)
+[41])
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1704,7 +1775,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[42] (./tex/11-Ringraziamenti.tex)
+[42] (./tex/12-Bibliography.tex) (./tex/11-Ringraziamenti.tex)
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1713,7 +1784,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[43]
+[43
+
+
+]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1722,79 +1796,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[44] (./tex/13-conclusione.tex
+[44]
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[45]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[46])
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[47] (./tex/12-Bibliography.tex)
-No file main.lof.
-\tf@lof=\write7
-\openout7 = `main.lof'.
-
-No file main.lot.
-\tf@lot=\write8
-\openout8 = `main.lot'.
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[48] (./tex/12-Bibliography.tex) (./tex/11-Ringraziamenti.tex)
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[49]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[50]
-
-/Users/simo/Desktop/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE UFFICIALE/TESI/main.tex:132: LaTeX Error: \begin{itemize} on input line 15 ended by \end{document}.
+/Users/simo/Desktop/LLM-Mob-As-Mobility-Interpreter/DOCUMENTAZIONE UFFICIALE/TESI/main.tex:82: LaTeX Error: \begin{itemize} on input line 17 ended by \end{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.132 \end{document}
-                    
+l.82 \end{document}
+                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -1811,32 +1822,24 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  8229D3F417A142296FFFB5D84CB2F4B1;22558.
  )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 15 (\begingroup)
+### semi simple group (level 1) entered at line 17 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 34447 strings out of 473190
- 712690 string characters out of 5715800
- 1511350 words of memory out of 5000000
- 56895 multiletter control sequences out of 15000+600000
- 612012 words of font info for 82 fonts, out of 8000000 for 9000
+ 27078 strings out of 473190
+ 587471 string characters out of 5715800
+ 1280306 words of memory out of 5000000
+ 49843 multiletter control sequences out of 15000+600000
+ 602753 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,12n,107p,1354b,2055s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/anonymouspro/AnonymousPro-Regular.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qcsb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qcsr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qcsri.pfb>
-Output written on main.pdf (52 pages, 1291769 bytes).
+ 116i,12n,121p,1350b,1972s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qcsb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qcsr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qcsri.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on main.pdf (47 pages, 1287958 bytes).
 PDF statistics:
- 566 PDF objects out of 1000 (max. 8388607)
- 448 compressed objects within 5 object streams
- 218 named destinations out of 1000 (max. 500000)
+ 269 PDF objects out of 1000 (max. 8388607)
+ 163 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
  68 words of extra memory for PDF output out of 10000 (max. 10000000)
 

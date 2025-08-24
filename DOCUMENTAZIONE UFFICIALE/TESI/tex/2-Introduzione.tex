@@ -1,20 +1,38 @@
+\chapter{Introduzione}
 
-\section{Introduzione}
-\fancyhead{}
+La previsione della mobilità umana si è affermata come un'area di ricerca cruciale, 
+con applicazioni che spaziano dalla pianificazione urbana ai sistemi di trasporto, 
+dai sistemi di raccomandazione alla salute pubblica. 
+Gli approcci tradizionali alla previsione della mobilità si sono basati in larga misura 
+su modelli statistici, algoritmi di apprendimento automatico e architetture di deep learning 
+specificamente progettate per dati sequenziali. 
+Tuttavia, i recenti progressi nei Large Language Model (LLM) hanno aperto nuove strade 
+per comprendere e prevedere i modelli di comportamento umano attraverso 
+capacità di elaborazione del linguaggio naturale.
 
-La previsione della mobilità umana si è affermata come un'area di ricerca cruciale, con applicazioni che spaziano dalla pianificazione urbana ai sistemi di trasporto, dai sistemi di raccomandazione alla salute pubblica. Gli approcci tradizionali alla previsione della mobilità si sono basati in larga misura su modelli statistici, algoritmi di apprendimento automatico e architetture di deep learning specificamente progettate per dati sequenziali. Tuttavia, i recenti progressi nei Large Language Model (LLM) hanno aperto nuove strade per comprendere e prevedere i modelli di comportamento umano attraverso capacità di elaborazione del linguaggio naturale.
+La sfida fondamentale nella previsione della mobilità umana risiede 
+nel catturare la complessa interazione tra fattori spaziali, temporali e comportamentali 
+che influenzano le decisioni di movimento individuali. 
+Gli approcci tradizionali di apprendimento automatico richiedono spesso 
+un'ampia progettazione di feature e conoscenze specifiche del dominio 
+per codificare efficacemente queste relazioni. 
+Al contrario, i LLM possiedono capacità intrinseche di comprensione 
+delle relazioni e dei modelli contestuali, 
+che possono essere sfruttate per prevedere i modelli di mobilità 
+attraverso informazioni contestuali e prompt attentamente progettati.
 
-La sfida fondamentale nella previsione della mobilità umana risiede nel catturare la complessa interazione tra fattori spaziali, temporali e comportamentali che influenzano le decisioni di movimento individuali. Gli approcci tradizionali di apprendimento automatico richiedono spesso un'ampia progettazione di feature e conoscenze specifiche del dominio per codificare efficacemente queste relazioni. Al contrario, i LLM possiedono capacità intrinseche di comprensione delle relazioni e dei modelli contestuali, che possono essere sfruttate per prevedere i modelli di mobilità attraverso informazioni contestuali e prompt attentamente progettati.
+Questo lavoro presenta un framework che sfrutta la potenza 
+dei Large Language Model per la previsione della mobilità umana in contesti turistici. 
+L’approccio si differenzia dai metodi convenzionali perché tratta la previsione 
+della mobilità come un compito di comprensione del linguaggio naturale, 
+in cui i nomi dei POI storici, le informazioni geografiche e il contesto temporale 
+vengono codificati come prompt testuali per l'inferenza LLM.
 
-Questo articolo presenta un framework che sfrutta la potenza dei Large Language Model per la previsione della mobilità umana in contesti turistici. Il mio approccio si differenzia dai metodi convenzionali perché tratta la previsione della mobilità come un compito di comprensione del linguaggio naturale, in cui i nomi dei POI storici, le informazioni geografiche e il contesto temporale vengono codificati come prompt testuali per l'inferenza LLM.
-
-\\
 I principali contributi di questo lavoro includono:
-
 \begin{itemize}
-\item Un nuovo framework per la previsione della mobilità umana utilizzando modelli di linguaggio (LLM)
-\item Valutazione completa di diversi tipi di informazioni contestuali sull'accuratezza della previsione
-\item Implementazione utilizzando modelli open source eliminando le dipendenze da API proprietarie ed a pagamento
-\item Esperimenti approfonditi su dati turistici reali tratti dal dataset VeronaCard
-\item Analisi dell'impatto della prossimità geografica e dei modelli temporali sulle prestazioni di previsione della mobilità
+    \item Un nuovo framework per la previsione della mobilità umana utilizzando modelli di linguaggio (LLM);
+    \item Valutazione completa di diversi tipi di informazioni contestuali sull'accuratezza della previsione;
+    \item Implementazione utilizzando modelli open source, eliminando le dipendenze da API proprietarie e a pagamento;
+    \item Esperimenti approfonditi su dati turistici reali tratti dal dataset VeronaCard;
+    \item Analisi dell'impatto della prossimità geografica e dei modelli temporali sulle prestazioni di previsione della mobilità.
 \end{itemize}

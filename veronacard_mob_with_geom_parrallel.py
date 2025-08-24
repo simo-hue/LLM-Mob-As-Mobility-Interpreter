@@ -24,9 +24,7 @@ from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from tqdm import tqdm
 
-
 # ============= CONFIGURATION =============
-
 class Config:
     """Centralized configuration to avoid global variables"""
     
@@ -57,9 +55,7 @@ class Config:
     DATA_DIR = Path(__file__).resolve().parent / "data" / "verona"
     POI_FILE = DATA_DIR / "vc_site.csv"
 
-
 # ============= LOGGING SETUP =============
-
 def setup_logging() -> logging.Logger:
     """Configure logging with file and console output"""
     Config.LOG_DIR.mkdir(exist_ok=True)
@@ -87,14 +83,10 @@ def setup_logging() -> logging.Logger:
     logger.addHandler(console_handler)
     
     return logger
-
-
 # Initialize logger
 logger = setup_logging()
 
-
 # ============= THREAD-SAFE STATISTICS =============
-
 class Statistics:
     """Thread-safe statistics tracking"""
     
@@ -148,15 +140,11 @@ class Statistics:
     def set_circuit_breaker(self, active: bool):
         with self._lock:
             self._data['circuit_breaker_active'] = active
-
-
 # Global instances
 stats = Statistics()
 write_lock = Lock()  # Global lock for file writing
 
-
 # ============= CIRCUIT BREAKER =============
-
 class CircuitBreaker:
     """
     Circuit Breaker pattern implementation for handling cascading failures.
@@ -214,9 +202,7 @@ class CircuitBreaker:
             stats.set_circuit_breaker(False)
             logger.info("Circuit breaker RESET to CLOSED state")
 
-
 # ============= HOST HEALTH MONITORING =============
-
 class HostHealthMonitor:
     """
     Monitors health status of Ollama hosts and provides load balancing.
@@ -229,12 +215,16 @@ class HostHealthMonitor:
     """
     
     def __init__(self, hosts: List[str]):
-        self.hosts = hosts
-        self.health_status = {host: True for host in hosts}
-        self.last_check = {host: 0 for host in hosts}
-        self.response_times = {host: [] for host in hosts}
+        self.hosts = hosts if hosts else []
+        self.health_status = {host: True for host in self.hosts}
+        self.last_check = {host: 0 for host in self.hosts}
+        self.response_times = {host: [] for host in self.hosts}
         self._lock = Lock()
         self._max_response_history = 5
+        
+        # Log di warning per inizializzazione vuota
+        if not hosts:
+            logger.warning("HostHealthMonitor initialized with empty host list")
     
     def is_healthy(self, host: str) -> bool:
         """Check if a specific host is healthy"""
@@ -243,6 +233,10 @@ class HostHealthMonitor:
     
     def get_healthy_hosts(self) -> List[str]:
         """Get list of all healthy hosts"""
+        if not self.hosts:
+            logger.warning("No hosts available in health monitor")
+            return []
+        
         with self._lock:
             return [host for host, healthy in self.health_status.items() if healthy]
     
@@ -268,7 +262,7 @@ class HostHealthMonitor:
                 
                 is_healthy = resp.status_code == 200
                 self.health_status[host] = is_healthy
-                self.last_check[host] = time.time()
+                self.last_check[host] = int(time.time())
                 
                 if is_healthy:
                     logger.debug(f"Host {host} healthy (response time: {response_time:.2f}s)")
@@ -290,7 +284,11 @@ class HostHealthMonitor:
         """
         healthy_hosts = self.get_healthy_hosts()
         if not healthy_hosts:
+            logger.warning("No healthy hosts available for selection")
             return None
+        
+        if len(healthy_hosts) == 1:
+            return healthy_hosts[0]
         
         with self._lock:
             host_scores = []
@@ -319,20 +317,18 @@ class HostHealthMonitor:
             logger.debug(f"Selected host: {best_host}")
             return best_host
 
-
 # ============= OLLAMA CONNECTION MANAGEMENT =============
-
 class OllamaConnectionManager:
     """Manages Ollama connections and API interactions"""
     
     def __init__(self):
         self.hosts: List[str] = []
-        self.rate_limiter: Optional[Semaphore] = None
+        self.rate_limiter: Semaphore = Semaphore(1)  # Default semaforo con 1 permit
         self.circuit_breaker = CircuitBreaker(
             failure_threshold=Config.CIRCUIT_BREAKER_THRESHOLD,
             timeout=300
         )
-        self.health_monitor: Optional[HostHealthMonitor] = None
+        self.health_monitor: HostHealthMonitor = HostHealthMonitor([])  # Lista vuota iniziale
         
     def setup_connections(self) -> List[str]:
         """Setup Ollama connections from port configuration file"""
@@ -346,8 +342,8 @@ class OllamaConnectionManager:
                 self.hosts = [f"http://127.0.0.1:{port}" for port in ports]
                 logger.info(f"Multi-GPU configuration: {len(self.hosts)} instances")
                 
-                # Initialize rate limiting based on number of hosts
-                max_concurrent = len(self.hosts) * 4  # 4 requests per GPU/host
+                # RE-inizializza con valori corretti
+                max_concurrent = len(self.hosts) * 4
                 self.rate_limiter = Semaphore(max_concurrent)
                 
             else:
@@ -356,7 +352,7 @@ class OllamaConnectionManager:
                 logger.info(f"Single GPU configuration: {self.hosts[0]}")
                 self.rate_limiter = Semaphore(1)
             
-            # Initialize health monitor
+            #  RE-inizializza health monitor con hosts corretti
             self.health_monitor = HostHealthMonitor(self.hosts)
             
             return self.hosts
@@ -455,6 +451,11 @@ class OllamaConnectionManager:
             logger.warning("Circuit breaker active - skipping request")
             return None
         
+        # Controllo di sicurezza
+        if self.rate_limiter is None:
+            logger.error("Rate limiter not initialized - call setup_connections() first")
+            return None
+            
         # Acquire rate limiting semaphore
         if not self.rate_limiter.acquire(blocking=True, timeout=30):
             logger.warning("Rate limit timeout - system overloaded")
@@ -467,10 +468,17 @@ class OllamaConnectionManager:
             logger.error(f"Request failed completely: {e}")
             return None
         finally:
-            self.rate_limiter.release()
+            # Controllo sicurezza anche nel finally
+            if self.rate_limiter is not None:
+                self.rate_limiter.release()
     
     def _make_request_with_retry(self, prompt: str, model: str) -> Optional[str]:
         """Make request with exponential backoff retry logic"""
+        
+        # Controllo health_monitor
+        if self.health_monitor is None:
+            logger.error("Health monitor not initialized")
+            return None
         
         for attempt in range(1, Config.MAX_RETRIES_PER_REQUEST + 1):
             # Select best performing host
@@ -497,12 +505,12 @@ class OllamaConnectionManager:
                     "messages": [{"role": "user", "content": prompt}],
                     "stream": False,
                     "options": {
-                        "num_ctx": 2048,      # ✅ Uguale al warm-up
+                        "num_ctx": 2048,      
                         "num_predict": 300,
                         "temperature": 0.1,
                         "top_p": 0.9,
-                        "num_thread": 32,     # ✅ Usa tutti i thread disponibili
-                        "num_batch": 512,     # ✅ Uguale al warm-up
+                        "num_thread": 32,     
+                        "num_batch": 512,     
                         "repeat_penalty": 1.1
                     }
                 }
@@ -546,9 +554,38 @@ class OllamaConnectionManager:
         logger.error(f"All {Config.MAX_RETRIES_PER_REQUEST} attempts failed")
         return None
 
-
+class SafeOllamaConnectionManager(OllamaConnectionManager):
+    """Versione con inizializzazione sicura garantita"""
+    
+    def __init__(self):
+        super().__init__()
+        self._initialized = False
+    
+    def setup_connections(self) -> List[str]:
+        """Setup with initialization flag"""
+        try:
+            result = super().setup_connections()
+            self._initialized = True
+            logger.info("OllamaConnectionManager fully initialized")
+            return result
+        except Exception as e:
+            self._initialized = False
+            logger.error(f"Failed to initialize OllamaConnectionManager: {e}")
+            raise
+    
+    def _ensure_initialized(self):
+        """Ensure manager is properly initialized"""
+        if not self._initialized:
+            raise RuntimeError(
+                "OllamaConnectionManager not initialized. Call setup_connections() first."
+            )
+    
+    def get_chat_completion(self, prompt: str, model: str = Config.MODEL_NAME) -> Optional[str]:
+        """Get chat completion with initialization check"""
+        self._ensure_initialized()
+        return super().get_chat_completion(prompt, model)
+    
 # ============= GEOGRAPHIC UTILITIES =============
-
 def calculate_distance(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     """
     Calculate distance in kilometers between two geographic points using Haversine formula.
@@ -578,9 +615,7 @@ def calculate_distance(lat1: float, lon1: float, lat2: float, lon2: float) -> fl
     
     return R * c
 
-
 # ============= DATA LOADING FUNCTIONS =============
-
 class DataLoader:
     """Handles loading and preprocessing of tourist visit data"""
     
@@ -697,9 +732,7 @@ class DataLoader:
         """
         return pd.crosstab(df["card_id"], df["name_short"])
 
-
 # ============= PROMPT GENERATION =============
-
 class PromptBuilder:
     """Handles prompt generation for LLM predictions"""
     
@@ -859,16 +892,14 @@ class PromptBuilder:
         
         # Create concise prompt
         return f"""Tourist cluster {cluster_id} in Verona.
-Visited: {', '.join(history) if history else 'none'}
-Current: {current_poi}
-Nearby POIs: {pois_list}
+            Visited: {', '.join(history) if history else 'none'}
+            Current: {current_poi}
+            Nearby POIs: {pois_list}
 
-Suggest {top_k} most likely next POIs considering distances and tourist patterns.
-Reply ONLY JSON: {{"prediction": ["poi1", "poi2", ...], "reason": "brief explanation"}}"""
-
+            Suggest {top_k} most likely next POIs considering distances and tourist patterns.
+            Reply ONLY JSON: {{"prediction": ["poi1", "poi2", ...], "reason": "brief explanation"}}"""
 
 # ============= CHECKPOINT MANAGEMENT =============
-
 class CheckpointManager:
     """Manages checkpoint files for resumable processing"""
     
@@ -1017,9 +1048,7 @@ class ResultsManager:
         if self._buffer:
             self.save_batch()
 
-
 # ============= CARD PROCESSING =============
-
 class CardProcessor:
     """Processes individual tourist cards for POI prediction"""
     
@@ -1165,6 +1194,13 @@ class VisitFileProcessor:
     """Orchestrates the complete processing pipeline for a visits file"""
     
     def __init__(self, ollama_manager: OllamaConnectionManager):
+        if ollama_manager.rate_limiter is None:
+            raise ValueError("OllamaConnectionManager not properly initialized - rate_limiter is None")
+        if ollama_manager.health_monitor is None:
+            raise ValueError("OllamaConnectionManager not properly initialized - health_monitor is None")
+        if not ollama_manager.hosts:
+            raise ValueError("OllamaConnectionManager has no hosts configured")
+            
         self.ollama_manager = ollama_manager
         Config.RESULTS_DIR.mkdir(exist_ok=True)
     
@@ -1503,22 +1539,27 @@ Examples:
         os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"  # Use all 4 A100 GPUs
     
     try:
-        # Initialize Ollama connection manager
+        # Inizializzazione passo-passo con controlli
         logger.info("Initializing Ollama connection manager...")
         ollama_manager = OllamaConnectionManager()
         
-        # Setup connections
-        ollama_manager.setup_connections()
+        # Setup connections DEVE essere chiamato
+        logger.info("Setting up connections...")
+        hosts = ollama_manager.setup_connections()
+        if not hosts:
+            raise RuntimeError("No hosts configured")
+            
+        # Verifica inizializzazione corretta
+        if ollama_manager.rate_limiter is None:
+            raise RuntimeError("Rate limiter not properly initialized")
+        if ollama_manager.health_monitor is None:
+            raise RuntimeError("Health monitor not properly initialized")
+            
+        logger.info(f"Initialized with {len(hosts)} hosts")
         
         # Wait for services to be ready
         if not ollama_manager.wait_for_services():
             raise RuntimeError("Ollama services failed to start")
-        
-        # Test model availability
-        if not ollama_manager.test_model_availability():
-            raise RuntimeError(f"Model {Config.MODEL_NAME} not available")
-        
-        logger.info("System initialized successfully!")
         
         # Create and run processor
         processor = VisitFileProcessor(ollama_manager)

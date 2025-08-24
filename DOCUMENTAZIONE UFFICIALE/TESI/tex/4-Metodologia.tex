@@ -1,22 +1,22 @@
-\section{Metodologia}
+\chapter{Metodologia}
 
-\subsection{Formulazione del Problema}
+\section{Formulazione del Problema}
 
-Formuliamo il problema di previsione della mobilità umana come un task di raccomandazione sequenziale spazio-temporale. Data la sequenza storica di POI visitati da un turista $S = \{p_1, p_2, ..., p_n\}$ ordinati cronologicamente, l'obiettivo è prevedere i $k$ POI più probabili che il turista visiterà successivamente, dove $k=5$ nel nostro setup sperimentale.
+Formuliamo il problema di previsione della mobilità umana come un task di raccomandazione sequenziale spazio-temporale. Data la sequenza storica di POI visitati da un turista $S = \{p_1, p_2, \dots, p_n\}$ ordinati cronologicamente, l'obiettivo è prevedere i $k$ POI più probabili che il turista visiterà successivamente, dove $k=5$ nel nostro setup sperimentale.
 
 Diversamente dagli approcci tradizionali che modellano questo problema come classificazione multi-classe, adottiamo una strategia innovativa basata su \textit{anchor-based prompting}, dove:
 
 \begin{itemize}
-\item Ogni sequenza viene divisa in: storico delle visite $H = \{p_1, ..., p_{j-1}, p_{j+1}, ..., p_{n-1}\}$, POI corrente (anchor) $p_j$, e target da prevedere $p_n$
+\item Ogni sequenza viene divisa in: storico delle visite $H = \{p_1, \dots, p_{j-1}, p_{j+1}, \dots, p_{n-1}\}$, POI corrente (anchor) $p_j$, e target da prevedere $p_n$
 \item La strategia di selezione dell'anchor è configurabile: penultimate (default), first, middle, o indice esplicito
 \item Il modello riceve informazioni contestuali multi-dimensionali: cluster comportamentale, cronologia delle visite, posizione geografica corrente, e POI nelle vicinanze
 \end{itemize}
 
-\subsection{Architettura del Sistema}
+\section{Architettura del Sistema}
 
 Il nostro framework si basa su un'architettura modulare che combina clustering comportamentale, analisi geospaziale e generazione linguistica attraverso LLM. La pipeline è ottimizzata per elaborazioni massive su cluster HPC con gestione robusta di timeout e fallimenti.
 
-\subsubsection{Infrastructure e Deployment}
+\subsection{Infrastruttura e distribuzione}
 
 Il sistema è progettato per operare su cluster HPC (High Performance Computing) utilizzando:
 \begin{itemize}
@@ -26,9 +26,9 @@ Il sistema è progettato per operare su cluster HPC (High Performance Computing)
 \item \textbf{Scalabilità}: Processamento parallelizzabile per dataset multi-anno
 \end{itemize}
 
-\subsection{Dataset e Pre-elaborazione}
+\section{Dataset e Pre-elaborazione}
 
-\subsubsection{Caratteristiche del Dataset VeronaCard}
+\subsection{Caratteristiche del Dataset VeronaCard}
 
 Gli esperimenti sono condotti sul dataset VeronaCard (2014-2023), contenente:
 \begin{itemize}
@@ -38,36 +38,36 @@ Gli esperimenti sono condotti sul dataset VeronaCard (2014-2023), contenente:
 \item \textbf{Metadati geospaziali}: Coordinate GPS precise per ogni POI
 \end{itemize}
 
-\subsubsection{Pipeline di Pre-elaborazione}
+\subsection{Pipeline di Pre-elaborazione}
 
 La pre-elaborazione implementa un processo multi-stage con validazioni robuste:
 
 \begin{enumerate}
-\item \textbf{Data Cleaning}: 
+\item \textbf{Pulizia Dei Dati}: 
    \begin{itemize}
-   \item Merge delle timbrature con il catalogo POI validato ( JOIN fatto su name short )
+   \item Merge delle timbrature con il catalogo POI validato ( \texttt{JOIN} fatto su \texttt{name\_short} )
    \item Filtro delle sequenze con almeno 3 visite e 2+ POI distinti
    \item Standardizzazione dei timestamp e identificativi
    \end{itemize}
 
-\item \textbf{Behavioral Clustering}:
+\item \textbf{Clustering Comportamentale}:
    \begin{itemize}
    \item Costruzione matrice user-POI sparsa
    \item Standardizzazione con StandardScaler
    \item K-means clustering ($k=7$) per identificazione profili comportamentali
    \end{itemize}
 
-\item \textbf{Spatial Analysis}:
+\item \textbf{Analisi Spaziale}:
    \begin{itemize}
    \item Calcolo distanze Haversine tra POI
-   \item Identificazione POI nelle vicinanze (raggio 2km)
+   \item Identificazione POI nelle vicinanze (raggio $2\,\mathrm{km}$)
    \item Analisi pattern di movimento sequenziali
    \end{itemize}
 \end{enumerate}
 
-\subsection{Prompt Engineering e Context Construction}
+\section{Prompt Engineering e Costruzione Del Contesto}
 
-\subsubsection{Strategia di Prompt Design}
+\subsection{Strategia di Prompt Design}
 
 Il prompt viene costruito dinamicamente incorporando:
 
@@ -85,20 +85,9 @@ Il formato di output è strutturato in JSON per garantire parsing deterministico
  "reason": "spiegazione delle scelte"}
 \end{verbatim}
 
-\subsubsection{Gestione del Context Window}
+\section{Strategia di Valutazione}
 
-Per ottimizzare l'utilizzo del context window limitato (1024 tokens), il prompt viene compattato:
-\begin{itemize}
-\item Selezione dei 10 POI più vicini geograficamente (vs. tutti i POI disponibili)
-\item Formato condensato: "POI\_name (distance\_km)"
-\item Eliminazione di testo ridondante mantenendo informazioni critiche
-\end{itemize}
-
-Tutto ciò per non fornire "troppe" informazioni ai modelli LLM, che almeno per i test iniziali, sono piccoli ( qualche miliardo di parametri ). Per scoprire fino a dove riusciamo ad ottenere dei risultati accettabili. 
-
-\subsection{Strategia di Valutazione}
-
-\subsubsection{Metriche di Performance}
+\subsection{Metriche di Performance}
 
 Il sistema viene valutato attraverso metriche standard per sistemi di raccomandazione:
 
@@ -109,18 +98,18 @@ Il sistema viene valutato attraverso metriche standard per sistemi di raccomanda
 \item \textbf{Catalogue Coverage}: $\text{Coverage}=\frac{|\bigcup_{i}\{\hat{y}_i^{(1)},\dots,\hat{y}_i^{(k)}\}|}{|\mathcal{P}|}$
 \end{itemize}
 
-\subsubsection{Test Set Construction}
+\subsection{Costruzione Del Test Set}
 
-Per ogni turista con sequenza $\{p_1, p_2, ..., p_n\}$ (n >= 3):
+Per ogni turista con sequenza $\{p_1, p_2, \dots, p_n\}$ $(n \ge 3)$:
 \begin{itemize}
-\item \textbf{History}: $\{p_1, ..., p_{n-2}\}$ (escluso anchor)
+\item \textbf{History}: $\{p_1, \dots, p_{n-2}\}$ (escluso anchor)
 \item \textbf{Current POI (anchor)}: $p_{n-1}$ 
 \item \textbf{Ground truth}: $p_n$
 \end{itemize}
 
 Questa costruzione permette valutazione realistica del task di previsione "next-POI".
 
-\subsubsection{Analisi di Errore}
+\subsection{Analisi di Errore}
 
 Il framework include strumenti avanzati per interpretabilità:
 \begin{itemize}

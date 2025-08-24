@@ -1,0 +1,236 @@
+🚀 VERONA CARD HPC OTTIMIZZATO - VERSIONE STABILE
+================================================
+Job ID: 19296654
+Nodo: lrdn3076.leonardo.local
+Data: Sun Aug 24 10:02:15 CEST 2025
+🎯 Modalità: Produzione stabile (4x A100, anti-contention)
+
+📦 Setup ambiente HPC...
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+✅ Python: Python 3.11.6
+✅ CUDA: Cuda compilation tools, release 12.3, V12.3.103
+
+🔍 GPU DETECTION:
+0, NVIDIA A100-SXM-64GB, 65536 MiB, 43
+1, NVIDIA A100-SXM-64GB, 65536 MiB, 43
+2, NVIDIA A100-SXM-64GB, 65536 MiB, 43
+3, NVIDIA A100-SXM-64GB, 65536 MiB, 42
+SLURM GPUs: 4
+
+💾 LEONARDO BOOSTER: Setup spazio temporaneo ottimizzato...
+📊 Spazio /tmp Leonardo Booster: 10GB disponibili su ~10GB totali
+✅ Configurazione Leonardo Booster:
+   📁 /tmp originale: 10GB (TROPPO PICCOLO per Mixtral)
+   📁 Directory custom: /leonardo_work/IscrC_LLM-Mob/tmp_ollama_19296654
+   💾 Spazio $WORK disponibile: 951GB
+   🎯 Mixtral richiede ~26GB temporanei - OK con $WORK
+📋 Variabili temporanee configurate:
+   TMPDIR=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19296654
+   OLLAMA_TMPDIR=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19296654
+   OLLAMA_CACHE_DIR=/leonardo_work/IscrC_LLM-Mob/.ollama/cache
+
+🧹 Cleanup preventivo Leonardo Booster...
+🔍 Stato spazio post-cleanup:
+💾 /tmp: 10G disponibili
+💾 $WORK: 952G disponibili
+📂 Directory temporanea: total 8.0K
+drwx------ 2 smattiol interactive   4.0K Aug 24 10:02 .
+drwxrwx--- 9 smattiol IscrC_LLM-Mob 4.0K Aug 24 10:02 ..
+🔍 Configurazioni Ollama attive:
+OLLAMA_BATCH_SIZE=1024
+OLLAMA_CACHE_DIR=/leonardo_work/IscrC_LLM-Mob/.ollama/cache
+OLLAMA_CONTEXT_SIZE=4096
+OLLAMA_CUDA_MEMORY_FRACTION=0.85
+OLLAMA_DEBUG=1
+OLLAMA_FLASH_ATTENTION=1
+OLLAMA_GPU_LAYERS=-1
+OLLAMA_KEEP_ALIVE=4h
+OLLAMA_LLM_LIBRARY=cuda_v12
+OLLAMA_LOAD_TIMEOUT=3600
+OLLAMA_MAX_CONCURRENT_DOWNLOADS=1
+OLLAMA_MAX_LOADED_MODELS=1
+OLLAMA_MAX_QUEUE=1
+OLLAMA_MAX_VRAM_USAGE=0.85
+OLLAMA_MODELS=/leonardo_work/IscrC_LLM-Mob/.ollama/models
+OLLAMA_NUM_PARALLEL=1
+OLLAMA_ORIGINS=*
+OLLAMA_PREDICTION_TOKENS=512
+OLLAMA_REQUEST_TIMEOUT=600
+OLLAMA_RUNNER_CACHE_SIZE=8GB
+OLLAMA_TMPDIR=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19296654
+OLLAMA_VERBOSE=1
+
+🧹 Cleanup preventivo...
+🔍 Controllo stato GPU post-cleanup...
+0, NVIDIA A100-SXM-64GB, 2 MiB, 43
+1, NVIDIA A100-SXM-64GB, 2 MiB, 43
+2, NVIDIA A100-SXM-64GB, 2 MiB, 43
+3, NVIDIA A100-SXM-64GB, 2 MiB, 42
+# gpu         pid  type    sm    mem    enc    dec    command
+# Idx           #   C/G     %      %      %      %    name
+    0          -     -     -     -     -     -   -              
+    1          -     -     -     -     -     -   -              
+    2          -     -     -     -     -     -   -              
+    3          -     -     -     -     -     -   -              
+
+🚀 Avvio server Ollama con anti-contention...
+
+🚀 Avvio server Ollama con anti-contention POTENZIATO...
+🔡 Avvio istanza 1/4 (MASTER)...
+🔥 Avvio ROBUSTO istanza GPU 0 su porta 39001...
+🧹 Cleanup specifico porta 39001...
+✅ GPU 0: spazio OK (951GB), cache: /leonardo_work/IscrC_LLM-Mob/.ollama/cache/gpu0
+🚀 Avvio Ollama GPU 0 con timeout esteso...
+✅ GPU 0 PID: 996907 (timeout startup: 900s)
+   📁 Cache: /leonardo_work/IscrC_LLM-Mob/.ollama/cache/gpu0
+   📄 Log: ollama_gpu0.log
+✅ GPU 0: processo avviato correttamente
+⏳ Attesa caricamento modello su GPU 0 MASTER (180s)...
+🔡 Avvio istanza 2/4...
+🔥 Avvio ROBUSTO istanza GPU 1 su porta 39002...
+🧹 Cleanup specifico porta 39002...
+✅ GPU 1: spazio OK (948GB), cache: /leonardo_work/IscrC_LLM-Mob/.ollama/cache/gpu1
+🚀 Avvio Ollama GPU 1 con timeout esteso...
+✅ GPU 1 PID: 997214 (timeout startup: 900s)
+   📁 Cache: /leonardo_work/IscrC_LLM-Mob/.ollama/cache/gpu1
+   📄 Log: ollama_gpu1.log
+✅ GPU 1: processo avviato correttamente
+⏳ Attesa stabilizzazione GPU 1 (90s)...
+🔡 Avvio istanza 3/4...
+🔥 Avvio ROBUSTO istanza GPU 2 su porta 39003...
+🧹 Cleanup specifico porta 39003...
+✅ GPU 2: spazio OK (946GB), cache: /leonardo_work/IscrC_LLM-Mob/.ollama/cache/gpu2
+🚀 Avvio Ollama GPU 2 con timeout esteso...
+✅ GPU 2 PID: 997271 (timeout startup: 900s)
+   📁 Cache: /leonardo_work/IscrC_LLM-Mob/.ollama/cache/gpu2
+   📄 Log: ollama_gpu2.log
+✅ GPU 2: processo avviato correttamente
+⏳ Attesa stabilizzazione GPU 2 (90s)...
+🔡 Avvio istanza 4/4...
+🔥 Avvio ROBUSTO istanza GPU 3 su porta 39004...
+🧹 Cleanup specifico porta 39004...
+✅ GPU 3: spazio OK (943GB), cache: /leonardo_work/IscrC_LLM-Mob/.ollama/cache/gpu3
+🚀 Avvio Ollama GPU 3 con timeout esteso...
+✅ GPU 3 PID: 997329 (timeout startup: 900s)
+   📁 Cache: /leonardo_work/IscrC_LLM-Mob/.ollama/cache/gpu3
+   📄 Log: ollama_gpu3.log
+✅ GPU 3: processo avviato correttamente
+⏳ Attesa stabilizzazione GPU 3 (90s)...
+⏳ Attesa stabilizzazione COMPLETA sistema (120s)...
+🔍 Verifica processi Ollama attivi:
+✅ GPU 0: PID 996907 attivo
+✅ GPU 1: PID 997214 attivo
+✅ GPU 2: PID 997271 attivo
+✅ GPU 3: PID 997329 attivo
+
+🔍 Health check SUPER-ROBUSTO multi-istanza...
+📋 Prima passata health check...
+/var/spool/slurmd/job19296654/slurm_script: line 353: check_instance_health: command not found
+GPU 0 fallita prima passata
+/var/spool/slurmd/job19296654/slurm_script: line 354: check_instance_health: command not found
+GPU 1 fallita prima passata
+/var/spool/slurmd/job19296654/slurm_script: line 355: check_instance_health: command not found
+GPU 2 fallita prima passata
+/var/spool/slurmd/job19296654/slurm_script: line 356: check_instance_health: command not found
+GPU 3 fallita prima passata
+📊 Prima passata: 0/4 istanze operative
+📊 Health check finale: 0/4 istanze operative
+❌ ERRORE CRITICO: Nessuna istanza funzionante
+🔍 Debug completo:
+--- GPU 0 diagnostica completa ---
+PID: 996907
+Processo attivo: SI
+Log (ultime 15 righe):
+  time=2025-08-24T10:04:23.780+02:00 level=DEBUG source=common.go:50 msg="Override detection logic by setting OLLAMA_LLM_LIBRARY"
+  time=2025-08-24T10:04:23.780+02:00 level=DEBUG source=sched.go:105 msg="starting llm scheduler"
+  time=2025-08-24T10:04:23.780+02:00 level=INFO source=gpu.go:221 msg="looking for compatible GPUs"
+  time=2025-08-24T10:04:23.795+02:00 level=DEBUG source=gpu.go:94 msg="searching for GPU discovery libraries for NVIDIA"
+  time=2025-08-24T10:04:23.795+02:00 level=DEBUG source=gpu.go:505 msg="Searching for GPU library" name=libcuda.so*
+  time=2025-08-24T10:04:23.795+02:00 level=DEBUG source=gpu.go:528 msg="gpu library search" globs="[/leonardo_work/IscrC_LLM-Mob/opt/lib/ollama/libcuda.so* /leonardo/prod/opt/compilers/cuda/12.3/none/lib64/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/python-3.11.6-i5k3c6ggftqkzgqyymfbkynpgm2lgjtd/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/util-linux-uuid-2.38.1-jkdi7kvvma7367qdmvpkada4pyiafoud/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/sqlite-3.43.2-casyrltocz5edzjhs5vzlqhwkamn7y4a/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxcrypt-4.4.35-ss2rzin25ozjy4gyy3dack36njs6navg/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib64/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gettext-0.22.3-2g7elifkgxzpypbswqnjuu5hefn4mjts/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zstd-1.5.5-gawytflrhedqdc2riwax7oduoqddx22s/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxml2-2.10.3-5eeeokp4kszufozbayq4bewwmyeuwy27/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zlib-ng-2.1.4-6htiapkoa6fx2medhyabzo575skozuir/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/xz-5.4.1-hubmwr5wc5nf6zk3ghuaikxiejuyt6bi/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libiconv-1.17-d7yvx2s6da4x2rfx44bc3perbb33rvuy/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gdbm-1.23-fs6otcki47azeywcckquj2sy4mzsnzxg/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/readline-8.2-nyw6mp6b7dvizewrf7exopvap2q32s5j/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/ncurses-6.4-asx3jea367shsxjt6bdj2bu5olxll6ni/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/expat-2.5.0-bptl3xwbvbkxxoc5x3dhviorarv4dvxv/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libbsd-0.11.7-cgxjopleu7se4y4cgi7oefbljgasr457/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libmd-1.0.4-wja3f5q3w75tqtro333fptfnji7oqxiu/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/bzip2-1.0.8-gp5wcz5lksrbm2gqiqjppumrhjz6gahy/lib/libcuda.so* /usr/local/cuda*/targets/*/lib/libcuda.so* /usr/lib/*-linux-gnu/nvidia/current/libcuda.so* /usr/lib/*-linux-gnu/libcuda.so* /usr/lib/wsl/lib/libcuda.so* /usr/lib/wsl/drivers/*/libcuda.so* /opt/cuda/lib*/libcuda.so* /usr/local/cuda/lib*/libcuda.so* /usr/lib*/libcuda.so* /usr/local/lib*/libcuda.so*]"
+  time=2025-08-24T10:04:23.810+02:00 level=DEBUG source=gpu.go:562 msg="discovered GPU libraries" paths=[/usr/lib64/libcuda.so.535.54.03]
+  CUDA driver version: 12.2
+  time=2025-08-24T10:04:23.870+02:00 level=DEBUG source=gpu.go:129 msg="detected GPUs" count=1 library=/usr/lib64/libcuda.so.535.54.03
+  [GPU-5943c60c-b526-5bed-9edf-78a3f615b1e9] CUDA totalMem 64944 mb
+  [GPU-5943c60c-b526-5bed-9edf-78a3f615b1e9] CUDA freeMem 64462 mb
+  [GPU-5943c60c-b526-5bed-9edf-78a3f615b1e9] Compute Capability 8.0
+  time=2025-08-24T10:04:23.964+02:00 level=DEBUG source=amd_linux.go:416 msg="amdgpu driver not detected /sys/module/amdgpu"
+  releasing cuda driver library
+  time=2025-08-24T10:04:23.964+02:00 level=INFO source=types.go:123 msg="inference compute" id=GPU-5943c60c-b526-5bed-9edf-78a3f615b1e9 library=cuda variant=v12 compute=8.0 driver=12.2 name="NVIDIA A100-SXM-64GB" total="63.4 GiB" available="63.0 GiB"
+
+--- GPU 1 diagnostica completa ---
+PID: 997214
+Processo attivo: SI
+Log (ultime 15 righe):
+  time=2025-08-24T10:06:24.209+02:00 level=DEBUG source=common.go:50 msg="Override detection logic by setting OLLAMA_LLM_LIBRARY"
+  time=2025-08-24T10:06:24.209+02:00 level=DEBUG source=sched.go:105 msg="starting llm scheduler"
+  time=2025-08-24T10:06:24.209+02:00 level=INFO source=gpu.go:221 msg="looking for compatible GPUs"
+  time=2025-08-24T10:06:24.223+02:00 level=DEBUG source=gpu.go:94 msg="searching for GPU discovery libraries for NVIDIA"
+  time=2025-08-24T10:06:24.223+02:00 level=DEBUG source=gpu.go:505 msg="Searching for GPU library" name=libcuda.so*
+  time=2025-08-24T10:06:24.223+02:00 level=DEBUG source=gpu.go:528 msg="gpu library search" globs="[/leonardo_work/IscrC_LLM-Mob/opt/lib/ollama/libcuda.so* /leonardo/prod/opt/compilers/cuda/12.3/none/lib64/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/python-3.11.6-i5k3c6ggftqkzgqyymfbkynpgm2lgjtd/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/util-linux-uuid-2.38.1-jkdi7kvvma7367qdmvpkada4pyiafoud/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/sqlite-3.43.2-casyrltocz5edzjhs5vzlqhwkamn7y4a/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxcrypt-4.4.35-ss2rzin25ozjy4gyy3dack36njs6navg/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib64/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gettext-0.22.3-2g7elifkgxzpypbswqnjuu5hefn4mjts/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zstd-1.5.5-gawytflrhedqdc2riwax7oduoqddx22s/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxml2-2.10.3-5eeeokp4kszufozbayq4bewwmyeuwy27/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zlib-ng-2.1.4-6htiapkoa6fx2medhyabzo575skozuir/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/xz-5.4.1-hubmwr5wc5nf6zk3ghuaikxiejuyt6bi/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libiconv-1.17-d7yvx2s6da4x2rfx44bc3perbb33rvuy/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gdbm-1.23-fs6otcki47azeywcckquj2sy4mzsnzxg/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/readline-8.2-nyw6mp6b7dvizewrf7exopvap2q32s5j/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/ncurses-6.4-asx3jea367shsxjt6bdj2bu5olxll6ni/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/expat-2.5.0-bptl3xwbvbkxxoc5x3dhviorarv4dvxv/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libbsd-0.11.7-cgxjopleu7se4y4cgi7oefbljgasr457/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libmd-1.0.4-wja3f5q3w75tqtro333fptfnji7oqxiu/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/bzip2-1.0.8-gp5wcz5lksrbm2gqiqjppumrhjz6gahy/lib/libcuda.so* /usr/local/cuda*/targets/*/lib/libcuda.so* /usr/lib/*-linux-gnu/nvidia/current/libcuda.so* /usr/lib/*-linux-gnu/libcuda.so* /usr/lib/wsl/lib/libcuda.so* /usr/lib/wsl/drivers/*/libcuda.so* /opt/cuda/lib*/libcuda.so* /usr/local/cuda/lib*/libcuda.so* /usr/lib*/libcuda.so* /usr/local/lib*/libcuda.so*]"
+  time=2025-08-24T10:06:24.229+02:00 level=DEBUG source=gpu.go:562 msg="discovered GPU libraries" paths=[/usr/lib64/libcuda.so.535.54.03]
+  CUDA driver version: 12.2
+  time=2025-08-24T10:06:24.257+02:00 level=DEBUG source=gpu.go:129 msg="detected GPUs" count=1 library=/usr/lib64/libcuda.so.535.54.03
+  [GPU-9f6774e7-2e0b-64f5-636a-634888a41cee] CUDA totalMem 64944 mb
+  [GPU-9f6774e7-2e0b-64f5-636a-634888a41cee] CUDA freeMem 64462 mb
+  [GPU-9f6774e7-2e0b-64f5-636a-634888a41cee] Compute Capability 8.0
+  time=2025-08-24T10:06:24.344+02:00 level=DEBUG source=amd_linux.go:416 msg="amdgpu driver not detected /sys/module/amdgpu"
+  releasing cuda driver library
+  time=2025-08-24T10:06:24.344+02:00 level=INFO source=types.go:123 msg="inference compute" id=GPU-9f6774e7-2e0b-64f5-636a-634888a41cee library=cuda variant=v12 compute=8.0 driver=12.2 name="NVIDIA A100-SXM-64GB" total="63.4 GiB" available="63.0 GiB"
+
+--- GPU 2 diagnostica completa ---
+PID: 997271
+Processo attivo: SI
+Log (ultime 15 righe):
+  time=2025-08-24T10:08:04.470+02:00 level=DEBUG source=common.go:50 msg="Override detection logic by setting OLLAMA_LLM_LIBRARY"
+  time=2025-08-24T10:08:04.470+02:00 level=DEBUG source=sched.go:105 msg="starting llm scheduler"
+  time=2025-08-24T10:08:04.470+02:00 level=INFO source=gpu.go:221 msg="looking for compatible GPUs"
+  time=2025-08-24T10:08:04.483+02:00 level=DEBUG source=gpu.go:94 msg="searching for GPU discovery libraries for NVIDIA"
+  time=2025-08-24T10:08:04.483+02:00 level=DEBUG source=gpu.go:505 msg="Searching for GPU library" name=libcuda.so*
+  time=2025-08-24T10:08:04.483+02:00 level=DEBUG source=gpu.go:528 msg="gpu library search" globs="[/leonardo_work/IscrC_LLM-Mob/opt/lib/ollama/libcuda.so* /leonardo/prod/opt/compilers/cuda/12.3/none/lib64/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/python-3.11.6-i5k3c6ggftqkzgqyymfbkynpgm2lgjtd/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/util-linux-uuid-2.38.1-jkdi7kvvma7367qdmvpkada4pyiafoud/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/sqlite-3.43.2-casyrltocz5edzjhs5vzlqhwkamn7y4a/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxcrypt-4.4.35-ss2rzin25ozjy4gyy3dack36njs6navg/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib64/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gettext-0.22.3-2g7elifkgxzpypbswqnjuu5hefn4mjts/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zstd-1.5.5-gawytflrhedqdc2riwax7oduoqddx22s/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxml2-2.10.3-5eeeokp4kszufozbayq4bewwmyeuwy27/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zlib-ng-2.1.4-6htiapkoa6fx2medhyabzo575skozuir/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/xz-5.4.1-hubmwr5wc5nf6zk3ghuaikxiejuyt6bi/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libiconv-1.17-d7yvx2s6da4x2rfx44bc3perbb33rvuy/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gdbm-1.23-fs6otcki47azeywcckquj2sy4mzsnzxg/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/readline-8.2-nyw6mp6b7dvizewrf7exopvap2q32s5j/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/ncurses-6.4-asx3jea367shsxjt6bdj2bu5olxll6ni/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/expat-2.5.0-bptl3xwbvbkxxoc5x3dhviorarv4dvxv/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libbsd-0.11.7-cgxjopleu7se4y4cgi7oefbljgasr457/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libmd-1.0.4-wja3f5q3w75tqtro333fptfnji7oqxiu/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/bzip2-1.0.8-gp5wcz5lksrbm2gqiqjppumrhjz6gahy/lib/libcuda.so* /usr/local/cuda*/targets/*/lib/libcuda.so* /usr/lib/*-linux-gnu/nvidia/current/libcuda.so* /usr/lib/*-linux-gnu/libcuda.so* /usr/lib/wsl/lib/libcuda.so* /usr/lib/wsl/drivers/*/libcuda.so* /opt/cuda/lib*/libcuda.so* /usr/local/cuda/lib*/libcuda.so* /usr/lib*/libcuda.so* /usr/local/lib*/libcuda.so*]"
+  time=2025-08-24T10:08:04.504+02:00 level=DEBUG source=gpu.go:562 msg="discovered GPU libraries" paths=[/usr/lib64/libcuda.so.535.54.03]
+  CUDA driver version: 12.2
+  time=2025-08-24T10:08:04.536+02:00 level=DEBUG source=gpu.go:129 msg="detected GPUs" count=1 library=/usr/lib64/libcuda.so.535.54.03
+  [GPU-ff68ca6c-9302-0239-b838-669738d190bb] CUDA totalMem 64944 mb
+  [GPU-ff68ca6c-9302-0239-b838-669738d190bb] CUDA freeMem 64462 mb
+  [GPU-ff68ca6c-9302-0239-b838-669738d190bb] Compute Capability 8.0
+  time=2025-08-24T10:08:04.624+02:00 level=DEBUG source=amd_linux.go:416 msg="amdgpu driver not detected /sys/module/amdgpu"
+  releasing cuda driver library
+  time=2025-08-24T10:08:04.624+02:00 level=INFO source=types.go:123 msg="inference compute" id=GPU-ff68ca6c-9302-0239-b838-669738d190bb library=cuda variant=v12 compute=8.0 driver=12.2 name="NVIDIA A100-SXM-64GB" total="63.4 GiB" available="63.0 GiB"
+
+--- GPU 3 diagnostica completa ---
+PID: 997329
+Processo attivo: SI
+Log (ultime 15 righe):
+  time=2025-08-24T10:09:44.559+02:00 level=DEBUG source=common.go:50 msg="Override detection logic by setting OLLAMA_LLM_LIBRARY"
+  time=2025-08-24T10:09:44.559+02:00 level=DEBUG source=sched.go:105 msg="starting llm scheduler"
+  time=2025-08-24T10:09:44.559+02:00 level=INFO source=gpu.go:221 msg="looking for compatible GPUs"
+  time=2025-08-24T10:09:44.572+02:00 level=DEBUG source=gpu.go:94 msg="searching for GPU discovery libraries for NVIDIA"
+  time=2025-08-24T10:09:44.572+02:00 level=DEBUG source=gpu.go:505 msg="Searching for GPU library" name=libcuda.so*
+  time=2025-08-24T10:09:44.572+02:00 level=DEBUG source=gpu.go:528 msg="gpu library search" globs="[/leonardo_work/IscrC_LLM-Mob/opt/lib/ollama/libcuda.so* /leonardo/prod/opt/compilers/cuda/12.3/none/lib64/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/python-3.11.6-i5k3c6ggftqkzgqyymfbkynpgm2lgjtd/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/util-linux-uuid-2.38.1-jkdi7kvvma7367qdmvpkada4pyiafoud/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/sqlite-3.43.2-casyrltocz5edzjhs5vzlqhwkamn7y4a/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxcrypt-4.4.35-ss2rzin25ozjy4gyy3dack36njs6navg/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib64/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gettext-0.22.3-2g7elifkgxzpypbswqnjuu5hefn4mjts/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zstd-1.5.5-gawytflrhedqdc2riwax7oduoqddx22s/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxml2-2.10.3-5eeeokp4kszufozbayq4bewwmyeuwy27/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zlib-ng-2.1.4-6htiapkoa6fx2medhyabzo575skozuir/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/xz-5.4.1-hubmwr5wc5nf6zk3ghuaikxiejuyt6bi/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libiconv-1.17-d7yvx2s6da4x2rfx44bc3perbb33rvuy/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gdbm-1.23-fs6otcki47azeywcckquj2sy4mzsnzxg/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/readline-8.2-nyw6mp6b7dvizewrf7exopvap2q32s5j/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/ncurses-6.4-asx3jea367shsxjt6bdj2bu5olxll6ni/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/expat-2.5.0-bptl3xwbvbkxxoc5x3dhviorarv4dvxv/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libbsd-0.11.7-cgxjopleu7se4y4cgi7oefbljgasr457/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libmd-1.0.4-wja3f5q3w75tqtro333fptfnji7oqxiu/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/bzip2-1.0.8-gp5wcz5lksrbm2gqiqjppumrhjz6gahy/lib/libcuda.so* /usr/local/cuda*/targets/*/lib/libcuda.so* /usr/lib/*-linux-gnu/nvidia/current/libcuda.so* /usr/lib/*-linux-gnu/libcuda.so* /usr/lib/wsl/lib/libcuda.so* /usr/lib/wsl/drivers/*/libcuda.so* /opt/cuda/lib*/libcuda.so* /usr/local/cuda/lib*/libcuda.so* /usr/lib*/libcuda.so* /usr/local/lib*/libcuda.so*]"
+  time=2025-08-24T10:09:44.589+02:00 level=DEBUG source=gpu.go:562 msg="discovered GPU libraries" paths=[/usr/lib64/libcuda.so.535.54.03]
+  CUDA driver version: 12.2
+  time=2025-08-24T10:09:44.639+02:00 level=DEBUG source=gpu.go:129 msg="detected GPUs" count=1 library=/usr/lib64/libcuda.so.535.54.03
+  [GPU-93802c4c-50fa-58f3-968e-cef8638e8137] CUDA totalMem 64944 mb
+  [GPU-93802c4c-50fa-58f3-968e-cef8638e8137] CUDA freeMem 64462 mb
+  [GPU-93802c4c-50fa-58f3-968e-cef8638e8137] Compute Capability 8.0
+  time=2025-08-24T10:09:44.720+02:00 level=DEBUG source=amd_linux.go:416 msg="amdgpu driver not detected /sys/module/amdgpu"
+  releasing cuda driver library
+  time=2025-08-24T10:09:44.720+02:00 level=INFO source=types.go:123 msg="inference compute" id=GPU-93802c4c-50fa-58f3-968e-cef8638e8137 library=cuda variant=v12 compute=8.0 driver=12.2 name="NVIDIA A100-SXM-64GB" total="63.4 GiB" available="63.0 GiB"
+
+🧹 CLEANUP LEONARDO BOOSTER...
+🔄 Shutdown graceful PID 996907...
+🔄 Shutdown graceful PID 997214...
+🔄 Shutdown graceful PID 997271...
+🔄 Shutdown graceful PID 997329...
+🗑️ Cleanup directory temporanea Leonardo: /leonardo_work/IscrC_LLM-Mob/tmp_ollama_19296654
+   📊 Dimensione da rimuovere: 4.0K
+   ✅ Spazio liberato su $WORK
+🧹 Cleanup vecchie directory temporanee...
+✅ Cleanup Leonardo Booster completato

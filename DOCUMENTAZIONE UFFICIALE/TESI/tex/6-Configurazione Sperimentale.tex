@@ -1,10 +1,10 @@
-\section{Configurazione sperimentale}
+\chapter{Configurazione sperimentale}
 
-\subsection{Metodologia di valutazione}
+\section{Metodologia di valutazione}
 
 Valutiamo il framework LLM-Mob utilizzando un disegno sperimentale robusto che cattura diversi aspetti delle prestazioni di previsione della mobilità turistica, incorporando sia informazioni comportamentali che geografiche.
 
-\subsubsection{Preprocessing e costruzione del dataset}
+\subsection{Preprocessing e costruzione del dataset}
 
 Il nostro pipeline di preprocessing comprende diverse fasi di filtraggio e normalizzazione:
 
@@ -15,7 +15,7 @@ Il nostro pipeline di preprocessing comprende diverse fasi di filtraggio e norma
 \item \textbf{Arricchimento geografico}: Integriamo coordinate geografiche per il calcolo delle distanze euclidee tra POI
 \end{enumerate}
 
-\subsubsection{Costruzione del set di test}
+\subsection{Costruzione del set di test}
 
 Per ogni turista eleggibile con sequenza di visite $S = \{p_1, p_2, \ldots, p_n\}$ (con $n \geq 3$), costruiamo istanze di previsione seguendo la procedura:
 
@@ -26,7 +26,7 @@ Per ogni turista eleggibile con sequenza di visite $S = \{p_1, p_2, \ldots, p_n\
 \item Costruiamo il prompt includendo: cluster comportamentale, POI corrente $p_a$, storia $H$, e POI geograficamente prossimi con distanze
 \end{enumerate}
 
-\subsubsection{Selezione del punto di ancoraggio}\label{sec:anchor}
+\subsection{Selezione del punto di ancoraggio}\label{sec:anchor}
 
 Implementiamo strategie flessibili di selezione del punto di ancoraggio per studiare l'impatto di diversi riferimenti spaziali nella previsione:
 
@@ -39,11 +39,11 @@ Implementiamo strategie flessibili di selezione del punto di ancoraggio per stud
 
 La strategia \textit{penultimate} è motivata dall'assunzione che la penultima posizione rappresenti il contesto geografico più informativo per prevedere la destinazione finale.
 
-\subsubsection{Integrazione di informazioni geografiche}
+\subsection{Integrazione di informazioni geografiche}
 
 Per ogni istanza di previsione, calcoliamo le distanze haversine dal POI di ancoraggio a tutti gli altri POI non visitati, selezionando i 10 più vicini entro 2km (appropriato per il centro storico di Verona). Questo approccio bilancia informativitá geografica e compattezza del prompt.
 
-\subsection{Metriche di prestazione}
+\section{Metriche di prestazione}
 
 Adottiamo un set completo di metriche standard per la valutazione dei sistemi di raccomandazione:
 
@@ -58,9 +58,9 @@ dove $y_i$ è il POI target, $\hat{y}_i^{(j)}$ è la $j$-esima raccomandazione, 
 
 Il nostro obiettivo principale è Hit@5, rilevante per applicazioni pratiche di sistemi di raccomandazione turistici.
 
-\subsection{Configurazione tecnica}
+\section{Configurazione tecnica}
 
-\subsubsection{Setup del modello LLM}
+\subsection{Setup del modello LLM}
 Utilizziamo Llama 3.1 8B tramite Ollama con i seguenti parametri ottimizzati:
 \begin{itemize}
 \item \textbf{Temperatura}: 0.1 (per previsioni deterministiche)
@@ -69,10 +69,10 @@ Utilizziamo Llama 3.1 8B tramite Ollama con i seguenti parametri ottimizzati:
 \item \textbf{Stop tokens}: Configurati per prevenire generazioni infinite
 \end{itemize}
 
-\subsubsection{Gestione degli errori e robustezza}
+\subsection{Gestione degli errori e robustezza}
 Implementiamo un sistema di retry con backoff esponenziale (3 tentativi, timeout crescenti 60-90-120s) e checkpoint incrementali per ripresa da interruzioni. Il parsing delle risposte JSON include fallback per formati malformati.
 
-\subsection{Domande di ricerca}
+\section{Domande di ricerca}
 
 I nostri esperimenti sono progettati per investigare i seguenti quesiti:
 
@@ -84,6 +84,6 @@ I nostri esperimenti sono progettati per investigare i seguenti quesiti:
 \item \textbf{RQ5}: Come si comporta il modello su diversi anni del dataset (2014-2023) e quali trend temporali sono osservabili?
 \end{enumerate}
 
-\subsection{Implementazione e riproducibilità}
+\section{Implementazione e riproducibilità}
 
 Il framework è implementato in Python con logging completo e checkpoint automatici. Ogni esperimento genera file CSV con predizioni complete, metriche per card, e metadati per analysis post-hoc. Il codice supporta esecuzione parallela e modalità append per esperimenti incrementali su dataset di grandi dimensioni.
