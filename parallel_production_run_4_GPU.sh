@@ -495,7 +495,7 @@ echo ""
 echo "🔥 VERIFICA E PREPARAZIONE MODELLO FINALE"
 echo "========================================"
 
-MODEL_NAME="mixtral:8x7b"
+MODEL_NAME="llama3.1:8b" #mixtral:8x7b
 
 # 1. VERIFICA MODELLO ESISTE
 echo "🔍 Verifica modello $MODEL_NAME..."
