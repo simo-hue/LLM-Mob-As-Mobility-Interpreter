@@ -55,7 +55,7 @@ class Config:
     # File paths
     OLLAMA_PORT_FILE = "ollama_ports.txt"
     LOG_DIR = Path(__file__).resolve().parent / "logs"
-    RESULTS_DIR = Path(__file__).resolve().parent / "results"
+    RESULTS_DIR = Path(__file__).resolve().parent / "results_GPU_script"
     DATA_DIR = Path(__file__).resolve().parent / "data" / "verona"
     POI_FILE = DATA_DIR / "vc_site.csv"
 
@@ -287,9 +287,19 @@ class HostHealthMonitor:
         Uses sophisticated scoring algorithm.
         """
         healthy_hosts = self.get_healthy_hosts()
+        # 🔴 FIX: Se non ci sono host healthy, riprova il check su tutti
         if not healthy_hosts:
-            logger.warning("No healthy hosts available for selection")
-            return None
+            logger.warning("Non ci sono healthy hosts, provo il recovery...")
+            # Prova a riabilitare tutti gli host
+            for host in self.hosts:
+                # Re-check degli host "morti"
+                if self.check_health(host):
+                    logger.info(f"Host {host} recovered!")
+            
+            healthy_hosts = self.get_healthy_hosts()
+            if not healthy_hosts:
+                logger.error("No hosts could be recovered")
+                return None
         
         if len(healthy_hosts) == 1:
             return healthy_hosts[0]
@@ -346,9 +356,7 @@ class OllamaConnectionManager:
                 self.hosts = [f"http://127.0.0.1:{port}" for port in ports]
                 logger.info(f"Multi-GPU configuration: {len(self.hosts)} instances")
                 
-                # RE-inizializza con valori corretti
-                max_concurrent = len(self.hosts) * 4
-                self.rate_limiter = Semaphore(max_concurrent)
+                self.rate_limiter = Semaphore(len(self.hosts))  # 1 richiesta per GPU contemporaneamente
                 
             else:
                 # Single GPU fallback
@@ -356,7 +364,7 @@ class OllamaConnectionManager:
                 logger.info(f"Single GPU configuration: {self.hosts[0]}")
                 self.rate_limiter = Semaphore(1)
             
-            #  RE-inizializza health monitor con hosts corretti
+            # RE-inizializza health monitor con hosts corretti
             self.health_monitor = HostHealthMonitor(self.hosts)
             
             return self.hosts
@@ -502,17 +510,20 @@ class OllamaConnectionManager:
                     raise Exception("All hosts are down")
             
             try:
-                # Health check if needed
-                if (time.time() - self.health_monitor.last_check.get(host, 0) > Config.HEALTH_CHECK_INTERVAL):
-                    if not self.health_monitor.check_health(host):
-                        logger.warning(f"Host {host} failed health check - retrying")
-                        continue
-                
                 # Prepare optimized payload
                 payload = {
                     "model": model,
-                    "messages": [{"role": "user", "content": prompt}],
+                    "messages": [
+                                {
+                                    "role": "system", 
+                                    "content": "You are a JSON-only responder. Always output valid JSON."
+                                },
+                                {
+                                    "role": "user", 
+                                    "content": prompt
+                                }],
                     "stream": False,
+                    "format": "json",
                     "options": {
                         "num_ctx": 2048,      
                         "num_predict": 300,
@@ -521,7 +532,6 @@ class OllamaConnectionManager:
                         "num_thread": 32,     
                         "num_batch": 512,     
                         "repeat_penalty": 1.1,
-                        "seed": 42  # ✅ NUOVO: seed fisso per consistenza
                     }
                 }
                 
@@ -921,13 +931,14 @@ class PromptBuilder:
         ])
         
         # Create concise prompt
-        return f"""Tourist cluster {cluster_id} in Verona.
+        return f"""
+            Tourist cluster {cluster_id} in Verona.
             Visited: {', '.join(history) if history else 'none'}
             Current: {current_poi}
             Nearby POIs: {pois_list}
 
             Suggest {top_k} most likely next POIs considering distances and tourist patterns.
-            Reply ONLY JSON: {{"prediction": ["poi1", "poi2", ...], "reason": "brief explanation"}}"""
+            Reply ONLY JSON with this format: {{"prediction": ["poi1", "poi2", ...], "reason": "brief explanation"}}"""
 
 # ============= CHECKPOINT MANAGEMENT =============
 class CheckpointManager:
@@ -1362,14 +1373,9 @@ class VisitFileProcessor:
         
         # Calculate optimal number of workers
         n_healthy_hosts = len(self.ollama_manager.health_monitor.get_healthy_hosts())
-        if n_healthy_hosts >= 4:
-            optimal_workers = 4    # ✅ Era 6, ora 4 (1 per GPU)
-        elif n_healthy_hosts >= 3:
-            optimal_workers = 3    # ✅ Era 4, ora 3  
-        elif n_healthy_hosts >= 2:
-            optimal_workers = 2    # ✅ Era 3, ora 2
-        else:
-            optimal_workers = 1    
+    
+        # Imposta workers = numero di GPU healthy
+        optimal_workers = max(1, n_healthy_hosts)
         
         logger.info(f"Using {optimal_workers} workers for {n_healthy_hosts} healthy hosts")
         
