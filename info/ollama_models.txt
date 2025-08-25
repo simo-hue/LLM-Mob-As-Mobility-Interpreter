@@ -1,13 +1,13 @@
 PROVATI NORMALE ( baseline ):
   - llama3.1:8b
-  -
+  - mixtral:8x7b
   -
   -
 
 
 PROVATI GEOM ( no time ):
   - llama3.1:8b
-  - mixtral:8x7b ( parziale )
+  - mixtral:8x7b ( da rifare 2016 )
   -
   -
 
@@ -22,13 +22,13 @@ PROVATI GEOM + TIME:
 
 INSTALLATI:
   ✓ deepseek-coder:33b
-  ✓ 
+  ✓ qwen2.5:7b  ( anche se NON lo trovo )
   ✓ 
 
 
 
 DA PROVARE:
-  - qwen2.5:7b
+  - 
   - qwen2.5:14b
   - mistral:7b-instruct-v0.3
   - codellama:34b

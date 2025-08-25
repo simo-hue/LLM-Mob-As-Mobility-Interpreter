@@ -1,0 +1,128 @@
+🚀 VERONA CARD - GEOM VERSION
+================================================
+⚠️ ATTENZIONE: Questo script aspetterà INDEFINITAMENTE il caricamento
+Job ID: 19315789
+Nodo: lrdn3034.leonardo.local
+Data: Mon Aug 25 09:20:23 CEST 2025
+Salvo risultati: /leonardo_work/IscrC_LLM-Mob/results_mixtral_8x7b_with_geom/
+
+📦 Setup ambiente HPC...
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+✅ Python: Python 3.11.6
+✅ CUDA: Cuda compilation tools, release 12.3, V12.3.103
+
+🔍 GPU DETECTION:
+0, NVIDIA A100-SXM-64GB, 65536 MiB, 43
+1, NVIDIA A100-SXM-64GB, 65536 MiB, 43
+2, NVIDIA A100-SXM-64GB, 65536 MiB, 42
+3, NVIDIA A100-SXM-64GB, 65536 MiB, 43
+
+📁 Directory temporanea: /leonardo_work/IscrC_LLM-Mob/tmp_ollama_19315789
+💾 Spazio disponibile: 951GB
+
+🧹 Cleanup preventivo...
+
+🚀 AVVIO SISTEMA OLLAMA
+========================
+
+🔧 Avvio GPU 0 su porta 39001...
+✅ GPU 0 PID: 1866049 (NO TIMEOUT)
+⏳ GPU 0 è MASTER - attesa caricamento modello SENZA LIMITI...
+   🌐 API risponde, test modello...
+   ✅ GPU 0 PRONTA dopo 1 tentativi!
+
+✅ GPU 0 completamente operativa con modello caricato
+⏳ Pausa 60s per stabilizzazione...
+
+🚀 Avvio GPU secondarie...
+
+🔧 Avvio GPU 1 su porta 39002...
+✅ GPU 1 PID: 1866187 (NO TIMEOUT)
+
+🔧 Avvio GPU 2 su porta 39003...
+✅ GPU 2 PID: 1866240 (NO TIMEOUT)
+
+🔧 Avvio GPU 3 su porta 39004...
+✅ GPU 3 PID: 1866313 (NO TIMEOUT)
+⏳ Attesa finale stabilizzazione sistema (60s)...
+
+🔍 VERIFICA FINALE SISTEMA
+===========================
+GPU 0 (porta 39001): ✅ OPERATIVA
+GPU 1 (porta 39002): ✅ OPERATIVA
+GPU 2 (porta 39003): ✅ OPERATIVA
+GPU 3 (porta 39004): ✅ OPERATIVA
+
+📊 RISULTATO: 4/4 GPU operative
+✅ Porte salvate: 39001,39002,39003,39004
+📊 Starting Advanced GPU Monitor (ogni 60s)
+
+🐍 AVVIO PYTHON
+===============
+
+2025-08-25 09:27:39 [INFO] Initializing Ollama connection manager...
+2025-08-25 09:27:39 [WARNING] HostHealthMonitor initialized with empty host list
+2025-08-25 09:27:39 [INFO] Setting up connections...
+2025-08-25 09:27:39 [INFO] Multi-GPU configuration: 4 instances
+2025-08-25 09:27:39 [INFO] Initialized with 4 hosts
+2025-08-25 09:27:39 [INFO] Waiting for Ollama services to start...
+2025-08-25 09:27:39 [INFO] Checking host 1/4: http://127.0.0.1:39001
+2025-08-25 09:27:39 [INFO] Host http://127.0.0.1:39001 is ready
+2025-08-25 09:27:39 [INFO] Checking host 2/4: http://127.0.0.1:39002
+2025-08-25 09:27:39 [INFO] Host http://127.0.0.1:39002 is ready
+2025-08-25 09:27:39 [INFO] Checking host 3/4: http://127.0.0.1:39003
+2025-08-25 09:27:39 [INFO] Host http://127.0.0.1:39003 is ready
+2025-08-25 09:27:39 [INFO] Checking host 4/4: http://127.0.0.1:39004
+2025-08-25 09:27:39 [INFO] Host http://127.0.0.1:39004 is ready
+2025-08-25 09:27:39 [INFO] All Ollama services are ready!
+2025-08-25 09:27:39 [INFO] Found 12 files to process
+2025-08-25 09:27:39 [INFO] Loaded 65892 completed cards from checkpoint
+2025-08-25 09:27:39 [INFO] File dati_2014 has 65892 completed cards
+2025-08-25 09:27:39 [INFO] Loaded 65892 completed cards from checkpoint
+2025-08-25 09:27:39 [INFO] File dati_2014 has 65892 completed cards
+2025-08-25 09:27:39 [INFO] Processing dati_2014.csv
+2025-08-25 09:27:39 [INFO] Loaded 65892 completed cards from checkpoint
+2025-08-25 09:27:39 [INFO] Loading and preprocessing data...
+2025-08-25 09:27:40 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-25 09:27:41 [INFO] Loaded 370377 visits from dati_2014.csv
+2025-08-25 09:27:41 [INFO] Valid visits after merge: 370377
+2025-08-25 09:27:41 [INFO] Multi-visit cards: 70236 / 71557
+2025-08-25 09:27:41 [INFO] Performing user clustering...
+2025-08-25 09:27:48 [INFO] Processing 0 cards
+2025-08-25 09:27:48 [INFO] No cards to process
+2025-08-25 09:27:48 [INFO] Loaded 66677 completed cards from checkpoint
+2025-08-25 09:27:48 [INFO] File dati_2015 has 66677 completed cards
+2025-08-25 09:27:48 [INFO] Loaded 66677 completed cards from checkpoint
+2025-08-25 09:27:48 [INFO] File dati_2015 has 66677 completed cards
+2025-08-25 09:27:48 [INFO] Processing dati_2015.csv
+2025-08-25 09:27:48 [INFO] Loaded 66677 completed cards from checkpoint
+2025-08-25 09:27:48 [INFO] Loading and preprocessing data...
+2025-08-25 09:27:48 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-25 09:27:50 [INFO] Loaded 369588 visits from dati_2015.csv
+2025-08-25 09:27:50 [INFO] Valid visits after merge: 369588
+2025-08-25 09:27:50 [INFO] Multi-visit cards: 71759 / 73424
+2025-08-25 09:27:50 [INFO] Performing user clustering...
+2025-08-25 09:27:56 [INFO] Processing 0 cards
+2025-08-25 09:27:56 [INFO] No cards to process
+2025-08-25 09:27:56 [INFO] Loaded 24953 completed cards from checkpoint
+2025-08-25 09:27:56 [INFO] File dati_2016 has 24953 completed cards
+2025-08-25 09:27:56 [INFO] Loaded 24953 completed cards from checkpoint
+2025-08-25 09:27:56 [INFO] File dati_2016 has 24953 completed cards
+2025-08-25 09:27:56 [INFO] Processing dati_2016.csv
+2025-08-25 09:27:56 [INFO] Loaded 24953 completed cards from checkpoint
+2025-08-25 09:27:56 [INFO] Loading and preprocessing data...
+2025-08-25 09:27:56 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-25 09:27:58 [INFO] Loaded 383517 visits from dati_2016.csv
+2025-08-25 09:27:58 [INFO] Valid visits after merge: 383517
+2025-08-25 09:27:58 [INFO] Multi-visit cards: 76452 / 78152
+2025-08-25 09:27:58 [INFO] Performing user clustering...
+2025-08-25 09:28:04 [INFO] Processing 45313 cards
+2025-08-25 09:28:04 [INFO] Using 8 workers for 4 healthy hosts
+2025-08-25 09:28:04 [INFO] Waiting 120s for models to FULLY stabilize...
