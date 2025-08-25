@@ -1024,8 +1024,6 @@ class PromptBuilder:
         Raises:
             ValueError: If sequence too short or POI not found
         """
-        counter_promt_log = 0
-        
         # Get visit sequence for this card
         visits = df[df["card_id"] == card_id].sort_values("timestamp")
         seq = visits["name_short"].tolist()
@@ -1059,23 +1057,18 @@ class PromptBuilder:
         ])
         
         # Create concise prompt
-        res = """
-        Sei un assistente turistico esperto di Verona.
-        <cluster_id>: {cluster_id}
-        <history>: {history}
-        <current_poi>: {current_poi}
+        return f"""
+            Sei un assistente turistico esperto di Verona.
+            <cluster_id>: {cluster_id}
+            <history>: {history}
+            <current_poi>: {current_poi}
 
-        Obiettivo: suggerisci i {top_k} POI più probabili che l'utente visiterà dopo.
-        • Escludi i POI già in <history> e <current_poi>.
-        • Rispondi con **una sola riga** JSON:
-        {{ "prediction": [...], "reason": "..." }}
-        Rispondi in italiano.
+            Obiettivo: suggerisci i {top_k} POI più probabili che l'utente visiterà dopo.
+            • Escludi i POI già in <history> e <current_poi>.
+            • Rispondi con **una sola riga** JSON:
+            {{ "prediction": [...], "reason": "..." }}
+            Rispondi in italiano.
         """
-        if counter_promt_log == 0:
-            logger.info(f"Promt Passato: {res}")
-            counter_promt_log = counter_promt_log + 1
-        
-        return res.strip()
 # ============= CHECKPOINT MANAGEMENT =============
 class CheckpointManager:
     """Manages checkpoint files for resumable processing"""
