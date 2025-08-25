@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=verona-unlimited
+#SBATCH --job-name=base
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=normal
@@ -9,7 +9,7 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=256G
-#SBATCH --output=slurm-%j.out
+#SBATCH --output=slurm_base-%j.out
 
 RES_DIR="$WORK/results_mixtral_8x7b_base_version/"
 mkdir -p "$RES_DIR"  # Crea la directory se non esiste
@@ -20,6 +20,7 @@ echo "⚠️ ATTENZIONE: Questo script aspetterà INDEFINITAMENTE il caricamento
 echo "Job ID: $SLURM_JOB_ID"
 echo "Nodo: $(hostname)"
 echo "Data: $(date)"
+echo "Salvo risultati: $RES_DIR"
 echo ""
 
 # ============= SETUP AMBIENTE =============
@@ -370,7 +371,7 @@ advanced_gpu_monitor() {
         done
         
         # Statistiche Python se in esecuzione
-        if pgrep -f "veronacard_mob_with_geom" >/dev/null; then
+        if pgrep -f "veronacard_mob_versione_base_parrallel" >/dev/null; then
             echo ""
             echo "🐍 Python Processing:"
             
@@ -388,9 +389,9 @@ advanced_gpu_monitor() {
             fi
             
             # Linee processate dal log
-            if [ -f "python_execution.log" ]; then
-                processed=$(grep -c "Processing card" python_execution.log 2>/dev/null || echo "0")
-                errors=$(grep -c "ERROR\|Error" python_execution.log 2>/dev/null || echo "0")
+            if [ -f "base_version_python_execution.log" ]; then
+                processed=$(grep -c "Processing card" base_version_python_execution.log 2>/dev/null || echo "0")
+                errors=$(grep -c "ERROR\|Error" base_version_python_execution.log 2>/dev/null || echo "0")
                 echo "  Cards processed: $processed"
                 echo "  Errors: $errors"
                 echo "  Dir RESULTS: $RES_DIR"
@@ -417,7 +418,7 @@ echo "==============="
 echo ""
 
 if [ -f "data/verona/vc_site.csv" ]; then
-    python3 -u veronacard_mob_with_geom_parrallel.py \
+    python3 -u veronacard_mob_versione_base_parrallel.py \
         --append 2>&1 | tee base_version_python_execution.log
     PYTHON_EXIT=$?
 else

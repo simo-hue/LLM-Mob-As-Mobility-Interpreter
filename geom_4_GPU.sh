@@ -1,15 +1,15 @@
 #!/bin/bash
-#SBATCH --job-name=verona-unlimited
+#SBATCH --job-name=geom
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=normal
-#SBATCH --time=10:00:00
+#SBATCH --time=24:00:00
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:4
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=256G
-#SBATCH --output=slurm-%j.out
+#SBATCH --output=slurm_geom-%j.out
 
 RES_DIR="$WORK/results_mixtral_8x7b_with_geom/"
 mkdir -p "$RES_DIR"  # Crea la directory se non esiste
