@@ -11,7 +11,7 @@
 #SBATCH --mem=256G
 #SBATCH --output=slurm_geom-%j.out
 
-RES_DIR="$WORK/results_mixtral_8x7b_with_geom/"
+RES_DIR="$WORK/results_deepseek-coder_33b_with_geom/"
 mkdir -p "$RES_DIR"  # Crea la directory se non esiste
 
 echo "🚀 VERONA CARD - GEOM VERSION"
