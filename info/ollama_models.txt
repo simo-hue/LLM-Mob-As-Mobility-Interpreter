@@ -22,12 +22,10 @@ PROVATI GEOM + TIME:
 
 INSTALLATI:
   ✓ deepseek-coder:33b
-  ✓ qwen2.5:7b  ( anche se NON lo trovo )
+  ✓ qwen2.5:7b 
   - qwen2.5:14b
-  ✓ "qwen2.5:7b"
-    "qwen2.5:14b"
-    "deepseek-r1:32b"
-    "deepseek-v3:8b" 
+    deepseek-r1:32b
+    deepseek-v3:8b
 
 
 
@@ -41,3 +39,15 @@ DA PROVARE:
   - gemma3:8b
   - gemma3:27b
   - 
+
+
+  MODELLI: /leonardo_work/IscrC_LLM-Mob/.ollama/models/manifests/registry.ollama.ai/library
+
+
+INSTALLAZIONE:
+export OLLAMA_MODELS=/leonardo_work/IscrC_LLM-Mob/.ollama/models
+
+# Avvia Ollama
+ollama serve &
+
+fare pull con altro terminale

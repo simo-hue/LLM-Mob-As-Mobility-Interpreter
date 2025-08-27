@@ -1,0 +1,229 @@
+🚀 OLLAMA MODELS INSTALLER
+================================================
+Job ID: 19385776
+Nodo: lrdn0909.leonardo.local
+Data: Wed Aug 27 13:03:03 CEST 2025
+User: smattiol
+
+📋 MODELLI DA INSTALLARE:
+  - qwen2.5:7b
+  - qwen2.5:14b
+  - deepseek-r1:32b
+  - deepseek-v3:8b
+
+📦 Setup ambiente HPC...
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+✅ Python: Python 3.11.6
+✅ CUDA: Cuda compilation tools, release 12.3, V12.3.103
+
+🔍 GPU DETECTION:
+0, NVIDIA A100-SXM-64GB, 65536 MiB, 42
+1, NVIDIA A100-SXM-64GB, 65536 MiB, 42
+2, NVIDIA A100-SXM-64GB, 65536 MiB, 42
+3, NVIDIA A100-SXM-64GB, 65536 MiB, 43
+
+🔧 CONFIGURAZIONE:
+- Ollama binary: /leonardo_work/IscrC_LLM-Mob/opt/bin/ollama
+- Models directory: /leonardo_work/IscrC_LLM-Mob/.ollama/models
+- Cache directory: /leonardo_work/IscrC_LLM-Mob/.ollama/cache
+- Temp directory: /leonardo_work/IscrC_LLM-Mob/tmp_ollama_install_19385776
+
+💾 VERIFICA SPAZIO DISCO
+========================
+Spazio disponibile: 919GB
+Spazio attuale Ollama: 47G
+
+🧹 Cleanup preventivo...
+🚀 Avvio server Ollama...
+Server PID: 485589
+⏳ Attesa disponibilità API...
+✅ Server pronto dopo 1 tentativi!
+
+📋 MODELLI INSTALLATI (PRIMA)
+--------------------------
+NAME                  ID              SIZE      MODIFIED    
+deepseek-coder:33b    acec7c0b0fd9    18 GB     2 weeks ago    
+mixtral:8x7b          a3b6bef0f836    26 GB     2 weeks ago    
+llama3.1:8b           46e0c10c039e    4.9 GB    8 weeks ago    
+
+📊 Totale modelli: 3
+
+💾 SPAZIO DISCO PRE-INSTALLAZIONE
+=================================
+Filesystem                                        Size  Used Avail Use% Mounted on
+10.128.82.1@o2ib:10.128.82.2@o2ib:/larchive/work  1.0T  107G  918G  11% /leonardo_work
+
+🚀 INIZIO INSTALLAZIONI
+=======================
+Totale modelli da processare: 4
+
+📍 Progresso: 1/4
+
+🔽 INSTALLAZIONE: qwen2.5:7b
+---------------------------
+Inizio: Wed Aug 27 13:04:48 CEST 2025
+📥 Download e installazione in corso...
+   (Questo può richiedere molto tempo per modelli grandi)
+/var/spool/slurmd/job19385776/slurm_script: line 283: 485673 Terminated              { while kill -0 $$ 2> /dev/null; do
+    sleep 60; echo "⏳ $(date): Download $model ancora in corso..."; echo "   GPU Status:"; nvidia-smi --query-gpu=index,memory.used,memory.total --format=csv,noheader,nounits | while IFS=',' read -r idx mem_used mem_total; do
+        mem_percent=$((mem_used * 100 / mem_total)); printf "     GPU %s: %d%% (%d/%d MB)\n" "$idx" "$mem_percent" "$mem_used" "$mem_total";
+    done; local space_now=$(df "$WORK" | tail -1 | awk '{print $4}'); local space_now_gb=$((space_now / 1024 / 1024)); echo "   Spazio rimanente: ${space_now_gb}GB";
+done; }
+❌ qwen2.5:7b installazione fallita!
+   Tempo impiegato: 0 minuti
+   Exit code: 1
+
+Ultime righe output:
+   [?25lpulling manifest [?25h
+   Error: pull model manifest: Get "https://registry.ollama.ai/v2/library/qwen2.5/manifests/7b": dial tcp 172.67.182.229:443: connect: network is unreachable
+
+⚠️ Installazione qwen2.5:7b fallita. Continuo con il prossimo...
+/var/spool/slurmd/job19385776/slurm_script: line 358: local: can only be used in a function
+/var/spool/slurmd/job19385776/slurm_script: line 359: local: can only be used in a function
+/var/spool/slurmd/job19385776/slurm_script: line 360: [: -lt: unary operator expected
+
+📊 Stato attuale: ✅0 ❌1
+
+⏸️ Pausa 30s prima del prossimo modello...
+📍 Progresso: 2/4
+
+🔽 INSTALLAZIONE: qwen2.5:14b
+----------------------------
+Inizio: Wed Aug 27 13:05:18 CEST 2025
+📥 Download e installazione in corso...
+   (Questo può richiedere molto tempo per modelli grandi)
+/var/spool/slurmd/job19385776/slurm_script: line 283: 485951 Terminated              { while kill -0 $$ 2> /dev/null; do
+    sleep 60; echo "⏳ $(date): Download $model ancora in corso..."; echo "   GPU Status:"; nvidia-smi --query-gpu=index,memory.used,memory.total --format=csv,noheader,nounits | while IFS=',' read -r idx mem_used mem_total; do
+        mem_percent=$((mem_used * 100 / mem_total)); printf "     GPU %s: %d%% (%d/%d MB)\n" "$idx" "$mem_percent" "$mem_used" "$mem_total";
+    done; local space_now=$(df "$WORK" | tail -1 | awk '{print $4}'); local space_now_gb=$((space_now / 1024 / 1024)); echo "   Spazio rimanente: ${space_now_gb}GB";
+done; }
+❌ qwen2.5:14b installazione fallita!
+   Tempo impiegato: 0 minuti
+   Exit code: 1
+
+Ultime righe output:
+   [?25lpulling manifest [?25h
+   Error: pull model manifest: Get "https://registry.ollama.ai/v2/library/qwen2.5/manifests/14b": dial tcp 104.21.75.227:443: connect: network is unreachable
+
+⚠️ Installazione qwen2.5:14b fallita. Continuo con il prossimo...
+/var/spool/slurmd/job19385776/slurm_script: line 358: local: can only be used in a function
+/var/spool/slurmd/job19385776/slurm_script: line 359: local: can only be used in a function
+/var/spool/slurmd/job19385776/slurm_script: line 360: [: -lt: unary operator expected
+
+📊 Stato attuale: ✅0 ❌2
+
+⏸️ Pausa 30s prima del prossimo modello...
+📍 Progresso: 3/4
+
+🔽 INSTALLAZIONE: deepseek-r1:32b
+--------------------------------
+Inizio: Wed Aug 27 13:05:48 CEST 2025
+📥 Download e installazione in corso...
+   (Questo può richiedere molto tempo per modelli grandi)
+/var/spool/slurmd/job19385776/slurm_script: line 283: 485994 Terminated              { while kill -0 $$ 2> /dev/null; do
+    sleep 60; echo "⏳ $(date): Download $model ancora in corso..."; echo "   GPU Status:"; nvidia-smi --query-gpu=index,memory.used,memory.total --format=csv,noheader,nounits | while IFS=',' read -r idx mem_used mem_total; do
+        mem_percent=$((mem_used * 100 / mem_total)); printf "     GPU %s: %d%% (%d/%d MB)\n" "$idx" "$mem_percent" "$mem_used" "$mem_total";
+    done; local space_now=$(df "$WORK" | tail -1 | awk '{print $4}'); local space_now_gb=$((space_now / 1024 / 1024)); echo "   Spazio rimanente: ${space_now_gb}GB";
+done; }
+❌ deepseek-r1:32b installazione fallita!
+   Tempo impiegato: 0 minuti
+   Exit code: 1
+
+Ultime righe output:
+   [?25lpulling manifest [?25h
+   Error: pull model manifest: Get "https://registry.ollama.ai/v2/library/deepseek-r1/manifests/32b": dial tcp 104.21.75.227:443: connect: network is unreachable
+
+⚠️ Installazione deepseek-r1:32b fallita. Continuo con il prossimo...
+/var/spool/slurmd/job19385776/slurm_script: line 358: local: can only be used in a function
+/var/spool/slurmd/job19385776/slurm_script: line 359: local: can only be used in a function
+/var/spool/slurmd/job19385776/slurm_script: line 360: [: -lt: unary operator expected
+
+📊 Stato attuale: ✅0 ❌3
+
+⏸️ Pausa 30s prima del prossimo modello...
+📍 Progresso: 4/4
+
+🔽 INSTALLAZIONE: deepseek-v3:8b
+-------------------------------
+Inizio: Wed Aug 27 13:06:19 CEST 2025
+📥 Download e installazione in corso...
+   (Questo può richiedere molto tempo per modelli grandi)
+/var/spool/slurmd/job19385776/slurm_script: line 283: 486039 Terminated              { while kill -0 $$ 2> /dev/null; do
+    sleep 60; echo "⏳ $(date): Download $model ancora in corso..."; echo "   GPU Status:"; nvidia-smi --query-gpu=index,memory.used,memory.total --format=csv,noheader,nounits | while IFS=',' read -r idx mem_used mem_total; do
+        mem_percent=$((mem_used * 100 / mem_total)); printf "     GPU %s: %d%% (%d/%d MB)\n" "$idx" "$mem_percent" "$mem_used" "$mem_total";
+    done; local space_now=$(df "$WORK" | tail -1 | awk '{print $4}'); local space_now_gb=$((space_now / 1024 / 1024)); echo "   Spazio rimanente: ${space_now_gb}GB";
+done; }
+❌ deepseek-v3:8b installazione fallita!
+   Tempo impiegato: 0 minuti
+   Exit code: 1
+
+Ultime righe output:
+   [?25lpulling manifest [?25h
+   Error: pull model manifest: Get "https://registry.ollama.ai/v2/library/deepseek-v3/manifests/8b": dial tcp 172.67.182.229:443: connect: network is unreachable
+
+⚠️ Installazione deepseek-v3:8b fallita. Continuo con il prossimo...
+/var/spool/slurmd/job19385776/slurm_script: line 358: local: can only be used in a function
+/var/spool/slurmd/job19385776/slurm_script: line 359: local: can only be used in a function
+/var/spool/slurmd/job19385776/slurm_script: line 360: [: -lt: unary operator expected
+
+📊 Stato attuale: ✅0 ❌4
+
+
+🏁 INSTALLAZIONI COMPLETATE
+============================
+
+📋 MODELLI INSTALLATI (DOPO)
+-------------------------
+NAME                  ID              SIZE      MODIFIED    
+deepseek-coder:33b    acec7c0b0fd9    18 GB     2 weeks ago    
+mixtral:8x7b          a3b6bef0f836    26 GB     2 weeks ago    
+llama3.1:8b           46e0c10c039e    4.9 GB    8 weeks ago    
+
+📊 Totale modelli: 3
+
+💾 SPAZIO DISCO POST-INSTALLAZIONE
+==================================
+Filesystem                                        Size  Used Avail Use% Mounted on
+10.128.82.1@o2ib:10.128.82.2@o2ib:/larchive/work  1.0T  107G  918G  11% /leonardo_work
+
+Spazio totale utilizzato da Ollama:
+47G	/leonardo_work/IscrC_LLM-Mob/.ollama/models
+
+Top 10 file più grandi:
+25G	/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-f2dc41fa964b42bfe34e9fb09c0acdcfbfd6e52f1332930b4eacc9d6ad1c6cd2
+18G	/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-065b9a7416ba28634cd4efc2cd3024d4755731c1275dc0286b81b01793185fbb
+4.6G	/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29
+16K	/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-a3a0e9449cb691a12f4de1d03725fd41326614fdeaf5d80b28c51187da0bed0e
+16K	/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-0ba8f0e314b4264dfd19df045cde9d4c394a52474bf92ed6a3de22a4ca31a177
+12K	/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1
+4.0K	/leonardo_work/IscrC_LLM-Mob/.ollama/models/manifests/registry.ollama.ai/library/mixtral/8x7b
+4.0K	/leonardo_work/IscrC_LLM-Mob/.ollama/models/manifests/registry.ollama.ai/library/llama3.1/8b
+4.0K	/leonardo_work/IscrC_LLM-Mob/.ollama/models/manifests/registry.ollama.ai/library/deepseek-coder/33b
+4.0K	/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-ed11eda7790d05b49395598a42b155812b17e263214292f7b87d15e14003d337
+
+📊 RIEPILOGO FINALE
+===================
+Modelli da installare: 4
+✅ Installazioni riuscite: 0
+❌ Installazioni fallite: 4
+⏭️ Installazioni saltate: 0
+⏱️ Tempo totale: 3 minuti
+
+📜 Log dettagliato disponibile in: ollama_installation_detailed.log
+Dimensione log: 4.0K
+
+🏁 JOB COMPLETATO
+=================
+❌ Nessun modello installato
+
+🧹 Cleanup finale...
+Stopping Ollama server (PID 485589)...
+Removing temporary directory...
+✅ Cleanup completato
