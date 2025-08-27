@@ -1,0 +1,187 @@
+2025-08-27 10:54:07 [INFO] Initializing Ollama connection manager...
+2025-08-27 10:54:07 [WARNING] HostHealthMonitor initialized with empty host list
+2025-08-27 10:54:07 [INFO] Setting up connections...
+2025-08-27 10:54:07 [INFO] Multi-GPU configuration: 4 instances
+2025-08-27 10:54:07 [INFO] Initialized with 4 hosts
+2025-08-27 10:54:07 [INFO] Waiting for Ollama services to start...
+2025-08-27 10:54:07 [INFO] Checking host 1/4: http://127.0.0.1:39001
+2025-08-27 10:54:07 [INFO] Host http://127.0.0.1:39001 is ready
+2025-08-27 10:54:07 [INFO] Checking host 2/4: http://127.0.0.1:39002
+2025-08-27 10:54:07 [INFO] Host http://127.0.0.1:39002 is ready
+2025-08-27 10:54:07 [INFO] Checking host 3/4: http://127.0.0.1:39003
+2025-08-27 10:54:07 [INFO] Host http://127.0.0.1:39003 is ready
+2025-08-27 10:54:07 [INFO] Checking host 4/4: http://127.0.0.1:39004
+2025-08-27 10:54:07 [INFO] Host http://127.0.0.1:39004 is ready
+2025-08-27 10:54:07 [INFO] All Ollama services are ready!
+2025-08-27 10:54:07 [INFO] Found 12 files to process
+2025-08-27 10:54:07 [INFO] Loaded 65892 completed cards from checkpoint
+2025-08-27 10:54:07 [INFO] File dati_2014 has 65892 completed cards
+2025-08-27 10:54:07 [INFO] Loaded 65892 completed cards from checkpoint
+2025-08-27 10:54:07 [INFO] File dati_2014 has 65892 completed cards
+2025-08-27 10:54:07 [INFO] Processing dati_2014.csv
+2025-08-27 10:54:07 [INFO] Loaded 65892 completed cards from checkpoint
+2025-08-27 10:54:07 [INFO] Loading and preprocessing data...
+2025-08-27 10:54:07 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-27 10:54:09 [INFO] Loaded 370377 visits from dati_2014.csv
+2025-08-27 10:54:09 [INFO] Valid visits after merge: 370377
+2025-08-27 10:54:09 [INFO] Multi-visit cards: 70236 / 71557
+2025-08-27 10:54:09 [INFO] Performing user clustering...
+2025-08-27 10:54:16 [INFO] Processing 0 cards
+2025-08-27 10:54:16 [INFO] No cards to process
+2025-08-27 10:54:16 [INFO] Loaded 66677 completed cards from checkpoint
+2025-08-27 10:54:16 [INFO] File dati_2015 has 66677 completed cards
+2025-08-27 10:54:16 [INFO] Loaded 66677 completed cards from checkpoint
+2025-08-27 10:54:16 [INFO] File dati_2015 has 66677 completed cards
+2025-08-27 10:54:16 [INFO] Processing dati_2015.csv
+2025-08-27 10:54:16 [INFO] Loaded 66677 completed cards from checkpoint
+2025-08-27 10:54:16 [INFO] Loading and preprocessing data...
+2025-08-27 10:54:16 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-27 10:54:18 [INFO] Loaded 369588 visits from dati_2015.csv
+2025-08-27 10:54:18 [INFO] Valid visits after merge: 369588
+2025-08-27 10:54:18 [INFO] Multi-visit cards: 71759 / 73424
+2025-08-27 10:54:18 [INFO] Performing user clustering...
+2025-08-27 10:54:24 [INFO] Processing 0 cards
+2025-08-27 10:54:24 [INFO] No cards to process
+2025-08-27 10:54:24 [INFO] Loaded 70266 completed cards from checkpoint
+2025-08-27 10:54:24 [INFO] File dati_2016 has 70266 completed cards
+2025-08-27 10:54:24 [INFO] Loaded 70266 completed cards from checkpoint
+2025-08-27 10:54:24 [INFO] File dati_2016 has 70266 completed cards
+2025-08-27 10:54:24 [INFO] Processing dati_2016.csv
+2025-08-27 10:54:24 [INFO] Loaded 70266 completed cards from checkpoint
+2025-08-27 10:54:24 [INFO] Loading and preprocessing data...
+2025-08-27 10:54:24 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-27 10:54:26 [INFO] Loaded 383517 visits from dati_2016.csv
+2025-08-27 10:54:26 [INFO] Valid visits after merge: 383517
+2025-08-27 10:54:26 [INFO] Multi-visit cards: 76452 / 78152
+2025-08-27 10:54:26 [INFO] Performing user clustering...
+2025-08-27 10:54:32 [INFO] Processing 0 cards
+2025-08-27 10:54:32 [INFO] No cards to process
+2025-08-27 10:54:33 [INFO] Loaded 81342 completed cards from checkpoint
+2025-08-27 10:54:33 [INFO] File dati_2017 has 81342 completed cards
+2025-08-27 10:54:33 [INFO] Loaded 81342 completed cards from checkpoint
+2025-08-27 10:54:33 [INFO] File dati_2017 has 81342 completed cards
+2025-08-27 10:54:33 [INFO] Processing dati_2017.csv
+2025-08-27 10:54:33 [INFO] Loaded 81342 completed cards from checkpoint
+2025-08-27 10:54:33 [INFO] Loading and preprocessing data...
+2025-08-27 10:54:33 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-27 10:54:34 [INFO] Loaded 441595 visits from dati_2017.csv
+2025-08-27 10:54:34 [INFO] Valid visits after merge: 441595
+2025-08-27 10:54:35 [INFO] Multi-visit cards: 89352 / 91555
+2025-08-27 10:54:35 [INFO] Performing user clustering...
+2025-08-27 10:54:42 [INFO] Processing 0 cards
+2025-08-27 10:54:42 [INFO] No cards to process
+2025-08-27 10:54:42 [INFO] Loaded 78385 completed cards from checkpoint
+2025-08-27 10:54:42 [INFO] File dati_2018 has 78385 completed cards
+2025-08-27 10:54:42 [INFO] Loaded 78385 completed cards from checkpoint
+2025-08-27 10:54:42 [INFO] File dati_2018 has 78385 completed cards
+2025-08-27 10:54:42 [INFO] Processing dati_2018.csv
+2025-08-27 10:54:42 [INFO] Loaded 78385 completed cards from checkpoint
+2025-08-27 10:54:42 [INFO] Loading and preprocessing data...
+2025-08-27 10:54:42 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-27 10:54:44 [INFO] Loaded 427214 visits from dati_2018.csv
+2025-08-27 10:54:44 [INFO] Valid visits after merge: 427214
+2025-08-27 10:54:44 [INFO] Multi-visit cards: 86222 / 88627
+2025-08-27 10:54:44 [INFO] Performing user clustering...
+2025-08-27 10:54:51 [INFO] Processing 0 cards
+2025-08-27 10:54:51 [INFO] No cards to process
+2025-08-27 10:54:51 [INFO] Loaded 71226 completed cards from checkpoint
+2025-08-27 10:54:51 [INFO] File dati_2019 has 71226 completed cards
+2025-08-27 10:54:51 [INFO] Loaded 71226 completed cards from checkpoint
+2025-08-27 10:54:51 [INFO] File dati_2019 has 71226 completed cards
+2025-08-27 10:54:51 [INFO] Processing dati_2019.csv
+2025-08-27 10:54:51 [INFO] Loaded 71226 completed cards from checkpoint
+2025-08-27 10:54:51 [INFO] Loading and preprocessing data...
+2025-08-27 10:54:51 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-27 10:54:52 [INFO] Loaded 397562 visits from dati_2019.csv
+2025-08-27 10:54:53 [INFO] Valid visits after merge: 397562
+2025-08-27 10:54:53 [INFO] Multi-visit cards: 77583 / 79825
+2025-08-27 10:54:53 [INFO] Performing user clustering...
+2025-08-27 10:54:59 [INFO] Processing 0 cards
+2025-08-27 10:54:59 [INFO] No cards to process
+2025-08-27 10:54:59 [INFO] Loaded 6969 completed cards from checkpoint
+2025-08-27 10:54:59 [INFO] File dati_2020 has 6969 completed cards
+2025-08-27 10:54:59 [INFO] Loaded 6969 completed cards from checkpoint
+2025-08-27 10:54:59 [INFO] File dati_2020 has 6969 completed cards
+2025-08-27 10:54:59 [INFO] Processing dati_2020.csv
+2025-08-27 10:54:59 [INFO] Loaded 6969 completed cards from checkpoint
+2025-08-27 10:54:59 [INFO] Loading and preprocessing data...
+2025-08-27 10:54:59 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-27 10:54:59 [INFO] Loaded 38294 visits from dati_2020.csv
+2025-08-27 10:55:00 [INFO] Valid visits after merge: 38294
+2025-08-27 10:55:00 [INFO] Multi-visit cards: 7658 / 7914
+2025-08-27 10:55:00 [INFO] Performing user clustering...
+2025-08-27 10:55:01 [INFO] Processing 0 cards
+2025-08-27 10:55:01 [INFO] No cards to process
+2025-08-27 10:55:01 [INFO] Processing veronacard_2019_original.csv
+2025-08-27 10:55:01 [INFO] Loading and preprocessing data...
+2025-08-27 10:55:01 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-27 10:55:03 [INFO] Loaded 397563 visits from veronacard_2019_original.csv
+2025-08-27 10:55:03 [INFO] Valid visits after merge: 397563
+2025-08-27 10:55:03 [INFO] Multi-visit cards: 77583 / 79826
+2025-08-27 10:55:03 [INFO] Performing user clustering...
+2025-08-27 10:55:10 [INFO] Processing 71226 cards
+2025-08-27 10:55:10 [INFO] Using 8 workers for 4 healthy hosts
+2025-08-27 10:55:10 [INFO] Waiting 120s for models to FULLY stabilize...
+2025-08-27 10:57:10 [INFO] Running pre-flight check on all hosts...
+2025-08-27 10:57:10 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39001
+2025-08-27 10:57:10 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39002
+2025-08-27 10:57:10 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39003
+2025-08-27 10:57:11 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39004
+2025-08-27 11:00:27 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-27 11:00:32 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-27 11:00:38 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-27 11:01:27 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-27 11:01:29 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-27 11:01:33 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-27 11:02:07 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-27 11:02:11 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-27 11:02:14 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-27 11:02:15 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-27 11:02:20 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-27 11:02:20 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-27 11:02:22 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-27 11:02:24 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-27 11:02:51 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-27 11:02:54 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-27 11:02:57 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-27 11:03:00 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-27 11:03:02 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-27 11:03:04 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-27 11:03:07 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-27 11:03:09 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-27 11:03:12 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-27 11:03:14 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-27 11:03:14 [ERROR] All 10 attempts failed
+2025-08-27 11:03:27 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-27 11:03:52 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-27 11:05:01 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-27 11:05:06 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-27 11:05:45 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-27 11:06:22 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-27 11:06:31 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-27 11:06:48 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-27 11:06:49 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-27 11:07:18 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-27 11:07:23 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-27 11:08:13 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-27 11:09:02 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-27 11:09:23 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-27 11:10:14 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-27 11:10:16 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-27 11:10:20 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-27 11:10:24 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-27 11:10:30 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-27 11:10:32 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-27 11:10:40 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-27 11:10:45 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-27 11:10:47 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-27 11:12:03 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-27 11:12:07 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-27 11:12:12 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-27 11:12:14 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-27 11:12:16 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-27 11:12:20 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-27 11:17:19 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-27 11:17:23 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-27 11:19:24 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-27 11:19:38 [WARNING] Incomplete response from http://127.0.0.1:39001

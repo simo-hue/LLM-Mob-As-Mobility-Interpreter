@@ -23,13 +23,16 @@ PROVATI GEOM + TIME:
 INSTALLATI:
   ✓ deepseek-coder:33b
   ✓ qwen2.5:7b  ( anche se NON lo trovo )
-  ✓ 
+  - qwen2.5:14b
+  ✓ "qwen2.5:7b"
+    "qwen2.5:14b"
+    "deepseek-r1:32b"
+    "deepseek-v3:8b" 
 
 
 
 DA PROVARE:
   - 
-  - qwen2.5:14b
   - mistral:7b-instruct-v0.3
   - codellama:34b
   - deepseek-r1:32b
