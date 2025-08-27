@@ -1,9 +1,10 @@
-\documentclass[a4paper,12pt,twoside,openright]{report}
+\documentclass[a4paper,12pt,twoside,openany]{report}
 
 % --- Encoding & lingua ---
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english,italian]{babel}
+
 
 % --- Layout ---
 \usepackage[a4paper,top=3cm,bottom=3cm,left=3cm,right=3cm]{geometry}
@@ -14,6 +15,10 @@
 \fancyhf{}
 \fancyhead[RO,LE]{\nouppercase{\leftmark}}
 \fancyfoot[RO,LE]{\thepage}
+\usepackage{hyperref}
+  \usepackage{xcolor}
+  \definecolor{linkColor}{RGB}{2,11,120}
+  \hypersetup{colorlinks=true, linkcolor=linkColor, citecolor=linkColor, urlcolor=linkColor}
 
 % --- Font ---
 \usepackage{tgschola} % font leggibile
@@ -25,17 +30,14 @@
 \usepackage{minted} % richiede -shell-escape
 \usepackage{tcolorbox}
 \tcbuselibrary{listings, minted, skins}
+\usepackage{booktabs} % per tabelle professionali
 
 % --- Grafica ---
 \usepackage{graphicx}
-\usepackage{subfig}
+\usepackage{subcaption}
 \usepackage{float}
 \graphicspath{{./images/}}
 
-% --- Link ---
-\usepackage{xcolor}
-\definecolor{linkColor}{RGB}{2,11,120}
-\hypersetup{colorlinks=true, linkcolor=linkColor, citecolor=linkColor, urlcolor=linkColor}
 
 % --- Bibliografia ---
 \usepackage[nottoc]{tocbibind} % aggiunge bibliografia a ToC
@@ -53,7 +55,7 @@
 \input{tex/1-Abstract}
 
 % Indice
-% \tableofcontents
+\tableofcontents
 
 % Corpo tesi: numerazione araba
 \clearpage

@@ -1,8 +1,6 @@
-\usepackage{subcaption}
-
 \chapter{Strategie di prompt e risultati sperimentali}
 
-L'efficacia dei Large Language Model (LLM) nella previsione del prossimo POI dipende fondamentalmente dalla progettazione di strategie di prompt consapevoli del contesto che codifichino efficacemente i modelli di mobilità spazio-temporale\end{itemize}
+L'efficacia dei Large Language Model (LLM) nella previsione del prossimo POI dipende fondamentalmente dalla progettazione di strategie di prompt consapevoli del contesto che codifichino efficacemente i modelli di mobilità spazio-temporale
 
 \subsection{Configurazione sperimentale per analisi multi-modello}
 
@@ -20,6 +18,7 @@ Il sistema è implementato utilizzando l'infrastruttura Ollama per l'accesso a d
 \item \textbf{Checkpointing incrementale:} Salvataggio automatico ogni 500 predizioni per garantire recuperabilità in caso di interruzioni durante test estesi su modelli multipli
 \item \textbf{Ottimizzazioni per HPC:} Configurazione adattiva per GPU A100 con gestione della memoria VRAM e parametri di inferenza ottimizzati per diversi modelli
 \item \textbf{Validazione robusta delle risposte:} Parser JSON con gestione degli errori e validazione del contenuto delle predizioni, standardizzato per garantire comparabilità tra modelli diversi
+\end{itemize}
 
 \section{Tassonomia delle strategie di prompt}
 
@@ -31,7 +30,8 @@ Definiamo tre strategie di prompt gerarchiche, ciascuna basata sulla precedente 
 
 \item \textbf{Strategia geospaziale avanzata (nome + geolocalizzazione):} Questa strategia arricchisce ogni POI con coordinate geografiche precise e implementa un sistema di ranking basato sulla distanza di Haversine. Il prompt include una lista dei POI più vicini ordinata per distanza, limitata ai primi 10 risultati per ottimizzare la lunghezza del prompt e migliorare la qualità delle risposte.
 
-\begin{lstlisting}[language=text, caption=Esempio di Prompt Geospaziale]
+\begin{center}
+\begin{lstlisting}[language=text, caption=Esempio di Prompt Geospaziale, captionpos=b]
 Turista cluster 3 a Verona.
 Visitati: Arena di Verona, Casa di Giulietta
 Attuale: Castelvecchio
@@ -43,18 +43,19 @@ considerando distanze e pattern turistici.
 Rispondi SOLO JSON: {"prediction": ["poi1", "poi2", ...], 
 "reason": "breve spiegazione"}
 \end{lstlisting}
+\end{center}
 
 Il sistema calcola dinamicamente le distanze dal POI corrente e filtra automaticamente i POI già visitati, implementando vincoli di mobilità realistici con un raggio massimo di 2km per il centro storico di Verona.
 
 \item \textbf{Strategia spatio-temporale completa (nome + geolocalizzazione + tempo):} La strategia più avanzata integra informazioni temporali al contesto geospaziale, incorporando orari di visita, durata delle permanenze e pattern temporali dei cluster turistici. Questa strategia permette di catturare dinamiche comportamentali più sottili legate ai ritmi di visita e alle preferenze temporali specifiche per tipologia di turista.
 
-\begin{lstlisting}[language=text, caption=Esempio di Prompt Spatio-temporale]
+\begin{center}
+\begin{lstlisting}[language=text, caption=Esempio di Prompt Spatio-temporale, captionpos=b]
 Turista cluster 3 a Verona.
-Visitati: Arena di Verona (09:30, 45min), Casa di Giulietta (10:45, 20min)
+Visitati: Arena di Verona (09:30, 45min)
 Attuale: Castelvecchio (11:15)
 Ora corrente: 11:45
-POI Più Vicini: Ponte Pietra (0.8km), Duomo (1.2km), 
-Chiesa di Sant'Anastasia (1.4km), Piazza delle Erbe (1.1km)
+POI Più Vicini: Ponte Pietra (0.8km), Duomo (1.2km), ...
 
 Considerando l'orario (pre-pranzo), la durata tipica delle visite 
 del cluster 3, e i pattern temporali turistici a Verona, 
@@ -63,6 +64,7 @@ suggerisci 5 POI più probabili per la prossima visita.
 Rispondi SOLO JSON: {"prediction": ["poi1", "poi2", ...], 
 "reason": "breve spiegazione considerando fattori temporali"}
 \end{lstlisting}
+\end{center}
 
 Questa strategia incorpora informazioni su orari di apertura/chiusura, picchi di affluenza, e preferenze temporali specifiche per cluster, permettendo raccomandazioni context-aware che considerano sia vincoli spaziali che temporali.
 
@@ -188,7 +190,8 @@ La nostra valutazione adotta un approccio sistematico utilizzando il dataset Ver
 
 Il meccanismo di prompt genera dinamicamente query context-aware seguendo questa struttura template ottimizzata:
 
-\begin{lstlisting}[language=text, caption=Template di Prompt Comprensivo]
+\begin{center}
+\begin{lstlisting}[language=text, caption=Template di Prompt Comprensivo, captionpos=b]
 Turista cluster {cluster_id} a Verona.
 Visitati: {history}
 Attuale: {current_poi}
@@ -203,6 +206,7 @@ dopo, considerando:
 Rispondi SOLO JSON: {"prediction": ["poi1", "poi2", ...], 
 "reason": "breve spiegazione"}
 \end{lstlisting}
+\end{center}
 
 \section{Metriche di valutazione e gestione della qualità}
 
@@ -247,7 +251,62 @@ Name + Geo + Temporal & [In elaborazione] & [In elaborazione] & [In elaborazione
 \end{tabular}
 \end{table}
 
-\textit{Nota: I risultati presentati sono relativi al modello LLaMA 3.1 8B utilizzato per la fase di sviluppo e validazione del framework. Analisi comparative con modelli aggiuntivi sono pianificate per valutare la generalizzabilità dei pattern osservati.}
+\section{Analisi Comparativa Multi-Modello}
+
+\subsection{Configurazione sperimentale estesa}
+
+Per validare la generalizzabilità dei risultati e identificare le caratteristiche architetturali pi\`u efficaci per la predizione di mobilità turistica, abbiamo esteso la valutazione a sei modelli LLM rappresentativi di diverse famiglie architetturali:
+
+\begin{itemize}
+\item \textbf{LLaMA 3.1 8B}: Modello baseline per confronti, architettura decoder-only
+\item \textbf{Mixtral 8x7B}: Architettura Mixture-of-Experts con 47B parametri attivi
+\item \textbf{Qwen 2.5 7B}: Modello multilingue ottimizzato per efficienza
+\item \textbf{DeepSeek-V3 8B}: Architettura ibrida con focus su ragionamento
+\item \textbf{Gemma 3 8B/27B}: Famiglia di modelli Google con scaling dei parametri
+\end{itemize}
+
+\subsection{Performance comparative globali}
+
+La valutazione multi-modello rivela pattern interessanti nelle capacità di predizione della mobilità turistica:
+
+\begin{table}[H]
+\centering
+\caption{Performance Comparative tra Modelli LLM (Strategia Geospaziale)}
+\label{tab:models_comparison}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Modello} & \textbf{Parametri} & \textbf{Top-1 Acc.} & \textbf{Top-5 HR} & \textbf{MRR} & \textbf{Coverage} & \textbf{Tempo/Card} \\
+\midrule
+LLaMA 3.1 & 8B & 15.5\% & 45.5\% & 25.5\% & 78\% & 2.3s \\
+Mixtral & 8x7B & --\% & --\% & --\% & --\% & --s \\
+Qwen 2.5 & 7B & --\% & --\% & --\% & --\% & --s \\
+DeepSeek-V3 & 8B & --\% & --\% & --\% & --\% & --s \\
+Gemma 3 & 8B & --\% & --\% & --\% & --\% & --s \\
+Gemma 3 & 27B & --\% & --\% & --\% & --\% & --s \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Analisi delle caratteristiche architetturali}
+
+I risultati preliminari permettono di identificare correlazioni tra caratteristiche architetturali e performance nella predizione di mobilità:
+
+% Grafici comparativi multi-modello
+\begin{figure}[H]
+\centering
+% \includegraphics[width=0.8\textwidth]{../../img/multi_model_comparison/models_performance_comparison.png}
+\caption{Confronto delle performance multi-modello. Valutazione comparativa su strategia geospaziale tra i sei modelli LLM testati: LLaMA 3.1 8B (baseline), Mixtral 8x7B (MoE), Qwen 2.5 7B (efficienza), DeepSeek-V3 8B (reasoning), Gemma 3 8B/27B (scaling).}
+\label{fig:multi_model_comparison}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+% \includegraphics[width=0.7\textwidth]{../../img/multi_model_comparison/performance_efficiency_scatter.png}
+\caption{Analisi trade-off performance-efficienza. Scatter plot che mostra il rapporto tra accuratezza (MRR) ed efficienza computazionale (Cards/Second). La dimensione dei punti rappresenta il numero di parametri del modello.}
+\label{fig:performance_efficiency_tradeoff}
+\end{figure}
+
+\textit{Nota: La valutazione multi-modello \`e attualmente in corso. I risultati completi saranno integrati al completamento degli esperimenti su tutti i modelli specificati.}
 
 \section{Analisi degli errori e interpretabilità del modello}
 
