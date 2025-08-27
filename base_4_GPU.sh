@@ -71,7 +71,7 @@ if [ ! -f "$OLLAMA_BIN" ]; then
     exit 1
 fi
 
-export OLLAMA_DEBUG=1
+export OLLAMA_DEBUG=0
 export OLLAMA_MODELS="$WORK/.ollama/models"
 export OLLAMA_CACHE_DIR="$WORK/.ollama/cache"
 export OLLAMA_NUM_PARALLEL=1
