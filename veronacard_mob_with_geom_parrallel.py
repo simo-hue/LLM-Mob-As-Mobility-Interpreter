@@ -29,7 +29,7 @@ class Config:
     """Centralized configuration to avoid global variables"""
     
     # Model configuration
-    MODEL_NAME = "qwen2.5:7b" #llama3.1:8b - qwen2.5:7b
+    MODEL_NAME = "qwen2.5:14b" #llama3.1:8b - qwen2.5:7b
     TOP_K = 5  # Number of POI predictions
     
     # HPC optimization parameters
@@ -60,7 +60,7 @@ class Config:
     # File paths
     OLLAMA_PORT_FILE = "ollama_ports.txt"
     LOG_DIR = Path(__file__).resolve().parent / "logs"
-    RESULTS_DIR = Path(__file__).resolve().parent / "results_qwen2.5_7b_with_geom"
+    RESULTS_DIR = Path(__file__).resolve().parent / "results_qwen2.5_14b_with_geom"
     DATA_DIR = Path(__file__).resolve().parent / "data" / "verona"
     POI_FILE = DATA_DIR / "vc_site.csv"
 
@@ -632,12 +632,12 @@ class OllamaConnectionManager:
                     "stream": False,
                     "format": "json",
                     "options": {
-                        "num_ctx": 2048,      
-                        "num_predict": 300,
+                        "num_ctx": 3072,      
+                        "num_predict": 512,
                         "temperature": 0.1,
                         "top_p": 0.9,
-                        "num_thread": 32,     
-                        "num_batch": 512,     
+                        "num_thread": 40,     
+                        "num_batch": 2048,     
                         "repeat_penalty": 1.1,
                     }
                 }

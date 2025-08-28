@@ -1,21 +1,21 @@
 #!/bin/bash
-#SBATCH --job-name=qwenB
+#SBATCH --job-name=LqwenB
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
-#SBATCH --qos=normal
-#SBATCH --time=24:00:00
+#SBATCH --qos=boost_qos_lprod
+#SBATCH --time=90:00:00
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:4
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=256G
-#SBATCH --output=slurm_qwen_b-%j.out
+#SBATCH --output=Lslurm_qwen_b-%j.out
 
-RES_DIR="$WORK/results_qwen2.5_7b_base_version"
+RES_DIR="$WORK/results_qwen2.5_14b_base_version"
 #RES_DIR="$WORK/results_deepseek-coder_33b_base_version"
 mkdir -p "$RES_DIR"  # Crea la directory se non esiste
 
-echo "🚀 VERONA CARD - BASE VERSION"
+echo "🚀 VERONA CARD - qwen LONG"
 echo "================================================"
 echo "⚠️ ATTENZIONE: Questo script aspetterà INDEFINITAMENTE il caricamento"
 echo "Job ID: $SLURM_JOB_ID"
@@ -189,7 +189,7 @@ start_ollama_gpu() {
                     "http://127.0.0.1:$port/api/generate" \
                     -H "Content-Type: application/json" \
                     -d '{
-                        "model":"qwen2.5:7b",
+                        "model":"qwen2.5:14b",
                         "prompt":"Hi",
                         "stream":false,
                         "options":{"num_predict":1}
@@ -275,7 +275,7 @@ for i in 0 1 2 3; do
             "http://127.0.0.1:$port/api/chat" \
             -H "Content-Type: application/json" \
             -d '{
-                "model":"qwen2.5:7b",
+                "model":"qwen2.5:14b",
                 "messages":[{"role":"user","content":"Say OK"}],
                 "stream":false,
                 "options":{"num_predict":2}
@@ -390,9 +390,9 @@ advanced_gpu_monitor() {
             fi
             
             # Linee processate dal log
-            if [ -f "qwen_base_version_python_execution.log" ]; then
-                processed=$(grep -c "Processing card" qwen_base_version_python_execution.log 2>/dev/null || echo "0")
-                errors=$(grep -c "ERROR\|Error" qwen_base_version_python_execution.log 2>/dev/null || echo "0")
+            if [ -f "Lqwen_base_version_python_execution.log" ]; then
+                processed=$(grep -c "Processing card" Lqwen_base_version_python_execution.log 2>/dev/null || echo "0")
+                errors=$(grep -c "ERROR\|Error" Lqwen_base_version_python_execution.log 2>/dev/null || echo "0")
                 echo "  Cards processed: $processed"
                 echo "  Errors: $errors"
                 echo "  Dir RESULTS: $RES_DIR"
@@ -420,7 +420,7 @@ echo ""
 
 if [ -f "data/verona/vc_site.csv" ]; then
     python3 -u veronacard_mob_versione_base_parrallel.py \
-        --append 2>&1 | tee qwen_base_version_python_execution.log
+        --append 2>&1 | tee Lqwen_base_version_python_execution.log
     PYTHON_EXIT=$?
 else
     echo "❌ File non trovato!"
