@@ -1,0 +1,918 @@
+2025-08-28 16:56:16 [INFO] Initializing Ollama connection manager...
+2025-08-28 16:56:16 [WARNING] HostHealthMonitor initialized with empty host list
+2025-08-28 16:56:16 [INFO] Setting up connections...
+2025-08-28 16:56:16 [INFO] Multi-GPU configuration: 4 instances
+2025-08-28 16:56:16 [INFO] Initialized with 4 hosts
+2025-08-28 16:56:16 [INFO] Waiting for Ollama services to start...
+2025-08-28 16:56:16 [INFO] Checking host 1/4: http://127.0.0.1:39001
+2025-08-28 16:56:16 [INFO] Host http://127.0.0.1:39001 is ready
+2025-08-28 16:56:16 [INFO] Checking host 2/4: http://127.0.0.1:39002
+2025-08-28 16:56:16 [INFO] Host http://127.0.0.1:39002 is ready
+2025-08-28 16:56:16 [INFO] Checking host 3/4: http://127.0.0.1:39003
+2025-08-28 16:56:16 [INFO] Host http://127.0.0.1:39003 is ready
+2025-08-28 16:56:16 [INFO] Checking host 4/4: http://127.0.0.1:39004
+2025-08-28 16:56:17 [INFO] Host http://127.0.0.1:39004 is ready
+2025-08-28 16:56:17 [INFO] All Ollama services are ready!
+2025-08-28 16:56:17 [INFO] Found 12 files to process
+2025-08-28 16:56:17 [INFO] Loaded 65892 completed cards from checkpoint
+2025-08-28 16:56:17 [INFO] File dati_2014 has 65892 completed cards
+2025-08-28 16:56:17 [INFO] Loaded 65892 completed cards from checkpoint
+2025-08-28 16:56:17 [INFO] File dati_2014 has 65892 completed cards
+2025-08-28 16:56:17 [INFO] Processing dati_2014.csv
+2025-08-28 16:56:17 [INFO] Loaded 65892 completed cards from checkpoint
+2025-08-28 16:56:17 [INFO] Loading and preprocessing data...
+2025-08-28 16:56:17 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-28 16:56:19 [INFO] Loaded 370377 visits from dati_2014.csv
+2025-08-28 16:56:19 [INFO] Valid visits after merge: 370377
+2025-08-28 16:56:19 [INFO] Multi-visit cards: 70236 / 71557
+2025-08-28 16:56:19 [INFO] Performing user clustering...
+2025-08-28 16:56:26 [INFO] Processing 0 cards
+2025-08-28 16:56:26 [INFO] No cards to process
+2025-08-28 16:56:26 [INFO] Loaded 66677 completed cards from checkpoint
+2025-08-28 16:56:26 [INFO] File dati_2015 has 66677 completed cards
+2025-08-28 16:56:26 [INFO] Loaded 66677 completed cards from checkpoint
+2025-08-28 16:56:26 [INFO] File dati_2015 has 66677 completed cards
+2025-08-28 16:56:26 [INFO] Processing dati_2015.csv
+2025-08-28 16:56:26 [INFO] Loaded 66677 completed cards from checkpoint
+2025-08-28 16:56:26 [INFO] Loading and preprocessing data...
+2025-08-28 16:56:26 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-28 16:56:27 [INFO] Loaded 369588 visits from dati_2015.csv
+2025-08-28 16:56:27 [INFO] Valid visits after merge: 369588
+2025-08-28 16:56:27 [INFO] Multi-visit cards: 71759 / 73424
+2025-08-28 16:56:27 [INFO] Performing user clustering...
+2025-08-28 16:56:34 [INFO] Processing 0 cards
+2025-08-28 16:56:34 [INFO] No cards to process
+2025-08-28 16:56:34 [INFO] Loaded 70266 completed cards from checkpoint
+2025-08-28 16:56:34 [INFO] File dati_2016 has 70266 completed cards
+2025-08-28 16:56:34 [INFO] Loaded 70266 completed cards from checkpoint
+2025-08-28 16:56:34 [INFO] File dati_2016 has 70266 completed cards
+2025-08-28 16:56:34 [INFO] Processing dati_2016.csv
+2025-08-28 16:56:34 [INFO] Loaded 70266 completed cards from checkpoint
+2025-08-28 16:56:34 [INFO] Loading and preprocessing data...
+2025-08-28 16:56:34 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-28 16:56:35 [INFO] Loaded 383517 visits from dati_2016.csv
+2025-08-28 16:56:35 [INFO] Valid visits after merge: 383517
+2025-08-28 16:56:36 [INFO] Multi-visit cards: 76452 / 78152
+2025-08-28 16:56:36 [INFO] Performing user clustering...
+2025-08-28 16:56:42 [INFO] Processing 0 cards
+2025-08-28 16:56:42 [INFO] No cards to process
+2025-08-28 16:56:42 [INFO] Loaded 81342 completed cards from checkpoint
+2025-08-28 16:56:42 [INFO] File dati_2017 has 81342 completed cards
+2025-08-28 16:56:42 [INFO] Loaded 81342 completed cards from checkpoint
+2025-08-28 16:56:42 [INFO] File dati_2017 has 81342 completed cards
+2025-08-28 16:56:42 [INFO] Processing dati_2017.csv
+2025-08-28 16:56:42 [INFO] Loaded 81342 completed cards from checkpoint
+2025-08-28 16:56:42 [INFO] Loading and preprocessing data...
+2025-08-28 16:56:42 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-28 16:56:44 [INFO] Loaded 441595 visits from dati_2017.csv
+2025-08-28 16:56:44 [INFO] Valid visits after merge: 441595
+2025-08-28 16:56:44 [INFO] Multi-visit cards: 89352 / 91555
+2025-08-28 16:56:44 [INFO] Performing user clustering...
+2025-08-28 16:56:51 [INFO] Processing 0 cards
+2025-08-28 16:56:51 [INFO] No cards to process
+2025-08-28 16:56:51 [INFO] Loaded 78385 completed cards from checkpoint
+2025-08-28 16:56:51 [INFO] File dati_2018 has 78385 completed cards
+2025-08-28 16:56:51 [INFO] Loaded 78385 completed cards from checkpoint
+2025-08-28 16:56:51 [INFO] File dati_2018 has 78385 completed cards
+2025-08-28 16:56:51 [INFO] Processing dati_2018.csv
+2025-08-28 16:56:51 [INFO] Loaded 78385 completed cards from checkpoint
+2025-08-28 16:56:51 [INFO] Loading and preprocessing data...
+2025-08-28 16:56:51 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-28 16:56:53 [INFO] Loaded 427214 visits from dati_2018.csv
+2025-08-28 16:56:53 [INFO] Valid visits after merge: 427214
+2025-08-28 16:56:53 [INFO] Multi-visit cards: 86222 / 88627
+2025-08-28 16:56:53 [INFO] Performing user clustering...
+2025-08-28 16:57:01 [INFO] Processing 0 cards
+2025-08-28 16:57:01 [INFO] No cards to process
+2025-08-28 16:57:01 [INFO] Loaded 71226 completed cards from checkpoint
+2025-08-28 16:57:01 [INFO] File dati_2019 has 71226 completed cards
+2025-08-28 16:57:01 [INFO] Loaded 71226 completed cards from checkpoint
+2025-08-28 16:57:01 [INFO] File dati_2019 has 71226 completed cards
+2025-08-28 16:57:01 [INFO] Processing dati_2019.csv
+2025-08-28 16:57:01 [INFO] Loaded 71226 completed cards from checkpoint
+2025-08-28 16:57:01 [INFO] Loading and preprocessing data...
+2025-08-28 16:57:01 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-28 16:57:02 [INFO] Loaded 397562 visits from dati_2019.csv
+2025-08-28 16:57:02 [INFO] Valid visits after merge: 397562
+2025-08-28 16:57:02 [INFO] Multi-visit cards: 77583 / 79825
+2025-08-28 16:57:02 [INFO] Performing user clustering...
+2025-08-28 16:57:09 [INFO] Processing 0 cards
+2025-08-28 16:57:09 [INFO] No cards to process
+2025-08-28 16:57:09 [INFO] Loaded 6969 completed cards from checkpoint
+2025-08-28 16:57:09 [INFO] File dati_2020 has 6969 completed cards
+2025-08-28 16:57:09 [INFO] Loaded 6969 completed cards from checkpoint
+2025-08-28 16:57:09 [INFO] File dati_2020 has 6969 completed cards
+2025-08-28 16:57:09 [INFO] Processing dati_2020.csv
+2025-08-28 16:57:09 [INFO] Loaded 6969 completed cards from checkpoint
+2025-08-28 16:57:09 [INFO] Loading and preprocessing data...
+2025-08-28 16:57:09 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-28 16:57:09 [INFO] Loaded 38294 visits from dati_2020.csv
+2025-08-28 16:57:09 [INFO] Valid visits after merge: 38294
+2025-08-28 16:57:09 [INFO] Multi-visit cards: 7658 / 7914
+2025-08-28 16:57:09 [INFO] Performing user clustering...
+2025-08-28 16:57:11 [INFO] Processing 0 cards
+2025-08-28 16:57:11 [INFO] No cards to process
+2025-08-28 16:57:11 [INFO] Loaded 12465 completed cards from checkpoint
+2025-08-28 16:57:11 [INFO] File veronacard_2019_original has 12465 completed cards
+2025-08-28 16:57:11 [INFO] Loaded 12465 completed cards from checkpoint
+2025-08-28 16:57:11 [INFO] File veronacard_2019_original has 12465 completed cards
+2025-08-28 16:57:11 [INFO] Processing veronacard_2019_original.csv
+2025-08-28 16:57:11 [INFO] Loaded 12465 completed cards from checkpoint
+2025-08-28 16:57:11 [INFO] Loading and preprocessing data...
+2025-08-28 16:57:11 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-28 16:57:13 [INFO] Loaded 397563 visits from veronacard_2019_original.csv
+2025-08-28 16:57:13 [INFO] Valid visits after merge: 397563
+2025-08-28 16:57:13 [INFO] Multi-visit cards: 77583 / 79826
+2025-08-28 16:57:13 [INFO] Performing user clustering...
+2025-08-28 16:57:20 [INFO] Processing 58761 cards
+2025-08-28 16:57:20 [INFO] Using 8 workers for 4 healthy hosts
+2025-08-28 16:57:20 [INFO] Waiting 120s for models to FULLY stabilize...
+2025-08-28 16:59:20 [INFO] Running pre-flight check on all hosts...
+2025-08-28 16:59:20 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39001
+2025-08-28 16:59:20 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39002
+2025-08-28 16:59:20 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39003
+2025-08-28 16:59:20 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39004
+2025-08-28 16:59:30 [WARNING] Invalid JSON response for 040870E2185081
+2025-08-28 16:59:39 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 16:59:40 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 16:59:41 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 16:59:42 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:00:02 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:00:08 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:00:42 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:01:06 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:01:12 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:01:34 [WARNING] Invalid JSON response for 0413EFF2185081
+2025-08-28 17:02:01 [WARNING] Invalid JSON response for 041754F2185081
+2025-08-28 17:02:14 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:02:22 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:02:25 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:02:29 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:02:36 [WARNING] Invalid JSON response for 041C49E2185085
+2025-08-28 17:04:02 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:04:02 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:04:18 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:04:41 [WARNING] Invalid JSON response for 0429FBF2185081
+2025-08-28 17:05:18 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:05:43 [WARNING] Invalid JSON response for 0430D6E2185081
+2025-08-28 17:06:30 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:06:36 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:06:44 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:06:58 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:07:05 [WARNING] Invalid JSON response for 0439D3E2185081
+2025-08-28 17:07:13 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:07:42 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:08:01 [WARNING] Invalid JSON response for 043DACF2185081
+2025-08-28 17:08:01 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:08:06 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:08:28 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:08:30 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:08:39 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:08:41 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:08:42 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:08:44 [WARNING] Invalid JSON response for 0440BCE2185081
+2025-08-28 17:09:02 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:09:03 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:09:04 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:09:21 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:09:45 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:09:45 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:09:46 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:09:48 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:09:53 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:09:54 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:09:58 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:10:12 [WARNING] Invalid JSON response for 0448B7E2185081
+2025-08-28 17:10:38 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:11:03 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:11:03 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:11:04 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:11:04 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:11:05 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:11:05 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:11:06 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:11:08 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:11:08 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:11:17 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:11:48 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:11:53 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:12:05 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:12:11 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:12:15 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:12:18 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:12:21 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:12:23 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:12:25 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:12:26 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:12:30 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:12:32 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:12:34 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:12:36 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:12:36 [ERROR] All 10 attempts failed
+2025-08-28 17:13:05 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:13:06 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:13:10 [WARNING] Invalid JSON response for 04634BF2185080
+2025-08-28 17:13:11 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:13:13 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:13:19 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:13:22 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:13:29 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:13:30 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:13:32 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:13:33 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:13:36 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:13:38 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:13:39 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:13:54 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:14:22 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:14:24 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:14:24 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:14:30 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:14:33 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:14:37 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:14:48 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:14:52 [WARNING] Invalid JSON response for 046AB2F2185080
+2025-08-28 17:14:53 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:14:56 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:14:57 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:14:57 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:14:59 [WARNING] Invalid JSON response for 046B31F2185080
+2025-08-28 17:14:59 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:15:01 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:15:01 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:15:02 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:15:03 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:15:04 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:15:06 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:15:07 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:15:09 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:15:11 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:15:12 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:15:13 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:15:13 [ERROR] All 10 attempts failed
+2025-08-28 17:15:19 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:15:49 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:15:57 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:16:00 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:16:02 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:16:19 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:16:29 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:16:31 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:16:36 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:16:46 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:16:58 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:17:02 [WARNING] Invalid JSON response for 04745DF2185081
+2025-08-28 17:17:13 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:17:15 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:17:19 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:17:25 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:17:31 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:17:34 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:17:38 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:17:52 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:17:53 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:18:06 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:18:33 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:18:41 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:18:42 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:18:46 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:18:46 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:18:48 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:19:00 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:19:09 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:19:14 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:19:31 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:19:33 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:19:34 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:19:35 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:19:37 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:19:39 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:19:44 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:19:46 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:19:48 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:19:50 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:19:56 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:19:57 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:20:30 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:20:35 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:20:36 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:20:40 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:20:42 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:20:47 [WARNING] Invalid JSON response for 049643F2185084
+2025-08-28 17:20:50 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:20:50 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:20:55 [WARNING] Invalid JSON response for 04967DF2185080
+2025-08-28 17:21:11 [WARNING] Invalid JSON response for 04989AF2185080
+2025-08-28 17:21:21 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:21:23 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:21:24 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:21:28 [WARNING] Invalid JSON response for 049A26F2185084
+2025-08-28 17:21:35 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:21:53 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:21:54 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:21:57 [WARNING] Invalid JSON response for 049F0BF2185080
+2025-08-28 17:22:00 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:22:02 [WARNING] Invalid JSON response for 04A03FF2185084
+2025-08-28 17:22:20 [WARNING] Invalid JSON response for 04A204F2185084
+2025-08-28 17:22:43 [WARNING] Invalid JSON response for 04A38CF2185080
+2025-08-28 17:22:52 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:22:55 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:22:57 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:23:12 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:23:15 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:23:16 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:23:21 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:23:28 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:23:28 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:23:32 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:23:39 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:23:41 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:24:06 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:24:07 [WARNING] Invalid JSON response for 04AA2DF2185080
+2025-08-28 17:24:12 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:24:23 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:24:25 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:24:36 [WARNING] Invalid JSON response for 04AD39F2185080
+2025-08-28 17:24:39 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:24:41 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:24:41 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:24:42 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:24:44 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:24:45 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:25:06 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:25:10 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:25:37 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:25:42 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:25:44 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:25:49 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:25:50 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:25:55 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:25:59 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:26:02 [WARNING] Invalid JSON response for 04C5AEF2185080
+2025-08-28 17:26:14 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:26:28 [WARNING] Invalid JSON response for 04CBFEF2185080
+2025-08-28 17:26:34 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:26:37 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:26:48 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:26:48 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:27:00 [WARNING] Invalid JSON response for 04D238F2185084
+2025-08-28 17:27:01 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:27:04 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:27:05 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:27:08 [WARNING] Invalid JSON response for 04D312F2185080
+2025-08-28 17:27:24 [WARNING] Invalid JSON response for 04D4E1F2185080
+2025-08-28 17:27:32 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:27:54 [WARNING] Invalid JSON response for 04D7D2F2185080
+2025-08-28 17:28:00 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:28:03 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:28:07 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:28:10 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:28:13 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:28:26 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:28:36 [WARNING] Invalid JSON response for 04DD84F2185080
+2025-08-28 17:28:40 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:28:57 [WARNING] Invalid JSON response for 04E03BF2185080
+2025-08-28 17:28:59 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:29:12 [WARNING] Invalid JSON response for 04E21FF2185084
+2025-08-28 17:29:18 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:29:18 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:29:23 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:29:34 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:29:47 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:29:50 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:29:54 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:29:55 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:29:56 [WARNING] Invalid JSON response for 04E832F2185080
+2025-08-28 17:29:57 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:30:10 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:30:11 [WARNING] Invalid JSON response for 04EBE1F2185080
+2025-08-28 17:30:14 [WARNING] Invalid JSON response for 04EBFAF2185080
+2025-08-28 17:30:23 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:30:30 [WARNING] Invalid JSON response for 04F3C2F2185080
+2025-08-28 17:30:53 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:31:11 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:31:34 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:31:37 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:31:39 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:31:53 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:31:59 [WARNING] Invalid JSON response for 04FC2CF2185080
+2025-08-28 17:32:46 [WARNING] Invalid JSON response for 04011DF2185081
+2025-08-28 17:33:01 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:33:08 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:33:15 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:33:40 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:33:50 [WARNING] Invalid JSON response for 0407ADF2185081
+2025-08-28 17:33:59 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:34:16 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:34:28 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:34:29 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:34:31 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:34:33 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:34:35 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:34:43 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:34:56 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:35:03 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:35:15 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:35:18 [WARNING] Invalid JSON response for 040E51E2185081
+2025-08-28 17:35:30 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:35:32 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:36:03 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:36:22 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:36:23 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:36:25 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:36:29 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:36:34 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:36:35 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:36:37 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:36:44 [WARNING] Invalid JSON response for 0415A3E2185081
+2025-08-28 17:36:53 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:37:07 [WARNING] Invalid JSON response for 04172EF2185085
+2025-08-28 17:37:20 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:37:33 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:37:43 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:37:46 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:37:50 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:37:54 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:38:23 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:39:11 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:39:18 [WARNING] Invalid JSON response for 042808E2185085
+2025-08-28 17:39:23 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:39:26 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:39:28 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:39:28 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:39:30 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:39:45 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:39:49 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:39:56 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:40:37 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:40:38 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:40:39 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:40:40 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:40:42 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:40:42 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:41:51 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:41:56 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:42:00 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:42:07 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:42:09 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:42:29 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:42:35 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:42:41 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:42:42 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:43:00 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:43:13 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:43:17 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:43:20 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:43:31 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:43:42 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:43:49 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:43:54 [WARNING] Invalid JSON response for 0441FAF2185081
+2025-08-28 17:44:03 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:44:04 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:44:06 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:44:07 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:44:09 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:44:18 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:44:33 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:44:38 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:44:39 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:44:41 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:44:55 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:45:11 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:45:12 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:45:13 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:45:14 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:45:16 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:45:17 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:45:21 [WARNING] Invalid JSON response for 044695E2185081
+2025-08-28 17:45:23 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:45:33 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:45:39 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:45:47 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:45:50 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:45:51 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:45:52 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:45:55 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:45:58 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:46:00 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:46:03 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:46:05 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:46:14 [WARNING] Invalid JSON response for 044AB0F2185081
+2025-08-28 17:46:44 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:46:49 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:46:51 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:46:53 [WARNING] Invalid JSON response for 0451FBF2185081
+2025-08-28 17:46:55 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:47:01 [WARNING] Invalid JSON response for 045444F2185081
+2025-08-28 17:47:02 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:47:09 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:47:14 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:47:20 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:47:26 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:47:30 [WARNING] Invalid JSON response for 045978F2185080
+2025-08-28 17:47:41 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:47:42 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:47:43 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:47:45 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:48:06 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:48:08 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:48:13 [WARNING] Invalid JSON response for 045C7BF2185080
+2025-08-28 17:48:19 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:48:41 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:48:47 [WARNING] Invalid JSON response for 046080F2185080
+2025-08-28 17:48:49 [WARNING] Invalid JSON response for 04609BF2185080
+2025-08-28 17:49:07 [WARNING] Invalid JSON response for 04632FF2185084
+2025-08-28 17:49:13 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:49:26 [WARNING] Invalid JSON response for 0464C5E2185080
+2025-08-28 17:49:47 [WARNING] Invalid JSON response for 046638E2185084
+2025-08-28 17:49:49 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:50:02 [WARNING] Invalid JSON response for 0466FBE2185080
+2025-08-28 17:50:10 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:50:10 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:50:17 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:50:20 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:50:23 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:50:24 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:50:39 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:50:55 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:50:57 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:50:57 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:50:58 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:51:00 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:51:03 [WARNING] Invalid JSON response for 046DF7F2185080
+2025-08-28 17:51:11 [WARNING] Invalid JSON response for 046F21F2185080
+2025-08-28 17:51:16 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:51:18 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:51:20 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:51:22 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:51:47 [WARNING] Invalid JSON response for 047266F2185080
+2025-08-28 17:52:00 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:52:02 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:52:05 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:52:06 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:52:12 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:52:26 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:52:37 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:52:46 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:52:57 [WARNING] Invalid JSON response for 047A53F2185080
+2025-08-28 17:53:05 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:53:11 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:53:15 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:53:15 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:53:17 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:53:18 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:53:21 [WARNING] Invalid JSON response for 047B66F2185080
+2025-08-28 17:53:42 [WARNING] Invalid JSON response for 047CE2F2185080
+2025-08-28 17:54:03 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:54:09 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:54:11 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:54:12 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:54:57 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:55:02 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:55:04 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:55:07 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:55:10 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:55:11 [WARNING] Invalid JSON response for 0484B1F2185081
+2025-08-28 17:55:14 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:55:27 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:55:45 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:55:54 [WARNING] Invalid JSON response for 04891FF2185084
+2025-08-28 17:55:57 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:55:59 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:56:01 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:56:04 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:56:05 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:56:06 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:56:09 [WARNING] Invalid JSON response for 048A41F2185080
+2025-08-28 17:56:15 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:56:19 [WARNING] Invalid JSON response for 048B81F2185080
+2025-08-28 17:56:22 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:56:27 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:56:40 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:56:48 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:56:53 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:56:57 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:56:59 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:57:03 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:57:04 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:57:06 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:57:10 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:57:17 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:57:21 [WARNING] Invalid JSON response for 04938CF2185080
+2025-08-28 17:58:20 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:58:39 [WARNING] Invalid JSON response for 049FC6F2185080
+2025-08-28 17:59:02 [WARNING] Invalid JSON response for 04A395F2185080
+2025-08-28 17:59:10 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:59:18 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:59:25 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:59:32 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:59:34 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:59:34 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:59:35 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 17:59:38 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:59:39 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 17:59:47 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 17:59:50 [WARNING] Invalid JSON response for 04A87BF2185080
+2025-08-28 17:59:52 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 17:59:56 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:00:00 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:00:14 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:00:18 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:00:19 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:00:39 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:00:40 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:00:50 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:00:53 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:00:57 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:01:02 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:01:05 [WARNING] Invalid JSON response for 04AFCEF2185080
+2025-08-28 18:01:09 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:01:15 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:01:16 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:01:17 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:01:18 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:01:19 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:01:25 [WARNING] Invalid JSON response for 04B27AF2185080
+2025-08-28 18:01:37 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:01:40 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:01:41 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:01:42 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:01:43 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:01:44 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:01:55 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:01:55 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:01:58 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:02:00 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:02:03 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:02:14 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:02:14 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:02:19 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:02:23 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:02:25 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:02:47 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:02:49 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:02:54 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:03:05 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:03:06 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:03:07 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:03:10 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:03:11 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:03:15 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:03:18 [WARNING] Invalid JSON response for 04CA39F2185084
+2025-08-28 18:03:18 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:03:30 [WARNING] Invalid JSON response for 04CB42F2185080
+2025-08-28 18:03:36 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:03:36 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:03:48 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:03:57 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:03:58 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:03:59 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:04:00 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:04:00 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:04:01 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:04:03 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:04:05 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:04:08 [WARNING] Invalid JSON response for 04D03EF2185080
+2025-08-28 18:04:13 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:04:15 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:04:18 [WARNING] Invalid JSON response for 04D13DF2185084
+2025-08-28 18:04:22 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:04:22 [WARNING] Invalid JSON response for 04D1EBF2185080
+2025-08-28 18:04:38 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:04:40 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:05:05 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:05:37 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:05:46 [WARNING] Invalid JSON response for 04DE5FF2185080
+2025-08-28 18:05:48 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:06:13 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:06:31 [WARNING] Invalid JSON response for 04E528F2185080
+2025-08-28 18:06:34 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:06:39 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:06:40 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:06:41 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:06:50 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:06:51 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:06:51 [WARNING] Invalid JSON response for 04E7A7F2185080
+2025-08-28 18:06:52 [WARNING] Invalid JSON response for 04E829F2185084
+2025-08-28 18:06:56 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:07:03 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:07:11 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:07:17 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:07:33 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:07:38 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:07:50 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:08:19 [WARNING] Invalid JSON response for 04FA2BE2185084
+2025-08-28 18:08:32 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:08:33 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:08:57 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:09:10 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:10:00 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:10:04 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:10:06 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:10:11 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:10:13 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:10:16 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:10:19 [WARNING] Invalid JSON response for 0408DDF2185081
+2025-08-28 18:10:25 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:10:31 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:10:35 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:10:38 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:10:54 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:10:55 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:10:57 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:11:06 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:11:44 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:12:03 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:12:16 [WARNING] Invalid JSON response for 04169AE2185081
+2025-08-28 18:12:28 [WARNING] Invalid JSON response for 0417BDE2185081
+2025-08-28 18:12:37 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:12:39 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:12:41 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:13:10 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:13:12 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:13:17 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:13:20 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:13:28 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:13:29 [WARNING] Invalid JSON response for 041C22F2185085
+2025-08-28 18:13:29 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:13:37 [WARNING] Invalid JSON response for 041CA2F2185081
+2025-08-28 18:13:43 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:13:45 [WARNING] Invalid JSON response for 041D2FF2185085
+2025-08-28 18:13:54 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:13:58 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:14:05 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:14:10 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:14:12 [WARNING] Invalid JSON response for 041EDAF2185081
+2025-08-28 18:14:18 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:14:28 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:14:36 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:14:37 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:15:01 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:15:03 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:15:13 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:15:17 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:15:20 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:15:23 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:15:35 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:16:00 [WARNING] Invalid JSON response for 04285EF2185081
+2025-08-28 18:16:10 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:16:57 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:17:11 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:17:12 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:17:14 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:17:16 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:17:17 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:17:31 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:17:32 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:17:34 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:17:35 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:17:49 [WARNING] Invalid JSON response for 04311DF2185085
+2025-08-28 18:18:01 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:18:02 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:18:08 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:18:12 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:18:20 [WARNING] Invalid JSON response for 0434C6F2185081
+2025-08-28 18:18:20 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:18:21 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:18:24 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:18:25 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:18:26 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:18:40 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:18:50 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:18:59 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:19:11 [WARNING] Invalid JSON response for 043917F2185085
+2025-08-28 18:19:12 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:19:19 [WARNING] Invalid JSON response for 0439D4F2185081
+2025-08-28 18:19:23 [WARNING] Invalid JSON response for 043A7CF2185081
+2025-08-28 18:19:30 [WARNING] Invalid JSON response for 043BF3F2185081
+2025-08-28 18:19:33 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:19:41 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:19:54 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:20:01 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:20:03 [WARNING] Invalid JSON response for 043F87F2185081
+2025-08-28 18:20:12 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:20:21 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:20:29 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:20:31 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:20:32 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:20:40 [WARNING] Invalid JSON response for 04424DF2185081
+2025-08-28 18:20:44 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:20:45 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:20:50 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:21:31 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:22:02 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:22:07 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:22:12 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:22:26 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:22:38 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:22:40 [WARNING] Invalid JSON response for 0453C9F2185081
+2025-08-28 18:22:51 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:23:04 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:23:06 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:23:07 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:23:16 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:23:35 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:23:36 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:23:38 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:23:39 [WARNING] Invalid JSON response for 045B06F2185085
+2025-08-28 18:23:44 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:23:50 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:23:55 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:23:56 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:23:58 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:24:00 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:24:01 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:24:03 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:24:03 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:24:03 [WARNING] Invalid JSON response for 045CC0F2185081
+2025-08-28 18:24:06 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:24:06 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:24:09 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:24:11 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:24:13 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:24:15 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:24:17 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:24:19 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:24:19 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:24:20 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:24:24 [WARNING] Invalid JSON response for 045CE0F2185081
+2025-08-28 18:24:36 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:24:40 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:24:48 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:24:51 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:24:54 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:25:07 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:25:08 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:25:14 [WARNING] Invalid JSON response for 046117E2185084
+2025-08-28 18:25:20 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:25:23 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:25:35 [WARNING] Invalid JSON response for 046189E2185080
+2025-08-28 18:25:49 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:26:00 [WARNING] Invalid JSON response for 046267E2185080
+2025-08-28 18:26:20 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:26:33 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:26:34 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:26:35 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:26:48 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:26:56 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:26:57 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:26:58 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:27:00 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:27:01 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:27:01 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:27:10 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:27:15 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:27:37 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:27:38 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:28:05 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:28:06 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:28:11 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:28:29 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:28:30 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:28:37 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:28:55 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:29:00 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:29:03 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:29:06 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:29:07 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:29:24 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:29:31 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:29:36 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:29:38 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:29:56 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:29:57 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:30:13 [WARNING] Invalid JSON response for 0475EAF2185080
+2025-08-28 18:30:39 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:30:41 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:30:44 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:30:45 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:30:45 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:30:46 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:30:46 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:30:49 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:30:49 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:30:59 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:31:06 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:31:06 [WARNING] Invalid JSON response for 047B1AF2185084
+2025-08-28 18:31:20 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:31:52 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:31:55 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:32:03 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:32:11 [WARNING] Invalid JSON response for 047FA2F2185080
+2025-08-28 18:32:15 [WARNING] Invalid JSON response for 048015E2185084
+2025-08-28 18:32:22 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:32:33 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:32:36 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:32:37 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:32:43 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:32:46 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:32:53 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:32:54 [WARNING] Invalid JSON response for 0482A9F2185081
+2025-08-28 18:32:58 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:33:08 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-08-28 18:33:09 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-08-28 18:33:23 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:33:28 [WARNING] Invalid JSON response for 0486DAE2185080
+2025-08-28 18:33:31 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-08-28 18:33:33 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-08-28 18:33:33 [WARNING] Incomplete response from http://127.0.0.1:39004

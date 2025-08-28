@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=codeB
+#SBATCH --job-name=qwenB
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=normal
@@ -9,9 +9,10 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=256G
-#SBATCH --output=slurm_coder-%j.out
+#SBATCH --output=slurm_qwen_b-%j.out
 
-RES_DIR="$WORK/results_deepseek-coder_33b_base_version"
+RES_DIR="$WORK/results_qwen2.5_7b_base_version"
+#RES_DIR="$WORK/results_deepseek-coder_33b_base_version"
 mkdir -p "$RES_DIR"  # Crea la directory se non esiste
 
 echo "🚀 VERONA CARD - BASE VERSION"
@@ -188,7 +189,7 @@ start_ollama_gpu() {
                     "http://127.0.0.1:$port/api/generate" \
                     -H "Content-Type: application/json" \
                     -d '{
-                        "model":"deepseek-coder:33b",
+                        "model":"qwen2.5:7b",
                         "prompt":"Hi",
                         "stream":false,
                         "options":{"num_predict":1}
@@ -274,7 +275,7 @@ for i in 0 1 2 3; do
             "http://127.0.0.1:$port/api/chat" \
             -H "Content-Type: application/json" \
             -d '{
-                "model":"deepseek-coder:33b",
+                "model":"qwen2.5:7b",
                 "messages":[{"role":"user","content":"Say OK"}],
                 "stream":false,
                 "options":{"num_predict":2}
@@ -389,9 +390,9 @@ advanced_gpu_monitor() {
             fi
             
             # Linee processate dal log
-            if [ -f "code_base_version_python_execution.log" ]; then
-                processed=$(grep -c "Processing card" code_base_version_python_execution.log 2>/dev/null || echo "0")
-                errors=$(grep -c "ERROR\|Error" code_base_version_python_execution.log 2>/dev/null || echo "0")
+            if [ -f "qwen_base_version_python_execution.log" ]; then
+                processed=$(grep -c "Processing card" qwen_base_version_python_execution.log 2>/dev/null || echo "0")
+                errors=$(grep -c "ERROR\|Error" qwen_base_version_python_execution.log 2>/dev/null || echo "0")
                 echo "  Cards processed: $processed"
                 echo "  Errors: $errors"
                 echo "  Dir RESULTS: $RES_DIR"
@@ -419,7 +420,7 @@ echo ""
 
 if [ -f "data/verona/vc_site.csv" ]; then
     python3 -u veronacard_mob_versione_base_parrallel.py \
-        --append 2>&1 | tee code_base_version_python_execution.log
+        --append 2>&1 | tee qwen_base_version_python_execution.log
     PYTHON_EXIT=$?
 else
     echo "❌ File non trovato!"
