@@ -29,7 +29,7 @@ class Config:
     """Centralized configuration to avoid global variables"""
     
     # Model configuration
-    MODEL_NAME = "deepseek-coder:33b" #llama3.1:8b
+    MODEL_NAME = "deepseek-coder:33b" #llama3.1:8b - qwen2.5:7b
     TOP_K = 5  # Number of POI predictions
     
     # HPC optimization parameters
