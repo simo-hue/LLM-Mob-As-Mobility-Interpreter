@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=LqwenG
+#SBATCH --job-name=LmixtrG
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=boost_qos_lprod
@@ -9,12 +9,12 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=256G
-#SBATCH --output=Lqwen_slurm_geom-%j.out
+#SBATCH --output=Lmixtr_slurm_geom-%j.out
 
-RES_DIR="$WORK/results_qwen2.5_14b_with_geom/"
+RES_DIR="$WORK/results_mixtr_with_geom/"
 mkdir -p "$RES_DIR"  # Crea la directory se non esiste
 
-echo "🚀 VERONA CARD - GEOM VERSION - qwen 14b long"
+echo "🚀 VERONA CARD - GEOM VERSION - mixtral long"
 echo "================================================"
 echo "⚠️ ATTENZIONE: Questo script aspetterà INDEFINITAMENTE il caricamento"
 echo "Job ID: $SLURM_JOB_ID"
@@ -188,7 +188,7 @@ start_ollama_gpu() {
                     "http://127.0.0.1:$port/api/generate" \
                     -H "Content-Type: application/json" \
                     -d '{
-                        "model":"qwen2.5:14b",
+                        "model":"mixtral:8x7b",
                         "prompt":"Hi",
                         "stream":false,
                         "options":{"num_predict":1}
@@ -274,7 +274,7 @@ for i in 0 1 2 3; do
             "http://127.0.0.1:$port/api/chat" \
             -H "Content-Type: application/json" \
             -d '{
-                "model":"qwen2.5:14b",
+                "model":"mixtral:8x7b",
                 "messages":[{"role":"user","content":"Say OK"}],
                 "stream":false,
                 "options":{"num_predict":2}
@@ -389,9 +389,9 @@ advanced_gpu_monitor() {
             fi
             
             # Linee processate dal log
-            if [ -f "Lqwen_geom_python_execution.log" ]; then
-                processed=$(grep -c "Processing card" Lqwen_geom_python_execution.log 2>/dev/null || echo "0")
-                errors=$(grep -c "ERROR\|Error" Lqwen_geom_python_execution.log 2>/dev/null || echo "0")
+            if [ -f "Lmixtral_geom_python_execution.log" ]; then
+                processed=$(grep -c "Processing card" Lmixtral_geom_python_execution.log 2>/dev/null || echo "0")
+                errors=$(grep -c "ERROR\|Error" Lmixtral_geom_python_execution.log 2>/dev/null || echo "0")
                 echo "  Cards processed: $processed"
                 echo "  Errors: $errors"
                 echo "  Dir RESULTS: $RES_DIR"
@@ -419,7 +419,7 @@ echo ""
 
 if [ -f "data/verona/vc_site.csv" ]; then
     python3 -u veronacard_mob_with_geom_parrallel.py \
-        --append 2>&1 | tee Lqwen_geom_python_execution.log
+        --append 2>&1 | tee Lmixtral_geom_python_execution.log
     PYTHON_EXIT=$?
 else
     echo "❌ File non trovato!"
