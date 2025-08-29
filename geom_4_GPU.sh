@@ -11,16 +11,12 @@
 #SBATCH --mem=256G
 #SBATCH --output=Lmixtr_slurm_geom-%j.out
 
-RES_DIR="$WORK/results_mixtr_with_geom/"
-mkdir -p "$RES_DIR"  # Crea la directory se non esiste
-
 echo "🚀 VERONA CARD - GEOM VERSION - mixtral long"
 echo "================================================"
 echo "⚠️ ATTENZIONE: Questo script aspetterà INDEFINITAMENTE il caricamento"
 echo "Job ID: $SLURM_JOB_ID"
 echo "Nodo: $(hostname)"
 echo "Data: $(date)"
-echo "Salvo risultati: $RES_DIR"
 echo ""
 
 # ============= SETUP AMBIENTE =============
@@ -375,26 +371,12 @@ advanced_gpu_monitor() {
             echo ""
             echo "🐍 Python Processing:"
             
-            # Conta file risultati
-            if [ -d "$RES_DIR" ]; then
-                result_count=$(ls -1 $RES_DIR*.csv 2>/dev/null | wc -l)
-                echo "  Output files: $result_count"
-                
-                # Ultimo file modificato
-                latest=$(ls -t $RES_DIR*.csv 2>/dev/null | head -1)
-                if [ -n "$latest" ]; then
-                    size=$(du -h "$latest" | cut -f1)
-                    echo "  Latest: $(basename $latest) ($size)"
-                fi
-            fi
-            
             # Linee processate dal log
             if [ -f "Lmixtral_geom_python_execution.log" ]; then
                 processed=$(grep -c "Processing card" Lmixtral_geom_python_execution.log 2>/dev/null || echo "0")
                 errors=$(grep -c "ERROR\|Error" Lmixtral_geom_python_execution.log 2>/dev/null || echo "0")
                 echo "  Cards processed: $processed"
                 echo "  Errors: $errors"
-                echo "  Dir RESULTS: $RES_DIR"
             fi
         else
             echo ""
