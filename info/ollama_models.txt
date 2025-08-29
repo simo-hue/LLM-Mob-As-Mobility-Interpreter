@@ -1,14 +1,16 @@
 PROVATI NORMALE ( baseline ):
   - llama3.1:8b
-  - mixtral:8x7b ( in corso )
-  - qwen2.5:7b ( in corso )
+  - mixtral:8x7b
+  - qwen2.5:14b
+  - qwen2.5:7b
   - deepseek-coder:33b ( in corso )
   -
 
 PROVATI GEOM ( no time ):
   - llama3.1:8b
   - mixtral:8x7b 
-  - qwen2.5:7b ( in corso )
+  - qwen2.5:7b
+  - qwen2.5:14b
   - deepseek-coder:33b ( in corso )
 
 PROVATI GEOM + TIME:
@@ -16,13 +18,6 @@ PROVATI GEOM + TIME:
   -
   -
   -
-
-INSTALLATI:
-  ✓ deepseek-coder:33b
-  ✓ qwen2.5:7b 
-  - qwen2.5:14b
-
-
 
 DA PROVARE:
   - deepseek-r1:32b
@@ -34,7 +29,7 @@ DA PROVARE:
   - gpt-oss:20b
   - gemma3:8b
   - gemma3:27b
-  - 
+  - qwen3:32b
 
 
   MODELLI: /leonardo_work/IscrC_LLM-Mob/.ollama/models/manifests/registry.ollama.ai/library
@@ -44,6 +39,6 @@ INSTALLAZIONE:
 export OLLAMA_MODELS=/leonardo_work/IscrC_LLM-Mob/.ollama/models
 
 # Avvia Ollama
-ollama serve &
+./bin/ollama serve &
 
 fare pull con altro terminale
