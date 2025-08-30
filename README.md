@@ -217,7 +217,10 @@ tail -f slurm-<JOBID>.out
 scancel <JOBID>
 
 # Controlla budget computazionale
-saldo -b <nome_progetto>
+saldo -b IscrC_LLM-Mob
+
+# Monitora la coda
+watch squeue -u $USER
 ```
 
 ## 📊 Dataset VeronaCard

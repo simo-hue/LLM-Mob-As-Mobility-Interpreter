@@ -1,0 +1,65 @@
+2025-08-30 18:55:07 [INFO] Initializing Ollama connection manager...
+2025-08-30 18:55:07 [WARNING] HostHealthMonitor initialized with empty host list
+2025-08-30 18:55:07 [INFO] Setting up connections...
+2025-08-30 18:55:07 [INFO] Multi-GPU configuration: 4 instances
+2025-08-30 18:55:07 [INFO] Initialized with 4 hosts
+2025-08-30 18:55:07 [INFO] Waiting for Ollama services to start...
+2025-08-30 18:55:07 [INFO] Checking host 1/4: http://127.0.0.1:39001
+2025-08-30 18:55:07 [INFO] Host http://127.0.0.1:39001 is ready
+2025-08-30 18:55:07 [INFO] Checking host 2/4: http://127.0.0.1:39002
+2025-08-30 18:55:07 [INFO] Host http://127.0.0.1:39002 is ready
+2025-08-30 18:55:07 [INFO] Checking host 3/4: http://127.0.0.1:39003
+2025-08-30 18:55:07 [INFO] Host http://127.0.0.1:39003 is ready
+2025-08-30 18:55:07 [INFO] Checking host 4/4: http://127.0.0.1:39004
+2025-08-30 18:55:07 [INFO] Host http://127.0.0.1:39004 is ready
+2025-08-30 18:55:07 [INFO] All Ollama services are ready!
+2025-08-30 18:55:07 [INFO] Found 12 files to process
+2025-08-30 18:55:07 [INFO] Loaded 65892 completed cards from checkpoint
+2025-08-30 18:55:07 [INFO] File dati_2014 has 65892 completed cards
+2025-08-30 18:55:07 [INFO] Loaded 65892 completed cards from checkpoint
+2025-08-30 18:55:07 [INFO] File dati_2014 has 65892 completed cards
+2025-08-30 18:55:07 [INFO] Processing dati_2014.csv
+2025-08-30 18:55:07 [INFO] Loaded 65892 completed cards from checkpoint
+2025-08-30 18:55:07 [INFO] Loading and preprocessing data...
+2025-08-30 18:55:08 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-30 18:55:09 [INFO] Loaded 370377 visits from dati_2014.csv
+2025-08-30 18:55:10 [INFO] Valid visits after merge: 370377
+2025-08-30 18:55:10 [INFO] Multi-visit cards: 70236 / 71557
+2025-08-30 18:55:10 [INFO] Performing user clustering...
+2025-08-30 18:55:16 [INFO] Processing 0 cards
+2025-08-30 18:55:16 [INFO] No cards to process
+2025-08-30 18:55:16 [INFO] Loaded 66677 completed cards from checkpoint
+2025-08-30 18:55:16 [INFO] File dati_2015 has 66677 completed cards
+2025-08-30 18:55:16 [INFO] Loaded 66677 completed cards from checkpoint
+2025-08-30 18:55:16 [INFO] File dati_2015 has 66677 completed cards
+2025-08-30 18:55:16 [INFO] Processing dati_2015.csv
+2025-08-30 18:55:16 [INFO] Loaded 66677 completed cards from checkpoint
+2025-08-30 18:55:16 [INFO] Loading and preprocessing data...
+2025-08-30 18:55:16 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-30 18:55:18 [INFO] Loaded 369588 visits from dati_2015.csv
+2025-08-30 18:55:18 [INFO] Valid visits after merge: 369588
+2025-08-30 18:55:18 [INFO] Multi-visit cards: 71759 / 73424
+2025-08-30 18:55:18 [INFO] Performing user clustering...
+2025-08-30 18:55:24 [INFO] Processing 0 cards
+2025-08-30 18:55:24 [INFO] No cards to process
+2025-08-30 18:55:25 [INFO] Loaded 70265 completed cards from checkpoint
+2025-08-30 18:55:25 [INFO] File dati_2016 has 70265 completed cards
+2025-08-30 18:55:25 [INFO] Loaded 70265 completed cards from checkpoint
+2025-08-30 18:55:25 [INFO] File dati_2016 has 70265 completed cards
+2025-08-30 18:55:25 [INFO] Processing dati_2016.csv
+2025-08-30 18:55:25 [INFO] Loaded 70265 completed cards from checkpoint
+2025-08-30 18:55:25 [INFO] Loading and preprocessing data...
+2025-08-30 18:55:25 [INFO] Loaded 22 POIs from vc_site.csv
+2025-08-30 18:55:26 [INFO] Loaded 383517 visits from dati_2016.csv
+2025-08-30 18:55:26 [INFO] Valid visits after merge: 383517
+2025-08-30 18:55:26 [INFO] Multi-visit cards: 76452 / 78152
+2025-08-30 18:55:26 [INFO] Performing user clustering...
+2025-08-30 18:55:33 [INFO] Processing 2 cards
+2025-08-30 18:55:33 [INFO] Using 2 workers for 4 healthy hosts
+2025-08-30 18:55:33 [INFO] Waiting 120s for models to FULLY stabilize...
+2025-08-30 18:57:33 [INFO] Running pre-flight check on all hosts...
+2025-08-30 18:57:33 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39001
+2025-08-30 18:57:33 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39002
+2025-08-30 18:57:33 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39003
+2025-08-30 18:57:33 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39004
+Processing cards:   0%|          | 0/2 [00:00<?, ?card/s]
