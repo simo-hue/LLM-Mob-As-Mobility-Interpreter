@@ -1,0 +1,193 @@
+2025-09-01 01:28:27 [INFO] Initializing Ollama connection manager...
+2025-09-01 01:28:27 [WARNING] HostHealthMonitor initialized with empty host list
+2025-09-01 01:28:27 [INFO] Setting up connections...
+2025-09-01 01:28:27 [INFO] Multi-GPU configuration: 4 instances
+2025-09-01 01:28:27 [INFO] Initialized with 4 hosts
+2025-09-01 01:28:27 [INFO] Waiting for Ollama services to start...
+2025-09-01 01:28:27 [INFO] Checking host 1/4: http://127.0.0.1:39001
+2025-09-01 01:28:27 [INFO] Host http://127.0.0.1:39001 is ready
+2025-09-01 01:28:27 [INFO] Checking host 2/4: http://127.0.0.1:39002
+2025-09-01 01:28:27 [INFO] Host http://127.0.0.1:39002 is ready
+2025-09-01 01:28:27 [INFO] Checking host 3/4: http://127.0.0.1:39003
+2025-09-01 01:28:27 [INFO] Host http://127.0.0.1:39003 is ready
+2025-09-01 01:28:27 [INFO] Checking host 4/4: http://127.0.0.1:39004
+2025-09-01 01:28:27 [INFO] Host http://127.0.0.1:39004 is ready
+2025-09-01 01:28:27 [INFO] All Ollama services are ready!
+2025-09-01 01:28:27 [INFO] Found 12 files to process
+2025-09-01 01:28:27 [INFO] Loaded 65892 completed cards from checkpoint
+2025-09-01 01:28:27 [INFO] File dati_2014 has 65892 completed cards
+2025-09-01 01:28:27 [INFO] Loaded 65892 completed cards from checkpoint
+2025-09-01 01:28:27 [INFO] File dati_2014 has 65892 completed cards
+2025-09-01 01:28:27 [INFO] Processing dati_2014.csv
+2025-09-01 01:28:27 [INFO] Loaded 65892 completed cards from checkpoint
+2025-09-01 01:28:27 [INFO] Loading and preprocessing data...
+2025-09-01 01:28:27 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-01 01:28:29 [INFO] Loaded 370377 visits from dati_2014.csv
+2025-09-01 01:28:29 [INFO] Valid visits after merge: 370377
+2025-09-01 01:28:29 [INFO] Multi-visit cards: 70236 / 71557
+2025-09-01 01:28:29 [INFO] Performing user clustering...
+2025-09-01 01:28:36 [INFO] Processing 0 cards
+2025-09-01 01:28:36 [INFO] No cards to process
+2025-09-01 01:28:36 [INFO] Loaded 66677 completed cards from checkpoint
+2025-09-01 01:28:36 [INFO] File dati_2015 has 66677 completed cards
+2025-09-01 01:28:36 [INFO] Loaded 66677 completed cards from checkpoint
+2025-09-01 01:28:36 [INFO] File dati_2015 has 66677 completed cards
+2025-09-01 01:28:36 [INFO] Processing dati_2015.csv
+2025-09-01 01:28:36 [INFO] Loaded 66677 completed cards from checkpoint
+2025-09-01 01:28:36 [INFO] Loading and preprocessing data...
+2025-09-01 01:28:36 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-01 01:28:37 [INFO] Loaded 369588 visits from dati_2015.csv
+2025-09-01 01:28:37 [INFO] Valid visits after merge: 369588
+2025-09-01 01:28:37 [INFO] Multi-visit cards: 71759 / 73424
+2025-09-01 01:28:37 [INFO] Performing user clustering...
+2025-09-01 01:28:44 [INFO] Processing 0 cards
+2025-09-01 01:28:44 [INFO] No cards to process
+2025-09-01 01:28:44 [INFO] Loaded 69653 completed cards from checkpoint
+2025-09-01 01:28:44 [INFO] File dati_2016 has 69653 completed cards
+2025-09-01 01:28:44 [INFO] Loaded 69653 completed cards from checkpoint
+2025-09-01 01:28:44 [INFO] File dati_2016 has 69653 completed cards
+2025-09-01 01:28:44 [INFO] Processing dati_2016.csv
+2025-09-01 01:28:44 [INFO] Loaded 69653 completed cards from checkpoint
+2025-09-01 01:28:44 [INFO] Loading and preprocessing data...
+2025-09-01 01:28:44 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-01 01:28:45 [INFO] Loaded 383517 visits from dati_2016.csv
+2025-09-01 01:28:45 [INFO] Valid visits after merge: 383517
+2025-09-01 01:28:45 [INFO] Multi-visit cards: 76452 / 78152
+2025-09-01 01:28:45 [INFO] Performing user clustering...
+2025-09-01 01:28:52 [INFO] Processing 613 cards
+2025-09-01 01:28:52 [INFO] Using 8 workers for 4 healthy hosts
+2025-09-01 01:28:52 [INFO] Waiting 120s for models to FULLY stabilize...
+2025-09-01 01:30:52 [INFO] Running pre-flight check on all hosts...
+2025-09-01 01:30:52 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39001
+2025-09-01 01:30:52 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39002
+2025-09-01 01:30:52 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39003
+2025-09-01 01:30:53 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39004
+2025-09-01 01:34:12 [INFO] Completed processing dati_2016.csv
+2025-09-01 01:34:12 [INFO] Success rate: 100.0%
+2025-09-01 01:34:12 [INFO] Loaded 81342 completed cards from checkpoint
+2025-09-01 01:34:12 [INFO] File dati_2017 has 81342 completed cards
+2025-09-01 01:34:12 [INFO] Loaded 81342 completed cards from checkpoint
+2025-09-01 01:34:12 [INFO] File dati_2017 has 81342 completed cards
+2025-09-01 01:34:12 [INFO] Processing dati_2017.csv
+2025-09-01 01:34:12 [INFO] Loaded 81342 completed cards from checkpoint
+2025-09-01 01:34:12 [INFO] Loading and preprocessing data...
+2025-09-01 01:34:12 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-01 01:34:14 [INFO] Loaded 441595 visits from dati_2017.csv
+2025-09-01 01:34:14 [INFO] Valid visits after merge: 441595
+2025-09-01 01:34:14 [INFO] Multi-visit cards: 89352 / 91555
+2025-09-01 01:34:14 [INFO] Performing user clustering...
+2025-09-01 01:34:21 [INFO] Processing 0 cards
+2025-09-01 01:34:21 [INFO] No cards to process
+2025-09-01 01:34:21 [INFO] Loaded 78385 completed cards from checkpoint
+2025-09-01 01:34:21 [INFO] File dati_2018 has 78385 completed cards
+2025-09-01 01:34:21 [INFO] Loaded 78385 completed cards from checkpoint
+2025-09-01 01:34:21 [INFO] File dati_2018 has 78385 completed cards
+2025-09-01 01:34:21 [INFO] Processing dati_2018.csv
+2025-09-01 01:34:21 [INFO] Loaded 78385 completed cards from checkpoint
+2025-09-01 01:34:21 [INFO] Loading and preprocessing data...
+2025-09-01 01:34:21 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-01 01:34:23 [INFO] Loaded 427214 visits from dati_2018.csv
+2025-09-01 01:34:23 [INFO] Valid visits after merge: 427214
+2025-09-01 01:34:23 [INFO] Multi-visit cards: 86222 / 88627
+2025-09-01 01:34:23 [INFO] Performing user clustering...
+2025-09-01 01:34:30 [INFO] Processing 0 cards
+2025-09-01 01:34:30 [INFO] No cards to process
+2025-09-01 01:34:30 [INFO] Loaded 71226 completed cards from checkpoint
+2025-09-01 01:34:30 [INFO] File dati_2019 has 71226 completed cards
+2025-09-01 01:34:30 [INFO] Loaded 71226 completed cards from checkpoint
+2025-09-01 01:34:30 [INFO] File dati_2019 has 71226 completed cards
+2025-09-01 01:34:30 [INFO] Processing dati_2019.csv
+2025-09-01 01:34:30 [INFO] Loaded 71226 completed cards from checkpoint
+2025-09-01 01:34:30 [INFO] Loading and preprocessing data...
+2025-09-01 01:34:30 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-01 01:34:32 [INFO] Loaded 397562 visits from dati_2019.csv
+2025-09-01 01:34:32 [INFO] Valid visits after merge: 397562
+2025-09-01 01:34:32 [INFO] Multi-visit cards: 77583 / 79825
+2025-09-01 01:34:32 [INFO] Performing user clustering...
+2025-09-01 01:34:39 [INFO] Processing 0 cards
+2025-09-01 01:34:39 [INFO] No cards to process
+2025-09-01 01:34:39 [INFO] Loaded 6969 completed cards from checkpoint
+2025-09-01 01:34:39 [INFO] File dati_2020 has 6969 completed cards
+2025-09-01 01:34:39 [INFO] Loaded 6969 completed cards from checkpoint
+2025-09-01 01:34:39 [INFO] File dati_2020 has 6969 completed cards
+2025-09-01 01:34:39 [INFO] Processing dati_2020.csv
+2025-09-01 01:34:39 [INFO] Loaded 6969 completed cards from checkpoint
+2025-09-01 01:34:39 [INFO] Loading and preprocessing data...
+2025-09-01 01:34:39 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-01 01:34:39 [INFO] Loaded 38294 visits from dati_2020.csv
+2025-09-01 01:34:39 [INFO] Valid visits after merge: 38294
+2025-09-01 01:34:39 [INFO] Multi-visit cards: 7658 / 7914
+2025-09-01 01:34:39 [INFO] Performing user clustering...
+2025-09-01 01:34:41 [INFO] Processing 0 cards
+2025-09-01 01:34:41 [INFO] No cards to process
+2025-09-01 01:34:41 [INFO] Loaded 32911 completed cards from checkpoint
+2025-09-01 01:34:41 [INFO] File veronacard_2019_original has 32911 completed cards
+2025-09-01 01:34:41 [INFO] Loaded 32911 completed cards from checkpoint
+2025-09-01 01:34:41 [INFO] File veronacard_2019_original has 32911 completed cards
+2025-09-01 01:34:41 [INFO] Processing veronacard_2019_original.csv
+2025-09-01 01:34:41 [INFO] Loaded 32911 completed cards from checkpoint
+2025-09-01 01:34:41 [INFO] Loading and preprocessing data...
+2025-09-01 01:34:41 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-01 01:34:43 [INFO] Loaded 397563 visits from veronacard_2019_original.csv
+2025-09-01 01:34:43 [INFO] Valid visits after merge: 397563
+2025-09-01 01:34:43 [INFO] Multi-visit cards: 77583 / 79826
+2025-09-01 01:34:43 [INFO] Performing user clustering...
+2025-09-01 01:34:50 [INFO] Processing 38315 cards
+2025-09-01 01:34:50 [INFO] Using 8 workers for 4 healthy hosts
+2025-09-01 01:34:50 [INFO] Waiting 120s for models to FULLY stabilize...
+2025-09-01 01:36:50 [INFO] Running pre-flight check on all hosts...
+2025-09-01 01:36:53 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39001
+2025-09-01 01:36:56 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39002
+2025-09-01 01:37:00 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39003
+2025-09-01 01:37:03 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39004
+2025-09-01 04:54:37 [INFO] Completed processing veronacard_2019_original.csv
+2025-09-01 04:54:37 [INFO] Success rate: 100.0%
+2025-09-01 04:54:37 [INFO] Processing veronacard_2020_original.csv
+2025-09-01 04:54:37 [INFO] Loading and preprocessing data...
+2025-09-01 04:54:37 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-01 04:54:37 [INFO] Loaded 38304 visits from veronacard_2020_original.csv
+2025-09-01 04:54:37 [INFO] Valid visits after merge: 38304
+2025-09-01 04:54:37 [INFO] Multi-visit cards: 7660 / 7914
+2025-09-01 04:54:37 [INFO] Performing user clustering...
+2025-09-01 04:54:39 [INFO] Processing 6971 cards
+2025-09-01 04:54:39 [INFO] Using 8 workers for 4 healthy hosts
+2025-09-01 04:54:39 [INFO] Waiting 120s for models to FULLY stabilize...
+2025-09-01 04:56:39 [INFO] Running pre-flight check on all hosts...
+2025-09-01 04:56:42 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39001
+2025-09-01 04:56:46 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39002
+2025-09-01 04:56:49 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39003
+2025-09-01 04:56:52 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39004
+2025-09-01 05:33:17 [INFO] Completed processing veronacard_2020_original.csv
+2025-09-01 05:33:17 [INFO] Success rate: 100.0%
+2025-09-01 05:33:17 [INFO] Processing veronacard_2021_original.csv
+2025-09-01 05:33:17 [INFO] Loading and preprocessing data...
+2025-09-01 05:33:17 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-01 05:33:17 [INFO] Loaded 115814 visits from veronacard_2021_original.csv
+2025-09-01 05:33:17 [INFO] Valid visits after merge: 115814
+2025-09-01 05:33:17 [INFO] Multi-visit cards: 25581 / 27032
+2025-09-01 05:33:17 [INFO] Performing user clustering...
+2025-09-01 05:33:20 [INFO] Processing 21983 cards
+2025-09-01 05:33:20 [INFO] Using 8 workers for 4 healthy hosts
+2025-09-01 05:33:20 [INFO] Waiting 120s for models to FULLY stabilize...
+2025-09-01 05:35:20 [INFO] Running pre-flight check on all hosts...
+2025-09-01 05:35:24 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39001
+2025-09-01 05:35:27 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39002
+2025-09-01 05:35:30 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39003
+2025-09-01 05:35:33 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39004
+2025-09-01 07:29:12 [INFO] Completed processing veronacard_2021_original.csv
+2025-09-01 07:29:12 [INFO] Success rate: 100.0%
+2025-09-01 07:29:12 [INFO] Processing veronacard_2022_original.csv
+2025-09-01 07:29:12 [INFO] Loading and preprocessing data...
+2025-09-01 07:29:12 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-01 07:29:15 [INFO] Loaded 382346 visits from veronacard_2022_original.csv
+2025-09-01 07:29:15 [INFO] Valid visits after merge: 381361
+2025-09-01 07:29:15 [INFO] Multi-visit cards: 84988 / 89775
+2025-09-01 07:29:16 [INFO] Performing user clustering...
+2025-09-01 07:29:23 [INFO] Processing 72904 cards
+2025-09-01 07:29:23 [INFO] Using 8 workers for 4 healthy hosts
+2025-09-01 07:29:23 [INFO] Waiting 120s for models to FULLY stabilize...
+2025-09-01 07:31:23 [INFO] Running pre-flight check on all hosts...
+2025-09-01 07:31:26 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39001
+2025-09-01 07:31:29 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39002
+2025-09-01 07:31:32 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39003
+2025-09-01 07:31:36 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39004
