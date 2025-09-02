@@ -1,0 +1,17 @@
+% Tabella generata automaticamente - Doppia Strategia
+\begin{table}[H]
+\centering
+\caption{Confronto Performance: Strategia Base vs Geometrica}
+\label{tab:dual_strategy_comparison}
+\begin{tabular}{llcccccccc}
+\toprule
+\textbf{Modello} & \textbf{Strategia} & \textbf{Parametri} & \textbf{Top-1} & \textbf{Top-5} & \textbf{MRR} & \textbf{Δ Top-1} & \textbf{Δ Top-5} & \textbf{Δ MRR} \\
+\midrule
+Qwen 2.5 14B & Base & 14B & 2.9% & 26.2% & 10.1% & — & — & — \\
+ & Geom & 14B & 20.0% & 54.1% & 31.9% & +17.1% & +27.9% & +21.8% \\
+\midrule
+Mixtral 8x7B & Base & 8x7B (47B active) & 3.7% & 21.2% & 11.2% & — & — & — \\
+ & Geom & 8x7B (47B active) & 10.2% & 48.3% & 23.3% & +6.5% & +27.0% & +12.1% \\
+\bottomrule
+\end{tabular}
+\end{table}

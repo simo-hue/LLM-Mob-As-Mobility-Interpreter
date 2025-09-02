@@ -1,31 +1,40 @@
 PROVATI NORMALE ( baseline ):
   - llama3.1:8b
+  - llama3.1:70b ( da Fare )
   - mixtral:8x7b
-  - qwen2.5:14b
+  - mixtral:8x22b ( da Fare )
   - qwen2.5:7b
+  - qwen2.5:14b
+  - qwen2.5:72b-instruct ( da Fare )
   - deepseek-coder:33b
-  -
+  - deepseek-r1:32b ( da Fare )
+  - codellama:34b ( da Fare )
 
 PROVATI GEOM ( no time ):
   - llama3.1:8b
+  - llama3.1:70b ( da Fare )
   - mixtral:8x7b
+  - mixtral:8x22b ( da Fare )
   - qwen2.5:7b
   - qwen2.5:14b
+  - qwen2.5:72b-instruct ( da Fare )
   - deepseek-coder:33b
+  - deepseek-r1:32b ( da Fare )
+  - codellama:34b ( da Fare )
 
 PROVATI GEOM + TIME:
-  - 
-  -
-  -
-  -
+  - llama3.1:8b ( da Fare )
+  - llama3.1:70b ( da Fare )
+  - mixtral:8x7b ( da Fare )
+  - mixtral:8x22b ( da Fare )
+  - qwen2.5:7b ( da Fare )
+  - qwen2.5:14b ( da Fare )
+  - qwen2.5:72b-instruct ( da Fare )
+  - deepseek-coder:33b ( da Fare )
+  - deepseek-r1:32b ( da Fare )
+  - codellama:34b ( da Fare )
 
 DA PROVARE:
-  - deepseek-r1:32b
-  - deepseek-v3:8b
-  - mistral:7b-instruct-v0.3
-  - codellama:34b
-  - deepseek-r1:32b
-  - deepseek-v3:8b
   - gpt-oss:20b
   - gemma3:8b
   - gemma3:27b
@@ -42,3 +51,18 @@ export OLLAMA_MODELS=/leonardo_work/IscrC_LLM-Mob/.ollama/models
 ./bin/ollama serve &
 
 fare pull con altro terminale
+
+
+
+OLLAMA LIST:
+NAME                    ID              SIZE      MODIFIED       
+codellama:34b           685be00e1532    19 GB     9 seconds ago     
+deepseek-r1:32b         edba8017331d    19 GB     2 minutes ago     
+mixtral:8x22b           e8479ee1cb51    79 GB     11 minutes ago    
+llama3.1:70b            711a9e8463af    42 GB     18 minutes ago    
+qwen2.5:72b-instruct    424bad2cc13f    47 GB     3 hours ago       
+qwen2.5:7b              845dbda0ea48    4.7 GB    5 days ago        
+qwen2.5:14b             7cdf5a0187d5    9.0 GB    5 days ago        
+deepseek-coder:33b      acec7c0b0fd9    18 GB     2 weeks ago       
+mixtral:8x7b            a3b6bef0f836    26 GB     2 weeks ago       
+llama3.1:8b             46e0c10c039e    4.9 GB    2 months ago 

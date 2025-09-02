@@ -26,7 +26,9 @@ Sistema avanzato per la predizione dei comportamenti turistici utilizzando Large
 3. **Sistema di Checkpoint Avanzato** - Ripresa automatica da interruzioni con gestione stato ottimizzata
 4. **Circuit Breaker Pattern** - Protezione da cascading failures nel sistema distribuito
 5. **Health Monitoring Intelligente** - Load balancing dinamico basato su performance reali
-6. **Integrazione Dati Geografici** - Calcolo distanze tra POI per migliorare le predizioni
+6. **Integrazione Dati Geospaziali** - Calcolo distanze tra POI per migliorare le predizioni
+7. **🕒 Analisi Temporale Avanzata** - Estrazione e utilizzo di pattern temporali nelle predizioni
+8. **⚡ Ottimizzazione A100** - Configurazione hardware specifica per GPU A100 64GB
 
 ## 🏗️ Architettura del Sistema
 
@@ -69,7 +71,7 @@ Sistema avanzato per la predizione dei comportamenti turistici utilizzando Large
 4. **`CircuitBreaker`** - Protezione da failure a cascata
 5. **`CheckpointManager`** - Gestione stato per elaborazioni interrompibili
 6. **`CardProcessor`** - Elaborazione parallela delle card turistiche
-7. **`PromptBuilder`** - Generazione prompt ottimizzati con dati geografici
+7. **`PromptBuilder`** - Generazione prompt ottimizzati con dati geospaziali e temporali
 
 ## ⚡ Ottimizzazioni HPC
 
@@ -83,36 +85,90 @@ OLLAMA_HOSTS = [
     "http://127.0.0.1:11437",  # GPU 3
 ]
 
-# Thread pool dinamico basato su GPU disponibili
-optimal_workers = min(len(hosts) * 8, 64)
+# Thread pool dinamico basato su GPU A100 disponibili
+optimal_workers = min(len(hosts) * 3, len(cards_to_process))  # 3 thread per A100
 ```
 
-### 2. Rate Limiting Adattivo
+### 2. Rate Limiting Ottimizzato per A100
 ```python
-# Semaforo dinamico per evitare sovraccarico
-MAX_CONCURRENT_REQUESTS = len(hosts) * 4
+# Configurazione specifica per 4x A100 64GB
+MAX_CONCURRENT_REQUESTS = 12  # 4 GPUs × 3 richieste per GPU
+MAX_CONCURRENT_PER_GPU = 3    # Sfrutta i 64GB VRAM
 RATE_LIMIT_SEMAPHORE = Semaphore(MAX_CONCURRENT_REQUESTS)
 ```
 
-### 3. Health Check e Load Balancing
+### 3. Payload Ottimizzato per A100
+```python
+payload_options = {
+    "num_ctx": 8192,           # Context window esteso
+    "num_predict": 1024,       # Più token per predizioni dettagliate
+    "num_thread": 112,         # Tutti i core Sapphire Rapids (2x56)
+    "num_batch": 8192,         # Batch size ottimale per 64GB VRAM
+    "cache_type_k": "f16",     # Cache FP16 per velocità A100
+    "cache_type_v": "f16",     
+    "mirostat": 2,             # Controllo qualità output
+    "num_gqa": 8               # Group Query Attention
+}
+```
+
+### 4. Health Check e Load Balancing
 - Monitoraggio continuo della salute degli host
 - Selezione host basata su tempi di risposta
 - Failover automatico in caso di errori
 - Tracking del trend di performance
 
-### 4. Gestione Memoria Ottimizzata
+### 5. Gestione Memoria Ottimizzata
 - Batch processing con salvataggio incrementale
 - Buffer di risultati con flush periodico
 - Checkpoint leggeri per ripresa veloce
 - Cleanup automatico della memoria
 
-### 5. Circuit Breaker Pattern
+### 6. Circuit Breaker Pattern
 ```
 Stati del Circuit Breaker:
 ├── CLOSED (normale operazione)
 ├── OPEN (troppi errori, rifiuta richieste)
 └── HALF_OPEN (test di recupero)
 ```
+
+### 7. 🕒 Integrazione Informazioni Temporali
+
+Il sistema ora estrae e utilizza pattern temporali per migliorare le predizioni:
+
+```python
+# Estrazione automatica da CSV
+temporal_features = {
+    "timestamp": pd.to_datetime(),     # Timestamp completo
+    "date": timestamp.dt.date,         # Data visita
+    "time": timestamp.dt.time,         # Ora visita
+    "hour": timestamp.dt.hour,         # Ora numerica (0-23)
+    "minute": timestamp.dt.minute,     # Minuto (0-59)
+    "day_of_week": timestamp.dt.day_name()  # Giorno settimana
+}
+```
+
+#### Pattern Temporali nel Prompt
+Il nuovo prompt include contesto temporale dettagliato:
+
+- **Orario attuale**: Giorno della settimana e ora della visita corrente
+- **Pattern storici**: Ore medie di visita e orari abituali del turista
+- **Contesto giornaliero**: Giorni della settimana visitati in precedenza
+
+```
+Esempio di prompt con informazioni temporali:
+
+TEMPORAL CONTEXT:
+Current: Monday 14:30, usual hours: [10, 11, 14], avg: 11.7h, days visited: Monday, Tuesday
+
+Time context: Current: Monday 14:30, usual hours: [10, 11, 14], avg: 11.7h, days visited: Monday, Tuesday
+```
+
+#### Vantaggi dell'Analisi Temporale
+
+1. **Predizioni più accurate**: Considera orari di apertura e chiusura dei POI
+2. **Pattern comportamentali**: Identifica preferenze orarie dei turisti
+3. **Logica temporale**: Evita predizioni irrealistiche per orari
+4. **Clustering migliorato**: Pattern temporali contribuiscono alla segmentazione turistica
 
 ## 📦 Installazione
 
@@ -219,6 +275,9 @@ scancel <JOBID>
 # Controlla budget computazionale
 saldo -b IscrC_LLM-Mob
 
+# Memoria utilizzata
+df -h $WORK
+
 # Monitora la coda
 watch squeue -u $USER
 ```
@@ -242,6 +301,14 @@ data,ora,name_short,card_id
 15-08-14,10:30:45,Arena,0403E98ABF3181
 15-08-14,14:15:30,Casa di Giulietta,0403E98ABF3181
 ```
+
+**Elaborazione Temporale**: Il sistema estrae automaticamente:
+- **timestamp**: `2014-08-15 10:30:45`
+- **date**: `2014-08-15` 
+- **time**: `10:30:45`
+- **hour**: `10` (per analisi pattern orari)
+- **minute**: `30`
+- **day_of_week**: `Friday` (per pattern settimanali)
 
 ### Formato POI (vc_site.csv)
 ```csv
@@ -313,19 +380,53 @@ tail -f logs/run_*.log
 ### Architettura Pipeline
 
 1. **Caricamento Dati** → Lettura CSV visite e POI
-2. **Preprocessing** → Filtraggio visite valide, merge con POI
+2. **Preprocessing** → Filtraggio visite valide, merge con POI, estrazione temporale
 3. **Clustering** → K-means su matrice user-POI
-4. **Generazione Prompt** → Include storia, posizione, POI vicini
-5. **Inferenza LLM** → Predizione parallela su multi-GPU
+4. **Generazione Prompt** → Include storia, posizione, POI vicini + **contesto temporale**
+5. **Inferenza LLM** → Predizione parallela su multi-GPU ottimizzate
 6. **Post-processing** → Salvataggio risultati e checkpoint
+
+### Nuovo Prompt Template (v2.0)
+
+Il prompt è stato completamente ridisegnato per sfruttare le informazioni temporali e geospaziali:
+
+```
+You are an expert tourism analyst predicting visitor behavior in Verona, Italy.
+
+TOURIST PROFILE:
+- Cluster: 3 (behavioral pattern group)  
+- Visit history: Arena, Casa di Giulietta
+- Current location: Torre Lamberti
+
+TEMPORAL CONTEXT:
+Current: Monday 14:30, usual hours: [10, 14, 16], avg: 13.3h, days visited: Monday, Tuesday
+
+SPATIAL CONTEXT:
+Nearby attractions within walking distance: Ponte Pietra (0.8km), Duomo (1.2km), Piazza Erbe (0.5km)
+
+TASK:
+Predict the 5 most likely next destinations, ordered by decreasing probability.
+Consider: geographic proximity, temporal patterns, tourist cluster behavior, logical flow.
+
+OUTPUT FORMAT:
+{"prediction": ["most_likely_poi", "second_most_likely_poi", ...], "reason": "..."}
+```
 
 ### Ottimizzazioni Implementate
 
+#### Software
 - **Thread-safe Operations**: Lock granulari per operazioni concorrenti
 - **Memory Management**: Garbage collection esplicito dopo batch
-- **Error Recovery**: Retry con backoff esponenziale
+- **Error Recovery**: Retry con backoff esponenziale ottimizzato per HPC
 - **Resource Pooling**: Riuso connessioni HTTP
 - **Async I/O**: Scrittura asincrona dei risultati
+
+#### Hardware (A100 Specifiche)
+- **FP16 Optimization**: Cache key/value in FP16 per velocità massima
+- **Batch Optimization**: Batch size 8192 per sfruttare 64GB VRAM
+- **Thread Optimization**: 112 thread per utilizzare tutti i core Sapphire Rapids
+- **Memory Prefetch**: Prefetch factor 2 per ridurre latenza
+- **GQA Optimization**: Group Query Attention per efficienza memoria
 
 ## 🤝 Contributi
 

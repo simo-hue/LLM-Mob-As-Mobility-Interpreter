@@ -1,0 +1,5 @@
+Modello,Strategia,Parametri,Top-1 Acc.,Top-5 HR,MRR,Coverage,Predizioni,Δ Top-1,Δ Top-5,Δ MRR
+Qwen 2.5 14B,Base,14B,2.9%,26.2%,10.1%,64.91,"623,243",—,—,—
+Qwen 2.5 14B,Geom,14B,20.0%,54.1%,31.9%,10.36,"624,532",+17.1%,+27.9%,+21.8%
+Mixtral 8x7B,Base,8x7B (47B active),3.7%,21.2%,11.2%,54.27,"471,861",—,—,—
+Mixtral 8x7B,Geom,8x7B (47B active),10.2%,48.3%,23.3%,3.14,"624,524",+6.5%,+27.0%,+12.1%
