@@ -1,0 +1,6 @@
+Model,Model_Code,POI_Predicted_Unique,POI_GroundTruth_Unique,POI_Overlap,Catalogue_Coverage,Coverage_Recall,Coverage_Precision
+Qwen2.5 14B,qwen2.5_14b,1433,22,16,6513.64,72.73,1.12
+Deepseek Coder 33B,deepseek-coder_33b,2187,22,22,9940.91,100.0,1.01
+Qwen2.5 7B,qwen2.5_7b,107559,22,21,488904.55,95.45,0.02
+Llama3.1 8B,llama3.1_8b,28780,22,19,130818.18,86.36,0.07
+Mixtral 8X7B,mixtral_8x7b,1329,22,18,6040.91,81.82,1.35
