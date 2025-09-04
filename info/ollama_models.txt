@@ -1,26 +1,16 @@
 PROVATI NORMALE ( baseline ):
   - llama3.1:8b
-  - llama3.1:70b ( da Fare )
   - mixtral:8x7b
-  - mixtral:8x22b ( da Fare )
-  - qwen2.5:7b
+  - qwen2.5:7b ( da Ri-FARE )
   - qwen2.5:14b
-  - qwen2.5:72b-instruct ( da Fare )
   - deepseek-coder:33b
-  - deepseek-r1:32b ( da Fare )
-  - codellama:34b ( da Fare )
 
 PROVATI GEOM ( no time ):
   - llama3.1:8b
-  - llama3.1:70b ( da Fare )
   - mixtral:8x7b
-  - mixtral:8x22b ( da Fare )
   - qwen2.5:7b
   - qwen2.5:14b
-  - qwen2.5:72b-instruct ( da Fare )
   - deepseek-coder:33b
-  - deepseek-r1:32b ( da Fare )
-  - codellama:34b ( da Fare )
 
 PROVATI GEOM + TIME:
   - llama3.1:8b ( da Fare )

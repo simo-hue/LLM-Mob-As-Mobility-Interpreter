@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=geom
+#SBATCH --job-name=qwenB
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=normal
@@ -9,10 +9,10 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=256G
-#SBATCH --output=slurm_geom-%j.out
+#SBATCH --output=qwen-%j.out
 
 
-echo "🚀 VERONA CARD - GEOM VERSION"
+echo "🚀 VERONA CARD - VERSION"
 echo "================================================"
 echo "⚠️ ATTENZIONE: Questo script aspetterà INDEFINITAMENTE il caricamento"
 echo "Job ID: $SLURM_JOB_ID"

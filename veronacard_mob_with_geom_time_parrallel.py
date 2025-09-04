@@ -416,7 +416,7 @@ class OllamaConnectionManager:
         self.rate_limiter: Semaphore = Semaphore(1)  # Default semaforo con 1 permit
         self.circuit_breaker = CircuitBreaker(
             failure_threshold=Config.CIRCUIT_BREAKER_THRESHOLD,
-            timeout=300
+            timeout=Config.REQUEST_TIMEOUT + 120  # Circuit breaker timeout > REQUEST_TIMEOUT
         )
         self.health_monitor: HostHealthMonitor = HostHealthMonitor([])  # Lista vuota iniziale
         
@@ -544,8 +544,8 @@ class OllamaConnectionManager:
             logger.error("Rate limiter not initialized - call setup_connections() first")
             return None
             
-        # Acquire rate limiting semaphore
-        if not self.rate_limiter.acquire(blocking=True, timeout=30):
+        # Acquire rate limiting semaphore - timeout = REQUEST_TIMEOUT + buffer per evitare deadlock
+        if not self.rate_limiter.acquire(blocking=True, timeout=Config.REQUEST_TIMEOUT + 60):
             logger.warning("Rate limit timeout - system overloaded")
             return None
         
@@ -657,7 +657,6 @@ class OllamaConnectionManager:
                         "num_gqa": 8,              # Group Query Attention per efficienza
                         "num_keep": -1,            # Mantieni tutto il prompt in memoria
                         "cache_type_k": "f16",     # Cache key in FP16 per velocità
-                        "cache_type_v": "f16",     # Cache value in FP16 per velocità
                         
                         # Advanced parameters
                         "repeat_penalty": 1.05,    # Ridotto per predizioni più naturali

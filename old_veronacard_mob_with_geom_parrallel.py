@@ -29,7 +29,7 @@ class Config:
     """Centralized configuration to avoid global variables"""
     
     # Model configuration
-    MODEL_NAME = "llama3.1:8b" #llama3.1:8b
+    MODEL_NAME = "qwen2.5:8b" #llama3.1:8b
     TOP_K = 5  # Number of POI predictions
     
     # HPC optimization parameters
@@ -1061,7 +1061,6 @@ class PromptBuilder:
             Tourist cluster {cluster_id} in Verona.
             Visited: {', '.join(history) if history else 'none'}
             Current: {current_poi}
-            Nearby POIs: {pois_list}
 
             Suggest {top_k} most likely next POIs considering distances and tourist patterns.
             Reply ONLY JSON with this format: {{"prediction": ["poi1", "poi2", ...], "reason": "brief explanation"}}"""
