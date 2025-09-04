@@ -28,45 +28,39 @@ from tqdm import tqdm
 class Config:
     """Centralized configuration to avoid global variables"""
     
-    # Model configuration - ottimizzato per tourism mobility prediction
-    MODEL_NAME = "qwen2.5:7b" # Raccomandato per reasoning spazio-temporale
-    # Alternative: "llama3.1:70b-instruct", "mixtral:8x22b-instruct"
+    # Model configuration
+    MODEL_NAME = "deepseek-r1:32b" #llama3.1:8b
     TOP_K = 5  # Number of POI predictions
     
-    # HPC optimization parameters for 4x A100 64GB
-    MAX_CONCURRENT_REQUESTS = 4   # ✅ FIXED: 1 richiesta per GPU per stabilità
-    REQUEST_TIMEOUT = 300  # Aumentato per modelli complessi e prompt lunghi
-    BATCH_SAVE_INTERVAL = 1000  # Salva ogni 1000 cards per efficienza I/O
-    HEALTH_CHECK_INTERVAL = 300  # Check più frequenti per HPC
+    # HPC optimization parameters
+    MAX_CONCURRENT_REQUESTS = 4  # 4 GPUs × 1 requests per GPU
+    REQUEST_TIMEOUT = 300  # Seconds for complex inference
+    BATCH_SAVE_INTERVAL = 500  # Save results every N cards
+    HEALTH_CHECK_INTERVAL = 600  # Check host health every N seconds
     
-    # Retry and failure handling ottimizzati per HPC
-    MAX_RETRIES_PER_REQUEST = 8  # Meno retry, GPU più affidabili
-    MAX_CONSECUTIVE_FAILURES = 30  # Ridotto per HPC stabile
-    BACKOFF_BASE = 1.5  # Backoff più aggressivo
-    BACKOFF_MAX = 60  # Max backoff ridotto
-    CIRCUIT_BREAKER_THRESHOLD = 50  # Soglia più bassa per ambiente controllato
+    # Retry and failure handling
+    MAX_RETRIES_PER_REQUEST = 10
+    MAX_CONSECUTIVE_FAILURES = 50
+    BACKOFF_BASE = 2
+    BACKOFF_MAX = 120
+    CIRCUIT_BREAKER_THRESHOLD = 100
     
-    # 503 specific handling per HPC
-    RETRY_ON_503_WAIT = 30  # Attesa ridotta su HPC
-    MAX_503_RETRIES = 15    # Meno retry su ambiente performante
+    # 503 specific handling
+    RETRY_ON_503_WAIT = 60  # ✅ NUOVO: attesa specifica per 503
+    MAX_503_RETRIES = 20    # ✅ NUOVO: retry dedicati per 503
     
     # Anchor rule for POI selection
     DEFAULT_ANCHOR_RULE = "penultimate"
     
-    # Parallelism ottimizzato per 4x A100
-    ENABLE_ROUND_ROBIN = True
-    HOST_SELECTION_STRATEGY = "balanced"
-    MAX_CONCURRENT_PER_GPU = 1   # ✅ FIXED: 1 richiesta simultanea per GPU per evitare OOM
-    
-    # Memory and performance tuning per A100
-    GPU_MEMORY_FRACTION = 0.95  # Usa 95% della VRAM disponibile
-    PREFETCH_FACTOR = 2  # Pre-carica 2 batch in anticipo
-    ASYNC_INFERENCE = True  # Inference asincrona quando possibile
+    # Parallelism
+    ENABLE_ROUND_ROBIN = True  # Abilita round-robin
+    HOST_SELECTION_STRATEGY = "balanced"  # "round_robin", "performance", "balanced"
+    MAX_CONCURRENT_PER_GPU = 2  # Richieste simultanee per GPU
     
     # File paths
     OLLAMA_PORT_FILE = "ollama_ports.txt"
     LOG_DIR = Path(__file__).resolve().parent / "logs"
-    RESULTS_DIR = Path(__file__).resolve().parent / "result_qwen2.5:7b_with_time"
+    RESULTS_DIR = Path(__file__).resolve().parent / "results_deepseek-r1:32b_with_geom"
     DATA_DIR = Path(__file__).resolve().parent / "data" / "verona"
     POI_FILE = DATA_DIR / "vc_site.csv"
 
@@ -183,7 +177,7 @@ class CircuitBreaker:
         """Context manager for circuit breaker protected calls"""
         with self._lock:
             if self.state == "OPEN":
-                if self.last_failure and time.time() - self.last_failure > self.timeout:
+                if time.time() - self.last_failure > self.timeout:
                     self.state = "HALF_OPEN"
                     logger.info("Circuit breaker: Attempting HALF_OPEN state")
                 else:
@@ -432,7 +426,7 @@ class OllamaConnectionManager:
                 self.hosts = [f"http://127.0.0.1:{port}" for port in ports]
                 logger.info(f"Multi-GPU configuration: {len(self.hosts)} instances")
                 
-                self.rate_limiter = Semaphore(len(self.hosts) * Config.MAX_CONCURRENT_PER_GPU)  # ✅ FIXED: 1 richiesta per A100
+                self.rate_limiter = Semaphore(len(self.hosts) * Config.MAX_CONCURRENT_PER_GPU)  # 2 richieste per GPU contemporaneamente
                 
             else:
                 # Single GPU fallback
@@ -622,7 +616,7 @@ class OllamaConnectionManager:
             logger.debug(f"Attempt {attempt}: Selected host {host} (usage: {host_usage_count[host]})")
             
             try:
-                # Prepare optimized payload for 4x A100 64GB GPUs
+                # Prepare optimized payload
                 payload = {
                     "model": model,
                     "messages": [
@@ -636,36 +630,15 @@ class OllamaConnectionManager:
                         }
                     ],
                     "stream": False,
-                    # ✅ REMOVED: Rimosso formato JSON forzato che causava interruzioni
+                    "format": "json",
                     "options": {
-                        # Context window - ottimizzato per stabilità
-                        "num_ctx": 4096,           # Ridotto per maggiore stabilità
-                        
-                        # Generation parameters - ottimizzati per evitare interruzioni
-                        "num_predict": 512,        # Ridotto per completamento più affidabile
-                        "temperature": 0.1,        # Bassa per predizioni precise
+                        "num_ctx": 2048,      
+                        "num_predict": 300,
+                        "temperature": 0.1,
                         "top_p": 0.9,
-                        "top_k": 40,               # Aggiunto per controllo qualità
-                        
-                        # Hardware optimization per A100 - parametri conservativi
-                        "num_thread": 56,          # Ridotto per stabilità (1x56 cores)
-                        "num_batch": 2048,         # Batch più piccolo per evitare OOM
-                        "num_gpu": 1,              # Una GPU per istanza Ollama
-                        "main_gpu": 0,             # GPU principale per l'istanza
-                        
-                        # Memory optimization per 64GB VRAM
-                        "num_gqa": 8,              # Group Query Attention per efficienza
-                        "num_keep": -1,            # Mantieni tutto il prompt in memoria
-                        "cache_type_k": "f16",     # Cache key in FP16 per velocità
-                        "cache_type_v": "f16",     # Cache value in FP16 per velocità
-                        
-                        # Advanced parameters
-                        "repeat_penalty": 1.05,    # Ridotto per predizioni più naturali
-                        "repeat_last_n": 256,     # Considera ultimi 256 token per ripetizioni
-                        "penalize_newline": False, # Non penalizzare newline nel JSON
-                        "mirostat": 2,             # Mirostat v2 per qualità output
-                        "mirostat_tau": 5.0,       # Target perplexity
-                        "mirostat_eta": 0.1,       # Learning rate per Mirostat
+                        "num_thread": 32,     
+                        "num_batch": 512,     
+                        "repeat_penalty": 1.1,
                     }
                 }
                 
@@ -697,15 +670,12 @@ class OllamaConnectionManager:
                 resp.raise_for_status()
                 response_data = resp.json()
                 
-                # ✅ FIXED: Accetta risposte anche se done=False, purché ci sia contenuto valido
-                content = response_data.get("message", {}).get("content", "")
-                done_status = response_data.get("done", False)
+                if not response_data.get("done", False):
+                    logger.warning(f"Incomplete response from {host}")
+                    continue
                 
-                # Se c'è contenuto, procedi anche se done=False
+                content = response_data.get("message", {}).get("content", "")
                 if content:
-                    if not done_status:
-                        logger.debug(f"Using partial response from {host} (done=False but content available)")
-                    # Continua con il processing normale
                     stats.increment_processed()
                     logger.debug(f"SUCCESS: Got response from {host} in {response_time:.2f}s")
                     
@@ -847,7 +817,7 @@ class DataLoader:
             filepath: Path to visits CSV file
             
         Returns:
-            DataFrame with columns: timestamp, card_id, name_short, date, time, hour, minute, day_of_week
+            DataFrame with columns: timestamp, card_id, name_short
         """
         df = pd.read_csv(
             filepath,
@@ -863,17 +833,10 @@ class DataLoader:
             format="%d-%m-%y %H:%M:%S"
         )
         
-        # Extract temporal features for prompt
-        df["date"] = df["timestamp"].dt.date
-        df["time"] = df["timestamp"].dt.time
-        df["hour"] = df["timestamp"].dt.hour
-        df["minute"] = df["timestamp"].dt.minute
-        df["day_of_week"] = df["timestamp"].dt.day_name()
-        
         logger.info(f"Loaded {len(df)} visits from {filepath.name}")
         
-        # Return all columns including temporal features, sorted by timestamp
-        return (df[["timestamp", "card_id", "name_short", "date", "time", "hour", "minute", "day_of_week"]]
+        # Return only needed columns, sorted by timestamp
+        return (df[["timestamp", "card_id", "name_short"]]
                 .sort_values("timestamp")
                 .reset_index(drop=True))
     
@@ -1043,12 +1006,12 @@ class PromptBuilder:
         
         This method generates a concise prompt that includes:
         - User's cluster (tourist type)
-        - Visit history with temporal patterns
-        - Current location with time context
+        - Visit history
+        - Current location
         - Nearby POIs with distances
         
         Args:
-            df: Visit data with temporal features
+            df: Visit data
             user_clusters: Cluster assignments
             pois_df: POI information
             card_id: Card to predict for
@@ -1069,23 +1032,13 @@ class PromptBuilder:
             raise ValueError("Sequence too short (minimum 3 visits required)")
         
         # Split into history, current, and target
+        target = seq[-1]  # Last visit (to predict)
         prefix = seq[:-1]  # All except last
         
         # Determine current POI using anchor rule
         idx = PromptBuilder.get_anchor_index(len(prefix), anchor_rule)
         current_poi = prefix[idx]
         history = [p for i, p in enumerate(prefix) if i != idx]
-        
-        # Get temporal information for current visit
-        current_visit = visits.iloc[idx]
-        current_time = current_visit["time"]
-        current_day = current_visit["day_of_week"]
-        
-        # Extract temporal patterns from visit history
-        history_times = visits.iloc[:-1]  # All visits except the last (target)
-        avg_hour = history_times["hour"].mean()
-        visit_hours = history_times["hour"].tolist()
-        days_visited = history_times["day_of_week"].unique().tolist()
         
         # Get user's cluster
         cluster_id = user_clusters.loc[
@@ -1103,54 +1056,15 @@ class PromptBuilder:
             for poi in nearby_pois
         ])
         
-        # Format temporal context
-        time_context = f"Current: {current_day} {current_time.strftime('%H:%M')}"
-        if visit_hours:
-            time_context += f", usual hours: {visit_hours}, avg: {avg_hour:.1f}h"
-        if len(days_visited) > 1:
-            time_context += f", days visited: {', '.join(days_visited[:3])}"
-        
-        # Create comprehensive prompt with flexible output format
-        return f"""You are an expert tourism analyst predicting visitor behavior in Verona, Italy.
+        # Create concise prompt
+        return f"""
+            Tourist cluster {cluster_id} in Verona.
+            Visited: {', '.join(history) if history else 'none'}
+            Current: {current_poi}
+            Nearby POIs: {pois_list}
 
-TOURIST PROFILE:
-- Cluster: {cluster_id} (behavioral pattern group)  
-- Visit history: {', '.join(history) if history else 'First-time visitor'}
-- Current location: {current_poi}
-
-TEMPORAL CONTEXT:
-{time_context}
-
-SPATIAL CONTEXT:
-Nearby attractions within walking distance: {pois_list if pois_list else 'No nearby POIs within 5km'}
-
-TASK:
-Predict the {top_k} most likely next destinations for this tourist, considering:
-1. Geographic proximity and accessibility
-2. Temporal patterns (time of day, day of week preferences)  
-3. Tourist cluster behavioral patterns
-4. Logical flow of sightseeing activities
-5. Popular attraction combinations in Verona
-
-REQUIREMENTS:
-- Provide exactly {top_k} predictions
-- Order them by decreasing probability (most likely first)
-- Only suggest POIs from the nearby list or well-known Verona attractions
-- Consider realistic travel times and opening hours
-
-OUTPUT FORMAT:
-Respond in JSON format if possible, but clear structured text is also acceptable:
-
-PREFERRED (JSON):
-{{"prediction": ["poi1", "poi2", "poi3"], "reason": "brief explanation"}}
-
-ALTERNATIVE (Structured text):
-PREDICTIONS:
-1. most_likely_poi
-2. second_most_likely_poi  
-3. third_most_likely_poi
-
-REASONING: Brief explanation of temporal and spatial factors."""
+            Suggest {top_k} most likely next POIs considering distances and tourist patterns.
+            Reply ONLY JSON with this format: {{"prediction": ["poi1", "poi2", ...], "reason": "brief explanation"}}"""
 
 # ============= CHECKPOINT MANAGEMENT =============
 class CheckpointManager:
@@ -1389,47 +1303,22 @@ class CardProcessor:
                 "status": "success" if response else "failed"
             }
             
-            # Parse response if available - gestione più robusta
+            # Parse response if available
             if response:
                 try:
-                    # ✅ IMPROVED: Tentativo di parsing JSON più flessibile
-                    # Pulisce la risposta da caratteri problematici
-                    cleaned_response = response.strip()
-                    
-                    # Cerca pattern JSON nella risposta anche se non perfettamente formattata
-                    if "{" in cleaned_response and "}" in cleaned_response:
-                        # Estrae il primo blocco JSON valido
-                        start_idx = cleaned_response.find("{")
-                        end_idx = cleaned_response.rfind("}") + 1
-                        json_part = cleaned_response[start_idx:end_idx]
-                        
-                        parsed = json.loads(json_part)
-                    else:
-                        # Fallback: crea struttura JSON dai pattern di testo
-                        logger.debug(f"No JSON found in response, attempting text parsing for {card_id}")
-                        predictions = self._extract_predictions_from_text(response)
-                        parsed = {"prediction": predictions, "reason": "Extracted from text"}
-                    
+                    parsed = json.loads(response)
                     predictions = parsed.get("prediction", [])
                     if not isinstance(predictions, list):
-                        predictions = [predictions] if predictions else []
+                        predictions = [predictions]
                     
                     result["prediction"] = str(predictions)
                     result["reason"] = parsed.get("reason", "")[:200]  # Limit length
                     result["hit"] = target in predictions
                     
-                except json.JSONDecodeError as e:
-                    logger.debug(f"JSON parse failed for {card_id}, attempting text extraction: {e}")
-                    # ✅ FALLBACK: Estrazione pattern da testo libero
-                    predictions = self._extract_predictions_from_text(response)
-                    if predictions:
-                        result["prediction"] = str(predictions)
-                        result["reason"] = "Extracted from non-JSON response"
-                        result["hit"] = target in predictions
-                        result["status"] = "success_text_parsed"
-                    else:
-                        result["prediction"] = f"PARSE_ERROR: {response[:100]}"
-                        result["status"] = "parse_error"
+                except json.JSONDecodeError:
+                    logger.warning(f"Invalid JSON response for {card_id}")
+                    result["prediction"] = "PARSE_ERROR"
+                    result["status"] = "parse_error"
                 except Exception as e:
                     logger.warning(f"Error parsing response for {card_id}: {e}")
                     result["prediction"] = "PROCESSING_ERROR"
@@ -1464,66 +1353,6 @@ class CardProcessor:
             ]["cluster"].iloc[0])
         except Exception:
             return None
-    
-    def _extract_predictions_from_text(self, text: str) -> List[str]:
-        """
-        ✅ NEW: Estrae predizioni POI da testo libero quando JSON parsing fallisce.
-        
-        Cerca pattern comuni come:
-        - Lista numerata: "1. POI_NAME"
-        - Lista puntata: "• POI_NAME" 
-        - Lista semplice: "POI1, POI2, POI3"
-        - Menzioni dirette di POI noti
-        """
-        import re
-        
-        predictions = []
-        text = text.lower().strip()
-        
-        # Pattern 1: Liste numerate (1. Arena, 2. Casa_di_Giulietta, etc.)
-        numbered_pattern = r'\d+\.?\s*([A-Za-z_][A-Za-z0-9_]*(?:\s+[A-Za-z0-9_]+)*)'
-        numbered_matches = re.findall(numbered_pattern, text)
-        if numbered_matches:
-            predictions.extend([match.replace(' ', '_') for match in numbered_matches[:5]])
-        
-        # Pattern 2: Liste con bullet points
-        bullet_pattern = r'[•\-\*]\s*([A-Za-z_][A-Za-z0-9_]*(?:\s+[A-Za-z0-9_]+)*)'
-        bullet_matches = re.findall(bullet_pattern, text)
-        if bullet_matches:
-            predictions.extend([match.replace(' ', '_') for match in bullet_matches[:5]])
-            
-        # Pattern 3: Lista separata da virgole
-        if not predictions and ',' in text:
-            comma_parts = [part.strip() for part in text.split(',')]
-            for part in comma_parts[:5]:
-                # Filtra parti che sembrano POI names
-                clean_part = re.sub(r'[^\w\s_]', '', part).strip().replace(' ', '_')
-                if len(clean_part) > 2 and clean_part.isalpha():
-                    predictions.append(clean_part)
-        
-        # Pattern 4: POI noti di Verona (fallback)
-        known_pois = [
-            'arena', 'casa_di_giulietta', 'torre_dei_lamberti', 'castelvecchio', 
-            'piazza_delle_erbe', 'piazza_bra', 'basilica_san_zeno', 'duomo',
-            'teatro_romano', 'giardino_giusti', 'santa_anastasia', 'san_fermo'
-        ]
-        
-        if not predictions:
-            for poi in known_pois:
-                if poi in text or poi.replace('_', ' ') in text:
-                    predictions.append(poi)
-                    if len(predictions) >= 3:
-                        break
-        
-        # Rimuovi duplicati mantenendo l'ordine
-        seen = set()
-        unique_predictions = []
-        for pred in predictions:
-            if pred.lower() not in seen and len(pred) > 1:
-                seen.add(pred.lower())
-                unique_predictions.append(pred)
-        
-        return unique_predictions[:5]  # Massimo 5 predizioni
 
 
 # ============= MAIN PROCESSING PIPELINE =============
@@ -1671,8 +1500,8 @@ class VisitFileProcessor:
         # Calculate optimal number of workers
         n_healthy_hosts = len(self.ollama_manager.health_monitor.get_healthy_hosts())
     
-        # Imposta workers = numero di GPU healthy * concorrenza per A100
-        optimal_workers = min(n_healthy_hosts * Config.MAX_CONCURRENT_PER_GPU, len(cards_to_process))  # ✅ FIXED: Max 1 thread per A100
+        # Imposta workers = numero di GPU healthy
+        optimal_workers = min(n_healthy_hosts * Config.MAX_CONCURRENT_PER_GPU, len(cards_to_process))  # Max 2 thread per GPU
         
         logger.info(f"Using {optimal_workers} workers for {n_healthy_hosts} healthy hosts")
         

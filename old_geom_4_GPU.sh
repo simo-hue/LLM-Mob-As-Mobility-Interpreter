@@ -1,22 +1,24 @@
 #!/bin/bash
-#SBATCH --job-name=mobility-time
+#SBATCH --job-name=geom
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
-#SBATCH --qos=boost_qos_lprod
-#SBATCH --time=00:40:00
+#SBATCH --qos=normal
+#SBATCH --time=00:30:00
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:4
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=32
-#SBATCH --mem=480G
-#SBATCH --output=mobility-time-%j.out
+#SBATCH --mem=256G
+#SBATCH --output=slurm_geom-%j.out
 
-echo "🚀 VERONA CARD - TIME"
+
+echo "🚀 VERONA CARD - GEOM VERSION"
 echo "================================================"
 echo "⚠️ ATTENZIONE: Questo script aspetterà INDEFINITAMENTE il caricamento"
 echo "Job ID: $SLURM_JOB_ID"
 echo "Nodo: $(hostname)"
 echo "Data: $(date)"
+echo "Salvo risultati: $RES_DIR"
 echo ""
 
 # ============= SETUP AMBIENTE =============
@@ -67,21 +69,14 @@ if [ ! -f "$OLLAMA_BIN" ]; then
     exit 1
 fi
 
-# Ottimizzazioni per A100 64GB
-export OLLAMA_DEBUG=0
+export OLLAMA_DEBUG=1
 export OLLAMA_MODELS="$WORK/.ollama/models"
 export OLLAMA_CACHE_DIR="$WORK/.ollama/cache"
-export OLLAMA_NUM_PARALLEL=3
+export OLLAMA_NUM_PARALLEL=1
 export OLLAMA_MAX_LOADED_MODELS=1
-export OLLAMA_KEEP_ALIVE="8h"
+export OLLAMA_KEEP_ALIVE="4h"
 export OLLAMA_LLM_LIBRARY="cuda_v12"
 export OLLAMA_FLASH_ATTENTION=1
-
-# Memory optimization per A100 - ottimizzato per stabilità
-export OLLAMA_GPU_MEMORY_FRACTION=0.95
-export OLLAMA_CUDA_VISIBLE_DEVICES=0,1,2,3
-export OLLAMA_MAX_CONTEXT=4096  # ✅ ALIGNED: Ridotto per maggiore stabilità
-export OLLAMA_BATCH_SIZE=2048   # ✅ ALIGNED: Batch più piccolo per evitare OOM
 
 # 🔴 RIMOZIONE DI TUTTI I TIMEOUT OLLAMA
 unset OLLAMA_LOAD_TIMEOUT
@@ -148,7 +143,7 @@ start_ollama_gpu() {
     OLLAMA_MAX_LOADED_MODELS=1 \
     OLLAMA_TMPDIR="$CUSTOM_TMP" \
     OLLAMA_CACHE_DIR="$gpu_cache" \
-    $OLLAMA_BIN serve >/dev/null 2>&1 &
+    $OLLAMA_BIN serve > geom_ollama_gpu${gpu_id}.log 2>&1 &
     
     local pid=$!
     echo "✅ GPU $gpu_id PID: $pid (NO TIMEOUT)"
@@ -160,6 +155,7 @@ start_ollama_gpu() {
     sleep 5
     if ! kill -0 $pid 2>/dev/null; then
         echo "❌ Processo GPU $gpu_id morto immediatamente!"
+        tail -20 geom_ollama_gpu${gpu_id}.log
         return 1
     fi
     
@@ -174,6 +170,8 @@ start_ollama_gpu() {
             # Check processo ancora vivo
             if ! kill -0 $pid 2>/dev/null; then
                 echo "❌ Processo GPU $gpu_id terminato inaspettatamente!"
+                echo "📜 Ultimi log:"
+                tail -30 geom_ollama_gpu${gpu_id}.log
                 return 1
             fi
             
@@ -181,14 +179,14 @@ start_ollama_gpu() {
             if curl -s --connect-timeout 5 "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
                 echo "   🌐 API risponde, test modello..."
                 
-                # Test caricamento modello - usa il modello raccomandato
+                # Test caricamento modello
                 local test_response=$(curl -s -X POST \
                     --connect-timeout 10 \
                     --max-time 120 \
                     "http://127.0.0.1:$port/api/generate" \
                     -H "Content-Type: application/json" \
                     -d '{
-                        "model":"qwen2.5:7b",
+                        "model":"deepseek-r1:32b",
                         "prompt":"Hi",
                         "stream":false,
                         "options":{"num_predict":1}
@@ -208,8 +206,9 @@ start_ollama_gpu() {
                 echo "   📊 Memoria GPU:"
                 nvidia-smi --id=$gpu_id --query-gpu=memory.used,memory.total --format=csv,noheader
                 
-                # Senza log, mostra solo stato generico
-                echo "   📈 Modello in caricamento su GPU $gpu_id..."
+                # Check log per progresso
+                local progress=$(grep "model load progress" geom_ollama_gpu${gpu_id}.log | tail -1)
+                [ -n "$progress" ] && echo "   📈 $progress"
             fi
             
             sleep 30  # Check ogni 30 secondi
@@ -273,7 +272,7 @@ for i in 0 1 2 3; do
             "http://127.0.0.1:$port/api/chat" \
             -H "Content-Type: application/json" \
             -d '{
-                "model":"qwen2.5:7b",
+                "model":"deepseek-r1:32b",
                 "messages":[{"role":"user","content":"Say OK"}],
                 "stream":false,
                 "options":{"num_predict":2}
@@ -296,7 +295,11 @@ echo "📊 RISULTATO: $WORKING_GPUS/4 GPU operative"
 
 if [ $WORKING_GPUS -eq 0 ]; then
     echo "❌ ERRORE: Nessuna GPU operativa!"
-    echo "💡 Controlla i processi Ollama manualmente con: ps aux | grep ollama"
+    for i in 0 1 2 3; do
+        echo ""
+        echo "=== Log GPU $i (ultime 30 righe) ==="
+        tail -30 geom_ollama_gpu${i}.log 2>/dev/null || echo "Log non disponibile"
+    done
     exit 1
 fi
 
@@ -366,16 +369,30 @@ advanced_gpu_monitor() {
         done
         
         # Statistiche Python se in esecuzione
-        if pgrep -f "veronacard_mob_with_geom_time" >/dev/null; then
+        if pgrep -f "old_veronacard_mob_with_geom_parrallel" >/dev/null; then
             echo ""
             echo "🐍 Python Processing:"
             
+            # Conta file risultati
+            if [ -d "$RES_DIR" ]; then
+                result_count=$(ls -1 $RES_DIR*.csv 2>/dev/null | wc -l)
+                echo "  Output files: $result_count"
+                
+                # Ultimo file modificato
+                latest=$(ls -t $RES_DIR*.csv 2>/dev/null | head -1)
+                if [ -n "$latest" ]; then
+                    size=$(du -h "$latest" | cut -f1)
+                    echo "  Latest: $(basename $latest) ($size)"
+                fi
+            fi
+            
             # Linee processate dal log
-            if [ -f "qwen_time_python_execution.log" ]; then
-                processed=$(grep -c "Processing card" qwen_time_python_execution.log 2>/dev/null || echo "0")
-                errors=$(grep -c "ERROR\|Error" qwen_time_python_execution.log 2>/dev/null || echo "0")
+            if [ -f "old_geom_python_execution.log" ]; then
+                processed=$(grep -c "Processing card" old_geom_python_execution.log 2>/dev/null || echo "0")
+                errors=$(grep -c "ERROR\|Error" old_geom_python_execution.log 2>/dev/null || echo "0")
                 echo "  Cards processed: $processed"
                 echo "  Errors: $errors"
+                echo "  Dir RESULTS: $RES_DIR"
             fi
         else
             echo ""
@@ -399,8 +416,8 @@ echo "==============="
 echo ""
 
 if [ -f "data/verona/vc_site.csv" ]; then
-    python3 -u veronacard_mob_with_geom_time_parrallel.py \
-        --append 2>&1 | tee qwen_time_python_execution.log
+    python3 -u old_veronacard_mob_with_geom_parrallel.py \
+        --append 2>&1 | tee old_geom_python_execution.log
     PYTHON_EXIT=$?
 else
     echo "❌ File non trovato!"

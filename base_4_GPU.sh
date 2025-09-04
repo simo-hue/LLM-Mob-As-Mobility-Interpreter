@@ -3,7 +3,7 @@
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=boost_qos_lprod
-#SBATCH --time=72:00:00
+#SBATCH --time=01:00:00
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:4
 #SBATCH --ntasks-per-node=1
