@@ -29,7 +29,7 @@ class Config:
     """Centralized configuration to avoid global variables"""
     
     # Model configuration - ottimizzato per tourism mobility prediction
-    MODEL_NAME = "qwen2.5:72b-instruct" # Raccomandato per reasoning spazio-temporale
+    MODEL_NAME = "qwen2.5:7b" # Raccomandato per reasoning spazio-temporale
     # Alternative: "llama3.1:70b-instruct", "mixtral:8x22b-instruct"
     TOP_K = 5  # Number of POI predictions
     
@@ -66,7 +66,7 @@ class Config:
     # File paths
     OLLAMA_PORT_FILE = "ollama_ports.txt"
     LOG_DIR = Path(__file__).resolve().parent / "logs"
-    RESULTS_DIR = Path(__file__).resolve().parent / "result mixtral_8x7b_with_geom"
+    RESULTS_DIR = Path(__file__).resolve().parent / "result_qwen2.5:7b_with_time"
     DATA_DIR = Path(__file__).resolve().parent / "data" / "verona"
     POI_FILE = DATA_DIR / "vc_site.csv"
 

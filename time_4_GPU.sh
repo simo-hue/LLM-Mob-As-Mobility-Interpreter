@@ -188,7 +188,7 @@ start_ollama_gpu() {
                     "http://127.0.0.1:$port/api/generate" \
                     -H "Content-Type: application/json" \
                     -d '{
-                        "model":"qwen2.5:72b-instruct",
+                        "model":"qwen2.5:7b",
                         "prompt":"Hi",
                         "stream":false,
                         "options":{"num_predict":1}
@@ -273,7 +273,7 @@ for i in 0 1 2 3; do
             "http://127.0.0.1:$port/api/chat" \
             -H "Content-Type: application/json" \
             -d '{
-                "model":"qwen2.5:72b-instruct",
+                "model":"qwen2.5:7b",
                 "messages":[{"role":"user","content":"Say OK"}],
                 "stream":false,
                 "options":{"num_predict":2}

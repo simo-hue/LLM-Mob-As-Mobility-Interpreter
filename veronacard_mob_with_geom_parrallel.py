@@ -29,12 +29,12 @@ class Config:
     """Centralized configuration to avoid global variables"""
     
     # Model configuration
-    MODEL_NAME = "llama2-uncensored:70b" #llama3.1:8b - qwen2.5:7b - qwen2.5:14b - mixtral:8x7b
+    MODEL_NAME = "deepseek-r1:32b" #llama3.1:8b - qwen2.5:7b - qwen2.5:14b - mixtral:8x7b
     TOP_K = 5  # Number of POI predictions
     
     # HPC optimization parameters
     MAX_CONCURRENT_REQUESTS = 4  # 4 GPUs × 1 requests per GPU
-    REQUEST_TIMEOUT = 300  # Seconds for complex inference
+    REQUEST_TIMEOUT = 600  # Seconds for complex inference (INCREASED for DeepSeek R1 32B)
     BATCH_SAVE_INTERVAL = 500  # Save results every N cards
     HEALTH_CHECK_INTERVAL = 600  # Check host health every N seconds
     
@@ -55,12 +55,12 @@ class Config:
     # Parallelism
     ENABLE_ROUND_ROBIN = True  # Abilita round-robin
     HOST_SELECTION_STRATEGY = "balanced"  # "round_robin", "performance", "balanced"
-    MAX_CONCURRENT_PER_GPU = 2  # Richieste simultanee per GPU
+    MAX_CONCURRENT_PER_GPU = 1  # Richieste simultanee per GPU (REDUCED for DeepSeek R1 32B)
     
     # File paths
     OLLAMA_PORT_FILE = "ollama_ports.txt"
     LOG_DIR = Path(__file__).resolve().parent / "logs"
-    RESULTS_DIR = Path(__file__).resolve().parent / "result mixtral_8x7b_with_geom"
+    RESULTS_DIR = Path(__file__).resolve().parent / "results/deepseek-r1_32b/with_geom/"
     DATA_DIR = Path(__file__).resolve().parent / "data" / "verona"
     POI_FILE = DATA_DIR / "vc_site.csv"
 
@@ -632,13 +632,14 @@ class OllamaConnectionManager:
                     "stream": False,
                     "format": "json",
                     "options": {
-                        "num_ctx": 3072,      
-                        "num_predict": 512,
+                        "num_ctx": 2048,      # REDUCED: DeepSeek R1 32B memory constraint
+                        "num_predict": 256,   # Reduced for faster completion
                         "temperature": 0.1,
                         "top_p": 0.9,
-                        "num_thread": 40,     
-                        "num_batch": 2048,     
+                        "num_thread": 32,     # Reduced for stability
+                        "num_batch": 512,     # REDUCED: Memory efficiency critical
                         "repeat_penalty": 1.1,
+                        "stop": ["<|im_end|>", "<|endoftext|>"],  # Stop tokens for DeepSeek R1
                     }
                 }
                 
@@ -1506,8 +1507,8 @@ class VisitFileProcessor:
         logger.info(f"Using {optimal_workers} workers for {n_healthy_hosts} healthy hosts")
         
         # ✅ NUOVO: Attesa estesa per stabilizzazione completa
-        logger.info("Waiting 120s for models to FULLY stabilize...")
-        time.sleep(120)  # ✅ MODIFICATO: da 60s a 120s
+        logger.info("Waiting 180s for DeepSeek R1 32B to FULLY stabilize...")
+        time.sleep(180)  # ✅ MODIFICATO: da 120s a 180s per DeepSeek R1
         
         # ✅ NUOVO: Test pre-processing per verificare che tutto sia OK
         logger.info("Running pre-flight check on all hosts...")
