@@ -1677,8 +1677,8 @@ class VisitFileProcessor:
         logger.info(f"Using {optimal_workers} workers for {n_healthy_hosts} healthy hosts")
         
         # ✅ NUOVO: Attesa estesa per stabilizzazione completa
-        logger.info("Waiting 120s for models to FULLY stabilize...")
-        time.sleep(120)  # ✅ MODIFICATO: da 60s a 120s
+        logger.info("Waiting 60s for models to FULLY stabilize...")
+        time.sleep(60)  # ✅ MODIFICATO: da 60s a 120s
         
         # ✅ NUOVO: Test pre-processing per verificare che tutto sia OK
         logger.info("Running pre-flight check on all hosts...")

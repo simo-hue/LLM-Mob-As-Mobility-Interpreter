@@ -75,6 +75,8 @@ export OLLAMA_CACHE_DIR="$WORK/.ollama/cache"
 export OLLAMA_NUM_PARALLEL=1
 export OLLAMA_MAX_LOADED_MODELS=1
 export OLLAMA_KEEP_ALIVE="4h"
+export OLLAMA_MAX_QUEUE=4
+export OLLAMA_CONCURRENT_REQUESTS=1
 export OLLAMA_LLM_LIBRARY="cuda_v12"
 export OLLAMA_FLASH_ATTENTION=1
 
@@ -186,7 +188,7 @@ start_ollama_gpu() {
                     "http://127.0.0.1:$port/api/generate" \
                     -H "Content-Type: application/json" \
                     -d '{
-                        "model":"deepseek-r1:32b",
+                        "model":"llama3.1:8b",
                         "prompt":"Hi",
                         "stream":false,
                         "options":{"num_predict":1}
@@ -272,7 +274,7 @@ for i in 0 1 2 3; do
             "http://127.0.0.1:$port/api/chat" \
             -H "Content-Type: application/json" \
             -d '{
-                "model":"deepseek-r1:32b",
+                "model":"llama3.1:8b",
                 "messages":[{"role":"user","content":"Say OK"}],
                 "stream":false,
                 "options":{"num_predict":2}

@@ -68,12 +68,14 @@ if [ ! -f "$OLLAMA_BIN" ]; then
 fi
 
 # Ottimizzazioni per A100 64GB
-export OLLAMA_DEBUG=0
+export OLLAMA_DEBUG=1
 export OLLAMA_MODELS="$WORK/.ollama/models"
 export OLLAMA_CACHE_DIR="$WORK/.ollama/cache"
-export OLLAMA_NUM_PARALLEL=3
+export OLLAMA_NUM_PARALLEL=1
 export OLLAMA_MAX_LOADED_MODELS=1
 export OLLAMA_KEEP_ALIVE="8h"
+export OLLAMA_MAX_QUEUE=4
+export OLLAMA_CONCURRENT_REQUESTS=1
 export OLLAMA_LLM_LIBRARY="cuda_v12"
 export OLLAMA_FLASH_ATTENTION=1
 
@@ -148,7 +150,7 @@ start_ollama_gpu() {
     OLLAMA_MAX_LOADED_MODELS=1 \
     OLLAMA_TMPDIR="$CUSTOM_TMP" \
     OLLAMA_CACHE_DIR="$gpu_cache" \
-    $OLLAMA_BIN serve >/dev/null 2>&1 &
+    $OLLAMA_BIN serve > time_ollama_gpu${gpu_id}.log 2>&1 &
     
     local pid=$!
     echo "✅ GPU $gpu_id PID: $pid (NO TIMEOUT)"
@@ -160,6 +162,7 @@ start_ollama_gpu() {
     sleep 5
     if ! kill -0 $pid 2>/dev/null; then
         echo "❌ Processo GPU $gpu_id morto immediatamente!"
+        tail -20 time_ollama_gpu${gpu_id}.log
         return 1
     fi
     
@@ -174,6 +177,8 @@ start_ollama_gpu() {
             # Check processo ancora vivo
             if ! kill -0 $pid 2>/dev/null; then
                 echo "❌ Processo GPU $gpu_id terminato inaspettatamente!"
+                echo "📜 Ultimi log:"
+                tail -30 time_ollama_gpu${gpu_id}.log
                 return 1
             fi
             
@@ -208,8 +213,9 @@ start_ollama_gpu() {
                 echo "   📊 Memoria GPU:"
                 nvidia-smi --id=$gpu_id --query-gpu=memory.used,memory.total --format=csv,noheader
                 
-                # Senza log, mostra solo stato generico
-                echo "   📈 Modello in caricamento su GPU $gpu_id..."
+                # Check log per progresso
+                local progress=$(grep "model load progress" time_ollama_gpu${gpu_id}.log | tail -1)
+                [ -n "$progress" ] && echo "   📈 $progress" || echo "   📈 Modello in caricamento su GPU $gpu_id..."
             fi
             
             sleep 30  # Check ogni 30 secondi
@@ -296,7 +302,11 @@ echo "📊 RISULTATO: $WORKING_GPUS/4 GPU operative"
 
 if [ $WORKING_GPUS -eq 0 ]; then
     echo "❌ ERRORE: Nessuna GPU operativa!"
-    echo "💡 Controlla i processi Ollama manualmente con: ps aux | grep ollama"
+    for i in 0 1 2 3; do
+        echo ""
+        echo "=== Log GPU $i (ultime 30 righe) ==="
+        tail -30 time_ollama_gpu${i}.log 2>/dev/null || echo "Log non disponibile"
+    done
     exit 1
 fi
 

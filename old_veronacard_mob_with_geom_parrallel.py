@@ -29,7 +29,7 @@ class Config:
     """Centralized configuration to avoid global variables"""
     
     # Model configuration
-    MODEL_NAME = "deepseek-r1:32b" #llama3.1:8b
+    MODEL_NAME = "llama3.1:8b" #llama3.1:8b
     TOP_K = 5  # Number of POI predictions
     
     # HPC optimization parameters
@@ -55,12 +55,12 @@ class Config:
     # Parallelism
     ENABLE_ROUND_ROBIN = True  # Abilita round-robin
     HOST_SELECTION_STRATEGY = "balanced"  # "round_robin", "performance", "balanced"
-    MAX_CONCURRENT_PER_GPU = 2  # Richieste simultanee per GPU
+    MAX_CONCURRENT_PER_GPU = 1  # Richieste simultanee per GPU - STRATEGIA CONSERVATIVA
     
     # File paths
     OLLAMA_PORT_FILE = "ollama_ports.txt"
     LOG_DIR = Path(__file__).resolve().parent / "logs"
-    RESULTS_DIR = Path(__file__).resolve().parent / "results_deepseek-r1:32b_with_geom"
+    RESULTS_DIR = Path(__file__).resolve().parent / "results_llama3.1:8b_with_geom"
     DATA_DIR = Path(__file__).resolve().parent / "data" / "verona"
     POI_FILE = DATA_DIR / "vc_site.csv"
 
@@ -1506,8 +1506,8 @@ class VisitFileProcessor:
         logger.info(f"Using {optimal_workers} workers for {n_healthy_hosts} healthy hosts")
         
         # ✅ NUOVO: Attesa estesa per stabilizzazione completa
-        logger.info("Waiting 120s for models to FULLY stabilize...")
-        time.sleep(120)  # ✅ MODIFICATO: da 60s a 120s
+        logger.info("Waiting 60s for models to FULLY stabilize...")
+        time.sleep(60)  # ✅ MODIFICATO: da 60s a 120s
         
         # ✅ NUOVO: Test pre-processing per verificare che tutto sia OK
         logger.info("Running pre-flight check on all hosts...")
