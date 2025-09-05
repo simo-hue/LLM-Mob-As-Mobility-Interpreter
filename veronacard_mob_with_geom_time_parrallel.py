@@ -33,22 +33,22 @@ class Config:
     # Alternative: "llama3.1:70b-instruct", "mixtral:8x22b-instruct"
     TOP_K = 5  # Number of POI predictions
     
-    # HPC optimization parameters for 4x A100 64GB
-    MAX_CONCURRENT_REQUESTS = 4   # ✅ FIXED: 1 richiesta per GPU per stabilità
-    REQUEST_TIMEOUT = 300  # Aumentato per modelli complessi e prompt lunghi
+    # HPC optimization parameters for 4x A100 64GB - ULTRA CONSERVATIVE FOR STABILITY
+    MAX_CONCURRENT_REQUESTS = 1   # ✅ SINGLE REQUEST: Evita crash delle istanze Ollama
+    REQUEST_TIMEOUT = 180  # Ridotto per rilevare problemi early
     BATCH_SAVE_INTERVAL = 1000  # Salva ogni 1000 cards per efficienza I/O
-    HEALTH_CHECK_INTERVAL = 300  # Check più frequenti per HPC
+    HEALTH_CHECK_INTERVAL = 120  # Check molto più frequenti per rilevare problemi early
     
-    # Retry and failure handling ottimizzati per HPC
-    MAX_RETRIES_PER_REQUEST = 8  # Meno retry, GPU più affidabili
-    MAX_CONSECUTIVE_FAILURES = 30  # Ridotto per HPC stabile
-    BACKOFF_BASE = 1.5  # Backoff più aggressivo
-    BACKOFF_MAX = 60  # Max backoff ridotto
-    CIRCUIT_BREAKER_THRESHOLD = 50  # Soglia più bassa per ambiente controllato
+    # Retry and failure handling ottimizzati per HPC - MORE CONSERVATIVE
+    MAX_RETRIES_PER_REQUEST = 5  # Ridotto per evitare sovraccarico
+    MAX_CONSECUTIVE_FAILURES = 15  # Più aggressivo per rilevare problemi early
+    BACKOFF_BASE = 2.0  # Backoff più conservativo
+    BACKOFF_MAX = 120  # Max backoff aumentato per stabilità
+    CIRCUIT_BREAKER_THRESHOLD = 5   # 🔥 ULTRA AGGRESSIVO - Ferma dopo 5 fallimenti
     
-    # 503 specific handling per HPC
-    RETRY_ON_503_WAIT = 30  # Attesa ridotta su HPC
-    MAX_503_RETRIES = 15    # Meno retry su ambiente performante
+    # 503 specific handling per HPC - CONSERVATIVE APPROACH
+    RETRY_ON_503_WAIT = 60  # Attesa aumentata per stabilità
+    MAX_503_RETRIES = 10    # Ridotto per evitare loop infiniti
     
     # Anchor rule for POI selection
     DEFAULT_ANCHOR_RULE = "penultimate"
@@ -66,7 +66,7 @@ class Config:
     # File paths
     OLLAMA_PORT_FILE = "ollama_ports.txt"
     LOG_DIR = Path(__file__).resolve().parent / "logs"
-    RESULTS_DIR = Path(__file__).resolve().parent / "result_qwen2.5:7b_with_time"
+    RESULTS_DIR = Path(__file__).resolve().parent / "results" / "qwen2.5_7b" / "with_geom_time"
     DATA_DIR = Path(__file__).resolve().parent / "data" / "verona"
     POI_FILE = DATA_DIR / "vc_site.csv"
 
@@ -534,10 +534,12 @@ class OllamaConnectionManager:
     def get_chat_completion(self, prompt: str, model: str = Config.MODEL_NAME) -> Optional[str]:
         """Get chat completion with load balancing and error handling"""
         
-        # Check circuit breaker
+        # Check circuit breaker - STOP COMPLETELY instead of skipping
         if stats.circuit_breaker_active:
-            logger.warning("Circuit breaker active - skipping request")
-            return None
+            logger.error("💥 CIRCUIT BREAKER ACTIVE - SYSTEM FAILURE DETECTED")
+            logger.error("🛑 All Ollama instances have failed. Processing must stop.")
+            logger.error("🔧 Check GPU memory, processes, and logs before restarting.")
+            raise Exception("Circuit breaker active - system failure detected. Processing stopped.")
         
         # Controllo di sicurezza
         if self.rate_limiter is None:
@@ -638,18 +640,18 @@ class OllamaConnectionManager:
                     "stream": False,
                     # ✅ REMOVED: Rimosso formato JSON forzato che causava interruzioni
                     "options": {
-                        # Context window - ottimizzato per stabilità
-                        "num_ctx": 4096,           # Ridotto per maggiore stabilità
+                        # Context window - ULTRA CONSERVATIVE per massima stabilità
+                        "num_ctx": 2048,           # DRASTICALLY REDUCED per evitare OOM
                         
                         # Generation parameters - ottimizzati per evitare interruzioni
-                        "num_predict": 512,        # Ridotto per completamento più affidabile
+                        "num_predict": 256,        # Ridotto ulteriormente per stabilità
                         "temperature": 0.1,        # Bassa per predizioni precise
                         "top_p": 0.9,
                         "top_k": 40,               # Aggiunto per controllo qualità
                         
-                        # Hardware optimization per A100 - parametri conservativi
-                        "num_thread": 56,          # Ridotto per stabilità (1x56 cores)
-                        "num_batch": 2048,         # Batch più piccolo per evitare OOM
+                        # Hardware optimization per A100 - PARAMETRI ULTRA CONSERVATIVI
+                        "num_thread": 32,          # DRASTICALLY REDUCED per evitare sovraccarico CPU
+                        "num_batch": 512,          # QUARTERED per massima stabilità memoria
                         "num_gpu": 1,              # Una GPU per istanza Ollama
                         "main_gpu": 0,             # GPU principale per l'istanza
                         
@@ -1670,14 +1672,14 @@ class VisitFileProcessor:
         # Calculate optimal number of workers
         n_healthy_hosts = len(self.ollama_manager.health_monitor.get_healthy_hosts())
     
-        # Imposta workers = numero di GPU healthy * concorrenza per A100
-        optimal_workers = min(n_healthy_hosts * Config.MAX_CONCURRENT_PER_GPU, len(cards_to_process))  # ✅ FIXED: Max 1 thread per A100
+        # ✅ ULTRA CONSERVATIVE: Usa MAX_CONCURRENT_REQUESTS globale per evitare overload
+        optimal_workers = min(Config.MAX_CONCURRENT_REQUESTS, len(cards_to_process))  # ✅ FIXED: Usa limite globale conservativo
         
         logger.info(f"Using {optimal_workers} workers for {n_healthy_hosts} healthy hosts")
         
         # ✅ NUOVO: Attesa estesa per stabilizzazione completa
-        logger.info("Waiting 60s for models to FULLY stabilize...")
-        time.sleep(60)  # ✅ MODIFICATO: da 60s a 120s
+        logger.info("Waiting 120s for models to FULLY stabilize...")
+        time.sleep(120)  # ✅ AUMENTATO: da 60s a 120s per massima stabilità
         
         # ✅ NUOVO: Test pre-processing per verificare che tutto sia OK
         logger.info("Running pre-flight check on all hosts...")
@@ -1696,9 +1698,45 @@ class VisitFileProcessor:
                 if test_resp.status_code == 200:
                     logger.info(f"✅ Pre-flight check passed for {host}")
                 else:
-                    logger.warning(f"⚠️ Pre-flight check failed for {host}: {test_resp.status_code}")
+                    logger.error(f"❌ Pre-flight check FAILED for {host}: HTTP {test_resp.status_code}")
+                    logger.error(f"Response: {test_resp.text[:500]}...")
+                    raise Exception(f"Pre-flight failed: {test_resp.status_code}")
+                    
             except Exception as e:
-                logger.warning(f"Pre-flight check error for {host}: {e}")
+                logger.error(f"❌ Pre-flight check FAILED for {host}: {e}")
+                logger.error(f"This may indicate memory issues or model loading problems")
+                raise Exception(f"Pre-flight failed: {e}")
+                
+        logger.info("✅ ALL PRE-FLIGHT CHECKS PASSED - Starting progressive warm-up")
+        
+        # 🔥 PROGRESSIVE WARM-UP: Test system under increasing load
+        logger.info("🔥 Phase 1: Single request warm-up test (30s timeout)...")
+        warmup_prompts = [
+            "List 3 tourist attractions in Verona.",
+            "What time is best to visit Verona in summer?", 
+            "Recommend a walking route in Verona city center."
+        ]
+        
+        for i, prompt in enumerate(warmup_prompts):
+            logger.info(f"  Testing warm-up prompt {i+1}/3...")
+            try:
+                response = self.ollama_manager.get_chat_completion(prompt)
+                if response:
+                    logger.info(f"    ✅ Warm-up {i+1} successful: {len(response)} chars")
+                else:
+                    logger.error(f"    ❌ Warm-up {i+1} failed: No response")
+                    raise Exception(f"Warm-up phase failed at test {i+1}")
+                time.sleep(2)  # Small pause between tests
+            except Exception as e:
+                logger.error(f"    ❌ WARM-UP FAILED: {e}")
+                logger.error(f"    🛑 System not ready for production load")
+                raise Exception(f"Progressive warm-up failed: {e}")
+        
+        logger.info("🔥 Phase 2: SKIPPED - Concurrent test disabled for stability")
+        # REMOVED: Concurrent test that caused Ollama crashes
+        # Single request processing is enforced through MAX_CONCURRENT_REQUESTS = 1
+        logger.info("✅ PROGRESSIVE WARM-UP COMPLETED - System verified under load")
+        logger.info("🚀 Starting production processing...")
         
         # Process cards with thread pool
         with ThreadPoolExecutor(

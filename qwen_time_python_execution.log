@@ -1,32 +1,43 @@
-2025-09-04 19:16:34 [INFO] Initializing Ollama connection manager...
-2025-09-04 19:16:34 [WARNING] HostHealthMonitor initialized with empty host list
-2025-09-04 19:16:34 [INFO] Setting up connections...
-2025-09-04 19:16:34 [INFO] Multi-GPU configuration: 4 instances
-2025-09-04 19:16:34 [INFO] Initialized with 4 hosts
-2025-09-04 19:16:34 [INFO] Waiting for Ollama services to start...
-2025-09-04 19:16:34 [INFO] Checking host 1/4: http://127.0.0.1:39001
-2025-09-04 19:16:34 [INFO] Host http://127.0.0.1:39001 is ready
-2025-09-04 19:16:34 [INFO] Checking host 2/4: http://127.0.0.1:39002
-2025-09-04 19:16:34 [INFO] Host http://127.0.0.1:39002 is ready
-2025-09-04 19:16:34 [INFO] Checking host 3/4: http://127.0.0.1:39003
-2025-09-04 19:16:34 [INFO] Host http://127.0.0.1:39003 is ready
-2025-09-04 19:16:34 [INFO] Checking host 4/4: http://127.0.0.1:39004
-2025-09-04 19:16:34 [INFO] Host http://127.0.0.1:39004 is ready
-2025-09-04 19:16:34 [INFO] All Ollama services are ready!
-2025-09-04 19:16:34 [INFO] Found 12 files to process
-2025-09-04 19:16:34 [INFO] Processing dati_2014.csv
-2025-09-04 19:16:34 [INFO] Loading and preprocessing data...
-2025-09-04 19:16:34 [INFO] Loaded 22 POIs from vc_site.csv
-2025-09-04 19:16:36 [INFO] Loaded 370377 visits from dati_2014.csv
-2025-09-04 19:16:37 [INFO] Valid visits after merge: 370377
-2025-09-04 19:16:37 [INFO] Multi-visit cards: 70236 / 71557
-2025-09-04 19:16:37 [INFO] Performing user clustering...
-2025-09-04 19:16:43 [INFO] Processing 65892 cards
-2025-09-04 19:16:43 [INFO] Using 4 workers for 4 healthy hosts
-2025-09-04 19:16:43 [INFO] Waiting 60s for models to FULLY stabilize...
-2025-09-04 19:17:43 [INFO] Running pre-flight check on all hosts...
-2025-09-04 19:17:43 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39001
-2025-09-04 19:17:44 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39002
-2025-09-04 19:17:44 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39003
-2025-09-04 19:17:44 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39004
-Processing cards:   0%|          | 0/65892 [00:00<?, ?card/s]
+2025-09-05 08:08:27 [INFO] Initializing Ollama connection manager...
+2025-09-05 08:08:27 [WARNING] HostHealthMonitor initialized with empty host list
+2025-09-05 08:08:27 [INFO] Setting up connections...
+2025-09-05 08:08:27 [INFO] Multi-GPU configuration: 4 instances
+2025-09-05 08:08:27 [INFO] Initialized with 4 hosts
+2025-09-05 08:08:27 [INFO] Waiting for Ollama services to start...
+2025-09-05 08:08:27 [INFO] Checking host 1/4: http://127.0.0.1:39001
+2025-09-05 08:08:27 [INFO] Host http://127.0.0.1:39001 is ready
+2025-09-05 08:08:27 [INFO] Checking host 2/4: http://127.0.0.1:39002
+2025-09-05 08:08:27 [INFO] Host http://127.0.0.1:39002 is ready
+2025-09-05 08:08:27 [INFO] Checking host 3/4: http://127.0.0.1:39003
+2025-09-05 08:08:27 [INFO] Host http://127.0.0.1:39003 is ready
+2025-09-05 08:08:27 [INFO] Checking host 4/4: http://127.0.0.1:39004
+2025-09-05 08:08:27 [INFO] Host http://127.0.0.1:39004 is ready
+2025-09-05 08:08:27 [INFO] All Ollama services are ready!
+2025-09-05 08:08:27 [INFO] Found 12 files to process
+2025-09-05 08:08:27 [INFO] Processing dati_2014.csv
+2025-09-05 08:08:27 [INFO] Loading and preprocessing data...
+2025-09-05 08:08:28 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-05 08:08:30 [INFO] Loaded 370377 visits from dati_2014.csv
+2025-09-05 08:08:30 [INFO] Valid visits after merge: 370377
+2025-09-05 08:08:30 [INFO] Multi-visit cards: 70236 / 71557
+2025-09-05 08:08:30 [INFO] Performing user clustering...
+2025-09-05 08:08:37 [INFO] Processing 65892 cards
+2025-09-05 08:08:37 [INFO] Using 1 workers for 4 healthy hosts
+2025-09-05 08:08:37 [INFO] Waiting 120s for models to FULLY stabilize...
+2025-09-05 08:10:37 [INFO] Running pre-flight check on all hosts...
+2025-09-05 08:10:39 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39001
+2025-09-05 08:10:42 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39002
+2025-09-05 08:10:44 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39003
+2025-09-05 08:10:47 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39004
+2025-09-05 08:10:47 [INFO] ✅ ALL PRE-FLIGHT CHECKS PASSED - Starting progressive warm-up
+2025-09-05 08:10:47 [INFO] 🔥 Phase 1: Single request warm-up test (30s timeout)...
+2025-09-05 08:10:47 [INFO]   Testing warm-up prompt 1/3...
+2025-09-05 08:11:00 [INFO]     ✅ Warm-up 1 successful: 528 chars
+2025-09-05 08:11:02 [INFO]   Testing warm-up prompt 2/3...
+2025-09-05 08:11:07 [INFO]     ✅ Warm-up 2 successful: 146 chars
+2025-09-05 08:11:09 [INFO]   Testing warm-up prompt 3/3...
+2025-09-05 08:11:31 [INFO]     ✅ Warm-up 3 successful: 1055 chars
+2025-09-05 08:11:33 [INFO] 🔥 Phase 2: SKIPPED - Concurrent test disabled for stability
+2025-09-05 08:11:33 [INFO] ✅ PROGRESSIVE WARM-UP COMPLETED - System verified under load
+2025-09-05 08:11:33 [INFO] 🚀 Starting production processing...
+Processing cards:   0%|          | 0/65892 [00:00<?, ?card/s]Processing cards:   0%|          | 1/65892 [00:07<132:28:08,  7.24s/card]Processing cards:   0%|          | 2/65892 [00:15<147:48:26,  8.08s/card]Processing cards:   0%|          | 3/65892 [00:29<195:23:24, 10.68s/card]Processing cards:   0%|          | 4/65892 [00:37<171:48:35,  9.39s/card]Processing cards:   0%|          | 5/65892 [00:46<168:51:01,  9.23s/card]Processing cards:   0%|          | 6/65892 [00:55<170:57:19,  9.34s/card]

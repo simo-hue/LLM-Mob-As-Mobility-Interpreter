@@ -3,7 +3,7 @@
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=boost_qos_lprod
-#SBATCH --time=00:40:00
+#SBATCH --time=02:00:00  # Aumentato per processing più lento ma stabile
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:4
 #SBATCH --ntasks-per-node=1
@@ -13,7 +13,7 @@
 
 echo "🚀 VERONA CARD - TIME"
 echo "================================================"
-echo "⚠️ ATTENZIONE: Questo script aspetterà INDEFINITAMENTE il caricamento"
+echo "⚠️ ATTENZIONE: Configurazione SINGLE-REQUEST per massima stabilità"
 echo "Job ID: $SLURM_JOB_ID"
 echo "Nodo: $(hostname)"
 echo "Data: $(date)"
@@ -75,15 +75,17 @@ export OLLAMA_NUM_PARALLEL=1
 export OLLAMA_MAX_LOADED_MODELS=1
 export OLLAMA_KEEP_ALIVE="8h"
 export OLLAMA_MAX_QUEUE=4
-export OLLAMA_CONCURRENT_REQUESTS=1
+export OLLAMA_CONCURRENT_REQUESTS=1  # Una richiesta per istanza
+export OLLAMA_GPU_OVERHEAD=0         # Zero overhead per massima memoria
+export OLLAMA_LOAD_TIMEOUT=0         # No timeout per caricamento
 export OLLAMA_LLM_LIBRARY="cuda_v12"
 export OLLAMA_FLASH_ATTENTION=1
 
 # Memory optimization per A100 - ottimizzato per stabilità
 export OLLAMA_GPU_MEMORY_FRACTION=0.95
 export OLLAMA_CUDA_VISIBLE_DEVICES=0,1,2,3
-export OLLAMA_MAX_CONTEXT=4096  # ✅ ALIGNED: Ridotto per maggiore stabilità
-export OLLAMA_BATCH_SIZE=2048   # ✅ ALIGNED: Batch più piccolo per evitare OOM
+export OLLAMA_MAX_CONTEXT=2048  # ✅ ULTRA CONSERVATIVE: Allineato a Python
+export OLLAMA_BATCH_SIZE=512    # ✅ ULTRA CONSERVATIVE: Allineato a Python
 
 # 🔴 RIMOZIONE DI TUTTI I TIMEOUT OLLAMA
 unset OLLAMA_LOAD_TIMEOUT
@@ -188,15 +190,19 @@ start_ollama_gpu() {
                 
                 # Test caricamento modello - usa il modello raccomandato
                 local test_response=$(curl -s -X POST \
-                    --connect-timeout 10 \
-                    --max-time 120 \
+                    --connect-timeout 15 \
+                    --max-time 180 \
                     "http://127.0.0.1:$port/api/generate" \
                     -H "Content-Type: application/json" \
                     -d '{
                         "model":"qwen2.5:7b",
                         "prompt":"Hi",
                         "stream":false,
-                        "options":{"num_predict":1}
+                        "options":{
+                            "num_predict":1,
+                            "num_ctx":512,
+                            "num_batch":64
+                        }
                     }' 2>&1)
                 
                 if echo "$test_response" | grep -q '"done":true'; then
@@ -244,8 +250,8 @@ fi
 
 echo ""
 echo "✅ GPU 0 completamente operativa con modello caricato"
-echo "⏳ Pausa 60s per stabilizzazione..."
-sleep 60
+echo "⏳ Pausa 120s per stabilizzazione ULTRA-CONSERVATIVE..."
+sleep 120
 
 # 2. AVVIA ALTRE GPU (che riuseranno il modello già in cache)
 echo ""
@@ -254,11 +260,11 @@ echo "🚀 Avvio GPU secondarie..."
 for gpu_id in 1 2 3; do
     port=$((39001 + gpu_id))
     start_ollama_gpu $gpu_id $port false
-    sleep 30
+    sleep 60  # Pausa aumentata per evitare sovrapposizioni
 done
 
-echo "⏳ Attesa finale stabilizzazione sistema (60s)..."
-sleep 60
+echo "⏳ Attesa finale stabilizzazione sistema (120s)..."
+sleep 120
 
 # ============= VERIFICA FINALE =============
 echo ""
@@ -276,13 +282,18 @@ for i in 0 1 2 3; do
     # Test completo
     if curl -s "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
         test_resp=$(curl -s -X POST \
+            --max-time 180 \
             "http://127.0.0.1:$port/api/chat" \
             -H "Content-Type: application/json" \
             -d '{
                 "model":"qwen2.5:7b",
                 "messages":[{"role":"user","content":"Say OK"}],
                 "stream":false,
-                "options":{"num_predict":2}
+                "options":{
+                    "num_predict":2,
+                    "num_ctx":512,
+                    "num_batch":64
+                }
             }' 2>&1)
         
         if echo "$test_resp" | grep -q '"done":true'; then

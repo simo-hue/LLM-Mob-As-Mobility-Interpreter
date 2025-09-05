@@ -1,0 +1,147 @@
+🚀 VERONA CARD - TIME
+================================================
+⚠️ ATTENZIONE: Configurazione SINGLE-REQUEST per massima stabilità
+Job ID: 19679229
+Nodo: lrdn1966.leonardo.local
+Data: Fri Sep  5 07:57:56 CEST 2025
+
+📦 Setup ambiente HPC...
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+✅ Python: Python 3.11.6
+✅ CUDA: Cuda compilation tools, release 12.3, V12.3.103
+
+🔍 GPU DETECTION:
+0, NVIDIA A100-SXM-64GB, 65536 MiB, 43
+1, NVIDIA A100-SXM-64GB, 65536 MiB, 43
+2, NVIDIA A100-SXM-64GB, 65536 MiB, 42
+3, NVIDIA A100-SXM-64GB, 65536 MiB, 42
+
+📁 Directory temporanea: /leonardo_work/IscrC_LLM-Mob/tmp_ollama_19679229
+💾 Spazio disponibile: 748GB
+
+🧹 Cleanup preventivo...
+
+🚀 AVVIO SISTEMA OLLAMA
+========================
+
+🔧 Avvio GPU 0 su porta 39001...
+✅ GPU 0 PID: 747116 (NO TIMEOUT)
+⏳ GPU 0 è MASTER - attesa caricamento modello SENZA LIMITI...
+   🌐 API risponde, test modello...
+   ✅ GPU 0 PRONTA dopo 1 tentativi!
+
+✅ GPU 0 completamente operativa con modello caricato
+⏳ Pausa 120s per stabilizzazione ULTRA-CONSERVATIVE...
+
+🚀 Avvio GPU secondarie...
+
+🔧 Avvio GPU 1 su porta 39002...
+✅ GPU 1 PID: 747473 (NO TIMEOUT)
+
+🔧 Avvio GPU 2 su porta 39003...
+✅ GPU 2 PID: 747517 (NO TIMEOUT)
+
+🔧 Avvio GPU 3 su porta 39004...
+✅ GPU 3 PID: 747563 (NO TIMEOUT)
+⏳ Attesa finale stabilizzazione sistema (120s)...
+
+🔍 VERIFICA FINALE SISTEMA
+===========================
+GPU 0 (porta 39001): ✅ OPERATIVA
+GPU 1 (porta 39002): ✅ OPERATIVA
+GPU 2 (porta 39003): ✅ OPERATIVA
+GPU 3 (porta 39004): ✅ OPERATIVA
+
+📊 RISULTATO: 4/4 GPU operative
+✅ Porte salvate: 39001,39002,39003,39004
+📊 Starting Advanced GPU Monitor (ogni 60s)
+
+🐍 AVVIO PYTHON
+===============
+
+2025-09-05 08:08:27 [INFO] Initializing Ollama connection manager...
+2025-09-05 08:08:27 [WARNING] HostHealthMonitor initialized with empty host list
+2025-09-05 08:08:27 [INFO] Setting up connections...
+2025-09-05 08:08:27 [INFO] Multi-GPU configuration: 4 instances
+2025-09-05 08:08:27 [INFO] Initialized with 4 hosts
+2025-09-05 08:08:27 [INFO] Waiting for Ollama services to start...
+2025-09-05 08:08:27 [INFO] Checking host 1/4: http://127.0.0.1:39001
+2025-09-05 08:08:27 [INFO] Host http://127.0.0.1:39001 is ready
+2025-09-05 08:08:27 [INFO] Checking host 2/4: http://127.0.0.1:39002
+2025-09-05 08:08:27 [INFO] Host http://127.0.0.1:39002 is ready
+2025-09-05 08:08:27 [INFO] Checking host 3/4: http://127.0.0.1:39003
+2025-09-05 08:08:27 [INFO] Host http://127.0.0.1:39003 is ready
+2025-09-05 08:08:27 [INFO] Checking host 4/4: http://127.0.0.1:39004
+2025-09-05 08:08:27 [INFO] Host http://127.0.0.1:39004 is ready
+2025-09-05 08:08:27 [INFO] All Ollama services are ready!
+2025-09-05 08:08:27 [INFO] Found 12 files to process
+2025-09-05 08:08:27 [INFO] Processing dati_2014.csv
+2025-09-05 08:08:27 [INFO] Loading and preprocessing data...
+2025-09-05 08:08:28 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-05 08:08:30 [INFO] Loaded 370377 visits from dati_2014.csv
+2025-09-05 08:08:30 [INFO] Valid visits after merge: 370377
+2025-09-05 08:08:30 [INFO] Multi-visit cards: 70236 / 71557
+2025-09-05 08:08:30 [INFO] Performing user clustering...
+2025-09-05 08:08:37 [INFO] Processing 65892 cards
+2025-09-05 08:08:37 [INFO] Using 1 workers for 4 healthy hosts
+2025-09-05 08:08:37 [INFO] Waiting 120s for models to FULLY stabilize...
+2025-09-05 08:10:37 [INFO] Running pre-flight check on all hosts...
+2025-09-05 08:10:39 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39001
+2025-09-05 08:10:42 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39002
+2025-09-05 08:10:44 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39003
+2025-09-05 08:10:47 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39004
+2025-09-05 08:10:47 [INFO] ✅ ALL PRE-FLIGHT CHECKS PASSED - Starting progressive warm-up
+2025-09-05 08:10:47 [INFO] 🔥 Phase 1: Single request warm-up test (30s timeout)...
+2025-09-05 08:10:47 [INFO]   Testing warm-up prompt 1/3...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 GPU STATUS - 2025-09-05 08:10:51
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GPU 0: 💤 IDLE
+  Compute:   0% | Memory:   0% ( 1424/ 65536 MB)
+  Temp: 44°C | Power:  75.06 W
+
+GPU 1: 💤 IDLE
+  Compute:   0% | Memory:   0% ( 5128/ 65536 MB)
+  Temp: 45°C | Power:  83.21 W
+
+GPU 2: 💤 IDLE
+  Compute:   0% | Memory:   0% ( 5128/ 65536 MB)
+  Temp: 43°C | Power:  74.37 W
+
+GPU 3: 💤 IDLE
+  Compute:   0% | Memory:   0% ( 5128/ 65536 MB)
+  Temp: 43°C | Power:  76.18 W
+
+🔄 Processi Ollama:
+  GPU 0 (PID 747116): ✅ CPU: 3.2% | RAM: 1.1GB | Port: 39001
+    └─ API: ✅ Responsive
+  GPU 1 (PID 747473): ✅ CPU: 5.3% | RAM: 1.0GB | Port: 39002
+    └─ API: ✅ Responsive
+  GPU 2 (PID 747517): ✅ CPU: 4.9% | RAM: 1.0GB | Port: 39003
+    └─ API: ✅ Responsive
+  GPU 3 (PID 747563): ✅ CPU: 5.8% | RAM: 1.0GB | Port: 39004
+    └─ API: ✅ Responsive
+
+🐍 Python Processing:
+  Cards processed: 0
+0
+  Errors: 0
+0
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-05 08:11:00 [INFO]     ✅ Warm-up 1 successful: 528 chars
+2025-09-05 08:11:02 [INFO]   Testing warm-up prompt 2/3...
+2025-09-05 08:11:07 [INFO]     ✅ Warm-up 2 successful: 146 chars
+2025-09-05 08:11:09 [INFO]   Testing warm-up prompt 3/3...
+2025-09-05 08:11:31 [INFO]     ✅ Warm-up 3 successful: 1055 chars
+2025-09-05 08:11:33 [INFO] 🔥 Phase 2: SKIPPED - Concurrent test disabled for stability
+2025-09-05 08:11:33 [INFO] ✅ PROGRESSIVE WARM-UP COMPLETED - System verified under load
+2025-09-05 08:11:33 [INFO] 🚀 Starting production processing...
+Processing cards:   0%|          | 0/65892 [00:00<?, ?card/s]Processing cards:   0%|          | 1/65892 [00:07<132:28:08,  7.24s/card]Processing cards:   0%|          | 2/65892 [00:15<147:48:26,  8.08s/card]Processing cards:   0%|          | 3/65892 [00:29<195:23:24, 10.68s/card]Processing cards:   0%|          | 4/65892 [00:37<171:48:35,  9.39s/card]Processing cards:   0%|          | 5/65892 [00:46<168:51:01,  9.23s/card]Processing cards:   0%|          | 6/65892 [00:55<170:57:19,  9.34s/card]
