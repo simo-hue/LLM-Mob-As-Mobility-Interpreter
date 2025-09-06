@@ -1,0 +1,24 @@
+CARD: 04B9FA523F3880
+SEQUENCE: Arena → Tomba Giulietta → San Fermo → Casa Giulietta → Torre Lamberti → Palazzo della Ragione → Santa Anastasia → Duomo → Castelvecchio → San Zeno
+TARGET: San Zeno
+LENGTH: 842 chars
+==================================================
+
+You are an expert tourism analyst predicting visitor behavior in Verona, Italy.
+
+TOURIST PROFILE:
+- Cluster: 3 (behavioral pattern group)  
+- Visit history: Arena, Tomba Giulietta, San Fermo, Casa Giulietta, Torre Lamberti, Palazzo della Ragione, Santa Anastasia, Duomo
+- Current location: Castelvecchio
+
+TEMPORAL CONTEXT:
+Current: Saturday 15:06, usual hours: [8, 9, 10, 10, 11, 11, 13, 14, 15], avg: 11.2h
+
+SPATIAL CONTEXT:
+Nearby attractions within walking distance: Museo Radio (0.7km), Museo Storia (1.1km), Museo Lapidario (0.3km), Teatro Romano (1.4km), AMO (1.0km)
+
+TASK:
+Predict exactly 5 most likely next destinations for this tourist. Order them by decreasing probability (most likely first)
+
+OUTPUT FORMAT:
+Respond in JSON format like this: {"prediction": ["poi1", "poi2", "poi3", "poi4", "poi5"], "reason": "brief explanation"}.

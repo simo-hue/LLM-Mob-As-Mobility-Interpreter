@@ -1,0 +1,14 @@
+CARD: 0436BA8ABF3180
+SEQUENCE: Santa Anastasia → Duomo → Casa Giulietta → San Zeno → San Fermo
+TARGET: San Fermo
+LENGTH: 369 chars
+==================================================
+
+Predict the next POI for this tourist in Verona:
+
+VISIT HISTORY: Santa Anastasia, Duomo, Casa Giulietta
+CURRENT LOCATION: San Zeno
+NEARBY ATTRACTIONS: Arena (1.2km), Museo Radio (1.4km), Castelvecchio (0.7km), Museo Storia (1.9km), Museo Lapidario (1.1km)
+
+Task: Predict the next most likely destination considering spatial proximity.
+Output: List the top 3 POI names.

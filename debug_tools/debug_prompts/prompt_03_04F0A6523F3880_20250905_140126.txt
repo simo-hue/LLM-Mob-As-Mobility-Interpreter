@@ -1,0 +1,27 @@
+=== DEBUG PROMPT #3 ===
+Card ID: 04F0A6523F3880
+Timestamp: 20250905_140126
+Prompt Length: 1116 characters
+Prompt Lines: 17 lines
+============================================================
+
+You are an expert tourism analyst predicting visitor behavior in Verona, Italy.
+            TOURIST PROFILE:
+            - Cluster: 3 (behavioral pattern group)  
+            - Visit history: Arena, San Fermo, Tomba Giulietta, San Zeno, Castelvecchio, Santa Anastasia, Duomo, Torre Lamberti
+            - Current location: Palazzo della Ragione
+
+            TEMPORAL CONTEXT:
+            Current: Thursday 11:40, usual hours: [11, 12, 14, 15, 16, 9, 10, 11, 11], avg: 12.1h, days visited: Wednesday, Thursday
+
+            SPATIAL CONTEXT:
+            Nearby attractions within walking distance: AMO (0.1km), Museo Conte (0.1km), Centro Fotografia (0.2km), Sighseeing (0.2km), Museo Miniscalchi (0.2km), Casa Giulietta (0.3km), Teatro Romano (0.4km), Museo Radio (0.5km), Giardino Giusti (0.7km), Verona Tour (0.8km)
+
+            TASK:
+            Predict exactly 5 most likely next destinations for this tourist, Order them by decreasing probability (most likely first)
+
+            OUTPUT FORMAT:
+            Respond in JSON format like this: {"prediction": ["poi1", "poi2", "poi3"], "reason": "brief explanation"}.
+
+============================================================
+END OF PROMPT

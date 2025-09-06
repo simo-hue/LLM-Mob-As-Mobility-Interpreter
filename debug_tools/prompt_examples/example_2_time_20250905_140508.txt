@@ -1,0 +1,24 @@
+CARD: 040396523F3881
+SEQUENCE: Santa Anastasia → Duomo → Arena → Palazzo della Ragione → Torre Lamberti → San Fermo → San Zeno
+TARGET: San Zeno
+LENGTH: 823 chars
+==================================================
+
+You are an expert tourism analyst predicting visitor behavior in Verona, Italy.
+
+TOURIST PROFILE:
+- Cluster: 4 (behavioral pattern group)  
+- Visit history: Santa Anastasia, Duomo, Arena, Palazzo della Ragione, Torre Lamberti
+- Current location: San Fermo
+
+TEMPORAL CONTEXT:
+Current: Tuesday 11:52, usual hours: [9, 10, 16, 10, 11, 11], avg: 11.2h, days visited: Monday, Tuesday
+
+SPATIAL CONTEXT:
+Nearby attractions within walking distance: Museo Radio (0.2km), Castelvecchio (1.0km), Museo Storia (0.2km), Museo Lapidario (0.7km), Teatro Romano (0.9km)
+
+TASK:
+Predict exactly 5 most likely next destinations for this tourist. Order them by decreasing probability (most likely first)
+
+OUTPUT FORMAT:
+Respond in JSON format like this: {"prediction": ["poi1", "poi2", "poi3", "poi4", "poi5"], "reason": "brief explanation"}.

@@ -1,0 +1,14 @@
+CARD: 04477B4A3F3880
+SEQUENCE: Arena → Casa Giulietta → Torre Lamberti → Santa Anastasia → Duomo → Tomba Giulietta → San Zeno
+TARGET: San Zeno
+LENGTH: 407 chars
+==================================================
+
+Predict the next POI for this tourist in Verona:
+
+VISIT HISTORY: Arena, Casa Giulietta, Torre Lamberti, Santa Anastasia, Duomo
+CURRENT LOCATION: Tomba Giulietta
+NEARBY ATTRACTIONS: Museo Radio (0.7km), Castelvecchio (1.0km), Museo Storia (0.6km), Museo Lapidario (0.7km), Teatro Romano (1.6km)
+
+Task: Predict the next most likely destination considering spatial proximity.
+Output: List the top 3 POI names.

@@ -1,0 +1,38 @@
+==== PROMPT TIME ORIGINALE (1,019 chars) ====
+You are an expert tourism analyst predicting visitor behavior in Verona, Italy.
+
+TOURIST PROFILE:
+- Cluster: 3 (behavioral pattern group)  
+- Visit history: Arena, Casa Giulietta, Torre Lamberti, Santa Anastasia, Duomo
+- Current location: Tomba Giulietta
+
+TEMPORAL CONTEXT:
+Current: Wednesday 14:26, usual hours: [10, 10, 11, 12, 13, 14], avg: 11.7h
+
+SPATIAL CONTEXT:
+Nearby attractions within walking distance: Museo Radio (0.7km), Castelvecchio (1.0km), Museo Storia (0.6km), Museo Lapidario (0.7km), Teatro Romano (1.6km)
+
+TASK:
+Predict exactly 5 most likely next destinations for this tourist. Order them by decreasing probability (most likely first)
+
+OUTPUT FORMAT:
+Respond in JSON format like this: {"prediction": ["poi1", "poi2", "poi3", "poi4", "poi5"], "reason": "brief explanation"}.
+
+==== PROMPT TIME SEMPLIFICATO (482 chars) - RIDUZIONE 53% ====
+Predict next POI for Verona tourist:
+
+HISTORY: Arena, Casa Giulietta, Torre Lamberti, Santa Anastasia, Duomo
+CURRENT: Tomba Giulietta
+TIME: Wed 14:26 (usual: 10-14h, cluster: 3)
+NEARBY: Museo Radio (0.7km), Castelvecchio (1.0km), Museo Storia (0.6km), Museo Lapidario (0.7km)
+
+Output top 3: poi1,poi2,poi3
+
+==== PROMPT TIME ULTRA-COMPATTO (358 chars) - RIDUZIONE 65% ====
+Next POI for tourist at Tomba Giulietta (Wed 14:26)?
+
+History: Arena → Casa Giulietta → Torre Lamberti → Santa Anastasia → Duomo
+Nearby: Museo Radio (0.7km), Castelvecchio (1.0km), Museo Storia (0.6km)
+Pattern: Usually visits 10-14h, cluster 3
+
+Top 3:

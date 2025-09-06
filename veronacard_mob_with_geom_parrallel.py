@@ -29,12 +29,12 @@ class Config:
     """Centralized configuration to avoid global variables"""
     
     # Model configuration
-    MODEL_NAME = "deepseek-r1:32b" #llama3.1:8b - qwen2.5:7b - qwen2.5:14b - mixtral:8x7b
+    MODEL_NAME = "qwen2.5:14b" #llama3.1:8b - qwen2.5:7b - qwen2.5:14b - mixtral:8x7b - mistral:7b
     TOP_K = 5  # Number of POI predictions
     
-    # HPC optimization parameters
-    MAX_CONCURRENT_REQUESTS = 4  # 4 GPUs × 1 requests per GPU
-    REQUEST_TIMEOUT = 600  # Seconds for complex inference (INCREASED for DeepSeek R1 32B)
+    # HPC optimization parameters - OPTIMIZED FOR HIGH THROUGHPUT
+    MAX_CONCURRENT_REQUESTS = 12  # 4 GPUs × 3 requests per GPU (INCREASED)
+    REQUEST_TIMEOUT = 300  # Reduced for better throughput (was 600)
     BATCH_SAVE_INTERVAL = 500  # Save results every N cards
     HEALTH_CHECK_INTERVAL = 600  # Check host health every N seconds
     
@@ -50,17 +50,17 @@ class Config:
     MAX_503_RETRIES = 20    # ✅ NUOVO: retry dedicati per 503
     
     # Anchor rule for POI selection
-    DEFAULT_ANCHOR_RULE = "penultimate"
+    DEFAULT_ANCHOR_RULE = "middle"
     
-    # Parallelism
+    # Parallelism - OPTIMIZED FOR A100 64GB CAPACITY
     ENABLE_ROUND_ROBIN = True  # Abilita round-robin
     HOST_SELECTION_STRATEGY = "balanced"  # "round_robin", "performance", "balanced"
-    MAX_CONCURRENT_PER_GPU = 1  # Richieste simultanee per GPU (REDUCED for DeepSeek R1 32B)
+    MAX_CONCURRENT_PER_GPU = 3  # INCREASED: 3 richieste simultanee per A100 64GB
     
     # File paths
     OLLAMA_PORT_FILE = "ollama_ports.txt"
     LOG_DIR = Path(__file__).resolve().parent / "logs"
-    RESULTS_DIR = Path(__file__).resolve().parent / "results/deepseek-r1_32b/with_geom/"
+    RESULTS_DIR = Path(__file__).resolve().parent / "results/middle/qwen2.5_14b/with_geom/"
     DATA_DIR = Path(__file__).resolve().parent / "data" / "verona"
     POI_FILE = DATA_DIR / "vc_site.csv"
 
@@ -636,8 +636,8 @@ class OllamaConnectionManager:
                         "num_predict": 256,   # Reduced for faster completion
                         "temperature": 0.1,
                         "top_p": 0.9,
-                        "num_thread": 32,     # Reduced for stability
-                        "num_batch": 512,     # REDUCED: Memory efficiency critical
+                        "num_thread": 32,     # MAX: Use all available cores (32 limit)
+                        "num_batch": 1024,    # INCREASED: Better utilize A100 64GB VRAM
                         "repeat_penalty": 1.1,
                         "stop": ["<|im_end|>", "<|endoftext|>"],  # Stop tokens for DeepSeek R1
                     }
@@ -904,19 +904,20 @@ class PromptBuilder:
     """Handles prompt generation for LLM predictions"""
     
     @staticmethod
-    def get_anchor_index(seq_len: int, rule: str | int) -> int:
+    def get_anchor_index(seq_len: int, rule: str | int, is_full_sequence: bool = False) -> int:
         """
         Determine anchor POI index based on specified rule.
         
         The anchor POI is used as the "current location" in the prompt.
         
         Args:
-            seq_len: Length of sequence (excluding target)
+            seq_len: Length of sequence 
             rule: Selection strategy:
-                - "penultimate": Last element of prefix
+                - "penultimate": Last element of prefix (when is_full_sequence=False)
                 - "first": Index 0
-                - "middle": seq_len // 2
+                - "middle": seq_len // 2 (when is_full_sequence=True, operates on full sequence)
                 - int: Explicit index (negative allowed)
+            is_full_sequence: Whether seq_len refers to full sequence (True) or prefix (False)
                 
         Returns:
             0-based index of anchor POI
@@ -925,18 +926,31 @@ class PromptBuilder:
             ValueError: If rule is invalid or index out of range
         """
         if rule == "penultimate":
-            idx = seq_len - 1
+            if is_full_sequence:
+                idx = seq_len - 2  # Second to last in full sequence
+            else:
+                idx = seq_len - 1  # Last in prefix
         elif rule == "first":
             idx = 0
         elif rule == "middle":
-            idx = seq_len // 2
+            if is_full_sequence:
+                # For middle rule on full sequence, target will be element after anchor
+                # So anchor should be at position that allows for a valid target
+                idx = (seq_len - 1) // 2  # Ensures target index < seq_len
+            else:
+                idx = seq_len // 2
         elif isinstance(rule, int):
             idx = rule if rule >= 0 else seq_len + rule
         else:
             raise ValueError(f"Invalid anchor_rule: '{rule}'")
         
+        max_idx = seq_len - 1 if is_full_sequence else seq_len - 1
         if not (0 <= idx < seq_len):
             raise ValueError(f"Anchor index {idx} out of range for sequence length {seq_len}")
+        
+        # For middle rule with full sequence, ensure there's space for target
+        if rule == "middle" and is_full_sequence and idx >= seq_len - 1:
+            raise ValueError(f"Middle anchor index {idx} doesn't allow for target in sequence of length {seq_len}")
             
         return idx
     
@@ -1032,14 +1046,22 @@ class PromptBuilder:
         if len(seq) < 3:
             raise ValueError("Sequence too short (minimum 3 visits required)")
         
-        # Split into history, current, and target
-        target = seq[-1]  # Last visit (to predict)
-        prefix = seq[:-1]  # All except last
-        
-        # Determine current POI using anchor rule
-        idx = PromptBuilder.get_anchor_index(len(prefix), anchor_rule)
-        current_poi = prefix[idx]
-        history = [p for i, p in enumerate(prefix) if i != idx]
+        # Handle different logic for middle rule vs others
+        if anchor_rule == "middle":
+            # For middle rule: anchor is middle of full sequence, target is next element
+            anchor_idx = PromptBuilder.get_anchor_index(len(seq), anchor_rule, is_full_sequence=True)
+            current_poi = seq[anchor_idx]
+            target = seq[anchor_idx + 1]  # Element immediately after anchor
+            history = seq[:anchor_idx]  # Elements before anchor
+        else:
+            # Original logic for other rules
+            target = seq[-1]  # Last visit (to predict)
+            prefix = seq[:-1]  # All except last
+            
+            # Determine current POI using anchor rule
+            anchor_idx = PromptBuilder.get_anchor_index(len(prefix), anchor_rule)
+            current_poi = prefix[anchor_idx]
+            history = [p for i, p in enumerate(prefix) if i != anchor_idx]
         
         # Get user's cluster
         cluster_id = user_clusters.loc[
@@ -1263,11 +1285,7 @@ class CardProcessor:
                 logger.debug(f"Card {card_id} has insufficient visits ({len(seq)})")
                 return None
             
-            # Extract sequence components
-            target = seq[-1]
-            prefix = seq[:-1]
-            
-            # Create prompt
+            # Create prompt (which now handles the logic internally)
             try:
                 prompt = PromptBuilder.create_prompt(
                     self.filtered_df,
@@ -1284,12 +1302,20 @@ class CardProcessor:
             # Get LLM prediction
             response = self.ollama_manager.get_chat_completion(prompt)
             
-            # Prepare result record
-            idx_anchor = PromptBuilder.get_anchor_index(
-                len(prefix), Config.DEFAULT_ANCHOR_RULE
-            )
-            history_list = [p for i, p in enumerate(prefix) if i != idx_anchor]
-            current_poi = prefix[idx_anchor]
+            # Extract sequence components based on anchor rule (for result record)
+            if Config.DEFAULT_ANCHOR_RULE == "middle":
+                # For middle rule: anchor is middle of full sequence, target is next element
+                anchor_idx = PromptBuilder.get_anchor_index(len(seq), Config.DEFAULT_ANCHOR_RULE, is_full_sequence=True)
+                current_poi = seq[anchor_idx]
+                target = seq[anchor_idx + 1]  # Element immediately after anchor
+                history_list = seq[:anchor_idx]  # Elements before anchor
+            else:
+                # Original logic for other rules
+                target = seq[-1]
+                prefix = seq[:-1]
+                anchor_idx = PromptBuilder.get_anchor_index(len(prefix), Config.DEFAULT_ANCHOR_RULE)
+                history_list = [p for i, p in enumerate(prefix) if i != anchor_idx]
+                current_poi = prefix[anchor_idx]
             
             result = {
                 "card_id": card_id,
@@ -1501,14 +1527,14 @@ class VisitFileProcessor:
         # Calculate optimal number of workers
         n_healthy_hosts = len(self.ollama_manager.health_monitor.get_healthy_hosts())
     
-        # Imposta workers = numero di GPU healthy
-        optimal_workers = min(n_healthy_hosts * Config.MAX_CONCURRENT_PER_GPU, len(cards_to_process))  # Max 2 thread per GPU
+        # OPTIMIZED: Use full concurrency potential
+        optimal_workers = min(Config.MAX_CONCURRENT_REQUESTS, len(cards_to_process))  # Use global limit instead of per-GPU
         
         logger.info(f"Using {optimal_workers} workers for {n_healthy_hosts} healthy hosts")
         
-        # ✅ NUOVO: Attesa estesa per stabilizzazione completa
-        logger.info("Waiting 180s for DeepSeek R1 32B to FULLY stabilize...")
-        time.sleep(180)  # ✅ MODIFICATO: da 120s a 180s per DeepSeek R1
+        # OPTIMIZED: Reduced stabilization time for faster startup
+        logger.info("Waiting 60s for model stabilization...")
+        time.sleep(60)  # REDUCED: Faster startup with mistral:7b
         
         # ✅ NUOVO: Test pre-processing per verificare che tutto sia OK
         logger.info("Running pre-flight check on all hosts...")

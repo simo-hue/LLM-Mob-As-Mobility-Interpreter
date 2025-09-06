@@ -1,35 +1,67 @@
-PROVATI NORMALE ( baseline ):
+----------- ANCHOR RULE = PENULTIMATE -----------
+
+PROVATI NORMALE:
   - llama3.1:8b
   - mixtral:8x7b
-  - qwen2.5:7b ( da Ri-FARE )
+  - mistral:7b
+  - qwen2.5:7b ( esecuzione )
   - qwen2.5:14b
   - deepseek-coder:33b
 
-PROVATI GEOM ( no time ):
+PROVATI GEOM:
   - llama3.1:8b
   - mixtral:8x7b
+  - mistral:7b
   - qwen2.5:7b
   - qwen2.5:14b
   - deepseek-coder:33b
 
 PROVATI GEOM + TIME:
-  - llama3.1:8b ( da Fare )
-  - llama3.1:70b ( da Fare )
-  - mixtral:8x7b ( da Fare )
-  - mixtral:8x22b ( da Fare )
-  - qwen2.5:7b ( da Fare )
-  - qwen2.5:14b ( da Fare )
-  - qwen2.5:72b-instruct ( da Fare )
-  - deepseek-coder:33b ( da Fare )
-  - deepseek-r1:32b ( da Fare )
-  - codellama:34b ( da Fare )
+  - llama3.1:8b -> TO DO
+  - mixtral:8x7b -> TO DO
+  - mistral:7b -> TO DO
+  - qwen2.5:7b -> TO DO
+  - qwen2.5:14b -> TO DO
+  - deepseek-coder:33b -> TO DO
 
-DA PROVARE:
-  - gpt-oss:20b
-  - gemma3:8b
-  - gemma3:27b
-  - qwen3:32b
 
+----------- ANCHOR RULE = MIDDLE -----------
+
+PROVATI NORMALE:
+  - llama3.1:8b -> TO DO
+  - mixtral:8x7b -> TO DO
+  - mistral:7b  -> TO DO
+  - qwen2.5:7b ( esecuzione )
+  - qwen2.5:14b -> TO DO
+  - deepseek-coder:33b -> TO DO
+
+PROVATI GEOM:
+  - llama3.1:8b -> TO DO
+  - mixtral:8x7b -> TO DO
+  - mistral:7b -> TO DO
+  - qwen2.5:7b -> ( esecuzione )
+  - qwen2.5:14b -> TO DO
+  - deepseek-coder:33b -> TO DO
+
+PROVATI GEOM + TIME:
+  - llama3.1:8b -> TO DO
+  - mixtral:8x7b -> TO DO
+  - mistral:7b -> TO DO
+  - qwen2.5:7b -> TO DO
+  - qwen2.5:14b -> TO DO
+  - deepseek-coder:33b -> TO DO
+
+
+
+
+
+
+
+
+
+
+
+----------- INFORMAZIONI GENERALI HPC -----------
 
   MODELLI: /leonardo_work/IscrC_LLM-Mob/.ollama/models/manifests/registry.ollama.ai/library
 
@@ -62,6 +94,4 @@ llama3.1:8b             46e0c10c039e    4.9 GB    2 months ago
 
 PROSSIMI PASSI:
 - TUTTE LE RUN con il TEMPO
-- RUN con anchor point [ (n/2) -1 ]
 - RUN con modelli più grandi
-- 

@@ -5,6 +5,7 @@ import math
 import os
 import queue
 import random
+import re
 import sys
 import threading
 import time
@@ -29,15 +30,19 @@ class Config:
     """Centralized configuration to avoid global variables"""
     
     # Model configuration - ottimizzato per tourism mobility prediction
-    MODEL_NAME = "qwen2.5:7b" # Raccomandato per reasoning spazio-temporale
-    # Alternative: "llama3.1:70b-instruct", "mixtral:8x22b-instruct"
+    MODEL_NAME = "qwen2.5:7b"
+    FALLBACK_MODELS = ["llama3.1:8b", "mistral:7b", "llama3:8b", "gemma2:9b"]
     TOP_K = 5  # Number of POI predictions
     
-    # HPC optimization parameters for 4x A100 64GB - ULTRA CONSERVATIVE FOR STABILITY
-    MAX_CONCURRENT_REQUESTS = 1   # ✅ SINGLE REQUEST: Evita crash delle istanze Ollama
-    REQUEST_TIMEOUT = 180  # Ridotto per rilevare problemi early
-    BATCH_SAVE_INTERVAL = 1000  # Salva ogni 1000 cards per efficienza I/O
-    HEALTH_CHECK_INTERVAL = 120  # Check molto più frequenti per rilevare problemi early
+    # HPC optimization parameters for 4x A100 64GB - TIME VERSION OPTIMIZED
+    DEBUG_MODE = False  # Set to True for debugging, False for production
+    DEBUG_MAX_CARDS = 50  # Only used when DEBUG_MODE = True
+    
+    # Production-ready adaptive parallelism
+    MAX_CONCURRENT_REQUESTS = 2 if DEBUG_MODE else 4
+    REQUEST_TIMEOUT = 180 if DEBUG_MODE else 300
+    BATCH_SAVE_INTERVAL = 100 if DEBUG_MODE else 500
+    HEALTH_CHECK_INTERVAL = 60 if DEBUG_MODE else 120
     
     # Retry and failure handling ottimizzati per HPC - MORE CONSERVATIVE
     MAX_RETRIES_PER_REQUEST = 5  # Ridotto per evitare sovraccarico
@@ -56,7 +61,7 @@ class Config:
     # Parallelism ottimizzato per 4x A100
     ENABLE_ROUND_ROBIN = True
     HOST_SELECTION_STRATEGY = "balanced"
-    MAX_CONCURRENT_PER_GPU = 1   # ✅ FIXED: 1 richiesta simultanea per GPU per evitare OOM
+    MAX_CONCURRENT_PER_GPU = 1   # ✅ SAFE: 1 richiesta per A100 per evitare crashes
     
     # Memory and performance tuning per A100
     GPU_MEMORY_FRACTION = 0.95  # Usa 95% della VRAM disponibile
@@ -531,7 +536,7 @@ class OllamaConnectionManager:
         logger.info(f"{working_hosts}/{len(self.hosts)} hosts have working model")
         return working_hosts > 0
     
-    def get_chat_completion(self, prompt: str, model: str = Config.MODEL_NAME) -> Optional[str]:
+    def get_chat_completion(self, prompt: str, model: str = Config.MODEL_NAME, warmup_mode: bool = False) -> Optional[str]:
         """Get chat completion with load balancing and error handling"""
         
         # Check circuit breaker - STOP COMPLETELY instead of skipping
@@ -546,9 +551,15 @@ class OllamaConnectionManager:
             logger.error("Rate limiter not initialized - call setup_connections() first")
             return None
             
-        # Acquire rate limiting semaphore - timeout = REQUEST_TIMEOUT + buffer per evitare deadlock
-        if not self.rate_limiter.acquire(blocking=True, timeout=Config.REQUEST_TIMEOUT + 60):
-            logger.warning("Rate limit timeout - system overloaded")
+        # Acquire rate limiting semaphore - timeout ottimizzato per debug
+        if Config.DEBUG_MODE:
+            # Debug mode: timeout più aggressivi per fallire velocemente
+            timeout_val = 60 if warmup_mode else 180  # 1 min warmup, 3 min processing
+        else:
+            timeout_val = 120 if warmup_mode else Config.REQUEST_TIMEOUT + 60
+            
+        if not self.rate_limiter.acquire(blocking=True, timeout=timeout_val):
+            logger.warning(f"Rate limit timeout ({'warmup' if warmup_mode else 'normal'}) - system overloaded")
             return None
         
         try:
@@ -640,18 +651,18 @@ class OllamaConnectionManager:
                     "stream": False,
                     # ✅ REMOVED: Rimosso formato JSON forzato che causava interruzioni
                     "options": {
-                        # Context window - ULTRA CONSERVATIVE per massima stabilità
-                        "num_ctx": 2048,           # DRASTICALLY REDUCED per evitare OOM
+                        # Context window - REDUCED per evitare timeout
+                        "num_ctx": 2048,           # REDUCED per prompt complessi
                         
-                        # Generation parameters - ottimizzati per evitare interruzioni
-                        "num_predict": 256,        # Ridotto ulteriormente per stabilità
+                        # Generation parameters - ottimizzati per JSON semplice
+                        "num_predict": 128,        # REDUCED per JSON conciso
                         "temperature": 0.1,        # Bassa per predizioni precise
                         "top_p": 0.9,
                         "top_k": 40,               # Aggiunto per controllo qualità
                         
-                        # Hardware optimization per A100 - PARAMETRI ULTRA CONSERVATIVI
-                        "num_thread": 32,          # DRASTICALLY REDUCED per evitare sovraccarico CPU
-                        "num_batch": 512,          # QUARTERED per massima stabilità memoria
+                        # Hardware optimization per A100 - FULL POWER per Mistral
+                        "num_thread": 56,          # FULL POWER: tutti i core Sapphire Rapids 
+                        "num_batch": 512,          # REDUCED per evitare memory pressure
                         "num_gpu": 1,              # Una GPU per istanza Ollama
                         "main_gpu": 0,             # GPU principale per l'istanza
                         
@@ -671,21 +682,25 @@ class OllamaConnectionManager:
                 }
                 
                 start_time = time.time()
+                
+                # Debug mode: timeout più aggressivo per fallire velocemente
+                request_timeout = 120 if Config.DEBUG_MODE else Config.REQUEST_TIMEOUT
+                
                 resp = requests.post(
                     f"{host}/api/chat",
                     json=payload,
-                    timeout=Config.REQUEST_TIMEOUT,
+                    timeout=request_timeout,
                     headers={'Content-Type': 'application/json'}
                 )
                 response_time = time.time() - start_time
                 
-                # Handle 503 Service Unavailable specifically
+                # Handle various HTTP errors
                 if resp.status_code == 503:
                     service_unavailable_count += 1
                     logger.warning(f"503 Service Unavailable from {host} (count: {service_unavailable_count})")
                     
                     if service_unavailable_count <= Config.MAX_503_RETRIES:
-                        wait_time = Config.RETRY_ON_503_WAIT * min(service_unavailable_count, 5)
+                        wait_time = Config.RETRY_ON_503_WAIT * min(service_unavailable_count, 3)
                         logger.info(f"Waiting {wait_time}s for model to load on {host}...")
                         time.sleep(wait_time)
                         continue
@@ -694,6 +709,28 @@ class OllamaConnectionManager:
                         with self.health_monitor._lock:
                             self.health_monitor.health_status[host] = False
                         continue
+                
+                # Handle 404 - model not found
+                elif resp.status_code == 404:
+                    logger.error(f"404 Model not found on {host} - checking available models")
+                    try:
+                        models_resp = requests.get(f"{host}/api/tags", timeout=10)
+                        if models_resp.status_code == 200:
+                            available_models = [m.get('name', '') for m in models_resp.json().get('models', [])]
+                            logger.error(f"Available models on {host}: {available_models}")
+                            
+                            # Try to use first available model if qwen2.5:7b not found
+                            if available_models and model not in available_models:
+                                logger.warning(f"Model {model} not found, trying {available_models[0]}")
+                                # Update payload with available model
+                                payload["model"] = available_models[0]
+                                continue
+                    except Exception as e:
+                        logger.error(f"Failed to check available models: {e}")
+                    
+                    with self.health_monitor._lock:
+                        self.health_monitor.health_status[host] = False
+                    continue
                 
                 resp.raise_for_status()
                 response_data = resp.json()
@@ -751,6 +788,77 @@ class OllamaConnectionManager:
         logger.error(f"All {Config.MAX_RETRIES_PER_REQUEST} attempts failed")
         return None
 
+    def _preload_model_on_all_gpus(self) -> bool:
+        """
+        Force model preloading on all GPU instances to allocate VRAM properly.
+        Sends inference requests to all hosts to ensure model is loaded in GPU memory.
+        """
+        logger.info("🔥 Starting model preloading on all GPU instances...")
+        
+        preload_prompts = [
+            "What is the capital of Italy?",
+            "Describe a typical tourist visiting Verona.",
+            "List popular tourist attractions in a historic city."
+        ]
+        
+        success_count = 0
+        total_hosts = len(self.hosts)
+        
+        for i, host in enumerate(self.hosts):
+            logger.info(f"🔥 Preloading on GPU {i+1}/{total_hosts}: {host}")
+            
+            try:
+                for j, prompt in enumerate(preload_prompts):
+                    logger.info(f"   Preload request {j+1}/3 for {host}")
+                    
+                    payload = {
+                        "model": Config.MODEL_NAME,
+                        "prompt": prompt,
+                        "stream": False,
+                        "options": {
+                            "num_ctx": 2048,
+                            "num_predict": 100,
+                            "num_thread": 28,  # 1/4 of 112 cores per GPU
+                            "num_batch": 2048,
+                            "cache_type_k": "f16",
+                            "temperature": 0.7
+                        }
+                    }
+                    
+                    response = requests.post(
+                        f"{host}/api/generate",
+                        json=payload,
+                        timeout=120,  # 2 minutes per preload request
+                        headers={'Content-Type': 'application/json'}
+                    )
+                    
+                    if response.status_code == 200:
+                        try:
+                            result = response.json()
+                            if result.get('response') and len(result.get('response', '')) > 10:
+                                logger.info(f"   ✅ GPU {i+1} preload {j+1}/3 successful ({len(result.get('response', ''))} chars)")
+                            else:
+                                logger.warning(f"   ⚠️  GPU {i+1} preload {j+1}/3 short response")
+                        except json.JSONDecodeError:
+                            logger.warning(f"   ⚠️  GPU {i+1} preload {j+1}/3 invalid JSON")
+                    else:
+                        logger.error(f"   ❌ GPU {i+1} preload {j+1}/3 failed: {response.status_code}")
+                        break
+                else:
+                    # All preload requests succeeded for this host
+                    success_count += 1
+                    logger.info(f"✅ GPU {i+1} preloading completed successfully")
+                    
+            except Exception as e:
+                logger.error(f"❌ GPU {i+1} preloading failed: {e}")
+        
+        if success_count == total_hosts:
+            logger.info(f"🚀 ALL {total_hosts} GPUs preloaded successfully - VRAM allocation complete!")
+            return True
+        else:
+            logger.warning(f"⚠️  Only {success_count}/{total_hosts} GPUs preloaded successfully")
+            return success_count > 0  # Return True if at least one GPU was preloaded
+
 class SafeOllamaConnectionManager(OllamaConnectionManager):
     """Versione con inizializzazione sicura garantita"""
     
@@ -777,10 +885,10 @@ class SafeOllamaConnectionManager(OllamaConnectionManager):
                 "OllamaConnectionManager not initialized. Call setup_connections() first."
             )
     
-    def get_chat_completion(self, prompt: str, model: str = Config.MODEL_NAME) -> Optional[str]:
+    def get_chat_completion(self, prompt: str, model: str = Config.MODEL_NAME, warmup_mode: bool = False) -> Optional[str]:
         """Get chat completion with initialization check"""
         self._ensure_initialized()
-        return super().get_chat_completion(prompt, model)
+        return super().get_chat_completion(prompt, model, warmup_mode)
     
 # ============= GEOGRAPHIC UTILITIES =============
 def calculate_distance(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
@@ -1111,47 +1219,39 @@ class PromptBuilder:
         if len(days_visited) > 1:
             time_context += f", days visited: {', '.join(days_visited[:3])}"
         
-        # Create comprehensive prompt with flexible output format
-        return f"""You are an expert tourism analyst predicting visitor behavior in Verona, Italy.
+        # Adaptive prompt complexity based on mode
+        if Config.DEBUG_MODE:
+            # Simplified version for debugging and testing
+            time_summary = f"{current_day[:3]} {current_time.strftime('%H:%M')}"
+            if visit_hours:
+                hour_range = f"{min(visit_hours)}-{max(visit_hours)}h"
+                time_summary += f" (usual: {hour_range}, cluster: {cluster_id})"
+            
+            return f"""Tourist at {current_poi} ({time_summary}). Predict next {top_k} POI.
 
-TOURIST PROFILE:
-- Cluster: {cluster_id} (behavioral pattern group)  
-- Visit history: {', '.join(history) if history else 'First-time visitor'}
-- Current location: {current_poi}
+History: {' → '.join(history) if history else 'None'}
+Nearby: {pois_list if pois_list else 'None'}
 
-TEMPORAL CONTEXT:
-{time_context}
+Answer format: poi1, poi2, poi3, poi4, poi5"""
+        else:
+            # Production version with full temporal context
+            return f"""You are an expert tourism analyst predicting visitor behavior in Verona, Italy.
+            TOURIST PROFILE:
+            - Cluster: {cluster_id} (behavioral pattern group)  
+            - Visit history: {', '.join(history) if history else 'First-time visitor'}
+            - Current location: {current_poi}
 
-SPATIAL CONTEXT:
-Nearby attractions within walking distance: {pois_list if pois_list else 'No nearby POIs within 5km'}
+            TEMPORAL CONTEXT:
+            {time_context}
 
-TASK:
-Predict the {top_k} most likely next destinations for this tourist, considering:
-1. Geographic proximity and accessibility
-2. Temporal patterns (time of day, day of week preferences)  
-3. Tourist cluster behavioral patterns
-4. Logical flow of sightseeing activities
-5. Popular attraction combinations in Verona
+            SPATIAL CONTEXT:
+            Nearby attractions within walking distance: {pois_list if pois_list else 'No nearby POIs within 5km'}
 
-REQUIREMENTS:
-- Provide exactly {top_k} predictions
-- Order them by decreasing probability (most likely first)
-- Only suggest POIs from the nearby list or well-known Verona attractions
-- Consider realistic travel times and opening hours
+            TASK:
+            Predict exactly {top_k} most likely next destinations for this tourist, Order them by decreasing probability (most likely first)
 
-OUTPUT FORMAT:
-Respond in JSON format if possible, but clear structured text is also acceptable:
-
-PREFERRED (JSON):
-{{"prediction": ["poi1", "poi2", "poi3"], "reason": "brief explanation"}}
-
-ALTERNATIVE (Structured text):
-PREDICTIONS:
-1. most_likely_poi
-2. second_most_likely_poi  
-3. third_most_likely_poi
-
-REASONING: Brief explanation of temporal and spatial factors."""
+            OUTPUT FORMAT:
+            Respond in JSON format like this: {{"prediction": ["poi1", "poi2", "poi3"], "reason": "brief explanation"}}."""
 
 # ============= CHECKPOINT MANAGEMENT =============
 class CheckpointManager:
@@ -1363,6 +1463,7 @@ class CardProcessor:
                     top_k=Config.TOP_K,
                     anchor_rule=Config.DEFAULT_ANCHOR_RULE
                 )
+                    
             except Exception as e:
                 logger.warning(f"Error creating prompt for {card_id}: {e}")
                 return None
@@ -1390,34 +1491,36 @@ class CardProcessor:
                 "status": "success" if response else "failed"
             }
             
-            # Parse response if available - gestione più robusta
+            # Parse response if available - gestione adattiva per prompt semplici
             if response:
                 try:
-                    # ✅ IMPROVED: Tentativo di parsing JSON più flessibile
-                    # Pulisce la risposta da caratteri problematici
                     cleaned_response = response.strip()
                     
-                    # Cerca pattern JSON nella risposta anche se non perfettamente formattata
-                    if "{" in cleaned_response and "}" in cleaned_response:
-                        # Estrae il primo blocco JSON valido
-                        start_idx = cleaned_response.find("{")
-                        end_idx = cleaned_response.rfind("}") + 1
-                        json_part = cleaned_response[start_idx:end_idx]
-                        
-                        parsed = json.loads(json_part)
+                    # Adaptive parsing based on prompt complexity
+                    if Config.DEBUG_MODE:
+                        # Simple parsing for compact prompts
+                        predictions = self._parse_simple_response(cleaned_response)
+                        result["prediction"] = str(predictions)
+                        result["reason"] = f"Temporal prediction (cluster {self._get_user_cluster(card_id)}) based on spatial and time patterns"
+                        result["hit"] = target in predictions
                     else:
-                        # Fallback: crea struttura JSON dai pattern di testo
-                        logger.debug(f"No JSON found in response, attempting text parsing for {card_id}")
-                        predictions = self._extract_predictions_from_text(response)
-                        parsed = {"prediction": predictions, "reason": "Extracted from text"}
-                    
-                    predictions = parsed.get("prediction", [])
-                    if not isinstance(predictions, list):
-                        predictions = [predictions] if predictions else []
-                    
-                    result["prediction"] = str(predictions)
-                    result["reason"] = parsed.get("reason", "")[:200]  # Limit length
-                    result["hit"] = target in predictions
+                        # JSON parsing for complex prompts
+                        if "{" in cleaned_response and "}" in cleaned_response:
+                            start_idx = cleaned_response.find("{")
+                            end_idx = cleaned_response.rfind("}") + 1
+                            json_part = cleaned_response[start_idx:end_idx]
+                            parsed = json.loads(json_part)
+                        else:
+                            predictions = self._extract_predictions_from_text(response)
+                            parsed = {"prediction": predictions, "reason": "Extracted from text"}
+                        
+                        predictions = parsed.get("prediction", [])
+                        if not isinstance(predictions, list):
+                            predictions = [predictions] if predictions else []
+                        
+                        result["prediction"] = str(predictions)
+                        result["reason"] = parsed.get("reason", "")[:200]
+                        result["hit"] = target in predictions
                     
                 except json.JSONDecodeError as e:
                     logger.debug(f"JSON parse failed for {card_id}, attempting text extraction: {e}")
@@ -1465,6 +1568,80 @@ class CardProcessor:
             ]["cluster"].iloc[0])
         except Exception:
             return None
+    
+    def _parse_simple_response(self, response: str) -> List[str]:
+        """
+        Parse responses from simplified prompts.
+        Handles various output formats: comma-separated, numbered lists, single responses.
+        """
+        
+        predictions = []
+        response = response.strip().lower()
+        
+        # Pattern 1: Lista separata da virgole
+        if ',' in response:
+            parts = [p.strip() for p in response.split(',')]
+            for part in parts[:5]:  # Max 5 predictions
+                # Pulisci numeri e caratteri speciali, ma mantieni case originale
+                cleaned = re.sub(r'^\d+[\.\)]\s*', '', part).strip()
+                
+                # Cerca match con POI noti (case-insensitive)
+                known_pois = [
+                    'Arena', 'Casa Giulietta', 'Torre Lamberti', 'Castelvecchio', 
+                    'Santa Anastasia', 'Duomo', 'San Zeno', 'San Fermo',
+                    'Teatro Romano', 'Palazzo della Ragione', 'Tomba Giulietta',
+                    'AMO', 'Museo Storia', 'Museo Conte', 'Centro Fotografia',
+                    'Museo Radio', 'Museo Lapidario', 'Sighseeing', 'Verona Tour',
+                    'Museo Miniscalchi'
+                ]
+                
+                # Trova il miglior match
+                for poi in known_pois:
+                    if poi.lower() in cleaned.lower() or cleaned.lower() in poi.lower():
+                        predictions.append(poi)
+                        break
+                else:
+                    # Se non trova match, usa il testo pulito
+                    cleaned = re.sub(r'[^\w\s]', '', cleaned).title()
+                    if len(cleaned) > 2:
+                        predictions.append(cleaned)
+        
+        # Pattern 2: Lista numerata
+        elif re.search(r'\d+[\.\)]\s*\w', response):
+            matches = re.findall(r'\d+[\.\)]\s*([^\n]+)', response)
+            for match in matches[:5]:
+                cleaned = match.strip().lower()
+                cleaned = re.sub(r'[^\w\s_]', '', cleaned).replace(' ', '_')
+                if len(cleaned) > 2:
+                    predictions.append(cleaned)
+        
+        # Pattern 3: Singola risposta
+        else:
+            # Cerca POI noti di Verona nella risposta (nomi ESATTI dal dataset)
+            known_pois = [
+                'Arena', 'Casa Giulietta', 'Torre Lamberti', 'Castelvecchio', 
+                'Santa Anastasia', 'Duomo', 'San Zeno', 'San Fermo',
+                'Teatro Romano', 'Palazzo della Ragione', 'Tomba Giulietta',
+                'AMO', 'Museo Storia', 'Museo Conte', 'Centro Fotografia',
+                'Museo Radio', 'Museo Lapidario', 'Sighseeing', 'Verona Tour',
+                'Museo Miniscalchi'
+            ]
+            
+            for poi in known_pois:
+                if poi in response or poi.replace('_', ' ') in response:
+                    predictions.append(poi)
+                    if len(predictions) >= 3:
+                        break
+            
+            # Se non trova POI noti, usa le prime parole significative
+            if not predictions:
+                words = response.split()[:3]
+                for word in words:
+                    cleaned = re.sub(r'[^\w_]', '', word)
+                    if len(cleaned) > 2:
+                        predictions.append(cleaned)
+        
+        return predictions[:5]  # Massimo 5 predizioni
     
     def _extract_predictions_from_text(self, text: str) -> List[str]:
         """
@@ -1616,7 +1793,15 @@ class VisitFileProcessor:
                     min(max_users, len(eligible_cards))
                 )
             else:
-                cards_to_process = eligible_cards
+                # Limit cards in debug mode
+                if Config.DEBUG_MODE:
+                    cards_to_process = random.sample(
+                        eligible_cards,
+                        min(Config.DEBUG_MAX_CARDS, len(eligible_cards))
+                    )
+                    logger.info(f"DEBUG MODE: Limited to {len(cards_to_process)} cards for analysis")
+                else:
+                    cards_to_process = eligible_cards
             
             # Filter out already processed cards if in append mode
             if append:
@@ -1677,9 +1862,9 @@ class VisitFileProcessor:
         
         logger.info(f"Using {optimal_workers} workers for {n_healthy_hosts} healthy hosts")
         
-        # ✅ NUOVO: Attesa estesa per stabilizzazione completa
-        logger.info("Waiting 120s for models to FULLY stabilize...")
-        time.sleep(120)  # ✅ AUMENTATO: da 60s a 120s per massima stabilità
+        # ✅ OPTIMIZED: Attesa ridotta per performance
+        logger.info("Waiting 30s for models to stabilize...")
+        time.sleep(30)  # ✅ REDUCED: da 120s a 30s per avvio più rapido
         
         # ✅ NUOVO: Test pre-processing per verificare che tutto sia OK
         logger.info("Running pre-flight check on all hosts...")
@@ -1709,33 +1894,38 @@ class VisitFileProcessor:
                 
         logger.info("✅ ALL PRE-FLIGHT CHECKS PASSED - Starting progressive warm-up")
         
-        # 🔥 PROGRESSIVE WARM-UP: Test system under increasing load
-        logger.info("🔥 Phase 1: Single request warm-up test (30s timeout)...")
-        warmup_prompts = [
-            "List 3 tourist attractions in Verona.",
-            "What time is best to visit Verona in summer?", 
-            "Recommend a walking route in Verona city center."
-        ]
+        # Adaptive warm-up based on mode
+        if Config.DEBUG_MODE:
+            logger.info("DEBUG MODE: Skipping warm-up - proceeding directly to processing")
+            logger.warning("Proceeding without warm-up - expect first few requests to be slow")
+        else:
+            # Original warm-up for production
+            logger.info("🔥 Phase 1: Single request warm-up test (60s timeout for simple prompts)...")
+            warmup_prompts = ["Hi", "Hello", "Test"]
+            
+            for i, prompt in enumerate(warmup_prompts):
+                logger.info(f"  Testing warm-up prompt {i+1}/3...")
+                try:
+                    response = self.ollama_manager.get_chat_completion(prompt, warmup_mode=True)
+                    if response:
+                        logger.info(f"    ✅ Warm-up {i+1} successful: {len(response)} chars")
+                    else:
+                        logger.error(f"    ❌ Warm-up {i+1} failed: No response")
+                        raise Exception(f"Warm-up phase failed at test {i+1}")
+                    time.sleep(2)
+                except Exception as e:
+                    logger.error(f"    ❌ WARM-UP FAILED: {e}")
+                    raise Exception(f"Progressive warm-up failed: {e}")
+            
+            logger.info("✅ PROGRESSIVE WARM-UP COMPLETED - System verified under load")
         
-        for i, prompt in enumerate(warmup_prompts):
-            logger.info(f"  Testing warm-up prompt {i+1}/3...")
-            try:
-                response = self.ollama_manager.get_chat_completion(prompt)
-                if response:
-                    logger.info(f"    ✅ Warm-up {i+1} successful: {len(response)} chars")
-                else:
-                    logger.error(f"    ❌ Warm-up {i+1} failed: No response")
-                    raise Exception(f"Warm-up phase failed at test {i+1}")
-                time.sleep(2)  # Small pause between tests
-            except Exception as e:
-                logger.error(f"    ❌ WARM-UP FAILED: {e}")
-                logger.error(f"    🛑 System not ready for production load")
-                raise Exception(f"Progressive warm-up failed: {e}")
+        # Conditional GPU preloading
+        if Config.DEBUG_MODE:
+            logger.info("DEBUG MODE: Skipping GPU preloading to avoid conflicts")
+        else:
+            logger.info("Model preloading on all GPUs for VRAM allocation...")
+            self.ollama_manager._preload_model_on_all_gpus()
         
-        logger.info("🔥 Phase 2: SKIPPED - Concurrent test disabled for stability")
-        # REMOVED: Concurrent test that caused Ollama crashes
-        # Single request processing is enforced through MAX_CONCURRENT_REQUESTS = 1
-        logger.info("✅ PROGRESSIVE WARM-UP COMPLETED - System verified under load")
         logger.info("🚀 Starting production processing...")
         
         # Process cards with thread pool
@@ -1936,6 +2126,10 @@ Examples:
         os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"  # Use all 4 A100 GPUs
     
     try:
+        # Production mode initialization
+        mode = "DEBUG" if Config.DEBUG_MODE else "PRODUCTION"
+        logger.info(f"🚀 {mode} MODE - {Config.MAX_CONCURRENT_REQUESTS} concurrent requests")
+        
         # Inizializzazione passo-passo con controlli
         logger.info("Initializing Ollama connection manager...")
         ollama_manager = OllamaConnectionManager()
@@ -1957,6 +2151,40 @@ Examples:
         # Wait for services to be ready
         if not ollama_manager.wait_for_services():
             raise RuntimeError("Ollama services failed to start")
+        
+        # Check available models and fallback if needed
+        logger.info("Checking available models on all hosts...")
+        for host in hosts:
+            try:
+                models_resp = requests.get(f"{host}/api/tags", timeout=10)
+                if models_resp.status_code == 200:
+                    available_models = [m.get('name', '') for m in models_resp.json().get('models', [])]
+                    logger.info(f"{host}: {available_models}")
+                    
+                    if Config.MODEL_NAME not in available_models:
+                        logger.warning(f"Model {Config.MODEL_NAME} NOT FOUND on {host}")
+                        
+                        # Try fallback models
+                        found_fallback = None
+                        for fallback in Config.FALLBACK_MODELS:
+                            if fallback in available_models:
+                                found_fallback = fallback
+                                break
+                        
+                        if found_fallback:
+                            logger.warning(f"Using fallback model: {found_fallback}")
+                            Config.MODEL_NAME = found_fallback
+                        elif available_models:
+                            logger.warning(f"Using first available model: {available_models[0]}")
+                            Config.MODEL_NAME = available_models[0]
+                        else:
+                            logger.error(f"No models available on {host}!")
+                    else:
+                        logger.info(f"Model {Config.MODEL_NAME} available on {host}")
+                else:
+                    logger.error(f"Failed to get models from {host}")
+            except Exception as e:
+                logger.error(f"Error checking models on {host}: {e}")
         
         # Create and run processor
         processor = VisitFileProcessor(ollama_manager)

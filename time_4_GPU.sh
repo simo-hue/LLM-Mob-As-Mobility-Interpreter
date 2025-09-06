@@ -1,19 +1,19 @@
 #!/bin/bash
-#SBATCH --job-name=mobility-time
+#SBATCH --job-name=time_prod
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=boost_qos_lprod
-#SBATCH --time=02:00:00  # Aumentato per processing più lento ma stabile
+#SBATCH --time=03:00:00  # 🚀 PRODUCTION: 3 ore per processing completo
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:4
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=480G
-#SBATCH --output=mobility-time-%j.out
+#SBATCH --output=mobility-qwen_time_prod-%j.out
 
-echo "🚀 VERONA CARD - TIME"
+echo "🚀 VERONA CARD - TIME PRODUCTION"
 echo "================================================"
-echo "⚠️ ATTENZIONE: Configurazione SINGLE-REQUEST per massima stabilità"
+echo "🚀 PRODUCTION MODE: 4 GPU parallelismo completo, processing ottimizzato"
 echo "Job ID: $SLURM_JOB_ID"
 echo "Nodo: $(hostname)"
 echo "Data: $(date)"
@@ -75,7 +75,7 @@ export OLLAMA_NUM_PARALLEL=1
 export OLLAMA_MAX_LOADED_MODELS=1
 export OLLAMA_KEEP_ALIVE="8h"
 export OLLAMA_MAX_QUEUE=4
-export OLLAMA_CONCURRENT_REQUESTS=1  # Una richiesta per istanza
+export OLLAMA_CONCURRENT_REQUESTS=1  # Una richiesta per istanza per stabilità
 export OLLAMA_GPU_OVERHEAD=0         # Zero overhead per massima memoria
 export OLLAMA_LOAD_TIMEOUT=0         # No timeout per caricamento
 export OLLAMA_LLM_LIBRARY="cuda_v12"
@@ -84,8 +84,8 @@ export OLLAMA_FLASH_ATTENTION=1
 # Memory optimization per A100 - ottimizzato per stabilità
 export OLLAMA_GPU_MEMORY_FRACTION=0.95
 export OLLAMA_CUDA_VISIBLE_DEVICES=0,1,2,3
-export OLLAMA_MAX_CONTEXT=2048  # ✅ ULTRA CONSERVATIVE: Allineato a Python
-export OLLAMA_BATCH_SIZE=512    # ✅ ULTRA CONSERVATIVE: Allineato a Python
+export OLLAMA_MAX_CONTEXT=2048  # ✅ OPTIMIZED: Allineato a Python per Mistral
+export OLLAMA_BATCH_SIZE=512    # ✅ OPTIMIZED: Allineato a Python per performance
 
 # 🔴 RIMOZIONE DI TUTTI I TIMEOUT OLLAMA
 unset OLLAMA_LOAD_TIMEOUT
@@ -152,7 +152,7 @@ start_ollama_gpu() {
     OLLAMA_MAX_LOADED_MODELS=1 \
     OLLAMA_TMPDIR="$CUSTOM_TMP" \
     OLLAMA_CACHE_DIR="$gpu_cache" \
-    $OLLAMA_BIN serve > time_ollama_gpu${gpu_id}.log 2>&1 &
+    $OLLAMA_BIN serve > llama3time_ollama_gpu${gpu_id}.log 2>&1 &
     
     local pid=$!
     echo "✅ GPU $gpu_id PID: $pid (NO TIMEOUT)"
@@ -164,7 +164,7 @@ start_ollama_gpu() {
     sleep 5
     if ! kill -0 $pid 2>/dev/null; then
         echo "❌ Processo GPU $gpu_id morto immediatamente!"
-        tail -20 time_ollama_gpu${gpu_id}.log
+        tail -20 llama3time_ollama_gpu${gpu_id}.log
         return 1
     fi
     
@@ -180,7 +180,7 @@ start_ollama_gpu() {
             if ! kill -0 $pid 2>/dev/null; then
                 echo "❌ Processo GPU $gpu_id terminato inaspettatamente!"
                 echo "📜 Ultimi log:"
-                tail -30 time_ollama_gpu${gpu_id}.log
+                tail -30 llama3time_ollama_gpu${gpu_id}.log
                 return 1
             fi
             
@@ -191,7 +191,7 @@ start_ollama_gpu() {
                 # Test caricamento modello - usa il modello raccomandato
                 local test_response=$(curl -s -X POST \
                     --connect-timeout 15 \
-                    --max-time 180 \
+                    --max-time 300 \
                     "http://127.0.0.1:$port/api/generate" \
                     -H "Content-Type: application/json" \
                     -d '{
@@ -200,8 +200,8 @@ start_ollama_gpu() {
                         "stream":false,
                         "options":{
                             "num_predict":1,
-                            "num_ctx":512,
-                            "num_batch":64
+                            "num_ctx":2048,
+                            "num_batch":512
                         }
                     }' 2>&1)
                 
@@ -220,7 +220,7 @@ start_ollama_gpu() {
                 nvidia-smi --id=$gpu_id --query-gpu=memory.used,memory.total --format=csv,noheader
                 
                 # Check log per progresso
-                local progress=$(grep "model load progress" time_ollama_gpu${gpu_id}.log | tail -1)
+                local progress=$(grep "model load progress" llama3time_ollama_gpu${gpu_id}.log | tail -1)
                 [ -n "$progress" ] && echo "   📈 $progress" || echo "   📈 Modello in caricamento su GPU $gpu_id..."
             fi
             
@@ -242,7 +242,7 @@ echo ""
 echo "🚀 AVVIO SISTEMA OLLAMA"
 echo "========================"
 
-# 1. AVVIA GPU 0 COME MASTER (carica il modello)
+# 🚀 PRODUCTION: Avvia tutte le 4 GPU per processing parallelo
 if ! start_ollama_gpu 0 39001 true; then
     echo "❌ ERRORE CRITICO: GPU 0 fallita"
     exit 1
@@ -253,14 +253,14 @@ echo "✅ GPU 0 completamente operativa con modello caricato"
 echo "⏳ Pausa 120s per stabilizzazione ULTRA-CONSERVATIVE..."
 sleep 120
 
-# 2. AVVIA ALTRE GPU (che riuseranno il modello già in cache)
+# Avvia altre GPU in parallelo
 echo ""
 echo "🚀 Avvio GPU secondarie..."
 
 for gpu_id in 1 2 3; do
     port=$((39001 + gpu_id))
     start_ollama_gpu $gpu_id $port false
-    sleep 60  # Pausa aumentata per evitare sovrapposizioni
+    sleep 60  # Pausa tra avvii
 done
 
 echo "⏳ Attesa finale stabilizzazione sistema (120s)..."
@@ -271,6 +271,7 @@ echo ""
 echo "🔍 VERIFICA FINALE SISTEMA"
 echo "==========================="
 
+# 🚀 PRODUCTION: Test tutte le 4 GPU
 WORKING_GPUS=0
 WORKING_PORTS=""
 
@@ -282,7 +283,7 @@ for i in 0 1 2 3; do
     # Test completo
     if curl -s "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
         test_resp=$(curl -s -X POST \
-            --max-time 180 \
+            --max-time 300 \
             "http://127.0.0.1:$port/api/chat" \
             -H "Content-Type: application/json" \
             -d '{
@@ -291,8 +292,8 @@ for i in 0 1 2 3; do
                 "stream":false,
                 "options":{
                     "num_predict":2,
-                    "num_ctx":512,
-                    "num_batch":64
+                    "num_ctx":2048,
+                    "num_batch":512
                 }
             }' 2>&1)
         
@@ -316,7 +317,7 @@ if [ $WORKING_GPUS -eq 0 ]; then
     for i in 0 1 2 3; do
         echo ""
         echo "=== Log GPU $i (ultime 30 righe) ==="
-        tail -30 time_ollama_gpu${i}.log 2>/dev/null || echo "Log non disponibile"
+        tail -30 llama3time_ollama_gpu${i}.log 2>/dev/null || echo "Log non disponibile"
     done
     exit 1
 fi
@@ -420,8 +421,9 @@ echo "==============="
 echo ""
 
 if [ -f "data/verona/vc_site.csv" ]; then
+    echo "🚀 PRODUCTION: Processing completo con --append per resume automatico"
     python3 -u veronacard_mob_with_geom_time_parrallel.py \
-        --append 2>&1 | tee qwen_time_python_execution.log
+        --append 2>&1 | tee qwen_time_production_execution.log
     PYTHON_EXIT=$?
 else
     echo "❌ File non trovato!"

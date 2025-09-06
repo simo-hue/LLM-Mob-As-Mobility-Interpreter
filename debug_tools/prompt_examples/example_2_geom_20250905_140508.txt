@@ -1,0 +1,14 @@
+CARD: 040396523F3881
+SEQUENCE: Santa Anastasia → Duomo → Arena → Palazzo della Ragione → Torre Lamberti → San Fermo → San Zeno
+TARGET: San Zeno
+LENGTH: 408 chars
+==================================================
+
+Predict the next POI for this tourist in Verona:
+
+VISIT HISTORY: Santa Anastasia, Duomo, Arena, Palazzo della Ragione, Torre Lamberti
+CURRENT LOCATION: San Fermo
+NEARBY ATTRACTIONS: Museo Radio (0.2km), Castelvecchio (1.0km), Museo Storia (0.2km), Museo Lapidario (0.7km), Teatro Romano (0.9km)
+
+Task: Predict the next most likely destination considering spatial proximity.
+Output: List the top 3 POI names.

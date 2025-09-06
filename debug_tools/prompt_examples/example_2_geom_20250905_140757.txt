@@ -1,0 +1,14 @@
+CARD: 045A244A3F3880
+SEQUENCE: San Zeno → Santa Anastasia → Duomo → Torre Lamberti → San Fermo → Casa Giulietta → Palazzo della Ragione → Centro Fotografia → Teatro Romano
+TARGET: Teatro Romano
+LENGTH: 438 chars
+==================================================
+
+Predict the next POI for this tourist in Verona:
+
+VISIT HISTORY: San Zeno, Santa Anastasia, Duomo, Torre Lamberti, San Fermo, Casa Giulietta, Palazzo della Ragione
+CURRENT LOCATION: Centro Fotografia
+NEARBY ATTRACTIONS: Arena (0.6km), Museo Radio (0.4km), Castelvecchio (0.9km), Museo Storia (0.6km), Museo Lapidario (0.8km)
+
+Task: Predict the next most likely destination considering spatial proximity.
+Output: List the top 3 POI names.
