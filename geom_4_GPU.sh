@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=MIDllamaG
+#SBATCH --job-name=MIDqwnG
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=boost_qos_lprod
@@ -9,7 +9,7 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=256G
-#SBATCH --output=Midllama_geom-%j.out
+#SBATCH --output=Midqwen_geom-%j.out
 
 echo "🚀 VERONA CARD - GEOM VERSION"
 echo "================================================"
@@ -186,7 +186,7 @@ start_ollama_gpu() {
                     "http://127.0.0.1:$port/api/generate" \
                     -H "Content-Type: application/json" \
                     -d '{
-                        "model":"llama3.1:8b",
+                        "model":"qwen2.5:14b",
                         "prompt":"Hi",
                         "stream":false,
                         "options":{"num_predict":1}
@@ -272,7 +272,7 @@ for i in 0 1 2 3; do
             "http://127.0.0.1:$port/api/chat" \
             -H "Content-Type: application/json" \
             -d '{
-                "model":"llama3.1:8b",
+                "model":"qwen2.5:14b",
                 "messages":[{"role":"user","content":"Say OK"}],
                 "stream":false,
                 "options":{"num_predict":2}
@@ -374,9 +374,9 @@ advanced_gpu_monitor() {
             echo "🐍 Python Processing:"
             
             # Linee processate dal log
-            if [ -f "llama_geom_python_execution.log" ]; then
-                processed=$(grep -c "Processing card" llama_geom_python_execution.log 2>/dev/null || echo "0")
-                errors=$(grep -c "ERROR\|Error" llama_geom_python_execution.log 2>/dev/null || echo "0")
+            if [ -f "qwen2.5:14b_geom_python_execution.log" ]; then
+                processed=$(grep -c "Processing card" qwen2.5:14b_geom_python_execution.log 2>/dev/null || echo "0")
+                errors=$(grep -c "ERROR\|Error" qwen2.5:14b_geom_python_execution.log 2>/dev/null || echo "0")
                 echo "  Cards processed: $processed"
                 echo "  Errors: $errors"
             fi
@@ -403,7 +403,7 @@ echo ""
 
 if [ -f "data/verona/vc_site.csv" ]; then
     python3 -u veronacard_mob_with_geom_parrallel.py \
-        --append 2>&1 | tee llama_geom_python_execution.log
+        --append 2>&1 | tee qwen2.5:14b_geom_python_execution.log
     PYTHON_EXIT=$?
 else
     echo "❌ File non trovato!"

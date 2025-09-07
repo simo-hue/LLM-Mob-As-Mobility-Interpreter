@@ -29,7 +29,7 @@ class Config:
     """Centralized configuration to avoid global variables"""
     
     # Model configuration
-    MODEL_NAME = "llama3.1:8b" #llama3.1:8b - deepseek-coder:33b
+    MODEL_NAME = "deepseek-coder:33b" #llama3.1:8b - deepseek-coder:33b
     TOP_K = 5  # Number of POI predictions
     
     # HPC optimization parameters - OPTIMIZED FOR HIGH THROUGHPUT
@@ -60,7 +60,7 @@ class Config:
     # File paths
     OLLAMA_PORT_FILE = "ollama_ports.txt"
     LOG_DIR = Path(__file__).resolve().parent / "logs"
-    RESULTS_DIR = Path(__file__).resolve().parent / "results/middle/llama3.1_8b/base_version"
+    RESULTS_DIR = Path(__file__).resolve().parent / "results/middle/deepseek-coder_33b/base_version"
     DATA_DIR = Path(__file__).resolve().parent / "data" / "verona"
     POI_FILE = DATA_DIR / "vc_site.csv"
 
