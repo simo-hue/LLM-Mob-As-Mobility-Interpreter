@@ -7,10 +7,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is **LLM-Mob**, a tourist mobility prediction system using Large Language Models on HPC infrastructure. The system predicts next destinations for tourists based on visit history, spatial proximity, and temporal patterns using the VeronaCard dataset.
 
 ### Core Architecture
-- **Multi-GPU Ollama**: 4x NVIDIA A100 64GB instances running LLMs (Qwen2.5:7b,Qwen2.5:14b, Llama3.1 8b, Mixtral 8x7B, deepseek coder)
+- **Multi-GPU Ollama**: 4x NVIDIA A100 64GB instances running LLMs (Qwen2.5:7b, Qwen2.5:14b, Llama3.1:8b, Mixtral:8x7B, DeepSeek-Coder:33b, Mistral:7b)
 - **Parallel Processing**: ThreadPoolExecutor with intelligent load balancing across GPUs
-- **Checkpoint System**: Resume interrupted processing with state management
-- **Circuit Breaker**: Failure protection for distributed system reliability
+- **Checkpoint System**: Resume interrupted processing with state management and failure recovery
+- **Circuit Breaker**: Advanced failure protection with CLOSED/OPEN/HALF_OPEN states
+- **Health Monitoring**: Real-time GPU performance tracking and adaptive load balancing
 
 ## Development Commands
 
@@ -31,37 +32,56 @@ echo "11434" > ollama_ports.txt
 
 ### HPC Production (Leonardo)
 ```bash
-# Submit job to SLURM
-sbatch base_4_GPU.sh          # Base version
+# Submit job to SLURM - Current available scripts
+sbatch base_4_GPU.sh          # Base version predictions
 sbatch geom_4_GPU.sh          # With geospatial features
-sbatch time_4_GPU.sh          # With temporal analysis
+sbatch time_4_GPU.sh          # With temporal analysis (most advanced)
 
 # Monitor jobs
 squeue -u $USER
 tail -f slurm-<JOBID>.out
+scancel <JOBID>               # Cancel job if needed
+
+# Check computational budget
+saldo -b IscrC_LLM-Mob
 ```
 
 ### Main Execution Scripts
+
+#### Primary Scripts (Current Architecture)
 ```bash
-# Process all data files
+# RECOMMENDED: Full temporal + geospatial version
 python veronacard_mob_with_geom_time_parrallel.py
 
-# Process specific file with limits
+# Geospatial features only
+python veronacard_mob_with_geom_parrallel.py
+
+# Base version (minimal features)
+python veronacard_mob_versione_base_parrallel.py
+```
+
+#### Command Line Options
+```bash
+# Process specific file with user limits
 python veronacard_mob_with_geom_time_parrallel.py --file dati_2014.csv --max-users 1000
 
-# Resume from checkpoint
+# Resume from checkpoint (critical for long runs)
 python veronacard_mob_with_geom_time_parrallel.py --append
 
-# Force complete reprocessing
+# Force complete reprocessing (ignores existing results)
 python veronacard_mob_with_geom_time_parrallel.py --force
+
+# Custom anchor point selection
+python veronacard_mob_with_geom_time_parrallel.py --anchor penultimate
 ```
 
 ## Project Structure
 
 ### Main Processing Scripts
-- `veronacard_mob_with_geom_time_parrallel.py` - Full version with temporal + geospatial
-- `veronacard_mob_with_geom_parrallel.py` - Geospatial features only
-- `veronacard_mob_versione_base_parrallel.py` - Base prediction version
+- `veronacard_mob_with_geom_time_parrallel.py` - **RECOMMENDED**: Full version with temporal + geospatial analysis
+- `veronacard_mob_with_geom_parrallel.py` - Geospatial features only (distance calculations)
+- `veronacard_mob_versione_base_parrallel.py` - Base prediction version (minimal context)
+- `base.py`, `geom.py` - Simplified single-file versions for testing
 
 ### Key Classes and Components
 1. **Config** - Centralized configuration for GPU optimization
@@ -83,18 +103,34 @@ data/verona/
 
 ### Output Structure
 ```
-results/model/type_of_promt/
-├── <filename>_pred_<timestamp>.csv    # Predictions with hit rates
-└── <filename>_checkpoint.txt          # Processing state
+results/
+├── qwen2.5_7b/                        # Default model results
+│   ├── with_geom_time/                # Full temporal+geospatial analysis
+│   ├── with_geom/                     # Geospatial only
+│   └── base_version/                  # Minimal features
+├── mistral_7b/                        # Alternative model results
+├── deepseek-coder_33b/                # Code-optimized model
+└── middle/                            # Intermediate results storage
+    └── <model_name>/
+        └── <strategy>/
+            ├── <filename>_pred_<timestamp>.csv    # Predictions with hit rates
+            └── <filename>_checkpoint.txt          # Processing state
 ```
 
 ## Key Configuration Parameters
 
 ### GPU Optimization (Config class)
-- `MAX_CONCURRENT_REQUESTS = 12` - Total parallel requests (4 GPUs × 3)
-- `MAX_CONCURRENT_PER_GPU = 3` - Optimized for A100 64GB VRAM
-- `REQUEST_TIMEOUT = 180` - Reduced for A100 performance
-- `BATCH_SAVE_INTERVAL = 1000` - Checkpoint frequency
+```python
+# Production configuration for 4x A100 64GB
+MAX_CONCURRENT_REQUESTS = 4          # Conservative: 1 per GPU to avoid crashes
+MAX_CONCURRENT_PER_GPU = 1           # SAFE: Prevents GPU memory conflicts
+REQUEST_TIMEOUT = 300                # Extended timeout for complex prompts
+BATCH_SAVE_INTERVAL = 500            # Checkpoint every 500 processed cards
+
+# Debug configuration for development
+DEBUG_MODE = False                   # Set True for local testing
+DEBUG_MAX_CARDS = 50                # Limited dataset for debugging
+```
 
 ### Ollama Payload Optimization
 ```python
@@ -135,18 +171,38 @@ temporal_features = {
 }
 ```
 
-## Performance Monitoring
+## Performance Monitoring and Analysis
 
 ### Jupyter Analysis Notebooks
+
+#### Primary Analysis Notebooks
 ```bash
-# Main analysis notebook
+# RECOMMENDED: Comprehensive analysis of all models and strategies
+jupyter notebook notebook/comprehensive_model_strategy_comparison.ipynb
+
+# Updated single metrics analysis
 jupyter notebook notebook/singole_metriche_updated.ipynb
 
-# Model comparison
+# Multi-model performance comparison
 jupyter notebook notebook/multi_model_comparison_analysis.ipynb
+```
 
-# CSV export for visualization
+#### Specialized Analysis Notebooks
+```bash
+# Results analysis and visualization
+jupyter notebook notebook/analisi_risultati.ipynb
+
+# Export data for external visualization (Canva)
 jupyter notebook notebook/export_csv_for_canva.ipynb
+
+# Statistical analysis of CSV outputs
+jupyter notebook notebook/csv_statistics_analysis.ipynb
+
+# Temporal metrics analysis
+jupyter notebook notebook/metriche_con_tempo.ipynb
+
+# Base metrics analysis
+jupyter notebook notebook/metriche_base.ipynb
 ```
 
 ### Key Metrics
@@ -183,26 +239,65 @@ ls -la results/*checkpoint*
 
 ## Important Implementation Notes
 
-- **Never modify Config parameters** without understanding HPC implications
-- **Always use --append flag** when resuming interrupted jobs to avoid data loss
-- **Checkpoint files are critical** - they contain processing state for resume
-- **GPU memory is precious** - batch sizes are optimized for 64GB A100 VRAM
-- **Temporal analysis is core** - the system extracts and uses time patterns extensively
-- **Multi-GPU coordination** requires careful semaphore and lock management
+### Critical Safety Rules
+- **NEVER modify Config parameters** without understanding HPC implications - especially GPU concurrency settings
+- **ALWAYS use --append flag** when resuming interrupted jobs to prevent data loss
+- **Checkpoint files are critical** - they contain processing state and must not be manually edited
+- **GPU memory management** - Current settings optimized for A100 64GB VRAM, changing batch sizes can cause crashes
+
+### System Architecture Requirements
+- **Multi-GPU coordination** requires careful semaphore and lock management across 4 A100 instances
+- **Temporal analysis is core** - All modern versions extract and use time patterns extensively
+- **Circuit breaker pattern** - System automatically protects against cascading failures
+- **Health monitoring** - Real-time GPU performance tracking enables adaptive load balancing
+
+### Development Workflow
+- **Local testing**: Use DEBUG_MODE=True with limited datasets before HPC deployment
+- **Model selection**: Default Qwen2.5:7b with fallback to Llama3.1:8b, Mistral:7b
+- **Results validation**: Always run analysis notebooks after processing completion
 
 ## Common Issues and Solutions
 
-- **Ollama timeout**: Check that all 4 instances are running on ports 11434-11437
-- **CUDA OOM**: Reduce `num_batch` or `MAX_CONCURRENT_PER_GPU` in Config
-- **Circuit breaker open**: System overloaded, wait for automatic reset
-- **Checkpoint corruption**: Remove checkpoint file and use `--force` flag
-- **Missing POI coordinates**: Ensure `vc_site.csv` is properly loaded
+### Runtime Issues
+| Problem | Root Cause | Solution |
+|---------|------------|----------|
+| **Ollama timeout** | Multi-instance not running | Check all 4 Ollama instances on ports 11434-11437 |
+| **CUDA OOM** | GPU memory exhaustion | Reduce `num_batch` in payload_options or `MAX_CONCURRENT_PER_GPU` |
+| **Circuit breaker open** | Too many consecutive failures | System auto-recovery after cooldown, check GPU health |
+| **Checkpoint corruption** | Interrupted write operation | Delete `<filename>_checkpoint.txt` and use `--force` flag |
+| **Missing POI coordinates** | Data loading failure | Verify `data/verona/vc_site.csv` exists and is readable |
+
+### Performance Issues
+| Problem | Diagnostic | Solution |
+|---------|------------|----------|
+| **Slow processing** | Low GPU utilization | Increase `MAX_CONCURRENT_REQUESTS` (carefully) |
+| **Memory leaks** | RAM usage growing | Enable `ASYNC_INFERENCE` and reduce batch sizes |
+| **Request failures** | Network/model issues | Check Ollama model availability: `curl http://localhost:11434/api/tags` |
 
 ## Environment Variables
 
+### HPC Leonardo Configuration
 ```bash
-# HPC Leonardo specific
-CUDA_VISIBLE_DEVICES=0,1,2,3
-OLLAMA_HOST="127.0.0.1"
-WORK="/leonardo_work/IscrC_LLM-Mob"
+# GPU allocation - Critical for multi-GPU setup
+export CUDA_VISIBLE_DEVICES=0,1,2,3
+export NVIDIA_VISIBLE_DEVICES=0,1,2,3
+
+# Ollama host configuration
+export OLLAMA_HOST="127.0.0.1"
+
+# Leonardo HPC paths
+export WORK="/leonardo_work/IscrC_LLM-Mob"
+
+# Python environment
+source $WORK/venv/bin/activate
+```
+
+### Required Dependencies
+```bash
+# Core ML libraries (from requirements.txt)
+pip install pandas numpy scikit-learn
+pip install requests tqdm geopy
+
+# Optional for analysis
+pip install jupyter matplotlib seaborn
 ```

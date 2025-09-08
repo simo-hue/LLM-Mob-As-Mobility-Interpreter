@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=mistrB
+#SBATCH --job-name=Bmix
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=boost_qos_lprod
@@ -9,7 +9,7 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=256G
-#SBATCH --output=mistral_7b-%j.out
+#SBATCH --output=Bmixtral:8x7b-%j.out
 
 echo "🚀 VERONA CARD"
 echo "================================================"
@@ -187,7 +187,7 @@ start_ollama_gpu() {
                     "http://127.0.0.1:$port/api/generate" \
                     -H "Content-Type: application/json" \
                     -d '{
-                        "model":"mistral:7b",
+                        "model":"mixtral:8x7b",
                         "prompt":"Hi",
                         "stream":false,
                         "options":{"num_predict":1}
@@ -273,7 +273,7 @@ for i in 0 1 2 3; do
             "http://127.0.0.1:$port/api/chat" \
             -H "Content-Type: application/json" \
             -d '{
-                "model":"mistral:7b",
+                "model":"mixtral:8x7b",
                 "messages":[{"role":"user","content":"Say OK"}],
                 "stream":false,
                 "options":{"num_predict":2}
@@ -388,9 +388,9 @@ advanced_gpu_monitor() {
             fi
             
             # Linee processate dal log
-            if [ -f "mistral:7b_base_version_python_execution.log" ]; then
-                processed=$(grep -c "Processing card" mistral:7b_base_version_python_execution.log 2>/dev/null || echo "0")
-                errors=$(grep -c "ERROR\|Error" mistral:7b_base_version_python_execution.log 2>/dev/null || echo "0")
+            if [ -f "mixtral:8x7b_base_version_python_execution.log" ]; then
+                processed=$(grep -c "Processing card" mixtral:8x7b_base_version_python_execution.log 2>/dev/null || echo "0")
+                errors=$(grep -c "ERROR\|Error" mixtral:8x7b_base_version_python_execution.log 2>/dev/null || echo "0")
                 echo "  Cards processed: $processed"
                 echo "  Errors: $errors"
                 echo "  Dir RESULTS: $RES_DIR"
@@ -418,7 +418,7 @@ echo ""
 
 if [ -f "data/verona/vc_site.csv" ]; then
     python3 -u base.py \
-        --append 2>&1 | tee mistral:7b_base_version_python_execution.log
+        --append 2>&1 | tee mixtral:8x7b_base_version_python_execution.log
     PYTHON_EXIT=$?
 else
     echo "❌ File non trovato!"

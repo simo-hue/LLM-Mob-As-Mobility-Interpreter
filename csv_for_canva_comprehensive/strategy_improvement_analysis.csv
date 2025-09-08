@@ -1,0 +1,10 @@
+Dataset,Model,Model_Size,Comparison,Base_Accuracy,Enhanced_Accuracy,Improvement_Points,Improvement_Percent,Improvement_Category
+middle,Llama3.1 8B,8B,Geospatial vs Base,8.2,13.83,5.63,68.66,Large Increase
+middle,Qwen2.5 14B,14B,Geospatial vs Base,0.84,26.53,25.69,3058.33,Large Increase
+middle,Qwen2.5 7B,7B,Geospatial vs Base,0.01,19.98,19.97,199700.0,Large Increase
+penultimate,Deepseek Coder 33B,33B,Geospatial vs Base,2.5,4.34,1.84,73.6,Large Increase
+penultimate,Llama3.1 8B,8B,Geospatial vs Base,10.05,4.9,-5.15,-51.24,Large Decrease
+penultimate,Mistral 7B,7B,Geospatial vs Base,0.11,22.2,22.09,20081.82,Large Increase
+penultimate,Mixtral 8X7B,7B,Geospatial vs Base,3.64,10.16,6.52,179.12,Large Increase
+penultimate,Qwen2.5 14B,14B,Geospatial vs Base,2.89,20.02,17.13,592.73,Large Increase
+penultimate,Qwen2.5 7B,7B,Geospatial vs Base,0.01,14.41,14.4,144000.0,Large Increase

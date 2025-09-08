@@ -1,0 +1,21 @@
+Dataset,Model_Display,Strategy_Display,Strategy_Category,Top1_Accuracy_Percent,Top5_Hit_Rate_Percent,MRR_Percent,Error_Rate_Percent,Total_Predictions,Years_Covered,Model_Size,Year_Range,Rank_Overall,Rank_Within_Strategy,Rank_Within_Model,Performance_Tier
+middle,Deepseek Coder 33B,Base Version,Base,0.01,0.56,0.19,99.99,103715,2,33B,2014-2015,18.0,9.0,3.0,Basic
+middle,Llama3.1 8B,Base Version,Base,8.2,13.4,9.78,91.8,624517,10,8B,2014-2023,9.0,2.0,3.0,Excellent
+middle,Llama3.1 8B,With Geom,Geospatial,13.83,50.16,24.53,86.17,624499,10,8B,2014-2023,6.0,6.0,1.0,Excellent
+middle,Mistral 7B,Base Version,Base,0.12,5.8,2.18,99.88,416465,6,7B,2014-2019,16.0,7.0,2.0,Basic
+middle,Qwen2.5 14B,Base Version,Base,0.84,14.01,4.46,99.16,624522,10,14B,2014-2023,15.0,6.0,4.0,Basic
+middle,Qwen2.5 14B,With Geom,Geospatial,26.53,65.11,40.0,73.47,356656,5,14B,2015-2019,1.0,1.0,1.0,Excellent
+middle,Qwen2.5 7B,Base Version,Base,0.01,0.45,0.2,99.99,481029,10,7B,2014-2023,18.0,9.0,3.0,Basic
+middle,Qwen2.5 7B,With Geom,Geospatial,19.98,50.79,29.34,80.02,624493,10,7B,2014-2023,4.0,4.0,1.0,Excellent
+penultimate,Deepseek Coder 33B,Base Version,Base,2.5,23.69,9.01,97.5,555284,9,33B,2014-2023,14.0,5.0,2.0,Fair
+penultimate,Deepseek Coder 33B,With Geom,Geospatial,4.34,35.08,13.97,95.66,554268,9,33B,2014-2023,11.0,9.0,1.0,Good
+penultimate,Llama3.1 8B,Base Version,Base,10.05,16.23,12.58,89.95,748433,10,8B,2014-2023,8.0,1.0,2.0,Excellent
+penultimate,Llama3.1 8B,With Geom,Geospatial,4.9,41.88,15.83,95.1,570627,10,8B,2014-2023,10.0,8.0,4.0,Good
+penultimate,Mistral 7B,Base Version,Base,0.11,11.37,4.62,99.89,558050,9,7B,2015-2023,17.0,8.0,3.0,Basic
+penultimate,Mistral 7B,With Geom,Geospatial,22.2,46.37,30.27,77.8,558609,9,7B,2015-2023,2.0,2.0,1.0,Excellent
+penultimate,Mixtral 8X7B,Base Version,Base,3.64,21.39,11.25,96.36,542112,9,7B,2014-2023,12.0,3.0,2.0,Fair
+penultimate,Mixtral 8X7B,With Geom,Geospatial,10.16,48.29,23.31,89.84,624524,10,7B,2014-2023,7.0,7.0,1.0,Excellent
+penultimate,Qwen2.5 14B,Base Version,Base,2.89,26.18,10.09,97.11,624727,10,14B,2014-2023,13.0,4.0,3.0,Fair
+penultimate,Qwen2.5 14B,With Geom,Geospatial,20.02,54.14,31.89,79.98,624532,10,14B,2014-2023,3.0,3.0,2.0,Excellent
+penultimate,Qwen2.5 7B,Base Version,Base,0.01,0.24,0.11,99.99,404714,10,7B,2014-2023,18.0,9.0,3.0,Basic
+penultimate,Qwen2.5 7B,With Geom,Geospatial,14.41,43.03,23.16,85.59,622744,10,7B,2014-2023,5.0,5.0,2.0,Excellent

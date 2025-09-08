@@ -29,13 +29,13 @@ class Config:
     """Centralized configuration to avoid global variables"""
     
     # Model configuration
-    MODEL_NAME = "qwen2.5:14b" #llama3.1:8b - qwen2.5:7b - qwen2.5:14b - mixtral:8x7b - mistral:7b
+    MODEL_NAME = "mixtral:8x7b" #llama3.1:8b - qwen2.5:7b - qwen2.5:14b - mixtral:8x7b - mistral:7b
     TOP_K = 5  # Number of POI predictions
     
     # HPC optimization parameters - OPTIMIZED FOR HIGH THROUGHPUT
     MAX_CONCURRENT_REQUESTS = 12  # 4 GPUs × 3 requests per GPU (INCREASED)
     REQUEST_TIMEOUT = 300  # Reduced for better throughput (was 600)
-    BATCH_SAVE_INTERVAL = 500  # Save results every N cards
+    BATCH_SAVE_INTERVAL = 1000  # Save results every N cards
     HEALTH_CHECK_INTERVAL = 600  # Check host health every N seconds
     
     # Retry and failure handling
@@ -60,7 +60,7 @@ class Config:
     # File paths
     OLLAMA_PORT_FILE = "ollama_ports.txt"
     LOG_DIR = Path(__file__).resolve().parent / "logs"
-    RESULTS_DIR = Path(__file__).resolve().parent / "results/middle/qwen2.5_14b/with_geom/"
+    RESULTS_DIR = Path(__file__).resolve().parent / "results/middle/mixtral_8x7b/with_geom/"
     DATA_DIR = Path(__file__).resolve().parent / "data" / "verona"
     POI_FILE = DATA_DIR / "vc_site.csv"
 
