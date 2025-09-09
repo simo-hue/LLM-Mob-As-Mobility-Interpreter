@@ -29,19 +29,19 @@ PROVATI GEOM + TIME:
 
 PROVATI NORMALE:
   - llama3.1:8b
-  - mixtral:8x7b -> ( CODA )
-  - mistral:7b -> ( esecuzione )
+  - mixtral:8x7b -> ( esecuzione )
+  - mistral:7b
   - qwen2.5:7b
   - qwen2.5:14b
   - deepseek-coder:33b -> ( esecuzione )
 
 PROVATI GEOM:
   - llama3.1:8b
-  - mixtral:8x7b -> ( CODA )
-  - mistral:7b -> ( CODA )
+  - mixtral:8x7b -> ( esecuzione )
+  - mistral:7b -> ( esecuzione )
   - qwen2.5:7b
-  - qwen2.5:14b -> ( esecuzione )
-  - deepseek-coder:33b -> TO DO
+  - qwen2.5:14b
+  - deepseek-coder:33b -> ( esecuzione )
 
 PROVATI GEOM + TIME:
   - llama3.1:8b -> TO DO
