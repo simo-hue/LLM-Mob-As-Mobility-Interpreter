@@ -1,0 +1,61 @@
+2025-09-09 08:59:39 [INFO] Initializing Ollama connection manager...
+2025-09-09 08:59:39 [WARNING] HostHealthMonitor initialized with empty host list
+2025-09-09 08:59:39 [INFO] Setting up connections...
+2025-09-09 08:59:39 [INFO] Multi-GPU configuration: 4 instances
+2025-09-09 08:59:39 [INFO] Initialized with 4 hosts
+2025-09-09 08:59:39 [INFO] Waiting for Ollama services to start...
+2025-09-09 08:59:39 [INFO] Checking host 1/4: http://127.0.0.1:39001
+2025-09-09 08:59:39 [INFO] Host http://127.0.0.1:39001 is ready
+2025-09-09 08:59:39 [INFO] Checking host 2/4: http://127.0.0.1:39002
+2025-09-09 08:59:39 [INFO] Host http://127.0.0.1:39002 is ready
+2025-09-09 08:59:39 [INFO] Checking host 3/4: http://127.0.0.1:39003
+2025-09-09 08:59:39 [INFO] Host http://127.0.0.1:39003 is ready
+2025-09-09 08:59:39 [INFO] Checking host 4/4: http://127.0.0.1:39004
+2025-09-09 08:59:39 [INFO] Host http://127.0.0.1:39004 is ready
+2025-09-09 08:59:39 [INFO] All Ollama services are ready!
+2025-09-09 08:59:39 [INFO] Found 12 files to process
+2025-09-09 08:59:40 [INFO] Loaded 65892 completed cards from checkpoint
+2025-09-09 08:59:40 [INFO] File dati_2014 has 65892 completed cards
+2025-09-09 08:59:40 [INFO] Loaded 65892 completed cards from checkpoint
+2025-09-09 08:59:40 [INFO] File dati_2014 has 65892 completed cards
+2025-09-09 08:59:40 [INFO] Processing dati_2014.csv
+2025-09-09 08:59:40 [INFO] Loaded 65892 completed cards from checkpoint
+2025-09-09 08:59:40 [INFO] Loading and preprocessing data...
+2025-09-09 08:59:40 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-09 08:59:42 [INFO] Loaded 370377 visits from dati_2014.csv
+2025-09-09 08:59:42 [INFO] Valid visits after merge: 370377
+2025-09-09 08:59:42 [INFO] Multi-visit cards: 70236 / 71557
+2025-09-09 08:59:42 [INFO] Performing user clustering...
+2025-09-09 08:59:49 [INFO] Processing 0 cards
+2025-09-09 08:59:49 [INFO] No cards to process
+2025-09-09 08:59:49 [INFO] Loaded 58589 completed cards from checkpoint
+2025-09-09 08:59:49 [INFO] File dati_2015 has 58589 completed cards
+2025-09-09 08:59:49 [INFO] Loaded 58589 completed cards from checkpoint
+2025-09-09 08:59:49 [INFO] File dati_2015 has 58589 completed cards
+2025-09-09 08:59:49 [INFO] Processing dati_2015.csv
+2025-09-09 08:59:49 [INFO] Loaded 58589 completed cards from checkpoint
+2025-09-09 08:59:49 [INFO] Loading and preprocessing data...
+2025-09-09 08:59:49 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-09 08:59:50 [INFO] Loaded 369588 visits from dati_2015.csv
+2025-09-09 08:59:51 [INFO] Valid visits after merge: 369588
+2025-09-09 08:59:51 [INFO] Multi-visit cards: 71759 / 73424
+2025-09-09 08:59:51 [INFO] Performing user clustering...
+2025-09-09 08:59:57 [INFO] Processing 8088 cards
+2025-09-09 08:59:57 [INFO] Using 12 workers for 4 healthy hosts
+2025-09-09 08:59:57 [INFO] Waiting 60s for model stabilization...
+2025-09-09 09:00:57 [INFO] Running pre-flight check on all hosts...
+2025-09-09 09:00:57 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39001
+2025-09-09 09:00:57 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39002
+2025-09-09 09:00:57 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39003
+2025-09-09 09:00:58 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39004
+2025-09-09 09:01:51 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-09-09 09:02:04 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-09-09 09:03:49 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-09-09 09:04:22 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-09-09 09:04:45 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-09-09 09:04:52 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-09-09 09:10:51 [WARNING] Incomplete response from http://127.0.0.1:39003
+2025-09-09 09:10:52 [WARNING] Incomplete response from http://127.0.0.1:39004
+2025-09-09 09:14:30 [WARNING] Incomplete response from http://127.0.0.1:39002
+2025-09-09 09:15:08 [WARNING] Incomplete response from http://127.0.0.1:39001
+2025-09-09 09:15:42 [WARNING] Incomplete response from http://127.0.0.1:39004

@@ -60,7 +60,7 @@ class Config:
     # File paths
     OLLAMA_PORT_FILE = "ollama_ports.txt"
     LOG_DIR = Path(__file__).resolve().parent / "logs"
-    RESULTS_DIR = Path(__file__).resolve().parent / "results/middle/mistral:7b/with_geom/"
+    RESULTS_DIR = Path(__file__).resolve().parent / "results/middle/mistral_7b/with_geom/"
     DATA_DIR = Path(__file__).resolve().parent / "data" / "verona"
     POI_FILE = DATA_DIR / "vc_site.csv"
 

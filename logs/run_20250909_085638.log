@@ -1,0 +1,16 @@
+2025-09-09 08:56:38 [INFO] Initializing Ollama connection manager...
+2025-09-09 08:56:38 [WARNING] HostHealthMonitor initialized with empty host list
+2025-09-09 08:56:38 [INFO] Setting up connections...
+2025-09-09 08:56:38 [INFO] Multi-GPU configuration: 4 instances
+2025-09-09 08:56:38 [INFO] Initialized with 4 hosts
+2025-09-09 08:56:38 [INFO] Waiting for Ollama services to start...
+2025-09-09 08:56:38 [INFO] Checking host 1/4: http://127.0.0.1:39001
+2025-09-09 08:56:38 [INFO] Host http://127.0.0.1:39001 is ready
+2025-09-09 08:56:38 [INFO] Checking host 2/4: http://127.0.0.1:39002
+2025-09-09 08:56:38 [INFO] Host http://127.0.0.1:39002 is ready
+2025-09-09 08:56:38 [INFO] Checking host 3/4: http://127.0.0.1:39003
+2025-09-09 08:56:38 [INFO] Host http://127.0.0.1:39003 is ready
+2025-09-09 08:56:38 [INFO] Checking host 4/4: http://127.0.0.1:39004
+2025-09-09 08:56:38 [INFO] Host http://127.0.0.1:39004 is ready
+2025-09-09 08:56:38 [INFO] All Ollama services are ready!
+2025-09-09 08:56:38 [ERROR] Fatal error: [Errno 2] No such file or directory: '/leonardo_work/IscrC_LLM-Mob/LLM-Mob-As-Mobility-Interpreter/results/middle/mistral:7b/with_geom'
