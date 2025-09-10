@@ -1,0 +1,31 @@
+2025-09-10 18:03:14 [INFO] Initializing Ollama connection manager...
+2025-09-10 18:03:14 [WARNING] HostHealthMonitor initialized with empty host list
+2025-09-10 18:03:14 [INFO] Setting up connections...
+2025-09-10 18:03:14 [INFO] Multi-GPU configuration: 4 instances
+2025-09-10 18:03:14 [INFO] Initialized with 4 hosts
+2025-09-10 18:03:14 [INFO] Waiting for Ollama services to start...
+2025-09-10 18:03:14 [INFO] Checking host 1/4: http://127.0.0.1:39001
+2025-09-10 18:03:14 [INFO] Host http://127.0.0.1:39001 is ready
+2025-09-10 18:03:14 [INFO] Checking host 2/4: http://127.0.0.1:39002
+2025-09-10 18:03:14 [INFO] Host http://127.0.0.1:39002 is ready
+2025-09-10 18:03:14 [INFO] Checking host 3/4: http://127.0.0.1:39003
+2025-09-10 18:03:14 [INFO] Host http://127.0.0.1:39003 is ready
+2025-09-10 18:03:14 [INFO] Checking host 4/4: http://127.0.0.1:39004
+2025-09-10 18:03:14 [INFO] Host http://127.0.0.1:39004 is ready
+2025-09-10 18:03:14 [INFO] All Ollama services are ready!
+2025-09-10 18:03:14 [INFO] Found 12 files to process
+2025-09-10 18:03:14 [INFO] Processing dati_2014.csv
+2025-09-10 18:03:14 [INFO] Loading and preprocessing data...
+2025-09-10 18:03:15 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-10 18:03:16 [INFO] Loaded 370377 visits from dati_2014.csv
+2025-09-10 18:03:16 [INFO] Valid visits after merge: 370377
+2025-09-10 18:03:16 [INFO] Multi-visit cards: 70236 / 71557
+2025-09-10 18:03:16 [INFO] Performing user clustering...
+2025-09-10 18:03:23 [INFO] Processing 65892 cards
+2025-09-10 18:03:23 [INFO] Using 12 workers for 4 healthy hosts
+2025-09-10 18:03:23 [INFO] Waiting 60s for model stabilization...
+2025-09-10 18:04:23 [INFO] Running pre-flight check on all hosts...
+2025-09-10 18:04:23 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39001
+2025-09-10 18:04:23 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39002
+2025-09-10 18:04:23 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39003
+2025-09-10 18:04:24 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39004
