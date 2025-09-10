@@ -1,0 +1,54 @@
+🚀 VERONA CARD
+================================================
+⚠️ ATTENZIONE: Questo script aspetterà INDEFINITAMENTE il caricamento
+Job ID: 19781548
+Nodo: lrdn1738.leonardo.local
+Data: Wed Sep 10 22:46:18 CEST 2025
+Salvo risultati: 
+
+📦 Setup ambiente HPC...
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+✅ Python: Python 3.11.6
+✅ CUDA: Cuda compilation tools, release 12.3, V12.3.103
+
+🔍 GPU DETECTION:
+0, NVIDIA A100-SXM-64GB, 65536 MiB, 45
+1, NVIDIA A100-SXM-64GB, 65536 MiB, 45
+2, NVIDIA A100-SXM-64GB, 65536 MiB, 44
+3, NVIDIA A100-SXM-64GB, 65536 MiB, 44
+
+📁 Directory temporanea: /leonardo_work/IscrC_LLM-Mob/tmp_ollama_19781548
+💾 Spazio disponibile: 720GB
+
+🧹 Cleanup preventivo...
+
+🚀 AVVIO SISTEMA OLLAMA
+========================
+
+🔧 Avvio GPU 0 su porta 39001...
+✅ GPU 0 PID: 2738277 (NO TIMEOUT)
+⏳ GPU 0 è MASTER - attesa caricamento modello SENZA LIMITI...
+   🌐 API risponde, test modello...
+   ✅ GPU 0 PRONTA dopo 1 tentativi!
+
+✅ GPU 0 completamente operativa con modello caricato
+⏳ Pausa 60s per stabilizzazione...
+
+🚀 Avvio GPU secondarie...
+
+🔧 Avvio GPU 1 su porta 39002...
+✅ GPU 1 PID: 2738622 (NO TIMEOUT)
+
+🔧 Avvio GPU 2 su porta 39003...
+✅ GPU 2 PID: 2738664 (NO TIMEOUT)
+
+🔧 Avvio GPU 3 su porta 39004...
+✅ GPU 3 PID: 2738703 (NO TIMEOUT)
+⏳ Attesa finale stabilizzazione sistema per Mistral:7b (60s)...
