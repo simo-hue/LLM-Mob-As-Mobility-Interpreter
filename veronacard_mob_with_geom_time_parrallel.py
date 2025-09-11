@@ -30,7 +30,7 @@ class Config:
     """Centralized configuration to avoid global variables"""
     
     # Model configuration - ottimizzato per tourism mobility prediction
-    MODEL_NAME = "qwen2.5:7b"
+    MODEL_NAME: str = "qwen2.5:7b"
     FALLBACK_MODELS = ["llama3.1:8b", "mistral:7b", "llama3:8b", "gemma2:9b"]
     TOP_K = 5  # Number of POI predictions
     
@@ -38,9 +38,9 @@ class Config:
     DEBUG_MODE = False  # Set to True for debugging, False for production
     DEBUG_MAX_CARDS = 50  # Only used when DEBUG_MODE = True
     
-    # Production-ready adaptive parallelism
-    MAX_CONCURRENT_REQUESTS = 2 if DEBUG_MODE else 4
-    REQUEST_TIMEOUT = 180 if DEBUG_MODE else 300
+    # Production-ready adaptive parallelism - UPGRADED to 8 workers
+    MAX_CONCURRENT_REQUESTS = 2 if DEBUG_MODE else 8
+    REQUEST_TIMEOUT = 60 if DEBUG_MODE else 120  # REDUCED: Tempi più aggressivi per temporal prompts
     BATCH_SAVE_INTERVAL = 100 if DEBUG_MODE else 500
     HEALTH_CHECK_INTERVAL = 60 if DEBUG_MODE else 120
     
@@ -61,7 +61,7 @@ class Config:
     # Parallelism ottimizzato per 4x A100
     ENABLE_ROUND_ROBIN = True
     HOST_SELECTION_STRATEGY = "balanced"
-    MAX_CONCURRENT_PER_GPU = 1   # ✅ SAFE: 1 richiesta per A100 per evitare crashes
+    MAX_CONCURRENT_PER_GPU = 1 if DEBUG_MODE else 2   # ✅ UPGRADED: 2 richieste per A100 per maggior throughput
     
     # Memory and performance tuning per A100
     GPU_MEMORY_FRACTION = 0.95  # Usa 95% della VRAM disponibile
@@ -71,7 +71,7 @@ class Config:
     # File paths
     OLLAMA_PORT_FILE = "ollama_ports.txt"
     LOG_DIR = Path(__file__).resolve().parent / "logs"
-    RESULTS_DIR = Path(__file__).resolve().parent / "results" / "qwen2.5_7b" / "with_geom_time"
+    RESULTS_DIR = Path(__file__).resolve().parent / "results/penultimate/qwen2.5_7b/with_geom_time/"
     DATA_DIR = Path(__file__).resolve().parent / "data" / "verona"
     POI_FILE = DATA_DIR / "vc_site.csv"
 
@@ -651,11 +651,11 @@ class OllamaConnectionManager:
                     "stream": False,
                     # ✅ REMOVED: Rimosso formato JSON forzato che causava interruzioni
                     "options": {
-                        # Context window - REDUCED per evitare timeout
-                        "num_ctx": 2048,           # REDUCED per prompt complessi
+                        # Context window - FURTHER REDUCED per temporal prompts
+                        "num_ctx": 1024,           # FURTHER REDUCED per tempi più veloci
                         
                         # Generation parameters - ottimizzati per JSON semplice
-                        "num_predict": 128,        # REDUCED per JSON conciso
+                        "num_predict": 64,         # FURTHER REDUCED per JSON conciso
                         "temperature": 0.1,        # Bassa per predizioni precise
                         "top_p": 0.9,
                         "top_k": 40,               # Aggiunto per controllo qualità
@@ -1863,8 +1863,8 @@ class VisitFileProcessor:
         logger.info(f"Using {optimal_workers} workers for {n_healthy_hosts} healthy hosts")
         
         # ✅ OPTIMIZED: Attesa ridotta per performance
-        logger.info("Waiting 30s for models to stabilize...")
-        time.sleep(30)  # ✅ REDUCED: da 120s a 30s per avvio più rapido
+        logger.info("Waiting 60s for models to stabilize...")
+        time.sleep(60)  # ✅ ALIGNED: Allineato con versione geom per stabilità
         
         # ✅ NUOVO: Test pre-processing per verificare che tutto sia OK
         logger.info("Running pre-flight check on all hosts...")
@@ -1894,37 +1894,12 @@ class VisitFileProcessor:
                 
         logger.info("✅ ALL PRE-FLIGHT CHECKS PASSED - Starting progressive warm-up")
         
-        # Adaptive warm-up based on mode
-        if Config.DEBUG_MODE:
-            logger.info("DEBUG MODE: Skipping warm-up - proceeding directly to processing")
-            logger.warning("Proceeding without warm-up - expect first few requests to be slow")
-        else:
-            # Original warm-up for production
-            logger.info("🔥 Phase 1: Single request warm-up test (60s timeout for simple prompts)...")
-            warmup_prompts = ["Hi", "Hello", "Test"]
-            
-            for i, prompt in enumerate(warmup_prompts):
-                logger.info(f"  Testing warm-up prompt {i+1}/3...")
-                try:
-                    response = self.ollama_manager.get_chat_completion(prompt, warmup_mode=True)
-                    if response:
-                        logger.info(f"    ✅ Warm-up {i+1} successful: {len(response)} chars")
-                    else:
-                        logger.error(f"    ❌ Warm-up {i+1} failed: No response")
-                        raise Exception(f"Warm-up phase failed at test {i+1}")
-                    time.sleep(2)
-                except Exception as e:
-                    logger.error(f"    ❌ WARM-UP FAILED: {e}")
-                    raise Exception(f"Progressive warm-up failed: {e}")
-            
-            logger.info("✅ PROGRESSIVE WARM-UP COMPLETED - System verified under load")
+        # Simplified warm-up - aligned with geom version
+        logger.info("DEBUG MODE: Skipping complex warm-up - proceeding directly to processing")
+        logger.info("Simple pre-flight checks already completed - system ready")
         
-        # Conditional GPU preloading
-        if Config.DEBUG_MODE:
-            logger.info("DEBUG MODE: Skipping GPU preloading to avoid conflicts")
-        else:
-            logger.info("Model preloading on all GPUs for VRAM allocation...")
-            self.ollama_manager._preload_model_on_all_gpus()
+        # Simplified preloading - aligned with geom version approach
+        logger.info("Skipping complex GPU preloading - pre-flight checks sufficient")
         
         logger.info("🚀 Starting production processing...")
         

@@ -3,12 +3,12 @@
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=boost_qos_lprod
-#SBATCH --time=03:00:00  # 🚀 PRODUCTION: 3 ore per processing completo
+#SBATCH --time=00:40:00  # 🚀 PRODUCTION: 3 ore per processing completo
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:4
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=32
-#SBATCH --mem=480G
+#SBATCH --mem=256G
 #SBATCH --output=mobility-qwen_time_prod-%j.out
 
 echo "🚀 VERONA CARD - TIME PRODUCTION"
@@ -74,8 +74,8 @@ export OLLAMA_CACHE_DIR="$WORK/.ollama/cache"
 export OLLAMA_NUM_PARALLEL=1
 export OLLAMA_MAX_LOADED_MODELS=1
 export OLLAMA_KEEP_ALIVE="8h"
-export OLLAMA_MAX_QUEUE=4
-export OLLAMA_CONCURRENT_REQUESTS=1  # Una richiesta per istanza per stabilità
+export OLLAMA_MAX_QUEUE=8
+export OLLAMA_CONCURRENT_REQUESTS=2  # Due richieste per istanza per maggior throughput
 export OLLAMA_GPU_OVERHEAD=0         # Zero overhead per massima memoria
 export OLLAMA_LOAD_TIMEOUT=0         # No timeout per caricamento
 export OLLAMA_LLM_LIBRARY="cuda_v12"
@@ -85,7 +85,7 @@ export OLLAMA_FLASH_ATTENTION=1
 export OLLAMA_GPU_MEMORY_FRACTION=0.95
 export OLLAMA_CUDA_VISIBLE_DEVICES=0,1,2,3
 export OLLAMA_MAX_CONTEXT=2048  # ✅ OPTIMIZED: Allineato a Python per Mistral
-export OLLAMA_BATCH_SIZE=512    # ✅ OPTIMIZED: Allineato a Python per performance
+export OLLAMA_BATCH_SIZE=384    # ✅ REDUCED: Per supportare 2 worker per GPU
 
 # 🔴 RIMOZIONE DI TUTTI I TIMEOUT OLLAMA
 unset OLLAMA_LOAD_TIMEOUT
@@ -250,8 +250,8 @@ fi
 
 echo ""
 echo "✅ GPU 0 completamente operativa con modello caricato"
-echo "⏳ Pausa 120s per stabilizzazione ULTRA-CONSERVATIVE..."
-sleep 120
+echo "⏳ Pausa 60s per stabilizzazione..."
+sleep 60
 
 # Avvia altre GPU in parallelo
 echo ""
@@ -260,11 +260,11 @@ echo "🚀 Avvio GPU secondarie..."
 for gpu_id in 1 2 3; do
     port=$((39001 + gpu_id))
     start_ollama_gpu $gpu_id $port false
-    sleep 60  # Pausa tra avvii
+    sleep 30  # Pausa tra avvii
 done
 
-echo "⏳ Attesa finale stabilizzazione sistema (120s)..."
-sleep 120
+echo "⏳ Attesa finale stabilizzazione sistema (60s)..."
+sleep 60
 
 # ============= VERIFICA FINALE =============
 echo ""
