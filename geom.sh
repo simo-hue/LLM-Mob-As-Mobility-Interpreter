@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=Gmis
+#SBATCH --job-name=Gdeepseek-coder:33b
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=boost_qos_lprod
@@ -9,7 +9,7 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=256G
-#SBATCH --output=mistral:7b_geom-%j.out
+#SBATCH --output=deepseek-coder:33b_geom-%j.out
 
 echo "🚀 VERONA CARD - GEOM VERSION"
 echo "================================================"
@@ -186,7 +186,7 @@ start_ollama_gpu() {
                     "http://127.0.0.1:$port/api/generate" \
                     -H "Content-Type: application/json" \
                     -d '{
-                        "model":"mistral:7b",
+                        "model":"deepseek-coder:33b",
                         "prompt":"Hi",
                         "stream":false,
                         "options":{"num_predict":1}
@@ -272,7 +272,7 @@ for i in 0 1 2 3; do
             "http://127.0.0.1:$port/api/chat" \
             -H "Content-Type: application/json" \
             -d '{
-                "model":"mistral:7b",
+                "model":"deepseek-coder:33b",
                 "messages":[{"role":"user","content":"Say OK"}],
                 "stream":false,
                 "options":{"num_predict":2}
@@ -374,9 +374,9 @@ advanced_gpu_monitor() {
             echo "🐍 Python Processing:"
             
             # Linee processate dal log
-            if [ -f "mistral:7b_geom_python_execution.log" ]; then
-                processed=$(grep -c "Processing card" mistral:7b_geom_python_execution.log 2>/dev/null || echo "0")
-                errors=$(grep -c "ERROR\|Error" mistral:7b_geom_python_execution.log 2>/dev/null || echo "0")
+            if [ -f "deepseek-coder:33b_geom_python_execution.log" ]; then
+                processed=$(grep -c "Processing card" deepseek-coder:33b_geom_python_execution.log 2>/dev/null || echo "0")
+                errors=$(grep -c "ERROR\|Error" deepseek-coder:33b_geom_python_execution.log 2>/dev/null || echo "0")
                 echo "  Cards processed: $processed"
                 echo "  Errors: $errors"
             fi
@@ -403,7 +403,8 @@ echo ""
 
 if [ -f "data/verona/vc_site.csv" ]; then
     python3 -u geom.py \
-        --append 2>&1 | tee mistral:7b_geom_python_execution.log
+        -- file data/verona/veronacard_2022_original.csv\
+        --append 2>&1 | tee deepseek-coder:33b_geom_python_execution.log
     PYTHON_EXIT=$?
 else
     echo "❌ File non trovato!"
