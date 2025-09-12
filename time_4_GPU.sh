@@ -3,7 +3,7 @@
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=boost_qos_lprod
-#SBATCH --time=04:00:00  # 🚀 PRODUCTION: 4 ore per processing completo con timeout estesi
+#SBATCH --time=00:40:00  # Lasciala così è per DEBUG
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:4
 #SBATCH --ntasks-per-node=1

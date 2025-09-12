@@ -3,11 +3,9 @@ import json
 import logging
 import math
 import os
-import queue
 import random
 import re
 import sys
-import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed, TimeoutError
 from contextlib import contextmanager
@@ -56,7 +54,7 @@ class Config:
     MAX_503_RETRIES = 10    # Ridotto per evitare loop infiniti
     
     # Anchor rule for POI selection
-    DEFAULT_ANCHOR_RULE = "penultimate"
+    DEFAULT_ANCHOR_RULE = "middle"
     
     # Parallelism ottimizzato per 4x A100
     ENABLE_ROUND_ROBIN = True
@@ -71,7 +69,7 @@ class Config:
     # File paths
     OLLAMA_PORT_FILE = "ollama_ports.txt"
     LOG_DIR = Path(__file__).resolve().parent / "logs"
-    RESULTS_DIR = Path(__file__).resolve().parent / "results/penultimate/qwen2.5_7b/with_geom_time/"
+    RESULTS_DIR = Path(__file__).resolve().parent / "results/middle/qwen2.5_7b/with_geom_time/"
     DATA_DIR = Path(__file__).resolve().parent / "data" / "verona"
     POI_FILE = DATA_DIR / "vc_site.csv"
 
@@ -1060,19 +1058,20 @@ class PromptBuilder:
     """Handles prompt generation for LLM predictions"""
     
     @staticmethod
-    def get_anchor_index(seq_len: int, rule: str | int) -> int:
+    def get_anchor_index(seq_len: int, rule: str | int, is_full_sequence: bool = False) -> int:
         """
         Determine anchor POI index based on specified rule.
         
         The anchor POI is used as the "current location" in the prompt.
         
         Args:
-            seq_len: Length of sequence (excluding target)
+            seq_len: Length of sequence 
             rule: Selection strategy:
-                - "penultimate": Last element of prefix
+                - "penultimate": Last element of prefix (when is_full_sequence=False)
                 - "first": Index 0
-                - "middle": seq_len // 2
+                - "middle": seq_len // 2 (when is_full_sequence=True, operates on full sequence)
                 - int: Explicit index (negative allowed)
+            is_full_sequence: Whether seq_len refers to full sequence (True) or prefix (False)
                 
         Returns:
             0-based index of anchor POI
@@ -1081,18 +1080,31 @@ class PromptBuilder:
             ValueError: If rule is invalid or index out of range
         """
         if rule == "penultimate":
-            idx = seq_len - 1
+            if is_full_sequence:
+                idx = seq_len - 2  # Second to last in full sequence
+            else:
+                idx = seq_len - 1  # Last in prefix
         elif rule == "first":
             idx = 0
         elif rule == "middle":
-            idx = seq_len // 2
+            if is_full_sequence:
+                # For middle rule on full sequence, target will be element after anchor
+                # So anchor should be at position that allows for a valid target
+                idx = (seq_len - 1) // 2  # Ensures target index < seq_len
+            else:
+                idx = seq_len // 2
         elif isinstance(rule, int):
             idx = rule if rule >= 0 else seq_len + rule
         else:
             raise ValueError(f"Invalid anchor_rule: '{rule}'")
         
+        max_idx = seq_len - 1 if is_full_sequence else seq_len - 1
         if not (0 <= idx < seq_len):
             raise ValueError(f"Anchor index {idx} out of range for sequence length {seq_len}")
+        
+        # For middle rule with full sequence, ensure there's space for target
+        if rule == "middle" and is_full_sequence and idx >= seq_len - 1:
+            raise ValueError(f"Middle anchor index {idx} doesn't allow for target in sequence of length {seq_len}")
             
         return idx
     
@@ -1188,22 +1200,38 @@ class PromptBuilder:
         if len(seq) < 3:
             raise ValueError("Sequence too short (minimum 3 visits required)")
         
-        # Split into history, current, and target
-        prefix = seq[:-1]  # All except last
+        # Handle different logic for middle rule vs others
+        if anchor_rule == "middle":
+            # For middle rule: anchor is middle of full sequence, target is next element
+            anchor_idx = PromptBuilder.get_anchor_index(len(seq), anchor_rule, is_full_sequence=True)
+            current_poi = seq[anchor_idx]
+            target = seq[anchor_idx + 1]  # Element immediately after anchor
+            history = seq[:anchor_idx]  # Elements before anchor
+        else:
+            # Original logic for other rules
+            target = seq[-1]  # Last visit (to predict)
+            prefix = seq[:-1]  # All except last
+            
+            # Determine current POI using anchor rule
+            anchor_idx = PromptBuilder.get_anchor_index(len(prefix), anchor_rule)
+            current_poi = prefix[anchor_idx]
+            history = [p for i, p in enumerate(prefix) if i != anchor_idx]
         
-        # Determine current POI using anchor rule
-        idx = PromptBuilder.get_anchor_index(len(prefix), anchor_rule)
-        current_poi = prefix[idx]
-        history = [p for i, p in enumerate(prefix) if i != idx]
+        # Get temporal information for current visit (adapt to anchor rule)
+        if anchor_rule == "middle":
+            current_visit = visits.iloc[anchor_idx]
+            # For middle rule, temporal patterns from visits before anchor only
+            history_times = visits.iloc[:anchor_idx] if len(visits.iloc[:anchor_idx]) > 0 else visits.iloc[:-1]
+        else:
+            current_visit = visits.iloc[anchor_idx]
+            # Original logic: all visits except the last (target)
+            history_times = visits.iloc[:-1]
         
-        # Get temporal information for current visit
-        current_visit = visits.iloc[idx]
         current_time = current_visit["time"]
         current_day = current_visit["day_of_week"]
         
         # Extract temporal patterns from visit history
-        history_times = visits.iloc[:-1]  # All visits except the last (target)
-        avg_hour = history_times["hour"].mean()
+        avg_hour = history_times["hour"].mean() if len(history_times) > 0 else current_visit["hour"]
         visit_hours = history_times["hour"].tolist()
         days_visited = history_times["day_of_week"].unique().tolist()
         
@@ -1211,6 +1239,10 @@ class PromptBuilder:
         cluster_id = user_clusters.loc[
             user_clusters["card_id"] == card_id, "cluster"
         ].values[0]
+        
+        # Get the target (depends on anchor rule)
+        if anchor_rule != "middle":
+            target = seq[-1]  # This was set above for non-middle rules
         
         # Get nearby POIs
         nearby_pois = PromptBuilder.get_nearby_pois(
@@ -1460,11 +1492,7 @@ class CardProcessor:
                 logger.debug(f"Card {card_id} has insufficient visits ({len(seq)})")
                 return None
             
-            # Extract sequence components
-            target = seq[-1]
-            prefix = seq[:-1]
-            
-            # Create prompt
+            # Create prompt (which now handles the logic internally)
             try:
                 prompt = PromptBuilder.create_prompt(
                     self.filtered_df,
@@ -1474,7 +1502,6 @@ class CardProcessor:
                     top_k=Config.TOP_K,
                     anchor_rule=Config.DEFAULT_ANCHOR_RULE
                 )
-                    
             except Exception as e:
                 logger.warning(f"Error creating prompt for {card_id}: {e}")
                 return None
@@ -1482,12 +1509,20 @@ class CardProcessor:
             # Get LLM prediction
             response = self.ollama_manager.get_chat_completion(prompt)
             
-            # Prepare result record
-            idx_anchor = PromptBuilder.get_anchor_index(
-                len(prefix), Config.DEFAULT_ANCHOR_RULE
-            )
-            history_list = [p for i, p in enumerate(prefix) if i != idx_anchor]
-            current_poi = prefix[idx_anchor]
+            # Extract sequence components based on anchor rule (for result record)
+            if Config.DEFAULT_ANCHOR_RULE == "middle":
+                # For middle rule: anchor is middle of full sequence, target is next element
+                anchor_idx = PromptBuilder.get_anchor_index(len(seq), Config.DEFAULT_ANCHOR_RULE, is_full_sequence=True)
+                current_poi = seq[anchor_idx]
+                target = seq[anchor_idx + 1]  # Element immediately after anchor
+                history_list = seq[:anchor_idx]  # Elements before anchor
+            else:
+                # Original logic for other rules
+                target = seq[-1]
+                prefix = seq[:-1]
+                anchor_idx = PromptBuilder.get_anchor_index(len(prefix), Config.DEFAULT_ANCHOR_RULE)
+                history_list = [p for i, p in enumerate(prefix) if i != anchor_idx]
+                current_poi = prefix[anchor_idx]
             
             result = {
                 "card_id": card_id,
