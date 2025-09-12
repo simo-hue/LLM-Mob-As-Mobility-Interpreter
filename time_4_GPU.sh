@@ -3,7 +3,7 @@
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
 #SBATCH --qos=boost_qos_lprod
-#SBATCH --time=00:40:00  # 🚀 PRODUCTION: 3 ore per processing completo
+#SBATCH --time=04:00:00  # 🚀 PRODUCTION: 4 ore per processing completo con timeout estesi
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:4
 #SBATCH --ntasks-per-node=1
@@ -13,7 +13,7 @@
 
 echo "🚀 VERONA CARD - TIME PRODUCTION"
 echo "================================================"
-echo "🚀 PRODUCTION MODE: 4 GPU parallelismo completo, processing ottimizzato"
+echo "🚀 PRODUCTION MODE: 4 GPU parallelismo completo, timeout estesi (600s)"
 echo "Job ID: $SLURM_JOB_ID"
 echo "Nodo: $(hostname)"
 echo "Data: $(date)"
@@ -184,14 +184,14 @@ start_ollama_gpu() {
                 return 1
             fi
             
-            # Test API
-            if curl -s --connect-timeout 5 "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
+            # Test API - timeout coerente
+            if curl -s --connect-timeout 30 "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
                 echo "   🌐 API risponde, test modello..."
                 
-                # Test caricamento modello - usa il modello raccomandato
+                # Test caricamento modello - usa il modello raccomandato - TIMEOUT ESTESI
                 local test_response=$(curl -s -X POST \
-                    --connect-timeout 15 \
-                    --max-time 300 \
+                    --connect-timeout 30 \
+                    --max-time 600 \
                     "http://127.0.0.1:$port/api/generate" \
                     -H "Content-Type: application/json" \
                     -d '{
@@ -280,10 +280,10 @@ for i in 0 1 2 3; do
     
     echo -n "GPU $i (porta $port): "
     
-    # Test completo
+    # Test completo - TIMEOUT ESTESI per coerenza
     if curl -s "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
         test_resp=$(curl -s -X POST \
-            --max-time 300 \
+            --max-time 600 \
             "http://127.0.0.1:$port/api/chat" \
             -H "Content-Type: application/json" \
             -d '{
@@ -376,8 +376,8 @@ advanced_gpu_monitor() {
                 
                 echo "  GPU $i (PID $pid): ✅ CPU: ${cpu_usage}% | RAM: ${mem_usage}GB | Port: $port"
                 
-                # Test veloce della porta
-                if timeout 2s curl -s "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
+                # Test veloce della porta - timeout aumentato per coerenza  
+                if timeout 10s curl -s "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
                     echo "    └─ API: ✅ Responsive"
                 else
                     echo "    └─ API: ⚠️ Slow/Unresponsive"

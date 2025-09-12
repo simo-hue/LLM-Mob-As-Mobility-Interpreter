@@ -38,18 +38,18 @@ class Config:
     DEBUG_MODE = False  # Set to True for debugging, False for production
     DEBUG_MAX_CARDS = 50  # Only used when DEBUG_MODE = True
     
-    # Production-ready adaptive parallelism - UPGRADED to 8 workers
-    MAX_CONCURRENT_REQUESTS = 2 if DEBUG_MODE else 8
-    REQUEST_TIMEOUT = 60 if DEBUG_MODE else 120  # REDUCED: Tempi più aggressivi per temporal prompts
+    # Production-ready adaptive parallelism - CONSERVATIVE for HPC stability
+    MAX_CONCURRENT_REQUESTS = 2 if DEBUG_MODE else 4
+    REQUEST_TIMEOUT = 60 if DEBUG_MODE else 600  # INCREASED: Timeout generosi per HPC model loading (10 min)
     BATCH_SAVE_INTERVAL = 100 if DEBUG_MODE else 500
     HEALTH_CHECK_INTERVAL = 60 if DEBUG_MODE else 120
     
-    # Retry and failure handling ottimizzati per HPC - MORE CONSERVATIVE
-    MAX_RETRIES_PER_REQUEST = 5  # Ridotto per evitare sovraccarico
-    MAX_CONSECUTIVE_FAILURES = 15  # Più aggressivo per rilevare problemi early
-    BACKOFF_BASE = 2.0  # Backoff più conservativo
-    BACKOFF_MAX = 120  # Max backoff aumentato per stabilità
-    CIRCUIT_BREAKER_THRESHOLD = 5   # 🔥 ULTRA AGGRESSIVO - Ferma dopo 5 fallimenti
+    # Retry and failure handling ottimizzati per HPC - MORE TOLERANT FOR STARTUP
+    MAX_RETRIES_PER_REQUEST = 8  # Aumentato per HPC startup
+    MAX_CONSECUTIVE_FAILURES = 50  # Più tollerante per problemi di startup
+    BACKOFF_BASE = 2.0  # Backoff conservativo
+    BACKOFF_MAX = 300  # Max backoff aumentato per stabilità HPC (5 min)
+    CIRCUIT_BREAKER_THRESHOLD = 25   # 🔧 TOLERANT - Permette più fallimenti durante startup
     
     # 503 specific handling per HPC - CONSERVATIVE APPROACH
     RETRY_ON_503_WAIT = 60  # Attesa aumentata per stabilità
@@ -421,7 +421,7 @@ class OllamaConnectionManager:
         self.rate_limiter: Semaphore = Semaphore(1)  # Default semaforo con 1 permit
         self.circuit_breaker = CircuitBreaker(
             failure_threshold=Config.CIRCUIT_BREAKER_THRESHOLD,
-            timeout=Config.REQUEST_TIMEOUT + 120  # Circuit breaker timeout > REQUEST_TIMEOUT
+            timeout=Config.REQUEST_TIMEOUT + 300  # Circuit breaker timeout > REQUEST_TIMEOUT (15 min total)
         )
         self.health_monitor: HostHealthMonitor = HostHealthMonitor([])  # Lista vuota iniziale
         
@@ -551,16 +551,22 @@ class OllamaConnectionManager:
             logger.error("Rate limiter not initialized - call setup_connections() first")
             return None
             
-        # Acquire rate limiting semaphore - timeout ottimizzato per debug
+        # Acquire rate limiting semaphore - timeout allineati con REQUEST_TIMEOUT
         if Config.DEBUG_MODE:
             # Debug mode: timeout più aggressivi per fallire velocemente
             timeout_val = 60 if warmup_mode else 180  # 1 min warmup, 3 min processing
         else:
-            timeout_val = 120 if warmup_mode else Config.REQUEST_TIMEOUT + 60
+            timeout_val = 300 if warmup_mode else Config.REQUEST_TIMEOUT + 120  # Generosi per HPC
+        
+        # 🔍 DIAGNOSTIC: Log rate limiter status
+        available_permits = getattr(self.rate_limiter, '_value', 'unknown')
+        logger.debug(f"Acquiring rate limiter... (available permits: {available_permits}, timeout: {timeout_val}s)")
             
         if not self.rate_limiter.acquire(blocking=True, timeout=timeout_val):
-            logger.warning(f"Rate limit timeout ({'warmup' if warmup_mode else 'normal'}) - system overloaded")
+            logger.warning(f"Rate limit timeout ({'warmup' if warmup_mode else 'normal'}) - system overloaded (permits: {available_permits})")
             return None
+        
+        logger.debug(f"Rate limiter acquired successfully")
         
         try:
             with self.circuit_breaker.call():
@@ -572,6 +578,8 @@ class OllamaConnectionManager:
             # Controllo sicurezza anche nel finally
             if self.rate_limiter is not None:
                 self.rate_limiter.release()
+                available_after = getattr(self.rate_limiter, '_value', 'unknown')
+                logger.debug(f"Rate limiter released (available permits now: {available_after})")
     
     def _make_request_with_retry(self, prompt: str, model: str) -> Optional[str]:
         """Make request with exponential backoff retry logic and improved load balancing"""
@@ -605,11 +613,14 @@ class OllamaConnectionManager:
             # Improved host selection: round-robin with fallback to performance-based
             host = None
             if hasattr(self.health_monitor, '_round_robin_index'):
-                # Use round-robin if available
+                # Use round-robin if available - thread-safe
                 with self.health_monitor._lock:
-                    idx = self.health_monitor._round_robin_index % len(healthy_hosts)
-                    host = healthy_hosts[idx]
-                    self.health_monitor._round_robin_index += 1
+                    # Re-get healthy hosts inside lock to avoid race condition
+                    current_healthy = [h for h, healthy in self.health_monitor.health_status.items() if healthy]
+                    if current_healthy:
+                        idx = self.health_monitor._round_robin_index % len(current_healthy)
+                        host = current_healthy[idx]
+                        self.health_monitor._round_robin_index += 1
             else:
                 # Fallback to least used host in this request
                 if host_usage_count:
@@ -683,8 +694,8 @@ class OllamaConnectionManager:
                 
                 start_time = time.time()
                 
-                # Debug mode: timeout più aggressivo per fallire velocemente
-                request_timeout = 120 if Config.DEBUG_MODE else Config.REQUEST_TIMEOUT
+                # Use configured timeout for all modes
+                request_timeout = Config.REQUEST_TIMEOUT
                 
                 resp = requests.post(
                     f"{host}/api/chat",
@@ -1926,7 +1937,7 @@ class VisitFileProcessor:
                     card_id = futures[future]
                     
                     try:
-                        result = future.result(timeout=Config.REQUEST_TIMEOUT + 60)
+                        result = future.result(timeout=Config.REQUEST_TIMEOUT + 180)  # Allineato con nuovo timeout
                         
                         if result and result.get('status') == 'fatal_error':
                             logger.warning(f"Fatal error for card {card_id}")

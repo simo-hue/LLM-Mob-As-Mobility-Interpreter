@@ -403,7 +403,7 @@ echo ""
 
 if [ -f "data/verona/vc_site.csv" ]; then
     python3 -u geom.py \
-        -- file data/verona/veronacard_2022_original.csv\
+        --file data/verona/veronacard_2023_original_parziale.csv\
         --append 2>&1 | tee deepseek-coder:33b_geom_python_execution.log
     PYTHON_EXIT=$?
 else
