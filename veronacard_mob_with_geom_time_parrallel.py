@@ -2,10 +2,12 @@ import argparse
 import json
 import logging
 import math
+import gc
 import os
 import random
 import re
 import sys
+import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed, TimeoutError
 from contextlib import contextmanager
@@ -36,22 +38,22 @@ class Config:
     DEBUG_MODE = False  # Set to True for debugging, False for production
     DEBUG_MAX_CARDS = 50  # Only used when DEBUG_MODE = True
     
-    # Production-ready adaptive parallelism - CONSERVATIVE for HPC stability
-    MAX_CONCURRENT_REQUESTS = 2 if DEBUG_MODE else 4
-    REQUEST_TIMEOUT = 60 if DEBUG_MODE else 600  # INCREASED: Timeout generosi per HPC model loading (10 min)
+    # Production-ready adaptive parallelism - TEMPORAL-OPTIMIZED for HPC stability
+    MAX_CONCURRENT_REQUESTS = 2 if DEBUG_MODE else 4  # 🔧 TEMPORAL-FIXED: 4 richieste = 2 GPU × 2 requests per GPU
+    REQUEST_TIMEOUT = 60 if DEBUG_MODE else 600  # 🔧 TEMPORAL-EXTENDED: 10 min per temporal complexity
     BATCH_SAVE_INTERVAL = 100 if DEBUG_MODE else 500
-    HEALTH_CHECK_INTERVAL = 60 if DEBUG_MODE else 120
+    HEALTH_CHECK_INTERVAL = 60 if DEBUG_MODE else 180  # 🔧 EXTENDED: Check meno frequenti
     
-    # Retry and failure handling ottimizzati per HPC - MORE TOLERANT FOR STARTUP
-    MAX_RETRIES_PER_REQUEST = 8  # Aumentato per HPC startup
-    MAX_CONSECUTIVE_FAILURES = 50  # Più tollerante per problemi di startup
-    BACKOFF_BASE = 2.0  # Backoff conservativo
-    BACKOFF_MAX = 300  # Max backoff aumentato per stabilità HPC (5 min)
-    CIRCUIT_BREAKER_THRESHOLD = 25   # 🔧 TOLERANT - Permette più fallimenti durante startup
+    # Retry and failure handling ULTRA-TOLERANT per HPC - PREVENT CASCADE FAILURE
+    MAX_RETRIES_PER_REQUEST = 12  # 🔧 INCREASED: Più tentativi per HPC
+    MAX_CONSECUTIVE_FAILURES = 100  # 🔧 DOUBLED: Molto più tollerante
+    BACKOFF_BASE = 3.0  # 🔧 SLOWER: Backoff più graduale
+    BACKOFF_MAX = 600  # 🔧 EXTENDED: Max backoff 10 min per stabilità
+    CIRCUIT_BREAKER_THRESHOLD = 75   # 🔧 TEMPORAL-BALANCED: Intermedia tra geom(100) e precedente(50)
     
-    # 503 specific handling per HPC - CONSERVATIVE APPROACH
-    RETRY_ON_503_WAIT = 60  # Attesa aumentata per stabilità
-    MAX_503_RETRIES = 10    # Ridotto per evitare loop infiniti
+    # 503 specific handling per HPC - ULTRA-CONSERVATIVE APPROACH
+    RETRY_ON_503_WAIT = 120  # 🔧 DOUBLED: Attesa ancora più lunga
+    MAX_503_RETRIES = 15    # 🔧 INCREASED: Più tentativi per HPC startup
     
     # Anchor rule for POI selection
     DEFAULT_ANCHOR_RULE = "middle"
@@ -59,12 +61,16 @@ class Config:
     # Parallelism ottimizzato per 4x A100
     ENABLE_ROUND_ROBIN = True
     HOST_SELECTION_STRATEGY = "balanced"
-    MAX_CONCURRENT_PER_GPU = 1 if DEBUG_MODE else 2   # ✅ UPGRADED: 2 richieste per A100 per maggior throughput
+    MAX_CONCURRENT_PER_GPU = 1 if DEBUG_MODE else 2   # 🔧 TEMPORAL-REDUCED: 2 richieste per GPU (memory pressure)
     
-    # Memory and performance tuning per A100
-    GPU_MEMORY_FRACTION = 0.95  # Usa 95% della VRAM disponibile
-    PREFETCH_FACTOR = 2  # Pre-carica 2 batch in anticipo
+    # Memory and performance tuning per A100 - TEMPORAL-OPTIMIZED
+    GPU_MEMORY_FRACTION = 0.90  # 🔧 TEMPORAL-CONSERVATIVE: 90% VRAM (vs 95% geom)
+    PREFETCH_FACTOR = 1  # 🔧 TEMPORAL-REDUCED: 1 batch prefetch (memory pressure)
     ASYNC_INFERENCE = True  # Inference asincrona quando possibile
+
+    # Temporal-specific optimizations
+    TEMPORAL_BATCH_SIZE = 256  # 🔧 NEW: Reduced batch size for temporal processing
+    ENABLE_TEMPORAL_CACHING = True  # 🔧 NEW: Cache temporal features for performance
     
     # File paths
     OLLAMA_PORT_FILE = "ollama_ports.txt"
@@ -177,9 +183,12 @@ class CircuitBreaker:
         self.failure_threshold = failure_threshold
         self.timeout = timeout
         self.failures = 0
+        self.consecutive_failures = 0  # 🔧 GRADUAL: Traccia fallimenti consecutivi
         self.last_failure = None
+        self.last_success = None  # 🔧 RECOVERY: Traccia ultimi successi
         self.state = "CLOSED"
         self._lock = Lock()
+        self.warning_threshold = failure_threshold // 2  # 🔧 WARNING: Avvisi a metà strada
     
     @contextmanager
     def call(self):
@@ -202,21 +211,41 @@ class CircuitBreaker:
             raise e
     
     def record_failure(self):
-        """Record a failure and potentially open the circuit"""
+        """Record a failure with gradual escalation - ULTRA-TOLERANT"""
         with self._lock:
             self.failures += 1
+            self.consecutive_failures += 1
             self.last_failure = time.time()
             
-            if self.failures >= self.failure_threshold:
+            # 🔧 GRADUAL WARNING: Avviso progressivo
+            if self.consecutive_failures == self.warning_threshold:
+                logger.warning(f"⚠️ Circuit breaker WARNING: {self.consecutive_failures}/{self.failure_threshold} failures")
+            
+            # 🔧 TOLERANT: Solo fallimenti consecutivi aprono il circuito
+            if self.consecutive_failures >= self.failure_threshold:
                 self.state = "OPEN"
-                logger.error(f"Circuit breaker OPEN after {self.failures} failures")
+                logger.error(f"💥 CIRCUIT BREAKER OPEN after {self.consecutive_failures} consecutive failures")
+                logger.error(f"🛑 All Ollama instances have failed. Processing must stop.")
+                logger.error(f"🔧 Check GPU memory, processes, and logs before restarting.")
                 stats.set_circuit_breaker(True)
     
+    def record_success(self):
+        """Record success and potentially reset consecutive failures - RECOVERY LOGIC"""
+        with self._lock:
+            self.last_success = time.time()
+            # 🔧 RECOVERY: Successo resetta fallimenti consecutivi gradualmente
+            if self.consecutive_failures > 0:
+                self.consecutive_failures = max(0, self.consecutive_failures - 1)
+                if self.consecutive_failures == 0:
+                    logger.info(f"✅ Circuit breaker: Consecutive failures reset after success")
+    
     def reset(self):
-        """Reset circuit breaker to closed state"""
+        """Reset circuit breaker to closed state - FULL RECOVERY"""
         with self._lock:
             self.failures = 0
+            self.consecutive_failures = 0
             self.state = "CLOSED"
+            logger.info(f"🔄 Circuit breaker RESET - Full recovery")
             stats.set_circuit_breaker(False)
             logger.info("Circuit breaker RESET to CLOSED state")
 
@@ -419,7 +448,7 @@ class OllamaConnectionManager:
         self.rate_limiter: Semaphore = Semaphore(1)  # Default semaforo con 1 permit
         self.circuit_breaker = CircuitBreaker(
             failure_threshold=Config.CIRCUIT_BREAKER_THRESHOLD,
-            timeout=Config.REQUEST_TIMEOUT + 300  # Circuit breaker timeout > REQUEST_TIMEOUT (15 min total)
+            timeout=Config.REQUEST_TIMEOUT + 60  # 🔧 OPTIMIZED: Circuit breaker timeout di 3 min (2+1)
         )
         self.health_monitor: HostHealthMonitor = HostHealthMonitor([])  # Lista vuota iniziale
         
@@ -515,7 +544,7 @@ class OllamaConnectionManager:
                 test_resp = requests.post(
                     f"{host}/api/generate",
                     json=test_payload,
-                    timeout=60
+                    timeout=Config.REQUEST_TIMEOUT
                 )
                 
                 if test_resp.status_code == 200:
@@ -537,6 +566,8 @@ class OllamaConnectionManager:
     def get_chat_completion(self, prompt: str, model: str = Config.MODEL_NAME, warmup_mode: bool = False) -> Optional[str]:
         """Get chat completion with load balancing and error handling"""
         
+        logger.info(f"🔍 GET_CHAT_START: Thread {threading.current_thread().name} requesting chat completion")
+        
         # Check circuit breaker - STOP COMPLETELY instead of skipping
         if stats.circuit_breaker_active:
             logger.error("💥 CIRCUIT BREAKER ACTIVE - SYSTEM FAILURE DETECTED")
@@ -549,35 +580,39 @@ class OllamaConnectionManager:
             logger.error("Rate limiter not initialized - call setup_connections() first")
             return None
             
-        # Acquire rate limiting semaphore - timeout allineati con REQUEST_TIMEOUT
+        # Acquire rate limiting semaphore - timeout ottimizzati per velocità
         if Config.DEBUG_MODE:
             # Debug mode: timeout più aggressivi per fallire velocemente
-            timeout_val = 60 if warmup_mode else 180  # 1 min warmup, 3 min processing
+            timeout_val = 30 if warmup_mode else 60  # 30s warmup, 1 min processing
         else:
-            timeout_val = 300 if warmup_mode else Config.REQUEST_TIMEOUT + 120  # Generosi per HPC
+            timeout_val = 60 if warmup_mode else 30  # 🔧 OPTIMIZED: 30s max wait per semaforo
         
         # 🔍 DIAGNOSTIC: Log rate limiter status
         available_permits = getattr(self.rate_limiter, '_value', 'unknown')
-        logger.debug(f"Acquiring rate limiter... (available permits: {available_permits}, timeout: {timeout_val}s)")
+        logger.info(f"🔍 RATE_LIMITER_WAIT: Thread {threading.current_thread().name} acquiring rate limiter (available: {available_permits}, timeout: {timeout_val}s)")
             
         if not self.rate_limiter.acquire(blocking=True, timeout=timeout_val):
-            logger.warning(f"Rate limit timeout ({'warmup' if warmup_mode else 'normal'}) - system overloaded (permits: {available_permits})")
+            logger.warning(f"🔍 RATE_LIMITER_TIMEOUT: Rate limit timeout ({'warmup' if warmup_mode else 'normal'}) - system overloaded (permits: {available_permits})")
             return None
         
-        logger.debug(f"Rate limiter acquired successfully")
+        logger.info(f"🔍 RATE_LIMITER_OK: Thread {threading.current_thread().name} acquired rate limiter successfully")
         
         try:
+            logger.info(f"🔍 CIRCUIT_BREAKER_START: Thread {threading.current_thread().name} entering circuit breaker")
             with self.circuit_breaker.call():
-                return self._make_request_with_retry(prompt, model)
+                logger.info(f"🔍 HTTP_REQUEST_START: Thread {threading.current_thread().name} making HTTP request")
+                result = self._make_request_with_retry(prompt, model)
+                logger.info(f"🔍 HTTP_REQUEST_END: Thread {threading.current_thread().name} HTTP request completed - Result: {'SUCCESS' if result else 'FAILED'}")
+                return result
         except Exception as e:
-            logger.error(f"Request failed completely: {e}")
+            logger.error(f"🔍 REQUEST_FAILED: Thread {threading.current_thread().name} request failed completely: {e}")
             return None
         finally:
             # Controllo sicurezza anche nel finally
             if self.rate_limiter is not None:
                 self.rate_limiter.release()
                 available_after = getattr(self.rate_limiter, '_value', 'unknown')
-                logger.debug(f"Rate limiter released (available permits now: {available_after})")
+                logger.info(f"🔍 RATE_LIMITER_RELEASE: Thread {threading.current_thread().name} released rate limiter (available permits now: {available_after})")
     
     def _make_request_with_retry(self, prompt: str, model: str) -> Optional[str]:
         """Make request with exponential backoff retry logic and improved load balancing"""
@@ -650,7 +685,7 @@ class OllamaConnectionManager:
                     "messages": [
                         {
                             "role": "system", 
-                            "content": "You are a JSON-only responder. Always output valid JSON."
+                            "content": "You are a tourism prediction assistant in Verona, Italy."
                         },
                         {
                             "role": "user", 
@@ -663,15 +698,17 @@ class OllamaConnectionManager:
                         # Context window - FURTHER REDUCED per temporal prompts
                         "num_ctx": 1024,           # FURTHER REDUCED per tempi più veloci
                         
-                        # Generation parameters - ottimizzati per JSON semplice
-                        "num_predict": 64,         # FURTHER REDUCED per JSON conciso
-                        "temperature": 0.1,        # Bassa per predizioni precise
+                        # Generation parameters - ANTI-DEADLOCK ottimizzati
+                        "num_predict": 128,        # 🔧 INCREASED: Spazio sufficiente per JSON completo
+                        "temperature": 0.3,        # 🔧 INCREASED: Previene loop deterministici
                         "top_p": 0.9,
-                        "top_k": 40,               # Aggiunto per controllo qualità
+                        "top_k": 40,               # Controllo qualità
+                        "repeat_penalty": 1.1,     # 🔧 ANTI-LOOP: Previene ripetizioni
+                        "stop": ["}", "\n\n", "</s>"],  # 🔧 STOP: Termina dopo JSON completo o fine sequenza
                         
                         # Hardware optimization per A100 - FULL POWER per Mistral
                         "num_thread": 56,          # FULL POWER: tutti i core Sapphire Rapids 
-                        "num_batch": 512,          # REDUCED per evitare memory pressure
+                        "num_batch": 256,          # 🔧 TEMPORAL-OPTIMIZED: Further reduced for temporal processing
                         "num_gpu": 1,              # Una GPU per istanza Ollama
                         "main_gpu": 0,             # GPU principale per l'istanza
                         
@@ -752,6 +789,8 @@ class OllamaConnectionManager:
                 if content:
                     if not done_status:
                         logger.debug(f"Using partial response from {host} (done=False but content available)")
+                    # 🔧 RECOVERY: Record success to help circuit breaker recovery
+                    self.circuit_breaker.record_success()
                     # Continua con il processing normale
                     stats.increment_processed()
                     logger.debug(f"SUCCESS: Got response from {host} in {response_time:.2f}s")
@@ -825,10 +864,10 @@ class OllamaConnectionManager:
                         "prompt": prompt,
                         "stream": False,
                         "options": {
-                            "num_ctx": 2048,
-                            "num_predict": 100,
-                            "num_thread": 28,  # 1/4 of 112 cores per GPU
-                            "num_batch": 2048,
+                            "num_ctx": 1024,           # 🔧 ALIGNED: Con main payload per coerenza
+                            "num_predict": 128,         # 🔧 ADEQUATE: Spazio per JSON completo
+                            "num_thread": 56,           # 🔧 ALIGNED: Con main payload
+                            "num_batch": 256,           # 🔧 TEMPORAL-ALIGNED: Con configurazione ottimizzata
                             "cache_type_k": "f16",
                             "temperature": 0.7
                         }
@@ -837,7 +876,7 @@ class OllamaConnectionManager:
                     response = requests.post(
                         f"{host}/api/generate",
                         json=payload,
-                        timeout=120,  # 2 minutes per preload request
+                        timeout=Config.REQUEST_TIMEOUT,  # Use configured timeout for preload
                         headers={'Content-Type': 'application/json'}
                     )
                     
@@ -1255,12 +1294,12 @@ class PromptBuilder:
             for poi in nearby_pois
         ])
         
-        # Format temporal context
-        time_context = f"Current: {current_day} {current_time.strftime('%H:%M')}"
+        # Format temporal context - OPTIMIZED: Essential info only
+        time_context = f"{current_day[:3]} {current_time.strftime('%H:%M')}"
         if visit_hours:
-            time_context += f", usual hours: {visit_hours}, avg: {avg_hour:.1f}h"
-        if len(days_visited) > 1:
-            time_context += f", days visited: {', '.join(days_visited[:3])}"
+            # Concise hour pattern: show range instead of full list
+            hour_range = f"{min(visit_hours)}-{max(visit_hours)}h"
+            time_context += f" (usual: {hour_range})"
         
         # Adaptive prompt complexity based on mode
         if Config.DEBUG_MODE:
@@ -1272,29 +1311,22 @@ class PromptBuilder:
             
             return f"""Tourist at {current_poi} ({time_summary}). Predict next {top_k} POI.
 
-History: {' → '.join(history) if history else 'None'}
-Nearby: {pois_list if pois_list else 'None'}
+                    History: {' → '.join(history) if history else 'None'}
+                    Nearby: {pois_list if pois_list else 'None'}
 
-Answer format: poi1, poi2, poi3, poi4, poi5"""
+                    Answer format: poi1, poi2, poi3, poi4, poi5"""
         else:
-            # Production version with full temporal context
-            return f"""You are an expert tourism analyst predicting visitor behavior in Verona, Italy.
-            TOURIST PROFILE:
-            - Cluster: {cluster_id} (behavioral pattern group)  
-            - Visit history: {', '.join(history) if history else 'First-time visitor'}
-            - Current location: {current_poi}
+            # Production version with OPTIMIZED temporal context (geo info complete)
+            return f"""
+            - Cluster: {cluster_id}
+            - History: {', '.join(history) if history else 'First visit'}
+            - Current: {current_poi} ({time_context})
 
-            TEMPORAL CONTEXT:
-            {time_context}
-
-            SPATIAL CONTEXT:
             Nearby attractions within walking distance: {pois_list if pois_list else 'No nearby POIs within 5km'}
 
-            TASK:
-            Predict exactly {top_k} most likely next destinations for this tourist, Order them by decreasing probability (most likely first)
+            Predict exactly {top_k} most likely next destinations for this tourist
 
-            OUTPUT FORMAT:
-            Respond in JSON format like this: {{"prediction": ["poi1", "poi2", "poi3"], "reason": "brief explanation"}}."""
+            OUTPUT FORMAT: {{"prediction": ["poi1", "poi2", "poi3", "poi4", "poi5"]}}"""
 
 # ============= CHECKPOINT MANAGEMENT =============
 class CheckpointManager:
@@ -1476,23 +1508,30 @@ class CardProcessor:
             Dictionary with prediction results or None if error
         """
         start_time = time.time()
+        logger.info(f"🔍 PROCESS_CARD START: {card_id} - Thread: {threading.current_thread().name}")
         
         try:
             # Skip if already processed
+            logger.debug(f"🔍 CHECKPOINT_CHECK: Checking if {card_id} is completed")
             if self.checkpoint_manager.is_completed(card_id):
-                logger.debug(f"Card {card_id} already processed - skipping")
+                logger.info(f"🔍 CHECKPOINT_SKIP: Card {card_id} already processed - skipping")
                 return None
+            logger.debug(f"🔍 CHECKPOINT_OK: Card {card_id} not in checkpoint, proceeding")
             
             # Get visit sequence
+            logger.debug(f"🔍 DATA_QUERY: Getting visit sequence for {card_id}")
             seq = (self.filtered_df[self.filtered_df.card_id == card_id]
                    .sort_values("timestamp")["name_short"]
                    .tolist())
+            logger.debug(f"🔍 DATA_OK: Found {len(seq)} visits for {card_id}: {seq}")
             
             if len(seq) < 3:
-                logger.debug(f"Card {card_id} has insufficient visits ({len(seq)})")
+                logger.info(f"🔍 INSUFFICIENT_VISITS: Card {card_id} has insufficient visits ({len(seq)})")
                 return None
+            logger.debug(f"🔍 VISITS_OK: Card {card_id} has sufficient visits ({len(seq)})")
             
             # Create prompt (which now handles the logic internally)
+            logger.debug(f"🔍 PROMPT_START: Creating prompt for {card_id}")
             try:
                 prompt = PromptBuilder.create_prompt(
                     self.filtered_df,
@@ -1502,12 +1541,15 @@ class CardProcessor:
                     top_k=Config.TOP_K,
                     anchor_rule=Config.DEFAULT_ANCHOR_RULE
                 )
+                logger.debug(f"🔍 PROMPT_OK: Prompt created for {card_id} (length: {len(prompt) if prompt else 0})")
             except Exception as e:
-                logger.warning(f"Error creating prompt for {card_id}: {e}")
+                logger.warning(f"🔍 PROMPT_ERROR: Error creating prompt for {card_id}: {e}")
                 return None
             
-            # Get LLM prediction
+            # Get LLM prediction - CRITICAL BLOCKING POINT
+            logger.info(f"🔍 LLM_REQUEST_START: Sending request for {card_id} - Thread: {threading.current_thread().name}")
             response = self.ollama_manager.get_chat_completion(prompt)
+            logger.info(f"🔍 LLM_REQUEST_END: Response received for {card_id} - Status: {'SUCCESS' if response else 'FAILED'}")
             
             # Extract sequence components based on anchor rule (for result record)
             if Config.DEFAULT_ANCHOR_RULE == "middle":
@@ -1586,9 +1628,12 @@ class CardProcessor:
                     result["status"] = "processing_error"
             
             # Mark as completed and save result
+            logger.debug(f"🔍 SAVE_START: Saving result for {card_id}")
             self.checkpoint_manager.mark_completed(card_id)
             self.results_manager.add_result(result)
             
+            processing_time = time.time() - start_time
+            logger.info(f"🔍 PROCESS_CARD_END: {card_id} completed in {processing_time:.2f}s - Thread: {threading.current_thread().name}")
             return result
             
         except Exception as e:
@@ -1924,7 +1969,7 @@ class VisitFileProcessor:
                         "stream": False,
                         "options": {"num_predict": 1, "temperature": 0}
                     },
-                    timeout=60
+                    timeout=Config.REQUEST_TIMEOUT
                 )
                 if test_resp.status_code == 200:
                     logger.info(f"✅ Pre-flight check passed for {host}")
@@ -1947,48 +1992,98 @@ class VisitFileProcessor:
         # Simplified preloading - aligned with geom version approach
         logger.info("Skipping complex GPU preloading - pre-flight checks sufficient")
         
-        logger.info("🚀 Starting production processing...")
+        logger.info("🚀 Starting production processing with batch processing...")
         
-        # Process cards with thread pool
+        # 🔧 ARCHITECTURAL FIX: Batch processing to prevent deadlock
+        batch_size = optimal_workers  # Process batches equal to worker count
+        total_cards = len(cards_to_process)
+        processed_count = 0
+        
+        logger.info(f"Processing {total_cards} cards in batches of {batch_size}")
+        
+        # Process cards with thread pool in batches
         with ThreadPoolExecutor(
             max_workers=optimal_workers,
             thread_name_prefix="CardWorker"
         ) as executor:
             
-            # Submit all tasks
-            futures = {
-                executor.submit(card_processor.process_card, card_id): card_id
-                for card_id in cards_to_process
-            }
-            
-            # Process results with progress bar
+            # Global progress bar for all batches
             with tqdm(
-                total=len(cards_to_process),
+                total=total_cards,
                 desc="Processing cards",
                 unit="card"
             ) as pbar:
                 
-                for future in as_completed(futures):
-                    card_id = futures[future]
+                # Process in batches to prevent memory explosion and semaphore starvation
+                for batch_start in range(0, total_cards, batch_size):
+                    batch_end = min(batch_start + batch_size, total_cards)
+                    current_batch = cards_to_process[batch_start:batch_end]
+                    batch_num = (batch_start // batch_size) + 1
+                    total_batches = (total_cards + batch_size - 1) // batch_size
                     
-                    try:
-                        result = future.result(timeout=Config.REQUEST_TIMEOUT + 180)  # Allineato con nuovo timeout
+                    logger.debug(f"Processing batch {batch_num}/{total_batches} ({len(current_batch)} cards)")
+                    
+                    # Submit only current batch (prevents deadlock)
+                    batch_futures = {
+                        executor.submit(card_processor.process_card, card_id): card_id
+                        for card_id in current_batch
+                    }
+                    
+                    # Process current batch results
+                    for future in as_completed(batch_futures):
+                        card_id = batch_futures[future]
                         
-                        if result and result.get('status') == 'fatal_error':
-                            logger.warning(f"Fatal error for card {card_id}")
+                        try:
+                            result = future.result(timeout=180)  # 🔧 OPTIMIZED: 3 minuti timeout ragionevole
+                            processed_count += 1
+                            
+                            if result and result.get('status') == 'fatal_error':
+                                logger.warning(f"Fatal error for card {card_id}")
+                            
+                            # Check circuit breaker - ridotta pausa per evitare blocking
+                            if stats.consecutive_failures >= Config.CIRCUIT_BREAKER_THRESHOLD:
+                                logger.warning("Too many consecutive failures - brief pause")
+                                time.sleep(5)  # 🔧 OPTIMIZED: Solo 5 secondi di pausa
+                                stats.reset_consecutive_failures()
+                                
+                                # Check if we should terminate due to critical failures
+                                if stats.consecutive_failures >= Config.CIRCUIT_BREAKER_THRESHOLD * 2:
+                                    logger.error("Critical failure threshold reached - saving progress and terminating batch")
+                                    try:
+                                        card_processor.results_manager.save_batch()
+                                        logger.info("Progress saved during critical failure")
+                                    except Exception as save_error:
+                                        logger.error(f"Failed to save progress during critical failure: {save_error}")
+                                    break
                         
-                        # Check circuit breaker
-                        if stats.consecutive_failures >= Config.CIRCUIT_BREAKER_THRESHOLD:
-                            logger.error("Too many consecutive failures - pausing")
-                            time.sleep(60)  # Pause for 1 minute
-                            stats.reset_consecutive_failures()
+                        except TimeoutError:
+                            logger.error(f"Timeout processing card {card_id}")
+                            processed_count += 1
+                        except Exception as e:
+                            logger.error(f"Error processing card {card_id}: {e}")
+                            processed_count += 1
+                        
+                        pbar.update(1)
                     
-                    except TimeoutError:
-                        logger.error(f"Timeout processing card {card_id}")
-                    except Exception as e:
-                        logger.error(f"Error processing card {card_id}: {e}")
+                    # Batch completed - clean up futures and force garbage collection
+                    del batch_futures
                     
-                    pbar.update(1)
+                    # Force garbage collection every batch to manage memory
+                    if batch_num % 5 == 0:  # Every 5 batches
+                        gc.collect()
+                        logger.debug(f"Memory cleanup after batch {batch_num}")
+                    
+                    # Progress report and checkpoint save every few batches
+                    if batch_num % 10 == 0 or batch_num == total_batches:
+                        # Save progress every 10 batches
+                        try:
+                            card_processor.results_manager.save_batch()
+                            logger.info(f"✅ Batch {batch_num}/{total_batches} completed - Total processed: {processed_count}/{total_cards} - Progress saved")
+                        except Exception as e:
+                            logger.warning(f"Failed to save progress after batch {batch_num}: {e}")
+                            logger.info(f"Completed batch {batch_num}/{total_batches} - Total processed: {processed_count}/{total_cards}")
+                        
+        logger.info(f"✅ Processing completed - {processed_count}/{total_cards} cards processed")
     
     def process_all_files(
         self,

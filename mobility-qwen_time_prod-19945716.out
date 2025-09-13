@@ -1,0 +1,202 @@
+🚀 VERONA CARD - TIME PRODUCTION
+================================================
+🚀 TEMPORAL-OPTIMIZED MODE: 2 GPU paralleli, timeout 10min, ottimizzato per temporal processing
+Job ID: 19945716
+Nodo: lrdn2389.leonardo.local
+Data: Sat Sep 13 16:31:37 CEST 2025
+
+📦 Setup ambiente HPC...
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+✅ Python: Python 3.11.6
+✅ CUDA: Cuda compilation tools, release 12.3, V12.3.103
+
+🔍 GPU DETECTION:
+0, NVIDIA A100-SXM-64GB, 65536 MiB, 43
+1, NVIDIA A100-SXM-64GB, 65536 MiB, 43
+
+📁 Directory temporanea: /leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716
+💾 Spazio disponibile: 740GB
+
+🧹 Cleanup preventivo...
+
+🚀 AVVIO SISTEMA OLLAMA
+========================
+🔧 STRATEGIA TEMPORAL-OPTIMIZED: Avvio sequenziale 2 GPU ottimizzate per temporal complexity
+
+🔧 Avvio GPU 0 su porta 39001...
+✅ GPU 0 PID: 43698 (NO TIMEOUT)
+⏳ GPU 0 è MASTER - attesa caricamento modello SENZA LIMITI...
+   🌐 API risponde, test modello...
+   ✅ GPU 0 PRONTA dopo 1 tentativi!
+
+✅ GPU 0 completamente operativa con modello caricato
+⏳ Pausa 90s per stabilizzazione completa...
+
+🔧 Avvio GPU 1 per parallelismo controllato...
+
+🔧 Avvio GPU 1 su porta 39002...
+✅ GPU 1 PID: 43801 (NO TIMEOUT)
+⏳ Pausa 60s per sincronizzazione...
+📝 GPU 2 e 3 disabilitate per stabilità (possono essere riattivate)
+⏳ Attesa finale stabilizzazione sistema (60s)...
+
+🔍 VERIFICA FINALE SISTEMA
+===========================
+GPU 0 (porta 39001): ✅ OPERATIVA
+GPU 1 (porta 39002): ✅ OPERATIVA
+
+📊 RISULTATO: 2/2 GPU operative (modalità ottimizzata)
+✅ Porte salvate: 39001,39002
+📊 Starting Advanced GPU Monitor (ogni 60s)
+
+🐍 AVVIO PYTHON
+===============
+
+🔧 OTTIMIZZATO: Processing con --append e configurazione bilanciata per velocità
+2025-09-13 16:37:15 [INFO] 🚀 PRODUCTION MODE - 4 concurrent requests
+2025-09-13 16:37:15 [INFO] Initializing Ollama connection manager...
+2025-09-13 16:37:15 [WARNING] HostHealthMonitor initialized with empty host list
+2025-09-13 16:37:15 [INFO] Setting up connections...
+2025-09-13 16:37:15 [INFO] Multi-GPU configuration: 2 instances
+2025-09-13 16:37:15 [INFO] Initialized with 2 hosts
+2025-09-13 16:37:15 [INFO] Waiting for Ollama services to start...
+2025-09-13 16:37:15 [INFO] Checking host 1/2: http://127.0.0.1:39001
+2025-09-13 16:37:15 [INFO] Host http://127.0.0.1:39001 is ready
+2025-09-13 16:37:15 [INFO] Checking host 2/2: http://127.0.0.1:39002
+2025-09-13 16:37:15 [INFO] Host http://127.0.0.1:39002 is ready
+2025-09-13 16:37:15 [INFO] All Ollama services are ready!
+2025-09-13 16:37:15 [INFO] Checking available models on all hosts...
+2025-09-13 16:37:15 [INFO] http://127.0.0.1:39001: ['mistral:7b', 'codellama:34b', 'deepseek-r1:32b', 'mixtral:8x22b', 'llama3.1:70b', 'qwen2.5:72b-instruct', 'qwen2.5:7b', 'qwen2.5:14b', 'deepseek-coder:33b', 'mixtral:8x7b', 'llama3.1:8b']
+2025-09-13 16:37:15 [INFO] Model qwen2.5:7b available on http://127.0.0.1:39001
+2025-09-13 16:37:15 [INFO] http://127.0.0.1:39002: ['mistral:7b', 'codellama:34b', 'deepseek-r1:32b', 'mixtral:8x22b', 'llama3.1:70b', 'qwen2.5:72b-instruct', 'qwen2.5:7b', 'qwen2.5:14b', 'deepseek-coder:33b', 'mixtral:8x7b', 'llama3.1:8b']
+2025-09-13 16:37:15 [INFO] Model qwen2.5:7b available on http://127.0.0.1:39002
+2025-09-13 16:37:15 [INFO] Found 12 files to process
+2025-09-13 16:37:15 [INFO] Processing dati_2014.csv
+2025-09-13 16:37:15 [INFO] Loading and preprocessing data...
+2025-09-13 16:37:15 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-13 16:37:17 [INFO] Loaded 370377 visits from dati_2014.csv
+2025-09-13 16:37:17 [INFO] Valid visits after merge: 370377
+2025-09-13 16:37:17 [INFO] Multi-visit cards: 70236 / 71557
+2025-09-13 16:37:17 [INFO] Performing user clustering...
+2025-09-13 16:37:24 [INFO] Processing 65892 cards
+2025-09-13 16:37:24 [INFO] Using 4 workers for 2 healthy hosts
+2025-09-13 16:37:24 [INFO] Waiting 60s for models to stabilize...
+2025-09-13 16:38:24 [INFO] Running pre-flight check on all hosts...
+2025-09-13 16:38:27 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39001
+2025-09-13 16:38:29 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39002
+2025-09-13 16:38:29 [INFO] ✅ ALL PRE-FLIGHT CHECKS PASSED - Starting progressive warm-up
+2025-09-13 16:38:29 [INFO] DEBUG MODE: Skipping complex warm-up - proceeding directly to processing
+2025-09-13 16:38:29 [INFO] Simple pre-flight checks already completed - system ready
+2025-09-13 16:38:29 [INFO] Skipping complex GPU preloading - pre-flight checks sufficient
+2025-09-13 16:38:29 [INFO] 🚀 Starting production processing with batch processing...
+2025-09-13 16:38:29 [INFO] Processing 65892 cards in batches of 4
+Processing cards:   0%|          | 0/65892 [00:00<?, ?card/s]2025-09-13 16:38:29 [INFO] 🔍 PROCESS_CARD START: 040001523F3885 - Thread: CardWorker_0
+2025-09-13 16:38:29 [INFO] 🔍 PROCESS_CARD START: 040002523F3885 - Thread: CardWorker_1
+2025-09-13 16:38:29 [INFO] 🔍 PROCESS_CARD START: 040005523F3885 - Thread: CardWorker_2
+2025-09-13 16:38:29 [INFO] 🔍 PROCESS_CARD START: 040006523F3885 - Thread: CardWorker_3
+2025-09-13 16:38:29 [INFO] 🔍 LLM_REQUEST_START: Sending request for 040005523F3885 - Thread: CardWorker_2
+2025-09-13 16:38:29 [INFO] 🔍 LLM_REQUEST_START: Sending request for 040001523F3885 - Thread: CardWorker_0
+2025-09-13 16:38:29 [INFO] 🔍 LLM_REQUEST_START: Sending request for 040002523F3885 - Thread: CardWorker_1
+2025-09-13 16:38:29 [INFO] 🔍 GET_CHAT_START: Thread CardWorker_2 requesting chat completion
+2025-09-13 16:38:29 [INFO] 🔍 GET_CHAT_START: Thread CardWorker_0 requesting chat completion
+2025-09-13 16:38:29 [INFO] 🔍 GET_CHAT_START: Thread CardWorker_1 requesting chat completion
+2025-09-13 16:38:29 [INFO] 🔍 RATE_LIMITER_WAIT: Thread CardWorker_2 acquiring rate limiter (available: 4, timeout: 30s)
+2025-09-13 16:38:29 [INFO] 🔍 RATE_LIMITER_WAIT: Thread CardWorker_0 acquiring rate limiter (available: 4, timeout: 30s)
+2025-09-13 16:38:29 [INFO] 🔍 RATE_LIMITER_WAIT: Thread CardWorker_1 acquiring rate limiter (available: 4, timeout: 30s)
+2025-09-13 16:38:29 [INFO] 🔍 RATE_LIMITER_OK: Thread CardWorker_2 acquired rate limiter successfully
+2025-09-13 16:38:29 [INFO] 🔍 LLM_REQUEST_START: Sending request for 040006523F3885 - Thread: CardWorker_3
+2025-09-13 16:38:29 [INFO] 🔍 RATE_LIMITER_OK: Thread CardWorker_0 acquired rate limiter successfully
+2025-09-13 16:38:29 [INFO] 🔍 RATE_LIMITER_OK: Thread CardWorker_1 acquired rate limiter successfully
+2025-09-13 16:38:29 [INFO] 🔍 CIRCUIT_BREAKER_START: Thread CardWorker_2 entering circuit breaker
+2025-09-13 16:38:29 [INFO] 🔍 GET_CHAT_START: Thread CardWorker_3 requesting chat completion
+2025-09-13 16:38:29 [INFO] 🔍 CIRCUIT_BREAKER_START: Thread CardWorker_0 entering circuit breaker
+2025-09-13 16:38:29 [INFO] 🔍 CIRCUIT_BREAKER_START: Thread CardWorker_1 entering circuit breaker
+2025-09-13 16:38:29 [INFO] 🔍 HTTP_REQUEST_START: Thread CardWorker_2 making HTTP request
+2025-09-13 16:38:29 [INFO] 🔍 RATE_LIMITER_WAIT: Thread CardWorker_3 acquiring rate limiter (available: 1, timeout: 30s)
+2025-09-13 16:38:29 [INFO] 🔍 HTTP_REQUEST_START: Thread CardWorker_0 making HTTP request
+2025-09-13 16:38:29 [INFO] 🔍 HTTP_REQUEST_START: Thread CardWorker_1 making HTTP request
+2025-09-13 16:38:29 [INFO] 🔍 RATE_LIMITER_OK: Thread CardWorker_3 acquired rate limiter successfully
+2025-09-13 16:38:29 [INFO] 🔍 CIRCUIT_BREAKER_START: Thread CardWorker_3 entering circuit breaker
+2025-09-13 16:38:29 [INFO] 🔍 HTTP_REQUEST_START: Thread CardWorker_3 making HTTP request
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 GPU STATUS - 2025-09-13 16:39:46
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GPU 0: 💤 IDLE
+  Compute:   0% | Memory:   0% ( 1278/ 65536 MB)
+  Temp: 44°C | Power:  79.21 W
+
+GPU 1: 💤 IDLE
+  Compute:   0% | Memory:   0% ( 1278/ 65536 MB)
+  Temp: 43°C | Power:  78.00 W
+
+🔄 Processi Ollama (modalità conservativa):
+  GPU 0 (PID 43698): ✅ CPU: 5.2% | RAM: 1.1GB | Port: 39001
+    └─ API: ✅ Responsive
+  GPU 1 (PID 43801): ✅ CPU: 7.2% | RAM: 1.1GB | Port: 39002
+    └─ API: ✅ Responsive
+
+🐍 Python Processing:
+  Cards processed: 1
+  Success rate: 0
+0
+  Errors: 0
+0
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 GPU STATUS - 2025-09-13 16:42:47
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GPU 0: 💤 IDLE
+  Compute:   0% | Memory:   0% ( 1278/ 65536 MB)
+  Temp: 44°C | Power:  79.21 W
+
+GPU 1: 💤 IDLE
+  Compute:   0% | Memory:   0% ( 1278/ 65536 MB)
+  Temp: 43°C | Power:  78.08 W
+
+🔄 Processi Ollama (modalità conservativa):
+  GPU 0 (PID 43698): ✅ CPU: 3.7% | RAM: 1.1GB | Port: 39001
+    └─ API: ✅ Responsive
+  GPU 1 (PID 43801): ✅ CPU: 4.5% | RAM: 1.1GB | Port: 39002
+    └─ API: ✅ Responsive
+
+🐍 Python Processing:
+  Cards processed: 1
+  Success rate: 0
+0
+  Errors: 0
+0
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 GPU STATUS - 2025-09-13 16:45:48
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GPU 0: 💤 IDLE
+  Compute:   0% | Memory:   0% ( 1278/ 65536 MB)
+  Temp: 43°C | Power:  78.94 W
+
+GPU 1: 💤 IDLE
+  Compute:   0% | Memory:   0% ( 1278/ 65536 MB)
+  Temp: 43°C | Power:  77.81 W
+
+🔄 Processi Ollama (modalità conservativa):
+  GPU 0 (PID 43698): ✅ CPU: 2.9% | RAM: 1.1GB | Port: 39001
+    └─ API: ✅ Responsive
+  GPU 1 (PID 43801): ✅ CPU: 3.3% | RAM: 1.1GB | Port: 39002
+    └─ API: ✅ Responsive
+
+🐍 Python Processing:
+  Cards processed: 1
+  Success rate: 0
+0
+  Errors: 0
+0
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

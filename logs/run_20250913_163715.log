@@ -1,0 +1,65 @@
+2025-09-13 16:37:15 [INFO] 🚀 PRODUCTION MODE - 4 concurrent requests
+2025-09-13 16:37:15 [INFO] Initializing Ollama connection manager...
+2025-09-13 16:37:15 [WARNING] HostHealthMonitor initialized with empty host list
+2025-09-13 16:37:15 [INFO] Setting up connections...
+2025-09-13 16:37:15 [INFO] Multi-GPU configuration: 2 instances
+2025-09-13 16:37:15 [INFO] Initialized with 2 hosts
+2025-09-13 16:37:15 [INFO] Waiting for Ollama services to start...
+2025-09-13 16:37:15 [INFO] Checking host 1/2: http://127.0.0.1:39001
+2025-09-13 16:37:15 [INFO] Host http://127.0.0.1:39001 is ready
+2025-09-13 16:37:15 [INFO] Checking host 2/2: http://127.0.0.1:39002
+2025-09-13 16:37:15 [INFO] Host http://127.0.0.1:39002 is ready
+2025-09-13 16:37:15 [INFO] All Ollama services are ready!
+2025-09-13 16:37:15 [INFO] Checking available models on all hosts...
+2025-09-13 16:37:15 [INFO] http://127.0.0.1:39001: ['mistral:7b', 'codellama:34b', 'deepseek-r1:32b', 'mixtral:8x22b', 'llama3.1:70b', 'qwen2.5:72b-instruct', 'qwen2.5:7b', 'qwen2.5:14b', 'deepseek-coder:33b', 'mixtral:8x7b', 'llama3.1:8b']
+2025-09-13 16:37:15 [INFO] Model qwen2.5:7b available on http://127.0.0.1:39001
+2025-09-13 16:37:15 [INFO] http://127.0.0.1:39002: ['mistral:7b', 'codellama:34b', 'deepseek-r1:32b', 'mixtral:8x22b', 'llama3.1:70b', 'qwen2.5:72b-instruct', 'qwen2.5:7b', 'qwen2.5:14b', 'deepseek-coder:33b', 'mixtral:8x7b', 'llama3.1:8b']
+2025-09-13 16:37:15 [INFO] Model qwen2.5:7b available on http://127.0.0.1:39002
+2025-09-13 16:37:15 [INFO] Found 12 files to process
+2025-09-13 16:37:15 [INFO] Processing dati_2014.csv
+2025-09-13 16:37:15 [INFO] Loading and preprocessing data...
+2025-09-13 16:37:15 [INFO] Loaded 22 POIs from vc_site.csv
+2025-09-13 16:37:17 [INFO] Loaded 370377 visits from dati_2014.csv
+2025-09-13 16:37:17 [INFO] Valid visits after merge: 370377
+2025-09-13 16:37:17 [INFO] Multi-visit cards: 70236 / 71557
+2025-09-13 16:37:17 [INFO] Performing user clustering...
+2025-09-13 16:37:24 [INFO] Processing 65892 cards
+2025-09-13 16:37:24 [INFO] Using 4 workers for 2 healthy hosts
+2025-09-13 16:37:24 [INFO] Waiting 60s for models to stabilize...
+2025-09-13 16:38:24 [INFO] Running pre-flight check on all hosts...
+2025-09-13 16:38:27 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39001
+2025-09-13 16:38:29 [INFO] ✅ Pre-flight check passed for http://127.0.0.1:39002
+2025-09-13 16:38:29 [INFO] ✅ ALL PRE-FLIGHT CHECKS PASSED - Starting progressive warm-up
+2025-09-13 16:38:29 [INFO] DEBUG MODE: Skipping complex warm-up - proceeding directly to processing
+2025-09-13 16:38:29 [INFO] Simple pre-flight checks already completed - system ready
+2025-09-13 16:38:29 [INFO] Skipping complex GPU preloading - pre-flight checks sufficient
+2025-09-13 16:38:29 [INFO] 🚀 Starting production processing with batch processing...
+2025-09-13 16:38:29 [INFO] Processing 65892 cards in batches of 4
+2025-09-13 16:38:29 [INFO] 🔍 PROCESS_CARD START: 040001523F3885 - Thread: CardWorker_0
+2025-09-13 16:38:29 [INFO] 🔍 PROCESS_CARD START: 040002523F3885 - Thread: CardWorker_1
+2025-09-13 16:38:29 [INFO] 🔍 PROCESS_CARD START: 040005523F3885 - Thread: CardWorker_2
+2025-09-13 16:38:29 [INFO] 🔍 PROCESS_CARD START: 040006523F3885 - Thread: CardWorker_3
+2025-09-13 16:38:29 [INFO] 🔍 LLM_REQUEST_START: Sending request for 040005523F3885 - Thread: CardWorker_2
+2025-09-13 16:38:29 [INFO] 🔍 LLM_REQUEST_START: Sending request for 040001523F3885 - Thread: CardWorker_0
+2025-09-13 16:38:29 [INFO] 🔍 LLM_REQUEST_START: Sending request for 040002523F3885 - Thread: CardWorker_1
+2025-09-13 16:38:29 [INFO] 🔍 GET_CHAT_START: Thread CardWorker_2 requesting chat completion
+2025-09-13 16:38:29 [INFO] 🔍 GET_CHAT_START: Thread CardWorker_0 requesting chat completion
+2025-09-13 16:38:29 [INFO] 🔍 GET_CHAT_START: Thread CardWorker_1 requesting chat completion
+2025-09-13 16:38:29 [INFO] 🔍 RATE_LIMITER_WAIT: Thread CardWorker_2 acquiring rate limiter (available: 4, timeout: 30s)
+2025-09-13 16:38:29 [INFO] 🔍 RATE_LIMITER_WAIT: Thread CardWorker_0 acquiring rate limiter (available: 4, timeout: 30s)
+2025-09-13 16:38:29 [INFO] 🔍 RATE_LIMITER_WAIT: Thread CardWorker_1 acquiring rate limiter (available: 4, timeout: 30s)
+2025-09-13 16:38:29 [INFO] 🔍 RATE_LIMITER_OK: Thread CardWorker_2 acquired rate limiter successfully
+2025-09-13 16:38:29 [INFO] 🔍 LLM_REQUEST_START: Sending request for 040006523F3885 - Thread: CardWorker_3
+2025-09-13 16:38:29 [INFO] 🔍 RATE_LIMITER_OK: Thread CardWorker_0 acquired rate limiter successfully
+2025-09-13 16:38:29 [INFO] 🔍 RATE_LIMITER_OK: Thread CardWorker_1 acquired rate limiter successfully
+2025-09-13 16:38:29 [INFO] 🔍 CIRCUIT_BREAKER_START: Thread CardWorker_2 entering circuit breaker
+2025-09-13 16:38:29 [INFO] 🔍 GET_CHAT_START: Thread CardWorker_3 requesting chat completion
+2025-09-13 16:38:29 [INFO] 🔍 CIRCUIT_BREAKER_START: Thread CardWorker_0 entering circuit breaker
+2025-09-13 16:38:29 [INFO] 🔍 CIRCUIT_BREAKER_START: Thread CardWorker_1 entering circuit breaker
+2025-09-13 16:38:29 [INFO] 🔍 HTTP_REQUEST_START: Thread CardWorker_2 making HTTP request
+2025-09-13 16:38:29 [INFO] 🔍 RATE_LIMITER_WAIT: Thread CardWorker_3 acquiring rate limiter (available: 1, timeout: 30s)
+2025-09-13 16:38:29 [INFO] 🔍 HTTP_REQUEST_START: Thread CardWorker_0 making HTTP request
+2025-09-13 16:38:29 [INFO] 🔍 HTTP_REQUEST_START: Thread CardWorker_1 making HTTP request
+2025-09-13 16:38:29 [INFO] 🔍 RATE_LIMITER_OK: Thread CardWorker_3 acquired rate limiter successfully
+2025-09-13 16:38:29 [INFO] 🔍 CIRCUIT_BREAKER_START: Thread CardWorker_3 entering circuit breaker
+2025-09-13 16:38:29 [INFO] 🔍 HTTP_REQUEST_START: Thread CardWorker_3 making HTTP request

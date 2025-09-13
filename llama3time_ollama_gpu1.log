@@ -1,0 +1,680 @@
+2025/09/13 16:34:39 routes.go:1158: INFO server config env="map[CUDA_VISIBLE_DEVICES:1 GPU_DEVICE_ORDINAL:0,1 HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_DEBUG:true OLLAMA_FLASH_ATTENTION:true OLLAMA_GPU_OVERHEAD:1024 OLLAMA_HOST:http://127.0.0.1:39002 OLLAMA_INTEL_GPU:false OLLAMA_KEEP_ALIVE:8h0m0s OLLAMA_LLM_LIBRARY:cuda_v12 OLLAMA_LOAD_TIMEOUT:30m0s OLLAMA_MAX_LOADED_MODELS:1 OLLAMA_MAX_QUEUE:10 OLLAMA_MODELS:/leonardo_work/IscrC_LLM-Mob/.ollama/models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://*] OLLAMA_SCHED_SPREAD:false OLLAMA_TMPDIR:/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716 ROCR_VISIBLE_DEVICES:0,1 http_proxy: https_proxy: no_proxy:]"
+time=2025-09-13T16:34:39.126+02:00 level=INFO source=images.go:754 msg="total blobs: 42"
+time=2025-09-13T16:34:39.131+02:00 level=INFO source=images.go:761 msg="total unused blobs removed: 0"
+time=2025-09-13T16:34:39.135+02:00 level=INFO source=routes.go:1205 msg="Listening on 127.0.0.1:39002 (version 0.3.14)"
+time=2025-09-13T16:34:39.137+02:00 level=WARN source=common.go:254 msg="process still running, skipping" pid=43698 path=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama696725503/ollama.pid
+time=2025-09-13T16:34:39.138+02:00 level=INFO source=common.go:135 msg="extracting embedded files" dir=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu payload=linux/amd64/cpu/libggml.so.gz
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu payload=linux/amd64/cpu/libllama.so.gz
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu payload=linux/amd64/cpu/ollama_llama_server.gz
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx payload=linux/amd64/cpu_avx/libggml.so.gz
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx payload=linux/amd64/cpu_avx/libllama.so.gz
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx payload=linux/amd64/cpu_avx/ollama_llama_server.gz
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx2 payload=linux/amd64/cpu_avx2/libggml.so.gz
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx2 payload=linux/amd64/cpu_avx2/libllama.so.gz
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx2 payload=linux/amd64/cpu_avx2/ollama_llama_server.gz
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v11 payload=linux/amd64/cuda_v11/libggml.so.gz
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v11 payload=linux/amd64/cuda_v11/libllama.so.gz
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v11 payload=linux/amd64/cuda_v11/ollama_llama_server.gz
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v12 payload=linux/amd64/cuda_v12/libggml.so.gz
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v12 payload=linux/amd64/cuda_v12/libllama.so.gz
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v12 payload=linux/amd64/cuda_v12/ollama_llama_server.gz
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=rocm_v60102 payload=linux/amd64/rocm_v60102/libggml.so.gz
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=rocm_v60102 payload=linux/amd64/rocm_v60102/libllama.so.gz
+time=2025-09-13T16:34:39.138+02:00 level=DEBUG source=common.go:168 msg=extracting runner=rocm_v60102 payload=linux/amd64/rocm_v60102/ollama_llama_server.gz
+time=2025-09-13T16:34:48.996+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu/ollama_llama_server
+time=2025-09-13T16:34:48.996+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu_avx/ollama_llama_server
+time=2025-09-13T16:34:48.996+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu_avx2/ollama_llama_server
+time=2025-09-13T16:34:48.996+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v11/ollama_llama_server
+time=2025-09-13T16:34:48.996+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v12/ollama_llama_server
+time=2025-09-13T16:34:48.996+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/rocm_v60102/ollama_llama_server
+time=2025-09-13T16:34:48.996+02:00 level=INFO source=common.go:49 msg="Dynamic LLM libraries" runners="[cuda_v12 rocm_v60102 cpu cpu_avx cpu_avx2 cuda_v11]"
+time=2025-09-13T16:34:48.996+02:00 level=DEBUG source=common.go:50 msg="Override detection logic by setting OLLAMA_LLM_LIBRARY"
+time=2025-09-13T16:34:48.996+02:00 level=DEBUG source=sched.go:105 msg="starting llm scheduler"
+time=2025-09-13T16:34:48.996+02:00 level=INFO source=gpu.go:221 msg="looking for compatible GPUs"
+time=2025-09-13T16:34:49.008+02:00 level=DEBUG source=gpu.go:94 msg="searching for GPU discovery libraries for NVIDIA"
+time=2025-09-13T16:34:49.008+02:00 level=DEBUG source=gpu.go:505 msg="Searching for GPU library" name=libcuda.so*
+time=2025-09-13T16:34:49.008+02:00 level=DEBUG source=gpu.go:528 msg="gpu library search" globs="[/leonardo_work/IscrC_LLM-Mob/opt/lib/ollama/libcuda.so* /leonardo/prod/opt/compilers/cuda/12.3/none/lib64/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/python-3.11.6-i5k3c6ggftqkzgqyymfbkynpgm2lgjtd/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/util-linux-uuid-2.38.1-jkdi7kvvma7367qdmvpkada4pyiafoud/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/sqlite-3.43.2-casyrltocz5edzjhs5vzlqhwkamn7y4a/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxcrypt-4.4.35-ss2rzin25ozjy4gyy3dack36njs6navg/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib64/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gettext-0.22.3-2g7elifkgxzpypbswqnjuu5hefn4mjts/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zstd-1.5.5-gawytflrhedqdc2riwax7oduoqddx22s/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxml2-2.10.3-5eeeokp4kszufozbayq4bewwmyeuwy27/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zlib-ng-2.1.4-6htiapkoa6fx2medhyabzo575skozuir/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/xz-5.4.1-hubmwr5wc5nf6zk3ghuaikxiejuyt6bi/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libiconv-1.17-d7yvx2s6da4x2rfx44bc3perbb33rvuy/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gdbm-1.23-fs6otcki47azeywcckquj2sy4mzsnzxg/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/readline-8.2-nyw6mp6b7dvizewrf7exopvap2q32s5j/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/ncurses-6.4-asx3jea367shsxjt6bdj2bu5olxll6ni/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/expat-2.5.0-bptl3xwbvbkxxoc5x3dhviorarv4dvxv/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libbsd-0.11.7-cgxjopleu7se4y4cgi7oefbljgasr457/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libmd-1.0.4-wja3f5q3w75tqtro333fptfnji7oqxiu/lib/libcuda.so* /leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/bzip2-1.0.8-gp5wcz5lksrbm2gqiqjppumrhjz6gahy/lib/libcuda.so* /usr/local/cuda*/targets/*/lib/libcuda.so* /usr/lib/*-linux-gnu/nvidia/current/libcuda.so* /usr/lib/*-linux-gnu/libcuda.so* /usr/lib/wsl/lib/libcuda.so* /usr/lib/wsl/drivers/*/libcuda.so* /opt/cuda/lib*/libcuda.so* /usr/local/cuda/lib*/libcuda.so* /usr/lib*/libcuda.so* /usr/local/lib*/libcuda.so*]"
+time=2025-09-13T16:34:49.017+02:00 level=DEBUG source=gpu.go:562 msg="discovered GPU libraries" paths=[/usr/lib64/libcuda.so.535.54.03]
+CUDA driver version: 12.2
+time=2025-09-13T16:34:49.043+02:00 level=DEBUG source=gpu.go:129 msg="detected GPUs" count=1 library=/usr/lib64/libcuda.so.535.54.03
+[GPU-10d014c5-7471-6d37-15ae-2382fe0b576a] CUDA totalMem 64944 mb
+[GPU-10d014c5-7471-6d37-15ae-2382fe0b576a] CUDA freeMem 64462 mb
+[GPU-10d014c5-7471-6d37-15ae-2382fe0b576a] Compute Capability 8.0
+time=2025-09-13T16:34:49.130+02:00 level=DEBUG source=amd_linux.go:416 msg="amdgpu driver not detected /sys/module/amdgpu"
+releasing cuda driver library
+time=2025-09-13T16:34:49.131+02:00 level=INFO source=types.go:123 msg="inference compute" id=GPU-10d014c5-7471-6d37-15ae-2382fe0b576a library=cuda variant=v12 compute=8.0 driver=12.2 name="NVIDIA A100-SXM-64GB" total="63.4 GiB" available="63.0 GiB"
+[GIN] 2025/09/13 - 16:36:44 | 200 |    7.739159ms |       127.0.0.1 | GET      "/api/tags"
+time=2025-09-13T16:36:44.399+02:00 level=DEBUG source=gpu.go:396 msg="updating system memory data" before.total="502.9 GiB" before.free="490.1 GiB" before.free_swap="0 B" now.total="502.9 GiB" now.free="490.0 GiB" now.free_swap="0 B"
+CUDA driver version: 12.2
+time=2025-09-13T16:36:44.491+02:00 level=DEBUG source=gpu.go:444 msg="updating cuda memory data" gpu=GPU-10d014c5-7471-6d37-15ae-2382fe0b576a name="NVIDIA A100-SXM-64GB" overhead="0 B" before.total="63.4 GiB" before.free="63.0 GiB" now.total="63.4 GiB" now.free="63.0 GiB" now.used="482.8 MiB"
+releasing cuda driver library
+time=2025-09-13T16:36:44.518+02:00 level=DEBUG source=sched.go:224 msg="loading first model" model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:36:44.518+02:00 level=DEBUG source=memory.go:103 msg=evaluating library=cuda gpu_count=1 available="[63.0 GiB]"
+time=2025-09-13T16:36:44.519+02:00 level=INFO source=sched.go:714 msg="new model will fit in available VRAM in single GPU, loading" model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730 gpu=GPU-10d014c5-7471-6d37-15ae-2382fe0b576a parallel=1 available=67593371648 required="4.9 GiB"
+time=2025-09-13T16:36:44.519+02:00 level=DEBUG source=gpu.go:396 msg="updating system memory data" before.total="502.9 GiB" before.free="490.0 GiB" before.free_swap="0 B" now.total="502.9 GiB" now.free="490.0 GiB" now.free_swap="0 B"
+CUDA driver version: 12.2
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=gpu.go:444 msg="updating cuda memory data" gpu=GPU-10d014c5-7471-6d37-15ae-2382fe0b576a name="NVIDIA A100-SXM-64GB" overhead="0 B" before.total="63.4 GiB" before.free="63.0 GiB" now.total="63.4 GiB" now.free="63.0 GiB" now.used="482.8 MiB"
+releasing cuda driver library
+time=2025-09-13T16:36:44.596+02:00 level=INFO source=server.go:105 msg="system memory" total="502.9 GiB" free="490.0 GiB" free_swap="0 B"
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=memory.go:103 msg=evaluating library=cuda gpu_count=1 available="[63.0 GiB]"
+time=2025-09-13T16:36:44.596+02:00 level=INFO source=memory.go:326 msg="offload to cuda" layers.requested=-1 layers.model=29 layers.offload=29 layers.split="" memory.available="[63.0 GiB]" memory.gpu_overhead="1.0 KiB" memory.required.full="4.9 GiB" memory.required.partial="4.9 GiB" memory.required.kv="56.0 MiB" memory.required.allocations="[4.9 GiB]" memory.weights.total="3.7 GiB" memory.weights.repeating="3.3 GiB" memory.weights.nonrepeating="426.4 MiB" memory.graph.full="152.0 MiB" memory.graph.partial="578.4 MiB"
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu payload=linux/amd64/cpu/libggml.so.gz
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu payload=linux/amd64/cpu/libllama.so.gz
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu payload=linux/amd64/cpu/ollama_llama_server.gz
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx payload=linux/amd64/cpu_avx/libggml.so.gz
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx payload=linux/amd64/cpu_avx/libllama.so.gz
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx payload=linux/amd64/cpu_avx/ollama_llama_server.gz
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx2 payload=linux/amd64/cpu_avx2/libggml.so.gz
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx2 payload=linux/amd64/cpu_avx2/libllama.so.gz
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx2 payload=linux/amd64/cpu_avx2/ollama_llama_server.gz
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v11 payload=linux/amd64/cuda_v11/libggml.so.gz
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v11 payload=linux/amd64/cuda_v11/libllama.so.gz
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v11 payload=linux/amd64/cuda_v11/ollama_llama_server.gz
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v12 payload=linux/amd64/cuda_v12/libggml.so.gz
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v12 payload=linux/amd64/cuda_v12/libllama.so.gz
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v12 payload=linux/amd64/cuda_v12/ollama_llama_server.gz
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=rocm_v60102 payload=linux/amd64/rocm_v60102/libggml.so.gz
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=rocm_v60102 payload=linux/amd64/rocm_v60102/libllama.so.gz
+time=2025-09-13T16:36:44.596+02:00 level=DEBUG source=common.go:168 msg=extracting runner=rocm_v60102 payload=linux/amd64/rocm_v60102/ollama_llama_server.gz
+time=2025-09-13T16:36:44.598+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu/ollama_llama_server
+time=2025-09-13T16:36:44.598+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu_avx/ollama_llama_server
+time=2025-09-13T16:36:44.598+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu_avx2/ollama_llama_server
+time=2025-09-13T16:36:44.598+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v11/ollama_llama_server
+time=2025-09-13T16:36:44.598+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v12/ollama_llama_server
+time=2025-09-13T16:36:44.598+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/rocm_v60102/ollama_llama_server
+time=2025-09-13T16:36:44.600+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu/ollama_llama_server
+time=2025-09-13T16:36:44.600+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu_avx/ollama_llama_server
+time=2025-09-13T16:36:44.600+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu_avx2/ollama_llama_server
+time=2025-09-13T16:36:44.600+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v11/ollama_llama_server
+time=2025-09-13T16:36:44.600+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v12/ollama_llama_server
+time=2025-09-13T16:36:44.600+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/rocm_v60102/ollama_llama_server
+time=2025-09-13T16:36:44.600+02:00 level=INFO source=server.go:172 msg="user override" OLLAMA_LLM_LIBRARY=cuda_v12 path=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v12
+time=2025-09-13T16:36:44.600+02:00 level=INFO source=server.go:388 msg="starting llama server" cmd="/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v12/ollama_llama_server --model /leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730 --ctx-size 1024 --batch-size 256 --embedding --n-gpu-layers 29 --verbose --threads 56 --flash-attn --parallel 1 --port 42159"
+time=2025-09-13T16:36:44.600+02:00 level=DEBUG source=server.go:405 msg=subprocess environment="[CUDA_VISIBLE_DEVICES=GPU-10d014c5-7471-6d37-15ae-2382fe0b576a LD_LIBRARY_PATH=/leonardo_work/IscrC_LLM-Mob/opt/lib/ollama:/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v12:/leonardo/prod/opt/compilers/cuda/12.3/none/lib64:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/python-3.11.6-i5k3c6ggftqkzgqyymfbkynpgm2lgjtd/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/util-linux-uuid-2.38.1-jkdi7kvvma7367qdmvpkada4pyiafoud/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/sqlite-3.43.2-casyrltocz5edzjhs5vzlqhwkamn7y4a/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxcrypt-4.4.35-ss2rzin25ozjy4gyy3dack36njs6navg/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib64:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gettext-0.22.3-2g7elifkgxzpypbswqnjuu5hefn4mjts/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zstd-1.5.5-gawytflrhedqdc2riwax7oduoqddx22s/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxml2-2.10.3-5eeeokp4kszufozbayq4bewwmyeuwy27/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zlib-ng-2.1.4-6htiapkoa6fx2medhyabzo575skozuir/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/xz-5.4.1-hubmwr5wc5nf6zk3ghuaikxiejuyt6bi/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libiconv-1.17-d7yvx2s6da4x2rfx44bc3perbb33rvuy/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gdbm-1.23-fs6otcki47azeywcckquj2sy4mzsnzxg/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/readline-8.2-nyw6mp6b7dvizewrf7exopvap2q32s5j/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/ncurses-6.4-asx3jea367shsxjt6bdj2bu5olxll6ni/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/expat-2.5.0-bptl3xwbvbkxxoc5x3dhviorarv4dvxv/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libbsd-0.11.7-cgxjopleu7se4y4cgi7oefbljgasr457/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libmd-1.0.4-wja3f5q3w75tqtro333fptfnji7oqxiu/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/bzip2-1.0.8-gp5wcz5lksrbm2gqiqjppumrhjz6gahy/lib ROCR_VISIBLE_DEVICES=0,1 CUDA_HOME=/leonardo/prod/opt/compilers/cuda/12.3/none PATH=/leonardo_work/IscrC_LLM-Mob/venv/bin:/leonardo/prod/opt/compilers/cuda/12.3/none/cuda-samples/bin/x86_64/linux/release:/leonardo/prod/opt/compilers/cuda/12.3/none/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/python-3.11.6-i5k3c6ggftqkzgqyymfbkynpgm2lgjtd/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/util-linux-uuid-2.38.1-jkdi7kvvma7367qdmvpkada4pyiafoud/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/sqlite-3.43.2-casyrltocz5edzjhs5vzlqhwkamn7y4a/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gettext-0.22.3-2g7elifkgxzpypbswqnjuu5hefn4mjts/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/tar-1.34-amqus5s63wb5oknfz4pfnvdqtwwe76iw/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zstd-1.5.5-gawytflrhedqdc2riwax7oduoqddx22s/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/pigz-2.7-bopr5vpavkyl3lou5sap6iydgi3udtcm/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxml2-2.10.3-5eeeokp4kszufozbayq4bewwmyeuwy27/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/xz-5.4.1-hubmwr5wc5nf6zk3ghuaikxiejuyt6bi/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libiconv-1.17-d7yvx2s6da4x2rfx44bc3perbb33rvuy/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gdbm-1.23-fs6otcki47azeywcckquj2sy4mzsnzxg/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/readline-8.2-nyw6mp6b7dvizewrf7exopvap2q32s5j/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/ncurses-6.4-asx3jea367shsxjt6bdj2bu5olxll6ni/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/expat-2.5.0-bptl3xwbvbkxxoc5x3dhviorarv4dvxv/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/bzip2-1.0.8-gp5wcz5lksrbm2gqiqjppumrhjz6gahy/bin:/leonardo_work/IscrC_LLM-Mob/venv/bin:/leonardo/home/userexternal/smattiol/opt/ollama/bin:/cineca/bin:/leonardo/home/userexternal/smattiol/.vscode-server/cli/servers/Stable-f220831ea2d946c0dcb0f3eaa480eb435a2c1260/server/bin/remote-cli:/leonardo/home/userexternal/smattiol/opt/ollama/bin:/cineca/bin:/leonardo/home/userexternal/smattiol/.nvm/versions/node/v22.18.0/bin:/leonardo/home/userexternal/smattiol/opt/ollama/bin:/leonardo/home/userexternal/smattiol/.local/bin:/leonardo/home/userexternal/smattiol/bin:/cineca/bin:/leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/gcc-8.5.0/environment-modules-5.2.0-rz47odw4phlhzhhbz7b65nv5s5othgmi/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/leonardo/home/userexternal/smattiol/.vscode-server/extensions/ms-python.debugpy-2025.10.0-linux-x64/bundled/scripts/noConfigScripts GPU_DEVICE_ORDINAL=0,1]"
+time=2025-09-13T16:36:44.601+02:00 level=INFO source=sched.go:449 msg="loaded runners" count=1
+time=2025-09-13T16:36:44.601+02:00 level=INFO source=server.go:587 msg="waiting for llama runner to start responding"
+time=2025-09-13T16:36:44.601+02:00 level=INFO source=server.go:621 msg="waiting for server to become available" status="llm server error"
+INFO [main] starting c++ runner | tid="22978351517696" timestamp=1757774204
+INFO [main] build info | build=10 commit="3a8c75e" tid="22978351517696" timestamp=1757774204
+INFO [main] system info | n_threads=56 n_threads_batch=56 system_info="AVX = 1 | AVX_VNNI = 0 | AVX2 = 0 | AVX512 = 0 | AVX512_VBMI = 0 | AVX512_VNNI = 0 | AVX512_BF16 = 0 | FMA = 0 | NEON = 0 | SVE = 0 | ARM_FMA = 0 | F16C = 0 | FP16_VA = 0 | RISCV_VECT = 0 | WASM_SIMD = 0 | BLAS = 1 | SSE3 = 1 | SSSE3 = 1 | VSX = 0 | MATMUL_INT8 = 0 | LLAMAFILE = 1 | " tid="22978351517696" timestamp=1757774204 total_threads=32
+INFO [main] HTTP server listening | hostname="127.0.0.1" n_threads_http="31" port="42159" tid="22978351517696" timestamp=1757774204
+llama_model_loader: loaded meta data with 34 key-value pairs and 339 tensors from /leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730 (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = qwen2
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Qwen2.5 7B Instruct
+llama_model_loader: - kv   3:                           general.finetune str              = Instruct
+llama_model_loader: - kv   4:                           general.basename str              = Qwen2.5
+llama_model_loader: - kv   5:                         general.size_label str              = 7B
+llama_model_loader: - kv   6:                            general.license str              = apache-2.0
+llama_model_loader: - kv   7:                       general.license.link str              = https://huggingface.co/Qwen/Qwen2.5-7...
+llama_model_loader: - kv   8:                   general.base_model.count u32              = 1
+llama_model_loader: - kv   9:                  general.base_model.0.name str              = Qwen2.5 7B
+llama_model_loader: - kv  10:          general.base_model.0.organization str              = Qwen
+llama_model_loader: - kv  11:              general.base_model.0.repo_url str              = https://huggingface.co/Qwen/Qwen2.5-7B
+llama_model_loader: - kv  12:                               general.tags arr[str,2]       = ["chat", "text-generation"]
+llama_model_loader: - kv  13:                          general.languages arr[str,1]       = ["en"]
+llama_model_loader: - kv  14:                          qwen2.block_count u32              = 28
+llama_model_loader: - kv  15:                       qwen2.context_length u32              = 32768
+llama_model_loader: - kv  16:                     qwen2.embedding_length u32              = 3584
+llama_model_loader: - kv  17:                  qwen2.feed_forward_length u32              = 18944
+llama_model_loader: - kv  18:                 qwen2.attention.head_count u32              = 28
+llama_model_loader: - kv  19:              qwen2.attention.head_count_kv u32              = 4
+llama_model_loader: - kv  20:                       qwen2.rope.freq_base f32              = 1000000.000000
+llama_model_loader: - kv  21:     qwen2.attention.layer_norm_rms_epsilon f32              = 0.000001
+llama_model_loader: - kv  22:                          general.file_type u32              = 15
+llama_model_loader: - kv  23:                       tokenizer.ggml.model str              = gpt2
+llama_model_loader: - kv  24:                         tokenizer.ggml.pre str              = qwen2
+llama_model_loader: - kv  25:                      tokenizer.ggml.tokens arr[str,152064]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+llama_model_loader: - kv  26:                  tokenizer.ggml.token_type arr[i32,152064]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+llama_model_loader: - kv  27:                      tokenizer.ggml.merges arr[str,151387]  = ["Ġ Ġ", "ĠĠ ĠĠ", "i n", "Ġ t",...
+llama_model_loader: - kv  28:                tokenizer.ggml.eos_token_id u32              = 151645
+llama_model_loader: - kv  29:            tokenizer.ggml.padding_token_id u32              = 151643
+llama_model_loader: - kv  30:                tokenizer.ggml.bos_token_id u32              = 151643
+llama_model_loader: - kv  31:               tokenizer.ggml.add_bos_token bool             = false
+llama_model_loader: - kv  32:                    tokenizer.chat_template str              = {%- if tools %}\n    {{- '<|im_start|>...
+llama_model_loader: - kv  33:               general.quantization_version u32              = 2
+llama_model_loader: - type  f32:  141 tensors
+llama_model_loader: - type q4_K:  169 tensors
+llama_model_loader: - type q6_K:   29 tensors
+time=2025-09-13T16:36:44.852+02:00 level=INFO source=server.go:621 msg="waiting for server to become available" status="llm server loading model"
+llm_load_vocab: special tokens cache size = 22
+llm_load_vocab: token to piece cache size = 0.9310 MB
+llm_load_print_meta: format           = GGUF V3 (latest)
+llm_load_print_meta: arch             = qwen2
+llm_load_print_meta: vocab type       = BPE
+llm_load_print_meta: n_vocab          = 152064
+llm_load_print_meta: n_merges         = 151387
+llm_load_print_meta: vocab_only       = 0
+llm_load_print_meta: n_ctx_train      = 32768
+llm_load_print_meta: n_embd           = 3584
+llm_load_print_meta: n_layer          = 28
+llm_load_print_meta: n_head           = 28
+llm_load_print_meta: n_head_kv        = 4
+llm_load_print_meta: n_rot            = 128
+llm_load_print_meta: n_swa            = 0
+llm_load_print_meta: n_embd_head_k    = 128
+llm_load_print_meta: n_embd_head_v    = 128
+llm_load_print_meta: n_gqa            = 7
+llm_load_print_meta: n_embd_k_gqa     = 512
+llm_load_print_meta: n_embd_v_gqa     = 512
+llm_load_print_meta: f_norm_eps       = 0.0e+00
+llm_load_print_meta: f_norm_rms_eps   = 1.0e-06
+llm_load_print_meta: f_clamp_kqv      = 0.0e+00
+llm_load_print_meta: f_max_alibi_bias = 0.0e+00
+llm_load_print_meta: f_logit_scale    = 0.0e+00
+llm_load_print_meta: n_ff             = 18944
+llm_load_print_meta: n_expert         = 0
+llm_load_print_meta: n_expert_used    = 0
+llm_load_print_meta: causal attn      = 1
+llm_load_print_meta: pooling type     = 0
+llm_load_print_meta: rope type        = 2
+llm_load_print_meta: rope scaling     = linear
+llm_load_print_meta: freq_base_train  = 1000000.0
+llm_load_print_meta: freq_scale_train = 1
+llm_load_print_meta: n_ctx_orig_yarn  = 32768
+llm_load_print_meta: rope_finetuned   = unknown
+llm_load_print_meta: ssm_d_conv       = 0
+llm_load_print_meta: ssm_d_inner      = 0
+llm_load_print_meta: ssm_d_state      = 0
+llm_load_print_meta: ssm_dt_rank      = 0
+llm_load_print_meta: ssm_dt_b_c_rms   = 0
+llm_load_print_meta: model type       = ?B
+llm_load_print_meta: model ftype      = Q4_K - Medium
+llm_load_print_meta: model params     = 7.62 B
+llm_load_print_meta: model size       = 4.36 GiB (4.91 BPW) 
+llm_load_print_meta: general.name     = Qwen2.5 7B Instruct
+llm_load_print_meta: BOS token        = 151643 '<|endoftext|>'
+llm_load_print_meta: EOS token        = 151645 '<|im_end|>'
+llm_load_print_meta: PAD token        = 151643 '<|endoftext|>'
+llm_load_print_meta: LF token         = 148848 'ÄĬ'
+llm_load_print_meta: EOT token        = 151643 '<|endoftext|>'
+llm_load_print_meta: EOG token        = 151643 '<|endoftext|>'
+llm_load_print_meta: EOG token        = 151645 '<|im_end|>'
+llm_load_print_meta: max token length = 256
+ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no
+ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no
+ggml_cuda_init: found 1 CUDA devices:
+  Device 0: NVIDIA A100-SXM-64GB, compute capability 8.0, VMM: yes
+llm_load_tensors: ggml ctx size =    0.30 MiB
+llm_load_tensors: offloading 28 repeating layers to GPU
+llm_load_tensors: offloading non-repeating layers to GPU
+llm_load_tensors: offloaded 29/29 layers to GPU
+llm_load_tensors:        CPU buffer size =   292.36 MiB
+llm_load_tensors:      CUDA0 buffer size =  4168.09 MiB
+time=2025-09-13T16:36:45.854+02:00 level=DEBUG source=server.go:632 msg="model load progress 0.52"
+time=2025-09-13T16:36:46.112+02:00 level=DEBUG source=server.go:632 msg="model load progress 1.00"
+llama_new_context_with_model: n_ctx      = 1024
+llama_new_context_with_model: n_batch    = 256
+llama_new_context_with_model: n_ubatch   = 256
+llama_new_context_with_model: flash_attn = 1
+llama_new_context_with_model: freq_base  = 1000000.0
+llama_new_context_with_model: freq_scale = 1
+llama_kv_cache_init:      CUDA0 KV buffer size =    56.00 MiB
+llama_new_context_with_model: KV self size  =   56.00 MiB, K (f16):   28.00 MiB, V (f16):   28.00 MiB
+llama_new_context_with_model:  CUDA_Host  output buffer size =     0.59 MiB
+llama_new_context_with_model:      CUDA0 compute buffer size =   152.00 MiB
+llama_new_context_with_model:  CUDA_Host compute buffer size =     4.50 MiB
+llama_new_context_with_model: graph nodes  = 875
+llama_new_context_with_model: graph splits = 2
+DEBUG [initialize] initializing slots | n_slots=1 tid="22978351517696" timestamp=1757774206
+DEBUG [initialize] new slot | n_ctx_slot=1024 slot_id=0 tid="22978351517696" timestamp=1757774206
+INFO [main] model loaded | tid="22978351517696" timestamp=1757774206
+DEBUG [update_slots] all slots are idle and system prompt is empty, clear the KV cache | tid="22978351517696" timestamp=1757774206
+DEBUG [process_single_task] slot data | n_idle_slots=1 n_processing_slots=0 task_id=0 tid="22978351517696" timestamp=1757774206
+time=2025-09-13T16:36:46.363+02:00 level=INFO source=server.go:626 msg="llama runner started in 1.76 seconds"
+time=2025-09-13T16:36:46.363+02:00 level=DEBUG source=sched.go:462 msg="finished setting up runner" model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+DEBUG [process_single_task] slot data | n_idle_slots=1 n_processing_slots=0 task_id=1 tid="22978351517696" timestamp=1757774206
+DEBUG [log_server_request] request | method="POST" params={} path="/tokenize" remote_addr="127.0.0.1" remote_port=56676 status=200 tid="22978347175936" timestamp=1757774206
+time=2025-09-13T16:36:46.449+02:00 level=DEBUG source=routes.go:1422 msg="chat request" images=0 prompt="<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nSay OK<|im_end|>\n<|im_start|>assistant\n"
+DEBUG [process_single_task] slot data | n_idle_slots=1 n_processing_slots=0 task_id=2 tid="22978351517696" timestamp=1757774206
+DEBUG [launch_slot_with_data] slot is processing task | slot_id=0 task_id=3 tid="22978351517696" timestamp=1757774206
+DEBUG [update_slots] slot progression | ga_i=0 n_past=0 n_past_se=0 n_prompt_tokens_processed=31 slot_id=0 task_id=3 tid="22978351517696" timestamp=1757774206
+DEBUG [update_slots] kv cache rm [p0, end) | p0=0 slot_id=0 task_id=3 tid="22978351517696" timestamp=1757774206
+DEBUG [print_timings] prompt eval time     =      28.03 ms /    31 tokens (    0.90 ms per token,  1105.80 tokens per second) | n_prompt_tokens_processed=31 n_tokens_second=1105.8000998787188 slot_id=0 t_prompt_processing=28.034 t_token=0.9043225806451612 task_id=3 tid="22978351517696" timestamp=1757774206
+DEBUG [print_timings] generation eval time =      13.86 ms /     2 runs   (    6.93 ms per token,   144.28 tokens per second) | n_decoded=2 n_tokens_second=144.27932477276005 slot_id=0 t_token=6.931 t_token_generation=13.862 task_id=3 tid="22978351517696" timestamp=1757774206
+DEBUG [print_timings]           total time =      41.90 ms | slot_id=0 t_prompt_processing=28.034 t_token_generation=13.862 t_total=41.896 task_id=3 tid="22978351517696" timestamp=1757774206
+DEBUG [update_slots] slot released | n_cache_tokens=33 n_ctx=1024 n_past=32 n_system_tokens=0 slot_id=0 task_id=3 tid="22978351517696" timestamp=1757774206 truncated=false
+DEBUG [log_server_request] request | method="POST" params={} path="/completion" remote_addr="127.0.0.1" remote_port=56686 status=200 tid="22978276356096" timestamp=1757774206
+[GIN] 2025/09/13 - 16:36:46 | 200 |  2.109294936s |       127.0.0.1 | POST     "/api/chat"
+time=2025-09-13T16:36:46.492+02:00 level=DEBUG source=sched.go:466 msg="context for request finished"
+time=2025-09-13T16:36:46.492+02:00 level=DEBUG source=sched.go:339 msg="runner with non-zero duration has gone idle, adding timer" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730 duration=8h0m0s
+time=2025-09-13T16:36:46.492+02:00 level=DEBUG source=sched.go:357 msg="after processing request finished event" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730 refCount=0
+[GIN] 2025/09/13 - 16:37:15 | 200 |    7.533169ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/09/13 - 16:37:15 | 200 |    7.072169ms |       127.0.0.1 | GET      "/api/tags"
+time=2025-09-13T16:38:27.053+02:00 level=DEBUG source=sched.go:575 msg="evaluating already loaded" model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:27.053+02:00 level=DEBUG source=sched.go:283 msg="resetting model to expire immediately to make room" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730 refCount=0
+time=2025-09-13T16:38:27.053+02:00 level=DEBUG source=sched.go:296 msg="waiting for pending requests to complete and unload to occur" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:27.053+02:00 level=DEBUG source=sched.go:360 msg="runner expired event received" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:27.053+02:00 level=DEBUG source=sched.go:375 msg="got lock to unload" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:27.053+02:00 level=DEBUG source=gpu.go:396 msg="updating system memory data" before.total="502.9 GiB" before.free="490.0 GiB" before.free_swap="0 B" now.total="502.9 GiB" now.free="489.4 GiB" now.free_swap="0 B"
+CUDA driver version: 12.2
+time=2025-09-13T16:38:27.137+02:00 level=DEBUG source=gpu.go:444 msg="updating cuda memory data" gpu=GPU-10d014c5-7471-6d37-15ae-2382fe0b576a name="NVIDIA A100-SXM-64GB" overhead="0 B" before.total="63.4 GiB" before.free="63.0 GiB" now.total="63.4 GiB" now.free="58.1 GiB" now.used="5.3 GiB"
+releasing cuda driver library
+time=2025-09-13T16:38:27.137+02:00 level=DEBUG source=server.go:1086 msg="stopping llama server"
+time=2025-09-13T16:38:27.137+02:00 level=DEBUG source=server.go:1092 msg="waiting for llama server to exit"
+time=2025-09-13T16:38:27.182+02:00 level=DEBUG source=server.go:1096 msg="llama server stopped"
+time=2025-09-13T16:38:27.182+02:00 level=DEBUG source=sched.go:380 msg="runner released" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:27.388+02:00 level=DEBUG source=gpu.go:396 msg="updating system memory data" before.total="502.9 GiB" before.free="489.4 GiB" before.free_swap="0 B" now.total="502.9 GiB" now.free="489.6 GiB" now.free_swap="0 B"
+CUDA driver version: 12.2
+time=2025-09-13T16:38:27.471+02:00 level=DEBUG source=gpu.go:444 msg="updating cuda memory data" gpu=GPU-10d014c5-7471-6d37-15ae-2382fe0b576a name="NVIDIA A100-SXM-64GB" overhead="0 B" before.total="63.4 GiB" before.free="58.1 GiB" now.total="63.4 GiB" now.free="63.0 GiB" now.used="482.8 MiB"
+releasing cuda driver library
+time=2025-09-13T16:38:27.471+02:00 level=DEBUG source=sched.go:659 msg="gpu VRAM free memory converged after 0.42 seconds" model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:27.471+02:00 level=DEBUG source=sched.go:384 msg="sending an unloaded event" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:27.471+02:00 level=DEBUG source=sched.go:302 msg="unload completed" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:27.471+02:00 level=DEBUG source=gpu.go:396 msg="updating system memory data" before.total="502.9 GiB" before.free="489.6 GiB" before.free_swap="0 B" now.total="502.9 GiB" now.free="489.6 GiB" now.free_swap="0 B"
+CUDA driver version: 12.2
+time=2025-09-13T16:38:27.547+02:00 level=DEBUG source=gpu.go:444 msg="updating cuda memory data" gpu=GPU-10d014c5-7471-6d37-15ae-2382fe0b576a name="NVIDIA A100-SXM-64GB" overhead="0 B" before.total="63.4 GiB" before.free="63.0 GiB" now.total="63.4 GiB" now.free="63.0 GiB" now.used="482.8 MiB"
+releasing cuda driver library
+time=2025-09-13T16:38:27.575+02:00 level=DEBUG source=sched.go:224 msg="loading first model" model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:27.575+02:00 level=DEBUG source=memory.go:103 msg=evaluating library=cuda gpu_count=1 available="[63.0 GiB]"
+time=2025-09-13T16:38:27.575+02:00 level=INFO source=sched.go:714 msg="new model will fit in available VRAM in single GPU, loading" model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730 gpu=GPU-10d014c5-7471-6d37-15ae-2382fe0b576a parallel=1 available=67593371648 required="5.1 GiB"
+time=2025-09-13T16:38:27.575+02:00 level=DEBUG source=gpu.go:396 msg="updating system memory data" before.total="502.9 GiB" before.free="489.6 GiB" before.free_swap="0 B" now.total="502.9 GiB" now.free="489.6 GiB" now.free_swap="0 B"
+CUDA driver version: 12.2
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=gpu.go:444 msg="updating cuda memory data" gpu=GPU-10d014c5-7471-6d37-15ae-2382fe0b576a name="NVIDIA A100-SXM-64GB" overhead="0 B" before.total="63.4 GiB" before.free="63.0 GiB" now.total="63.4 GiB" now.free="63.0 GiB" now.used="482.8 MiB"
+releasing cuda driver library
+time=2025-09-13T16:38:27.652+02:00 level=INFO source=server.go:105 msg="system memory" total="502.9 GiB" free="489.6 GiB" free_swap="0 B"
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=memory.go:103 msg=evaluating library=cuda gpu_count=1 available="[63.0 GiB]"
+time=2025-09-13T16:38:27.652+02:00 level=INFO source=memory.go:326 msg="offload to cuda" layers.requested=-1 layers.model=29 layers.offload=29 layers.split="" memory.available="[63.0 GiB]" memory.gpu_overhead="1.0 KiB" memory.required.full="5.1 GiB" memory.required.partial="5.1 GiB" memory.required.kv="112.0 MiB" memory.required.allocations="[5.1 GiB]" memory.weights.total="3.8 GiB" memory.weights.repeating="3.3 GiB" memory.weights.nonrepeating="426.4 MiB" memory.graph.full="304.0 MiB" memory.graph.partial="730.4 MiB"
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu payload=linux/amd64/cpu/libggml.so.gz
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu payload=linux/amd64/cpu/libllama.so.gz
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu payload=linux/amd64/cpu/ollama_llama_server.gz
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx payload=linux/amd64/cpu_avx/libggml.so.gz
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx payload=linux/amd64/cpu_avx/libllama.so.gz
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx payload=linux/amd64/cpu_avx/ollama_llama_server.gz
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx2 payload=linux/amd64/cpu_avx2/libggml.so.gz
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx2 payload=linux/amd64/cpu_avx2/libllama.so.gz
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx2 payload=linux/amd64/cpu_avx2/ollama_llama_server.gz
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v11 payload=linux/amd64/cuda_v11/libggml.so.gz
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v11 payload=linux/amd64/cuda_v11/libllama.so.gz
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v11 payload=linux/amd64/cuda_v11/ollama_llama_server.gz
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v12 payload=linux/amd64/cuda_v12/libggml.so.gz
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v12 payload=linux/amd64/cuda_v12/libllama.so.gz
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v12 payload=linux/amd64/cuda_v12/ollama_llama_server.gz
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=common.go:168 msg=extracting runner=rocm_v60102 payload=linux/amd64/rocm_v60102/libggml.so.gz
+time=2025-09-13T16:38:27.652+02:00 level=DEBUG source=common.go:168 msg=extracting runner=rocm_v60102 payload=linux/amd64/rocm_v60102/libllama.so.gz
+time=2025-09-13T16:38:27.653+02:00 level=DEBUG source=common.go:168 msg=extracting runner=rocm_v60102 payload=linux/amd64/rocm_v60102/ollama_llama_server.gz
+time=2025-09-13T16:38:27.655+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu/ollama_llama_server
+time=2025-09-13T16:38:27.655+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu_avx/ollama_llama_server
+time=2025-09-13T16:38:27.655+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu_avx2/ollama_llama_server
+time=2025-09-13T16:38:27.655+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v11/ollama_llama_server
+time=2025-09-13T16:38:27.655+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v12/ollama_llama_server
+time=2025-09-13T16:38:27.655+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/rocm_v60102/ollama_llama_server
+time=2025-09-13T16:38:27.656+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu/ollama_llama_server
+time=2025-09-13T16:38:27.656+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu_avx/ollama_llama_server
+time=2025-09-13T16:38:27.656+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu_avx2/ollama_llama_server
+time=2025-09-13T16:38:27.656+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v11/ollama_llama_server
+time=2025-09-13T16:38:27.656+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v12/ollama_llama_server
+time=2025-09-13T16:38:27.656+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/rocm_v60102/ollama_llama_server
+time=2025-09-13T16:38:27.656+02:00 level=INFO source=server.go:172 msg="user override" OLLAMA_LLM_LIBRARY=cuda_v12 path=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v12
+time=2025-09-13T16:38:27.656+02:00 level=INFO source=server.go:388 msg="starting llama server" cmd="/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v12/ollama_llama_server --model /leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730 --ctx-size 2048 --batch-size 512 --embedding --n-gpu-layers 29 --verbose --threads 32 --flash-attn --parallel 1 --port 35329"
+time=2025-09-13T16:38:27.656+02:00 level=DEBUG source=server.go:405 msg=subprocess environment="[CUDA_VISIBLE_DEVICES=GPU-10d014c5-7471-6d37-15ae-2382fe0b576a LD_LIBRARY_PATH=/leonardo_work/IscrC_LLM-Mob/opt/lib/ollama:/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v12:/leonardo/prod/opt/compilers/cuda/12.3/none/lib64:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/python-3.11.6-i5k3c6ggftqkzgqyymfbkynpgm2lgjtd/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/util-linux-uuid-2.38.1-jkdi7kvvma7367qdmvpkada4pyiafoud/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/sqlite-3.43.2-casyrltocz5edzjhs5vzlqhwkamn7y4a/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxcrypt-4.4.35-ss2rzin25ozjy4gyy3dack36njs6navg/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib64:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gettext-0.22.3-2g7elifkgxzpypbswqnjuu5hefn4mjts/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zstd-1.5.5-gawytflrhedqdc2riwax7oduoqddx22s/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxml2-2.10.3-5eeeokp4kszufozbayq4bewwmyeuwy27/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zlib-ng-2.1.4-6htiapkoa6fx2medhyabzo575skozuir/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/xz-5.4.1-hubmwr5wc5nf6zk3ghuaikxiejuyt6bi/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libiconv-1.17-d7yvx2s6da4x2rfx44bc3perbb33rvuy/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gdbm-1.23-fs6otcki47azeywcckquj2sy4mzsnzxg/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/readline-8.2-nyw6mp6b7dvizewrf7exopvap2q32s5j/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/ncurses-6.4-asx3jea367shsxjt6bdj2bu5olxll6ni/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/expat-2.5.0-bptl3xwbvbkxxoc5x3dhviorarv4dvxv/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libbsd-0.11.7-cgxjopleu7se4y4cgi7oefbljgasr457/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libmd-1.0.4-wja3f5q3w75tqtro333fptfnji7oqxiu/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/bzip2-1.0.8-gp5wcz5lksrbm2gqiqjppumrhjz6gahy/lib ROCR_VISIBLE_DEVICES=0,1 CUDA_HOME=/leonardo/prod/opt/compilers/cuda/12.3/none PATH=/leonardo_work/IscrC_LLM-Mob/venv/bin:/leonardo/prod/opt/compilers/cuda/12.3/none/cuda-samples/bin/x86_64/linux/release:/leonardo/prod/opt/compilers/cuda/12.3/none/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/python-3.11.6-i5k3c6ggftqkzgqyymfbkynpgm2lgjtd/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/util-linux-uuid-2.38.1-jkdi7kvvma7367qdmvpkada4pyiafoud/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/sqlite-3.43.2-casyrltocz5edzjhs5vzlqhwkamn7y4a/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gettext-0.22.3-2g7elifkgxzpypbswqnjuu5hefn4mjts/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/tar-1.34-amqus5s63wb5oknfz4pfnvdqtwwe76iw/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zstd-1.5.5-gawytflrhedqdc2riwax7oduoqddx22s/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/pigz-2.7-bopr5vpavkyl3lou5sap6iydgi3udtcm/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxml2-2.10.3-5eeeokp4kszufozbayq4bewwmyeuwy27/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/xz-5.4.1-hubmwr5wc5nf6zk3ghuaikxiejuyt6bi/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libiconv-1.17-d7yvx2s6da4x2rfx44bc3perbb33rvuy/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gdbm-1.23-fs6otcki47azeywcckquj2sy4mzsnzxg/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/readline-8.2-nyw6mp6b7dvizewrf7exopvap2q32s5j/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/ncurses-6.4-asx3jea367shsxjt6bdj2bu5olxll6ni/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/expat-2.5.0-bptl3xwbvbkxxoc5x3dhviorarv4dvxv/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/bzip2-1.0.8-gp5wcz5lksrbm2gqiqjppumrhjz6gahy/bin:/leonardo_work/IscrC_LLM-Mob/venv/bin:/leonardo/home/userexternal/smattiol/opt/ollama/bin:/cineca/bin:/leonardo/home/userexternal/smattiol/.vscode-server/cli/servers/Stable-f220831ea2d946c0dcb0f3eaa480eb435a2c1260/server/bin/remote-cli:/leonardo/home/userexternal/smattiol/opt/ollama/bin:/cineca/bin:/leonardo/home/userexternal/smattiol/.nvm/versions/node/v22.18.0/bin:/leonardo/home/userexternal/smattiol/opt/ollama/bin:/leonardo/home/userexternal/smattiol/.local/bin:/leonardo/home/userexternal/smattiol/bin:/cineca/bin:/leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/gcc-8.5.0/environment-modules-5.2.0-rz47odw4phlhzhhbz7b65nv5s5othgmi/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/leonardo/home/userexternal/smattiol/.vscode-server/extensions/ms-python.debugpy-2025.10.0-linux-x64/bundled/scripts/noConfigScripts GPU_DEVICE_ORDINAL=0,1]"
+time=2025-09-13T16:38:27.657+02:00 level=INFO source=sched.go:449 msg="loaded runners" count=1
+time=2025-09-13T16:38:27.657+02:00 level=INFO source=server.go:587 msg="waiting for llama runner to start responding"
+time=2025-09-13T16:38:27.657+02:00 level=INFO source=server.go:621 msg="waiting for server to become available" status="llm server error"
+INFO [main] starting c++ runner | tid="23125897715712" timestamp=1757774307
+INFO [main] build info | build=10 commit="3a8c75e" tid="23125897715712" timestamp=1757774307
+INFO [main] system info | n_threads=32 n_threads_batch=32 system_info="AVX = 1 | AVX_VNNI = 0 | AVX2 = 0 | AVX512 = 0 | AVX512_VBMI = 0 | AVX512_VNNI = 0 | AVX512_BF16 = 0 | FMA = 0 | NEON = 0 | SVE = 0 | ARM_FMA = 0 | F16C = 0 | FP16_VA = 0 | RISCV_VECT = 0 | WASM_SIMD = 0 | BLAS = 1 | SSE3 = 1 | SSSE3 = 1 | VSX = 0 | MATMUL_INT8 = 0 | LLAMAFILE = 1 | " tid="23125897715712" timestamp=1757774307 total_threads=32
+INFO [main] HTTP server listening | hostname="127.0.0.1" n_threads_http="31" port="35329" tid="23125897715712" timestamp=1757774307
+llama_model_loader: loaded meta data with 34 key-value pairs and 339 tensors from /leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730 (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = qwen2
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Qwen2.5 7B Instruct
+llama_model_loader: - kv   3:                           general.finetune str              = Instruct
+llama_model_loader: - kv   4:                           general.basename str              = Qwen2.5
+llama_model_loader: - kv   5:                         general.size_label str              = 7B
+llama_model_loader: - kv   6:                            general.license str              = apache-2.0
+llama_model_loader: - kv   7:                       general.license.link str              = https://huggingface.co/Qwen/Qwen2.5-7...
+llama_model_loader: - kv   8:                   general.base_model.count u32              = 1
+llama_model_loader: - kv   9:                  general.base_model.0.name str              = Qwen2.5 7B
+llama_model_loader: - kv  10:          general.base_model.0.organization str              = Qwen
+llama_model_loader: - kv  11:              general.base_model.0.repo_url str              = https://huggingface.co/Qwen/Qwen2.5-7B
+llama_model_loader: - kv  12:                               general.tags arr[str,2]       = ["chat", "text-generation"]
+llama_model_loader: - kv  13:                          general.languages arr[str,1]       = ["en"]
+llama_model_loader: - kv  14:                          qwen2.block_count u32              = 28
+llama_model_loader: - kv  15:                       qwen2.context_length u32              = 32768
+llama_model_loader: - kv  16:                     qwen2.embedding_length u32              = 3584
+llama_model_loader: - kv  17:                  qwen2.feed_forward_length u32              = 18944
+llama_model_loader: - kv  18:                 qwen2.attention.head_count u32              = 28
+llama_model_loader: - kv  19:              qwen2.attention.head_count_kv u32              = 4
+llama_model_loader: - kv  20:                       qwen2.rope.freq_base f32              = 1000000.000000
+llama_model_loader: - kv  21:     qwen2.attention.layer_norm_rms_epsilon f32              = 0.000001
+llama_model_loader: - kv  22:                          general.file_type u32              = 15
+llama_model_loader: - kv  23:                       tokenizer.ggml.model str              = gpt2
+llama_model_loader: - kv  24:                         tokenizer.ggml.pre str              = qwen2
+llama_model_loader: - kv  25:                      tokenizer.ggml.tokens arr[str,152064]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+llama_model_loader: - kv  26:                  tokenizer.ggml.token_type arr[i32,152064]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+llama_model_loader: - kv  27:                      tokenizer.ggml.merges arr[str,151387]  = ["Ġ Ġ", "ĠĠ ĠĠ", "i n", "Ġ t",...
+llama_model_loader: - kv  28:                tokenizer.ggml.eos_token_id u32              = 151645
+llama_model_loader: - kv  29:            tokenizer.ggml.padding_token_id u32              = 151643
+llama_model_loader: - kv  30:                tokenizer.ggml.bos_token_id u32              = 151643
+llama_model_loader: - kv  31:               tokenizer.ggml.add_bos_token bool             = false
+llama_model_loader: - kv  32:                    tokenizer.chat_template str              = {%- if tools %}\n    {{- '<|im_start|>...
+llama_model_loader: - kv  33:               general.quantization_version u32              = 2
+llama_model_loader: - type  f32:  141 tensors
+llama_model_loader: - type q4_K:  169 tensors
+llama_model_loader: - type q6_K:   29 tensors
+time=2025-09-13T16:38:27.908+02:00 level=INFO source=server.go:621 msg="waiting for server to become available" status="llm server loading model"
+llm_load_vocab: special tokens cache size = 22
+llm_load_vocab: token to piece cache size = 0.9310 MB
+llm_load_print_meta: format           = GGUF V3 (latest)
+llm_load_print_meta: arch             = qwen2
+llm_load_print_meta: vocab type       = BPE
+llm_load_print_meta: n_vocab          = 152064
+llm_load_print_meta: n_merges         = 151387
+llm_load_print_meta: vocab_only       = 0
+llm_load_print_meta: n_ctx_train      = 32768
+llm_load_print_meta: n_embd           = 3584
+llm_load_print_meta: n_layer          = 28
+llm_load_print_meta: n_head           = 28
+llm_load_print_meta: n_head_kv        = 4
+llm_load_print_meta: n_rot            = 128
+llm_load_print_meta: n_swa            = 0
+llm_load_print_meta: n_embd_head_k    = 128
+llm_load_print_meta: n_embd_head_v    = 128
+llm_load_print_meta: n_gqa            = 7
+llm_load_print_meta: n_embd_k_gqa     = 512
+llm_load_print_meta: n_embd_v_gqa     = 512
+llm_load_print_meta: f_norm_eps       = 0.0e+00
+llm_load_print_meta: f_norm_rms_eps   = 1.0e-06
+llm_load_print_meta: f_clamp_kqv      = 0.0e+00
+llm_load_print_meta: f_max_alibi_bias = 0.0e+00
+llm_load_print_meta: f_logit_scale    = 0.0e+00
+llm_load_print_meta: n_ff             = 18944
+llm_load_print_meta: n_expert         = 0
+llm_load_print_meta: n_expert_used    = 0
+llm_load_print_meta: causal attn      = 1
+llm_load_print_meta: pooling type     = 0
+llm_load_print_meta: rope type        = 2
+llm_load_print_meta: rope scaling     = linear
+llm_load_print_meta: freq_base_train  = 1000000.0
+llm_load_print_meta: freq_scale_train = 1
+llm_load_print_meta: n_ctx_orig_yarn  = 32768
+llm_load_print_meta: rope_finetuned   = unknown
+llm_load_print_meta: ssm_d_conv       = 0
+llm_load_print_meta: ssm_d_inner      = 0
+llm_load_print_meta: ssm_d_state      = 0
+llm_load_print_meta: ssm_dt_rank      = 0
+llm_load_print_meta: ssm_dt_b_c_rms   = 0
+llm_load_print_meta: model type       = ?B
+llm_load_print_meta: model ftype      = Q4_K - Medium
+llm_load_print_meta: model params     = 7.62 B
+llm_load_print_meta: model size       = 4.36 GiB (4.91 BPW) 
+llm_load_print_meta: general.name     = Qwen2.5 7B Instruct
+llm_load_print_meta: BOS token        = 151643 '<|endoftext|>'
+llm_load_print_meta: EOS token        = 151645 '<|im_end|>'
+llm_load_print_meta: PAD token        = 151643 '<|endoftext|>'
+llm_load_print_meta: LF token         = 148848 'ÄĬ'
+llm_load_print_meta: EOT token        = 151643 '<|endoftext|>'
+llm_load_print_meta: EOG token        = 151643 '<|endoftext|>'
+llm_load_print_meta: EOG token        = 151645 '<|im_end|>'
+llm_load_print_meta: max token length = 256
+ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no
+ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no
+ggml_cuda_init: found 1 CUDA devices:
+  Device 0: NVIDIA A100-SXM-64GB, compute capability 8.0, VMM: yes
+llm_load_tensors: ggml ctx size =    0.30 MiB
+llm_load_tensors: offloading 28 repeating layers to GPU
+llm_load_tensors: offloading non-repeating layers to GPU
+llm_load_tensors: offloaded 29/29 layers to GPU
+llm_load_tensors:        CPU buffer size =   292.36 MiB
+llm_load_tensors:      CUDA0 buffer size =  4168.09 MiB
+time=2025-09-13T16:38:28.911+02:00 level=DEBUG source=server.go:632 msg="model load progress 0.54"
+time=2025-09-13T16:38:29.168+02:00 level=DEBUG source=server.go:632 msg="model load progress 1.00"
+llama_new_context_with_model: n_ctx      = 2048
+llama_new_context_with_model: n_batch    = 512
+llama_new_context_with_model: n_ubatch   = 512
+llama_new_context_with_model: flash_attn = 1
+llama_new_context_with_model: freq_base  = 1000000.0
+llama_new_context_with_model: freq_scale = 1
+llama_kv_cache_init:      CUDA0 KV buffer size =   112.00 MiB
+llama_new_context_with_model: KV self size  =  112.00 MiB, K (f16):   56.00 MiB, V (f16):   56.00 MiB
+llama_new_context_with_model:  CUDA_Host  output buffer size =     0.59 MiB
+llama_new_context_with_model:      CUDA0 compute buffer size =   304.00 MiB
+llama_new_context_with_model:  CUDA_Host compute buffer size =    11.01 MiB
+llama_new_context_with_model: graph nodes  = 875
+llama_new_context_with_model: graph splits = 2
+DEBUG [initialize] initializing slots | n_slots=1 tid="23125897715712" timestamp=1757774309
+DEBUG [initialize] new slot | n_ctx_slot=2048 slot_id=0 tid="23125897715712" timestamp=1757774309
+INFO [main] model loaded | tid="23125897715712" timestamp=1757774309
+DEBUG [update_slots] all slots are idle and system prompt is empty, clear the KV cache | tid="23125897715712" timestamp=1757774309
+DEBUG [process_single_task] slot data | n_idle_slots=1 n_processing_slots=0 task_id=0 tid="23125897715712" timestamp=1757774309
+time=2025-09-13T16:38:29.419+02:00 level=INFO source=server.go:626 msg="llama runner started in 1.76 seconds"
+time=2025-09-13T16:38:29.419+02:00 level=DEBUG source=sched.go:462 msg="finished setting up runner" model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+DEBUG [process_single_task] slot data | n_idle_slots=1 n_processing_slots=0 task_id=1 tid="23125897715712" timestamp=1757774309
+DEBUG [log_server_request] request | method="POST" params={} path="/tokenize" remote_addr="127.0.0.1" remote_port=53330 status=200 tid="23125893373952" timestamp=1757774309
+time=2025-09-13T16:38:29.504+02:00 level=DEBUG source=routes.go:1422 msg="chat request" images=0 prompt="<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\ntest<|im_end|>\n<|im_start|>assistant\n"
+DEBUG [process_single_task] slot data | n_idle_slots=1 n_processing_slots=0 task_id=2 tid="23125897715712" timestamp=1757774309
+DEBUG [launch_slot_with_data] slot is processing task | slot_id=0 task_id=3 tid="23125897715712" timestamp=1757774309
+DEBUG [update_slots] slot progression | ga_i=0 n_past=0 n_past_se=0 n_prompt_tokens_processed=30 slot_id=0 task_id=3 tid="23125897715712" timestamp=1757774309
+DEBUG [update_slots] kv cache rm [p0, end) | p0=0 slot_id=0 task_id=3 tid="23125897715712" timestamp=1757774309
+DEBUG [print_timings] prompt eval time     =      28.18 ms /    30 tokens (    0.94 ms per token,  1064.62 tokens per second) | n_prompt_tokens_processed=30 n_tokens_second=1064.6225912913874 slot_id=0 t_prompt_processing=28.179 t_token=0.9392999999999999 task_id=3 tid="23125897715712" timestamp=1757774309
+DEBUG [print_timings] generation eval time =       0.02 ms /     1 runs   (    0.02 ms per token, 52631.58 tokens per second) | n_decoded=1 n_tokens_second=52631.57894736842 slot_id=0 t_token=0.019 t_token_generation=0.019 task_id=3 tid="23125897715712" timestamp=1757774309
+DEBUG [print_timings]           total time =      28.20 ms | slot_id=0 t_prompt_processing=28.179 t_token_generation=0.019 t_total=28.197999999999997 task_id=3 tid="23125897715712" timestamp=1757774309
+DEBUG [update_slots] slot released | n_cache_tokens=31 n_ctx=2048 n_past=30 n_system_tokens=0 slot_id=0 task_id=3 tid="23125897715712" timestamp=1757774309 truncated=false
+DEBUG [log_server_request] request | method="POST" params={} path="/completion" remote_addr="127.0.0.1" remote_port=53344 status=200 tid="23125891272704" timestamp=1757774309
+[GIN] 2025/09/13 - 16:38:29 | 200 |  2.495679606s |       127.0.0.1 | POST     "/api/chat"
+time=2025-09-13T16:38:29.533+02:00 level=DEBUG source=sched.go:466 msg="context for request finished"
+time=2025-09-13T16:38:29.533+02:00 level=DEBUG source=sched.go:339 msg="runner with non-zero duration has gone idle, adding timer" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730 duration=8h0m0s
+time=2025-09-13T16:38:29.533+02:00 level=DEBUG source=sched.go:357 msg="after processing request finished event" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730 refCount=0
+time=2025-09-13T16:38:29.670+02:00 level=WARN source=types.go:509 msg="invalid option provided" option=num_gqa
+time=2025-09-13T16:38:29.670+02:00 level=WARN source=types.go:509 msg="invalid option provided" option=cache_type_k
+time=2025-09-13T16:38:29.670+02:00 level=DEBUG source=sched.go:575 msg="evaluating already loaded" model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:29.670+02:00 level=DEBUG source=sched.go:283 msg="resetting model to expire immediately to make room" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730 refCount=0
+time=2025-09-13T16:38:29.670+02:00 level=DEBUG source=sched.go:296 msg="waiting for pending requests to complete and unload to occur" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:29.670+02:00 level=DEBUG source=sched.go:360 msg="runner expired event received" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:29.670+02:00 level=DEBUG source=sched.go:375 msg="got lock to unload" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:29.670+02:00 level=DEBUG source=gpu.go:396 msg="updating system memory data" before.total="502.9 GiB" before.free="489.6 GiB" before.free_swap="0 B" now.total="502.9 GiB" now.free="489.3 GiB" now.free_swap="0 B"
+CUDA driver version: 12.2
+time=2025-09-13T16:38:29.673+02:00 level=WARN source=types.go:509 msg="invalid option provided" option=cache_type_k
+time=2025-09-13T16:38:29.673+02:00 level=WARN source=types.go:509 msg="invalid option provided" option=num_gqa
+time=2025-09-13T16:38:29.806+02:00 level=DEBUG source=gpu.go:444 msg="updating cuda memory data" gpu=GPU-10d014c5-7471-6d37-15ae-2382fe0b576a name="NVIDIA A100-SXM-64GB" overhead="0 B" before.total="63.4 GiB" before.free="63.0 GiB" now.total="63.4 GiB" now.free="57.9 GiB" now.used="5.5 GiB"
+releasing cuda driver library
+time=2025-09-13T16:38:29.806+02:00 level=DEBUG source=server.go:1086 msg="stopping llama server"
+time=2025-09-13T16:38:29.806+02:00 level=DEBUG source=server.go:1092 msg="waiting for llama server to exit"
+time=2025-09-13T16:38:29.850+02:00 level=DEBUG source=server.go:1096 msg="llama server stopped"
+time=2025-09-13T16:38:29.850+02:00 level=DEBUG source=sched.go:380 msg="runner released" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:30.057+02:00 level=DEBUG source=gpu.go:396 msg="updating system memory data" before.total="502.9 GiB" before.free="489.3 GiB" before.free_swap="0 B" now.total="502.9 GiB" now.free="489.9 GiB" now.free_swap="0 B"
+CUDA driver version: 12.2
+time=2025-09-13T16:38:30.202+02:00 level=DEBUG source=gpu.go:444 msg="updating cuda memory data" gpu=GPU-10d014c5-7471-6d37-15ae-2382fe0b576a name="NVIDIA A100-SXM-64GB" overhead="0 B" before.total="63.4 GiB" before.free="57.9 GiB" now.total="63.4 GiB" now.free="63.0 GiB" now.used="482.8 MiB"
+releasing cuda driver library
+time=2025-09-13T16:38:30.202+02:00 level=DEBUG source=sched.go:659 msg="gpu VRAM free memory converged after 0.53 seconds" model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:30.202+02:00 level=DEBUG source=sched.go:384 msg="sending an unloaded event" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:30.202+02:00 level=DEBUG source=sched.go:302 msg="unload completed" modelPath=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:30.202+02:00 level=DEBUG source=gpu.go:396 msg="updating system memory data" before.total="502.9 GiB" before.free="489.9 GiB" before.free_swap="0 B" now.total="502.9 GiB" now.free="489.9 GiB" now.free_swap="0 B"
+CUDA driver version: 12.2
+time=2025-09-13T16:38:30.333+02:00 level=DEBUG source=gpu.go:444 msg="updating cuda memory data" gpu=GPU-10d014c5-7471-6d37-15ae-2382fe0b576a name="NVIDIA A100-SXM-64GB" overhead="0 B" before.total="63.4 GiB" before.free="63.0 GiB" now.total="63.4 GiB" now.free="63.0 GiB" now.used="482.8 MiB"
+releasing cuda driver library
+time=2025-09-13T16:38:30.363+02:00 level=DEBUG source=sched.go:224 msg="loading first model" model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:30.363+02:00 level=DEBUG source=memory.go:103 msg=evaluating library=cuda gpu_count=1 available="[63.0 GiB]"
+time=2025-09-13T16:38:30.363+02:00 level=INFO source=sched.go:714 msg="new model will fit in available VRAM in single GPU, loading" model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730 gpu=GPU-10d014c5-7471-6d37-15ae-2382fe0b576a parallel=1 available=67593371648 required="1.3 GiB"
+time=2025-09-13T16:38:30.363+02:00 level=DEBUG source=gpu.go:396 msg="updating system memory data" before.total="502.9 GiB" before.free="489.9 GiB" before.free_swap="0 B" now.total="502.9 GiB" now.free="489.9 GiB" now.free_swap="0 B"
+CUDA driver version: 12.2
+time=2025-09-13T16:38:30.494+02:00 level=DEBUG source=gpu.go:444 msg="updating cuda memory data" gpu=GPU-10d014c5-7471-6d37-15ae-2382fe0b576a name="NVIDIA A100-SXM-64GB" overhead="0 B" before.total="63.4 GiB" before.free="63.0 GiB" now.total="63.4 GiB" now.free="63.0 GiB" now.used="482.8 MiB"
+releasing cuda driver library
+time=2025-09-13T16:38:30.494+02:00 level=INFO source=server.go:105 msg="system memory" total="502.9 GiB" free="489.9 GiB" free_swap="0 B"
+time=2025-09-13T16:38:30.494+02:00 level=DEBUG source=memory.go:103 msg=evaluating library=cuda gpu_count=1 available="[63.0 GiB]"
+time=2025-09-13T16:38:30.494+02:00 level=INFO source=memory.go:326 msg="offload to cuda" layers.requested=1 layers.model=29 layers.offload=1 layers.split="" memory.available="[63.0 GiB]" memory.gpu_overhead="1.0 KiB" memory.required.full="5.1 GiB" memory.required.partial="1.3 GiB" memory.required.kv="56.0 MiB" memory.required.allocations="[1.3 GiB]" memory.weights.total="3.7 GiB" memory.weights.repeating="3.3 GiB" memory.weights.nonrepeating="426.4 MiB" memory.graph.full="152.0 MiB" memory.graph.partial="578.4 MiB"
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu payload=linux/amd64/cpu/libggml.so.gz
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu payload=linux/amd64/cpu/libllama.so.gz
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu payload=linux/amd64/cpu/ollama_llama_server.gz
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx payload=linux/amd64/cpu_avx/libggml.so.gz
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx payload=linux/amd64/cpu_avx/libllama.so.gz
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx payload=linux/amd64/cpu_avx/ollama_llama_server.gz
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx2 payload=linux/amd64/cpu_avx2/libggml.so.gz
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx2 payload=linux/amd64/cpu_avx2/libllama.so.gz
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cpu_avx2 payload=linux/amd64/cpu_avx2/ollama_llama_server.gz
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v11 payload=linux/amd64/cuda_v11/libggml.so.gz
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v11 payload=linux/amd64/cuda_v11/libllama.so.gz
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v11 payload=linux/amd64/cuda_v11/ollama_llama_server.gz
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v12 payload=linux/amd64/cuda_v12/libggml.so.gz
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v12 payload=linux/amd64/cuda_v12/libllama.so.gz
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=cuda_v12 payload=linux/amd64/cuda_v12/ollama_llama_server.gz
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=rocm_v60102 payload=linux/amd64/rocm_v60102/libggml.so.gz
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=rocm_v60102 payload=linux/amd64/rocm_v60102/libllama.so.gz
+time=2025-09-13T16:38:30.495+02:00 level=DEBUG source=common.go:168 msg=extracting runner=rocm_v60102 payload=linux/amd64/rocm_v60102/ollama_llama_server.gz
+time=2025-09-13T16:38:30.496+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu/ollama_llama_server
+time=2025-09-13T16:38:30.496+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu_avx/ollama_llama_server
+time=2025-09-13T16:38:30.496+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu_avx2/ollama_llama_server
+time=2025-09-13T16:38:30.496+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v11/ollama_llama_server
+time=2025-09-13T16:38:30.496+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v12/ollama_llama_server
+time=2025-09-13T16:38:30.496+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/rocm_v60102/ollama_llama_server
+time=2025-09-13T16:38:30.498+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu/ollama_llama_server
+time=2025-09-13T16:38:30.498+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu_avx/ollama_llama_server
+time=2025-09-13T16:38:30.498+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cpu_avx2/ollama_llama_server
+time=2025-09-13T16:38:30.498+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v11/ollama_llama_server
+time=2025-09-13T16:38:30.498+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v12/ollama_llama_server
+time=2025-09-13T16:38:30.498+02:00 level=DEBUG source=common.go:294 msg="availableServers : found" file=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/rocm_v60102/ollama_llama_server
+time=2025-09-13T16:38:30.498+02:00 level=INFO source=server.go:172 msg="user override" OLLAMA_LLM_LIBRARY=cuda_v12 path=/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v12
+time=2025-09-13T16:38:30.498+02:00 level=INFO source=server.go:388 msg="starting llama server" cmd="/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v12/ollama_llama_server --model /leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730 --ctx-size 1024 --batch-size 256 --embedding --n-gpu-layers 1 --verbose --threads 56 --flash-attn --parallel 1 --port 43065"
+time=2025-09-13T16:38:30.498+02:00 level=DEBUG source=server.go:405 msg=subprocess environment="[CUDA_VISIBLE_DEVICES=GPU-10d014c5-7471-6d37-15ae-2382fe0b576a LD_LIBRARY_PATH=/leonardo_work/IscrC_LLM-Mob/opt/lib/ollama:/leonardo_work/IscrC_LLM-Mob/tmp_ollama_19945716/ollama699374537/runners/cuda_v12:/leonardo/prod/opt/compilers/cuda/12.3/none/lib64:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/python-3.11.6-i5k3c6ggftqkzgqyymfbkynpgm2lgjtd/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/util-linux-uuid-2.38.1-jkdi7kvvma7367qdmvpkada4pyiafoud/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/sqlite-3.43.2-casyrltocz5edzjhs5vzlqhwkamn7y4a/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxcrypt-4.4.35-ss2rzin25ozjy4gyy3dack36njs6navg/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib64:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libffi-3.4.4-6r7brdq5dnreoad6f7sn7ybjjvwdmvue/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gettext-0.22.3-2g7elifkgxzpypbswqnjuu5hefn4mjts/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zstd-1.5.5-gawytflrhedqdc2riwax7oduoqddx22s/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxml2-2.10.3-5eeeokp4kszufozbayq4bewwmyeuwy27/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zlib-ng-2.1.4-6htiapkoa6fx2medhyabzo575skozuir/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/xz-5.4.1-hubmwr5wc5nf6zk3ghuaikxiejuyt6bi/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libiconv-1.17-d7yvx2s6da4x2rfx44bc3perbb33rvuy/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gdbm-1.23-fs6otcki47azeywcckquj2sy4mzsnzxg/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/readline-8.2-nyw6mp6b7dvizewrf7exopvap2q32s5j/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/ncurses-6.4-asx3jea367shsxjt6bdj2bu5olxll6ni/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/expat-2.5.0-bptl3xwbvbkxxoc5x3dhviorarv4dvxv/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libbsd-0.11.7-cgxjopleu7se4y4cgi7oefbljgasr457/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libmd-1.0.4-wja3f5q3w75tqtro333fptfnji7oqxiu/lib:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/bzip2-1.0.8-gp5wcz5lksrbm2gqiqjppumrhjz6gahy/lib ROCR_VISIBLE_DEVICES=0,1 CUDA_HOME=/leonardo/prod/opt/compilers/cuda/12.3/none PATH=/leonardo_work/IscrC_LLM-Mob/venv/bin:/leonardo/prod/opt/compilers/cuda/12.3/none/cuda-samples/bin/x86_64/linux/release:/leonardo/prod/opt/compilers/cuda/12.3/none/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/python-3.11.6-i5k3c6ggftqkzgqyymfbkynpgm2lgjtd/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/util-linux-uuid-2.38.1-jkdi7kvvma7367qdmvpkada4pyiafoud/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/sqlite-3.43.2-casyrltocz5edzjhs5vzlqhwkamn7y4a/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gettext-0.22.3-2g7elifkgxzpypbswqnjuu5hefn4mjts/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/tar-1.34-amqus5s63wb5oknfz4pfnvdqtwwe76iw/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/zstd-1.5.5-gawytflrhedqdc2riwax7oduoqddx22s/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/pigz-2.7-bopr5vpavkyl3lou5sap6iydgi3udtcm/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libxml2-2.10.3-5eeeokp4kszufozbayq4bewwmyeuwy27/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/xz-5.4.1-hubmwr5wc5nf6zk3ghuaikxiejuyt6bi/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/libiconv-1.17-d7yvx2s6da4x2rfx44bc3perbb33rvuy/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/gdbm-1.23-fs6otcki47azeywcckquj2sy4mzsnzxg/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/readline-8.2-nyw6mp6b7dvizewrf7exopvap2q32s5j/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/ncurses-6.4-asx3jea367shsxjt6bdj2bu5olxll6ni/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/expat-2.5.0-bptl3xwbvbkxxoc5x3dhviorarv4dvxv/bin:/leonardo/prod/spack/5.2/install/0.21/linux-rhel8-icelake/gcc-8.5.0/bzip2-1.0.8-gp5wcz5lksrbm2gqiqjppumrhjz6gahy/bin:/leonardo_work/IscrC_LLM-Mob/venv/bin:/leonardo/home/userexternal/smattiol/opt/ollama/bin:/cineca/bin:/leonardo/home/userexternal/smattiol/.vscode-server/cli/servers/Stable-f220831ea2d946c0dcb0f3eaa480eb435a2c1260/server/bin/remote-cli:/leonardo/home/userexternal/smattiol/opt/ollama/bin:/cineca/bin:/leonardo/home/userexternal/smattiol/.nvm/versions/node/v22.18.0/bin:/leonardo/home/userexternal/smattiol/opt/ollama/bin:/leonardo/home/userexternal/smattiol/.local/bin:/leonardo/home/userexternal/smattiol/bin:/cineca/bin:/leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/gcc-8.5.0/environment-modules-5.2.0-rz47odw4phlhzhhbz7b65nv5s5othgmi/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/leonardo/home/userexternal/smattiol/.vscode-server/extensions/ms-python.debugpy-2025.10.0-linux-x64/bundled/scripts/noConfigScripts GPU_DEVICE_ORDINAL=0,1]"
+time=2025-09-13T16:38:30.499+02:00 level=INFO source=sched.go:449 msg="loaded runners" count=1
+time=2025-09-13T16:38:30.499+02:00 level=DEBUG source=sched.go:575 msg="evaluating already loaded" model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+time=2025-09-13T16:38:30.499+02:00 level=INFO source=server.go:587 msg="waiting for llama runner to start responding"
+time=2025-09-13T16:38:30.499+02:00 level=INFO source=server.go:621 msg="waiting for server to become available" status="llm server error"
+INFO [main] starting c++ runner | tid="22497187749888" timestamp=1757774310
+INFO [main] build info | build=10 commit="3a8c75e" tid="22497187749888" timestamp=1757774310
+INFO [main] system info | n_threads=56 n_threads_batch=56 system_info="AVX = 1 | AVX_VNNI = 0 | AVX2 = 0 | AVX512 = 0 | AVX512_VBMI = 0 | AVX512_VNNI = 0 | AVX512_BF16 = 0 | FMA = 0 | NEON = 0 | SVE = 0 | ARM_FMA = 0 | F16C = 0 | FP16_VA = 0 | RISCV_VECT = 0 | WASM_SIMD = 0 | BLAS = 1 | SSE3 = 1 | SSSE3 = 1 | VSX = 0 | MATMUL_INT8 = 0 | LLAMAFILE = 1 | " tid="22497187749888" timestamp=1757774310 total_threads=32
+INFO [main] HTTP server listening | hostname="127.0.0.1" n_threads_http="31" port="43065" tid="22497187749888" timestamp=1757774310
+llama_model_loader: loaded meta data with 34 key-value pairs and 339 tensors from /leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730 (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = qwen2
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Qwen2.5 7B Instruct
+llama_model_loader: - kv   3:                           general.finetune str              = Instruct
+llama_model_loader: - kv   4:                           general.basename str              = Qwen2.5
+llama_model_loader: - kv   5:                         general.size_label str              = 7B
+llama_model_loader: - kv   6:                            general.license str              = apache-2.0
+llama_model_loader: - kv   7:                       general.license.link str              = https://huggingface.co/Qwen/Qwen2.5-7...
+llama_model_loader: - kv   8:                   general.base_model.count u32              = 1
+llama_model_loader: - kv   9:                  general.base_model.0.name str              = Qwen2.5 7B
+llama_model_loader: - kv  10:          general.base_model.0.organization str              = Qwen
+llama_model_loader: - kv  11:              general.base_model.0.repo_url str              = https://huggingface.co/Qwen/Qwen2.5-7B
+llama_model_loader: - kv  12:                               general.tags arr[str,2]       = ["chat", "text-generation"]
+llama_model_loader: - kv  13:                          general.languages arr[str,1]       = ["en"]
+llama_model_loader: - kv  14:                          qwen2.block_count u32              = 28
+llama_model_loader: - kv  15:                       qwen2.context_length u32              = 32768
+llama_model_loader: - kv  16:                     qwen2.embedding_length u32              = 3584
+llama_model_loader: - kv  17:                  qwen2.feed_forward_length u32              = 18944
+llama_model_loader: - kv  18:                 qwen2.attention.head_count u32              = 28
+llama_model_loader: - kv  19:              qwen2.attention.head_count_kv u32              = 4
+llama_model_loader: - kv  20:                       qwen2.rope.freq_base f32              = 1000000.000000
+llama_model_loader: - kv  21:     qwen2.attention.layer_norm_rms_epsilon f32              = 0.000001
+llama_model_loader: - kv  22:                          general.file_type u32              = 15
+llama_model_loader: - kv  23:                       tokenizer.ggml.model str              = gpt2
+llama_model_loader: - kv  24:                         tokenizer.ggml.pre str              = qwen2
+llama_model_loader: - kv  25:                      tokenizer.ggml.tokens arr[str,152064]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+llama_model_loader: - kv  26:                  tokenizer.ggml.token_type arr[i32,152064]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+llama_model_loader: - kv  27:                      tokenizer.ggml.merges arr[str,151387]  = ["Ġ Ġ", "ĠĠ ĠĠ", "i n", "Ġ t",...
+llama_model_loader: - kv  28:                tokenizer.ggml.eos_token_id u32              = 151645
+llama_model_loader: - kv  29:            tokenizer.ggml.padding_token_id u32              = 151643
+llama_model_loader: - kv  30:                tokenizer.ggml.bos_token_id u32              = 151643
+llama_model_loader: - kv  31:               tokenizer.ggml.add_bos_token bool             = false
+llama_model_loader: - kv  32:                    tokenizer.chat_template str              = {%- if tools %}\n    {{- '<|im_start|>...
+llama_model_loader: - kv  33:               general.quantization_version u32              = 2
+llama_model_loader: - type  f32:  141 tensors
+llama_model_loader: - type q4_K:  169 tensors
+llama_model_loader: - type q6_K:   29 tensors
+time=2025-09-13T16:38:30.749+02:00 level=INFO source=server.go:621 msg="waiting for server to become available" status="llm server loading model"
+llm_load_vocab: special tokens cache size = 22
+llm_load_vocab: token to piece cache size = 0.9310 MB
+llm_load_print_meta: format           = GGUF V3 (latest)
+llm_load_print_meta: arch             = qwen2
+llm_load_print_meta: vocab type       = BPE
+llm_load_print_meta: n_vocab          = 152064
+llm_load_print_meta: n_merges         = 151387
+llm_load_print_meta: vocab_only       = 0
+llm_load_print_meta: n_ctx_train      = 32768
+llm_load_print_meta: n_embd           = 3584
+llm_load_print_meta: n_layer          = 28
+llm_load_print_meta: n_head           = 28
+llm_load_print_meta: n_head_kv        = 4
+llm_load_print_meta: n_rot            = 128
+llm_load_print_meta: n_swa            = 0
+llm_load_print_meta: n_embd_head_k    = 128
+llm_load_print_meta: n_embd_head_v    = 128
+llm_load_print_meta: n_gqa            = 7
+llm_load_print_meta: n_embd_k_gqa     = 512
+llm_load_print_meta: n_embd_v_gqa     = 512
+llm_load_print_meta: f_norm_eps       = 0.0e+00
+llm_load_print_meta: f_norm_rms_eps   = 1.0e-06
+llm_load_print_meta: f_clamp_kqv      = 0.0e+00
+llm_load_print_meta: f_max_alibi_bias = 0.0e+00
+llm_load_print_meta: f_logit_scale    = 0.0e+00
+llm_load_print_meta: n_ff             = 18944
+llm_load_print_meta: n_expert         = 0
+llm_load_print_meta: n_expert_used    = 0
+llm_load_print_meta: causal attn      = 1
+llm_load_print_meta: pooling type     = 0
+llm_load_print_meta: rope type        = 2
+llm_load_print_meta: rope scaling     = linear
+llm_load_print_meta: freq_base_train  = 1000000.0
+llm_load_print_meta: freq_scale_train = 1
+llm_load_print_meta: n_ctx_orig_yarn  = 32768
+llm_load_print_meta: rope_finetuned   = unknown
+llm_load_print_meta: ssm_d_conv       = 0
+llm_load_print_meta: ssm_d_inner      = 0
+llm_load_print_meta: ssm_d_state      = 0
+llm_load_print_meta: ssm_dt_rank      = 0
+llm_load_print_meta: ssm_dt_b_c_rms   = 0
+llm_load_print_meta: model type       = ?B
+llm_load_print_meta: model ftype      = Q4_K - Medium
+llm_load_print_meta: model params     = 7.62 B
+llm_load_print_meta: model size       = 4.36 GiB (4.91 BPW) 
+llm_load_print_meta: general.name     = Qwen2.5 7B Instruct
+llm_load_print_meta: BOS token        = 151643 '<|endoftext|>'
+llm_load_print_meta: EOS token        = 151645 '<|im_end|>'
+llm_load_print_meta: PAD token        = 151643 '<|endoftext|>'
+llm_load_print_meta: LF token         = 148848 'ÄĬ'
+llm_load_print_meta: EOT token        = 151643 '<|endoftext|>'
+llm_load_print_meta: EOG token        = 151643 '<|endoftext|>'
+llm_load_print_meta: EOG token        = 151645 '<|im_end|>'
+llm_load_print_meta: max token length = 256
+ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no
+ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no
+ggml_cuda_init: found 1 CUDA devices:
+  Device 0: NVIDIA A100-SXM-64GB, compute capability 8.0, VMM: yes
+llm_load_tensors: ggml ctx size =    0.30 MiB
+llm_load_tensors: offloading 1 repeating layers to GPU
+llm_load_tensors: offloaded 1/29 layers to GPU
+llm_load_tensors:        CPU buffer size =  4460.45 MiB
+llm_load_tensors:      CUDA0 buffer size =   142.21 MiB
+llama_new_context_with_model: n_ctx      = 1024
+llama_new_context_with_model: n_batch    = 256
+llama_new_context_with_model: n_ubatch   = 256
+llama_new_context_with_model: flash_attn = 1
+llama_new_context_with_model: freq_base  = 1000000.0
+llama_new_context_with_model: freq_scale = 1
+llama_kv_cache_init:  CUDA_Host KV buffer size =    54.00 MiB
+llama_kv_cache_init:      CUDA0 KV buffer size =     2.00 MiB
+llama_new_context_with_model: KV self size  =   56.00 MiB, K (f16):   28.00 MiB, V (f16):   28.00 MiB
+llama_new_context_with_model:  CUDA_Host  output buffer size =     0.59 MiB
+llama_new_context_with_model:      CUDA0 compute buffer size =   578.36 MiB
+llama_new_context_with_model:  CUDA_Host compute buffer size =     4.50 MiB
+llama_new_context_with_model: graph nodes  = 875
+llama_new_context_with_model: graph splits = 382
+time=2025-09-13T16:38:31.753+02:00 level=DEBUG source=server.go:632 msg="model load progress 1.00"
+time=2025-09-13T16:38:32.003+02:00 level=DEBUG source=server.go:635 msg="model load completed, waiting for server to become available" status="llm server loading model"
+DEBUG [initialize] initializing slots | n_slots=1 tid="22497187749888" timestamp=1757774334
+DEBUG [initialize] new slot | n_ctx_slot=1024 slot_id=0 tid="22497187749888" timestamp=1757774334
+INFO [main] model loaded | tid="22497187749888" timestamp=1757774334
+DEBUG [update_slots] all slots are idle and system prompt is empty, clear the KV cache | tid="22497187749888" timestamp=1757774334
+DEBUG [process_single_task] slot data | n_idle_slots=1 n_processing_slots=0 task_id=0 tid="22497187749888" timestamp=1757774334
+time=2025-09-13T16:38:54.551+02:00 level=INFO source=server.go:626 msg="llama runner started in 24.05 seconds"
+time=2025-09-13T16:38:54.551+02:00 level=DEBUG source=sched.go:462 msg="finished setting up runner" model=/leonardo_work/IscrC_LLM-Mob/.ollama/models/blobs/sha256-2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730
+DEBUG [process_single_task] slot data | n_idle_slots=1 n_processing_slots=0 task_id=1 tid="22497187749888" timestamp=1757774334
+DEBUG [process_single_task] slot data | n_idle_slots=1 n_processing_slots=0 task_id=2 tid="22497187749888" timestamp=1757774334
+DEBUG [log_server_request] request | method="POST" params={} path="/tokenize" remote_addr="127.0.0.1" remote_port=53526 status=200 tid="22497072181248" timestamp=1757774334
+time=2025-09-13T16:38:54.598+02:00 level=DEBUG source=routes.go:1422 msg="chat request" images=0 prompt="<|im_start|>system\nYou are a tourism prediction assistant in Verona, Italy.<|im_end|>\n<|im_start|>user\n\n            - Cluster: 3\n            - History: San Fermo, Santa Anastasia, Teatro Romano, Duomo\n            - Current: Torre Lamberti (Mon 16:39 (usual: 12-15h))\n\n            Nearby attractions within walking distance: Sighseeing (0.0km), Centro Fotografia (0.1km), Museo Conte (0.1km), Casa Giulietta (0.1km), Palazzo della Ragione (0.2km), AMO (0.3km), Museo Miniscalchi (0.3km), Museo Radio (0.3km), Arena (0.5km), Verona Tour (0.6km)\n\n            Predict exactly 5 most likely next destinations for this tourist\n\n            OUTPUT FORMAT: {\"prediction\": [\"poi1\", \"poi2\", \"poi3\", \"poi4\", \"poi5\"]}<|im_end|>\n<|im_start|>assistant\n"
+DEBUG [process_single_task] slot data | n_idle_slots=1 n_processing_slots=0 task_id=3 tid="22497187749888" timestamp=1757774334
+DEBUG [process_single_task] slot data | n_idle_slots=1 n_processing_slots=0 task_id=4 tid="22497187749888" timestamp=1757774334
+DEBUG [launch_slot_with_data] slot is processing task | slot_id=0 task_id=5 tid="22497187749888" timestamp=1757774334
+DEBUG [log_server_request] request | method="POST" params={} path="/tokenize" remote_addr="127.0.0.1" remote_port=53526 status=200 tid="22497072181248" timestamp=1757774334
+DEBUG [update_slots] slot progression | ga_i=0 n_past=0 n_past_se=0 n_prompt_tokens_processed=218 slot_id=0 task_id=5 tid="22497187749888" timestamp=1757774334
+DEBUG [update_slots] kv cache rm [p0, end) | p0=0 slot_id=0 task_id=5 tid="22497187749888" timestamp=1757774334
+time=2025-09-13T16:38:54.685+02:00 level=DEBUG source=routes.go:1422 msg="chat request" images=0 prompt="<|im_start|>system\nYou are a tourism prediction assistant in Verona, Italy.<|im_end|>\n<|im_start|>user\n\n            - Cluster: 4\n            - History: Castelvecchio, San Zeno\n            - Current: Duomo (Tue 14:24 (usual: 10-12h))\n\n            Nearby attractions within walking distance: AMO (0.2km), Museo Miniscalchi (0.3km), Santa Anastasia (0.3km), Teatro Romano (0.3km), Palazzo della Ragione (0.3km), Museo Conte (0.4km), Torre Lamberti (0.5km), Centro Fotografia (0.5km), Sighseeing (0.5km), Casa Giulietta (0.6km)\n\n            Predict exactly 5 most likely next destinations for this tourist\n\n            OUTPUT FORMAT: {\"prediction\": [\"poi1\", \"poi2\", \"poi3\", \"poi4\", \"poi5\"]}<|im_end|>\n<|im_start|>assistant\n"
+[GIN] 2025/09/13 - 16:39:47 | 200 |    7.145267ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/09/13 - 16:42:47 | 200 |    7.744456ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2025/09/13 - 16:45:48 | 200 |     7.45764ms |       127.0.0.1 | GET      "/api/tags"

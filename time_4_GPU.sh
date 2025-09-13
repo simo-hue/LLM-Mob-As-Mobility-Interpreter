@@ -2,10 +2,9 @@
 #SBATCH --job-name=time_prod
 #SBATCH --account=IscrC_LLM-Mob
 #SBATCH --partition=boost_usr_prod
-#SBATCH --qos=boost_qos_lprod
-#SBATCH --time=00:40:00  # Lasciala così è per DEBUG
+#SBATCH --time=00:40:00 
 #SBATCH --nodes=1
-#SBATCH --gres=gpu:4
+#SBATCH --gres=gpu:2
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=256G
@@ -13,7 +12,7 @@
 
 echo "🚀 VERONA CARD - TIME PRODUCTION"
 echo "================================================"
-echo "🚀 PRODUCTION MODE: 4 GPU parallelismo completo, timeout estesi (600s)"
+echo "🚀 TEMPORAL-OPTIMIZED MODE: 2 GPU paralleli, timeout 10min, ottimizzato per temporal processing"
 echo "Job ID: $SLURM_JOB_ID"
 echo "Nodo: $(hostname)"
 echo "Data: $(date)"
@@ -71,26 +70,28 @@ fi
 export OLLAMA_DEBUG=1
 export OLLAMA_MODELS="$WORK/.ollama/models"
 export OLLAMA_CACHE_DIR="$WORK/.ollama/cache"
-export OLLAMA_NUM_PARALLEL=1
-export OLLAMA_MAX_LOADED_MODELS=1
-export OLLAMA_KEEP_ALIVE="8h"
-export OLLAMA_MAX_QUEUE=8
-export OLLAMA_CONCURRENT_REQUESTS=2  # Due richieste per istanza per maggior throughput
-export OLLAMA_GPU_OVERHEAD=0         # Zero overhead per massima memoria
-export OLLAMA_LOAD_TIMEOUT=0         # No timeout per caricamento
+export OLLAMA_NUM_PARALLEL=1              # 🔧 CONSERVATIVE: Un solo processo parallelo
+export OLLAMA_MAX_LOADED_MODELS=1          # 🔧 CONSERVATIVE: Un solo modello caricato
+export OLLAMA_KEEP_ALIVE="8h"              # 🔧 EXTENDED: Mantieni modello in memoria
+export OLLAMA_MAX_QUEUE=10                 # 🔧 OPTIMIZED: Coda più grande per maggiore throughput
+export OLLAMA_CONCURRENT_REQUESTS=2  # 🔧 TEMPORAL-OPTIMIZED: 2 richieste per GPU (ridotto per memory pressure)
+export OLLAMA_REQUEST_TIMEOUT=600     # 🔧 TEMPORAL-EXTENDED: 10 min timeout per temporal complexity
+export OLLAMA_LOAD_TIMEOUT=1800       # 🔧 EXTENDED: 30 min per model loading
+export OLLAMA_GPU_OVERHEAD=1024      # 🔧 CONSERVATIVE: 1GB buffer per sicurezza
+export OLLAMA_MEMORY_LIMIT=60GB      # 🔧 CONSERVATIVE: Limite memoria per A100 64GB
 export OLLAMA_LLM_LIBRARY="cuda_v12"
 export OLLAMA_FLASH_ATTENTION=1
 
-# Memory optimization per A100 - ottimizzato per stabilità
-export OLLAMA_GPU_MEMORY_FRACTION=0.95
+# Memory optimization per A100 - TEMPORAL-OPTIMIZED per stabilità
+export OLLAMA_GPU_MEMORY_FRACTION=0.90  # 🔧 TEMPORAL-REDUCED: 90% VRAM con safety margin
 export OLLAMA_CUDA_VISIBLE_DEVICES=0,1,2,3
-export OLLAMA_MAX_CONTEXT=2048  # ✅ OPTIMIZED: Allineato a Python per Mistral
-export OLLAMA_BATCH_SIZE=384    # ✅ REDUCED: Per supportare 2 worker per GPU
+export OLLAMA_MAX_CONTEXT=1024  # 🔧 TEMPORAL-ALIGNED: Coerente con Python config
+export OLLAMA_BATCH_SIZE=256    # 🔧 TEMPORAL-OPTIMIZED: Ridotto per temporal processing
 
-# 🔴 RIMOZIONE DI TUTTI I TIMEOUT OLLAMA
-unset OLLAMA_LOAD_TIMEOUT
-unset OLLAMA_REQUEST_TIMEOUT
-unset OLLAMA_SERVER_TIMEOUT
+# 🔧 TIMEOUT TEMPORAL-OPTIMIZED ALLINEATI CON PYTHON
+# Timeout estesi per temporal processing complexity
+export OLLAMA_SERVER_TIMEOUT=600      # 🔧 TEMPORAL-EXTENDED: 10 min server timeout
+export OLLAMA_CONNECT_TIMEOUT=120     # 🔧 TEMPORAL-EXTENDED: 2 min connect timeout
 
 # ============= CLEANUP PREVENTIVO =============
 echo ""
@@ -188,10 +189,10 @@ start_ollama_gpu() {
             if curl -s --connect-timeout 30 "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
                 echo "   🌐 API risponde, test modello..."
                 
-                # Test caricamento modello - usa il modello raccomandato - TIMEOUT ESTESI
+                # Test caricamento modello - usa il modello raccomandato - ULTRA TIMEOUT
                 local test_response=$(curl -s -X POST \
                     --connect-timeout 30 \
-                    --max-time 600 \
+                    --max-time 300 \
                     "http://127.0.0.1:$port/api/generate" \
                     -H "Content-Type: application/json" \
                     -d '{
@@ -200,8 +201,10 @@ start_ollama_gpu() {
                         "stream":false,
                         "options":{
                             "num_predict":1,
-                            "num_ctx":2048,
-                            "num_batch":512
+                            "num_ctx":1024,
+                            "num_batch":256,
+                            "num_thread":56,
+                            "temperature":0.1
                         }
                     }' 2>&1)
                 
@@ -242,7 +245,8 @@ echo ""
 echo "🚀 AVVIO SISTEMA OLLAMA"
 echo "========================"
 
-# 🚀 PRODUCTION: Avvia tutte le 4 GPU per processing parallelo
+# 🔧 TEMPORAL-OPTIMIZED: Avvia solo 2 GPU per temporal processing stability
+echo "🔧 STRATEGIA TEMPORAL-OPTIMIZED: Avvio sequenziale 2 GPU ottimizzate per temporal complexity"
 if ! start_ollama_gpu 0 39001 true; then
     echo "❌ ERRORE CRITICO: GPU 0 fallita"
     exit 1
@@ -250,18 +254,23 @@ fi
 
 echo ""
 echo "✅ GPU 0 completamente operativa con modello caricato"
-echo "⏳ Pausa 60s per stabilizzazione..."
+echo "⏳ Pausa 90s per stabilizzazione completa..."
+sleep 90
+
+# Avvia solo GPU 1 per parallelismo limitato
+echo ""
+echo "🔧 Avvio GPU 1 per parallelismo controllato..."
+start_ollama_gpu 1 39002 false
+echo "⏳ Pausa 60s per sincronizzazione..."
 sleep 60
 
-# Avvia altre GPU in parallelo
-echo ""
-echo "🚀 Avvio GPU secondarie..."
-
-for gpu_id in 1 2 3; do
-    port=$((39001 + gpu_id))
-    start_ollama_gpu $gpu_id $port false
-    sleep 30  # Pausa tra avvii
-done
+# Commentiamo GPU 2 e 3 per ora - possono essere abilitate se necessario
+echo "📝 GPU 2 e 3 disabilitate per stabilità (possono essere riattivate)"
+# for gpu_id in 2 3; do
+#     port=$((39001 + gpu_id))
+#     start_ollama_gpu $gpu_id $port false
+#     sleep 30
+# done
 
 echo "⏳ Attesa finale stabilizzazione sistema (60s)..."
 sleep 60
@@ -271,19 +280,19 @@ echo ""
 echo "🔍 VERIFICA FINALE SISTEMA"
 echo "==========================="
 
-# 🚀 PRODUCTION: Test tutte le 4 GPU
+# 🔧 CONSERVATIVE: Test solo le 2 GPU attive
 WORKING_GPUS=0
 WORKING_PORTS=""
 
-for i in 0 1 2 3; do
+for i in 0 1; do
     port=$((39001 + i))
     
     echo -n "GPU $i (porta $port): "
     
-    # Test completo - TIMEOUT ESTESI per coerenza
+    # Test completo - ULTRA TIMEOUT per coerenza Python
     if curl -s "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
         test_resp=$(curl -s -X POST \
-            --max-time 600 \
+            --max-time 300 \
             "http://127.0.0.1:$port/api/chat" \
             -H "Content-Type: application/json" \
             -d '{
@@ -292,8 +301,10 @@ for i in 0 1 2 3; do
                 "stream":false,
                 "options":{
                     "num_predict":2,
-                    "num_ctx":2048,
-                    "num_batch":512
+                    "num_ctx":1024,
+                    "num_batch":256,
+                    "num_thread":56,
+                    "temperature":0.1
                 }
             }' 2>&1)
         
@@ -310,11 +321,11 @@ for i in 0 1 2 3; do
 done
 
 echo ""
-echo "📊 RISULTATO: $WORKING_GPUS/4 GPU operative"
+echo "📊 RISULTATO: $WORKING_GPUS/2 GPU operative (modalità ottimizzata)"
 
 if [ $WORKING_GPUS -eq 0 ]; then
     echo "❌ ERRORE: Nessuna GPU operativa!"
-    for i in 0 1 2 3; do
+    for i in 0 1; do
         echo ""
         echo "=== Log GPU $i (ultime 30 righe) ==="
         tail -30 llama3time_ollama_gpu${i}.log 2>/dev/null || echo "Log non disponibile"
@@ -362,9 +373,9 @@ advanced_gpu_monitor() {
             echo ""
         done
         
-        # Mostra processi Ollama
-        echo "🔄 Processi Ollama:"
-        for i in 0 1 2 3; do
+        # Mostra processi Ollama (solo GPU attive)
+        echo "🔄 Processi Ollama (modalità conservativa):"
+        for i in 0 1; do
             eval "pid=\$SERVER_PID$((i+1))"
             port=$((39001 + i))
             
@@ -376,8 +387,8 @@ advanced_gpu_monitor() {
                 
                 echo "  GPU $i (PID $pid): ✅ CPU: ${cpu_usage}% | RAM: ${mem_usage}GB | Port: $port"
                 
-                # Test veloce della porta - timeout aumentato per coerenza  
-                if timeout 10s curl -s "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
+                # Test veloce della porta - timeout coerente con Python
+                if timeout 30s curl -s "http://127.0.0.1:$port/api/tags" >/dev/null 2>&1; then
                     echo "    └─ API: ✅ Responsive"
                 else
                     echo "    └─ API: ⚠️ Slow/Unresponsive"
@@ -393,10 +404,12 @@ advanced_gpu_monitor() {
             echo "🐍 Python Processing:"
             
             # Linee processate dal log
-            if [ -f "qwen_time_python_execution.log" ]; then
-                processed=$(grep -c "Processing card" qwen_time_python_execution.log 2>/dev/null || echo "0")
-                errors=$(grep -c "ERROR\|Error" qwen_time_python_execution.log 2>/dev/null || echo "0")
+            if [ -f "qwen_time_production_execution.log" ]; then
+                processed=$(grep -c "Processing card" qwen_time_production_execution.log 2>/dev/null || echo "0")
+                errors=$(grep -c "ERROR\|Error" qwen_time_production_execution.log 2>/dev/null || echo "0")
+                success_rate=$(grep -c "SUCCESS" qwen_time_production_execution.log 2>/dev/null || echo "0")
                 echo "  Cards processed: $processed"
+                echo "  Success rate: $success_rate"
                 echo "  Errors: $errors"
             fi
         else
@@ -421,7 +434,7 @@ echo "==============="
 echo ""
 
 if [ -f "data/verona/vc_site.csv" ]; then
-    echo "🚀 PRODUCTION: Processing completo con --append per resume automatico"
+    echo "🔧 OTTIMIZZATO: Processing con --append e configurazione bilanciata per velocità"
     python3 -u veronacard_mob_with_geom_time_parrallel.py \
         --append 2>&1 | tee qwen_time_production_execution.log
     PYTHON_EXIT=$?
